@@ -1,6 +1,9 @@
 CVS
 ChangeLog
 docs
+install.sh
+install.exclude
+
 +faq/update_faq
 +faq/online_faq_fix
 +faq/gdp-gtkfaq.dsl
@@ -11,13 +14,11 @@ tutorial
 +tutorial1.2/update_tut
 +tutorial1.2/online_tut_fix
 tutorial1.2
+
 faq.old.one
-install.sh
-install.exclude
-tutorial
 tutorial1.0
-tutorial1.2
 tutorial1.2.old
 beos/screenshots/old
+
 USED_CVS
 USED_CVS_HEAD
