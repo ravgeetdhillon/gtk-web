@@ -1,3 +1,13 @@
+Tue Dec 23 23:49:49 2003  Matthias Clasen  <maclas@gmx.de>
+
+	* documentation.html: New file to collect links to 3rd party
+	documentation.
+	* site_top.html: Link documentation.html from here.
+
+Tue Dec 23 22:33:58 2003  Matthias Clasen  <maclas@gmx.de>
+
+	* plan/2.4/index.html: Adjust the schedule, again.
+
 Sat Dec 20 19:08:34 2003  Kristian Rietveld  <kris@gtk.org>
 
 	* people.html: it's GtkTreeModelFilter, not GtkFilterModel (:.
