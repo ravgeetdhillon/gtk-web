@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+# Stupid script to fix look of html files created with sgml2html...
+
+foreach (@ARGV) {
+    print "Fixing... $_\n";
+    system("mv $_ $_.orig");
+    system("cat $_.orig | sed -e 's/><BODY/><!--#include file=\"site_top.html\"--><BODY/' -e 's/><\\/BODY/><!--#include file=\"site_bottom.html\"--><\\/BODY/' > $_");
+#    system("cat $_.orig | sed -e 's/<BODY>/<BODY BGCOLOR=\"#FFFFFF\">/' -e 's/<HR>/<HR NOSHADE>/' -e 's/<\\/HEAD>/<!--#include file=\"site_top.html\"-->/' -e 's/<\\/HTML>/<!--#include file=\"site_bottom.html\"--><\\/HTML>/' > $_");
+#    system("cat $_.orig | sed -e 's/<BODY>/<BODY BGCOLOR=\"#FFFFFF\">/g' -e 's/<HR>/<HR NOSHADE>/g' > $_");
+    unlink("$_.orig");
+}
+
+# -e 's/<\\/HTML>/<!--#include file=\"site_bottom.html\"-->\n<\\/HTML>/'
+
