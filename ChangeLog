@@ -1,3 +1,10 @@
+2002-12-06 Steve Fox <drfickle@k-lug.org>
+
+	* bindings.html: Added gtk2-perl project at 'beta' level.
+	I wasn't quite sure how to represent this since it's a 
+	different project than the gtk+ 1.x bindings. Maybe Murray
+	can clean it up.
+
 2002-12-03 Steve Fox <drfickle@k-lug.org>
 
 	* index.html
