@@ -64,7 +64,7 @@ they are either resolved in some way or moved to the NEEDINFO state. The
 NEEDINFO state indicates that additional information from the bug reporter
 is needed. The bug reporter is expected to reopen the bug if he provides
 the requested information. We occasionally close bugs which have been in 
-the NEEDINFO state for a long time (at least 6 months) without and response 
+the NEEDINFO state for a long time (at least 6 months) without any response 
 from the bug reporter.
 </P>
 </UL>
@@ -106,15 +106,22 @@ are used 100% consistently. The more common ones are:
 <LI><P><B>PATCH</B> a possible patch is attached to the bug. Note that not
   all bugs with attached patches automatically get this keyword. If a patch
   is found unsuitable for some reason, the PATCH keyword is removed.
-<LI><P><B>PATCH_NEEDED</B> marks bugs which are considered relatively
+  The PATCH keyword is no longer needed today, since Bugzilla can query
+  for bugs with patches now.
+<LI><P><B>easy-fix</B> marks bugs which are considered relatively
   straightforward to fix, so that volunteers have a good chance of producing
   an acceptable fix.
+<LI><P><B>PATCH_NEEDED</B> indicates that we need help with this because 
+  either we don't care enough to fix it ourselves, or it's something we have 
+  no clue about.
 <LI><P><B>API</B> bug involves API changes. 
 <LI><P><B>string</B> bug involves string changes.
 <LI><P><B>keynav</B> bug has something to do with keyboard navigation.
-<LI><P><B>accessability</B> issues like widgets which fail to implement
-    accessability interfaces.
+<LI><P><B>accessibility</B> issues like widgets which fail to implement
+    accessibility interfaces.
 <LI><P><B>portability</B> issues like build failures on certain platforms.
+<LI><P><B>multihead</B> marks bugs having to do with the support for
+ multiple screens/displays. 
 </UL>
 </P>
 </UL>
