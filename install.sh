@@ -21,7 +21,7 @@ make_link () {
   ( cd $INSTALLDIR/$todir && rm -f $tobase && ln -s ../$from $tobase )
 }
 
-for i in api apps beos download faq news screenshots success plan plan/2.4 plan/2.6 ; do
+for i in api apps beos download faq news screenshots success plan plan/2.4 plan/2.6 plan/meetings ; do
   for j in site_top.html site_bottom.html box_middle.html box_end.html box_begin.html section_end.html section_begin.html ; do
     make_link $j $i/$j
   done
