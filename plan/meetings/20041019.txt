@@ -1,0 +1,163 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started October 19 2004 17:00 EST (21:00 UTC)
+
+In attendence: 
+
+Owen Taylor (owen), Jonathan Blandford (jrb), Manish Singh (yosh),
+Matthias Clasen (matthias), Tor Lillqvist (tml), Federico Mena 
+Quintero (federico), John Ehresman (jpe), Ray Strode (halfline),
+Robert Ögren (roboros), Maciej Katafiasz (mathrick)
+
+
+<matthias>	ok, we seem to be reasonably complete. do we have agenda items ?
+<matthias>	I'd like to discuss the api patches that need to be done before we can declare a slush freeze
+*	federico panics a bit
+<tml>	#101792?
+<federico>	does that mean that gtkfilechooserextension will not make it into 2.6?  I'm updating the spec for the "replace the whole file list" bit, and to make the API not involve GtkFileSystem internals
+<federico>	but it's all very muddy still
+<jrb>	federico: sounds like a no
+<matthias>	federico: if it is still very muddy...
+<federico>	yeah, exactly :)
+<matthias>	the major things I have on my list are desktop entry parser, hig dialog api, clipboard persistency
+<federico>	sigh, no one ever sent a patch for #135901
+<matthias>	tml: did we ever agree on a strategy for handling filename encodings ?
+<owen>	matthias: There is a patch with a new strategy on the bug
+<tml>	i think we agreed to use on-disk encoding on Unix, and UTF-8 on Windows (thus requiring apps to open files with g_open if the name is constructed from something that GLib gave them, etc)
+<matthias>	and the latest patch implements that ?
+<owen>	matthias: Basicall,y it behaves as currently with old binaries, but if you recompile, you get new symbols that act the way that I wanted them to work
+<tml>	matthias: yep
+<owen>	matthias: The code to do that, not suprisingly, is rather unpleasant
+<matthias>	owen: cpp magic ?
+<tml>	matthias: yes, to some extent
+<owen>	tml: Did I mention to you that I thought that there shouldn't be a separate gfilewrappers.h, it should be part of gprintf.h, or maybe we need a new gstdio.h that includes both
+<tml>	owen: yes. putting it in gprintf.h would be fine with me.
+<owen>	Hmm, though filewrappers.h pulls in sys/stat.h too. Blech. Still, probably best not too explode the number of separate headers people need to include
+<owen>	Needs API docs, of course
+<matthias>	owen: I don't have the patch at hand. is it ok that gprintf.h is not included in glib.h ?
+<owen>	matthias: The point is that gfilewrappers also needs to reference FILE *, so it can't be in glib.h either
+<matthias>	owen: ah, ok
+<owen>	tml: g_win32_get_windows_version() looks very mildly non-threadsafe. By GLib policy, it should either use GOnce, or get called on g_thread_init()
+<tml>	except if one would know for sure that FILE is always typedeffed as struct _iobuf? Is struct _iobuf mandated in the C standard? Then including stdio.h wouldn't be necessary.
+<owen>	tml: I definitely don't think we should be relying on it.
+<matthias>	tml: I would not rely on it. putting the file wrappers in gprintf.h is a good compromise, i'd say
+<tml>	it might be something configure would find out?
+<owen>	tml: No, it would be worse to sometimes include stdio.h than to always include it 
+<owen>	I'd rename gfilewrappers.h to gstdio.h and make it include gprintf.h
+<tml>	owen: ok. i'll attach notes to the bug
+<owen>	tml: the general approahc seems about as good as we are going to get
+<matthias>	so it looks like the patch needs one more iteration before it can go in...
+<matthias>	can we switch to the desktop entry parser now ? thats #139974
+<matthias>	the main question I have about it is if we can find a better name for it, since it is in fact a generic ini file parser
+<owen>	GIniFile GKeyFile? 
+<matthias>	I haven't come up with any good alternatives, though. g_ini_ looks funny, and g_config_ is dangerously close to GConf
+<owen>	g_config definitely should be out since we aren't recommending this (I think) for apps to store config in
+<owen>	GkeyFile comes fromthe fact that it is basically storing key-value pairs
+<matthias>	owen: right. I think GKeyFile is good
+<owen>	*g_key_file_new_from_file()....
+<matthias>	GKeyFileParser ?
+<mathrick>	GSimpleConfFile?
+<owen>	g_key_set_new_from_file()? Is that better? 
+<matthias>	owen: might get confused with GDataSet ?
+<owen>	matthias: Yeah.
+<halfline>	jamesh pointed out that added Parser to end of it isn't really fitting because it does more than parse.  It is an in memory representation of the file
+<matthias>	apart from renaming, there are some special cases for desktop entry parsing which should be undone
+<owen>	GKeyFile probably is likely OK even if it is the memory representation of the filoe
+<matthias>	eg the default legal_start_tags are the ones needed for desktop entries
+<matthias>	and the docs are written towards parsing desktop entries
+<owen>	 I think the GDesktopEntryFlags needs some reversals to give the right defaults for '0'
+<matthias>	ok
+<matthias>	one thing I wondered about is how compatible the "ini file" syntax of desktop entries is with traditional windows ini files
+<matthias>	since people might be tempted to use the parser on win32 as well
+<halfline>	matthias: that's an interesting point.  I haven't ever tried it with .ini files
+<matthias>	one difference is comments, I think. Rays parser treats # as single-line-comment marker, whereas on win32 ; seems to be more commonly used
+<halfline>	my parser won't accept ; for comments
+<matthias>	and it probably can't, since ; may occur in content
+<halfline>	also translated keys are something desktop files have that i don't ini files do
+<halfline>	*think
+<matthias>	tml: do you think people would use a glib ini file parser on win32, or does windows have a good native api for that ?
+<tml>	i don't think people would use it for that. software that uses ini files already parses themn some way, and new software presumably won't use the win32 traditional ini files anyway
+<matthias>	good, then it is mainly a matter of documenting the exact syntax that is accepted
+<matthias>	and pointing out where it differs from traditional win32 ini files
+<halfline>	maybe adding a BNF grammar description or something similiar to the docs would be good.
+<matthias>	the next question I have is about andersca's clipboard persistency work. tml, did you see the proposed api ?
+<tml>	i am pretty sure there is win32 api to read ini files, but can't remember it right now
+<tml>	matthias: yes, but haven't had time to ponder it
+<mathrick>	totally not on agenda, but was splitting GtkTreeModel into Glib proper ever considered? I've seen it requested somewhere, but can't find bug for it
+<halfline>	owen: maybe changing g_key_file_new_from_file to g_key_file_new_from_filename or g_key_file_new_from_path would be better?
+<jrb>	mathrick: It's been rejected in the past as too much work to be interesting
+<mathrick>	jrb: ic
+<matthias>	mathrick: why would that be a win ? you're likely to need gtk+ anyway to make use of your model...
+<mathrick>	matthias: well, true that, but I think it was someone from mc team (?) proposing that. Don't really remember though, I only know it was "pity it isn't glib, as we could really use it" kind of request
+<tml>	matthias: FYI: the Win32 ini file API is GetPrivateProfileString()
+<owen>	haflline: I think new_from_file() is best - or you could go with new() and load_from_file()
+<mathrick>	matthias: generic tree structure isn't very uncommon thing to use ;)
+<matthias>	tml: thanks, will mention it in the docs perhaps
+<owen>	halfline: new_from_filename() doesn't imply it is going to touch the filesystem
+<matthias>	mathrick: but gtktreemodel is not very generic
+<mathrick>	matthias: yeah, I guess it's final argument for not doing it
+<matthias>	owen, did you look at the patch for named icons in images ?
+<halfline>	owen: okay, one more question,  you said the flags should be reversed to change the NONE behavior.  What do you think the default behavior should be?
+<matthias>	halfline: I think both discard comments and discard translations should be default
+<matthias>	since comments and translations are only needed if you plan to write the thing out again...
+<owen>	matthias: No, not yet
+<owen>	halfline: What matthias said
+<matthias>	halfline: not sure about the lookup map 
+<owen>	halfline: Preserving translations  in particular can be an  major performance problem tha tyou might not notice
+<owen>	I'm not sure what the lookup map
+<halfline>	matthias, owen: so if we are optimizing for the read case and not the save case then we should generate the lookup map by default, yea?
+<matthias>	halfline: how are the keys kept if you don't generate a lookup map ?
+<halfline>	owen: the lookup map just creates a hash table for the keys (they are normally stored in a list)
+<owen>	If the lookup map is a key => value hash to avoid linear list searches, can we just always create it and simplfiy the API?
+<matthias>	halfline: what owen said
+<halfline>	owen: If you don't think that the increased memory usage is a big deal, sure I don't have a problem with that.
+<halfline>	owen: Note, in the case when you are writing a file from scratch you won't ever need the lookup map, however.
+<matthias>	halfline: well, you need to store the key-value pairs somewhere. if we do away with the list, you will need the map
+<owen>	matthias: I think it needs order
+<halfline>	matthias: you have to keep the list around
+<owen>	matthias: Could use a GTree, but that is likely getitng too fancy
+<owen>	halfline: I'm not really worried about the memory usage ... if you care about that, I don't think you'll be keeping the GKeyFile objects around. ... an application specific data structure is almost certainly much smaller
+<matthias>	halfline: if we can only save memory in the rare editing case, I think it is not worth the complication
+<halfline>	owen, matthias: okay, i'll drop the flag
+<matthias>	halfline: another simplification I have considered is to remove the legal_start_tags thing. If get_groups() returns the groups in order,
+<matthias>	halfline: apps can simply check the first group after creating the struct...
+<owen>	If we split new() off from load_from_file(), then we have a lot more future flexibility for adding things like g_key_file_set_legal_start_groups() in the future
+<matthias>	owen: good point, I had considered adding a setter for the start groups 
+<owen>	Should the setters actually have a GError return? how could they fail?
+<halfline>	owen: okay that sounds reasonable
+<matthias>	ok, I will have to stop soon. I wanted to talk quickly about timing. 
+<matthias>	we are already a bit behind schedule for the slush frozen release, but I think it will take at least one more week to get the patches we discussed today in shape and committed
+<matthias>	so I will aim for a 2.5.x release early next week
+<owen>	matthias: Sounds good
+<matthias>	another thing I wanted to mention is that we still lack a bit wrt to docs for some of the new apis. So if anybody feels like writing something up, that would be great
+<matthias>	also migration sections similar to what we have for ui manager and combo box
+<matthias>	and finally I wanted to mention that I committed the icon theme caching today. Please try it...
+<jrb>	did anyone try out my menu-blinking patch?
+<matthias>	jrb: sorry, no. But you did get some feedback on the mailing list, didn't you ?
+<jrb>	matthias: a little bit.  I was hoping for comments here before committing
+<halfline>	matthias: i still have some things i want to discuss regarding the desktop entry stuff, but i can bring it up later I guess
+<matthias>	halfline: why not ask now while everybody is still here ?
+<halfline>	matthias: okay.  There is code in there that is desktop entry specific regarding handling the encoding of the file
+<owen>	halfline: Does it try to handle Legacy-Mixed?
+<halfline>	owen: yea exactly
+<halfline>	owen: it basically guess until it see the Encoding key
+<halfline>	*guesses
+<matthias>	halfline: is there a way to set the encoding in advance, to declare that a file is UTF-8 ?
+<owen>	halfline: Hmm. I wonder how much of that logic we should kill. That guessing is  really for handling ancient gnome desktpo files
+<owen>	matthias: The spec says that everything before the Encoding field must be ascii, that the Encoding field is required, and that the only value that implementations are required to support is UTF-8
+<matthias>	owen: I thought I read that .icon files are required to be UTF-8, from start to end...
+<owen>	matthias: Yes.
+<owen>	matthias: Later specificatoins that refernece the desktop entry spec tend to explicitely rule out even the faintest possibility of Legacy-Mixed
+<matthias>	owen: so to use the parser for .icon files, we may want a way to fix the encoding 
+<owen>	matthias: Rather the reverse. I think if we support Legacy-Mixed at all (dubious) it should be a specific flag to enable the handling
+<matthias>	owen: possible as well
+<halfline>	owen: so you think it would be better to just rip out legacy-mixed handling entirely?
+*	owen ponders
+<owen>	halfline: Yes. 
+<halfline>	owen: okay
+<owen>	halfline: time to move on. KDE has never supported it.
+<matthias>	halfline: btw, I have a patch to replace gtkiconthemeparser by gdesktopentry in gtk. 1000 lines saved...
+<halfline>	matthias: cool
+<matthias>	ok, have to go now. logs will be posted tomorrow
+
+
+Meeting ended October 19, 19:17 EST (23:17 UTC)

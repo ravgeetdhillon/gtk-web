@@ -1,3 +1,8 @@
+2004-10-20  Matthias Clasen  <mclasen@redhat.com>
+
+	* plan/meetings/index.html: 
+	* plan/meetings/20041019.txt: Add this weeks meeting.
+
 2004-10-12  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add GTK+ 2.4.12 announcement.
