@@ -1,3 +1,7 @@
+2004-11-12  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html (href): Add GLib 2.5.6, GTK+ 2.5.5
+
 2004-11-10  Matthias Clasen  <mclasen@redhat.com>
 
 	* plan/meetings/20041109.txt: 
