@@ -1,0 +1,69 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started June 1 2004 17:05 EST (21:05 UTC)
+
+In attendance:
+
+ Jonathan Blandford (jrb), Matthias Clasen (maclas), Federico Mena Quintero (federico), 
+ Soeren Sandmann (ssp), Manish Singh (yosh)
+
+<mclasen>	The one question I want to discuss today is whether there are any bugs which should be fixed for 2.4.2, which I'll try to produce later this week
+<mclasen>	federico: are you doing filechooser fixes currently ?
+<ssp>	hp wants to have the resize counter in 2.4.x
+<mclasen>	ssp: I wanted to bring that up as well. 
+<mclasen>	Is the patch ready to commit ? And is the metacity side of it already committed ?
+<ssp>	mclasen: I have been using it for several weeks without problems
+<ssp>	mclasen: hp approved the metacity patch 
+<ssp>	mclasen: he doesn't want it in stabel metacity unless it goes into stable gtk+ as well (for obvious reasons)
+<ssp>	and metacity hasn't branched yet
+<ssp>	I think it should go in
+<mclasen>	I think I agree. Did owen look at your patch at all ?
+<ssp>	I don't think so
+<ssp>	Also, http://bugzilla.gnome.org/show_bug.cgi?id=141169 is a pretty big improvement of menu interaction
+<mclasen>	Looks like a pretty safe patch. Since you are the one most familiar with the menu code, I guess you should just commit it if you think it is good.
+<ssp>	right, I'll do that
+<mclasen>	I wonder what to do about the arrow-in-button changes. I belive the current code is correct according to widget-geometry.txt, but people seemed to be unhappy about the changing arrow sizes... 
+<mclasen>	believe, even
+<federico>	mclasen: yeah, I am
+<mclasen>	federico: any particular bugs you want to have fixed for 2.4.2 ?
+<ssp>	The only change I have noticed with the current code is that the sort indicator in tree views is bigger, which is actually an improvement
+<mclasen>	ssp: thats probably because I increased the default arrow size
+<jrb>	sorry I'm late
+<mclasen>	you can stand in the corner...
+<mclasen>	jrb: I was just asking for bugs people want to fix before we do 2.4.2. I guess you don't have any...
+<federico>	mclasen: #138807 (I'm on it right now), #139290 (I don't know if we'll have time for it), #141661, #142308 (need to reproduce)
+<federico>	#143457
+<ssp>	mclasen: I think it is likely that Owen will disagree with details in the sync counter patch (he always does), but not with the general idea
+<mclasen>	jrb: do you know when owen is expected back ?
+<ssp>	mclasen: or the general way the patch works
+<jrb>	caillon is coming back Thurday, thouhg we all thought that was late
+<mclasen>	ok, so I target Friday for rolling 2.4.2, Owen will still have a chance to comment on the update counter patch...
+<jrb>	mclasen: so assumudely tomorrow or Thurs
+<mclasen>	anything else we should discuss today ? 
+<roboros>	I have found one little bug that should be fixed (trivial):
+<roboros>	in the gtk-2-4 branch in gtk/gtkselection.c, _gtk_selection_request(), there is some debug message using g_message that is left in and it calls X11 functions which break the build on win32. Hans fixed it in HEAD but not in gtk-2-4
+<roboros>	I meant to submit a bug report but then I completely forgot about it until now
+<mclasen>	I can look at that.
+<roboros>	thanks
+<mclasen>	One thing I would like to ask about is inline autocompletion, as in the GtkFileChooserEntry. I have made a patch which adds that optionally to GtkEntryCompletion. (#135953) Do you think that is generally useful ?
+<federico>	mclasen: wow, that would be nice
+<ssp>	Wasn't various usability people against it?
+<mclasen>	I wonder if it would be possible to redo the filechooser autocompletion on top of my patch. The filechooser does all kinds of extra stuff...
+<mclasen>	ssp: but it is kind-of expected behaviour of a browser location entry, isn't it ?
+<ssp>	mclasen: well, you have to explicitly enable it in IE
+<jrb>	mclasen: I'm not 100% sure it'll be possible.  I guess we won't know until we try, but...
+<ssp>	mclasen: Microsoft changed it between 4 and 5 as the result of user testing
+<mclasen>	ssp: why do we have it in the file chooser then ? compromise for tab completion ?
+<ssp>	mclasen: maybe because most people aren't expected to acutally use Ctrl-L
+<ssp>	mclasen: The problem as I understand it is that you can type in an exact string and press return, and getting soemthing different because the completion appended something to the end of what you typed
+<mclasen>	ok.
+<ssp>	mclasen: That is not a problem with the file selector, where it will only accept if what you typed in is a unique prefix, and it *knows* there can't be any other possibilities
+<mclasen>	ah. well, my patch makes inline completion optional, so apps can use it if it is appropriate, and not if it isn't. 
+<mclasen>	Anyway, I have to leave soon, so if nobody has any other pressing issues, I'd like to declare todays meeting closed. Remember that we will be back on Monday next week.
+<federico>	ok
+<federico>	so, 2.4.2 is for friday?
+<ssp>	mclasen: are you going to ask owen about the synbc counter?
+<mclasen>	federico: thats my current plan 
+<mclasen>	ssp: yes
+<mclasen>	ok, I'm gone now. I'll put the logs up on gtk.org tomorrow
+
+eeting ended June 1 17:52 EST (22:52 UTC)
