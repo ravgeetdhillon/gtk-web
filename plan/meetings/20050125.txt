@@ -1,0 +1,72 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started January 25 2005 16:01 EST (21:01 UTC)
+
+In attendence: 
+
+Owen Taylor (owen), 
+Manish Singh (yosh),
+Federico Mena Quintero (federico),
+Shawn T. Amundson (snorfle),
+Matthias Clasen (mclasen), 
+Billy Biggs (vektor),
+Robert Ögren (roboros),
+Tor Lillqvist (tml),
+John Ehresman (jpe),
+Maciej Katafiasz (mathrick)
+
+<mclasen>	ok, so I guess we should start by collection agenda items
+ *	mclasen first goes for a coffee
+<mclasen>	are any rtl speakers present ?
+<tml>	you mean writers ;-)
+<mclasen>	readers, actually...
+<mclasen>	...apparently not
+<mclasen>	One question I wanted to discuss today is how gtk-2-6 looks, bugwise
+<mathrick>	mclasen: if you wanted RTL, you'd need to set some more friendly time of meeting
+<mathrick>	all the arabic world is asleep atm
+<mclasen>	what about israel ?
+<mathrick>	mclasen: similar
+<mathrick>	they're all GMT+5,+6
+<mclasen>	well, its not that important, I can probably debug it myself
+<tml>	israel is only gmt+2, afaik
+<mclasen>	i discovered a serious rtl issue yesterday, and wanted to check if it has been noticed by anybody else: #165210
+<tml>	and morocco is +1 or even +0. plus there are lots of hebrew and arabc speakers in the us, too. but i digress...
+<mclasen>	gmt: it must suck to have that nick when discussion timezones...:-)
+<mathrick>	heh
+<mclasen>	federico: do you have a plan to fix the file duplication bug ?
+<mclasen>	different topic: we have a bug about making the message dialog spacing hig-conform. 
+<mclasen>	apparently we already do that for the file chooser, so our dialog spacings could be a bit messed up currently
+<federico>	mclasen: yeah, I'm on it. At some point Alex changed the vfs backend do that mandatory reload of the directory... I don't think it's needed
+<federico>	(plus the bits in the file chooser entry; it should really not reuse the folder object)
+<mclasen>	so from looking at testgtk, it seems that currently the file chooser uses hig dialog spacing and all other complex dialogs use the default dialog spacing
+<federico>	didn't garnacho have a patch to fix that as well?
+<federico>	or am I getting confused with the rest of his GtkMessageDialog patch?
+<mclasen>	I don't recall spacing being discussed at all in the past. I guess the question is if we can and want to change anything there, and if yes, then what mechanism is the best one
+<owen>	mclasen: IMO, changing the defaults for GtkMessageDialog should be OK, changing it for standard dialogs definitely OK. 
+<owen>	Changing padding for GtkDialog is dubious, because people might pack boxes or whatever to get the desired spacing
+<mclasen>	so you would agree with a patch which does the same thing the file chooser does in all complex dialogs ?
+<owen>	mclasen: Yes.
+<mclasen>	good, I'll update the bug to invite an all-spacing-fixing patch
+<garnacho>	hmm, federico, I remember I doubted in changing the spacing, I don't remember if I actually did it... :/
+<federico>	what if we fix *all* spacings?  people who have code to make them HIG-compliant may appreciate being able to remove that code
+<vektor>	Sounds dangerous.
+<mclasen>	federico: what other spacings do you have in mind ?
+Jan 25 16:35:14 *	garnacho sees 12 pixels spacing between GtkMessageDialog elements
+<mathrick>	federico: but until they do so, won't their layout break spectacularly?
+<federico>	mclasen: gtkdialog border width?
+ *	federico checks
+<owen>	federico: Changing gtkdialog I think is very dubious. See above
+<mclasen>	I think we repeatedly argued against changing gtkdialog in the past
+<federico>	probably we should do it, run the desktop for a bit, and see if things look too bad
+<federico>	... then have a flag day if they do
+<federico>	things will have to get changed when we switch to font-based spacing
+<mclasen>	that bug is on the 3.0 milestone...:-)
+<mclasen>	can I invite people to use our new pool milestones ? I have been trying to move incoming bugs to the appropriate milestones as I have time, but we're already accumulating 30+ bugs on --- again
+<vektor>	I noticed that bugs I filed against gtktreeview aren't on milestones, are they supposed to be?
+<mclasen>	once somebody looks at them and decides where to put them, yes
+<vektor>	OK.
+<mclasen>	ok, I've got to go, see you next week
+<federico>	speaking of spacings
+<federico>	would it be reasonable to zero the space between a scrolled window's scrollbars and the content area?
+<owen>	federico It's a style property
+
+Meeting ended January 25, 17:06 EST (22:06 UTC)
