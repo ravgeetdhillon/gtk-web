@@ -12,7 +12,7 @@ h1.banner
   background: #ba92d8;
   border: solid 2px #000000;
   padding: 10px;
-  margin: 5px;
+  margin-bottom: 14px;
 }
 
 h2.section-heading
@@ -26,30 +26,53 @@ h2.section-heading
   padding-left: 20px;
 }
 
+table.contents-header
+{
+  background: #ffffff;
+  border: solid 2px #000000;
+  border-bottom: 0;
+  font-size: large;
+}
+
 table.contents
 {
   background: #ffffff;
   border: solid 2px #000000;
   font-size: large;
+  padding-top: 10px;
+  padding-bottom: 300px;
 }
 
 td.contents-header
 {
+  font-size: x-large;
   font-weight: bold;
   background: #818ce5;
-  padding: 5px;
+  padding: 6px;
 }
 
 td.contents
 {
-  padding: 2px;
+  padding: 4px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+td.contents-all
+{
+  padding-right: 14px;
 }
 
 a
 {
   text-decoration: none;
+  color: #5050d0;
+}
+
+a:visited
+{
+  text-decoration: none;
+  color: #5a3278;
 }
 
 a:hover
