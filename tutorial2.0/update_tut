@@ -3,14 +3,19 @@
 export CVS_PASSFILE=/home/otaylor/gnomeweb-cvspass
 export PATH=$PATH:/usr/local/bin
 
-cd /web/gtk/USED_CVS_HEAD/gtk+/docs/tutorial
+CVSDIR=/web/gtk/USED_CVS_HEAD/gtk+/docs/tutorial
+INSTALLDIR=/web/gtk/tutorial2.0/
+
+cd $CVSDIR
 cvs update 
+cp gtk-tut.sgml $INSTALLDIR
 
-cp /web/gtk/USED_CVS_HEAD/gtk+/docs/tutorial/*.jpg /web/gtk/tutorial2.9/
-
-cd /web/gtk/tutorial1.2
+cd $INSTALLDIR
 db2html gtk-tut.sgml
-./online_tut_fix gtk-tut/*.html
-chmod 755 gtk-tut/*.html
+mkdir gtk-tut/images
+cp $CVSDIR/images/*.png gtk-tut/images
+
+# ./online_tut_fix gtk-tut/*.html
+chmod 775 gtk-tut/*.html
 (cd gtk-tut; tar cvfpB - .) | tar xvfpB -
 rm -rf gtk-tut
