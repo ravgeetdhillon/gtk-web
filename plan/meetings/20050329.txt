@@ -5,7 +5,7 @@ In attendence:
 
 Matthias Clasen (mclasen),
 Jonathan Blandford (jrb),
-Join Kare Hellan (jon_kare),
+Jon-Kare Hellan (jon_kare),
 Tor Lillqvist (tml),
 Manish Singh (yosh),
 Anders Carlsson (andersca),
