@@ -1,3 +1,8 @@
+2003-08-19  Murray Cumming  <murrayc@usa.net>
+
+	* bindings.html: Added D binding. Self-declared gtk2-perl as almost
+	complete.
+
 2003-08-05  Matthias Clasen  <maclas@gmx.de>
 
 	* plan/2.6/index.html: Add bugzilla link.
