@@ -1,3 +1,7 @@
+2003-01-21  Matthias Clasen  <maclas@gmx.de>
+
+	* plan/2.4/index.html: Propose XCursor support for 2.4, add more links.
+
 2003-01-13  Murray Cumming  <murrayc@usa.net>
 
 	* bindings.html: Marked gtkmm 2.2 as complete.
