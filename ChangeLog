@@ -1,3 +1,7 @@
+Tue Jun 15 02:17:28 2004  Matthias Clasen  <maclas@gmx.de>
+
+	* plan/2.6/index.html: Fix a link.
+
 2004-06-11  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add GTK+ 2.4.3 release.
