@@ -1,3 +1,7 @@
+Sun Aug  1 02:27:49 2004  Matthias Clasen  <maclas@gmx.de>
+
+	* index.html (href): Add GLib, GTK+ 2.5.1.
+
 2004-07-30  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add GLib 2.4.5.
