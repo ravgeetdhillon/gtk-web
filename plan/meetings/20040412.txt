@@ -3,9 +3,10 @@ Meeting started April 12 2004 17:08 EST (21:08 UTC)
 
 In attendance:
 
- Jonathan Blandford, Anders Carlsson, Matthias Clasen, Noah Levitt,
- Federico Mena Quintero, Kris Rietveld, Soeren Sandmann, Manish Singh, 
- Owen Taylor
+ Jonathan Blandford (jrb), Anders Carlson (andersca), Matthias Clasen
+ (maclas), Noah Levitt (noah), Federico Mena Quintero (federico), 
+ Kris Rietveld (kris), Soeren Sandmann (ssp), Manish Singh (yosh), 
+ Owen Taylor (owen)
 
 <owen>	Item 1: what do people think of announcing these meetings on gtk-devel-list?
 <owen>	I'm getting a little tired of maintaining my long invitee list :-)
