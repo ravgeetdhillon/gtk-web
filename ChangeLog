@@ -1,3 +1,8 @@
+2004-03-22  Murray Cumming  <murrayc@murrayc.com>
+
+	* bindings.html: Reorganised the table based on comments from 
+	Matthias Clasen.
+
 Tue Mar 16 14:01:11 2004  Soeren Sandmann  <sandmann@daimi.au.dk>
 
 	* plan/2.4: update for 2.4.0
