@@ -1,0 +1,80 @@
+We had a GTK+ BOF today (2004-06-29) at GUADEC. I don't have 
+complete list of people there. There were about 30-40 people
+total, with a good set of frequent contributors 
+(Tor, Matthias, Soeren, Anders, Jonathan, Manish, and others
+that I'm forgetting)
+
+The first topic of discussion was GTK+-2.6; trying to finalize
+a rough feature set.
+
+Some of the possible features discussed were:
+
+ Command line parser; Anders seems to have this pretty close
+ to completion. The big remaining question is how we do the
+ gnome_init() function of integrating command line arguments
+ from various libraries into the parsing.
+
+ The consensus we came to was perhaps a surprising one; 
+ libraries shouldn't have command line arguments, except perhaps
+ one or two exceptions like --display. 
+
+ Regular expressions; Matthias's stuff based on PCRE still
+ isn't quite ready to go in. It needs some actual use, and
+ it also needs to be modified to integrate with the Glib
+ UTF-8 functions in a more comprehensive way; it can't, for
+ instance, handle case-insensitivity beyond ASCII. The
+ current idea is to land it in libegg for now.
+ 
+ Icon list. The main open question here is whether to use
+ GtkTreeModel as the backend. Jonathan and Anders got together
+ after the meeting to take a look at this and decided that
+ it was not entirely trivial, but feasible. Anders took
+ an action at the meeting to write up the API and status
+ of EggIconList and send it to gtk-devel-list.
+
+ Rotated text and labels should be simple if Owen finishes
+ up a few more things for Pango-1.6.
+
+ Matthias took an action to look again at his GtkAbout dialog
+ work with the goals of a) keeping it very simple; if
+ you want any more you can write it yourself b) forgetting 
+ about the single function call g_object_new() construction
+ and just having some setters.
+
+ Various picker buttons / entries were discussed:
+
+  File/Directory picker. There was some considerably discussion
+  of whether such a beast was an actually a good idea; it seems
+  that at least *some* apps do genuinely need file and 
+  directory selection, and we're better off providing a widget
+  to do it well than have everybody do it themselves badly. 
+  James Cape was nominated in absentia to write up his work
+  as a proposal and send it to gtk-devel-list
+
+  Date/Time. Seems useful, not clear if we have a close
+  enough prototype to get something in for 2.6. During
+  this discussion the ancient "Time API to go with date API"
+  bug (http://bugzilla.gnome.org/show_bug.cgi?id=50076) came
+  up. Apparently JP Rosevear has strong feeling about some
+  capabilities in this area that should be in GLib, so
+  he was encouraged in absentia to write this up for
+  gtk-devel-list.
+
+The next two topics were
+
+  GTK+-2.8 plans. Didn't really have any time to discuss 
+  this. See http://people.redhat.com/otaylor/guadec5/ for
+  discussion of Cairo plans.
+
+  How to deal with the big accumulating pile of bugs. 
+  The idea of releases targeted at particular areas
+  (resolve/wontfix *all* GtkNotebook related bugs) came up again.
+  Should this targeting be for a stable release or an unstable
+  release? There's a good argument for doing it for unstable
+  releases ... some of the bugs are going to be API bugs.
+  But you'd want to apply relevant patches to the stable branch
+  at the same time.
+
+  And as a corollary to the last, the question of when
+  the first unstable release of GTK+-2.5 should be made
+  came up. "Almost immediately" was the thought.
