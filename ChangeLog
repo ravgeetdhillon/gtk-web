@@ -1,3 +1,9 @@
+2002-10-15 Steve Fox <drfickle@k-lug.org>
+
+	* index.html
+
+	Fix Pango 1.1.2 announce; Add GTK+ 2.1.1 announce
+
 2002-10-13 Steve Fox <drfickle@k-lug.org>
 
 	* index.html
