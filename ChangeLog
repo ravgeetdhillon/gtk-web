@@ -1,5 +1,9 @@
 2004-02-23  Federico Mena Quintero  <federico@ximian.com>
 
+	* plan/2.4/willfix.html: Removed #134457 as it is fixed.
+
+2004-02-23  Federico Mena Quintero  <federico@ximian.com>
+
 	* plan/2.4/willfix.html: Added #135167.
 
 Sat Feb 21 19:28:41 2004  Soeren Sandmann  <sandmann@daimi.au.dk>
