@@ -1,3 +1,12 @@
+2003-06-14  Murray Cumming  <murrayc@usa.net>
+
+	* bindings.html:
+	- Updated wxWindows link, added Scheme Bigloo link, added Pascal GTK+ 2
+	link, in response to requests on language-bindings mailing list.
+	- Added GTK+ 2.4 column because bindings should start on that soon.
+	Continued to abuse my position as de-facto maintainer of this page by
+	mentioning that gtkmm 2.4 is on the way. It is OK because I said it.
+
 2003-06-10 Steve Fox <drfickle@k-lug.org>
 
 	* index.html: announce GTK+ 2.2.2
