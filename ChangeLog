@@ -1,3 +1,8 @@
+2004-04-05  Murray Cumming  <murrayc@murrayc.com>
+
+	* bindings.shtml: Update objective-C status: apparently there are no
+	GTK+ 2 bindings.
+
 2004-04-04  Murray Cumming  <murrayc@murrayc.com>
 
 	* Use pygtk.org for gnome-python because it seems to be the new
