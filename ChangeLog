@@ -1,5 +1,10 @@
 Fri Feb 26 2004  Steve Fox <drfickle@k-lug.org>
 
+	* index.html: update sidebar to replace 1.2 information
+      with 2.x information.
+
+Fri Feb 26 2004  Steve Fox <drfickle@k-lug.org>
+
 	* index.html
 	* oldnews.html: announce gtk 2.3.3 and 2.3.4
 
