@@ -1,3 +1,10 @@
+2002-12-03 Steve Fox <drfickle@k-lug.org>
+
+	* index.html
+	* oldnews.html
+
+	Announce GTK+ 2.1.3, Glib 2.1.3, and Pango 1.1.4
+
 2002-11-30  Murray Cumming  <murrayc@usa.net>
 
 	* bindings.html: Corrected name of gtk-web cvs module at bottom of 
