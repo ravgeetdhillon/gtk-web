@@ -1,0 +1,231 @@
+
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started January 10 2005 16:03 EST (21:03 UTC)
+
+In attendence: 
+
+Owen Taylor (owen), 
+Manish Singh (yosh),
+Jonathan Blandford (jrb),
+Matthias Clasen (mclasen), 
+Anders Carlsson (andersca),
+Robert Ögren (roboros),
+Tor Lillqvist (tml),
+John Ehresman (jpe),
+J. Ali Harlow (j_ali)
+
+
+<mclasen>	ok, lets start
+<mclasen>	it doesn't look like the idea of "everybody puts his features on 2.8 api freeze" has really caught on
+<mclasen>	well, it is probably good to not have too many features listed there, if we can't get them done in the end
+<owen>	If nobody has committed to doing a feature, it shouldn't be on the freeze. Period.
+<mclasen>	agreed
+<mclasen>	does the schedule proposal I sent out on Friday sound reasonable for the features that we *have* people committed to ?
+<andersca>	what proposal?
+Jan 10 16:09:33 *	andersca didn't get one
+<owen>	mclasen: Does to me
+<owen>	andersca: At the end of the meeting mail
+<mclasen>	http://mail.gnome.org/archives/gtk-devel-list/2005-January/msg00031.html
+<andersca>	looks good
+<mclasen>	it is a little tighter towards the end, we've got less time between the various freeze dates
+<mclasen>	and I'm not sure how it overlaps with the possible next gnome schedule
+<owen>	What's the guess for the next gnome schedule?
+<mclasen>	I dunno. 2.10+6months ?
+Jan 10 16:14:15 *	owen tries to find the 2.10 schedule
+<mclasen>	March 9th: 2.10.0 release!
+<mclasen>	according to http://www.gnome.org/start/2.9/
+<andersca>	so it'd be the beginning of september then
+<owen>	OK, the 2.12 API freeze would be apprximately 4 months after that, so July 9. Which matches your schedule. Doens't give us any room to slip, however.
+<mclasen>	we're not unslippable, unfortunately. but I don't think there is much room to make the schedule tighter
+<owen>	I'd say the danger point from my perspective is performance of Cairo, especilaly on Windows
+<owen>	Which isn't really our schedule anyways. More of an interaction of the Cairo schedule with the GNOME schedule.
+<mclasen>	how does the road to cairo 1.0 look currently ? Seems like lots of things are still getting rearranged in cairo atm...
+<owen>	mclasen: I think your proposed schedule is good, though we'll need to keep a close eye onit
+<tml>	owen: would OpenGL-accelerated Cairo on Windows help?
+<owen>	tml: I'd guess that GDI/GDI+ is the way we need to go normally ... OpenGL seems too far from the mainstream of windows to be reliable as our rendering layer
+<tml>	too bad...
+<owen>	tml: The GDI+ code in cairo currently looks rather skeletal. I don't know hard it would be to get it running
+<owen>	tml: why? Thinking it would reduce our work?
+<tml>	nah, OpenGL is just sexier
+<owen>	tml: I'd actually be pretty hestitant to rely on glitz ... there are lots of question marks there, and very easy to imagine that it would completely misrender on some cards
+<mclasen>	owen: how does the road to cairo 1.0 look currently ? Seems like lots of things are still getting rearranged in cairo atm...
+<owen>	mclasen: Sorry, missed that.
+<owen>	mclasen: It's a little more fluid at the moment than I'd like, but what I discussed earlier with Carl was a spring release. Even if that slips a bit we should be OK.
+<mclasen>	yes, that sounds fine. 
+<mclasen>	although spring ends in june...
+<tml>	a spring is by definition elastic
+<owen>	mclasen: I think with carl/me/kris available to do Cairo work as necessary we can be pretty confident of being able to get it there in time
+<andersca>	kris?
+<mclasen>	jrb: recovered ?!
+<andersca>	oh, krh?
+<jrb>	mclasen: partially
+<mclasen>	ok, so I'll put that schedule on plans/2.8 and update the list of planned features based on what is on 2.8 api freeze later this week
+<owen>	So, is anybody here planning on working on anything major other than cairo and introspection?
+<owen>	(or even minor)
+<mclasen>	owen: i started working on cellrendererification of the icon view 
+<andersca>	mclasen: rock
+<mclasen>	thats medium, I'd say
+<mclasen>	though if you add editing it may become major
+<andersca>	pixbuf collections are medium too, right mclasen ?
+<jrb>	mclasen: were you looking at multi-line editing then?
+<mclasen>	andersca: if you want to work on them
+<mclasen>	jrb: I got stuck on multi-line display already...
+<jrb>	mclasen: not surprising
+<andersca>	jrb: dissing my code, eh
+<jrb>	andersca: not particularly.  It sounds tricky
+<mclasen>	owen: we originally wanted to work on printing for 2.8, but I think it may be a bit much for me to commit to that 
+<andersca>	jrb: yeah, I know
+<andersca>	I would like to add something libgladeish, but I'm not gonna have time to do that :/
+<owen>	mclasen: Yeah, I think it depends really on how the Cairo stuff goes. The progress that kris has been making on the PDF backend is promising, but it doesn't give us everything
+<tml>	How about dropping support completely for Win9x/Me in HEAD. Should I ask on the app-devel list, or will that just bring up whining without real business cases?
+<mclasen>	tml: isn't it effectively dropped already ?
+<tml>	i think on win98 it still works
+<mclasen>	oh
+<owen>	mclasen: If the backend stuff looks mostly there, it shouldn't be hard to throw together a prototype of the UI. Though UI between windows and unix isn't trival.
+<j_ali>	tml: I'd like to at least keep my options open on WIn98
+<owen>	tml: 95/98 are eol'ed by microsoft? But Me is still supported?
+<tml>	owen: no idea, will check webpage
+<owen>	tml: Unless leaving the door open costs us a lot, taking a strategy of "if you want it to work, send patches" might be possible.
+<j_ali>	Sounds good to me.
+<jpe>	tml, owen, any comment on the grab-broken patch?
+<owen>	tml: One question is whether microsoft has a end uesr dowload of GDI+... my memory was that uniscribe was "free redistribution by vendors, but with license agreement"
+<mclasen>	it might be a good idea to mention here that we branched glib and gtk+ today. the gtk-2-6 branch should probably be considered string-frozen at this point
+<owen>	jpe: Sorry, haven't looked yet.
+<owen>	jpe: You should definitely put that on 2.8 API freeze
+<tml>	jpe: not me either, sorry
+<owen>	jpe: Keep buggig me
+<jpe>	I will
+<tml>	what about that follow-up patch in #161797? ok to commit? Win32 casefolding fixes in gtkfilesystemwin32 and filechooser, cross-platform gtk_file_system_get_desktop() and gtk_file_system_path_compare()
+<casefolded>\0original\0 for the path?
+<owen>	did that work?
+<tml>	didn't try it out, probably would work, yes. but otoh also keeping just the MixedCase original and casefolding for comparisons work.
+<owen>	tml: I'm not compltely happy with virtualizing the comparison
+<owen>	tml: Final call on the patch is really up to federico
+<owen>	tml: I have an idea of how GtkFileSystem was supposed to work original, but federioc has changed things around quite a bit
+<tml>	casefolding definitely improves the user interface for control-l in the chooser. (it wasn't completely broken before, but feels much nicer if when you type "som" it auto-expands to "SomeFile" etc)
+<owen>	tml: Hmm. But perhaps it should do that on Unix too?
+<owen>	tml: For that, matching the win32 rules doesn't seem necessary
+<tml>	there are no (documented) rules, it's per file system...
+<yosh>	isn't there a kernel API most filesystems hook into for this?
+<owen>	jpe: What's the bug # for your bug, btw?
+Jan 10 16:46:17 *	yosh also seems to remember that wildcarding is also handled in the kernel...
+<tml>	yosh: haven't found any API for it
+<yosh>	tml: kernel api. I don't think it's exposed to userspace
+<tml>	yosh: with file system i mean volume, not NTFS, CDFS, etc
+<mclasen>	might make sense to do casefolding in C-L, considering the typeahead search is also casefolding
+<tml>	yosh: NTFS volume, that is
+<yosh>	tml: oh, you mean ntfs lets you have different casefolding rules
+<yosh>	per volume. that's even weirder than I thought
+<jpe>	owen, #107320 has the grab-broken patch
+<tml>	yosh: yes, each NTFS volume has its own casemapping table created when formatting it
+<owen>	jpe: BTW, I'm still sort of of the opinion that that bug needs to be fixed with changes to GtkMenu to run in a mode where it doesn't grab the keyboard
+<tml>	but anyway the table is one-to-one for BMP only, so using g_utf8_casefold() (as currently in CVS) definitely is wrong
+<yosh>	hm, the kernel api is RtlUpcaseUnicodeString
+<jpe>	owen, I think the menu code still needs to grab the mouse and I'd like to fix the implicit pointer grabs bugs as well
+Jan 10 16:52:01 *	tml gets out his "native api reference" book
+<owen>	jpe: For windows menus, does clicking off into the window that the menu is attached to pass through the click?
+Jan 10 16:53:16 *	tml blah, it has a lousy index
+<jpe>	owen, yes it does
+<tml>	yosh: (found it in MSDN) but what says RtlUpcaseUnicodeString works any differently than LCMapString? It doesn't take anything file system related as parameters
+Jan 10 16:55:42 *	owen thought that had an effect on whether grabbing the pointer worked, but now he's not so sure
+<owen>	jpe: yeah... if the main toplevel keeps the focus until focus goes elsewhere, then you are't going to get a KILLFOCUS when the user clicks back to the main toplevel
+<owen>	jpe: GTK+ will pop the menu back down, but won't pass the click through.
+<owen>	jpe: Why do you think the grab is needed (assuming we match the windows behavior exactly)
+<yosh>	tml: I think that's what is recommended for windows filesystems to use for basic case-insensitve matching
+<jpe>	owen, I don't quite follow -- yes, patched gtk doesn't pass the click through
+<yosh>	tml: but I'm not 100% sure
+<owen>	jpe: I'm saying, your patch isn't sufficient to match windows menu behavior, though it prevents some serious misbehavior
+<owen>	jpe: What about keyboard grabs? Your GDK_EVENT_GRAB_BROKEN is just about pointer grabs, right?
+<jpe>	owen, I agree and now wonder if it wouldn't be possible to do things w/o the grab
+<owen>	jpe: What would be helpful for me is if you could write up exactly what behavior you see gdk_pointer_grab() gdk_keyboard_grab() having on Windows... 
+<tml>	yosh: anyway, aren't these Rtl* functions callable from drivers only?
+<jpe>	owen, though the menu code still needs to track the pointer position
+<owen>	jpe: Both keyboard and pointer grabs can be broken on X11 ... correlating that to a proposed windows behavior would be useful
+<owen>	jpe: Only when the mouse is down, right?
+<owen>	jpe: AndI think implicit grabs are basically working?
+<jpe>	owen, actually a new menu is displayed in the menubar only when the mouse goes over another button in the menubar
+*	owen realizes that he's been askig jpe about windows menu behavior while he has xp running 2 feet away
+<owen>	jpe: But that tracking is only within our window ... no need to grab for that
+<jpe>	owen, the current patch emits grab-broken if either the pointer or keyboard grab is held
+*	mclasen glances in owens cube
+<owen>	jpe: I suspect it should at least have an extra field indicating which one or both was broken
+<jpe>	owen, you need to detect if the button is released outside of the window so the menu can be hidden
+<jpe>	owen, implicit grabs are basically working
+<owen>	jpe: YOu might need a gtk_grab_add() for clicking off into the same window... but that's diffferent from gdk_pointer_grab()
+<owen>	jpe: Clicking off elsewhere (different app, desktop) should give a focus out, on which you pop downthe menu
+<jpe>	owen, what about the sequence of pressing down to display a menu, moving on to the desktop, and releasing the button
+<owen>	Related to the test machine running XP, I had a question for tml/jpe/j_ali  ... should we try to have one or more sets of canonical build instructions for gtk/win32 somewhere?
+<owen>	jpe: Implicit grabs handles that
+<jpe>	focus is not changed
+<tml>	owen: good idea. i'll get a new machine soonish (i hope) and can then write down exactly what i do to set up the build environment
+<owen>	tml: Do you think a msys build of GTK+ is feasible or is it still pretty dependent on cygwin?
+<owen>	tml: Having that setup procedure would be great.
+<tml>	owen: i have tried msys a couple of times, and it almost works, but then something causes trouble, and with my current ancient machine trial-and-error iteration is a bit too painful
+<jpe>	owen, hmm maybe you could implement menus w/o grabs -- which I know you've been trying to tell me for about a year :)
+<roboros>	i have a vague memory about WM_CANCELMODE being useful for things like that
+<owen>	Previous discussions with various people about the problem have led me through the thought train "windows doens't have X style grabs. So, how do they implement menus? Windows meus don't require X style grabs"
+<jpe>	win32 does have an api to track the mouse outside the window, which is almost equivalent to X style grabs
+<owen>	jpe: Which is, of course, too strong for menus, but might be right for something like the color picker in the color selector
+<jpe>	SetCapture() / ReleaseCapture() is the api pair
+<jpe>	The primary difference is that capture can be easily broken with the keyboard
+<tml>	so, about the _get_desktop and _path_compare, should i ask federico? or should we do casefolding compares on unix, too in the user interface?
+<mclasen>	while we're all talking win32, let me mention that I plan to do another 2.6 release in time for the gnome 2.10 beta 2, which would be in the first week of February
+<owen>	tml: I'm thinking we should do casefolding compares on Unix too, though I don't know how hard that is to implement.
+<owen>	tml: I guess we should figure out whether case-insensitive path comparison is needed for anything else.
+<tml>	mclasen: good to know, i'll refrain from doing any "snapshot" binary distribution then
+<owen>	(Actually, I dont' understande how case-insensitive path comparison could make a user difference in the completion ... there is no exposed interface for partial string compares)
+<mclasen>	tml: we'll have to see how many serious bugfixes accumulate until then. It would be good to fix the scroll-to-point regression in the file chooser, but it seems to be hard to track down
+<tml>	owen: check_completion_callback for instance benefits from doing case-insensitive comparison
+<tml>	owen: in gtkfilechooserentry.c
+<federico>	is the meeting still going?
+<tml>	yes, we were just discussing filechooser stuff
+<mclasen>	barely. they're all talking win32 today
+<owen>	federico: We just returned to your topic
+<federico>	sorry; was having lunch
+<owen>	tml: But check_completion_callback() doesn't compare paths that I see ... just display names
+<federico>	tml: what do you think of gtk_file_system_gimme_standard_user_paths()?  I think we can implement it easily and compatibly
+<tml>	owen: but it compares the user input to the display name. the display name might be MixedCase, and user input of "mixedcase" should perhaps match it also on unix? wasn't that what you meant?
+<owen>	tml: yes,  but yo ucan't call gtk_file_chooser_compare_paths() on display names. 
+<owen>	tml: I think we should just g_utf8_casefold() there ... it isn't *exactly* the same as the win32 rule, but should be fine for user interaction
+<tml>	owen: hmm, no, and i don't
+<mclasen>	owen, tml: the key is already case folded in check_completion_callback
+<owen>	tml: then how was your patch changing the behavior there?
+<tml>	mclasen: huh? didn't seem like that to me
+<owen>	mclasen: so we just need to casefold the display name?
+<owen>	(folding one and not the other is going to produce bad results on any OS)
+<tml>	federico: ..._user_paths() would be fine with me. 
+<mclasen>	oh, I guess I was confused
+<mclasen>	I was thinking about gtk_entry_completion_complete
+<tml>	hmm, quick, when is the completion_match_func called and when is the check_completion_idle?
+<andersca>	owen, mclasen: gcc 4.0 apparently has a feature that warns if an argument list isn't NULL terminated
+<mclasen>	andersca: does it also warn about missing -1 termination ?
+<andersca>	mclasen: no :/
+<andersca>	mclasen: although the tree model can easily warn about that 
+<mclasen>	seems short-sighted to not add an argument to that attribute for specifying the terminator
+<andersca>	yeah, but it's better than nothing
+<mclasen>	more header uglyfication, but this one may be worthwhile
+<owen>	tml: I don't remember at this point, though I think the stuff ultimately derives from my code
+<owen>	OK, meeting is clearly over :-)
+<roboros>	regarding win32 build environment, has anybody else tried a cygwin gcc -mno-cygwin setup (i.e. without separate mingw)?
+<owen>	(not that we can't continue talking if there are things to talk about)
+<owen>	roboros: We get bug reports, so apparently yes
+<tml>	about win9x/me end-of-life from msft: very hard to find info, but i finally found a page http://support.microsoft.com/default.aspx?pr=lifewinextndfaq that says they are somewhat supported through june 2006. but it seems to be quite vague
+<tml>	owen: the recent cygwin bug reports have been from people building for cygwin, not using cygwin's gcc with -mno-cygwin
+<owen>	That faq is really amusing in that it includes questions like "9. Are you admitting that your original product lifecycle policy was flawed?"
+<owen>	tml: Ah, OK. Should't talk about things that I don't know anything about 
+<tml>	roboros: i don't think so. would probably work fine
+<tml>	june 2006 is awfully far away, and i do think people still using win9x or me are a bit odd
+<roboros>	tml:ok, I also need to setup a new build environment and thought I might try -mno-cygwin
+<jpe>	I suspect win98 & ME will be used for the next 3 or 4 years, regardless of what MS says
+<jpe>	it's people using older hardware
+<owen>	jpe: But the question is "will it be used by people who are installing new software" "willit be used by people with hardware powerful enough to run gtk/win32" 
+<owen>	(You'd think that a toolkit wouldn't be that expensive, but I'm not really hopeful for GTK+ being very snappy on hardware too old to run XP)
+<tml>	jpe: but in what kind of environments? i understand there are stuff like measurement equipment or whatever in the industry can have some bundled old opsys that nobody is going to change, but nobody would run bleeding-edge gtk-using  software on them either, then?
+<jpe>	I'm not saying gtk should support it, but there are likely to be high school kids that want to run something like XChat
+<tml>	but can't they then run it with gtk 2.4 or 2.6? if 2.8 would be nt/2000/xp only?
+<jpe>	consider that ME was on shipping computers in 2001; they are only 4 years old
+<jpe>	the real question will be how hard 98 will be to support (which I don't know right now)
+<tml>	iirc, 98 and me are quire close, api-wise. but there are so many features in nt-based windows that aren't there in win9x/me. using run-time lookups for that api and making it optional uglifies code. not that i have anything in particular in mind right now that i would like to use in gtk or glib.
+
+
+Meeting ended January 10, 18:24 EST (22:24 UTC)
