@@ -6,7 +6,7 @@ export PATH=$PATH:/usr/local/bin
 cd /web/gtk/USED_CVS_HEAD/gtk+/docs/tutorial
 cvs update 
 
-cp /web/gtk/USED_CVS_HEAD/gtk+/docs/tutorial/*.jpg /web/gtk/tutorial1.2/
+cp /web/gtk/USED_CVS_HEAD/gtk+/docs/tutorial/*.jpg /web/gtk/tutorial2.9/
 
 cd /web/gtk/tutorial1.2
 db2html gtk-tut.sgml

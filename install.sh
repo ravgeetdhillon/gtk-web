@@ -9,7 +9,7 @@ else
   exit 1
 fi
 
-rsync --archive  --delete --exclude-from=$CVSDIR/install.exclude $CVSDIR/ $INSTALLDIR/
+rsync -rlpt --delete --exclude-from=$CVSDIR/install.exclude $CVSDIR/ $INSTALLDIR/
 
 make_link () {
   from=$1
@@ -31,3 +31,5 @@ make_link gtk_news.html news/gtk_news.html
 make_link gtk_app_categories.html apps/gtk_app_categories.html
 make_link gtk_app_index.html apps/gtk_app_index.html
 make_link web/alphabetically.html apps/index.html
+
+( cd $INSTALLDIR && ln -s tutorial2.0 tutorial )

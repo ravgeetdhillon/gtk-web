@@ -8,12 +8,12 @@ install.exclude
 +faq/online_faq_fix
 +faq/gdp-gtkfaq.dsl
 faq
-+tutorial/update_tut
-+tutorial/online_tut_fix
-tutorial
 +tutorial1.2/update_tut
 +tutorial1.2/online_tut_fix
 tutorial1.2
++tutorial2.0/update_tut
++tutorial2.0/online_tut_fix
+tutorial2.0
 
 faq.old.one
 tutorial1.0
@@ -21,4 +21,4 @@ tutorial1.2.old
 beos/screenshots/old
 
 USED_CVS
-USED_CVS_HEAD
+USED_CVS_12
