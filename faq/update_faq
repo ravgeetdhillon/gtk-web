@@ -14,7 +14,7 @@ cp gtk-faq.sgml /home/web/gtk/www.gtk.org/faq/
 cd /home/web/gtk/www.gtk.org/faq
 #db2html gtk-faq.sgml
 rm -f index.html.new
-jade -t sgml -ihtml -d ./gdp-gtkfaq.dsl\#html -V nochunks gtk-faq.sgml > index.html.new
+openjade -t sgml -ihtml -d ./gdp-gtkfaq.dsl\#html -V nochunks gtk-faq.sgml > index.html.new
 cp index.html.new index.html
 #./online_faq_fix gtk-faq/*.html
 ./online_faq_fix index.html
