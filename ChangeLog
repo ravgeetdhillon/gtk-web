@@ -1,3 +1,8 @@
+2004-10-10  Matthias Clasen  <mclasen@redhat.com>
+
+	* plan/{2.6,2.8}/index.html: Move "full introspection"
+	to 2.8.
+
 2004-10-08  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add GTK+ 2.4.11 announcement.
