@@ -1,6 +1,10 @@
 2004-10-08  Matthias Clasen  <mclasen@redhat.com>
 
-	* index.html (href): Add Glib 2.4.7 announcement.
+	* index.html: Add GTK+ 2.4.11 announcement.
+
+2004-10-08  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: Add Glib 2.4.7 announcement.
 
 2004-10-06  Matthias Clasen  <mclasen@redhat.com>
 
