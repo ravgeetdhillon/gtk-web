@@ -1,3 +1,9 @@
+2003-07-04  Matthias Clasen  <maclas@gmx.de>
+
+	* plan/2.4/index.html: Mark icon themes as committed.
+
+	* install.sh: Link incuded stuff into plan/2.6.
+
 2003-07-01  Matthias Clasen  <maclas@gmx.de>
 
 	* plan/2.4/index.html: Forgotten bullet.
