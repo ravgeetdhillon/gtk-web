@@ -1,5 +1,6 @@
 #!/bin/sh
 
+export CVS_PASSFILE=/home/otaylor/gnomeweb-cvspass
 export PATH=$PATH:/usr/local/bin
 
 cd /web/gtk/USED_CVS_HEAD/gtk+/docs/faq
