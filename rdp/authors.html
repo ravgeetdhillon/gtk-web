@@ -1,0 +1,134 @@
+<HTML>
+<HEAD>
+<TITLE>GTK+ Reference Documentation: Authors</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFEA">
+
+<TABLE WIDTH=95% ALIGN=CENTER BGCOLOR="#000000" CELLSPACING=1 CELLPADDING=4
+       BORDER=0>
+<TR>
+<TD COLSPAN=4 ALIGN=CENTER VALIGN=CENTER>
+<FONT SIZE=6 COLOR="#FFFFFF">The GTK+ Reference Documentation Project</FONT>
+</TD></TR>
+<TR BGCOLOR=#802080>
+<TD ALIGN=CENTER WIDTH=25%>
+<A HREF="index.html"><FONT SIZE=4 COLOR="#FFFFFF"><B>Home</B></FONT></A>
+</TD>
+<TD ALIGN=CENTER WIDTH=25%>
+<A HREF="download.html"><FONT SIZE=4 COLOR="#FFFFFF"><B>Download</B></FONT></A>
+</TD>
+<TD ALIGN=CENTER WIDTH=25%>
+<FONT SIZE=4 COLOR="#FFFF00"><B>Authors</B></FONT>
+</TD>
+<TD ALIGN=CENTER WIDTH=25%>
+<A HREF="status.html"><FONT SIZE=4 COLOR="#FFFFFF"><B>Status</B></FONT></A>
+</TD>
+</TR>
+</TABLE>
+
+<CENTER>
+<H1>Information for Authors</H1>
+</CENTER>
+
+<H2>GTK+ 2.0 Development</H2>
+<P>
+In GTK+ 2.0.x the reference documentation has been integrated with the GLib
+and GTK+ packages (i.e. in the glib, gtk+ and pango modules in GNOME's CVS
+repository). The GTK+ developers have finally realized the importance of
+documentation and now the rule is that no new code is allowed to go into
+GTK+ without inline documentation for all of the functions. Great!
+<P>
+However, there are still many parts of GTK+ and GLib with little or no
+documentation. Hopefully we will soon devise a procedure for non-developers
+to help out by submitting documentation for these parts. Watch this space!
+
+<H2>Is there a mailing list?</H2>
+Yes. Please subscribe to it if you want to help with the documentation.
+<p>
+To subscribe send a message to
+<a href="mailto:gtk-doc-list-request@redhat.com">gtk-doc-list-request@redhat.com</a>
+with "subscribe" as the Subject.
+
+
+
+
+<!-- I've commented this out as it is mostly out-of-date - Damon
+
+<BR><BR><BR>
+<H2>What tools do I need?</H2>
+You can write the documentation using any ASCII text editor if you wish,
+but if you want to generate the HTML output yourself, you will need the
+following tools:
+<UL>
+<LI><A HREF="http://www.jclark.com/jade">Jade v1.1</A> - this is a DSSSL
+processor to convert SGML to various formats.
+<BR><BR>
+
+<LI><A HREF="http://nwalsh.com/docbook/dsssl">DocBook Modular Stylesheets
+v1.19+</A>
+- these stylesheets are used together with Jade to convert DocBook SGML to
+HTML (and other formats).
+<BR><BR>
+
+<LI><A HREF="http://www.ora.com/davenport">The DocBook DTD v3.0</A> - the
+SGML definition of the DocBook syntax.
+</UL>
+
+Most Linux distributions now include the above packages so the easiest
+way to get set up is to install the packages for your distribution.
+
+<P>
+Since setting up Jade can be a problem, I've also created a package of all
+the SGML DTDs and entities needed,
+<font color="#F08080"><B>gtk-doc-extra</B></FONT>, available on the
+<A HREF="download.html">download</A> page. This includes the DocBook DTD.
+
+<P>
+You then need to grab the two documentation packages
+(<font color="#F08080"><B>glib-reference</B></FONT> &amp;
+<font color="#F08080"><B>gtk-reference</B></FONT>), and the
+<font color="#F08080"><B>gtk-doc</B></FONT> package if you want to build the
+HTML.
+
+<BR><BR><BR>
+<H2>How do I write the documentation?</H2>
+<P>
+You edit the 'template' files in the 'tmpl' subdirectories. Each file
+corresponds to one section of the documentation.
+<P>
+The author.txt file in the gtk-doc/doc directory contains some notes for
+authors. You should also look at some of the documentation which has already
+been written (e.g. several of the GLib pages).
+<P>
+You may want to reorder the functions/macros etc. within your section.
+To do that edit the glib-sections.txt file (or gdk/gtk-sections.txt).
+<P>
+You can also group functions/macros by using &lt;SUBSECTION&gt; tags. These
+result in blank lines in the synopsis section of the HTML output, making it
+easier to read.
+
+<BR><BR><BR>
+<H2>How do I rebuild the HTML?</H2>
+<P>
+You need the tools described above. You then 'cd' to the directory above
+the template files and run
+'<font color="#F08080"><B>make sgml</B></FONT>'
+to build the SGML and
+'<font color="#F08080"><B>make html</B></FONT>'
+to turn the SGML into HTML. (This can take around 15 minutes for GTK.)
+<P>
+Note: You should probably not use 'make templates', especially if you do not
+have the latest CVS version of GTK installed, as it re-scans all the header
+files and changes the template files.
+
+<BR><BR><BR>
+<H2>How do I submit my documentation?</H2>
+<P>
+Email your template pages to 
+<A HREF="mailto:damon@ximian.com">damon@ximian.com</A>
+gzipped, or in a tarball, or as a plain ASCII message or attachment.
+If you have reordered the functions in your pages, make sure you send me
+the part of the gXXX-sections.txt file as well.
+
+<BR><BR><BR>
+-->

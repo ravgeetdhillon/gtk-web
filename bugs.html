@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>GTK+ - Bug Tracker</title>
+
+<!--#include file="site_top.html"-->
+
+<!--#include file="section_begin.html"-->
+How to report bugs in GTK+
+<!--#include file="section_end.html"-->
+
+<P>
+(The following is taken from the <A HREF="/faq/">FAQ</A>.)
+</P><P>
+Bugs should be reported to the GNOME bug tracking system (<A HREF="http://bugzilla.gnome.org/">http://bugzilla.gnome.org</A>). You will need to enter your email address and receive a password before you can use the system to register a new bug report.
+</P><P>
+There are a number of options to select and boxes to fill in when submitting a bug report. Please remember that the more information you give, the easier it will be to track the problem down. Extra information that may prove useful includes:
+<P>
+<I>How to reproduce the bug.</I>
+</P>
+<UL>
+<P>
+If you can reproduce it with the testgtk program that is built in the gtk/ subdirectory, that will be most convenient. Otherwise, please include a short test program that exhibits the behavior. As a last resort, you can also provide a pointer to a larger piece of software that can be downloaded.
+</P><P>
+(Bugs that can be reproduced within the GIMP are almost as good as bugs that can be reproduced in testgtk. If you are reporting a bug found with the GIMP, please include the version number of the GIMP you are using)
+</P><P>
+</UL>
+<P>
+<I>If the bug was a crash, the exact text that was printed out when the crash occurred.</I>
+</P><P>
+<I>Further information such as stack traces may be useful, but are not necessary.</I> 
+<UL>
+If you do send a stack trace, and the error is an X error, it will be more useful if the stacktrace is produced running the test program with the --sync command line option.
+</UL>
+</P>
+<!--#include file="site_bottom.html"-->
+
+</html>
