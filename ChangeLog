@@ -1,3 +1,8 @@
+2002-11-27  Murray Cumming  <murrayc@usa.net>
+
+	* bindings.html: Added Pike bindings, and mentioned the name of the
+	gtk-web cvs module at the bottom of the page.
+
 2002-11-23  Murray Cumming  <murrayc@usa.net>
 
 	* bindings.html: Updated URL for Ruby-Gnome2 project.
