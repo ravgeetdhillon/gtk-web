@@ -1,3 +1,7 @@
+2004-06-11  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: Add GTK+ 2.4.3 release.
+
 Thu Jun 10 23:25:27 2004  Matthias Clasen  <maclas@gmx.de>
 
 	* plan/2.6/index.html: Mark "rotated text" as committed, add regular 
