@@ -1,3 +1,8 @@
+2002-11-30  Murray Cumming  <murrayc@usa.net>
+
+	* bindings.html: Corrected name of gtk-web cvs module at bottom of 
+	page. Added GTK+ 2.2 column.
+
 2002-11-27  Murray Cumming  <murrayc@usa.net>
 
 	* bindings.html: Added Pike bindings, and mentioned the name of the
