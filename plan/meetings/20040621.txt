@@ -1,0 +1,99 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started June 21 2004 17:02 EST (21:02 UTC)
+
+In attendence: 
+
+Jonathan Blandford (jrb), Matthias Clasen (mclasen), Owen Taylor (owen),
+Kristian Rietveld (kris), Federico Mena Quintero (federico),
+Manish Singh (yosh), Anders Carlsson (andersca), Luis Villa (lu|lunch), 
+Ray Strode (halfline), John Ehresmann (jpe), Carlos Garnacho (garnacho), 
+Soeren Sandmann (ssp), Robert Ögren (roboros), German Poo Caaman~o (gpoo)
+
+
+<mclasen>	should we begin ?
+<mclasen>	One thing I forgot to put on the proposed agenda: what are the most important bugs to fix before 2.4.4 ?
+<mclasen>	mclasen: I want to do a 2.4.4 release shortly after guadec, to get the fix for the libtiff loader out
+<mclasen>	one bug which I want to get fixed before that is 144324, are there other urgent bugs ?
+<mclasen>	hmm
+<owen>	mclasen: You seem to be talking to yourself :-)
+<owen>	I haven't really paid much attention to GTK+ bugs in detail; I'm trying to 1.4 and 1.5 pango releases out this week
+<mclasen>	will pango 1.6 go in gnome 2.8, btw ?
+<kris>	IIRC there is no way that gnome 2.7 is going to depend on pango 1.5
+<kris>	they've learned their lesson right now
+<owen>	kris: News to me
+<andersca>	me too
+<andersca>	kris: what if pango follows the gnome release schedule?
+<kris>	I don't think they [the gnome release team] are going to believe that
+<jrb>	kris: I don't think we've discussed it.  However, Owen should really propose it, etc.
+<owen>	kris: If the release team is going to say that I and Jody (becuase libgnomeprint depends on Pango HEAD) can't follow the gnome release schedulel, they are going to have to tell us that themselves
+<mclasen>	owen: how much work remains to be done between 1.5.0 and 1.6, anyway ?
+<kris>	owen: oh, okay
+<owen>	jrb: Hmm, I suppose I should wave my hands and jump up and down about it, though it isn't a new module
+<kris>	didn't know that libgnomeprint depends on pango head
+<jrb>	owen: no, but the fact it's supposed to be following GNOME instead of GTK+ is new
+<jrb>	owen: prolly good to give a heads up.
+<owen>	mclasen: I'd be pretty happy with it as it is now. It would be sort of nice to have some interface for rendering rotated Xft text, but not essential
+<mclasen>	next topic I wanted to discuss is bugzilla milestones. The current approach where we move ~200 bugs from stable milestone to next stable milestone doesn't really help with finding the important bugs...
+<federico>	mclasen: that's because we use milestones as "this can be fixed by..." rather than "this will be fixed by..."
+<andersca>	I think milestones were more useful back in the 1.3 days
+<andersca>	were 1.3.x wouldn't be released if
+<mclasen>	federico: I'm missing a way mark bugs as "fix this before the next stable release"
+<andersca>	any bugs were on that milestone
+<owen>	andersca: Well, we do that for 2.2/2.4, etc. 
+<andersca>	owen: nod
+<owen>	mclasen: I've done that by marking priority as high
+<owen>	mclasen: But admittedly the push-big-pile-of-bugs-ahead-of-us is not terribly useful
+<andersca>	owen: s/1.3/ unstable releases
+<andersca>	then
+<mclasen>	owen: ok, I can probably adjust to that by writing a few new queries...
+<owen>	mclasen: I wonder if we should have a "2.4 stable" milestone
+<federico>	owen: that sounds nice if we actually take time to prioritize bugs; otherwise it becomes a wildcard for "we could fix this in the stable series"
+<federico>	releases also come with freebie bugs fixed, when people grab low-hanging fruit
+<owen>	federico: How does the current 2.4.2 differ?
+<federico>	owen: it doesn't :)
+<federico>	owen: I mean, it's ok to have a milestone that says "we can fix this in the stable branch"
+<federico>	owen: but we also need a way to say "we absolutely must fix this for the next stable release"
+<federico>	I guess those are blockers, eh
+<mclasen>	maybe the only thing that would really help is reducing the total number of bugs. When sorting a huge number of bugs in a limited number of milestones, one is always going to be a grabbag 
+<andersca>	federico: blockers are usually fixed quite fast
+<federico>	andersca: let's make everything a blocker ;)
+<andersca>	:) I mean bugs that would otherwise be classified as blockers
+<andersca>	if clicked isn't emitted for a button for example, then that's usually fixed fast enough
+<owen>	federico: We could use High priority, or we could *also* have the current milestones
+<mclasen>	owen: I think we should try to use priority for this, and see how it works. What probably would help would be a "short guide to gtk bugs" somewhere on www.gtk.org
+<mclasen>	to have some written down conventions to use for gtk bugs
+<federico>	what happened for the file chooser bugs is this:
+<federico>	1. we marked really important stuff for 2.4.1, and mostly got them done
+<federico>	2. we marked not so important stuff for 2.4.2, and didn't get them done
+<lu|lunch>	was I summoned?
+<federico>	3. now they got punted to 2.4.4
+<federico>	luis: sort of; we are trying to figure out a milestone/priority convention for gtk bugs
+<kris>	luis villa.
+<federico>	luis: we have this situation where we routinely punt a large number of bugs to the next version's milestone --- the ones that no one ever has time to fix
+<luis>	IIRC, owen tends to use 'I've put this on a milestone' as a way of saying 'I've reviewed this bug', which isn't insane; in some ways possibly better than what the rest of gnome does.
+<luis>	so probably you want to say something like 'no bugs with foo or higher priority can still be on the milestone when we ship', and then actually hold to it. It seems (from my limited skimming) gtk's problem is not organization- it is well organized. You just need someone actually making the organization mean something, if that makes sense.
+<mclasen>	thus my proposal to write down the way organize bugs
+<mclasen>	_we_ organize
+<federico>	does this make sense:
+<federico>	blocker/critical bugs *must* have a milestone, which is 2.4.next
+<federico>	high priority unmilestoned bugs mean "we really need to look at this soon"; milestoned ones can become blockers if there are no other blockers for that milestone?
+<luis>	federico: one question to consider is 'what is blocker/critical'? the definitions we give on b.g.o's defintion page are very end-user-app centric and mostly don't apply to gtk.
+<luis>	ditto for priorities
+<mclasen>	Unfortnately, I have to leave in a minute; one thing I did want to discuss is guadec schedule. Do we want to agree on a time for a "face-to-face" gtk team meeting, or would that be too formal ?
+<federico>	there are a few free slots/rooms in the schedule
+<halfline>	you'll all be on irc during the face-to-face meeting, yea?
+<kris>	i might
+<kris>	but i wont be at guadec.
+<kris>	so i would be kinda useless P:
+<federico>	halfline: I guess it will depend on how many people meet -- the gtk team is not very big
+<halfline>	federico: yea.  If you don't, it'd be great if a summary of what was discussed was posted to the mailing list.
+<federico>	halfline: yeah
+<halfline>	federico: of course, being on IRC would be even better, since kris and possibly ssp won't be there
+<federico>	halfline: very good point
+Jun 21 17:59:09 *	federico hopes wifi is good
+<halfline>	federico: if you do decide to do IRC and you find out a time slot post the time slot to the list, too.
+<federico>	halfline: sure, I'll do that, and update my webcal
+Jun 21 18:02:04 *	federico wonders if anyone is using that thing
+<halfline>	federico: thanks
+
+Meeting ended June 21 18:02 EST (22:02 UTC)

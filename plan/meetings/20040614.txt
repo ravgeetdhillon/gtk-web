@@ -82,4 +82,5 @@ Jun 14 17:17:31 *	jrb raises his hand belatedly
 <federico>	we have to do something that lets apps change themes and still share the new icons
 <andersca>	federico: yeah, but you can pass in an arbitary pointer to _new_from_inline
 <garnacho>	a little question, where/when should be the best place for suggesting new features?
+
 Meeting ended June 14 18:07 EST (22:07 UTC)

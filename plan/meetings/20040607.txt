@@ -1,5 +1,5 @@
 Meeting on irc.gnome.org:#gtk-devel
-Meeting started May 24 17:02 EST (21:02 UTC)
+Meeting started June 7 17:02 EST (21:02 UTC)
 
 In attendance:  
 
@@ -91,4 +91,4 @@ Jun 07 17:20:41 *	mclasen didn't really track pango development in the last mont
 <owen>	federico: Add something to the release notes section of the README
 <federico>	owen: ok, will do
 
-Meeting ended May 24 18:02 EST (22:02 UTC)
+Meeting ended June 07 18:02 EST (22:02 UTC)
