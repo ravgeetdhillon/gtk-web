@@ -1,5 +1,9 @@
 2003-03-08  Murray Cumming  <murrayc@usa.net>
 
+	* bindings.html: Added a new Objective Caml binding.
+
+2003-03-08  Murray Cumming  <murrayc@usa.net>
+
 	* bindings.html: Update URL for GtkAda.
 
 2003-03-06  Matthias Clasen  <maclas@gmx.de>
