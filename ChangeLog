@@ -1,3 +1,7 @@
+2004-02-23  Federico Mena Quintero  <federico@ximian.com>
+
+	* plan/2.4/willfix.html: Added #135167.
+
 Sat Feb 21 19:28:41 2004  Soeren Sandmann  <sandmann@daimi.au.dk>
 
 	* plan/2.4/willfix.html: Remove #78414 and #132502 as they are
