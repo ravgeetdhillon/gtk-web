@@ -1,0 +1,76 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started February 7 2005 16:03 EST (21:03 UTC)
+
+In attendence: 
+
+Owen Taylor (owen), 
+Manish Singh (yosh),
+Matthias Clasen (mclasen),
+Federico Mena Quintero (federico),
+Shawn T. Amundson (snorfle),
+Robert Ögren (roboros),
+Tor Lillqvist (tml),
+John Ehresman (jpe),
+Bill Hanemann (billh)
+
+
+<mclasen>	hey together
+<mclasen>	before we start: I have invited billh to the next meeting to discuss gail, which means that we'll probably move next mondays meeting 
+<mclasen>	to late morning (EST) 
+<mclasen>	what is better, 11:00 EST or 13:00 EST ? 
+ *	mclasen thinks that 12:00 might lead to scheduling conflicts...
+<mclasen>	so, do we have any topics, besides the one I mentioned in the mail ?
+<mclasen>	ok, so the topic I want to discuss is the format of .gtk-bookmarks
+<mclasen>	Do we consider it a private interface even though gnome-panel has started parsing it ?
+<federico>	oh my god
+<federico>	they have?
+<federico>	no
+<federico>	fuck them
+<federico>	it's totally a private interface
+<mclasen>	they show bookmarks in the places menu
+<federico>	man, it's so nice that they notified gtk-devel-list about this
+ *	federico groans
+<mclasen>	the panel maintainers have hopefully considered the consequences of relying on private interfaces before accepting that patch
+<mclasen>	it makes me wonder if we should document .gtk-bookmarks explicitly as a private interface that is subject to change
+<mclasen>	although changing it is not trivial even for our internal use, since the gnome-vfs backend also parses it
+<mclasen>	I would like to change the .gtk-bookmarks format to allow associating labels with bookmarks
+<federico>	yeah, for setting explicit names
+<federico>	we actually need a public api for bookmarks that everyone uses
+<federico>	well
+<mclasen>	federico: I was thinking that something like gtk_file_chooser_list_bookmarks() would allow the panel to avoid parsing
+<mclasen>	but they also monitor the file, which the file chooser backends don't
+<federico>	the vfs backend could monitor it and emit bookmarks-changed; that's just an implemenation detail
+<mclasen>	agreed, but bookmarks-changed is only a backend signal, not public api
+<federico>	mclasen: it's easy to create a featureful GtkBookmarks class; can we add it within the 2.6 series?
+<federico>	(... that is public, that is also used by the file chooser, and perhaps then the bookmarks-related stuff in the filesystem backends can go away, but what about Windows?)
+ *	mclasen doesn't even know what the windows backend does with bookmarks
+<federico>	it uses a dotfile; ideally it should use the shell API or something
+<mclasen>	federico: I don't think GtkBookmarks should go into 2.6
+<federico>	I was hoping to implement bookmark renaming within 2.6 :(
+ *	tml doesn't really know either
+<mclasen>	federico: lets keep it stable; the 2.4 series was less than perfect in that regard, I we can do better for 2.6
+ *	tml knows that the gtkfilesystemwin32 code was perhaps copy-oasted too early from gtkfilesystemunix , whicih then changed
+<billh>	hi
+<mclasen>	hi bill
+<billh>	hi mclasen.  I'll be here a while if anyone wants to discuss the gail->gtk+ proposal
+<mclasen>	billh: one question I brought up last week, which was left unanswered, is: Does gail work on win32 ? does it do anything useful there ?
+<billh>	it should work there fine, but nobody's listening to the ATK interfaces at this time.
+<billh>	i.e. it should work, but there aren't any clients for the APIs yet
+<mclasen>	billh: another question is if the a11y team would still be willing to help with maintainance of gail-in-gtk, since none of us knows the gail code and the implemented interfaces very well
+<billh>	of course I'd be willing to assist, as much as I can - Padraig's not working on gail any longer though, so it's just me ATM.
+<mclasen>	ooh, gail has only 11 bugs
+ *	billh looks
+<mclasen>	so, if nobody speaks up against this merge, what are the logistics ? Do we target this for 2.8 ?
+<billh>	i would think so
+<mclasen>	ok, I'll update www.gtk.org/plan/2.8 to reflect that, I guess we can work out the details of cvs surgery, etc offline
+<mclasen>	coming back to bookmarks...federico, did you try my patch for renaming bookmarks ? 
+<billh>	yes.  One thing to note is that libgail-gnome (whose sole bug is currently logged against atk/gail) wouldn't be moving into gtk+, so I guess it needs its own bugzilla category
+<mclasen>	noted
+<mclasen>	federico: while implementing the popup menu on the shortcuts list I noticed that the popup menu on the file list is not a real context menu either.
+<mclasen>	it doesn't operate on the clicked row, but on the selection
+<mclasen>	I made the bookmarks popup operate in the same way, since mixing behaviours on the two sides of the paned would be confusing, I guess
+<mclasen>	but maybe both should be real context menus ?
+<mclasen>	I'm being dragged out now, see you next week.
+
+
+Meeting ended February 7, 16:52 EST (21:52 UTC)
