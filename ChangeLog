@@ -1,3 +1,8 @@
+Fri Feb 26 2004  Steve Fox <drfickle@k-lug.org>
+
+	* index.html
+	* oldnews.html: announce gtk 2.3.3 and 2.3.4
+
 Tue Feb 24 00:16:39 2004  Matthias Clasen  <maclas@gmx.de>
 
 	* plan/index.html: Update an unrealistic release date.
