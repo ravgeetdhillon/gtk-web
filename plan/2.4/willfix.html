@@ -212,7 +212,20 @@ GTK+-2.4 Bugs to Fix
 	    <LI>
 	    <a href="http://bugzilla.gnome.org/show_bug.cgi?id=89259">#89259</a>:
 	    <b>Mousewheel scrolls too far.</b>
-            Simple patch, and the scrollwheel is almost unusable right now.</LI>
+            Simple patch, and the scrollwheel is almost unusable right now.
+            </LI>
+            <LI>
+            <b>_gtk_window_activate_key()</b>
+            Precedence of accelerators vs. focus widget key handler needs o be fixed.
+            At the very least, _gtk_window_activate_key() should be exported (like
+            gtk_window_mnemonic_activate() already) so applications can implement their
+            owen precedence handling.
+            </LI>
+            <LI>
+            <b>g_main_context_depth()</b>
+            g_main_context_depth() should be implemented to allow proper implementations
+            of pseudo garbage collection algorithms.
+            </LI>
           </UL>
 </P>	    
 
