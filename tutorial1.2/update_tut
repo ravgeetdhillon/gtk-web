@@ -3,12 +3,12 @@
 export CVS_PASSFILE=/home/otaylor/gnomeweb-cvspass
 export PATH=$PATH:/usr/local/bin
 
-cd /home/web/gtk/www.gtk.org/USED_CVS_12/gtk+/docs
+cd /web/gtk/USED_CVS_12/gtk+/docs
 cvs update
 
-cp gtk_tut*.gif gtk_tut.sgml /home/web/gtk/www.gtk.org/tutorial1.2/
+cp gtk_tut*.gif gtk_tut.sgml /web/gtk/tutorial1.2/
 
-cd /home/web/gtk/www.gtk.org/tutorial1.2
+cd /web/gtk/tutorial1.2
 sgml2html gtk_tut.sgml
 # ./online_tut_fix *.html
 chmod 0775 *.html

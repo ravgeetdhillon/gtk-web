@@ -3,18 +3,18 @@
 export CVS_PASSFILE=/home/otaylor/gnomeweb-cvspass
 export PATH=$PATH:/usr/local/bin
 
-cd /home/web/gtk/www.gtk.org/USED_CVS_HEAD/gtk+/docs/faq
+cd /web/gtk/USED_CVS_HEAD/gtk+/docs/faq
 cvs update 
 
-#cp /home/web/gtk/www.gtk.org/USED_CVS_HEAD/gtk+/docs/faq/*.jpg /web/gtk/faq/
+#cp /web/gtk/USED_CVS_HEAD/gtk+/docs/faq/*.jpg /web/gtk/faq/
 
-rm -f /home/web/gtk/www.gtk.org/faq/gtk-faq.sgml
-cp gtk-faq.sgml /home/web/gtk/www.gtk.org/faq/
+rm -f /web/gtk/faq/gtk-faq.sgml
+cp gtk-faq.sgml /web/gtk/faq/
 
-cd /home/web/gtk/www.gtk.org/faq
+cd /web/gtk/faq
 #db2html gtk-faq.sgml
 rm -f index.html.new
-openjade -t sgml -ihtml -d ./gdp-gtkfaq.dsl\#html -V nochunks gtk-faq.sgml > index.html.new
+jade -t sgml -ihtml -d ./gdp-gtkfaq.dsl\#html -V nochunks gtk-faq.sgml > index.html.new
 cp index.html.new index.html
 #./online_faq_fix gtk-faq/*.html
 ./online_faq_fix index.html
