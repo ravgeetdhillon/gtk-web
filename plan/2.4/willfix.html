@@ -38,18 +38,23 @@ GTK+-2.4 Bugs to Fix
 	    A full GList/GSList equivalent API set for GQueue, including tests.</LI>
 	      <LI>
 		<a href="http://bugzilla.gnome.org/show_bug.cgi?id=118536">#118536</a>:
-		<b>Make g_signal_connect_object'ed handlers disconnect when the data object is destroyed.</b>
+		<b>Make g_signal_connect_object'ed handlers disconnect when the data object is destroyed.</b><br>
 		this can be fixed post-2.4. (i.e. shouldn't be on willfix), proper solution
 		blocking on timj and a test case. -- timj
 	      </LI>
 	      <li>
 		<a href="http://bugs.gnome.org/show_bug.cgi?id=117901">#117901</a>:
-		<b>SWAP_LE_BE patch for float/double.</b>
+		<b>SWAP_LE_BE patch for float/double.</b><br>
 		easy to apply/reject once timj/yosh agree on portability issues of unions. -- timj
 	      </li>
 	      <li>
 		<a href="http://bugs.gnome.org/show_bug.cgi?id=85930">#85930</a>:
 		<b>native gmodule management for AIX</b>
+	      </li>
+	      <li>
+		<a href="http://bugs.gnome.org/show_bug.cgi?id=116617">#116617</a>:
+		<b>save errno around g_strerror()</b>
+		attached patch (id=20235) should be applied to both branches.
 	      </li>
 	  </UL>
 </P>
