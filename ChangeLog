@@ -1,6 +1,7 @@
 2003-10-02  Matthias Clasen  <maclas@gmx.de>
 
-	* projects.html: Add a link to the swfdec pixbuf loader.
+	* projects.html: Add a link to the swfdec pixbuf loader and
+	to the PangoPDF library.
 
 2003-10-01  Matthias Clasen  <maclas@gmx.de>
 
