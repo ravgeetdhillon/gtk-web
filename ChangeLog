@@ -1,3 +1,7 @@
+Mon Aug 16 23:17:37 2004  Matthias Clasen  <maclas@gmx.de>
+
+	* plan/meetings/index.html: Add todays meeting.
+
 2004-08-14  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add GTK+ 2.4.7 announcement.

@@ -1,0 +1,97 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started August 16 2004 17:02 EST (21:02 UTC)
+
+In attendence: 
+
+Jonathan Blandford (jrb), Matthias Clasen (matthias), Owen Taylor (owen),
+Federico Mena Quintero (federico), Billy Biggs (vektor), Tor Lillqvist (tml),
+John Ehresman (jpe), Thomas Fitzsimmons (fitzsim)
+
+<matthias>	I don
+<matthias>	't know if federico will join us...
+<matthias>	maybe we can start by putting together the agenda, since I didn't put anything in the mail...
+<matthias>	my topics for today are: 2.5.2 and recent build system changes
+<matthias>	anything else we should discuss ?
+<fitzsim>	http://bugzilla.gnome.org/show_bug.cgi?id=133263 ?
+<fitzsim>	and whether or not it has a chance of making 2.6
+<matthias>	ok, we should probably discuss where we stand on the 2.6 schedule...
+<matthias>	our plan/2.6 schedule states that by Aug 15, the major features should be in, an by Oct 15 we want to reach slush API freeze 
+<matthias>	Aug 15 was yesterday, and I guess we haven't quite succeeded in getting all the major features listed on plan/2.6 in yet
+<matthias>	from that list, we're still missing the file picker and the file chooser enhancements
+<matthias>	minor api additions will still happen between now and Oct 15, so I'd say 133263 has a realistic chance if we can work out an acceptable patch by then
+<fitzsim>	matthias: ok.  Owen's already sent some suggestions privately, so I'll post a new patch that incorporate those + API docs, probably by tomorrow
+<matthias>	fitzsim: ok
+<matthias>	here is my current thinking wrt to 2.5.2: I would like to commit the file picker soon, and maybe sort out the build system changes on win32, this week, and do a 2.5.2 afterwards
+<matthias>	since owen has asked for some review of the new api from app developers perspective, it would probably be a good idea to announce 2.5.2 as "api review release" and specifically invite people to give us feedback on the completely new stuff 
+<matthias>	since I won't be available from Wed - Fri this week, 2.5.2 will probably end up being done early next week
+<matthias>	unless you all think we should get it out ASAP, and somebody else volunteers to do it later this week...
+*	matthias hates talking to himself...
+*	jrb reads
+<owen>	matthias: Sorry, it all sounds good to me, so I don't have anything to add
+<matthias>	thanks, owen
+<matthias>	unfortunately, federico seems unavailable...I wanted to ask him about the status of his planned file chooser additions
+<jrb>	what did he have planned?
+<matthias>	jrb: the things listed on plan/2.6:
+<matthias>	  - Shared settings with Nautilus
+<matthias>	  - Automatic bookmarks / Improved bookmark system
+<matthias>	  - File types in save mode
+<matthias>	jrb: do you know anything about them ?
+<tml>	I should try another go at the UTF-8 wrappers for file system calls (#101792), according to Owen's clarifications. Might have time to do it during this week. If okayed, could then go into 2.5.2?
+<jrb>	matthias: I don't know their status, but I know what he was intending
+<matthias>	tml: anything thats ready to go in cvs can go in 2.5.2 - its just a snapshot of the current cvs...
+<matthias>	jrb: I'll try to catch federico later this week to get an update
+<tml>	matthias: yup
+<matthias>	tml: since you are here, did you have a chance to look at the mess I recently made of the build system (gtkalias.h et al) ?
+<matthias>	tml: I wonder whats the best way to make this work on win32
+<matthias>	the two approaches I see are:
+<matthias>	-turn it off completely by wrapping the alias headers in #ifndef G_WHATEVER_WIN32
+<tml>	matthias: sorry, haven't tried building HEAD after that
+<matthias>	- write separate gdkaliasx11.h gdkaliaswin32.h and have gdkalias.h include them conditionally
+<matthias>	- write out the ifdefs in gdkalias.h
+*	matthias can't count...
+<tml>	can't really say i would have any preference currently
+<matthias>	tml: ok, I'll look into that tomorrow and pick one of the approaches (probably the second one)
+<--	lystra has quit (Leaving)
+<matthias>	I have created 2.8 API freeze and 2.8 milestones for gtk+ in bugzilla now
+<matthias>	it would probably be a good idea if we could start sorting out the ~160 bugs on 2.6 API freeze and the ~230 unmilestoned bugs and move unrealistic stuff back to the deeper future
+<matthias>	tml: next week I also want to look more seriously into moving the win32 binary packages to ftp.gtk.org, I'll probably drop you another mail about that...
+<owen>	matthias: Yeah. Should we just split up by component, or is going through bugs collectively going to be more effective
+<matthias>	owen: people (except for me) seem to be pretty good at sticking to their favourite components anyway...
+<matthias>	owen: speaking about win32 integration, do you think it makes sense to ping the wimp guys again ?
+<owen>	matthias: If we are going to go by component, then we really need to put pressure on people to fix milestones
+<owen>	matthias: Yeah, I think it would be good
+<matthias>	owen: we also mention the IME IM module on plan/2.6 - did we ever talk to the relevant people about integrating that ?
+<owen>	I don't think so. How did you want to handle that tml? 
+<tml>	owen: probably would be best to get the IME and wimp people to do most of the integration work... 
+<tml>	there so much other stuff to do too
+<owen>	tml: I think the IME integration is just basically dropping a file into the modules/input directory and fixing the makefile.am -- if there are code changes, we should certainly get them to do it, but is it worth getting them a CVS account for that?
+<owen>	that == the integration part
+<tml>	well if it's as easy as that, maybe not
+<matthias>	owen: wimp integration is not much more work, or is it ? Well, we need to create modules/engines and the necessary build magic, but thats all
+<owen>	matthias: Not much more work, no, probably more ongoing chnages in the future
+*	federico apologizes for the delay
+<matthias>	hi federico, we were wondering about the status of the file chooser enhancements you had planned for 2.6
+<matthias>	owen: is the IME module actively maintained by somebody ?
+<owen>	matthias: Well, it's just languishing in bugzilla, so not much opportuinty for maintainence..
+<federico>	matthias: I haven't written anything yet :(
+<federico>	matthias: I want to add the interfaces that Beagle need to plug in its searching stuff
+<federico>	I'll mail gtk-devel-list
+<matthias>	owen: ah, good
+<federico>	I'm thinking that we'll need some gmodule stuff similar to the one used for GtkFileSystem
+<federico>	sort of GtkFileChooserExtensionIface
+<matthias>	federico: any thoughts about 
+<matthias>	  - Shared settings with Nautilus
+<matthias>	  - Automatic bookmarks / Improved bookmark system
+<matthias>	  - File types in save mode
+<federico>	matthias: the first one is just defining some xsettings and making both nautilus and the file chooser use them
+<federico>	matthias: the second one is sanitizing egg-recent, basically
+<federico>	the third one needs an API; I think there's something in the mailing list
+<matthias>	federico: will you have time to look into any of these soon, or are you concentrating on the Beagle stuff ?
+<federico>	matthias: not very soon, I'm afraid; on Fridays I can work on the Beagle stuff
+<federico>	this Friday I'll work on the API proposal for the Beagle stuff
+<matthias>	federico: ok, good to know
+<matthias>	if nobody has further urgent topics, I'd like to declare this weeks meeting closed now; I'll post logs tomorrow; next weeks meeting will probably be announced late again (since I'm gone)
+*	matthias goes swimming with the kids...
+*	tml says bye
+
+Meeting ended August 16, 17:59 EST (21:59 UTC)
