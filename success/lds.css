@@ -23,11 +23,7 @@ h3 {
 	font-weight: bold;
 	font-size: 13px;
 	border-bottom: 2px solid #dddddd;
-}
-
-h3 a {
-	color: black;
-	text-decoration: none;
+	background: #EEAAAA;
 }
 
 img {
@@ -35,13 +31,29 @@ img {
 	vertical-align: top;
 }
 
+div.textbox_header a {
+	color: black;
+	text-decoration: none;
+}
+
+div.textbox_header {
+	font-family: helvetica,lucida;
+	font-weight: bold;
+	font-size: 13px;
+	background: #EEAAAA;
+	padding: 4px;
+}
+
 div.textbox {	
 	border-style: solid; 
-	background: whitesmoke; 
+	background: #FFFFFF; 
 	color: #000000;
 	border-width: 1px; 
-	padding: 2px; 
 	margin:15px;
+}
+
+div.textbox_content {	
+	padding: 4px; 
 }
 
 div.image {
