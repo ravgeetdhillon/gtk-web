@@ -1,3 +1,8 @@
+Tue Jul  6 21:07:08 2004  Matthias Clasen  <maclas@gmx.de>
+
+	* plan/ideas/index.html: Remove duplicate mention of the
+	about dialog.
+
 Tue Jul  6 03:00:23 2004  Matthias Clasen  <maclas@gmx.de>
 
 	* plan/index.html: Add some 2.8 info, move blue-sky ideas
