@@ -1,0 +1,275 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started February 28 2005 16:04 EST (21:04 UTC)
+
+In attendence: 
+
+Manish Singh (yosh),
+Owen Taylor (otaylor),
+Jonathan Blandford (jrb),
+Federico Mena Quintero (federico),
+Matthias Clasen (mclasen),
+Morten Welinder (gmorten),
+Johan Dahlin (jdahlin),
+John Ehresman (jpe),
+Lorenzo Gil Sanchez (lgs),
+Dan Winship (danw),
+Anders Carlsson (andersca)
+
+
+<mclasen>	federico, can you put last weeks logs up on www.gtk.org ?
+<mclasen>	ok, we actually have an agenda today
+<mclasen>	should we start with the libglade discussion ?
+<jrb>	mclasen: what else is on the agenda?
+<jrb>	mclasen: the libglade discussion could dominate
+<federico>	mclasen: do I have modify-fu?
+<mclasen>	I wanted to ask about the general opinion wrt to adding bmp saving support in 2.6
+<federico>	oh, I guess I do
+<mclasen>	federico: its all in cvs
+ *	federico cvs updates gtk-web
+<mclasen>	but thats not that urgent, now that 2.6.3 went out 
+<mclasen>	so lets just discuss libglade first
+<federico>	mclasen: that would be nice for windows people --- I'd like to fix the "malloc(whole_image_size)" bit first
+<jrb>	federico: that's pretty dreadful
+<mclasen>	federico: it wasn't clear to me if the bmp saving alone is that useful, and I don't know if the "delayed rendering" parts of the patch qualify as 2.6 material
+<gmorten>	without the delayed rendering stuff, as I understand it, cut and pasteis dead in the water for win32.
+<mclasen>	but I think that is all win32 specific. I think I will bring that question up again when 2.6.4 comes closer and the bmp saving code in HEAD is in better shape
+<owen>	gmorten: Well, cut-and-paste of images, perhaps. Which we don't really support very well on X ....
+<jrb>	so libglade, then?
+<mclasen>	bring it on
+<jdahlin>	okay
+<owen>	gmorten: I think it's basically up to tml whether it's important enough to make an API addition (BMP saving) in 2.6.x or not
+<gmorten>	owen: not jsut images.  html and xml too.
+<owen>	(wish we had jamesh here for this)
+<jdahlin>	I sent a mail to the mailing list a few hours ago, with a few possible topics
+<jdahlin>	owen: it's 4am in perth
+<jdahlin>	What I forgot to mention in the mail is that we actually are a few who are prepared to do the work
+<owen>	jdahlin: I know. It might have been nice to do an alternate time, but well, water over the dam. He'll just have to comment on-list
+<jdahlin>	owen: I'll send a summary to the blog afterwards
+<owen>	the blog? 
+<jpe>	gmorten, why is delayed rendering for xml and html cut-n-paste?
+<jdahlin>	mailing list, sorry
+<jdahlin>	owen: I talked to him a few hours ago, he seemed somewhat supportive about putting it in gtk+
+Feb 28 16:12:42 *	jdahlin is tired
+<gmorten>	jpe: not quite sure.  I wish our man in .hk was here, but hey it's the wee hours there too.
+<jdahlin>	So, what needs to be done is the following:
+<jdahlin>	- make libglade use GMarkup
+<jdahlin>	- add support for GObject (this will break the API)
+<jdahlin>	- add support for GtkUIManager (high priority for ui builders)
+<mclasen>	will the gobject support not just be api additions ?
+<jdahlin>	- ideally, but not required; move the custom properties from libglade to the widgets themselves
+<jdahlin>	mclasen: no, GtkWidget * glade_xml_get_widget (...) should be GObject *glade_xml_get_object (...)
+<gmorten>	jdahlin: nothing wrong 3with having both.
+<lgs>	jdahlin, we can add an alias and be backwards compatible
+<jdahlin>	it's doable without breaking the api, but since we're moving it to another library we can afford breaking it, no?
+<gmorten>	the former just returning GTK_WIDGET of the latter.
+<mclasen>	well, as gtk api it will be all new, so there is probably no need to add compat functions in gtk
+<jdahlin>	gmorten: right, can be made backwards compatible, but we'll end up with some duplication
+<owen>	We basically need to be one place or the other
+<owen>	 One place: 100% absolute compatibility (and xml => gmarkup might be too much of a break)
+<gmorten>	jdahlin: it is any reason to add pain for the existing library users?
+<owen>	 The other: completely new names for everything, can still use external libglade
+<federico>	danw: you mentioned the need to have an interface like GimmeGUIEditorIface?
+<jdahlin>	gmorten: no, I'd like the API to be as close as possible
+<danw>	federico: i did? when?
+<federico>	danw: when you showed me that winforms book
+<jdahlin>	gmorten: libglade is still going to be around until 3.0
+<danw>	federico: oh. that's beyond "move libglade into gtk" though
+<owen>	Renanming would allow us to kill the horrible GladeXML name...
+<jdahlin>	I wrote a small API, which I of course forgot to attach in the mail to the ML
+<jdahlin>	http://www.gnome.org/~johan/gtkobjectfile.h
+<mclasen>	hmm, that naming clashes with GtkObject
+<owen>	Maybe GtkResourceFile and forget that 'rc' stands for resource
+<jrb>	jdahlin: were we going to try to keep the file format the same or change that?
+<jdahlin>	which has all features of GladeXML but renamed
+<jdahlin>	jrb: I think it's worth keeping the file format
+<gmorten>	jrb: I am already feeling the pain of that question...
+<danw>	it shouldn't be "gtk"anything should it? should be gsomething
+<owen>	jrb: If we can avoid a convert script, it would be very nice to do so
+<jdahlin>	jrb: however, we might need to add CDATA support in GMarkup, not sure if the libxml sax parser in libglade can handle that without warnings/errors
+<owen>	danw: I think you are going to need at least the notion of GtkContainer in the file
+<mclasen>	jdahlin: adding CDATA support should be easy
+<jdahlin>	danw: we discussed that, it could be put inside glib/gobject, but it's quite tied to widgets/containers
+<owen>	And anything that lives in Gtk has to be Gtk*, unless you think we can do this as generic object tree serialization. BUt I'm skeptical of that
+<jdahlin>	mclasen: I agree, shouldn't be too hard
+<jdahlin>	GtkUIBuilder, GtkWidgetCreator etc
+<danw>	i was thinking we were aiming for generic object tree serialization (because of the sizegroup, etc talk). but yeah, i don't actually see any need for that
+<mclasen>	skinreader
+<andersca>	:)
+<jdahlin>	danw: in the long term probably, but I think it's too much work for 2.8
+<jdahlin>	mclasen: what do you think about moving glade/glade-gtk.c into the respective widgets/objects?
+<owen>	danw: Well, I think we need to represent non-widget objects, even for 2.8, likely. But that doens't mean dropping the notion of child properties, etc.
+<jdahlin>	mclasen: at least the custom properties
+<mclasen>	danw: but there are no generic object trees, since gobject doesn't have containers
+<jrb>	mclasen: there is GtkListStore...
+<mclasen>	which is not an object tree either...:-)
+<federico>	rather than generic serialization, can we just hard-code stuff like gtksizegroup?
+<lgs>	what about Tristan Van Berkom reply to jdahlin email: talking about GContainerInterface?
+<owen>	federico: gtksizegroup probably needs some hard coding
+<federico>	you don't expect the gui builder to be able to handle any gobject type
+<mclasen>	lgs: incompatible with the 2.8 timeframe, I'd say
+<lgs>	fair enough
+<owen>	But that doesnt' mean to me there shouldn't be some reaosnably generic way to specify an arbitrary object into a glade file ... the basic object property stuff should work the same
+<mclasen>	jdahlin: I haven't looked at all the custom properties and what glade-gtk.c does with them in detail
+<owen>	Though I don't know if we have any use cases other than sizegurp and liststore, which both take hardcoding
+<mclasen>	jdahlin: but reducing the need for special cases makes sense to me; once we have a glade-gtk.c equivalent in gtk, that can be done piecemeal, right ?
+<jrb>	jdahlin: jamesh seemed dubious about merging in the GtkUiManager files.  Did you get a sense of why?
+<danw>	tooltips, though they're basically like a sizegroup
+<lgs>	treeviewcolumns and renderers also
+<jdahlin>	mclasen: the concept is easy, you register a fake property (which can be specificed in the glade file), and we it see this property it calls a function, which does some magic and usally ends up calling an accessor (GtkProgress "format" - > gtk_progress_set_format for example)
+<jdahlin>	mclasen: can be done incremental, but I'd like to get rid of all custom properties
+<jrb>	(also treeview data)
+<owen>	jrb: We could mix dtds conceivably, though it doesn't really matter if we use the UiManager XML notation or not as long as the same ideas can be expressed
+<jdahlin>	mclasen: and the need for having the GModule interface in libglade
+<jdahlin>	jrb: it's difficult for the parser, I think we just can get around it by using CDATA
+<owen>	jdhalin: What's the difference between that and a real parser?
+<mclasen>	jdahlin: yes, I mainly wanted to point out that getting rid of custom properties doesn't have to block the move of libglade
+<owen>	sorry, real property?
+<jrb>	owen: it just seems really worthwhile keeping those in the same file.  I didn't know why jamesh didn't think it was feasible
+<jdahlin>	owen: introspection
+<owen>	jrb: I agree that you should be able to design your toplevel within your GUI editor coimpletely
+<jdahlin>	owen: it's basically patches on top of the objects to make them behave in a consistent way
+<owen>	jdahlin: But inside GTK+, wnhy wouldn't we just add the properties to the widgets?
+<jdahlin>	mclasen: right, we could move libglade as it is right now, but we have the chance to break the api and make it a bit cleaner and thinner
+<owen>	(Of course, leaving aside the possibility of glade having support for inherently broken pseudo-properties that we just want to support for back-compat)
+<jdahlin>	owen: I don't know why we shouldn't, I totally agree that they should be moved
+<jdahlin>	but it's a little bit of work, and it toches quite a few widgets
+<jdahlin>	touches
+<gmorten>	btw., create-time only properties are a royal pain here.
+<lgs>	yes they are
+<owen>	    glade_register_custom_prop (GTK_TYPE_ENTRY, "invisible_char", entry_set_invisible_char); huh?
+<lgs>	I think libglade handles that with custom widget builders
+<jdahlin>	owen: yeah
+<owen>	Oh, that's to take a string rather than a gunichar
+<danw>	owen: glade serializes invisible_char as a string, but the real property is an int
+<owen>	danw: What a screwup
+<lgs>	another problem are widgets that need arguments in their constructors
+<danw>	yeah, that probably counts more as "working around glade brokenness" than "working around gtk brokenness"
+<gmorten>	owen: yeah, the property should have been a string in gtk...
+<owen>	gmorten: Well, possibly, but given that it isn't trying to paper that over in libglade rather than glade is not a good idea.
+<owen>	gmorten: I'm pretty positive that the stupid 10 minute property editor in gtk+/tests gets it right
+<jdahlin>	GObject has no concept of converting types on the fly right?
+<lgs>	for example GtkSizeGroup needs the mode in its constructors, and that just make the parser harder
+<gmorten>	owen: just wait until you see how .glade files handle notebook tabs.
+<lgs>	same with GtkAction and GtkActionGroup
+<owen>	lgs: ? 
+<mclasen>	lgs: hmm, thats not even declared as a construct property
+<lgs>	owen, libglade uses g_object_new for building the widgets
+<owen>	lgs: GtkSizeGroup takes the mode in the C convenience API, but doesn't require it and supports changing it at any time
+<lgs>	and later it sets the properties that they are found in the .glade file
+<jdahlin>	check out gtk_action_group_new
+<lgs>	owen, sorry, then it's a bug of the pygtk binding for GtkSizeGroup
+<owen>	lgs: If it does that, it should be fixed to pass all the properties it can to g_object_new() ... that can be *considerably* more efficient
+<lgs>	owen, the only problem with that are construct only properties, like the 'type' property of GtkWindow
+<mclasen>	lgs: thats a GtkActionGroup bug
+<owen>	If we aren't requiring 100% compatribility, I think our goal shoudl be to eliminate glade-gtk.c. We can add some sort of mechanism to warn when encountering affected properties
+<lgs>	I totally agree
+<jdahlin>	As do I
+<mclasen>	owen: you mean: get rid of all custom properties ?
+<jrb>	by eliminate glade-gtk.c, you mean 'get rid of all the special cases'?}
+<jdahlin>	well, some parts of glade-gtk.c will still be needed, it does several things
+<owen>	jrb: Hmm, well, at least the special cases that aren't truly avoidable... GtkNotebook and the like might require special casing
+<jdahlin>	like defining internal_childs
+<jrb>	owen: yeah.  I think we all have the goal of minimizing it..
+<gmorten>	owen: I have 33069 lines of glade files in gnumeric.  Please don't rock the boat without very good reasons.
+<mclasen>	we should take the occasion to rename that to internal_children...
+<owen>	gmorten: But probably few clists...
+<gmorten>	owen: none, I hope.
+<jdahlin>	mclasen: sorry, my fault, it's internal-child
+<owen>	Anyways, I definitely dont' think we should splitt the property munging stuff in glade-gtk.c out into individual GTK+ widget files ... back compat hacks for existing glade files should be kept localized
+<owen>	Maybe the build-children stuff could be made into a container vfunc ... I haven't really looked into how it works
+<jdahlin>	There are three functions that are interesting to us; New, BuildChildren and FindInternalChild
+<owen>	jdahlin: What do you mean by "New"?
+<jrb>	gmorten: do you use the signal connection aspect of glade?
+<jdahlin>	owen: it's a function which is called when the widget is created, some widgets like GtkDialog seems to be handled slightly differently
+<lgs>	another issue is, there are some containers with that accept more than one children but, you can't add children to this type of container with a single API
+<gmorten>	jrb: rarely, if ever.
+<lgs>	for example, GtkFrame, you add the *main* widget with gtk_container_add, but you can add another widget with gtk_frame_set_label_widget
+<jrb>	and paned and notebook
+<lgs>	and that's kind of hard for libglade /gui builders
+<child> nodes
+<owen>	jdahlin: YOu mean build_widget?
+<owen>	lgs: That's the build_chidlren/find_internal_child stuff we are discussing
+<mclasen>	lgs: thats basically the difference between array and struct...
+<danw>	owen: the frame label isn't an internal child though
+<jdahlin>	owen: yes
+<danw>	but that could be resolved by having a child property saying whether the child was label or content
+<danw>	basically the same way box/table children work
+<owen>	danrw: I really don't know the details of how libglade is structured
+<lgs>	owen, see this http://lists.ximian.com/archives/public/glade-devel/2005-February/000987.html
+<jdahlin>	another thing lgs raised is how to merge in the ui files for menubars and toolbars
+<owen>	Basically, I think if we are going to do anything here, someone has to make sense of the whole internal children / push_composite_child / multiple child slots / etc. mess once and for all
+<danw>	yes
+<jdahlin>	I'll discuss it with james
+<mclasen>	we need widget groves !
+Feb 28 16:53:14 *	mclasen dreams back to his dsssl days
+<jrb>	huh
+<owen>	jdahlin: One conceivable answer is that we just don't use UI files at all when creating stuff as glade file. I dont' know how that interacts with the possibility o fmenu editing
+<owen>	jdahlin: or of menu merging
+<danw>	does that mean you can't use uimanager if your main window is specified with glade?
+<jrb>	danw: you can still do it by hand.  but it's not pretty
+<jrb>	danw: or as pretty as it really should be
+</uimanager>
+<lgs>	owen, I use CDATA for that right now in gazpacho gui builder
+<jdahlin>	owen: that'd be cleaner, but we'll need to reinvent parts of GtkUIManager, eg replacing everything with properties, childs, and everything
+<mclasen>	lgs: but you don't have to use CDATA to embed one wellformed xml fragment in another...
+<owen>	danw; I guess the question is "why would you care" ... what is the relevance of UI manager to the code of a app once the menus are created
+<owen>	lgs: Oh, uck. XML in cdata is awful
+<jdahlin>	owen: so we from the same format can construct everything and not have two different ones
+<lgs>	mclasen, I know, but that was meant to don't break libglade DTD
+<mclasen>	lgs: does libglade even validate the xml you feed it ?
+<jdahlin>	owen: the parser gets kinda complicated to embed one ui file into another, I'm not sure if this is easily done
+<jdahlin>	mclasen: it complains if you send in something it doesn't understand
+<owen>	danw: (Question for discussion)
+<lgs>	mclasen, no, because I'm using a property it doesn't know about, but the DTD is compatible
+<owen>	jdahlin: Sure a bit of work, but it's extremely tractable. 
+<mclasen>	lgs: I'd rather see the ui.xml be a separate file which is referred to in the glade file
+<mclasen>	than doing such a CDATA hack
+<lgs>	mclasen, I support both ways
+<danw>	owen: i'm not sure. i haven't used GtkUIManager for anything yet...
+<lgs>	mclasen, because users don't really want to have several files for their interfaces
+<danw>	"users"?
+<lgs>	danw, programmers, in this case
+<jrb>	gosh.  Surely we can get both in the same file...
+<jdahlin>	mclasen: I think it should be supported to have the ui files stored separately, but it should not be required
+<mclasen>	jdahlin: agreed
+<mclasen>	storing them separately has the advantage that you can update them independently (think menu editing)
+<owen>	I don't see much reason to support storing them separtely
+<owen>	mclasen: But the app is always going to be keeping the unedited version around somewhere
+<lgs>	mclasen, menu editing should be done inside the gui builder
+<jdahlin>	mclasen: also embedding in executables makes that easier
+<owen>	lgs: mclasen means user menu editing
+<jdahlin>	which the mono gangs want
+<mclasen>	lgs: at runtime ?
+<lgs>	mclasen, gui builder is something like gazpacho/glade
+<lgs>	sorry about the confussion
+<mclasen>	ok, I'll be leaving in ca 5 minutes
+<lgs>	another thing is right now, you need to have differnet UI files if you want to be able to merge/unmerge widgets later
+<lgs>	haveing pieces of UI definitions inside the .glade files that can be assigned to their own ui-merge-ids would be nice
+<mclasen>	so the important question for me is who is driving the libglade integration effort ? ...I don't have the time
+<jdahlin>	mclasen: I am
+<mclasen>	great, thanks
+<jdahlin>	mclasen: together with lgs & jrb
+<lgs>	and hopefullly with jamesh advices
+<jdahlin>	I think andersca might be interested in helping out too
+<jdahlin>	lgs: definitely
+<mclasen>	I can look at supporting CDATA in gmarkup, if that turns out to be useful
+<jrb>	mclasen: I think it's most useful for the TreeView data
+<mclasen>	jrb: just CDATA attributes or CDATA marked sections as well ?
+<mclasen>	CDATA marked sections are easier, since attributes would need dtd parsing
+<jrb>	mclasen: I'm not 100% sure we've thought it through fully.  So I don't know yet
+<mclasen>	and that is a big can of worms
+<jrb>	jdahlin: do we want to build off that page that jamesh started?
+<jdahlin>	jrb: I'm not sure, perhaps
+<jdahlin>	jrb: not everything makes sense, like keeping the API
+<jrb>	jdahlin: or should we just start a new one
+<jdahlin>	jrb: a new one and reference to james' one
+<danw>	but if glade is migrating into gtk then the existing discussion there becomes pointless
+<jdahlin>	seems like a good aproach to me
+<danw>	so why not just overwrite it?
+<jdahlin>	I
+<jdahlin>	I'm not sure if james is going to continue to maintain libglade
+<mclasen>	ok, I'm leaving. I'll post the logs tomorrow. See you next week
+<jdahlin>	mclasen: thanks for your time
+
+
+Meeting ended February 28, 17:05 EST (22:05 UTC)
