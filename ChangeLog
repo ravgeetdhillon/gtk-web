@@ -1,3 +1,11 @@
+2004-03-31  Curtis Hovey  <sinzui@cox.net>
+
+	* bindings.html:
+
+	Removed the letter 'A' that preceeded the HTML tag,
+	per Murray's invitation to make minor changes to the
+	page. 
+
 2004-03-24  Murray Cumming  <murrayc@murrayc.com>
 
 	* bindings.html: Updated after comments on language-bindings.
