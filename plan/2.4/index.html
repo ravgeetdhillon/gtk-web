@@ -28,8 +28,8 @@ GTK+-2.4 Plans
 	    <UL>
 	      <P>
 		A timescale of 8-9 months seems reasonable; that is,
-		a final 2.4.0 in late August or early September. A
-		rough schedule for a September 1 release is:
+		a final 2.4.0 in late August or early September. As always, we're a bit late, so our
+		current target date is early October:
 	      </P>
 	      <table cellspacing="5">
 		<tr>
@@ -43,22 +43,19 @@ GTK+-2.4 Plans
 		    decide what goes in, doesn't</td>
 		</tr>
 		<tr>
-		  <td align="right"><font size="-1" color="#008000">1 June 2003</font></td>
+		  <td align="right"><font size="-1" color="#008000">15 July 2003</font></td>
 		  <td>All major features are in</td>
 		</tr>
 		<tr>
-		  <td align="right"><font size="-1" color="#008000">1
-		  July 2003 </font></td>
+		  <td align="right"><font size="-1" color="#008000">15 August 2003</font></td>
 		  <td>Feature freeze</td>
 		</tr>
 		<tr>
-		  <td align="right"><font size="-1" color="#008000">1
-		  August 2003</font></td>
+		  <td align="</font></td>right"><font size="-1" color="#008000">15 September 2003</font></td>
 		  <td>API/ABI freeze</td>
 		</tr>
 		<tr>
-		  <td align="right"><font size="-1" color="#008000">1
-		  September 2003</font></td>
+		  <td align="right"><font size="-1" color="#008000">15 October 2003</font></td>
 		  <td>2.4.0</td>
 		</tr>
 	      </table>
@@ -77,16 +74,9 @@ GTK+-2.4 Plans
 	    portions. (<a
 	    href="http://bugzilla.gnome.org/show_bug.cgi?id=68435">#68435</a>, <a
 	    href="http://bugzilla.gnome.org/show_bug.cgi?id=101081">#101081</a>)</P></LI>
-	    <LI><P>GtkModelFilter (Ready for integration, Kris has a patch for
-		   this against HEAD).
-	        (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=60219">#60219</a>)</P></LI>
 	    <LI><P>Make RTL text editing really work (automatic paragraph
 		direction, etc., <a
 		href="http://bugzilla.gnome.org/show_bug.cgi?id=70451">#70451</a>, <a href="http://bugzilla.gnome.org/show_bug.cgi?id=70399">#70399</a>)</P></LI>
-	    <LI><P>Height-for-width geometry management. (Define a new interface, 
-		support it GtkVBox, GtkLabel would be the
-		minimum. <a href="http://bugzilla.gnome.org/show_bug.cgi?id=104188">#104188</a>)</P></LI>
-	    <LI><P>Reworked tooltips (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=50619">#50619</a>, <a href="http://bugzilla.gnome.org/show_bug.cgi?id=56291">#56291</a>, <a href="http://bugzilla.gnome.org/show_bug.cgi?id=62174">#62174</a>, <a href="http://bugzilla.gnome.org/show_bug.cgi?id=65490">#65490</a>)</P></LI>
 	    <LI><P>Autocompletion and history for GtkEntry (is being done in
 		   conjunction with the combo work, Kris has made progress
 		   here)
@@ -98,13 +88,6 @@ GTK+-2.4 Plans
 		fonts, etc (<a
 		href="http://bugzilla.gnome.org/show_bug.cgi?id=107597">#107597</a>,
 <a href="http://bugzilla.gnome.org/show_bug.cgi?id=107682">#107682</a>)</P></LI>
-	    <LI><P>Optimized pixbuf operations -- scaling down a lot (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=80925">#80925</a>),
-		unscaled ops (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=80927">#80927</a>)</P></LI>
-	    <LI><P>"Smooth scrolling", like in Internet Explorer (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=103811">#103811</a>)</P></LI>
-	    <LI><P>GtkResizeGrip -- a widget implementing a resize
-	    	  grip. (<a
-		  href="http://bugzilla.gnome.org/show_bug.cgi?id=73359">#73359</a>)</P></LI>
-	    <LI><P>Integration of <a href="http://www.directfb.org/gtk.xml">directfb port</a>.</P></LI>
 	    <LI><P>XCursor support for GDK. (<a 
 		  href="http://bugzilla.gnome.org/show_bug.cgi?id=69436">#69436</a>)</P></LI>
 	    <LI><P>Support freedesktop.org icon themes (<a
@@ -114,16 +97,7 @@ GTK+-2.4 Plans
 	    <LI>Possible GtkTreeView features (Jonathan, Kris):
                 <P>
 	    	<UL>
-		   <LI>Save expanded node state (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=50054">#50054</A>)</LI>
 		   <LI>GtkTreeModelFilter (mostly ready to go in) (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=60219">#60219</A>)</LI>
-		   <LI>DnD with multiple items (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=70479">#70479</A>)</LI>
-		   <LI>Support for state saving (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=75128">#75128</A>)</LI>
-		   <LI>Rubberbanding (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80127">#80127</A>)</LI>
-		   <LI>"Mode API", in some form (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80590">#80590</A>)</LI>
-		   <LI>Storage of hidden selections (about the same as "save expanded node state") (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80870">#80870</A>)</LI>
-		   <LI>Tooltip support for GtkTreeView (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80980">#80980</A>)</LI>
-		   <LI>"type-ahead search" (undecided) (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=90006">#90006</A>)</LI>
-		   <LI>Copy/paste (undecided) (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=104626">#104626</A>)</LI>
 		</UL>
                 <P>
 		Plus some API additions and small tweaks/features.

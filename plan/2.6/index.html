@@ -1,0 +1,63 @@
+
+<html>
+<head>
+<title>GTK+- 2.6 Plans</title>
+
+<!--#include file="site_top.html" -->
+
+<table border=0 cellpadding=0 cellspacing=0><tr><td valign=top>
+
+<!--#include file="section_begin.html"-->
+GTK+-2.6 Plans
+<!--#include file="section_end.html"-->
+
+<P>
+<B>Overview</B>
+	    <UL>
+	      <P>No timescale or feature set for GTK+-2.6 has been decided yet, but
+	        a number of features have been punted from the 2.4 feature set, which makes
+		them likely candidates for the 2.6 feature set. 
+	      </P>
+	    </UL>
+</P>	    
+<P>
+<B>Tentative schedule</B>
+No schedule yet.
+</P>	    
+<B>Possible features</B>
+	  <UL>
+	    <LI><P>Height-for-width geometry management. (Define a new interface, 
+		support it GtkVBox, GtkLabel would be the
+		minimum. <a href="http://bugzilla.gnome.org/show_bug.cgi?id=104188">#104188</a>)</P></LI>
+	    <LI><P>Reworked tooltips (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=50619">#50619</a>, <a href="http://bugzilla.gnome.org/show_bug.cgi?id=56291">#56291</a>, <a href="http://bugzilla.gnome.org/show_bug.cgi?id=62174">#62174</a>, <a href="http://bugzilla.gnome.org/show_bug.cgi?id=65490">#65490</a>)</P></LI>
+	    <LI><P>Optimized pixbuf operations -- scaling down a lot (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=80925">#80925</a>),
+		unscaled ops (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=80927">#80927</a>)</P></LI>
+	    <LI><P>"Smooth scrolling", like in Internet Explorer (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=103811">#103811</a>)</P></LI>
+	    <LI><P>GtkResizeGrip -- a widget implementing a resize
+	    	  grip. (<a
+		  href="http://bugzilla.gnome.org/show_bug.cgi?id=73359">#73359</a>)</P></LI>
+	    <LI><P>Integration of <a href="http://www.directfb.org/gtk.xml">directfb port</a>.</P></LI>
+	    <LI>Possible GtkTreeView features (Jonathan, Kris):
+                <P>
+	    	<UL>
+		   <LI>Save expanded node state (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=50054">#50054</A>)</LI>
+		   <LI>DnD with multiple items (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=70479">#70479</A>)</LI>
+		   <LI>Support for state saving (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=75128">#75128</A>)</LI>
+		   <LI>Rubberbanding (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80127">#80127</A>)</LI>
+		   <LI>"Mode API", in some form (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80590">#80590</A>)</LI>
+		   <LI>Storage of hidden selections (about the same as "save expanded node state") (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80870">#80870</A>)</LI>
+		   <LI>Tooltip support for GtkTreeView (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80980">#80980</A>)</LI>
+		   <LI>"type-ahead search" (undecided) (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=90006">#90006</A>)</LI>
+		   <LI>Copy/paste (undecided) (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=104626">#104626</A>)</LI>
+		</UL>
+                <P>
+		Plus some API additions and small tweaks/features.
+	    </LI>
+	  </UL>
+</P>	    
+
+<!--#include file="site_bottom.html" -->
+
+</html>
+
+
