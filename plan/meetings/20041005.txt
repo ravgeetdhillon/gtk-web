@@ -1,0 +1,285 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started October 05 2004 17:02 EST (21:02 UTC)
+
+In attendence: 
+
+Owen Taylor (owen), Jonathan Blandford (jrb), Manish Singh (yosh),
+Shaun T. Amundson (Snorfle), Tim Janik (rambokid), 
+Federico Mena Quintero (federico), Anders Carlsson (andersca), 
+Matthias Clasen (matthias), Robert Ögren (roboros), John Ehresman (jpe), 
+Sven Neumann (neo), Federico Mena Quintero (federico),  Carol Spears (carol),
+Elijah Newren (elijah), Carlos Garnacho (garnacho)
+
+
+<mclasen>	Impressive roundup of GTK+ oldtimers today...
+<Snorfle>	:-)
+<rambokid>	i plead to put #145270 on the agenda.
+*	rambokid goes gets some food
+<jrb>	yosh: ops!
+<mclasen>	ok, so let me list my agenda items:
+<mclasen>	  website move/reorganization (Snorfle)
+<mclasen>	  clipboard api (andersca)
+<mclasen>	  icon caching 
+<mclasen>	  HIG dialog api (garnacho)
+<mclasen>	  EWMH take activity patch (Eliah Newren)
+<andersca>	sounds good
+<mclasen>	and then there is release timing, as always. Maybe we should start with that.
+<mclasen>	I want to do 2.4.x releases of glib and gtk+ this week, so that they are ready in time for 2.8.1
+<mclasen>	If there are any urgent fixes which should really be in the next 2.4 release, please bring them up. 
+<mclasen>	I plan to do the next 2.5.x releases sometime next week
+<mclasen>	ok, if nobody has issues with that, maybe we can move to website move/reorganization. Snorfle, do you want to outline your plans ?
+<rambokid>	mclasen: i plan to merge down the sizing fix to 2.4 once i got a hold on owen. other than that, i'd like to finally fix #145270. can talk about that later with owen alone if nobody has input on that though.
+<mclasen>	owen is theoretically in here...
+<owen>	I am here
+<rambokid>	owen: ok. want to defer talk about the two bugs util after the meeting?
+<owen>	rambokid: Probably best to handle other issues first. I responded and said "go ahead and merge to 2-4" on the NEED_REQUEST issue, though
+<mclasen>	so, since Snorfle doesn't seem to be here, let me repeat what he said to me earlier: he will move the gtk.org site to a different host (and move it physically from berkeley to michigan)
+<rambokid>	owen: ah, haven't seen the reply yet.
+<mclasen>	and he also asked me what I think about converting the web site to a wiki
+<owen>	mclasen: I
+<owen>	'd sort of like to know more about the reasoning for the move. There would be something to be said of switching gtk.org to the gnome.org servers if we are going to move it at all
+<rambokid>	mclasen,snorfle: hm, is there any need to physically move the site? 
+<mclasen>	owen, rambokid: I don't have any insight in that...
+<owen>	In terms of a wiki - in some ways, I think it could be a lot better.
+<jrb>	I'd like to see it at gnome.org too
+<rambokid>	owen: i'd start out with a few wiki pages first, and not move the whole site.
+<mclasen>	owen: but converting things could be quite a bit of work. Right now, the web site is kind of low maintainance...
+<owen>	jdub has grandios plans for converting developer.gnome.org to a wiki, so there might be possible coordination with that
+<owen>	mcalsen: Yeah. wiki's are not lower maintainence than regular websites, just different maintainence
+<owen>	Let's give Snorfle some time to show up again and talk about other issues
+<mclasen>	ok, andersca, do you want to talk about clipboard handling ? Is that something we should discuss here ?
+<andersca>	yes
+<andersca>	so, I've been doing some work on the clipboard support
+<andersca>	I've written up a doc which can be found at http://andersca.org/stuff/clipboard/clipboard-enhancements.txt
+<andersca>	and I'd like to hear your comments, and if this is something that can be put into gtk 2.6
+<mclasen>	andersca: I think there are basically two independent parts here, right ? tracking supported targets, and persistance
+<andersca>	yeah
+<mclasen>	andersca: the tracking of supported targets looks like a clear 2.6 candidate to me. The challenge with the persistance part is that you need a clipboard manager to make any use of it
+<mclasen>	andersca: and we need to pick up the discussion of the clipboard manager spec on xdg-list again and actually move the spec to f.d.o 
+<mclasen>	and write a reference implementation of a clipboard manager
+<andersca>	mclasen: I've tried these changes with your reference implementation
+<andersca>	and fixed a few bugs in it
+<jrb>	andersca: do we have any idea how many apps quit by calling exit() versus gtk_main_quit()?
+<andersca>	jrb: they can call gtk_clipboard_store explicitly...
+<mclasen>	andersca: how well does calling clipboard_store() from main_quit() work in practise ? 
+<andersca>	mclasen: I made set_text call set_can_store, and that made pretty much all basic applications work wrt text 
+<andersca>	mclasen: so I'd say it works pretty well
+<owen>	I don't like calling store() from main_quit()
+<andersca>	owen: I kinda figured you wouldn't like that
+<owen>	Thoughh maybe I'm favoring cleanliness over easy-of-use...
+<andersca>	owen: it's a bit dirty yeah, I mean
+<mclasen>	owen: do we have a cleaner alternative ?
+<andersca>	owen: we start up a new main loop to wait for the clear_selection event
+<owen>	mclasen: Well, the clean equivalent is just to require every app to make some call...
+<andersca>	owen: that was my initial idea
+<andersca>	owen: and then I thought "hmm, we could make this work automatically by adding it to gtk_main_quit"
+<rambokid>	the accelerator map also requires an explicit call to be saved.
+<owen>	andersca: Are you triggering off main loop level to catch rescursive main loops?
+<andersca>	owen: yes
+<rambokid>	in order for people to know that, the docs for accel-change related functions point out the need to call the function explicitely
+<andersca>	rambokid: clipboards are more commonly used than dynamic accel maps, people expect their apps to store the clipboard when their applications exit...
+<rambokid>	andersca: you really use gtk_main_quit, and not a gtk_main quit function?
+<andersca>	rambokid: 
+<andersca>	+
+<andersca>	+  if (gtk_main_loop_level == 0)
+<andersca>	+    _gtk_clipboard_store_all ();
+<owen>	andersca: I'd say its tentatively an OK thing. I think the number of apps that use multiple calls to gtk_main() *and* have different clipboard levels is small.
+<rambokid>	andersca: i think it's the same scenario, because when you enable dynamic accels, you also want every application to save the accels away.
+Oct 05 17:37:11 *	Snorfle returns
+<rambokid>	andersca: *where* is that code?
+<andersca>	rambokid: at the end of gtk_main_quit
+<andersca>	owen: nod
+<Snorfle>	gtk.org is moving to U of MN CS dept
+<owen>	Snorfle: Well, you own the domain... but... :-)
+<andersca>	owen: what do you think about the rest of the proposal?
+<owen>	Snorfle: Maybe it would be good to have some background?
+<andersca>	the only thing I haven't implemented here is the TARGET_SIZES support
+<Snorfle>	the ongoing stability problems of the machines at XCF are a major problem
+<Snorfle>	I am pouring some money into machines
+<Snorfle>	well, one machine :-)
+<rambokid>	yosh: can you give some input on the stability issue?
+<yosh>	other than the new machine I got having issues, the *current* machines are stable
+<owen>	Snorfle:  Hmm. It's great that you are volunteering, I'm just wondering if the gnome.org servers make more sense?
+<owen>	Since any GTK+ developer already will have a ssh key there, etc.
+<Snorfle>	well, this is eventually going to be a gimp.org move as well
+<yosh>	Snorfle: well, supplant rather than move wholesale, cause a wholesale move doesn't make much sense
+<rambokid>	Snorfle: and beast, and evilplan, and etc...? what exactly are your plans?
+<mclasen>	andersca: I think we should get the target tracking in for 2.5.4, and move the persistance spec to f.d.o, together with a the reference implementation of the clipboard manager. Once we have the spec on f.d.o, we can look at the GTK+ side of the persistance support again, and decide whether doing it automatically is acceptable or not...
+<andersca>	mclasen: ok
+<andersca>	mclasen: I'm going to write some tests for the clipboard manager too
+<andersca>	(this is paid work)
+<Snorfle>	rambokid: any free software site currently on wilber can move over
+<mclasen>	andersca: hey, cool
+<andersca>	mclasen: anyway, do you think it's ok if I put up the latest version of the clipboard manager spec on fd.o and then post it to xdg-list
+<andersca>	mclasen: I have some additions to it, and I'd like to discuss those on xdg-list
+<mclasen>	andersca: when I was last working on this back in May, lubos agreed to replace his current (unimplemented) clipboard extension with my spec
+<andersca>	mclasen: cool
+<andersca>	mclasen: the changes are just minor clarifications
+<mclasen>	andersca: I think it would be good to announce on xdg-list that you picked up the ball, and discuss the remaining issues
+<andersca>	cool
+<mclasen>	andersca: but that shouldn't stop you from putting the spec on f.d.o, if you can get cvs access...
+<Snorfle>	(sorry, work keeps interrupting)
+<andersca>	mclasen: the web page's a wiki, right?
+<mclasen>	ok, further input on the website discussion, or should we move on to the next topic ?
+<mclasen>	andersca: yes
+<andersca>	mclasen: cool, I'll send mail tomorrow
+<owen>	mclasen: I guess the question is how we move forward on the website topic
+<Snorfle>	I'd like to drive it forward, as in times of old, and I'm hoping you guys will trust me to do that with the interests of the project in mind.
+<owen>	What do people think - would they have a preference to see gtk.org move to the gnome.org servers? Would they dislike that? Do they care as long as the autocheckout still works?
+<andersca>	I wouldn't mind having it on gnome.org
+<andersca>	It'd make it easier for people in the team to do releases
+<owen>	Hmm, I think we are mostly talking web here, not ftp. 
+<Snorfle>	(ftp would also move)
+<andersca>	ah
+<owen>	Snorfle: Certainly we'd be glad to see help on the website, and I'd trust you pretty implicitly to do the right thing :-)
+<Snorfle>	I think we can make a better website for www.gtk.org and www.gimp.org, and I've been pondering this for a *long* time
+<owen>	The main concerns I'd have would simply be access to the machine, especially if you start having less time again, and whether gnome.org hosting would work better with the other infrastructure that people use.
+<mclasen>	owen: I don't care where it is hosted, as long as updating is not less convenient than the current cvs-based setup
+<carol>	Snorfle: does this mean you will be more involved than you have been?
+<Snorfle>	carol: obviously
+<carol>	Snorfle: that would be very nice. it would also have been nice (since i have stayed involved) to hear of these plans before a gtk-devel meeting
+<owen>	It would be a little hard to do worse than the the current gtk.org ... OK, plan/ works fairly well, there's a link to the API docs, there's a link to the ftp site, there's a link to bugzilla, but other than that it's not much of a resource for developers
+<mclasen>	owen: do we *have* much more content to put in a new site than that ? I mean, there are misc tutorials for gobject and treeview somewhere else on the web, but we link to most of that material now
+<Snorfle>	I like the idea of a wiki for the site, perhaps; and I want more content on www.gtk.org and less links.  My initial vision of www.gtk.org was much more grand than it is today.
+<Snorfle>	(than www.gtk.org is today, not my vision :-)
+<owen>	Snorfle: I guess the bottom line is that if you have time and ideas to work on gtk.org, you really should be driving the technology and location. 
+<Snorfle>	the other topic is license of site content
+<Snorfle>	that needs to be clarified
+<Snorfle>	I am going to setup RT and respond to webmasters (unlike now), and one of the primary questions is "can I use this" and the like
+<carol>	actually is a nice thought here that someone might renew some of those ideas they had when they were first thinking about things with this gimp* stuff :)
+<jrb>	Snorfle: do you have any interest in working within the current gnome.org framework?  There's a good amount of infrastructure there
+<Snorfle>	what I'd like to avoid, and this is probably more a concern on gimp.org, is contributions which do not have a clear license
+<carol>	cgo is being used in classrooms throughout the world
+<owen>	Snorfle: Well, if we go with Wiki, there isn't going to be a clear definite licesne ... the best we could have is some vague click-through when you register with the Wiki
+<Snorfle>	I thought it would have been interesting if gnome.org had started out on gimp.org or gtk.org
+<Snorfle>	owen: seems to work for wikipedia
+<mclasen>	the largest content on the current site with unclear license is the api docs
+<Snorfle>	owen: an author of gimp.org content threatened to remove it, and that bothered me; I want a more clearly stated policy that contributed work is going to exist in the future
+<carol>	http://creativecommons.org/license/
+<Snorfle>	owen: given, I'm not worried about that looking at the gtk.org ChangeLog, but trying to get more content contributors will make it more of an issue
+<rambokid>	owen: handling things the way wikipedia does should be good enough. it's not like this would be a new, unique and unsolved problem on the web...
+<owen>	rambokid: THere is also php.net as precendent - not sure what they do
+<carol>	http://creativecommons.org/technology/web-integration
+<owen>	yosh: BTW, have you had reports of recent connectivity problems ... gtk.org isn't accessible from here, but it is from, say, NC
+<yosh>	owen: nope. traceroute?
+<owen>	Snorfle: The activity on the gtk mailing lists is actually very good at the moment ... I get the feeling there are quite a few people out there with lots of knowledge they want to share. Having some forum other than constantly repeated faqs on the mailing lists would be good
+<Snorfle>	with as heavily linked as www.gtk.org is everywhere, I think it deserves a bit of serious loving
+<owen>	11  CENIC.hsa1.Level3.net (209.247.159.110)  102.495 ms dc-svl-m10.cenic.net (137.164.12.170)  133.154 ms  93.842 ms
+<owen>	12  inet-ucb--svl-isp.cenic.net (137.164.24.106)  134.835 ms  116.354 ms  112.628 ms
+<owen>	Stops there
+<yosh>	owen: and from NC?
+<owen>	Goes through cenic, but on a different route
+<owen>	10  hpr-lax-gsr1--abilene-LA-10ge.cenic.net (137.164.25.2)  75.199 ms  75.257 ms  75.283 ms
+<owen>	11  svl-hpr--lax-hpr-10ge.cenic.net (137.164.25.13)  82.783 ms  82.802 ms  82.807 ms
+<owen>	12  hpr-ucb-ge--svl-hpr.cenic.net (137.164.27.134)  84.176 ms  84.261 ms  90.760 ms
+<owen>	13  vlan187.inr-201-eva.Berkeley.EDU (128.32.0.33)  84.116 ms  84.139 ms  112.303 ms
+<owen>	1
+<mclasen>	ok, I fear we're running out of time. Lets go quickly over the remaining issues before staring at traceroute logs...
+<--	elijah has quit (Ping timeout: 600 seconds)
+<owen>	mclasen: Right
+<mclasen>	Regarding icon caching, I think we should try to get that into 2.6, I will try to get the file format written down and published on f.d.o, and I want to get the icon cache patch into gtk+ relatively soon, probably not in 2.5.4, but in 2.5.5
+<Snorfle>	if anyone wants to personally flame me for my ideas, just fire off an email :-)
+<mclasen>	so please, test it and check that it actually works as promised...
+<mclasen>	the next topic is the HIG dialog api, for which garnacho sent another take to the mailing list some time ago...
+<mclasen>	I think our consensus was more or less to keep authentication (and more general add_widget()-type things) out of the simple message dialog api
+<jrb>	Snorfle: I don't really understand your ideas.  Perhaps a message to gtk-devel-list about what you have planned would be good
+<mclasen>	If there are no other issues with the latest iteration of the HIG dialog api, I
+<mclasen>	would like to include that in 2.5.4
+<owen>	The new API is just gtk_message_dialog_format_secondary_text()
+<owen>	?
+<owen>	(and format_secondary_markup()?)
+<garnacho>	mostly yes
+<owen>	And if you call this, the normal text automatically gets reformated as bold/larger/whatever?
+<garnacho>	mclasen: what somewhat worries me about not adding some kind of _set_extra_widget() is that some apps (such as nautilus) will still use their custom dialogs
+<garnacho>	but as you say maybe it's nice to keep the API simple
+<owen>	garnacho: So? 
+<garnacho>	owen: yes
+<owen>	What happens if the primary text is markup? How do you integrate the two?
+<owen>	One obvious question is that we have set_markup() now ... do we want to deviate and have the different format_secondary_* names?
+Oct 05 18:18:23 -->	elijah (~None@amr.math.utah.edu) has joined #gtk-devel
+<owen>	for the same printf() style operation
+<owen>	(This hsa all been discussed before, I think. BUt I've forgotten...)
+<mclasen>	owen: set_markup() doesn't take varargs
+<carol>	Snorfle: just for the record, you could paste your email here
+<owen>	mclasen: What's the ... for?
+<mclasen>	owen: void       gtk_message_dialog_set_markup  (GtkMessageDialog *message_dialog,
+<mclasen>						   const gchar      *str);
+<mclasen>	no ... here
+<rambokid>	yeppers!
+<Snorfle>	carol: amundson@ any of the domains like gtk.org or gimp.org
+<garnacho>	mclasen: it's in my proposal, I commented it in the past iteration
+<mclasen>	oh, I see
+<rambokid>	owen: is_viewable walks "parent" but checks "window" on each iteration
+<owen>	Oh, carlos's header is a little munged there
+<owen>	rambokid: Wait, I think there is a patch for that in bugzilla somewhere
+<carol>	Snorfle: thanks :)
+<rambokid>	kinda silly...
+<owen>	rambokid: Yeah, and amazing that it has been that way for 4 years or so
+<rambokid>	yep ;)
+<owen>	Don't see it in bugzilla. 
+<mclasen>	garnacho, owen: I don't think we can compatible turn set_markup() into a varargs function, can we ?
+<owen>	mclasen: No, we can't
+<garnacho>	no? oh, my fault
+<owen>	garnacho: Leaving calling conventions aside, what if someone had a % in their markup?
+<mclasen>	owen: if we don't convert set_markup() to varargs, the naming difference between set_markup() and format_secondary_markup() becomes an advantage...
+<garnacho>	hmmm
+<owen>	mclasen: Yeah. The format() names I think are right anyways.
+<owen>	mclasen: We'd probably want to add at least format_markup() though.
+<mclasen>	one could conceivably add format_primary_markup() 
+<mclasen>	or that
+<owen>	garnacho: In general, I think the current api of simply adding setters for the secondary text and "doing the right thing" is a convenient one
+<owen>	I think we should try to land this in the next week
+<garnacho>	nice :)
+<garnacho>	I'll work to on the gtk-demo stuff, and add doc for the new API
+<mclasen>	ok, I have about five more minutes before I have to run out...the last topic I had on my list is the take activity patch, and thankfully elijah is here today...
+<elijah>	:)
+<elijah>	Was I supposed to be here before?  (Sorry, if I was--I didn't know)
+<mclasen>	elijah: no idea, I just noticed you here. I guess if you don't know, its just a lucky coincidence...
+<owen>	Well, Ithink your item is the only one on the agenda we haven't gotten to yet
+<owen>	Though it's getting a little late for extensive discussion
+<mclasen>	yes. The patch needs more work anyway, since it currently hardcodes the dnd threshold. 
+<mclasen>	What I want to know is whether the patch implements something which is already in the current EWMH draft ? Does KDE have an implementation ?
+<elijah>	http://mail.gnome.org/archives/wm-spec-list/2004-April/msg00013.html
+<owen>	It is a bit too much like the gross hack that lubos had for Qt to maek me like it much
+Oct 05 18:32:41 *	elijah checks the EWMH and is suprised to find it isn't there yet
+<elijah>	crap
+<elijah>	ooh, see also http://mail.gnome.org/archives/wm-spec-list/2004-October/msg00001.html
+<mclasen>	elijah: I think the hardest part of f.d.o work is figuring out how to update the stuff on the website...
+<mclasen>	anyway, I really have to go now. Feel free to continue the discussion, I'll keep the logs and put them on www.gtk.org tomorrow...
+<elijah>	summary of those emails: Lubos had an implementation for KDE months ago, Havoc just recently responded and asked to get it in the spec.
+<elijah>	Any quick pointers on how to get rid of the hard-coding of the dnd threshold in the patch I have?
+<owen>	elijah: It has to involve the GTK+ layer, IMO
+<owen>	What I don't understand really is what the relationship of the _NET_WM_TAKE_ACTIVITY message to the button press is
+<owen>	That's not realyl specified in Lubos's patch to the EMHW
+<owen>	rambokid: BTW, if you are still around - you'll take care of fixing up is_viewable()?
+<elijah>	As far as I understood, that's when the window manager sent the message to the client; the client merely updates the starting-drag-position upon ButtonPress.
+<rambokid>	owen: yes. just got something to ddrink
+<elijah>	So how should it involve the gtk+ layer?
+<elijah>	That is, how is that implemented?  (for the clueless gtk+ newbie)
+<owen>	elijah: I need the information about what he relationship of this message is to press and release events to answer that
+<elijah>	WM receives ButtonPress -- sends TAKE_ACTIVTY to client.
+<elijah>	client receives ButtonPress -- it updates drag-start-position.
+<owen>	But the button press has to also go to the client, right? 
+<owen>	Does it get received before or after TAKE_ACTIVITY?
+<elijah>	Don't think it matters.
+<owen>	Definitely hsa to be specified
+<elijah>	Okay, for now, assume it's:
+<elijah>	1) WM gets ButtonPress first, sends take-activity message to client
+<elijah>	2) client gets ButtonPress second, records new drag-start-position
+<elijah>	3) client receives take-activity message from WM
+<elijah>	then, later, client receives ButtonRelease and determines whether to return a take-activity pong to the WM.
+<owen>	Here's one strawman (names not thought through). We add gdk_event_get_is_activate_click() 
+<owen>	If a widget (or here, the DND code) gets a "activate_click" message, they can call gdk_event_set_activate_pending()  - if they call that, they are responsible for, on the paired release, calling gdk_event_activate_end (gboolean do_activate)
+<owen>	If the widget doesn't call set_activate_pending() then GDK will handle sending _NET_WM_TAKE_ACTIVITY on the release, otherwise GDK sends TAKE_ACTIVITY only igdk_event_activate_end() is calledf 
+<owen>	Or, it could be even simpler.  We simply add gdk_window_cancel_activate() - if that is called between a button press and a button release then GDK cancels any pending _NET_WM_TAKE_ACTIVITY messages
+<elijah>	gdk_window_cancel_activate is much closer to the current patch and what I had in mind.
+<owen>	gtk_drag_begin() could even call that automatically
+<owen>	Anyways, the point is that the *policy* must be at the GTK+ layer. What lives at the GDK layer should be simple, and shouldn't worry about things like dnd.
+<elijah>	So, the basic idea is add a gdk_window_cancel_activate() function (should that be gdk_x11_window_cancel_activate?), have gtk_drag_begin() call it, and then start searching for other special cases that need it (moving sliders at least a minimum distance, etc.), and remove the dnd stuff in my patch from gdk...
+<elijah>	Is that right?
+<owen>	elijah: I'd make it generic ... if it is called from GTK+ it has to be generic
+<owen>	elijah: Though it would be very much worth your time to see what sort of API windows has in this area
+<owen>	OK, think meeting is over
+
+
+Meeting ended October 5, 19:10 EST (23:10 UTC)
