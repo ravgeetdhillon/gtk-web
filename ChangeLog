@@ -1,5 +1,9 @@
 2003-06-09  Kristian Rietveld  <kris@gtk.org>
 
+	* plan/2.4/index.html: added some whitespace
+
+2003-06-09  Kristian Rietveld  <kris@gtk.org>
+
 	* plan/2.4/index.html: add a list with possible treeview features
 	for 2.4.
 
