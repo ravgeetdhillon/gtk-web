@@ -1,0 +1,128 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started March 29 2005 15:59 EST (21:59 UTC)
+
+In attendence: 
+
+Matthias Clasen (mclasen),
+Jonathan Blandford (jrb),
+Join Kare Hellan (jon_kare),
+Tor Lillqvist (tml),
+Manish Singh (yosh),
+Anders Carlsson (andersca),
+Billy Biggs (vektor),
+Morten Welinder (gmorten),
+Johan Dahlin (jdahlin)
+
+
+<mclasen>	happy easter altogether
+<mclasen>	sorry for messing up with DST again...
+<mclasen>	but it is actually the wierd US that is messing up here.
+<mclasen>	I was on DST for a few hours on Sunday morning before I realized it is different on this side of the Atlantic...
+<mclasen>	contrary to the last meetings, I actually have an agenda today
+<mclasen>	I would like to talk about the next 2.6.x release first
+<mclasen>	my current plan is to do releases two weeks from now
+<mclasen>	are there any bugs apart from the ones on the 2.6.4/2.6.5 milestones we need to look at ?
+<jon_kare>	bmp save
+<mclasen>	Thats the one I was about to bring up
+<jon_kare>	tnx
+<mclasen>	Is bmp saving support enough to fix the clipboard experience on win32, or do we need a gtkclipboard patch as well ?
+<tml>	iirc, we need a patch to gdk/win32 also
+<tml>	haven't looked at that bug/patch lately
+<jon_kare>	just bmp save would help with clipboard interworking with ooo
+<yosh>	OOo doesn't support png at all? that's pretty lame
+<jon_kare>	even on X11
+<jon_kare>	yosh: True and I agree
+<yosh>	jon_kare: is there a bug filed on OOo about that?
+<mclasen>	I can backport the bmp saving, but the win32 people would have to take care of gdk/win32
+<tml>	what about the code reorg for gtkplug/socket on win32, would that be for HEAD only, or 2.6, too? and is the suggested file names / code split ok?
+<jon_kare>	yosh: I mentioned it to michael, and he blogged about it.
+<jon_kare>	I was hoping he'd follow up.
+<mclasen>	tml: I haven't looked at that at all, since plug/socket is all owens code
+<mclasen>	tml: but I think you basically followed his earlier comments, didn't you ?
+<tml>	hopefully yes
+<tml>	(i.e., bug #58541)
+<mclasen>	tml: I'll ask owen to review it when he is back
+<tml>	ok, tnx
+<mclasen>	ok, if there are no more 2.6.x bugs to discuss, I'd like to switch to 2.8 
+<mclasen>	March is almost over, so according to our schedule, 2.8 features should be available in "prototype" form at this point...
+<tml>	what is the policy in general now again about API additions to 2.6, absolutely not acceptable? (I was thinking about stuff like g_access())
+<mclasen>	tml: I think we would need very convincing reasons to add API to 2.6.x at this point
+<tml>	ok
+<mclasen>	maybe we should go over the list in www.gtk.org/plan/2.8 and see where each feature stands
+ *	mclasen looks for his list
+<mclasen>	ok, so Cairo support in Pango and GDK is alreay in CVS
+<mclasen>	vertical menubars as well...
+<mclasen>	GtkIconView enhancements:
+<mclasen>	I have a patch for switching to cell renderers and allowing editing
+<mclasen>	which basically works, but has a few loose ends
+<mclasen>	- keybindings need to be sorted out
+<mclasen>	- RTL drawing and scrolling has issues
+<mclasen>	and the big one is
+<mclasen>	- a11y needs to be reimplemented
+<mclasen>	I haven't worked on DND support at all yet, so that looks a bit unlikely for 2.8 at this point
+<tml>	you mean "integrate gail"?
+<mclasen>	tml: no, a11y in the icon view
+<mclasen>	moving to the "integrate gail" feature
+<vektor>	mclasen: did 169534 go in for 2.6.x ?
+<mclasen>	yes
+<gmorten>	Too late for making a pitch for saving gparam flag space?
+<vektor>	mclasen: thanks.
+<mclasen>	gmorten: you can make a pitch, but I'm not sure you will have much luck discussing this today, with neither rambokid nor owen being around
+<gmorten>	I see.
+<mclasen>	back to "integrate gail"...
+<mclasen>	I did an initial patch to move the gail module to the gtk/modules directory, which needs some tweaks, and I did another patch to move the canvas a11y bits to gnome-canvas
+<mclasen>	the gnome-canvas patch will need to be tested by somebody who actually knows something about the a11y framework...
+<mclasen>	and it needs some thought about how we resolve conflicts between canvas a11y bits in the current gail module and in gnome-canvas
+<mclasen>	moving to "full introspection"...
+<mclasen>	I have proposals for an xml and a binary metadata format (I posted about them earlier to gtk-devel-list)
+<mclasen>	And I have a prototype implementation for a compiler which goes from xml -> binary
+<mclasen>	And a repository api on top of the binary data
+<andersca>	sounds excellent
+<mclasen>	What I need to do really soon is to clean up the prototypes to the point where I can publish them
+<andersca>	do you plan to use libffi?
+<mclasen>	and then it needs to be finished in some places, one of them being implementing g_function_invoke
+<mclasen>	either using libffi, or bits from mozilla xpcom
+<mclasen>	I hope to get my prototype in tarball form in the next 2 weeks
+<mclasen>	moving to features where I don't know about the status of the prototyping...
+<mclasen>	Support RGBA visuals (#150537)
+<mclasen>	I think owen will get to this in time for 2.8
+<mclasen>	Support _NET_WM_TAKE_ACTIVITY (#154260)
+<mclasen>	Not sure what the status is for this one
+<mclasen>	It has a patch, but it needs wm spec additions, and corresponding window manager changes
+<mclasen>	GtkIconView DND support (#150270)
+<mclasen>	I mentioned that one already
+<mclasen>	Integrate libglade
+<jrb>	mclasen: fer and I are going to try and whip up a GtkFileChooserPreview-type object this week
+<mclasen>	nice.
+<mclasen>	jrb: do you know anything about the libglade efforts ?
+<jrb>	mclasen: I think it stalled a little bit, but I'll double check
+<mclasen>	hey jdahlin
+<mclasen>	we were just talking about "Integrate libglade"
+<jdahlin>	mclasen: oh
+<jdahlin>	danw and I has done some work with the libglade code base to adapt it to gtk+ over the last week
+<jdahlin>	however, we both feel that the schedule is a bit tight to be able to push a stable and usable ui builder in the 2.8 timeframe
+<jrb>	jdahlin: is it in CVS at all?
+<jdahlin>	jrb: I have a local svn repository
+<jrb>	okay
+<mclasen>	jdahlin: dropping things from the schedule is easy...
+<mclasen>	it might still make sense to do some of the necessary property cleanups/additions in 2.8
+<jdahlin>	mclasen: the current custom properties for libglade are described here http://live.gnome.org/LibgladeInGtk
+ *	mclasen just reads that page
+<jdahlin>	a few other properties would make sense for gui builders aswell, like filename for GtkUIManager
+<mclasen>	probably best to just file bugs (with patches...) for these, then we should be able to get them done for 2.8
+<mclasen>	ok, I have to go in a few minutes, anything else we should discuss today ?
+<gmorten>	mclasen: any chance of getting the property staticness into 2.6?
+<jrb>	mclasen: David Benson asked about 165852
+ *	jrb knows nothing about that bug, though
+<mclasen>	gmorten: its a big patch for the stable branch...did you measure any noticable speedup due to it ?
+<mclasen>	jrb: oh, yes. I put that on my list of bugs to revisit before 2.6.5
+ *	mclasen puts it on the 2.6.5 milestone
+<gmorten>	mclasen: while I didn't specifically measure it, the patch made gtk+ disappear from my gnumeric-startup profiling.
+<gmorten>	and yes, it's big.  Really big.
+<mclasen>	should be low risk, though
+<mclasen>	I'll consider it. No promise though
+<gmorten>	as currently written it requires glib 2.7.  With a simple #if GLIB_CHECK_VERSION(2,7,0) that's fixable.
+ *	mclasen sees the chances for the patch shrink
+<mclasen>	ok, have to go. I'll put the logs up tomorrow. See you next week
+
+Meeting ended March 29, 16:59 EST (22:59 UTC)
