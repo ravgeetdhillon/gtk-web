@@ -4,15 +4,18 @@ docs
 install.sh
 install.exclude
 
-+faq/update_faq
-+faq/online_faq_fix
-+faq/gdp-gtkfaq.dsl
++ faq/
++ faq/update_faq
++ faq/online_faq_fix
++ faq/gdp-gtkfaq.dsl
 faq
-+tutorial1.2/update_tut
-+tutorial1.2/online_tut_fix
++ tutorial/
++ tutorial1.2/update_tut
++ tutorial1.2/online_tut_fix
 tutorial1.2
-+tutorial2.0/update_tut
-+tutorial2.0/online_tut_fix
++ tutorial/
++ tutorial2.0/update_tut
++ tutorial2.0/online_tut_fix
 tutorial2.0
 
 faq.old.one
