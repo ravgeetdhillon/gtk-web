@@ -1,3 +1,8 @@
+2004-02-19  Federico Mena Quintero  <federico@ximian.com>
+
+	* plan/2.4/willfix.html: Removed #128396 and #134409 as they are
+	resolved.
+
 Thu Feb 19 17:51:58 2004  Tim Janik  <timj@gtk.org>
 
 	* plan/2.4/willfix.html: added glib bug, commented on a gobject bug.
