@@ -53,20 +53,8 @@ GTK+-2.4 Bugs to Fix
 <B>Pango</B>
 <P>	  
 	  <UL>
-	    <LI>
-	    <a href="http://bugzilla.gnome.org/show_bug.cgi?id=70451">#70451</a>
-		<b> Automatic paragraph direction according to Unicode
-		BiDi algorithm</b>
-		Pango changes are small and this one is quite
-		important to RTL users.</LI>
-	    <LI>
 	    <a href="http://bugzilla.gnome.org/show_bug.cgi?id=118108">#118108</a>
 		<b>indic-ot: wrong ordering for kannada length marks</b>
-		Has a patch that should improve things, though it
-		might not be theoretically correct.</LI>
-	    <LI>
-	    <a href="http://bugzilla.gnome.org/show_bug.cgi?id=118299">#118229</a>
-		<b>Treat BENGALI LETTER A as consonant</b>
 		Has a patch that should improve things, though it
 		might not be theoretically correct.</LI>
 	    <LI>
@@ -171,24 +159,6 @@ GTK+-2.4 Bugs to Fix
             Keystroke to toggle between locale input method and default input method.
             </LI>
 	  </UL>
-</P>	    
-
-<B>Other GTK+</B>
-<P>	    
-	  <UL>
-            <LI>
-            <b>_gtk_window_activate_key()</b>
-            Precedence of accelerators vs. focus widget key handler needs to be fixed.
-            At the very least, _gtk_window_activate_key() should be exported (like
-            gtk_window_mnemonic_activate() already is) so applications can implement their
-            own precedence handling.
-            </LI>
-            <LI>
-            <b>g_main_context_depth()</b>
-            g_main_context_depth() should be implemented to allow proper implementations
-            of pseudo garbage collection algorithms.
-            </LI>
-          </UL>
 </P>	    
 
 <!--#include file="site_bottom.html" -->
