@@ -14,27 +14,93 @@ GTK+-2.8 Plans
 <P>
 <B>Overview</B>
 	    <UL>
-	      <P>It is not clear yet which features will be done in the timeframe 
-                 for 2.8, but possible "major themes" for the 2.8 release are
+	      <P>The "major themes" for the 2.8 release are
                  <UL>
                    <LI>Cairo support
                    <LI>RGBA visuals
                    <LI>Printing
-                 </UL>
-              <P>These features are explained in detail in Owens talk on <a href="http://people.redhat.com/otaylor/guadec5/">the future of rendering in GNOME</a>
-	      <P>Some things slipped from 2.6:
-	         <UL>
                    <LI>Better language binding support - full introspection, etc.
                  </UL>
+              <P>The Cairo, RGBA and Printing plans are explained in detail in 
+                 Owens talk on <a href="http://people.redhat.com/otaylor/guadec5/">the future of rendering in GNOME</a>.
+                 Information about the full introspection plans can be found
+                 e.g. in bug <a href="http://bugzilla.gnome.org/show_bug.cgi?id=139486">#139486</a> 
+                or in this mailing list <a href="http://mail.gnome.org/archives/gtk-devel-list/2005-January/msg00039.html">thread</a>.
 	  </UL>
 </P>	    
 <P>
 <B>Tentative schedule</B>
-	    <UL>
-              <P>No schedule yet. The timeframe for the 2.8 release is mid 2005.
-	    </UL>
+	      <table cellspacing="5">
+		<tr>
+		  <td align="right"><font size="-1" color="#008000">December 16, 2004</font></td>
+		  <td>GTK+ 2.6 released</td>
+		</tr>
+		<tr>
+		  <td align="right"><font size="-1" color="#008000">January 10, 2005</font></td>
+		  <td>Start of development</td>
+		</tr>
+		<tr>
+		  <td align="right"><font size="-1" color="#008000">April 1, 2005</font></td>
+		  <td>Cut off for major features existing in prototype form</td>
+		</tr>
+		<tr>
+		  <td align="right"><font size="-1" color="#008000">June 1, 2005</font></td>
+		  <td>Major features are in tree, 2.7.0 release (releases every other week 
+                      until 2.8.0)</td>
+		</tr>
+		<tr>
+		  <td align="right"><font size="-1" color="#008000">July 1, 2005</font></td>
+		  <td>API freeze</td>
+		</tr>
+		<tr>
+		  <td align="right"><font size="-1" color="#008000">August 1, 2005</font></td>
+		  <td>2.8.0 release</td>
+		</tr>
+	      </table>
 </P>	    
 
+<P>
+<B>Possible features</B> (filled circles denote features which are already in CVS)
+	  <UL>
+            <LI type="circle"><P>Cairo support
+               <P><UL>
+                 <LI type="disc"><P>Cairo backend for Pango 
+                 <LI type="circle"><P>Cairo support in GDK
+               </UL>
+            <LI type="circle"><P>Support RGBA visuals (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=150537">#150537</a>)
+            <LI type="circle"><P>Full introspection information (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=107320">#107320</a>)
+            <LI type="circle"><P>Support _NET_WM_TAKE_ACTIVITY (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=154260">#154260</a>)
+            <LI type="circle"><P>GtkIconView enhancements
+               <P><UL>
+                 <LI type="circle"><P>Use cell renderers (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=148144">#148144</a>)
+                 <LI type="circle"><P>Allow cell editing (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=160242">#160242</a>)
+                 <LI type="circle"><P>DND support (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=150270">#150270</a>)
+               </UL>
+	  </UL>
+</P>	    
+
+<B>Bugs on the 2.8 API freeze and 2.8 milestones</B>
+<P>
+	    <UL>
+	      <LI><a
+		  href="http://bugzilla.gnome.org/buglist.cgi?product=glib&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&target_milestone=2.8+Freeze&target_milestone=2.8+API+freeze">GLib
+		  Bugs</a>
+		(<a
+		  href="http://bugzilla.gnome.org/buglist.cgi?product=glib&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&target_milestone=---">unmilestoned</a>)
+	      </LI>
+	      <LI><a
+		  href="http://bugzilla.gnome.org/buglist.cgi?product=pango&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&target_milestone=1.10+Freeze&target_milestone=1.10+API+Freeze">Pango
+		  Bugs</a>
+		(<a
+		  href="http://bugzilla.gnome.org/buglist.cgi?product=pango&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&target_milestone=---">unmilestoned</a>)
+	      </LI>
+	      <LI><a
+		  href="http://bugzilla.gnome.org/buglist.cgi?product=gtk%2b&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&target_milestone=2.8+Freeze&target_milestone=2.8+API+freeze">GTK+
+		  Bugs</a>
+		(<a
+		  href="http://bugzilla.gnome.org/buglist.cgi?product=gtk%2b&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&target_milestone=---">unmilestoned</a>)
+	      </LI>
+</P>	    
 
 <!--#include file="site_bottom.html" -->
 
