@@ -1,0 +1,93 @@
+
+<html>
+<head>
+<title>GTK+- 2.4 Plans</title>
+
+<!--#include file="site_top.html" -->
+
+<table border=0 cellpadding=0 cellspacing=0><tr><td valign=top>
+
+<!--#include file="section_begin.html"-->
+GTK+-2.4 Plans
+<!--#include file="section_end.html"-->
+
+<P>
+<B>Overview</B>
+	    <UL>
+	      <P> GTK+-2.4 will be a release maintaining source and
+		binary compatibility with GTK+-2.0 and GTK+-2.2 while
+		introducing new features, like a better file selector
+		and replacement "combo box" widget. It will be a time
+		based release; that is, we'll pick a timescale and
+		base what goes in on that rather than vice-versa.
+	      </P>
+	    </UL>
+</P>	    
+<P>
+<B>Tentative schedule</B>
+	    <UL>
+	      <P>
+		A timescale of 8-9 months seems reasonable; that is,
+		a final 2.4.0 in late August or early September. A
+		rough schedule for a September 1 release is:
+	      </P>
+	      <table cellspacing="5">
+		<tr>
+		  <td align="right"><font size="-1" color="#008000">28 December 2002</font></td>
+		  <td>Start of development</td>
+		</tr>
+		<tr>
+		  <td align="right"><font size="-1" color="#008000">1
+		  February 2003</font></td>
+		  <td>Have proposals for all major features,
+		    decide what goes in, doesn't</td>
+		</tr>
+		<tr>
+		  <td align="right"><font size="-1" color="#008000">1 June 2002</font></td>
+		  <td>All major features are in</td>
+		</tr>
+		<tr>
+		  <td align="right"><font size="-1" color="#008000">1
+		  July 2003 </font></td>
+		  <td>Feature freeze</td>
+		</tr>
+		<tr>
+		  <td align="right"><font size="-1" color="#008000">1
+		  August 2003</font></td>
+		  <td>API/ABI freeze</td>
+		</tr>
+		<tr>
+		  <td align="right"><font size="-1" color="#008000">1
+		  September 2003</font></td>
+		  <td>2.4.0</td>
+		</tr>
+	      </table>
+	    </UL>
+</P>	    
+<B>Possible features</B>
+	  <UL>
+	    <LI><P>File selector (we have to get this one) (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=29087">#29087</a>)</P></LI>
+	    <LI><P>Combo widget (Kris has made progress here) (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=50554">#50554</a>)</P></LI>
+	    <LI><P>New action-based menu API (based on James Henstridge's work, most likely)</P></LI>
+	    <LI><P>Toolbar improvements (See EggToolbar in libegg)</P></LI>
+	    <LI><P>GObject private data (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=101959">#101959</a>)</P></LI>
+	    <LI><P>Full Unicode 3.2 (4.0?) support, including non-BMP portions.</P></LI>
+	    <LI><P>GtkModelFilter (Pretty much done in libegg). (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=60219">#60219</a>)</P></LI>
+	    <LI><P>Make RTL text editing really work (automatic paragraph
+		direction, etc.)</P></LI>
+	    <LI><P>Height-for-width geometry management. (Define a new interface, 
+		support it GtkVBox, GtkLabel woudl be the
+		minimum.)</P></LI>
+	    <LI><P>Reworked tooltips (#50619, #56291, #62174, #65490)</P></LI>
+	    <LI><P> Autocompletion and history for GtkEntry (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=69613">#69613</a>)</P></LI>
+	    <LI><P>Disclosure triangle widget (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=60553">#60553</a>)</P></LI>
+	    <LI><P>GnomeColorPicker style selection buttons for colors,
+		fonts, etc</P></LI>
+	    <LI><P>Optimized pixbuf operations -- scaling down a lot (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=80925">#80925</a>),
+		unscaled ops (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=80927">#80927</a>)</P></LI>
+	  </UL>
+</P>	    
+
+<!--#include file="site_bottom.html" -->
+
+</html>

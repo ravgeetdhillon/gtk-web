@@ -1,0 +1,68 @@
+
+<html>
+<head>
+<title>GTK+ Planning</title>
+
+<!--#include file="site_top.html" -->
+
+<table border=0 cellpadding=0 cellspacing=0><tr><td valign=top>
+
+<!--#include file="section_begin.html"-->
+GTK+ Planning
+<!--#include file="section_end.html"-->
+
+<P>
+<B>General Notes</B>
+<UL>
+	      <P>
+		GTK+ uses so-called "Linux kernel" numbering, where
+		odd numbered series like 1.3.x and 2.1.x are unstable
+		development versions, and even numbered series like
+		2.0.x and 2.2.x are stable maintenance branches.
+		It is not expected that we will break either source
+		or binary compatibility before GTK+-3.0
+	      </P>
+	      <P>
+		GTK+ development is discussed on
+		<a href="/mailinglists.html">gtk-devel-list@gnome.org</a>.
+		We use the <a href="http://bugzilla.gnome.org">bugzilla</a>
+		bug tracker to keep track of particular issues; there
+		is a milestone for each future release, as well as a
+		'future' milestone, for things not yet assigned to a
+		definite milestone. (The components of interest for
+		GTK+ development are 'gtk+', 'glib', 'pango' and
+		'atk')
+	      </P>
+	    </UL>
+	  </P>
+
+<P>
+<B>Particular releases</B>
+	    <UL>
+	      <P><B>2.2</B> &ndash; GTK+-2.2.0 was released Dec 20, 2002. The
+		rest of the 2.2.x series will be maintenance releases.
+	      </P>
+	      <P><a href="/plan/2.4/"><B>2.4</B></a> &ndash; GTK+-2.4 will be a
+		release maintaining source and binary compatibility
+		with GTK+-2.0 and GTK+-2.2 while introducing new
+		features, like a better file selector and
+		replacement "combo box" widget.  It is expected that
+		2.4 will be out before the end of 2003.
+	      </P>
+	      <P><B>2.6</B> &ndash; No timescale or feature set for GTK+-2.6 yet exist,
+		but it is likely we'll do another release along
+		the lines of 2.4 after 2.4.
+	      </P>
+	      <P><B>3.0</B> &ndash; A 3.0 release would be the earliest point at which
+		we would make a source and binary incompatible
+		release. (If and when we do such a release, there
+		will be support for parallel compilation and
+		runtime environments, as there are for GTK+-1.2
+		and GTK+-2.x.)
+	      </P>
+	    </UL>
+	  </P>
+
+<!--#include file="site_bottom.html" -->
+
+</html>
