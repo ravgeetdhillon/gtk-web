@@ -1,3 +1,9 @@
+Thu Dec 16 2003  Steve Fox <drfickle@k-lug.org>
+
+	* index.html
+	* oldnews.html
+	Move older news off front page
+
 Thu Dec 11 23:37:31 2003  Matthias Clasen  <maclas@gmx.de>
 
 	* index.html: Add announcements for 2.3.0 and 2.3.1.
