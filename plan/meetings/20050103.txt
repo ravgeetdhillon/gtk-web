@@ -1,0 +1,102 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started January 3 2005 16:03 EST (21:03 UTC)
+
+In attendence: 
+
+Owen Taylor (owen), 
+Matthias Clasen (mclasen), 
+Jonathan Blandford (jrb)
+Federico Mena Quintero (federico)
+Robert Ögren (roboros),
+Tor Lillqvist (tml)
+James Cape (Jimbob)
+J. Ali Harlow (j_ali)
+
+
+<mclasen>	should we start by looking at what needs to be done for 2.6.1 ?
+<mclasen>	there is a patch for the "black flashes" issue which ssp did, I think he wanted owen to look at it 
+<mclasen>	then there are a couple of file chooser crashers which federico has agreed to look at
+<owen>	Just added a comment, I'm not very comfortable with that change on the stable branch
+<mclasen>	what does "fixing the widgets" mean here, and do we know how many are affected ?
+<owen>	mclasen: 3-4 I think. It's only widget->window for scrollable widgets
+<owen>	(Bug is http://bugzilla.gnome.org/show_bug.cgi?id=162112 for people who are wondering what we are talking about)
+<owen>	"fixing the widgets" basically means adding the exposure mask for those windows
+<mclasen>	ah, ok
+<owen>	(Or fixing their background color, but the exposure mask is a little better in terms of zero-flash)
+<owen>	We just want those windows to go through the unset-background case, but we can't safely put no-exposure-mask windows through the unset-background case
+<owen>	ssp's patch temporarily adds the exposure mask just when unsetting the background, but that strikes me as overcomplicated and potentially risky
+<owen>	Actually, it might also be possible to fix the problem by carefully ordering maps and resizes, I'm not sure.
+<mclasen>	ok, the last issue currently on 2.6.1 is a patch to determine G_CAN_INLINE at configure time. I looked at the patch, but I'm not 100% sure I understand all the complications of the inline handling in gutils.h
+<mclasen>	so I would appreciate if someone else could take a look at the patch in 157536
+<federico>	there may have been a treeview regression at some point, but I haven't had time to look at it
+<federico>	if you hit alt-up in the file chooser, it takes you to the parent folder and it's supposed to select the child folder and center it in the list
+< I'll do so though I think only rambokid *truly* understands how the inlining stuff is supposed to work
+<federico>	... but on 2.6 it doesn't get centered; on 2.4 it works fine
+ *	federico isn't used to 2.6 being the stable branch yet :)
+<owen>	federico: Doesn't sounds like a stopper for 2.6.1
+<jrb>	federico: strange
+<mclasen>	but probably still a good idea to file a bug
+<mclasen>	do we miss any crashes or regressions on the 2.6.1 milestone ?
+<mclasen>	if not, I'll do a 2.6.1 as soon as we empty that milestone
+<mclasen>	maybe we should turn to the more exiting 2.8 planning then...
+<mclasen>	our old plan/2.8 page currently lists Cairo, RGBA visuals, printing and full introspection as big features for 2.8
+<jrb>	mclasen: afaik, that's still accurate, right?
+<mclasen>	I think so. Unless people have other plans
+<federico>	let's synch the schedule to gnome's!
+<mclasen>	I really like the fact that we're comfortably ahead of the gnome schedule, so that we can do a 2.6.1 and maybe 2.6.2 before Gnome 2.10
+<federico>	yeah, that's a good thing
+<federico>	maybe we could target gtk 2.8 for gnome 2.12
+<mclasen>	plan/2.8 speaks about "mid 2005" as target date for gtk 2.8. Is that still realistic ?
+<owen>	mclasen: Well, loosely defined, I think it's realistic, June seems like it might be a bit early
+<federico>	does cairo show signs of stabilizing?
+<owen>	mclasen: Though it sort of depends how big a chunk of rendering we bite off ... theme rework? printing? Those could make cairo integration harder
+<owen>	federico: cworth was pretty comfortable about a spring target date
+<federico>	owen: nice!
+<owen>	federico: (for 1.0) I think the main thing that I need to be comfortable with Cairo at this point is the Pango/GTK+ integration done enough to see where the holes are
+<federico>	even if cairo gets integrated, that doesn't mean stock will use it, right?  that's a huge change
+<federico>	stock widgets
+<Jimbob>	mariano has mentioned some doc problems with gtkfilechooserbutton, and the fact that the default title is never used. I'm working on a patch now
+<owen>	federico: I dont' think stock widgets are as big as that... they mostly just draw rectangles and a few lines
+<owen>	federico: Reworking the theme api could be an arbitrarily big task, but it should be possible to have cairo-using themes within the current theme api
+<mclasen>	owen: would it make sense to support cairo rendering in 2.8 and shift theming/printing to 2.10 ? 
+<federico>	owen: so you want to convert gtkstyle.c to cairo?
+<owen>	(My guess is that removing the use of gdk_draw_* in the GTK+ widgets and gtkstyle.c would be a week of a lot of typing)
+<owen>	(of course, it wouldnt' really give you anything...)
+<mclasen>	Jimbob: sounds like a simple fix which you should just commit when its ready
+<federico>	owen: is it easy to do "I want lines aligned on pixels, damnit" these days? :)
+<owen>	mclasen: It's a possibility, certainly, though I'm not sure it makes sense strategically... if we do normal schedule, then 2.10 wouldn't be until 2006 ... Gnome-2.14
+<mclasen>	yea
+<owen>	federico: Just draw them aligned on pixels... that's my opinion anyways... I want a *simple* model, not some deep magic that is going to have people adding and subtracting 1 until they get the right result
+<=> unit conversion. I think that should always be 1:1 forthe screen.
+<mclasen>	regarding the "full introspection" feature, I talked to mathrick and ed__ earlier today, and they will probably present their prototype work on gtk-devel-list soon
+<owen>	(Right now, Cairo magically jumps from 1:1 to 2:1 at around 150 dpi.)
+<mclasen>	owen: schedule-wise, do you want with committing cairo stuff until cairo goes 1.0, or do you envision to branch for that soon ?
+<federico>	owen: if it's mostly a lot of dumb typing, rather than actually rewriting the drawing logic, I guess it's fine
+<owen>	mclasen: My intention was just to throw it on the mainline and make things difficult for people if cairo versions shift (cairo isn't really changing that much)
+<owen>	mclasen: Definitely going to do that for Pango
+<Jimbob>	mclasen: Ok
+<mclasen>	so, how do we organize the 2.8 work ? Was the plan with the pool milestones that people move things onto "2.8 API freeze" if they intend to work on that feature for 2.8 ?
+<owen>	mclasen: That's how I thought of it
+<mclasen>	ok, so everybody, please do so. Maybe we can evaluate the 2.8 milestones next week and see how much we have accumulated there
+<mclasen>	To mention some medium sized features not on the list currently, I personally want to look at cell rendererer and dnd support for the icon view
+<tml>	hi, sorry i'm late
+<mclasen>	oh, one thing I wanted to discuss in the context of 2.6.1 and branching is string changes
+<mclasen>	I did a bunch in the file chooser last week, and wasn't sure if I should feel bad about it ?
+<mclasen>	Maybe we should use the occasion of the 2.6.1 release to officially announce 2.6.x as the new stable branch to translators, and consider it string frozen from then on ?
+<federico>	... maybe we should wait a bit until the actual string freeze for gnome 2.10 kicks in?
+<mclasen>	I have actually always considered the stable branch to be string frozen, independent of any gnome freezes...
+<federico>	yeah, but then we would have a bit more room for if changes are needed
+<owen>	mclasen: I agree... (though if necessary we can announce string changes on gnome-i18n and do them a couple of weeks before the release.)
+<owen>	federico: We simply shoulndn't be doing stuff on the stable branch that require huge amounts of string changes. 
+<mclasen>	I knew I should feel bad...
+<mclasen>	ok, I will have to leave in a few minutes, so the current tentative 2.8 plan remains as it currently is on plan/2.8, we all add our pet features to the "2.8 API freeze" milestone until next week, and try to come up with a more concrete schedule next week ?!
+<tml>	mclasen: could you put up the log right away so i can see what I missed?
+<mclasen>	later tonight, will probably be a few hours, sorry
+<tml>	ok
+<mclasen>	you can read it tomorrow for breakfast...
+<j_ali>	tml: I'll email it to you.
+<tml>	tnx
+<mclasen>	ok, before I leave, did anybody look at the bug I added to the agenda ? "large empty area" 
+
+
+Meeting ended January 3, 16:58 EST (21:58 UTC)
