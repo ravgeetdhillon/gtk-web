@@ -1,0 +1,157 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started July 06 2004 17:00 EST (21:00 UTC)
+
+In attendence: 
+
+Jonathan Blandford (jrb), Matthias Clasen (mclasen), Owen Taylor (owen),
+Kristian Rietveld (kris), Anders Carlsson (andersca), Ray Strode (halfline), 
+German Poo Caaman~o (gpoo), James M. Cape (Jimbob)
+
+
+<mclasen>	we seem to be missing denmark...
+<jrb>	and federico
+<mclasen>	good occasion to state that I will be more than happy to move the meetings if any Mexican, Swedish, Danish, etc holidays happen to fall on a Monday...I just don't know the holiday schedules of those countries, so you will have to tell me...
+<jrb>	It always seems like there are a lot of swedish holidays
+<andersca>	:)
+<andersca>	jrb: getting one less next year
+<mclasen>	but this time we bet them !!!
+<jrb>	andersca: you're losing one?
+<andersca>	jrb: losing one and gaining the national day
+<jrb>	andersca: I was proposing at lunch today that we should petition congress to make Aug 15th National "Drive on the left side of the road" day
+<andersca>	jrb: Sweden moved to the right side september 3rd 1967
+<jrb>	andersca: yeah.  We could do something in memory of that every year
+<mclasen>	so...should we start ?
+<andersca>	1 minute
+<andersca>	ok, I've got coffee now
+<mclasen>	let me start with the last item I proposed for the agenda...
+<jrb>	coffee....
+<mclasen>	jrb: bring one for me too
+<jrb>	mclasen: pity I'm at home.
+<mclasen>	I gave a talk about current GTK+ developlement at Usenix last friday, and after the talk
+ owen>	mclasen: I think he's working-from-home
+<owen>	Wow, /me is slow
+<jrb>	mclasen: I left all my MIME notes at home so went home
+<mclasen>	after the talk I was approached by Arnold Robbings, who is the advisor of some prentice hall series on linux programming
+<mclasen>	he asked me if I wouldn't be interested in writing a book about GTK+/Gnome programming - basically what Bruce Perens already asked at Guadec.
+<mclasen>	so, while I am not really interested in writing a book, I thought I share the information in case somebody else is...
+<halfline>	owen: aren't you working on a book?
+*	halfline vaguely remembers owen mentioning it before
+<mclasen>	halfline: that book ended up in gnome cvs as gtk-book, I think
+<owen>	halfline: No, we abandoned that 2-3 years ago.
+<halfline>	ah
+<mclasen>	halfline: very much worth reading...
+<halfline>	mclasen: yea, i think i'll check it out
+<owen>	mclasen: If you can figure out the 1.3.10 based examples and sgml build system from hell...
+<mclasen>	ok, I didn't expect anybody to jump up and shout "I'll write it!", so maybe lets move to the next topic...
+<mclasen>	owen: I think "make ps" just worked for me...
+<mclasen>	next topic is...2.4.4. My plan is to do a 2.4.4 release later this week, after closing the 4 remaining high-prio bugs on that milestone.
+<andersca>	what are those bugs?
+<mclasen>	118536   	maj   	Hig   	gtkdev@gtk.org   	NEW   	  	Make g_signal_connect_object'ed handlers disconnect when ...
+<mclasen>	137031 	maj 	Hig 	gtk-bugs@gtk.org 	NEW 		Distinguishing files & directories in the absence of icons
+<mclasen>	139290 	maj 	Hig 	federico@ximian.com 	NEW 		File chooser doesn't handle unviewable directories well
+<mclasen>	144324 	nor 	Hig 	gtk-bugs@gtk.org 	NEW 		Leaking dnd contexts with XDnD
+<andersca>	ah
+<andersca>	cool
+<mclasen>	I have little hope for the first one though, since fixing that would require tim to do patch review...
+<mclasen>	for the second one, I added fallback stock icons today
+<Jimbob>	There's a bug to put icons into the GtkFileChooserEntry completion which has been setting there for a while: http://bugzilla.gnome.org/show_bug.cgi?id=143251
+<owen>	Jimbob: Doesn't sound like 2.4.x material to me
+<Jimbob>	Ok
+<mclasen>	fcrozat mentioned something about drawing problems with southwards arrows in 2.4.3 yesterday, but I couldn't reproduce it. Did anybody else see arrow drawing problems in 2.4.3 ?
+<andersca>	mclasen: they would be in 2.5 as well, right?
+<mclasen>	presumably
+ *	andersca hasn't seen anything
+<mclasen>	ok, I think we should move to 2.6; yesterday night I revamped the www.gtk.org/plan files a bit
+<mclasen>	I reduced the 2.6 plan to basically what we discussed last week, moved all the blue-sky stuff to a separate list of ideas, and added the beginnings of a 2.8 plan
+<andersca>	cool
+<halfline>	mclasen: it draws slightly funky with 2.4.1 here
+<mclasen>	halfline: all the changes happened between 2.4.1 and 2.4.3
+<andersca>	mclasen: about widget is blue-sky now? 
+<mclasen>	andersca: I probably moved that in error; in fact, I have just started looking at my old about dialog stuff again...\
+<andersca>	mclasen: cool, I'd love to help out on that
+<mclasen>	so I should probably move that back to 2.6
+<andersca>	mclasen: another (minor) thing I'd like to do if we get the about box into 2.6 is add a gtk-stock-about item
+<halfline>	mclasen: I'd kind of like to know where you think my desktop entries stuff fits in
+<mclasen>	halfline: depends on the dependencies a bit, but it feels like it should target glib (or are you asking about timeframes ?)
+<halfline>	timeframes
+<jrb>	halfline: I'm hoping to get to that this week
+<jrb>	halfline: or at least try to use it.
+<halfline>	jrb: cool. 
+<mclasen>	jrb: cool.
+<halfline>	that should help iron out any kinks in the api
+<Jimbob>	Re: the filechooser button, the API/src is at http://esco.mine.nu/src/escofilechooserbutton.h && http://esco.mine.nu/src/escofilechooserbutton.c
+<mclasen>	Jimbob: I will look at the file picker once I'm done with the about dialog - so you will get a response eventually
+<Jimbob>	Ok
+<Jimbob>	There's a bunch of other stuff in that mail as well (MD5 in glib, thumbnailing in GdkPixbuf, and an icon picker)
+<mclasen>	Jimbob: speaking about your pickers: does your icon picker already use GtkIconView ? :-)
+<Jimbob>	EggIconList, yes ;-)
+<andersca>	Jimbob: eggiconlist is ooold
+<andersca>	:)
+<Jimbob>	(I haven't updated it yet)
+<Jimbob>	It uses the TreeModel version, so it's not *that* old
+<mclasen>	do we have other 2.6 issues to discuss ?
+<andersca>	release?
+<mclasen>	one thing I need to mention again is the "performance patches" - unfortunately ssp isn't here today, but maybe you can give them a final stamp of approval, owen ?
+<mclasen>	release - our schedule says: August 15, 2004  	 Major features are in tree, 2.5.0 release (releases every other week until 2.6.0)
+<andersca>	ah, so we'll release once we're pretty much feature complete
+<mclasen>	I hope we can get most of the items on plan/2.6 in by that time
+<andersca>	makes sense
+<mclasen>	but I'd rather stick to the schedule than to the feature list...
+<andersca>	nod
+<owen>	mclasen: Bug me again tomorrow afternoon if I haven't gotten to them by then
+<andersca>	#
+<andersca>	    *
+<andersca>	#
+<andersca>	GtkFileChooser improvements
+<andersca>	    *
+<andersca>	      Shared settings with Nautilus 
+<andersca>	would that be through xsettings?
+<mclasen>	andersca: I don't know what federico exactly plans there, but the bullet points are what he told me when I asked him about filechooser improvements for my usenix talk...
+<andersca>	ok
+<andersca>	I'm gonna try to finish the option parser as soon as possibe
+<mclasen>	while dissecting the plan pages last night, I stumbled across some of the things we had in the 2.6 plan, like
+<jrb>	mclasen: federico wants things like the single click settings to be shared
+<mclasen>	integration of the WIMP theme - what is our current idea about that ? We also had plans to move the win32 binary distribution to ftp.gtk.org IIRC - did that get stalled somewhere ?
+<mclasen>	jrb: single vs doubleclick, hidden files, displayed columns
+<jrb>	mclasen: we should support hidden files anyway
+<andersca>	hidden files isn't hard at all
+<mclasen>	jrb: don't we already ?
+<jrb>	mclasen: don't believe so, but feel free to prove me wronb
+<owen>	mclasen: I think we just need to ping the relevant people on gtk-wimp and push them and tor a bit to get the stuff in
+<mclasen>	owen: but is the plan really to move to a common source distribution ? or just bundle it in the win32 binary dist ?
+<owen>	mclasen: My hope was modules/themes/ 
+<owen>	mclasen: or modules/engines. Part of the main gtk+ tarball
+<mclasen>	owen: and do you foresee any other theme engines migrating there ? all of gtk-engines ?
+<owen>	We don't need more diversity, installation complexity for something that should be working out of the box.
+<owen>	mclasen: Not really immediately. gtk-engines is just historical and doesn't really correspond to what people use
+<owen>	mclasen: The difference with gtk-wimp is that it clearly has a special privileged status on win32 ... it looks like the system
+<owen>	If we ever get a real os/x port off the ground...
+<mclasen>	heh
+<mclasen>	oh, there is one more thing which I promised to bring up here: mitch asked me if we would consider making GtkCellView public
+<mclasen>	I don't see any strong reason why not. kris, jrb, do you remember why it isn't public currently ?
+<jrb>	mclasen: I think we were just being conservative with a new API that was somewhat dubiously generic
+<mclasen>	ok. I will have to go in a few minutes; do we have other issues to discuss ? Is next Monday a holiday anywhere ?
+ *	jrb tentatively raises the issue of a gtk-demo cleanup prior to 2.6
+<mclasen>	what specific issues are there ?
+<owen>	mclasen: Some of the demos were just added so I'd have something to test the initial framework
+<jrb>	mclasen: they're old; aren't particularly nice, and don't cover a lot of issues
+<andersca>	jrb: except icon view of course
+<jrb>	andersca: icon view is rad
+<mclasen>	ok I have to leave now; I'll put the logs at the usual place tomorrow. Bye
+<andersca>	anyway, it would be cool to spruce up the demos
+<andersca>	we could probably have a 'demo fixup release' when things have stabilized a bit
+<jrb>	andersca: yeah.  though we should start by figuring out what we need to cover
+<andersca>	nod
+
+Meeting ended July 06 17:59 EST (21:59 UTC)
+
+...10 minutes later:
+
+<kris>	oh shit
+<kris>	the meeting started
+ *	kris was playing fifa with his brother
+<halfline>	kris: the meeting ended :-)
+<kris>	oops.
+<jrb>	kris: you did better than all the people who didn't make it at all, at least.. (-:
+
+
