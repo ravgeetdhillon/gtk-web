@@ -138,4 +138,4 @@ Sep 13 18:35:39 *	tml wonders whether there ever will be a native Mac GDK backen
 <roboros>	tack!
 
 
-Meeting ended June 21 18:58 EST (22:58 UTC)
+Meeting ended September 13, 18:58 EST (22:58 UTC)
