@@ -1,5 +1,9 @@
 Thu Dec 16 2003  Steve Fox <drfickle@k-lug.org>
 
+	* success/*: Add the success stories directory
+
+Thu Dec 16 2003  Steve Fox <drfickle@k-lug.org>
+
 	* install.sh: Update install script for new success dir.
 
 Thu Dec 16 2003  Steve Fox <drfickle@k-lug.org>
