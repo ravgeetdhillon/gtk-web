@@ -1,0 +1,204 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started March 1 2004 17:08:42 EST (22:08 UTC)
+
+In attendance:
+
+ Jonathan Blandford (jrb), Matthias Clasen (maclas), Tim Janik (rambokid), 
+ Noah Levitt (noah), Tor Lillqvist (tml), Mark McLoughlin (markmc), 
+ Federico Mena Quintero (federico), Kristian Rietveld (kris), Soeren Sandmann (ssp), 
+ Manish Singh (yosh), Owen Taylor (owen), Luis Villa (luis), Sebastian Wilhelmi (seppi)
+
+<owen>	OK, first agenda item is GtkFileChooser status. federico/jrb?
+<federico>	owen: seth-ification is about complete; I'll commit the save folder combo in a bit
+<federico>	the API seems to be complete
+<jrb_>	we gotta lot of bugs/bits left to do
+<owen>	federico: "in a bit" == hours, days?
+<owen>	jrb_: Are the bugs/bits in bugzilla?
+<jrb_>	owen: some are.  some are on the task list/spec
+<jrb_>	owen: After the release tonight we need to get the remainder into bugzilla
+<federico>	owen: an hour and a half, more or less
+<owen>	jrb_: task list/spec? Is that someone public. I'd like to have the remaining stuff to do in the next week public, and hopefully public.
+<jrb_>	owen: yeah.  has been for a while
+<jrb_>	http://www.gnome.org/~seth/filechooser-spec/
+<owen>	federico: OK, in the  chance I can get glib/pango done before then, do you want me to hold up GTK+
+<owen>	public, and hopefully in bugzilla, is what I meant to say
+<jrb_>	owen: I think that it's important
+<jrb_>	(to get federico's change in before the release)
+<owen>	jrb_: OK, so just items there, not separated out by what needs to be done
+<federico>	owen: I'm thinking of skipping class today to finish this, so it shouldn't take long
+<federico>	owen: e.g. you may be able to go to bed on time today :)
+<jrb_>	owen: yeah.  Some of it's actually done, too
+<owen>	federico/jrb: OK, I'll plan on waiting then.
+<federico>	we do need to put the remaining tasks in bugzilla; mentally crossing them out is far from reliable
+<maclas>	yes, everything should be in bugzilla; thats the only way to not loose things
+<owen>	I think we do start thinking about "what is the minimum we need to get done" "what is the risk of doing this" - only one week left
+<jrb_>	owen: totally.  We've punted a lot thus far
+<federico>	maclas: any ideas on how to make the separators non-selectable?
+<maclas>	make the combobox use the function you pointed out ?
+<owen>	I really think if we hvae separators in menus, they need to be GtkSeparatorMenuItem... can we do without separators for this release?
+<jrb_>	federico: we just have to hide the seperators, I think
+<maclas>	my idea for making the separators show up in menu mode would be to hardwire a check for cellrendererseptest and add a separatormenuitem for null texts in that case
+<maclas>	until we can add proper api for that
+<owen>	maclas: Yeah, if this is urgent to separators, doing something like that internally sounds right to me
+<maclas>	would make separators in comboboxes a filechooser-only thing for 2.4.x...
+<federico>	sounds reasonable
+<owen>	OK, let's segway into the next topic  GtkComboBox/GtkEntryCompletion
+<owen>	maclas: How are we doing there?
+<maclas>	segway in ? is that dangerous ?
+<maclas>	anyway: we have the crashers/live-cycle bugs under control now (with great help from damon)
+<owen>	maclas: err. segue
+<maclas>	remaining biggies are a11y (already punted) and scrolling
+<owen>	maclas: How biggy is scrollng? Generally, I think scrolling on completion menus is to be avoided ... if there are so many completions you have to scroll, comletion isn't useful
+<maclas>	scrolling is no issue in menu mode, of course, just in list mode
+<owen>	Oh, this is combobox or completion?
+<maclas>	entry completion actually supports scrolling in a less-than-ideal way already; its just missing from combobox in list mode.
+<owen>	Yeah, combobox needs scrolling pretty badly, though it would be nice if people *didnt'* put every country in the world into a combobox
+<kris>	to make list mode work "right" you also need drag/hoover selection in treeview
+<kris>	but that never got done because we never got around deciding what to do with all these treeview "modes"
+<maclas>	I agree that long combobox lists are to be avoided; but if the combobox is near the bottom, it doesn't take a long list to force scrolling
+<owen>	kris: I've never seen hover in a dropdown list box...
+<owen>	kris: Do you mean drag select?
+<kris>	n0o
+<kris>	no
+<kris>	usually the cursor follows the mouse pointer
+<kris>	if you hold down the mouse button while in the popup
+<kris>	(in list mode)
+<owen>	That is drop down list boxes shoudln't behave exactly like menus - the selection should't follow the mouse unless the mouse button is down
+<owen>	kris: OK, and browse mode isn't close enough?
+<kris>	this is not a selection mode, but a treeview behavior thing.
+<kris>	treeview does not have a mode/behavior were the selection cursor follows the mouse pointer when the button is down.
+<owen>	Ah, OK. Still, that's a fairly minor behavior tweak... I don't see a problem shipping without that.
+<kris>	code wise it might not be fairly minor in treeview.
+<owen>	(Generally combobox mode is not as important, since we won't default to that)
+<owen>	OK, so we need to find somebody to take on the task of scrolling in list mode and otherwise, as far as we know we are imperfect but shippable in that area?
+<maclas>	owen: I don't think it is realistic to add nice scrolling before 2.4. It may be doable to copy what the entry completion does currently: it just hardwires a page size of 15 items; if you pop it up near the bottom, you still miss a large part of the popup
+<maclas>	owen: yea, imperfect but shippable...the a11y guys may disagree with shippable...
+<owen>	maclas: Hmm, you think it's hard to size the popup?
+<owen>	Also - Should it pop up the other way near the bottom - is that easier than sizing smaller?
+<maclas>	owen: that is something I want to get done for 2.4: popping up the other way
+<federico>	kris: this is not 2.4 material, but would you have time at some point to look at the DnD API mail I sent?
+<maclas>	owen: the problem with sizing the popup is that the scrolledwindow adds some complications to the grab handling, etc
+<kris>	federico: I am not sure if I have anything useful to say about it.
+<markmc>	maclas, how bad are the a11y problems ?
+<kris>	federico: just do what you think is the best.
+<owen>	maclas: I did a lot of work with getting the behavior about right for GtkCombo with grabs, motion events, etc.
+<maclas>	markmc: depends on who you ask...the combobox is just not accessible
+<kris>	(which is prolly rewriting my patch or something)
+*	owen takes a stiff drink at the memory (of coffee)
+<maclas>	owen: one can see that in the gtkcombo code (which I consulted)
+<owen>	markmc: The basic problem is that we don't have a good idea of what is needed there, and don't want to just start adding API. So, the current plan is to put the a11y implementation *inside* GTK+ instead of gail post 2.4.0.
+<federico>	kris: ok, that's going to be something big for 2.6 :)
+<markmc>	owen, okay, so there's a definite plan to get a11y implemented at some point in 2.4.x
+<markmc>	owen, that sounds reasonable
+<owen>	2.3.4 release status: Working on GLib now, should have it done some point tonight
+<owen>	(it being all three releases)
+<markmc>	that's great
+<federico>	eek, need to write NEWS
+<markmc>	have you guys any feeling for how many people are actually testing it ?
+<owen>	Oh, hmmm, just thought of something. Need to consult with Bill / Padraig (if he's back from vacation) about ATK, see if there is going to be a final 1.6 or whether we need to ship 2.4.0 with 1.4
+<maclas>	federico: I did the NEWS yesterday
+<owen>	markmc: My feeling is that it is mostly gnome developers and a few die-hard GTK+ enthusiasts
+<maclas>	federico: you just need to cover today...
+<owen>	markmc: I think 2.4.0 is going to be going released prematurely in the sense that the bug submission rate is still going up
+<markmc>	owen, hmm, and I'm not seeing a huge amount of testing of the new APIs in GNOME ...
+<owen>	I'll put some note in my 2.3.4 announcement that it's one week to 2.4.0
+<maclas>	markmc: how do you measure that ?
+<owen>	markmc: UIManager is the one that is I think least tested. FileChooser seems to be getting a fair bit of testing. ComboBox I think has a fair bit of use, but only for simple stuff.
+<markmc>	maclas, just a feeling from watching what's being hacked on
+<maclas>	owen: uimanager is used by epiphany and gnumeric, at least
+<owen>	maclas: Which at least implies it's usable by really smart capable people :-)
+<markmc>	owen, I suppose the quality of 2.4.0 isn't a huge issue as long as more release follow quickly
+<markmc>	owen, and you've 2.4.1 scheduled for a week after, so ..
+<maclas>	So, how are we doing with our willfix list ? I think there are no api issues left on it, and some of the bugs are already fixed
+<owen>	Yeah, well, that is some extent my thinking, though Im hoping we can do a lot to increase quality in the next week. :-)   API quality, well, we'll hope there's nothing no-fixable wrong
+<jrb_>	maclas: the filesel list is already pretty out of date.  After we put the remaining issues in bugzilla, we need to update it
+<owen>	maclas: Hmm, that's something I forgot to put on the agenda
+<owen>	How has the willfix list been working? I have to admit that I've basically blown it off :-(, and just worked out of bugzilla. Has it been useful for other people?
+<federico>	maclas: oh, fantastic!
+<owen>	maclas:  I guess one question is when w efix stuff on the willfix list are we deleting the items or marking them fixed in some fashion?
+<ssp>	It's not really useful if it doesn't reflect what needs to be done before 2.4
+<maclas>	owen: so far we've deleted them
+<rambokid>	owen: it has for me. when i turned to resolv the API issues i had listed for glib, others had already taken care of them ;)
+<owen>	maclas: OK, we'll continue doing that.
+<maclas>	ssp: so lets discuss what needs doing in the next week
+<maclas>	or what everybody plan to do in the next week...
+<maclas>	I want to continue working on combobox issues
+<jrb_>	It's looking like the filesel is going to eat up all my time
+<owen>	There are a bunch of indic patches / fixes and a few crashers in Pango that I want to fix; other than that, what I'd plan to do is a) continue trying to deal wiht the huge morass that is gtk+/gtk (wontfix all the feature stuff there first and any non-regression or non-has-patch bugs)
+<owen>	b) work on important visible bugs for the release whatever shows up
+<owen>	Also, actually, I'll probably end up spending a lot of time on release announcements ... that usually takes a day or so by itself
+<federico>	owen: I'd rather mark gtk+/gtk NEEDINFO
+<federico>	meaning, "send a patch"
+<owen>	Oh, sorry, wontfix meant actually 'move to future milestones'
+<owen>	that was confusing
+<federico>	oh, ok
+<owen>	NEEDINFO means specifically "needs a response from the reporter". I'm not really in favor of drastic actions to reduce bug count, though we need *some* action there
+*	federico is away: I'm busy
+*	federico is back (gone 00:00:02)
+<federico>	are there mostly feature requests, or problem reports?
+<owen>	I'd say the typical gtk+/gtk bug is a small wart somewhere in GTK+ with a non-thrilling work/reward ratio
+<federico>	heh
+<luis>	owen: it's the sign of a mature product ;)
+<ssp>	warts are the sign of a mature product?
+<federico>	ssp: and nose hairs
+<owen>	http://bugzilla.gnome.org/show_bug.cgi?id=106574 http://bugzilla.gnome.org/show_bug.cgi?id=57015 would be two examples spanning the typical range of that ratio
+<luis>	ssp: when warts are the majority of your bugs, as opposed to 'why do you have two heads', you're doing OK. :)
+<maclas>	luis: the gtk team seems to have almost 10 heads...
+<owen>	OK, dealing with the bug backlog interesting, but sort of off-topic for this meeting, which is about 2.4.0
+*	luis shuts up now, goes back to the background, apologies for sidetracking
+<maclas>	so, apart from the ongoing work on filechooser, combobox, pango, are there any other important issues for 2.4 ?
+<owen>	So, we'll use willfix.html to track the remaining issues - I've just updated it for Pango. Will try to do that for gtk+/gtk as well, and be better behaced better than last week. ;-)
+<ssp>	I do have some time to spend (a day or two perhaps) on gtk+, but I am not sure where it would be useful to spend that time
+<maclas>	noah: what about the im bugs on willfix ?
+<owen>	tml are you around?
+<tml>	yes i'm here
+<owen>	tml: I've been sort of ignoring win32 for the 2.4.0 release cycle -- considering it a "gnome" release, but I'm interested in your thoughts about where the 2.3 branch is on windows
+<noah>	maclas: i’d say #131277 can be committed, the other two need owen to look at them
+<noah>	maclas: they could be punted though
+<tml>	owen: i haven't had a chance to build it in a long time... but ali harlow seems to have a pretty good grip at the situation, so if the bugs he has found are corrected, it might even work. and hans runs it too, i guess
+*	tml wonders if it can be true that his libgdk-win32-2.0.la in HEAD was built on Aug 8...
+<maclas>	noah: speaking about im, there are a couple of open bugs for entirely new ims; I wonder whether it makes sense to encourage new ims to go to gtk-im-extra...
+<owen>	noah: The toggle one I'd like to punt. The string conversion, hmm, I'll try to take a quick look. I trust Thep pretty well. 
+<owen>	maclas: Note that the Ethopic IM's are actually in GTK+ right now, though perhaps they should be removed like the hangul one
+<maclas>	noah: rather than having them languish in bugzilla for years. That would probably require a sort of gtk-im-extra release, though.
+<tml>	owen: i think the worst bug is this popup-menu-doesn't-popdown, whatsitsnumber
+<federico>	maclas: by any chance, are you testing gtkentrycompletion with the file chooser?
+<noah>	maclas: yeah, i saw that you added those comments, and i’ve had some correspondence with daniel yacob, gave him access to commit his code
+<tml>	owen: #107320
+<noah>	maclas: the im-hangul already has its own distribution though
+<maclas>	federico: no, but didn't damon test it ?
+*	owen is sort of vaguely semi-intentionally trying to kill GTK+ input methods 
+<federico>	maclas: uh, maybe... I'm not sure
+<federico>	maclas: he did send a little bunch of patches for the shortcuts
+<maclas>	owen: maybe we can just move them all to gtk-im-extra...and then never release that...
+<noah>	maclas: of course you are right that i should do releases of gtk-im-extra periodically
+<owen>	tml: That one is perhaps fixed easiest by just adding an entirely new mode for the menu code that doesn't grab the pointer/keyboard and pops down the menu on focus out (I'm presumably scaring the heck out of ssp here)
+<owen>	tml: But that's not a 2.4.0 issue, probably a 2.6.0 issue
+<owen>	tml: For 2.6.0, I'd think it would be really cool if we could get gtk-wimp integrated and also the IME gtk+ input method module
+<owen>	(The first was of course on the 2.4 list earlier, but I dropped the ball there)
+<maclas>	owen: speaking of gtk-wimp, are you going to do a gtk-engines release for 2.4 as well ? Don't know if there were any changes in there...
+<owen>	tml: OK, so it seems like 2.40 will be a "probably sort of works on windows, we hope" release. Not the first of those, though we do need to figure out how to coordinate better in the future :-)
+<noah>	maybe give more responsibility to hans breuer and j ali harlow?
+<owen>	maclas: Looks like README fixes and a couple of build tweaks from tml
+<tml>	owen: would that be in the summer timeframe then? I might have more time then. I Don't think Hans is interested in IME stuff. Or maybe these Japanese guys that recently submitted a patch could  do it?
+<maclas>	owen: I think the kernel way of handling ports is fine...is there a problem with not having an officially working 2.4 on windows until, say 2.4.2 ?
+<owen>	tml: I assume that there isn't much more to integating that then just dropping it in and saying "please test". 2.6.0 should be in roughly 6 months, so most of the work in the summer
+<owen>	maclas: We did that for 2.0, except that we never really declared a working port on windows, just toned down then removed the "this doesnt' really work on windows yet" warnings
+<maclas>	owen: but I think there are some gtk-engines patches in bugzilla...probably something to worry about post 2.4 though
+<owen>	noah: That could help, though having three maintainers who build GTK+ three differnet ways, well, I think that's more of the problem then the solution
+<maclas>	owen: officially blessing a working version is probably not that necessary, since most people don't build on Windows, but use a binary dll, right ?
+<owen>	maclas: Officially blessing a binary dll on the other hand....
+<owen>	maclas: It probably makes sense to have a standard distribution directly on gtk.org and really encourage people hard to use that. 
+<owen>	(Long term, I'd like to push binary distribution on Unix/Linux as well. There's far too much effort spent on gtk-list on compilation problems)
+<owen>	OK, any other issues we should cover today?
+<tml>	owen: hmm, could it be that the stuff mentioned in bug #135195 at http://sourceforge.jp/projects/imime/ is such a IME gtk+ input method you asked for?
+<maclas>	owen: its my birthday
+<owen>	happy birthday!
+<maclas>	thanks
+*	tml hums to maclas
+<maclas>	actually, its over by now
+<owen>	Yeah, I meant http://bugzilla.gnome.org/show_bug.cgi?id=135195
+<tml>	will have to download and check...
+<owen>	OK, I think we are about done here. The task for right now is a) make sure release critical issues are on willfix.html  b) make sure non-critical issues aren't on willfix.html c) remove release-critical issues from willfix.html by fixing them
+
+Meeting ended Mar 01 18:20:32  (23:20 UTC)
