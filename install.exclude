@@ -9,11 +9,11 @@ install.exclude
 + faq/online_faq_fix
 + faq/gdp-gtkfaq.dsl
 faq
-+ tutorial/
++ tutorial1.2/
 + tutorial1.2/update_tut
 + tutorial1.2/online_tut_fix
 tutorial1.2
-+ tutorial/
++ tutorial2.0/
 + tutorial2.0/update_tut
 + tutorial2.0/online_tut_fix
 tutorial2.0
