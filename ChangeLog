@@ -1,3 +1,7 @@
+2003-01-30  Matthias Clasen  <maclas@gmx.de>
+
+	* plan/2.4/index.html: Add more links.
+
 2003-01-23  Kristian Rietveld  <kris@gtk.org>
 
 	* api/index.html: call GTK+ 1.2 obsolete instead of stable, call
