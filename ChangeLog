@@ -1,3 +1,7 @@
+2004-01-20  Murray Cumming  <murrayc@usa.net>
+
+	* bindings.html: Added felix binding. Updated URL for D binding.
+
 2004-01-05  Murray Cumming  <murrayc@lusa.net>
 
 	* bindings.html: Added Gauche (scheme) bindings.
