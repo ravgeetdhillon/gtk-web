@@ -1,3 +1,8 @@
+Thu Jun 10 23:25:27 2004  Matthias Clasen  <maclas@gmx.de>
+
+	* plan/2.6/index.html: Mark "rotated text" as committed, add regular 
+	expressions as a possible feature.
+
 Mon Jun  7 23:23:00 2004  Matthias Clasen  <maclas@gmx.de>
 
 	* index.html: Add 2.4.2 releases of GLib and GTK+.
