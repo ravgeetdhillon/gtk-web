@@ -1,3 +1,7 @@
+2005-01-07  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: Add GLib 2.6.1
+
 2005-01-04  Matthias Clasen  <mclasen@redhat.com>
 
 	* plan/meetings/index.html: Restructure a bit.
