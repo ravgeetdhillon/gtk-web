@@ -1,3 +1,7 @@
+2005-03-03  Murray Cumming  <murrayc@murrayc.com>
+	
+	* bindings.html: changed xbgtk url, based on email.
+
 2005-03-02  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add GTK+ 2.6.4 announcement
