@@ -1,3 +1,10 @@
+2005-02-23  Murray Cumming  <murrayc@murrayc.com>
+
+	* bindings.html: Remove GTK+ 1.2 versions, and 
+	any projects that do not have any 2.x versions.
+	Added 2.6 column.
+	Added Octave GTK+.
+
 2005-02-17  Matthias Clasen  <mclasen@redhat.com>
 
 	* plan/meetings/20050214.txt:
