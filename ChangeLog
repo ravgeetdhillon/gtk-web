@@ -1,3 +1,8 @@
+2005-01-10  Damon Chaplin  <damon@gnome.org>
+
+	* rdp/*: removed everything as the "Reference Documentation Project"
+	is dead and all the info is out-of-date.
+
 2005-01-08  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add GTK+ 2.6.1
