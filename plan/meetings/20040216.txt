@@ -1,0 +1,236 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started Feb 16 17:02:35 EST (22:02 UTC)
+
+In attendance:
+
+ Jonathan Blandford (jrb), Matthias Clasen (maclas), Tim Janik (rambokid), Noah Levitt (noah), 
+ Mark McLoughlin (markmc), Federico Mena Quintero (federico), Kris Rietveld (kris), Manish Singh (yosh), 
+ Soeren Sandmann (ssp), Owen Taylor (owen) 
+
+<owen>	Otherwise, I think everybody is here, so we should get started and not keep the CEST people up too late
+<owen>	OK, so first agenda item is "areas of concern"
+<owen>	My main areas of concern are:
+<owen>	 1) Pango ... there's a lot of open API bugs and other bugs
+<owen>	2) GtkFileChooser ... I think there are still a of little niggling stuff, and there also some UI discussion that needs doing
+<owen>	3) GtkComboBox ... Matthias just filed a bunch of bugs on that today, and I don't think it really is quite polished enough
+<owen>	4) The gigantic pile of open GTK+ bugs of miscellaneous nature that is preventing us from seeing what needs doing
+<owen>	Anybody else have major areas?
+<rambokid>	owen: i've got the two API issues you know about. 
+<rambokid>	owen: there're loads of potential others, but i'd rather see us get a new release out first, 2.2 has been long enough.
+<owen>	rambokid: Yeah, I know about those, but g_main_loop_depth() doesn't really count as a "major area" to me
+<maclas>	owen: you named the major areas
+<rambokid>	owen: for pango, is there anybody besides you working on API issues?
+<owen>	rambokid: Just me. noah has been helpful, but everything is just in the "blocking on owen" stage at the moment
+<federico>	this week I want to review PATCH bugs to reduce the pending count
+<rambokid>	owen: ok, accelerator behaviour fixing is a major concern for me though ;)
+<owen>	rambokid: There was a mail on gtk-devel-list about that?
+<maclas>	owen: is there really that much pango api work left ? I see 11 bugs on 1.4 api freeze, of which 5 have patches
+<noah>	i’ve been more or less absent for a while (sorry)
+<owen>	maclas: Well, I'm just going to have to blanket-punt most of that
+<rambokid>	owen: yes, your reply were GtkPlug concerns, then i gave suggestions for fixing 2/3 of the case. since then, i'm waiting for your reply.
+<owen>	maclas: but the arabic accents stuff, which is a big pile of not quite-right patches is something I've been promising people for a long time
+<rambokid>	maclas: are the combobox issues API issues?
+<owen>	rambokid: Ah, yes, the accelerator ordering stuff. 
+<maclas>	no, only the a11y bug is api related; but at this point, i don't think we can afford to concentrate on api bugs and leave the others for later...only 2 weeks left
+<owen>	rambokid: I'm very concerned about doing anything there, because of the outstanding IM issues and plug socket, I think that fixing things half ways just makes the horrible mess that is key bindings even more complex. But I'll reply in detail.
+<rambokid>	maclas: there's no way to fix API issues after a freeze/release, for stabilitybugs/behavioural ones, there is.
+<owen>	federico: Going through PATCH is useful, though my concern at this point is to get us out of the mode of just shuffling stuff off the top of the stack, because I don't think that will get us done in time
+<rambokid>	owen: yes, this is not the place to discuss that, lets have email on it.
+<rambokid>	federico: are there API issues left on the file chooser?
+<maclas>	rambokid: admitted; but some of the other combobox bugs are showstopper-grade bugs
+<rambokid>	maclas: i see
+<owen>	rambokid: I'm worried about having major problem with the new components, especially user visible. This hurts us a lot more than unfixed niggling issues that have been around for a couple of releases.
+<federico>	rambokid: not that I know of, though I've been thinking of a simple persistence API so that apps can save e.g. the hpaned position, etc.
+<owen>	OK, to keep stuff moving along, lets talk about schedule for a bit
+<rambokid>	federico: that's not a file chooser specific problem
+<owen>	the old schedule http://www.gtk.org/plan/2.4/ is obviously not relevant at this point
+<federico>	rambokid: I know; that's why I'm reluctant to do it at this point :)
+<maclas>	owen: 2.4.0 target date is march 1 ? with one 2.3.x release before that ? 
+<owen>	maclas: I mentioned that briefly, but we need to discuss whether that is actually doable.
+<owen>	http://www.gnome.org/start/2.5/ is the gnome schedule
+<markmc>	(which includes the two week slip already announced)
+<ssp>	march 1 sounds very optimistic to me
+<noah>	maybe we should pick an api freeze date first?
+<maclas>	owen: Whether it is doable depends on what we identify as showstoppers
+<owen>	noah: I think looking at a separate API freeze at this point is not going to work very well as maclas said, because simply we don't have time to first API freeze then start worrying about what the rest of the stuff we need to fix is
+<noah>	ok
+<federico>	none of the features in CVS are puntable, are they?  apps are already using them (combo box)
+<owen>	maclas: Yeah. So, we quite possibly want to get a blocker list, and then take the approach that we have to add stuff to it before we can fix it.
+<maclas>	I'd say to meet march 1, we basically have to declare the api frozen NOW; except for a handful of things where the patches are ready and wait in bugzilla; then concentrate on getting the new stuff to release quality
+<owen>	federico: Yeah, we can't back stuff out at this point.
+<federico>	maclas: that is very reasonable
+<federico>	ok, so we need to stabilize GtkComboBox and finish the toolbar/uimanager mess
+<owen>	maclas: Yeah, I'd agree.
+<federico>	the file chooser still has bugs, but overall I'm very happy with the way it works now
+<owen>	federico: I was under the impression that the toolbar/uimanager mess was pretty much done?
+<ssp>	as far as I am concerned, we can release the toolbar as it is
+<federico>	owen: let me ask jody
+<maclas>	federico: combo box is my main concern. I think the uimanager is basically ready for 2.4
+<federico>	ok
+<owen>	federico: That's why I need to meet with you and seth after this to fight out whether we are happy with how the UI is going to work for gnome-2.6
+<federico>	so I had this issue with the combo box where it was not very good for dynamic completions (e.g. those that get recomputed on each keypress rather than coming from a static list), but that API is basically the ::insert_text signal
+<federico>	owen: ok
+<federico>	so I'm not sure if we need more API in GtkComboBox, or just to polish the internals
+<owen>	federico: Did you mail gtk-devel-list about that? 
+<federico>	owen: I have a mail in my Drafts folder, because things do work more or less right now; does that count? :)
+<rambokid>	maclas: with the exception of main_loop_depth and the accel issue (both open discussions), i'm all for a freeze also
+<owen>	OK, so returning to the schedule, I'm not really thinking that Mar 1 is doable, though I'd love if it was. Though it's something of a terminology thing ... what do we call 2.3.x what do we call 2.4.0 and what do we call 2.4.1
+<federico>	owen: let me send it
+<maclas>	owen: 2.4.0 is what is shipped with gnome 2.6.
+<owen>	kris: Can you look at what federico sends? it may be that we just need a good example in the docs of how to do dynamic completions
+<maclas>	we should just try to make it not suck too badly...
+<rambokid>	owen/maclas: there's no list of blockers yet, right?
+<federico>	ok, mailed
+<kris>	owen: will try somewhere this week.
+<owen>	maclas: Well, that would be March 12 or so ... final tarballs are do March 15
+<owen>	kris: It doesn't need a detailed response ... just a quick reaction. I think we did discuss this use case when we were discussing the API origiinally
+<owen>	maclas: But if we do that, then we need to certainly pick some hard code freeze dates prior to that.
+<noah>	owen: there are 4 pango 1.4-api bugs with patches from me that i think maybe we should just commit (naturally i’m biased)
+<owen>	rambokid: No, there is no blocker list
+<rambokid>	owen: march15 is pretty bad in terms of people having tested their software with gtk-2.4.0 already
+<owen>	here's a proposal: anything not on our blocker list by the end of the week is not a blocker, and will not go into 2.4.0
+<owen>	The blocker list will be a html file in gtk-web
+<ssp>	one (possible) API issue with the combo box is that it doesn't have child-displacement theme properties
+<owen>	Anybody have an issue with that?
+<rambokid>	owen: you can detect a showstopper that needs fixing ven next wek
+<owen>	rambokid: That's the content of "But if we do that, then we need to certainly pick some hard code freeze dates prior to that"
+<maclas>	owen: I think we should do an api frozen 2.3.x release after committing whatever api affecting patches are witing in bugzilla
+<markmc>	owen, s/will not go in/is not guaranteed to go in/ ?
+<markmc>	owen, surely trivial non-blockers will go in ?
+<owen>	markmc: I'm suggesting no. I think we are dying under a load of trivial non-blockers
+<owen>	rambokid: There obviously has to be exceptions for new things we find
+<maclas>	markmc: prior to hard-code freeze, yes.
+<markmc>	maclas, cool
+<federico>	ok, so let's split up the work
+<rambokid>	owen: i'm sure you don't mean to prevent showstopper bug fixes, so how do blockers contrast to showstoppers?
+<markmc>	owen, okay, up to ye - just making sure I understand whats going on ..
+<federico>	owen: do you want to go through bugzilla marking blockers as such, or adding them to the gtk-web list?
+<owen>	rambokid: I think a "will fix" list is perhaps more appropriate 
+<rambokid>	owen: ok. and that doesn't carry the "definitely wontfix" with it
+<owen>	federico: Hmmm, I like the idea of the gtk-web list because it makes the fact that stuff has to be explicitely added to that list clearer
+<federico>	owen: ah, so that random people don't mark their favorite bug as blocker?  sounds fine
+<markmc>	owen, sounds like a nice way to track progress
+<maclas>	rambokid: unless bugs are closed WONTFIX; but we really need to concentrate on the embarrassing stuff
+<owen>	OK, splitting up the work - personally I'd like to take only Pango
+<federico>	I can do part of gtk
+<owen>	(though to get comments on other bugs just catch me on #gtk+ ... that has proved most reliable recently)
+<maclas>	I'll try to look at some of the combobox issues
+<rambokid>	i can go over glib
+<maclas>	jrb: whats the state of the treeview for 2.4 ?
+<ssp>	GDK has only one showstopper as far as I can tell
+<owen>	rambokid: If you can do a pass over glib and gobject, that would be great. They are pretty small -- maclas has already been doing a good job; we'll probably have to get someone else to track them ongoing, I guess.
+<jrb>	maclas: no worse than other releases, for the most part
+<jrb>	maclas: there is a Filter API change that I think markmc wanted, and there's kris' patch for DnD
+<federico>	jrb: do any apps use the DnD patch currently?
+<kris>	no because nobody saw it or something
+<owen>	maclas: Can you go through GtkTextView as well... I think you are best qualified to do that
+<jrb>	federico: not as proposed, though the patch is similar in a lot of ways to the Egg interface
+<owen>	ssp: Are you volunteering for GDK?
+<federico>	kris: the nautilus and evolution people need to look at that, I guess; I'll try to get some time from them
+<kris>	dave was looking at it at some point and said he needed more features
+<maclas>	owen: I think ALL bugs on textview are hard; not much that can be done for 2.4. But I can look over them again.
+<federico>	jrb: I was rather happy with the way ETable did things; I haven't looked into kris's patch at all
+<ssp>	owen: yes
+<federico>	kris: ok, good to know
+<owen>	maclas: If the right thing to do is simply to mark no blockers and move them all, that's a perfectly valid action
+<jrb>	federico: it's fairly similar to the current API, except that it allows you to use a list of GtkTreeRowReferences; instead of just a path
+<ssp>	owen: I can take GtkMenu* too
+<federico>	jrb: later, during our gtkfilechooser talk, do you want to talk a bit about this?
+<federico>	kris: do you have time as well?
+<owen>	ssp: Cool.
+<kris>	federico: no, I am supposed to wake up in less than 7 hours
+<jrb>	federico: sure.  Though I'm a little hesitent to confuse the two issues
+<federico>	kris: dude, sleep is for the weak! :)
+<maclas>	federico: if he had any, he would have to fix combobox bugs...
+<jrb>	federico: (the filesel talk may take some time)
+<federico>	jrb: I need some simple DnD in the bookmarks list as well :)
+<kris>	federico: I am weak.
+<federico>	kris: coffee makes you strong and sexy
+<owen>	federico: Why don't you just read and respond to kris's mail first?
+<kris>	federico: I don't like coffee.
+<federico>	owen: sure
+<rambokid>	federico: stop feeding little kris with bad phrases ;)
+<owen>	OK, big class of bugs we have to assign is all the "gtk+/gtk bugs" anybody have any idea how to split those up? 
+<owen>	Well, also gtk+/general
+<jrb>	owen: how many of these bugs are new to 2.3.x? 
+<owen>	jrb: Very few, probably none. So, yes, it would be possible to move them blanket to 2.6.0.
+<federico>	owen: I can look into that; I've doing a fair bit of bugzilla work lately, so the bugs are familiar
+<owen>	federico: prior to the gtkfilechooser meeting, I'm not sure I want to assign you many bugs to look at :-)
+<maclas>	owen: we should add new components for larger subsystems like "menu", "combobox", "uimanager/actions" "toolbar"
+<maclas>	owen: then we can split up gtk+/gtk and gtk+/general some more
+<maclas>	owen: another large subsysem is notebook
+<owen>	maclas: Yeah, do you want to try to do something in that area. (I don't know what to call UIManager/Actions component though...)
+<maclas>	owen: i'll look over pixbuf bugs as well (though there are no showstoppers there)
+<owen>	maclas: thanks
+<maclas>	owen: sure. "uimanager/actions" is the best name I can come up with. 
+<federico>	maclas: do you know if #134235 is bad?  I haven't tested the sample file
+<rambokid>	owen: gtk/general seems to mostly contain a bunch of "nice to have" and build issues
+<owen>	rambokid: gtk/general is build issues pretty much
+<maclas>	federico: no idea, but a crash-on-load is always bad...
+<rambokid>	owen: i mean, there's not much material for blockers there. a gtk_text_layout_validate_yrange() crash ok, but showstopper build issues would affect CVS development as well ;)
+<owen>	On the gtk+/gtk stuff, I think what we'll do is that if someone has time to get to it, mail gtk-devel-list and say that you are doing/done with it, otherwise we'll schedule a meeting later this week and we can go through them on the fly
+<owen>	rambokid: "blocker" was probably too strong of a word; if there are build issues with obviously correct patches they should also go on the willfix list
+<owen>	GtkTextLayout bugs etc, should be reassigned of course
+<maclas>	owen: what do we do about the backends: win32, linux-fb ? None of them should concern us for 2.4, right ?
+<rambokid>	owen: ok. i see. i can look at the patches in gtk/general then and figure which ones to apply and move the rest to 2.6.0
+<ssp>	maclas: if you are creating new components, are you also going to move the bugs?
+<maclas>	owen: 2.4.0 was what I meant; they'll probably get sorted out in 2.4.x
+<maclas>	ssp: yes.
+<owen>	maclas: I think what I'll do there is ask Eric and Tor and if they don't respond then we just move them blanket (there are some easy patches on linux-fb if I recall)
+<owen>	rambokid: Sounds good
+<owen>	OK, here's a proposed schedule
+<maclas>	owen: are you going to look at the input-methods bugs ? fits well with pango, I guess.
+<noah>	i might be remotely qualified to look at those
+<markmc>	maclas, you could ping toshi and explain the urgency, I'm sure he'd be happy to oblige
+<maclas>	noah: of course you are !
+<owen>	Fri Feb 20 - WillFix list finalized; this defines work to be done for 2.4.0
+<maclas>	owen: will you create a skeleton in gtk-web ?
+<owen>	Mon Feb 23 - 2.3.3 
+<owen>	Mon March 1 - 2.3.4  API and feature frozen
+<owen>	Mon March 8 - 2.4.0
+<owen>	Before March 15 - 2.4.1 if necessary for GNOME-2.6 RC
+<owen>	maclas: I will
+<federico>	the schedule sounds good
+<rambokid>	damn tight
+<owen>	Any issues with that schedule? (I'd like to have a release this week too, and I'm sure the release team would appreciate it, but I don't see it as realistic)
+<ssp>	when the willfix list is done, will we then have a meeting to figure out who will do what?
+<owen>	rambokid: No kidding. 
+<maclas>	owen: schedule sounds good to bring us over the gnome-2.6 release...do we plan ahead ? 
+<markmc>	owen, a snapshot 2.3.2.x release withot release-notes would be useful ...
+<markmc>	owen, do the release notes in 2.3.3
+<owen>	markmc: I really don't want to go there
+<owen>	markmc: There is a lot of simplicity in sticking to doing all releases the same way
+<markmc>	okay, just a suggestion to get the release without sinking too much of ye're time ..
+<owen>	markmc: Also, not doing the NEWS file just makes things worse the next time, so it's a really bad habit to get into 
+<owen>	maclas: For 2.6 you mean?
+<owen>	maclas: Let's wait until we get 2.4 out before that
+<owen>	ssp: Maybe next Monday? I don't want to do a Friday evening meeting
+<owen>	What do people generally think about future meetings? Is this a good day/time?
+<maclas>	owen: not really; just beyond the gnome-2.6 horizon; like: how to avoid getting into the same time crunch next time...what to do with the head of bugs...
+<maclas>	owen: s/head/heap/
+<jrb>	owen: it's close to the board meeting, but hopefully we won't have many more two hour meetings there
+<rambokid>	owen: afair, monday meetings around this time used to work pretty well
+<owen>	maclas: You mean, the big pile of bugs we just keep pushing from milestone to milestone?
+<maclas>	the time is perfect for me; early enough to be awake; late enough to have some free time...
+<ssp>	owen: it's fine by me, although one hour earlier would be appreciated by me
+<maclas>	owen: yes, THAT pile...
+<rambokid>	maclas: there's little you can do other than fixing them.
+<owen>	maclas: Here's an idea ... we devote particular releases to particular components and try to have no "pushed off" bugs for that one component
+<federico>	rambokid: there is a big bunch of bugs where people request an addition, then forget about it and don't care anymore
+<rambokid>	though i think, tk historically has put too much focus on new features, or at least to little focus on fixing regresisons, doing code cleanups/robustness fixes and refactoring work. and that to some degree is responsible for a bunch of stability/oddity bugs
+<maclas>	rambokid: well, we could also think about how to increase the core team...
+<owen>	maclas: That is, for 2.4.3 say, it is the "GtkNotebook release" and all non-API, non-feature GtkNotebook are either fixed or WONTFIXED
+<federico>	rambokid: e.g. some java people requested extra signals in GtkRange, forgot about it, then a year later *another* java team submitted a patch, and I marked the first one dupe
+<maclas>	owen: sound like an interesting idea...
+<federico>	owen: that sounds *very* good; we may even be able to get contributors that care about that particular component
+<federico>	if we pre-announce things, that is
+<owen>	But for good  meeting discipline I'd actually like to close this down now :-) Does anybody mind if I post a link to the log to gtk-devel-list along with a summary?
+<markmc>	owen, sounds good - please cc, release-team too
+<ssp>	owen: I think I have seen quite a few bugs where the effect of the bug is really minor, and the fix is really hard
+<federico>	owen: sounds good
+<ssp>	sounds good
+<maclas>	owen: no objections; I'd have asked one more question: what api affecting patches do we target for 2.3.4 ? Off the top of my head, I think we have the gqueue patch by ssp and the atomic ops patch ready and waiting to be committed.
+<owen>	maclas: Sounds good for glib. I don't know about GTK+ off hand , I'm hoping to have all Pango API patches or punted prior to next monday, 
+<owen>	OK, meeting adjourned. 
+
+Meeting ended Feb 16 18:24:26  (23:24 UTC)
