@@ -1,0 +1,59 @@
+body
+{
+  background: #ffffff;
+}
+
+h1.banner
+{
+  font-family: helvetica,lucida,sans-serif;
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: center;
+  background: #ba92d8;
+  border: solid 2px #000000;
+  padding: 10px;
+  margin: 5px;
+}
+
+h2.section-heading
+{
+  font-family: lucida,helvetica,sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+  background: #ffab25;
+  border: solid 2px #000000;
+  padding: 5px;
+  padding-left: 20px;
+}
+
+table.contents
+{
+  background: #ffffff;
+  border: solid 2px #000000;
+  font-size: large;
+}
+
+td.contents-header
+{
+  font-weight: bold;
+  background: #818ce5;
+  padding: 5px;
+}
+
+td.contents
+{
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+a
+{
+  text-decoration: none;
+}
+
+a:hover
+{
+  text-decoration: underline;
+  color: #FF0000;
+}
