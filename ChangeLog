@@ -1,3 +1,7 @@
+Wed Feb 18 13:59:09 2004  Soeren Sandmann  <sandmann@daimi.au.dk>
+
+	* plan/2.4/willfix.html: Add a GDK section
+
 2004-02-17  Federico Mena Quintero  <federico@ximian.com>
 
 	* plan/2.4/willfix.html: Added a GtkFileChooser section.
