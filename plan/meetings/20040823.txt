@@ -1,0 +1,112 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started August 16 2004 17:05 EST (21:05 UTC)
+
+In attendence: 
+
+Jonathan Blandford (jrb), Matthias Clasen (matthias), Owen Taylor (owen),
+Federico Mena Quintero (federico), Billy Biggs (vektor), Tor Lillqvist (tml),
+Tommi Komulainen (tko)
+
+<jrb>	matthias: btw, I committed those images
+<matthias>	ok, thanks
+<matthias>	jrb: want to remind owen ? I'm at home already...
+<matthias>	maybe we should start
+<matthias>	i didn't propose an agenda. do we have topics to discuss ?
+<owen>	Yeah, I think so.
+<owen>	One agenda topic I'd like to bring up is stable branch testing
+<owen>	We seem to be getting a fair number of serious regressions
+<owen>	http://bugzilla.gnome.org/show_bug.cgi?id=150852, or the bug where gtkfilechooser was always producing a warning, etc.
+<owen>	I never had much luck with testing of pre-releases, and they are a pain, but maybe we need to consider something
+<jrb>	have we had other such issues, or was that the big one
+<matthias>	One of the better ways to ensure that code gets tested is to release it...but thats certainly not a viable test strategy for the stable branch
+<owen>	jrb: Those are two...
+<matthias>	jrb: there is also the nautilus thumbnail bug
+<owen>	jrb: And I think we've had at least one other brown-bag release in 2.4.x
+<owen>	Really, this is all a symptom of good stable branch attention, to some sense, if you don't change it, it won't break
+<owen>	(Though with 150852, I really think that was a pretty big change to land immediately on stable without some chance to shake out...)
+<matthias>	2.4.5 was the other brown bag release (non utf-8 filenames)
+<owen>	Long long ago, the prerelease testing I used to do was to start testgtk and try out every test, but that wouldn't really catch these sort of things..
+<matthias>	owen: I'll probably change my habits and do ./configure --prefix=/usr for the stable branch
+<owen>	matthias: Certainly should help with some of this stuff ... I have head installed in /usr at the moment...
+<matthias>	owen: thus the lockout in the morning...
+<owen>	OK, so it sounds like we don't have any brilliant ideas other than "run the new code ourselves". Well, hopefully that will help a bit.
+<owen>	That was my item.
+<vektor>	owen: Maybe have tighter controls on what code goes into the stable branch...
+<owen>	vektor: Well, it's up to individual area maintainers, if federico wants to put a big file chooser change in, then all I can do is frown at him
+<matthias>	owen: maybe we should be more systematic in doing larger bugfixes first in HEAD, then backport them to stable once they prove to be just that
+<owen>	vektor: The reason we typically put small fixes in both stable and head at once is that it is incredibly easier that way, then trying to do piecemeal backports
+<vektor>	It just seems like that there are times when it's safer to leave a minor bug in than to release broken code.
+<vektor>	Having less bugs fixed means that you can also write more consistent workarounds.
+<jrb>	matthias: committed the  doc-shooter code too.
+<matthias>	speaking about regressions, are there other serious issues apart from 150852 which we must fix for 2.4.8 ? Otherwise I plan to do 2.4.8 as soon as 150852
+<matthias>	and that other filechooser bug are fixed
+<matthias>	jrb: thanks
+<jrb>	matthias: just to confirm; that fix for the fixed-height mode fo the TreeView was committed to 2.4 right?
+<matthias>	jrb: yes. There is another fixed-height mode bug, which I can't reproduce though 
+<matthias>	jrb: 136496
+<jrb>	matthias: looking...
+<jrb>	matthias: should be easy to confirm wether its invalidating the right area
+<jrb>	anything else?
+<matthias>	I want to do 2.5.2 later this week
+<tml>	Please comment on suggested new API in bug #101792. Also whether you think any application writer would bother to use it...
+<owen>	tml: App writers might not use it immediately, but they could be trained
+<owen>	I'd use const gchar * rather than GFilename
+<owen>	Can we put most of those in an a glib.h and g_fopen() in gprintf.h ? (Hmm, that's weird, but another header file split for for inclusion of stdio.h is also weird)
+<tml>	owen: yeah, I thought that calling it GFilename would make it more self-documenting what kind of data it is, or something.
+<owen>	tml: We have a ton of existing functions that would have to be changed
+<tml>	owen: or maybe just use struct _iobuf instead of FILE? (Does ISO C mandate that FILE is a typedef for struct _iobuf?)
+<owen>	g_filename_from_gfilename() and vice-versa don't make sense to me, maybe g_win32_filename_to_filename(UNICODE *win32_filename) or something
+<owen>	tml: I don't think so
+<owen>	tml: Basicallyl, what I want to do is consistently redefine every place that takes a filename currently to take/return the "gfilename" in your terminology g_dir_read_name() g_file_get_contents(), etc.
+<tml>	owen: but then apps would need to have ifdefs, g_filename_to/from_gfilename would be cross-platform. (Even if nop on Unix) Wasn't the idea that apps would handle filenames in UTF-8 and "GFilename", and not need to know that GFilename is UTF-8 on Windows and on-disk on Unix?
+<matthias>	owen: I agree that g_filename_from_gfilename() is confusing. What you propose is better
+<owen>	tml: Why would they need #ifdefs? The  idea here is they can always use the "gfilename" encoding everywhere
+<owen>	tml: They only have to worry about the relationship of the "gfilename" encoding to the system encoding if they are mixing glib and system API calls
+<matthias>	owen: but on win32 they need a to call a function to obtain the gfilename, on unix not
+<tml>	owen: (re: redefine every place that takes a filename currently to take/return the "gfilename") But that would break binary compatibility?
+<owen>	matthias: Obtain from what?
+<matthias>	owen: ok, assuming that the glib file/dir api covers enough that you can do without libc, then its not necessary
+<tml>	owen: (re: Why would they need #ifdefs) if it was g_win32_*
+<owen>	tml: It breaks apps that are currently mixing win32 and glib api calls, I think that is all.
+<owen>	tml: And such apps are already quasi-broken for filenames not representable in the system code page
+<matthias>	owen: how does one convert cmdline arguments to gfilenames, btw ?
+<tml>	owen: yes, and presumably every app that uses g_dir_read_name also uses stat(), fopen(), on the names returned
+Aug 23 17:47:07 *	jrb wonders if typeahead is broken
+<owen>	matthias: Hmmm, you might need a system-codepage-to-gfilename converter for that (if not using goption), though I dont' know how command line argument encoding works on windows. It's a little rare.
+<tml>	command line handling on win32 is made even more complicated by the fact that console windows typically use *different codepage* (so-called OEM codepages) than windows otherwise... A mess, basically.
+<owen>	tml: Some perhaps though if they use g_file_test() g_file_get_contents(), etc, we can protect them... I guess my feeling is that it is better to say "ascii filenames will continue working as before, if you have non-ascii filenames you might need to adapt your program" 
+<yosh>	a mess? on win32? that never happens!
+<owen>	tml: Then to leave ourselves in a situation which is fundementally broken .. where the filechooser cna't return a filename for some files, etc.
+<tml>	yosh: ;-)
+<tml>	owen: well, maybe, it might work. 
+<jrb>	aha!  gtktreeview binds '/' to 'expand_collapse_cursor_row'
+<owen>	tml: Basically, since we *aren''t* planning glib3 any time soon, I think we have to eat the pain ... and I'm not willing to introduce file encoding #3 (GFilename in your patch)
+<owen>	jrb: OK, that one is easy to manage since we don't have a tree....
+<tml>	owen: ok, i can live with that.
+<jrb>	owen: except that the TreeView gets the keybinding first;
+<owen>	jrb: That can be fixed with a bit of hackery....
+<matthias>	owen: I'm not quite sure I understand your position. Do you advocate not introducing new api, but rather make all glib functions dealing with filenames expecing gfilename encoding ?
+<owen>	(If nothign else, g_signal_connect() and check the keysym manually....)
+<jrb>	owen: I think I can just return FALSE in the keybinding if it doesn't do anything
+<owen>	matthias: Yes. Baiscally, the idea is that we say that the system encoding on windows *is* the "gfilename" encoding
+<owen>	matthias: And cover up the fact that windows C library actually expects something different with g_fopen(), etc.
+<matthias>	owen: sounds ok to me. Do we have an estimate how much additional libc api we need to cover for that to make sense ?
+<owen>	matthias: the idea here is that we need every filename to be representable in the "system" encoding and that isn't the case for the real windows C library encoding
+<jrb>	hrm.  not quite...
+<owen>	matthias: I think the ones that that tml had in gfilewrappers.h should be about it.
+<owen>	matthias: open/stat/unlink aren't even stdc
+<owen>	Hmm, remove() is missing there, though
+<owen>	matthias: stdc has incredibly few functions that take filenames
+<federico>	aaaaaaaaargh
+Aug 23 17:59:20 *	tml reminds himself to add remove()
+<owen>	tml: You might want to API doc open/stat/unlink as "may not be implemented on every platform, you should make sure that it is implemented on all platfomrs you run on before using tihs function".
+<matthias>	hey federico
+<tml>	what platform glib could realistically run on doesn't have those, as even the windows c library has them? 
+<owen>	tml: Well, the world is rapidly becoming Unix+Windows... maybe the scare comment isn't necessary....
+<matthias>	owen: was there a bug for the filechooser warnings ? 
+<owen>	matthias: That was an old fixed thing, I think, I was talking about the past.
+<matthias>	owen: ok
+<matthias>	federico: can you fix 150852 ? I want to do a 2.4.x release once that is fixed.
+<matthias>	I have to leave now, see you later
+
+Meeting ended August 16, 18:10 EST (22:10 UTC)
