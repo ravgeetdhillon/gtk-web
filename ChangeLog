@@ -1,3 +1,9 @@
+2004-08-10  Matthias Clasen  <mclasen@redhat.com>
+
+	* plan/meetings/20040803.txt: 
+	* plan/meetings/20040810.txt: 
+	* plan/meetings/index.html:  Latest meeting notes.
+
 Tue Aug  3 15:21:36 2004  Matthias Clasen  <maclas@gmx.de>
 
 	* plan/2.6/index.html: Update.
@@ -12,7 +18,7 @@ Mon Aug  2 15:46:25 2004  Owen Taylor  <otaylor@redhat.com>
 
 Sun Aug  1 02:27:49 2004  Matthias Clasen  <maclas@gmx.de>
 
-	* index.html (href): Add GLib, GTK+ 2.5.1.
+	* index.html: Add GLib, GTK+ 2.5.1.
 
 2004-07-30  Matthias Clasen  <mclasen@redhat.com>
 
