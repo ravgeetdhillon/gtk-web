@@ -1,3 +1,7 @@
+Tue Aug  3 14:37:44 2004  Matthias Clasen  <maclas@gmx.de>
+
+	* index.html (href): Add Pango 1.5.2, 1.4.1
+
 Mon Aug  2 15:46:25 2004  Owen Taylor  <otaylor@redhat.com>
 
 	* Dummy commit.
