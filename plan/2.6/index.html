@@ -26,59 +26,61 @@ No schedule yet.
 </P>	    
 <P>
 <B>Possible features</B> (filled circles denote features which are already in CVS)
-	  <UL type="circle">
-	    <LI><P>Height-for-width geometry management. (Define a new interface, 
+	  <UL>
+	    <LI type="circle"><P>Height-for-width geometry management. (Define a new interface, 
 		support it GtkVBox, GtkLabel would be the
 		minimum. <a href="http://bugzilla.gnome.org/show_bug.cgi?id=104188">#104188</a>)</P></LI>
-	    <LI><P>Reworked tooltips (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=50619">#50619</a>, <a href="http://bugzilla.gnome.org/show_bug.cgi?id=56291">#56291</a>, <a href="http://bugzilla.gnome.org/show_bug.cgi?id=62174">#62174</a>, <a href="http://bugzilla.gnome.org/show_bug.cgi?id=65490">#65490</a>)</P></LI>
-	    <LI><P>"Smooth scrolling", like in Internet Explorer (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=103811">#103811</a>)</P></LI>
-	    <LI><P>GtkResizeGrip -- a widget implementing a resize
+	    <LI type="circle"><P>Reworked tooltips (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=50619">#50619</a>, <a href="http://bugzilla.gnome.org/show_bug.cgi?id=56291">#56291</a>, <a href="http://bugzilla.gnome.org/show_bug.cgi?id=62174">#62174</a>, <a href="http://bugzilla.gnome.org/show_bug.cgi?id=65490">#65490</a>)</P></LI>
+	    <LI type="circle"><P>"Smooth scrolling", like in Internet Explorer (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=103811">#103811</a>)</P></LI>
+	    <LI type="circle"><P>GtkResizeGrip -- a widget implementing a resize
 	    	  grip. (<a
 		  href="http://bugzilla.gnome.org/show_bug.cgi?id=73359">#73359</a>)</P></LI>
-            <LI><P>Toolbar editor. See EggToolbarEditor in libegg. (<a
+	    <LI type="circle"><P>Markup for paragraph direction (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=70399">#70399</a>)</P></LI>
+            <LI type="circle"><P>Toolbar editor. See EggToolbarEditor in libegg. (<a
 		  href="http://bugzilla.gnome.org/show_bug.cgi?id=120645">#120645</a>)</P></LI>
-            <LI><P>A dock widget. See EggDock in libegg.</P></LI>
-            <LI><P>An AppWindow widget.</P></LI>
-            <LI><P>GtkNotebook additions commonly needed for tabbed MDI (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=116647">#116647</a>, 
+            <LI type="circle"><P>A dock widget. See EggDock in libegg.</P></LI>
+            <LI type="circle"><P>An AppWindow widget.</P></LI>
+            <LI type="circle"><P>GtkNotebook additions commonly needed for tabbed MDI (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=116647">#116647</a>, 
                 <a href="http://bugzilla.gnome.org/show_bug.cgi?id=116650">#116650</a>,
                 <a href="http://bugzilla.gnome.org/show_bug.cgi?id=73240">#73240</a>).</P></LI>
-            <LI><P>About dialog (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=109435">#109435</a>)</P>
-	    <LI><P>Integration of <a href="http://www.directfb.org/gtk.xml">directfb port</a>.</P></LI>
-            <LI><P>Animated cursors (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=69436">#69436</a>)</P>
-            <LI><P>Units other than pixels (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=101859">#101859</a>)</P>
-            <LI><P>Druid/Wizard support (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=115348">#115348</a>)</P>
-            <LI><P>Session management support (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=79285">#79285</a>)</P>
-            <LI><P>Get a libglade equivalent into GTK+</P>
-            <LI><P>A model-view table widget, reusing parts of the treeview infrastructure (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=119085">#119085</a>)</P>
-	    <LI>Possible GdkPixbuf features:
+            <LI type="circle"><P>About dialog (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=109435">#109435</a>)</P>
+	    <LI type="circle"><P>Integration of <a href="http://www.directfb.org/gtk.xml">directfb port</a>.</P></LI>
+            <LI type="circle"><P>Animated cursors (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=69436">#69436</a>)</P>
+            <LI type="circle"><P>Units other than pixels (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=101859">#101859</a>)</P>
+            <LI type="circle"><P>Druid/Wizard support (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=115348">#115348</a>)</P>
+            <LI type="circle"><P>Session management support (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=79285">#79285</a>)</P>
+            <LI type="circle"><P>Get a libglade equivalent into GTK+</P>
+            <LI type="circle"><P>A model-view table widget, reusing parts of the treeview infrastructure (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=119085">#119085</a>)</P>
+	    <LI type="circle">Possible GdkPixbuf features:
                 <P>
 	    	<UL type="circle">
-		    <LI><P>Optimized pixbuf operations -- scaling down a lot (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=80925">#80925</a>),
+		    <LI type="circle"><P>Optimized pixbuf operations -- scaling down a lot (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=80925">#80925</a>),
 		    unscaled ops (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=80927">#80927</a>)</P></LI>
-                    <LI><P>Image collections (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=65902">#65902</a>)
+                    <LI type="circle"><P>Image collections (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=65902">#65902</a>)
                 </UL>
             </LI> 
-	    <LI>Possible GtkTreeView features (Jonathan, Kris):
+	    <LI type="circle">Possible GtkTreeView features (Jonathan, Kris):
                 <P>
 	    	<UL type="circle">
-		   <LI>Save expanded node state (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=50054">#50054</A>)</LI>
-		   <LI>DnD with multiple items (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=70479">#70479</A>)</LI>
-		   <LI>Support for state saving (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=75128">#75128</A>)</LI>
-		   <LI>Rubberbanding (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80127">#80127</A>)</LI>
-		   <LI>"Mode API", in some form (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80590">#80590</A>)</LI>
-		   <LI>Storage of hidden selections (about the same as "save expanded node state") (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80870">#80870</A>)</LI>
-		   <LI>Tooltip support for GtkTreeView (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80980">#80980</A>)</LI>
-		   <LI>"type-ahead search" (undecided) (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=90006">#90006</A>)</LI>
-		   <LI>Copy/paste (undecided) (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=104626">#104626</A>)</LI>
+		   <LI type="circle">Save expanded node state (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=50054">#50054</A>)</LI>
+		   <LI type="circle">DnD with multiple items (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=70479">#70479</A>)</LI>
+		   <LI type="circle">Support for state saving (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=75128">#75128</A>)</LI>
+		   <LI type="circle">Rubberbanding (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80127">#80127</A>)</LI>
+		   <LI type="circle">"Mode API", in some form (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80590">#80590</A>)</LI>
+		   <LI type="circle">Storage of hidden selections (about the same as "save expanded node state") (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80870">#80870</A>)</LI>
+		   <LI type="circle">Tooltip support for GtkTreeView (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80980">#80980</A>)</LI>
+		   <LI type="circle">"type-ahead search" (undecided) (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=90006">#90006</A>)</LI>
+		   <LI type="circle">Copy/paste (undecided) (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=104626">#104626</A>)</LI>
 		</UL>
                 <P>
 		Plus some API additions and small tweaks/features.
 	    </LI>
-	    <LI>Possible GLib features:
+	    <LI type="circle">Possible GLib features:
                 <P>
 	    	<UL type="circle">
-		    <LI>A time API to go with the date API(<a href="http://bugzilla.gnome.org/show_bug.cgi?id=50076">#50076</a>)</LI>
-                    <LI>Command line option parsing API (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=50074">#50074</a>)
+		    <LI type="circle">A time API to go with the date API(<a href="http://bugzilla.gnome.org/show_bug.cgi?id=50076">#50076</a>)</LI>
+                    <LI type="circle">Command line option parsing API (<a
+                    href="http://bugzilla.gnome.org/show_bug.cgi?id=50074">#50074</a>)
                 </UL>
             </LI> 
 	  </UL>

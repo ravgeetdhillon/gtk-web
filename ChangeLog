@@ -1,3 +1,8 @@
+Tue Mar 16 14:01:11 2004  Soeren Sandmann  <sandmann@daimi.au.dk>
+
+	* plan/2.4: update for 2.4.0
+	* plan/2.6: some updates
+	
 Tue Mar 16 01:23:28 2004  Matthias Clasen  <maclas@gmx.de>
 
 	* plan/2.6/index.html: Add bugzilla queries.
