@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd /web/gtk
+cd /home/web/gtk/www.gtk.org
 
 rm -f gtkdotorg.html
 wget -q http://core.freshmeat.net/backend/gtkdotorg.html 

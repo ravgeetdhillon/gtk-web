@@ -3,8 +3,8 @@
 export CVS_PASSFILE=/home/otaylor/gnomeweb-cvspass
 export PATH=$PATH:/usr/local/bin
 
-CVSDIR=/web/gtk/USED_CVS_HEAD/gtk+/docs/tutorial
-INSTALLDIR=/web/gtk/tutorial2.0/
+CVSDIR=/home/web/gtk/www.gtk.org/USED_CVS_HEAD/gtk+/docs/tutorial
+INSTALLDIR=/home/web/gtk/www.gtk.org/tutorial2.0/
 
 cd $CVSDIR
 cvs update 
