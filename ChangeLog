@@ -1,3 +1,7 @@
+2003-04-24  Kristian Rietveld  <kris@gtk.org>
+
+	* api/index.html: s/2.0/2.2/, as the docs online are for 2.2.
+
 2003-03-08  Murray Cumming  <murrayc@usa.net>
 
 	* bindings.html: Added a new Objective Caml binding.
