@@ -36,10 +36,17 @@ GTK+-2.4 Bugs to Fix
 	    <a href="http://bugzilla.gnome.org/show_bug.cgi?id=78414">#78414</a>:
 	    <b>g_queue_remove() and g_queue_remove_all().</b>
 	    A full GList/GSList equivalent API set for GQueue, including tests.</LI>
-	    <LI>
-	    <a href="http://bugzilla.gnome.org/show_bug.cgi?id=118536">#118536</a>:
-	    <b>Make g_signal_connect_object'ed handlers disconnect when the data object is destroyed.</b>
-	    </LI>
+	      <LI>
+		<a href="http://bugzilla.gnome.org/show_bug.cgi?id=118536">#118536</a>:
+		<b>Make g_signal_connect_object'ed handlers disconnect when the data object is destroyed.</b>
+		this can be fixed post-2.4. (i.e. shouldn't be on willfix), proper solution
+		blocking on timj and a test case. -- timj
+	      </LI>
+	      <li>
+		<a href="http://bugs.gnome.org/show_bug.cgi?id=117901">#117901</a>:
+		<b>SWAP_LE_BE patch for float/double.</b>
+		easy to apply/reject once timj/yosh agree on portability issues of unions. -- timj
+	      </li>
 	  </UL>
 </P>
 <B>Pango</B>
