@@ -1,3 +1,7 @@
+2004-02-17  Federico Mena Quintero  <federico@ximian.com>
+
+	* plan/2.4/willfix.html: Added a GtkFileChooser section.
+
 Tue Feb 17 22:41:27 2004  Matthias Clasen  <maclas@gmx.de>
 
 	* plan/2.4/willfix.html: Add some willfixes.
