@@ -1,3 +1,7 @@
+Sun Feb 15 01:12:37 2004  Matthias Clasen  <maclas@gmx.de>
+
+	* documentation.html: Add a link to Havoc's color mini-FAQ.
+
 Mon Feb  9 21:43:36 2004  Matthias Clasen  <maclas@gmx.de>
 
 	* api/index.html: Fix link to atk online docs.
