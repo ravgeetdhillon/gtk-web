@@ -1,5 +1,9 @@
 Thu Dec 16 2003  Steve Fox <drfickle@k-lug.org>
 
+	* install.sh: Update install script for new success dir.
+
+Thu Dec 16 2003  Steve Fox <drfickle@k-lug.org>
+
 	* index.html
 	* oldnews.html
 	Move older news off front page
