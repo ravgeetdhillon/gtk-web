@@ -1,3 +1,9 @@
+2003-06-04  Kristian Rietveld  <kris@gtk.org>
+
+	* plan/2.4/index.html: some updates wrt combo/compl/filter. Also
+	updated the corresponding bugs in bugzilla. (oh, Owen, if you read
+	this, we need a new schedule).
+
 2003-04-24  Murray Cumming  <murrayc@usa.net>
 
 	* Updated Inti self-declared completeness.
