@@ -1,5 +1,5 @@
 Meeting on irc.gnome.org:#gtk-devel
-Meeting started August 16 2004 17:05 EST (21:05 UTC)
+Meeting started August 23 2004 17:05 EST (21:05 UTC)
 
 In attendence: 
 
@@ -109,4 +109,4 @@ Aug 23 17:59:20 *	tml reminds himself to add remove()
 <matthias>	federico: can you fix 150852 ? I want to do a 2.4.x release once that is fixed.
 <matthias>	I have to leave now, see you later
 
-Meeting ended August 16, 18:10 EST (22:10 UTC)
+Meeting ended August 23, 18:10 EST (22:10 UTC)
