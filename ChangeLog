@@ -1,3 +1,8 @@
+2002-11-01  Murray Cumming  <murrayc@usa.net>
+
+	* bindings.html: Marked gtkmm2 as complete now that 
+	we've hit 2.0.0.
+
 2002-10-17 Steve Fox <drfickle@k-lug.org>
 
 	* index.html
