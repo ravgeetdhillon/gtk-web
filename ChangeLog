@@ -1,3 +1,9 @@
+2002-06-13 Steve Fox <drfickle@uberh4x0r.org>
+
+	* site_top.html
+
+	Remove link to Elliot Lee's GtkFB page since it no longer exists.
+
 2002-06-11 Steve Fox <drfickle@uberh4x0r.org>
 
 	* index.html
