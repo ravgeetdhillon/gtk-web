@@ -1,0 +1,11 @@
+2002-06-11 Steve Fox <drfickle@uberh4x0r.org>
+
+	2.0.0-announce.html
+	glib-2.0.0-announce.html
+	gtk+-2.0.0-announce.html
+	pango-1.0.0-announce.html
+	atk-1.0.0-announce.html
+	index.html
+	site_top.html
+
+	Restore the release announcements. Fix some links in the menu.
