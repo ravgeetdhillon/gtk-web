@@ -1,3 +1,9 @@
+2002-11-02 Steve Fox <drfickle@k-lug.org>
+
+	* index.html
+
+	Announce Pango 1.1.3 and GTK+ 2.1.2
+
 2002-11-01  Murray Cumming  <murrayc@usa.net>
 
 	* bindings.html: Marked gtkmm2 as complete now that 
