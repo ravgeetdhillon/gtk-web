@@ -1,0 +1,204 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started May 24 17:03 EST (21:03 UTC)
+
+In attendance:  
+
+Jonathan Blandford (jrb), Matthias Clasen (mclasen), Federico Mena Quintero (federico), 
+Soeren Sandmann (ssp), Manish Singh (yosh), Owen Taylor (owen), James M. Cape (Jimbob),
+Anders Carlsson (andersca), Tor Lillqvist (tml), Kristian Rietveld (kris), 
+Robert Ögren (roboros), John Ehresmann (jpe), Jeff-K
+
+<mclasen>	are we complete ?
+<jrb>	mclasen: complete enough..
+<mclasen>	ok, lets start then...
+<mclasen>	As I wrote on Friday, we should probably discuss where we stand wrt to 2.6...
+<owen>	OK, I guess the first question is whether anybody is working on any features for 2.6 currently?
+<federico>	"is working" or "intends to work on really soon"?
+<owen>	I'm not really, other than Pango text rotation support, and probably won't be doing much GTK+ work in the next month
+<Jimbob>	I've got some working replacements for libgnomeui widgets (GnomeFileEntry and GnomePixmapEntry)
+<owen>	federico: Second would be fine
+<mclasen>	I have done some work on the combobox, and I'm currently trying to get menubar overflow working
+<Jimbob>	(using GtkFileChooser)
+<federico>	Jimbob: that's great to hear
+<ssp>	I hope to get GSequence in
+<federico>	I want the helper functions for DnD and selections
+<ssp>	But there is significant work that should be done before that can happen
+<owen>	ssp: Just as a data type or using it for anything?
+<jrb>	Jimbob: oh, cool!  it would be great if you could post the API for those to gtk-devel-list
+<federico>	and there's a patch floating around to add GTK_FILE_CHOOSER_ACTION_SELECT_FILES_AND_FOLDERS
+<Jimbob>	jrb: Ok
+<jrb>	I want to get in type-ahead, but that's not very ambitious
+<mclasen>	I'll try to get the persistant clipboard stuff in before June 15
+<ssp>	owen: just as a datatype
+<ssp>	owen: it's boring stuff like documentation, tests
+<mclasen>	and maybe insensitive items/separators in combobox if jrb reviews the patch...
+<andersca>	ssp: couldn't we get GtkListStore to use it?
+<andersca>	goption is basically done, but I have no idea about how to integrate it with gtk
+<ssp>	andersca: I think that should be fairly easy to do once it
+<owen>	andersca: Well, first step would be to post the API to gtk-devel-list, right?
+<ssp>	's in as a datatype
+<federico>	I want to poke gpoo again about writing templates+validation for GtkEntry
+<owen>	federico: I think there is  a big patch somewhere in bugzilla for that
+<owen>	No idea if its' any good.
+<ssp>	Also, I think the partial scroll patch should be reviewed and added
+<mclasen>	ssp: is that the smooth scrolling stuff ?
+<federico>	owen: oh, I didn't know that
+<ssp>	mclasen: no, that's just a fairly simple patch that adds a gdk_window_move_area() function
+<owen>	federico: Well, even if it was good, someone would have to review / drive it
+<owen>	ssp: Yeah, that would be cool to get in
+<ssp>	mclasen: it has the potential to make column resizing of GtkTreeviews really fast
+<federico>	owen: let me look for the patch
+<federico>	hmm, we really need a toplevel application window
+<federico>	and the dock thingy
+<owen>	federico: Well, it's largely a question of what people are doing not what we need. I'd certainly advocate keeping tothe proposed schedule even if that means a less featureful release
+<federico>	ssp: don't you still need to repaint?  what if a cell renderer "shrinks" in a way different than just clipping?
+<mclasen>	federico: there are a couple of existing appwindow/dock widgets, someone needs to sit down, compare the apis and come up with a prototype...
+<federico>	owen/mclasen: yeah
+<ssp>	federico: Columns that change size need to be repainted, but not those that don't
+<federico>	I'd love to have automatic proxying of GtkActions over plug/socket, but that's too big a project for this release
+<federico>	ssp: oh, I see
+<mclasen>	federico: I posted a prototype patch for that ca. 10 months ago.
+<federico>	mclasen: to the list?
+<mclasen>	federico: yes, but it needs some work, refactoring it into plug/socket subclasses
+<ssp>	federico: with more complexity you could avoid fully repainting even those columns
+<mclasen>	so what about the items on plan/2.6 that we do have patches for ? E.g. directfb backend, notebook tab dnd, druid, icon view...
+<andersca>	icon view needs work
+<mclasen>	should we try to get any of that in 2.6, or do we let it all slip ?
+<federico>	mclasen: it looks to me like evolution is the main consumer of merged menus/toolbars, but it of course does it through bonobo.  I'd like a way for widgets who want to merge menu items (say, a GtkEntry wanting Edit/{cut,copy,paste}) to Just Work even if they are in embedded components
+<owen>	mclasen: Note that if we already have a prototype code, the deadlines are somewhat looser
+<mclasen>	owen: but we still need somebody driving each feature from "prototype" to "ready-for-inclusion"
+<owen>	mclasen: The June 15 was supposed to be the cutoff date for prototype existence
+<owen>	mclasen: So, we can put off the "is there a driver" question to then, though of course, it would be great to have people working on it earlier
+<mclasen>	owen: agreed
+<mclasen>	federico: there are various bugs open regarding integration of uimanager with existing popup populating techniques
+<jrb>	as a matter of curiousity, has anyone looked at that 'RefDbg' module that someone posted?
+<owen>	mclasen: OK, maybe we should encourage people to put names by the plan/2.6 stuff that are actually working on
+<federico>	jrb: I installed it, but didn't have a buggy program to test it :)
+<mclasen>	owen: and maybe update plan/2.6 to reflect what people are actually working on for 2.6
+<jrb>	federico: wondering if it's interesting at all to ship w/ GTK+ as a development tool
+<owen>	mclasen: Maybe we need two sections. Planned stuff and Possible stuff
+<mclasen>	good idea. 
+<mclasen>	Any further comments regarding 2.6 features, schedule, etc ?
+<Jimbob>	jrb: Ok, message sent.
+<federico>	mclasen: not really related to this, but we should do a gtk BOF at guadec
+<federico>	to get people engaged
+<federico>	owen: is bug #50276 the gtkentry validation stuff?
+<jrb>	Jimbob: oh, cool.
+<mclasen>	federico: yes, 50276 is the entry validation discussion
+<mclasen>	federico: a gtk BOF sounds interesting. I have no idea whats involved in setting up a BOF, though...
+<federico>	mclasen: cool, thanks
+<federico>	mclasen: basically, just tell people about it --- "whoever is interested in features for GTK+, go to room X at time Y"
+<mclasen>	federico: I figured that much, but I guess it also need somebody to be at least prepared enough to give an introduction and lead the discussion...
+<mclasen>	So, what about the 2.4.x branch ? Do we need a 2.4.2 release sometime ? Or should we just wait until the next Gnome 2.6 release is due (will there actually be another one ?)
+<owen>	mclasen: Probably good to schedule something at least to take care of that Solaris compilation issue
+<federico>	mclasen: the uimanager's signals were broken in 2.4.1; I don't know how many people depend on them
+<mclasen>	federico: are they fixed in cvs ?
+<federico>	mclasen: yeah, I fixed them
+<mclasen>	good
+<mclasen>	owen: then I'll try to do a 2.4.2 release sometime next week maybe
+<owen>	mclasen: Sounds reasonable
+<mclasen>	ok. Anything else to discuss ?
+<owen>	Not that I know of
+<mclasen>	Should we try to revive the weekly schedule by aiming for another meeting next Monday ? 
+<mclasen>	If we can keep it as short as this one, weekly meetings shouldn't be a big burden...
+<ssp>	I agree
+<Jeff-K>	mclasen, were you asking about the win32 clipboard
+<federico>	yeah, weekly meetings are useful
+<mclasen>	Jeff-K: are you referring to the discussion on gtk-devel-list ?
+<Jeff-K>	Yes
+<mclasen>	Jeff-K: If I interpreted Hans's answer correctly, my api proposals are fine on win32, right ? Maybe we should have that discussion on gtk-devel-list, where Tor and Hans can participate...
+<Jeff-K>	I have a post in the moderation queue, as I haven't joined this list yet
+<mclasen>	If you want a quick answer, you can resend it to me privately...
+<mclasen>	Ok, lets close the meeting then; I
+<mclasen>	I'll send the invitation for next weeks meeting on Friday.
+<mclasen>	owen, can you put the logs on the web ?
+<jrb>	Jimbob: I haven't seen your mail yet
+<owen>	mclasen: I can do that later
+<mclasen>	owen: thanks
+<mclasen>	jrb: The one title "GTK+ replacements for libgnomeui widgets" has arrived here...
+<jrb>	mclasen: gtk-devel-list?
+<mclasen>	jrb: yes
+<ssp>	oh, btw. I have a ton of "interaction" improvements that I won't have time to actually do. Is it useful to file them as bugs?
+<ssp>	http://www.daimi.au.dk/~sandmann/interaction%20problems
+<owen>	ssp: Well, if it keeps you from forgetting about them, it's probably useful
+<owen>		- start_dnd should report *grab* coordinate, not "start dnd" coordinate
+<owen>		  (either that, or the Nautilus icon view should be fixed)?
+<owen>	I think that's just nautilus horkage 
+<owen>	I doubt it uses the default GTK+ DN starting
+<ssp>	owen: well, it won't keep *me* from forgetting them, because I'll still have the file.
+<ssp>	owen: yeah, the nautilus problem was just fixed by Martin Wehner
+<jrb>	GtkTreeView unfolding animations would be awesome
+<owen>	ssp: It probably wouldnt' hurt to file them all ... maybe we can get people enthused about fixing them
+<owen>	(/me isn't to enthused about having 50 more GTK+ bugs ... but that's not really relevant)
+<mclasen>	ssp: a couple of them are probably already filed...
+<kris>	gtktreeview unfolding animations ...
+<kris>	(like the win > 98 treeviews)
+<ssp>	Microsoft have consistently delivered crappy animations
+<ssp>	the treeview unfolding should be finished after, say, 100 ms so that it doesn't appear slow
+<jrb>	kris: it seems like its a solvable problem, though I'm having trouble imagining what it would look like
+<ssp>	100 ms regardless of the size of the unfolding
+<jrb>	ssp: your list rocks
+<mclasen>	ssp: do you have the list of menu problems somewhere ?
+<tml>	roboros: thank you once more for your wintab work, btw. I am applying it now.
+<ssp>	mclasen: yes, but actually there aren't many open menu problems any more
+<roboros>	tml: great! I have one more little patch that is almost ready
+<ssp>	mclasen: I see the list of menu problems is actually in Danish 
+<ssp>	it's from before I realized that my notes could become useful to other people
+<federico>	ssp: wow, really nice list!
+<ssp>	I'll file bugs, probably next weekend
+<jpe>	tml: is there anything left to do on the unicode clipboard patch?
+<federico>	ssp: about "better use of dnd graphics", big drag cursors often obscure the underlying stuff
+<tml>	jpe: haven't really looked at it since i atached it to the bug
+<roboros>	tml: have you or anyone else tested the wintab changes on some other hardware?
+<tml>	roboros: sorry, still don't have my tablet attached (it's on my son's machine)
+<ssp>	federico: yeah, it probably won't be an improvement until we have alpha windows
+<tml>	roboros: but it's also a wacom anyway (old artpad II)
+<jpe>	tml: I tested it under win98 and have been using it over the past few days
+<tml>	jpe: i will probably test it a bit more and then apply
+<federico>	ssp: do you mind if I publicize your list on my activity log?  I'm thinking that some items may be good little projects for gnome-love
+<ssp>	federico: no, go ahead
+<federico>	ssp: thanks!
+<jpe>	tml: thanks for cleaning up the clipboard code
+<Jeff-K>	jpe, tml: What's the bug id for that clipboard bug?
+<tml>	owen: how does not pretending to support COMPOUND_TEXT at all in gdk/win32 sound to you, off-hand?
+<tml>	roboros: 140537
+<owen>	tml: Why would you want to support it?
+<owen>	tml: I can't conceive of any GTK+ apps that only support it. Just support STRING (which is latin-1, not encoding of ocale) and UTF-8 and you should be good to go.
+<tml>	owen: just in case some app (or gtk) thinks it need it? (but doesn't look inside it, as it really is UTF-8)
+<tml>	owen: ok, will drop it then. good riddance ;-) ok, will fix STRING to be latin-1
+<jpe>	owen: can you look at the patch I attached to bug #107320, especially the gtk modifications?
+<jpe>	owen: it basically sets things up so the grab widget gets a focus out event when a grab is broken on win32
+<owen>	jpe: I can tell you straight off from that description that no that won't fly :-(
+<ssp>	federico: Many of the items on the list are "needs to be tried so say for sure", though. So people should not expect any guarantee that patches will be applied if they write them.
+<jpe>	owen: I figured as much ;), but how do we communicate to the app that win32 has broken the grab?
+<federico>	ssp: I'd love to take your list, expand on some of the brief notes, and post it on www.gtk.org as a sort of status board
+<owen>	jpe: We may have to add API to GTK+ because in the X world, breaking a grab just isn't possible
+<ssp>	federico: that would be cool.
+<ssp>	federico: http://www.daimi.au.dk/~sandmann/explorer%20selection  may also be useful. It describes in more detail how I'd like the selection algorithm in GtkTextView to work
+<jpe>	jpe: can we put this on the schedule for 2.6?  I´m willing to work on it, but I need some guidance on what the API should look like.
+<federico>	ssp: cool, thanks
+<owen>	jpe: Well, I don't want to do menus this way
+<owen>	jpe: Menus shouldn't be using pointer grabs at all on win32
+<jpe>	owen: how do you want to do menus?
+<ssp>	federico: and also the "notepad algorithm" is described in comment two in  http://bugzilla.gnome.org/show_bug.cgi?id=117126
+<owen>	jpe: Normal focus mechanisms
+<jpe>	owen: and what about other things that need to use grabs, like DnD?
+<federico>	ssp: man, you are like a box full of chocolates
+<owen>	jpe: Alt-tabbing away from a dnd isn't possible for normal windows,is it?
+<owen>	I'm not saying a notification of grab breakage API si wrong, I'm saying it's wrong for menus
+<jpe>	owen: alt-tabbing is always possible, even during DnD
+<jpe>	owen: not many people do it, of course, but it is possible
+<ssp>	federico: heh, and you haven't even seen my 800 lines "gdk improvements" note ...
+<jpe>	owen: can a window with focus watch for a mouse up event, regardless of where it occurs?
+<owen>	jpe: We already handle clicking inside dragging outside without explicit grabs for Win32, no different for menus
+<jpe>	owen: are you talking about the implicit button grabs?  They have the same problem with alt-tab as menus.
+<jpe>	owen: if I click on a button, switch to another window, let the button up, and then go back to the 1st app, the button still thinks it´s being pressed.
+<owen>	jpe: What I'm saying is that implicit button grabs and menus are in my opinion different problems, and while th eimplicit button grab solution may be part of the menu solution, it isn't the main part of the solution
+<jpe>	owen: you´re right that the implicit grab problem is not the main part of the solution if menus work without grabs
+<owen>	jpe: Currently, menus work with grabs, but I don't think that's right for win32
+<jpe>	owen: one problem I keep coming back to is the menu toplevel cannot have the focus as far as the OS is concerned
+<owen>	jpe: Sorry, I don't really have time right now, trying to concentrate on getting some code working. Can we discuss this some other time?
+<jpe>	owen: gdk could work around this and redirect events, but it sounds a bit like the grab to me
+<jpe>	owen: yes, we can discuss this later
+
+Meeting ended May 24 19:02 EST (23:02 UTC)

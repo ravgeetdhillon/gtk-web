@@ -66,4 +66,4 @@ In attendance:
 <mclasen>	ssp: yes
 <mclasen>	ok, I'm gone now. I'll put the logs up on gtk.org tomorrow
 
-eeting ended June 1 17:52 EST (22:52 UTC)
+Meeting ended June 1 17:52 EST (22:52 UTC)
