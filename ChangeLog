@@ -1,3 +1,8 @@
+2002-10-11  Jeff Franks <jcf@tpg.com.au>
+
+	* bindings.html: Updated GCode binding for name 
+	change to "Inti: Integrated Foundation Classes".
+
 2002-10-09  Murray Cumming  <murrayc@usa.net>
 
 	* bindings.html: Added erlgtk.
