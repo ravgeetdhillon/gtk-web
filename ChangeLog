@@ -1,3 +1,7 @@
+2004-05-10  Matthias Clasen  <mclasen@redhat.com>
+
+	* projects.html: Add a pointer to SLgtk.
+
 2004-05-05  Murray Cumming  <murrayc@murrayc.com>
 
 	* bindings.html: pygtk is now a Gnome Platform Binding.
