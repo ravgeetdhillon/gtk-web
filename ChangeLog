@@ -1,3 +1,7 @@
+Thu Nov 20 23:38:24 2003  Matthias Clasen  <maclas@gmx.de>
+
+	* plan/2.4/index.html: Mark Unicode update as committed.
+
 Sun Nov  9 00:50:13 2003  Matthias Clasen  <maclas@gmx.de>
 
 	* projects.html: Add a link to another 3rd party pixbuf loader.
