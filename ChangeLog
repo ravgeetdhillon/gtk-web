@@ -1,3 +1,10 @@
+2003-07-14  Matthias Clasen  <maclas@gmx.de>
+
+	* projects.html: New file, list of related projects.
+
+	* site_top.html: Add a link to plans, change "Themes" link to point to art.gnome.org, remove link to empty 
+	"Published Books" section, add link to new list of related projects, move "GTK+ for BeOS" there.
+
 2003-07-11  Matthias Clasen  <maclas@gmx.de>
 
 	* plan/2.4/index.html: Mark autocompletion and treemodelfilter as committed.
