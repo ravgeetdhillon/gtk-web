@@ -1,3 +1,7 @@
+2004-01-05  Murray Cumming  <murrayc@lusa.net>
+
+	* bindings.html: Added Gauche (scheme) bindings.
+
 Tue Dec 23 23:49:49 2003  Matthias Clasen  <maclas@gmx.de>
 
 	* documentation.html: New file to collect links to 3rd party
