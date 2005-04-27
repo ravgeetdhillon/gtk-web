@@ -1,0 +1,72 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started April 18 2005 16:04 EST (22:04 UTC)
+
+
+In attendence: 
+
+Matthias Clasen (matthias),
+Johan Dahlin (jdahlin),
+Tor Lillqvist (tml),
+Jonathan Blandford (jrb),
+Morten Welinder (gmorten)
+
+
+<mclasen>	ok, so I thought we should maybe talk about the GtkBuilder patch
+<jdahlin>	that'd be great, I'm very interested to hear what kind of improvements/changes are needed to get it into the right shape
+<mclasen>	jdahlin: I haven't tried the patch, but from reading it, I wondered why we need the pseudo-interface containing the build_children and that other function
+<jdahlin>	mclasen: you send in a structure, which is a representation of the xml which tells a object to construct children for all child tags
+<jdahlin>	mclasen: I've used this mapping for UIM->AG, AG->A, TreeView->Column, Column->Renderer
+<mclasen>	jdahlin: I understand that, but I wondered if we should not either make it a real interface, or do it nongeneric, to avoid that slightly odd type registration stuff
+<jdahlin>	mclasen: I think a real interface is prefered, but I didn't finish it, since it requires some more work for making it friendly for language bindings
+<jdahlin>	perhaps to be split up into several different methods of a interface, or add a new GBoxed type with a couple of methods
+<jdahlin>	on a sidenote, we'd still need a hash table of names -> GType, to delay type registration.
+<mclasen>	jdahlin: can't we just construct objects as we parse the file ? (Would still have to do the deferred property thing for widget properties)
+<jdahlin>	mclasen: that would be one option, yeah
+<jdahlin>	(or actually typename -> pointer to get_type function)
+<mclasen>	for third-party widgets, we will still need to register some parsed-start-tag --> constructed object function, though
+<jdahlin>	now I remember why it won't work
+<jdahlin>	because of construct properties
+<jdahlin>	we'd have to do construct at end-tag time, and append all eventual children.
+<mclasen>	its probably construct-only thats problematic
+<mclasen>	when are objects constructed in the current code ? Does it parse the whole tree, and walks it in a second pass to construct the objects ?
+<jdahlin>	yes, the objects are constructed in the second pass
+<jdahlin>	and it's just this structure, which contains the tree that's difficult to wrap for language bindings (as it is right now)
+<mclasen>	so, if we add a real interface for the construct-from-xml functions, and have a way to lookup get_type functions by type name, we don't have to register all the types in _gtk_build_init_types any longer, right ?
+<jdahlin>	right
+<jdahlin>	we'd also need a way to resolve internal children
+<jdahlin>	eg, action_area for GtkDialog
+<mclasen>	can that be solved by giving names to all internal children ?
+<jdahlin>	what do you mean?
+<jdahlin>	it can probably be solved using introspection, but I'm not sure if want to do that.
+<mclasen>	if all internal children had locally unique names, you should be able to look them up by walking over the widget tree and comparing names...
+<jdahlin>	or just include an extra method in the interface we'd have to construct the children
+<mclasen>	as you do in the current pseudo-interface, right. I was just wondering if that method is actually necessary
+<jdahlin>	then we'd have object specific logic in the parser
+<jdahlin>	which might be okay, since it's mainly for backward compatibility
+<mclasen>	the parser could just call a generic find_internal_child method...
+<jdahlin>	and what about third-party objects which have internal children?
+<mclasen>	not that different from looking up the find_internal_child method in the pseudo-interface and calling that, but it is probably safer to have a method for it in the interface
+<mclasen>	since we don't guarantee uniqueness of widget names, afaik
+<mclasen>	so an application could e.g. add a child named "vscrollbar" to a scrolled window...
+<jdahlin>	right
+<jdahlin>	do we have any clashes like this today?
+<mclasen>	I don't know, but I guess not
+<mclasen>	widget names are not that heavily used
+<gmorten>	mclasen: anyone who uses glade uses widget names.
+<gmorten>	make that libglade
+<mclasen>	but probably unique names
+<jdahlin>	mclasen: should we have a global registry and let the objects add themselves to it?
+<jdahlin>	like: gtk_builder_register_get_type_function(str, ptr)
+<gmorten>	mclasen: within a single dialog, yes of course.
+<mclasen>	jdahlin: it will overlap with the introspection stuff which will also allow you to look up get_type functions by type name
+<jdahlin>	mclasen: can it be moved out of the introspection and be placed in gtk/gobject itself?
+<mclasen>	but since the introspection stuff hasn't landed yet, it is probably a good idea to have a simple registry like that for now
+<mclasen>	I need to start packing up now. Did anybody else look at the GtkBuilder patch ?
+<jdahlin>	okay
+<jrb>	mclasen: didn't owen give it a look?
+<jdahlin>	there is one more feature that might be useful to have, the possibility of modifying styles (setting colors, fonts etc)
+<mclasen>	jrb: didn't hear anything from him, apart from the fact that it prints out to 50 pages, 2-up
+<mclasen>	see you next week, bye
+
+
+Meeting ended April 18, 16:54 EST (22:54 UTC)
