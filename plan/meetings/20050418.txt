@@ -4,7 +4,7 @@ Meeting started April 18 2005 16:04 EST (22:04 UTC)
 
 In attendence: 
 
-Matthias Clasen (matthias),
+Matthias Clasen (mclasen),
 Johan Dahlin (jdahlin),
 Tor Lillqvist (tml),
 Jonathan Blandford (jrb),

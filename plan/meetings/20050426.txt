@@ -1,0 +1,215 @@
+Meeting in yarrr 
+Meeting started April 26 2005 16:04 EST (22:04 UTC)
+
+
+In attendence: 
+
+Matthias Clasen (mclasen),
+Seth Nickell (seth),
+Alex Larsson (alex),
+Federico Mena Quintero (federico),
+Jonathan Blandford (jrb),
+Owen Taylor (owen),
+Colin Walters (walters),
+Johan Dahlin (jdahlin),
+Shawn T. Amundson (shawn)
+
+
+<seth> Hi
+<alex> hi seth
+<federico> squeeeeeeeek
+<owen> Hey everybody ... when you join you should change your name from 'anon'
+<seth> And shorter nicks are better right now due to CSS stupidity :-)
+<seth> alex: Would it be ok to create one or two? Or do they just keep leaking?
+<seth> ick! It still says proponents.
+<alex> seth: unknown
+<mclasen> so, the first thing we need to figure out (after the yarrr excitement settles) is the agenda for today
+<jrb> seth: make them as needed
+<seth> jrb: yeah, that's what I was saying... I hope they use them if its relevant, we just shouldn't go tempting fate for no good reason ;-)
+<walters> owen - i would have left that comment open
+<jrb> seth: eg, if you have an actual GTK+ thing that needs drawing out. Maybe owen can grace us w/ a drawing of his thing
+<owen> Yes, I realized that after I closed it - "Add" didn't seem like "Close" to me
+<mclasen> owen and I think it would be a good idea to check up on where we stand wrt to 2.8
+<walters> owen: i'd just open a new one and copy/paste
+<seth> oops, comments never got changed to newest first
+<mclasen> basically discuss the status of the things on www.gtk.org/plan/2.8
+<owen> Umm, what happened to the text in my comment when federico edited it and closed it :-)
+<walters> ok, i'll try
+<mclasen> ah, I didn't notice owen already used his superior yarrr ability to set up an agenda...
+<walters> the gray area below is a "Live Comment"
+<walters> think of it kind of like a shared email
+<walters> at least, that's the way I think of it
+<seth> walters: Shoosh!
+<seth> walters: You're interfering with my observation
+<walters> when we come to a conclusion on it, someone clicks "Send"
+<walters> seth: oops =)
+<seth> walters: Shoosh!
+<mclasen> did we miss people from #gtk-devel, or is everybody here now ?
+<alex> Test stuff in [PlayPen]
+<owen> OK, on Cairo, we are getting close to API stability ... we should get a 0.5.0 out with the last *changes* (not additions) in a week or so
+<owen> The work I was doing on converting GTK+ to use GTK+ cairo got somewhat stalled because I got bored ... replaces rectangles with rectangles wasn't very interesting
+<federico> why can't I open a new comment?
+<jrb> owen: does it buy us anything?
+<mclasen> owen: I saw pixbuf formats on your 1.0 roadmap for libpixman
+<owen> jrb: It buys us a couple of things:
+<walters> federico: hmmm...not sure
+<owen> - We get rid of mixed drawing with Cairo and Xlib, which allows additional optimization
+<owen> - Helps people if they are working on a GDK backend without native drawing (though implementing gdk_draw_* on top of cairo would be good before that)
+<owen> Also, gdk_draw_* will be deprecated eventually (though probably not formally in GTK+-2.8)
+<mclasen> /me is not looking forward to a clientside gdk_draw_arc implementation...
+<mclasen> /me is broken
+<owen> I don't think we'd require pixel-by-pixel accuracy
+<jdahlin> Is cairo going to make rendering slower (in the short term) ?
+<seth> federico: The server admin must have turned on access controls for you in response to your vandalism ;-)
+<alex> owen: that is breaking historical requirements for gdk_draw though
+<owen> jdahlin: Right now, it's slower
+<jrb> federico: why not ask your question in the chat? There's even spiffy wiki support
+<owen> alex: It's not clear what those requirements are
+<federico> jrb: because I like the anyone-can-edit-this windows :)
+<alex> "RecentFilesAndBookmarks" wiki page
+<seth> federico: I think they're cool too
+<owen> The windows backend has never had pixel-by-pixel matching
+<alex> owen: historically, haven't we used the X pixel requirements?
+<owen> Urr, new comment vs. Add is *confusing*
+<seth> owen: already noted :)
+<owen> alex: Only for a few things like horz/vertical lines, rectangles .. things we could match
+<mclasen> alex: it was never explicitly documented
+<owen> (Open Comment is unclickable for me as well)
+<alex> owen: i think you need to click more to the right on the button
+<mclasen> owen: do you want to make gdk-pixbuf use libpixman anytime soon ?
+<owen> alex: OK, next time I'll try that
+<jrb> owen: it seems like a lot of work for little gain
+<jrb> owen: eg, shouldn't we just consider gdk_draw_ deprecated, and suggest people use cairo directly if they're drawing anything
+<owen> jrb: I think it's actually not much work at all, especilaly if we are willing to drop XOR
+<owen> jrb: I think we do consider gdk_draw_* deprecated, but it will be a long time before all such are gone from code
+<alex> owen: so, would you expect gdk_draw_ to use cairo on X?
+<mclasen> jrb: the one argument in favour of redoing gdk_draw on top of cairo is that backends get easier
+<federico> what are the "me too" things on the left side? quick polls?
+<mclasen> oh, you said that already....
+<owen> alex: Not sure, maybe eventually. It would help a lot on the no_RENDER case since you could then do all rendering licent side
+<owen> Anyways, I think the work items inside GTK+ are:
+<owen> Anyways, I think the work items inside GTK+ are:
+<alex> owen: gdk_draw without xor will likely break some aps
+<owen> - Fix clipping of text
+<federico> won't that suck on old X servers (sun, whatever)
+<owen> - Finish the GtkStyle drwaing code conversion
+<owen> - (Not really inside GTK+) work on a theme that actually shows of Cairo ... might involve finish the draw-outside-widget-bounds work that started on the rendering-demo branch
+<owen> The basic idea of that was that a widget had a style property that said how far outside its bounds the theme woudl draw, then you propagate up the tree and use that for queue_draw(), propagate_expose() and so forth
+<mclasen> owen: for the out-of-bounds drawing, is there some form of stacking control ? are child widgets always drawing on top of their parents ?
+<owen> mclasen: Stacking is just like today ... determined by draw order
+<owen> This really won't work well in Eclipse which puts every widget inside a window
+<alex> so, do you draw on the parents GdkWindow (for window widgets)
+<owen> alex: Hmm. I was hoping we could avoid that issue because we don't have many subwindows, but I'm not sure if that always works.
+<jrb> as an aside, vektor was mumbling about a patch to add z-order to gdk -- presumably for eclipse
+<owen> Yes, I've talked about it some.
+<owen> (with him)
+<owen> I have some cool ideas about how to do Z-order mixing window and no-window widgets - but that's more blue-sky stuff.
+<owen> mclasen: Do you want to give a summary where we are with introspection?
+<mclasen> I'll try
+<mclasen> I put my introspection prototype work into bugzilla some time ago
+<mclasen> It is still fairly incomplete
+<mclasen> I have
+<mclasen> - an xml format
+<mclasen> - a binary format
+<mclasen> - a compiler to convert from xml to binary
+<mclasen> - a repository api and implementation
+<mclasen> - a utility to regenerate xml from binary metadata using the repository api
+<mclasen> and roundtrips xml->binary->xml work for simple testcases
+<walters> hi guys - verbum.org memory usage is nearing 90%. The server seems to be holding so far, but I think we have a reference leak somewhere
+<mclasen> there is a lot of things that need work:
+<walters> just a note that you may encounter problems soon. If so I can restart the server and any closed comments will be persisted, along with their related chat
+<mclasen> - I haven't started on a scanner for going from (annotated) headers -> xml
+<mclasen> - invoke functionality is not implemented at all
+<mclasen> - I'm not very happy with the current repository api, it may need to be redone
+<mclasen> and there are many smaller things missing as well
+<owen> There are quite a range of scanners around ... we'll have to look around ot figure out which (if any) should be started from for the header scanner
+<owen> gtk-doc, for one. Then a bunch in different language bindings.
+<mclasen> that was the plan, basically.
+<mclasen> the xml format started out from the one used by gtk# and evolved a bit
+<mclasen> so it may make sense to look at the scanner used by gtk#
+<owen> mclasen: Is the gtk# scanner written in something usable, or is it in c#?
+<mclasen> it is in perl IIRC
+<owen> (Some people may be finding "perl usable" "C# unusable" a bit of a stretch" ... but in terms of what I'd want to make GTK+ depend upon...)
+<jdahlin> The pygtk one is written in python and is basically a big hack of regexps
+<mclasen> and that is one thing we need to do, too
+<owen> mclasen: Does the XML reggeneration utility use the introspection API?
+<seth> owen: Funny how working on it the night before a demo tends to destabilize things ;-)
+<owen> Funny how having to demo something tends to destablize things :-)
+<seth> ha ha
+<federico> what's the intended way to create language bindings once introspection is done?
+<jrb> federico is still a vandal (=
+<mclasen> does it work again ?
+<walters> test
+<owen> It's going to be different for dynamic and static languages, clearly
+<owen> For static languages, you'd probably generate the bindings much like today, but from the canonical introspection information rather than from manually maintained .defs files
+<shawn> safari doesn't much care for this page
+<mclasen> owen: the xml regeneration utility uses the introspection api, yes
+<alex> shawn: no, only firefox for now
+<walters> shawn: [BrowserCompatibility]
+<owen> For dynamic languages, you could theoretically just generate the bindings completely at runtime
+<jrb> owen: seems slow
+<owen> So in theory 'import libgtk-x11-2.0.so' is all you need to use GTK+ once you have the GObject binding
+<owen> jrb: It might actually be a lot faster because you don't have huge piles of code sitting around for stuff you never use
+<mclasen> jrb: the bindings would be generic and just interprete the metadata
+<federico> kde has a pretty magical "turn this qobject into a dcop service"
+<mclasen> jrb: the bindings would be generic and just interprete the metadata
+<owen> jrb: There is no reason that walking the introspection information to go from Python to C has to be slower than walking Python bytecode to do the same
+<owen> jrb: The dynamic marshalling stuff wasn't a bottleneck for CORBA::ORBit when I did that that way
+
+
+Meeting moved back to IRC at some point, and I don't have logs from
+that part of the meeting. Below are the "Summaries written during the
+meeting in Yarrr.
+
+
+Closed by alex - Today 16:04
+
+Please don't create any whiteboards. There is some memory leak problems with them.
+
+Proponents: alex
+Closed by owen - Today 16:05
+
+Today's topic: GTK+-2.8 planning - where we are on
+
+ - Introspection
+ - Cairo
+ - <anything else>
+
+Proponents:
+Closed by federico - Today 16:06
+
+This is a test
+
+Proponents: federico
+Closed by federico - Today 16:07
+
+What?  did I change anything?
+
+Proponents:
+Closed by owen - Today 16:15
+
+Can d-bus live below gtk+?  I want to implement live.gnome.org/RecentFilesAndBookmarks in terms of d-bus to avoid all apps doing their own lockingI 
+
+Proponents:
+Closed by owen - Today 16:29
+
+Left to be done for cairo (summarization):
+ - Fix clipping of text
+ - Finish the GtkStyle drawing code conversion 
+ - work on a theme that actually shows off Cairo
+   (interesting themes often involve drawing outside a 
+    widget's allocation, so depends on support for that
+    which is currently prototyped in a branch in cvs)
+
+Proponents:
+Closed by owen - Today 16:30
+
+gdk_draw_* using cairo:
+
+ Pro: Makes writing backends easier
+      Automatically get pure Cairo
+ Con: Wouldn't match pixelixation requirements
+      (Do we have them? Win32 never has matched exactly)
+      Lines/rectangles are easy to (re)match - for rounded radio buttons and such, we may as well rewrite their expose methods to use real curves
+
+Proponents:

@@ -1,3 +1,9 @@
+2005-04-27  Matthias Clasen  <mclasen@redhat.com>
+
+	* plan/meetings/index.html: 
+	* plan/meetings/200518.txt:
+	* plan/meetings/200526.txt: Recent meetings.
+
 2005-04-13  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add GTK+ 2.6.7 announcement.
