@@ -156,10 +156,148 @@ Shawn T. Amundson (shawn)
 <owen> jrb: There is no reason that walking the introspection information to go from Python to C has to be slower than walking Python bytecode to do the same
 <owen> jrb: The dynamic marshalling stuff wasn't a bottleneck for CORBA::ORBit when I did that that way
 
+Meeting moved back and forth between yarrr and IRC at some points, here are
+some partial logs of the IRC parts of the meeting:
 
-Meeting moved back to IRC at some point, and I don't have logs from
-that part of the meeting. Below are the "Summaries written during the
-meeting in Yarrr.
+<mclasen>	ok, so it is 4pm, and yarrr hasn't appeared yet, so I guess we should start the old way, and maybe give the yarrr team another week to fix OOM issues...
+<jrb>	we might be able to give it a shot, though it's fallen over a few too many times today
+<mclasen>	should we try now, or not ?
+<jrb>	lets give it a shot
+<jrb>	and if it falls over in 5 min, we can fall back to irc
+<jrb>	http://verbum.org:8080/yarrr/topic/gtk-devel-meeting
+<mclasen>	exciting...
+<mclasen>	maybe you need to give a 60 second intro to using jarr, yrb
+<owen>	I think we are just supposed to try it out and see if we can figure it out
+<mclasen>	ah, ok. I'll try
+<mclasen>	did everybody get over to yarrr, or did we loose some people ?
+<jrb>	mclasen: I think everyone here was around when it was posted
+<owen>	Hmm, seems to be unresponsive. Did we kill it?
+<seth>	owen: its down for me too
+<jrb>	time to restart
+<jrb>	restarting...
+<mclasen>	35 minutes, not bad
+<jrb>	mclasen: yeah.  and the closed comments/logs will stick around
+<seth>	restarted
+<seth>	Reload the page
+<mclasen>	are we stuck again ?
+<alex>	yo-yo
+<Snorfle>	can someone repaste the url?
+<halfline>	http://verbum.org:8080/yarrr/topic/gtk-devel-meeting but it's broken
+<jrb>	it'll be back in a sec
+<jrb>	hopefully for longer
+<seth>	It did so well the first time
+<halfline>	yosh: can you set the topic to be "meeting held at http://verbum.org:8080/yarrr/topic/gtk-devel-meeting"
+<walters>	when you join, be sure to change your name from anon
+<owen>	OK, meeting moving back here
+<vektor>	Yay! :)
+*	mclasen would have loved to see some whiteboard fun
+<owen>	It was staying up too long for you?
+<jrb>	well, we can demo that after the meeting
+<seth>	Yeah, we should restart just to show the wihteboard
+<jrb>	(especially for federico
+<jrb>	)
+<seth>	Its the best part...
+<mclasen>	ok, so what i was unsuccessfully trying to say in yarr:
+<mclasen>	work needed for introspection:
+<mclasen>	- experiment with the prototype to see if the api is reasonable, if information is missing, and where the implmentation is broken/incomplete
+<mclasen>	- write an xml description of a small library to see how that works
+<walters>	(thanks guys for being patient)
+<mclasen>	- eventually we will have to test how the stuff scales to something the size of gtk, but that is probably more practical when we have a scanner
+<mclasen>	regarding possible slowness: 
+<mclasen>	we discussed adding hashes to the binary format for common lookups
+<mclasen>	e.g to look up functions in interfaces 
+<mclasen>	I don't see that I will be able to complete the introspection stuff on my own
+<mclasen>	so help on any of the outlined work items would be highly welcome
+<owen>	mclasen: I think to really make progress we'll have to get to the point where it is semi-useful for something pretty quickly
+<mclasen>	owen: my plan for the near future is to work on the icon view features for the rest of this week
+<mclasen>	hoping to get them to committable state sometime next week
+<mclasen>	and then go back to introspection work
+<jrb>	oh yeah
+<jrb>	mclasen: I want a get_visible_rows()/"::visible-rows-changed" pair
+<mclasen>	thats for the icon view, or the tree view, or both ?
+<jrb>	both
+<jrb>	mclasen: more pressing for the icon view, as you can kinda do it w/ the TreeView already
+<mclasen>	how would you return the visible rows ? list of paths ?
+<jrb>	mclasen: yeah
+<jrb>	or maybe just a range
+<jrb>	first path/last path
+<federico>	tberman wants something like that as well
+<mclasen>	for the icon view its a bit more complicated, since it can be a nonconsequtive set of rows
+<vektor>	jrb: I'm not sure what's best, really.
+<jrb>	mclasen: can it?
+<federico>	he actually wants a custom widget to do DB lookups based on what you type, sort of a fancy gtkentrycompletion, but still...
+<mclasen>	with a fixed number of columns, you can
+<jrb>	mclasen: oh, of course it can, yeah
+<mclasen>	have items hidden to the left and the bottom, eg
+<mclasen>	jrb: if you promise to look into the treeview implementation, I will look at the icon view side
+<mclasen>	the icon view probably needs some scalability love, in general
+<jrb>	mclasen: okay.  TreeView should be easy
+<jrb>	mclasen: though it probably wont' be
+<mclasen>	treeview and easy don't go together
+<mclasen>	ok, I want to jump on the bike in a few minutes
+<mclasen>	I seem to recall there was a dbus topic on the agenda
+<jrb>	mclasen: that was federico
+<federico>	oh yeah
+<jrb>	asking about recently used files
+<federico>	I want to implement RecentFilesAndBookmarks so that the file chooser can use it
+<owen>	federico: I don't think a dependency on dbus for 2.8 is reasonably
+<mclasen>	wouldn't the implementation live in the filesystem backends anyway ?
+<owen>	federico: You could do it in gnome-vfs backend maybe if alex is more lenient.....
+<halfline>	dbus isn't 1.0 yet, I don't think making gtk+ depend on it at this point is a good idea
+<mclasen>	hmm (cairo)...
+<Snorfle>	haha
+<mclasen>	but I agree
+<federico>	owen: that's the thing - I don't want to reimplement things just for the unix backend
+<owen>	Well, it's clearly not applicable to Windows
+<federico>	can we have gtk+/gtk/x11 like in gdk?
+<federico>	I'd like gtk's implementation of RecentFiles to be usable by any app
+<owen>	Should there be a pbulic cross-platform recent files API?
+Apr 26 17:21:25 -->	mathrick (~mathrick@195.116.35.55) has joined #gtk-devel
+<mclasen>	at what kind of functionality are we looking here, I guess basically just adding files to recent-files and setting some app id, the rest would be handled by the file chooser ? 
+<mclasen>	well, we would probably need a way to list the recent files, for constructing menus and such
+<federico>	owen: I don't care about windows; I care about the file chooser and gnome apps :)
+<owen>	federico: Sorry, if you want to propose GTK+ APIs, you at least need to think cross platform
+<federico>	mclasen: yeah, basically that.  Think of a sanitized EggRecent API
+<owen>	(If we don't think cross platform, then the APIs get ported cross platform anyways, and suck on Windows... that's the history)
+<federico>	ok, I'll ask tml about it
+<mclasen>	I guess the same principle holds for the (currently not public) mime api
+<owen>	We do have a problem somewhat in GNOME that we don't have a good place to put libgfreedesktop libggnomedesktop stuff that isn't cross platform, but people seem to always want stuff cross-platform in any case
+<jrb>	mclasen: yeah
+<jrb>	mclasen: confusingly enough, I have a patch from tml to make xdgmime compile/work on windows
+<jrb>	mclasen: but w/ the xdgmime database
+<owen>	(See above comment about "anways, and suck on WIndows")
+<mclasen>	jrb: does it embed a cache in the libary ?
+<federico>	owen: one thing that concerns me is that at some point we'll have to make gtk depend on freedesktop-ish stuff like d-bus
+<federico>	... if we are to get a nice platform
+<owen>	federico: For? 
+<owen>	federico: A platform specific dependency on dbus is no different from a platform-specific dependency on X
+<jrb>	mclasen: 'embed a cache'?
+<mclasen>	dbus will presumable get ported to win32 at some point, or is it already ?
+<owen>	federico: If you want to make dbus part of the public API, that's a different set of considerations
+<mclasen>	jrb: thats how I would do it. the cache is just a blob you can stuff into a const variable
+<owen>	mclasen: I think jrb meant "with the", not "without the" - as opposed to using native file type facilities on windows
+<mclasen>	ah, ok
+<jrb>	doesn't w/ mean with?
+<mclasen>	its kind of ambiguous I think
+<federico>	owen: I'm not sure at the moment.  But doing Interesting Stuff(tm) with a notification API is very tempting :)
+<jrb>	mclasen: if it's ambiguous, I'd better not use it
+<vektor>	I don't think it's ambiguous, I think it always means with :)
+<owen>	I think it means with, but it's close to a tpo for w/o
+<mclasen>	jrb: I saw things like "meet w/ bla" in peoples notes
+<mclasen>	jrb: which meant "meet with bla" rather than meet without bla
+<federico>	gotta go
+Apr 26 17:30:38 ---	federico is now known as f_lunch
+<jrb>	okay.  enough discussing w/ w/o consensus
+<mclasen>	anyway, the meeting is w/o /me from now on...
+<mclasen>	see you next week
+<jrb>	we'll have a better yarrr for then
+<mclasen>	I hope the yarrr crew can secure todays logs
+<owen>	mclasen: I mailed you them c-n-p'ed out of my browser
+<mclasen>	cool, thanks
+<owen>	(I think I missed the first short-lived restart, but got most of it)
+
+
+Below are the "Summaries written during the meeting in Yarrr.
 
 
 Closed by alex - Today 16:04
@@ -173,7 +311,7 @@ Today's topic: GTK+-2.8 planning - where we are on
 
  - Introspection
  - Cairo
- - <anything else>
+<anything else>
 
 Proponents:
 Closed by federico - Today 16:06
