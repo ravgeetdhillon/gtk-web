@@ -1,0 +1,282 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started May 24 2005 16:01 EDT
+
+
+In attendence: 
+
+Matthias Clasen (mclasen),
+Owen Taylor (otaylor),
+Maciej Katafiasz (mathrick),
+Scott Arrington (muppetman),
+Johan Dahlin (jdahlin)
+
+
+<mclasen>	ok, sorry for the continued timezone confusion
+<mclasen>	I hope I figure this out before EDT ends
+<mclasen>	so, lets quickly talk about guadec again
+<mclasen>	should we announce a gtk team meeting as a "freeform session" on monday afternoon ?
+<mclasen>	or does that one hour slot have too many conflicts ?
+<owen>	mclasen: I'm not sure when would be better
+<mclasen>	ok, do we announce these somewhere, guadec-list@gnome.org ? Or just put them on the wiki ?
+<owen>	mclasen: I'd just put it onto the wiki
+<mclasen>	ok, will do that tonight
+<owen>	OK, what's our other agenda for today?
+<mclasen>	well, ...we can again discuss some details of the introspection work
+<mclasen>	I experimented a bit with getting struct offsets in the .xml 
+<mclasen>	I did a quick perl script which parses the .xml, generates C source to call G_STRUCT_OFFSET on all struct fields,
+<mclasen>	then folds the results back in the .xml
+<mclasen>	that seems to work fine in general, provided we add optional information about C names of structs, class structs and fields to the .xml
+<mclasen>	where those are different from the name/type-name we currently have in the .xml
+<mclasen>	the one problem is that G_STRUCT_OFFSET yields an error for bitfield members
+<mclasen>	so its probably best to just skip them, struct offsets would be meaningless for them anyway
+<mathrick>	mclasen: you still need to access them somehow
+<mclasen>	a "properly bindable" api would have getters/setters for them
+<mathrick>	which reminds me, do we have a way to express "this function is getter for that C struct field"?
+<mclasen>	we have a way to express "this function is getter for that object property" 
+<mathrick>	which isn't enough when we specifically mean structs, is it?
+<mclasen>	it also doesn't cover fields in objects which are not exposed as properties
+<mclasen>	is this information really important, though ?
+<mathrick>	hmm, yeah, but these should be regarded private, no?
+<mathrick>	mclasen: if you bother to expose struct as struct, then probably yes
+<mclasen>	mathrick: i think if there are getters/setters, then there is no real need to expose the field in the .idl at all
+<mathrick>	I'd see struct as basic form of "improperly bindable api" compat, otherwise, it doesn't really make sense to introduce structs at all
+<mclasen>	I also doubt that the connection between [sg]etters and properties is really needed. Maybe setters and getters for properties should just not be described, in the idl, since bindings can use the generic g_object_set_property
+<muppetman>	there are lots of improperly bindable apis.
+<mathrick>	mclasen: well, if it's not GObject, then you can't
+<mclasen>	mathrick: if it is not a gobject, then it doesn't have properties (which I was talking about here)
+<owen>	I think structures are moderately useful things to represent, but we shouldn't go overboard. IF we don't have examples of needing bitfields, trying to handle them is overkill
+<mathrick>	mclasen: exactly
+<mclasen>	mathrick: object properties as opposed to struct fields
+<owen>	mathrick: In terms of field/getter/setter/property connections
+<owen>	mathrick: that seems moderately useful, but perhaps could be left until language bindings authors make noise that they really need it
+<muppetman>	is there a backlog handy?
+<mathrick>	muppetman: it's very short, sec
+<owen>	mathrick: My instinct would be to put everything in the introspection information, though.
+<muppetman>	mclasen: thanks
+<mathrick>	owen: yeah
+<mathrick>	semi-opaque structs are all too common in real-world APIs
+<owen>	mathrick: I think trying to second-guess and include only some things could limit some interesting uses of introspection
+<muppetman>	owen: i can think of a couple of in-house APIs to which i'd like to apply the introspection info, and they use bitfields in plain structs.
+<owen>	(E.g., using introspection to enhance a C IDE)
+<jdahlin>	is documentation going to be generated using introspection?
+<owen>	muppetman: well, if you want to write the code to portably determine offsets, types, and masks for bitfields....
+<owen>	muppetman: Seems like something that can be added later, though
+<mathrick>	jdahlin: I'd strongly opt for that
+<mclasen>	owen: how would one determine bit offsets ? toggle the bit in one copy of the struct, then diff against the original ?
+<owen>	jdahlin: I don't think we know at this point. If we can get rid of the header file parser in gtk-doc , though, that woudl be distinclty nice.
+<mathrick>	mclasen: that's an idea
+<owen>	jdahlin: Note that we aren't going to be able to *entirely* dump it, since gtk-doc is in use for non-GObject-based projects that aren't necessarily intropsectable
+<mclasen>	owen: If you don't mind loosing some typename details and header comments, it should be possible to regenerate reasonable docs from whats currently in the metadata
+<mathrick>	however, all the offset info is going to make idl non-portable
+<mclasen>	mathrick: thus my experiment with enhancing the .idl at build time
+<mathrick>	mclasen: mhm
+<mathrick>	mclasen: that diff thing is good idea
+<owen>	mclasen: I suppose you could do that. I was leaving it up to muppetman's ingenuity :-)
+<muppetman>	uh, thanks, i think
+<owen>	Knowing architecture rules would be other other way to do it.
+<mathrick>	mclasen: you can do that trivially, and it's guaranteed to be portable, I think
+<mathrick>	owen: best to use compiler, if that work has been already done :)
+<mathrick>	owen: makes us safe against gcc-changing-abi-on-obscure-archs, too
+<shrug>. In any case, I think bitfields are an excercise left to the reader
+<muppetman>	not to mention compiler flags that can change structure-packing rules
+<mathrick>	muppetman: good point
+<mathrick>	owen: I think diffing structs is trivial enough to make it worthwile
+<mclasen>	mathrick: if you want to play around with adding that, my perl script is in cvs as gidloffsets.pl
+<mathrick>	mclasen: ok
+<mclasen>	mathrick: also, did you get around to work on an annotation proposal ?
+<owen>	mathrick: OK, but it's irrelevant to the goal of getting GTK+ bindings based on introspection up and working and getting this stuff into 2.8
+<mathrick>	mclasen: almost, but got distracted by uni work and didn't put anything comprehensible together after all
+<muppetman>	so the introspection stuff is really targeted for 2.8?
+<owen>	muppetman: that's what we are trying to do...
+<mathrick>	owen: not directly, perhaps. But I'd really like to have it reasonably complete in first incarnation
+<muppetman>	sweet
+<owen>	I'd much rather have it reasonably *rught* in the first incarnation
+<owen>	right, that is
+<mclasen>	mmh, rught code
+<mathrick>	haha
+<mathrick>	owen: getting right includes not introducing potential incompatibility points :)
+<owen>	So, if there are things that we aren't sure if they are right nor not and can be added later, that's an argument for adding them later 
+<muppetman>	i noticed in the todo something to the effect of trying a different API approach for the metadata...  i have to admit, drilling down through the info structures is a little tedious
+<mclasen>	owen: thats a good point. I should probably go through over the current metadata format, and figure out which of the unimplemented pieces to drop for the initial merge, after making sure we can add them later
+<mclasen>	muppetman: I would be happy for alternate proposals
+<muppetman>	i was thinking mostly of functions that skip a few levels of indirection...  but was wondering if you had anything in mind.
+<mathrick>	muppetman: do you have something like a prototype for perl? and why muppetman and not muppet? :)
+<mclasen>	muppetman: I think the main alternative would be some form of iterator api
+<mathrick>	hmm, GString has been removed from IDL?
+<mclasen>	instead of the current get_n_xyz() get_nth_xzy() approach
+<mclasen>	mathrick: i believe it doesn't need a dedicated type tag, and can just be a regular struct type
+<muppetman>	(sorry, had an office pop-in.)
+<muppetman>	mathrick: erm, muppetman because muppet was taken on a different server and i forgot to reset.
+<muppetman>	yes, kaffee and i have been working on a perl prototype
+<mathrick>	mclasen: maybe, but OTOH, it's one well-defined string type languages are using I think
+<mathrick>	muppetman: cool
+<muppetman>	i did some low-level stuff as a proof of concept, and kaffee got some method calls on poppler through the IDL on saturday
+<mathrick>	mclasen: we still have some typecodes left, 5 bits is plenty of room ;)
+<mathrick>	uh-oh, g-idle-offsets._pl_
+<mathrick>	yuck perl
+<mathrick>	s/idle/idl/, even
+<mclasen>	mathrick: I suck at scripting, and choosing perl allowed me to copy stuff from gtk-doc...
+<mathrick>	mclasen: I believe you, but I know only enough perl to hate it, nothing more
+<mathrick>	what does that do?
+<mathrick>	    my $struct = shift;
+<mathrick>	    my $name = shift;
+<muppetman>	that pulls parameters off the stack
+<mclasen>	the same thing shift does in shell scripts, I believe
+<muppetman>	indeed
+<owen>	my ($struct, $name) = @_;   would be more idiomatic
+<mathrick>	oh, from argv[]?
+<owen>	mathrick: No, for the function.
+<muppetman>	no, from @_, which is the parameter list for a sub
+<mathrick>	ah
+<mathrick>	I must say, *ick*
+<mathrick>	why not old-school param list?
+<muppetman>	ask larry wall.
+<owen>	mathrick: perl was very shell-like in its early days.
+<owen>	There are, of cours,e things you can do with the arg-list variable that you couldn't do with a param list.
+<owen>	You can say, for example 'some_other_func(@_);' 
+<mathrick>	so all perl subs are in essence variadic?
+<muppetman>	yes.
+<mathrick>	owen: some_other_func($*) ?
+<muppetman>	you can use prototypes (if you like adding more line noise) to override that
+<mathrick>	or $@ if you prefer
+<muppetman>	@_
+<mathrick>	muppetman: bleh
+<mathrick>	muppetman: I mean in shell
+<muppetman>	oh.  yes.
+<mclasen>	nice little perl workshop, but do we have anything else to discuss today ?
+<muppetman>	one of the other items in the todo is to check how it scales to gtk+-size API
+<mathrick>	muppetman: that will have to wait for scanner, I believe
+<muppetman>	any plans for that?
+<mclasen>	regarding that, I hacked a mostly complete gdk.idl last week, and ended up with ~32k of metadata
+<mathrick>	mclasen: manually? O_o
+<mclasen>	mathrick: I used the C# scanner plus a combination of tweak-the-output and tweak-my-parser to get it converted to metadata
+<muppetman>	well, even with a scanner, you'll still have to go through everything by hand to verify and fixup details.
+<mathrick>	mclasen: hmm, we have some uint16 offsets there, don't we?
+<mclasen>	mathrick: where is "there" ?
+<mathrick>	mclasen: in metadata
+<mclasen>	mathrick: the uint16's should all be indices into the directory, all direct blob offsets should be uint32's
+<muppetman>	i seem to recall that there were some in the string table...
+<mathrick>	don't remember if those are relative though
+<mathrick>	mclasen: ah, ok
+<muppetman>	what was the largest portion of the metadata?  was it the dictionary?
+<mclasen>	muppetman: there is no dedicated string table anymore, strings just appear "between" the other contents
+<muppetman>	ah.  sorry, 
+<muppetman>	i'm outdated
+<mclasen>	muppetman: I believe the bulk was strings, and sharing them did not help a lot
+<muppetman>	(and apparently quite bad with the keyboard today)
+<mathrick>	$! is what, last error message?
+<muppetman>	in that case, i suppose docstrings would be out of the question.
+<owen>	mathrick: Yes, more or less
+<muppetman>	mathrick: very accurate guess.
+May 23 17:01:34 *	owen will skip the "interesting" nature of $! here
+<mathrick>	docstrings need to be there
+<mclasen>	annotation, annotation
+<muppetman>	i'd love them to be there; automatic generation of manpages...
+<muppetman>	but wouldn't that make the metadata huge?
+<mathrick>	mclasen: hmm, right
+May 23 17:02:42 *	mclasen doesn't look forward to read those man pages, unless you embed complete man pages in the metadata...
+<mathrick>	mclasen: yeah
+<mathrick>	mclasen: more or less
+<mathrick>	muppetman: somewhat
+<mathrick>	muppetman: but we do that today with pygtk, and live with it
+<mclasen>	I guess one could think about adding something like pngs ztxt to the metadata
+<mathrick>	ztxt is compressed text?
+<mclasen>	yes
+<mathrick>	yes, perhaps that would make sense
+<muppetman>	that sounds like something for which to leave a placeholder in v1.0
+<mclasen>	muppetman: if we have basic annotation support, I think we don't need further placeholders 
+<mathrick>	my %Sizes; is array?
+<muppetman>	annotations are typed?
+<mclasen>	we could annotate the annotations to indicate they're compressed !
+<mathrick>	muppetman: will be when I finish the proposal
+<mathrick>	mclasen: :)
+<muppetman>	mathrick:  hashtable, associative array.
+<mathrick>	mclasen: nah, just builtin type
+<mathrick>	mclasen: hmm
+May 23 17:08:57 *	muppetman wracks brain to remember feedback he wanted to provide
+<mathrick>	mclasen: either we create magic bulting CompressedDocstringAttribute type, or add zstring as SimpleType?
+<mclasen>	muppetman: my wife just called to pick me up, so wrack quickly (5 more minutes...)
+<SIZES>) is "read SIZES line-by-line, and store them somewhere"?
+<mclasen>	loops over the input stream by lines
+<mathrick>	mclasen: where do you live?
+<mclasen>	mathrick: Acton, MA
+<mathrick>	ah
+<mathrick>	and where is current line stored?
+<mclasen>	$_
+<muppetman>	mclasen:  the current API leads to tons and tons of malloc()s while drilling through the data structures
+<muppetman>	mathrick: because $_ is an implicit parameter for many common functions and operators
+<mclasen>	muppetman: thats one of the arguments for going to some form of iterat or api
+<mathrick>	. is concatenation operator like in PHP?
+<muppetman>	mclasen: i figured.  i tried to think of a way to pull it off without so many mallocs...  either convenience functions that skip a layer, or returning readonly memory
+<muppetman>	mclasen: but returning readonly memory leaves no room for future changes, and the convenience functions only help so much.
+<mathrick>	mclasen: implicit (or not) assumption that metadata is immutable bothers me some
+<muppetman>	sorry i don't have a patch, i was happy just to have time to play with this stuff.
+<mathrick>	mclasen: it will make generating them from inside python not very feasible without lots of hackery
+<mathrick>	muppetman: we can use GMemPool or whatever it's called
+<muppetman>	well, my first prototype leaked like an open-bottom bucket till i realized i had to free those things.
+<muppetman>	:-)
+<mathrick>	heh
+<mclasen>	muppetman: using a mem pool could in fact help for the info structs 
+<muppetman>	we spent some time working with how to get namespace mapping to work, and kaffee sent me his latest incarnation yesterday morning, right before i spent all day outside with the kids
+<mclasen>	mathrick: I think as long as you only append and keep references intact all the time, modifying blobs at runtime should almost work
+<jdahlin>	I think I'll wait a little bit before working on the python bindings
+<mathrick>	mclasen: not string-pooling makes sense in this case, wise move :)
+<muppetman>	as i recall, we have object instantiation, method invocation, and gerror  working in the prototype
+<muppetman>	it's very primitive and suffering sweeping rewrites, so it's not ready for public cvs yet
+<mclasen>	muppetman: being primitive and in danger of sweeping rewrites hasn't saved gobject-introspection from cvs...
+<muppetman>	:-)
+<mclasen>	anyway, I have to go now. How to see some of you next week in Stuttgart
+<mathrick>	mclasen: later then
+<muppetman>	later
+<-> iterator/indexing API mapping?
+<muppetman>	not a lot.
+<muppetman>	it's not really at the toplevel that i found it clunky;
+<mathrick>	eh?
+< n_infos ; i++)  info = get_nth_info()
+<mathrick>	last sentence didn't really parse
+<muppetman>	  for (i = get_first_info() ; i != NULL ; i = get_next_info(i))  ...
+<muppetman>	not a lot of difference.
+<muppetman>	i didn't find it clunky at the toplevel.   it's mostly in the deeper structures, drilling down to the info you want, that it gets a little tedious.
+<mathrick>	I guess I'm naughty boy, I always omit explicit != NULL checks...
+<mathrick>	muppetman: ah, that was continuation of earlier metadata API rethinking then?
+<muppetman>	yes.
+<muppetman>	OH, i see, you meant the language binding level iterator
+<mathrick>	yes
+May 23 17:27:35 *	muppetman is very thick today
+<mathrick>	nah, it's okay, it was easy to confuse
+May 23 17:27:56 *	mathrick wasn't overly clear either
+<muppetman>	as far as TreeModel....   we currently have a pure-perl module that uses a tie to make a ListStore act like a perl list-of-lists.
+<mathrick>	what is "tie" here?
+<muppetman>	the tie callbacks just use the treemodel api.
+<owen>	mathrick: "tie" is just "implement a data structure like an array using an object"
+<muppetman>	e.g. associative array => DBM file
+<mathrick>	ah, that is, subscriptable?
+<muppetman>	yes
+<owen>	mathrick: yeah. The set of functions you implement depends on what sort of data structure you are tying to
+<owen>	(man "perltie" if you want to see lots of details)
+<mathrick>	no, thanks :)
+<mathrick>	I get the idea
+<mathrick>	muppetman: I was thinking more about automatic figuring that out
+<muppetman>	well, seeing what we do to implement that, i'm not sure i want to try to engineer something generic  enough to do it in all cases.
+<mathrick>	muppetman: ie, what sort of info would have to be in metadata to make it possible for bindings to autogenerate tie or whatever it is called in given language
+<mathrick>	"most cases" would be enough
+<muppetman>	mmmm
+<muppetman>	you basically have to be able to answer three questions:  "what's the first element", "what's the next element", and "nd "was that the last element?", with ancillary things like "nth" for good measure
+<-> treeiter equivalence
+<mathrick>	making it work for gtk trees means it will work with almost anything else :)
+<muppetman>	if tobject was marked as an iterator, then certain mehtods marked as "fetches first", etc
+<muppetman>	but aren't there more iteratable structures in gtk+?
+<mathrick>	I mean, tree api is the worst one
+<mathrick>	after we have it working, nothing else can scare us
+<muppetman>	heh
+<muppetman>	the liststore is a list of row.  should those rows also be iterable?
+<mathrick>	no
+<mathrick>	but they are subscriptable
+<mathrick>	or maybe they are iterable?
+<muppetman>	can you send me some code that illustrates how you want it to work?  maybe we can work backwards.
+<muppetman>	for now, i have to get on the road.
+<mathrick>	muppetman: well, pygtk API :)
+<mathrick>	muppetman: ok, see ya
+
+
+Meeting ended May 24, 17:46 EDT

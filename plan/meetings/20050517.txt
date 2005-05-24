@@ -153,4 +153,4 @@ Owen Taylor (owen),
 <owen>	Most of those 900 are enhancemnts too, of course
 
 
-Meeting ended April 6, 17:26 EDT
+Meeting ended May 17, 17:26 EDT
