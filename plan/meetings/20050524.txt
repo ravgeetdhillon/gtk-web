@@ -1,5 +1,5 @@
 Meeting on irc.gnome.org:#gtk-devel
-Meeting started May 24 2005 16:01 EDT
+Meeting started May 23 2005 16:01 EDT
 
 
 In attendence: 
@@ -279,4 +279,4 @@ May 23 17:27:56 *	mathrick wasn't overly clear either
 <mathrick>	muppetman: ok, see ya
 
 
-Meeting ended May 24, 17:46 EDT
+Meeting ended May 23, 17:46 EDT
