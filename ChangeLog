@@ -1,3 +1,8 @@
+2005-06-07  Matthias Clasen  <mclasen@redhat.com>
+
+	* documentation.html: Add a link to the text view
+	tutorial by Vijay Kumar B.
+
 2005-05-24  Matthias Clasen  <mclasen@redhat.com>
 
 	* plan/meetings/index.html: 
