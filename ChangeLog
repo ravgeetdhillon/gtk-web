@@ -1,6 +1,7 @@
 2005-06-10  Matthias Clasen  <mclasen@redhat.com>
 
-	* index.html (href): Add GLib 2.7.0
+	* index.html (href): Add GLib 2.7.0 and 2.6.5
+	
 
 2005-06-07  Matthias Clasen  <mclasen@redhat.com>
 
