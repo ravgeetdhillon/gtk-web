@@ -1,3 +1,11 @@
+2005-06-14  Matthias Clasen  <mclasen@redhat.com>
+
+	* plan/2.8/index.html: Trim the feature list.
+	* plan/ideas/index.html: Move some back here.
+
+	* plan/meetings/index.html: Add the latest
+	meeting.  
+
 2005-06-10  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html (href): Add GLib 2.7.0 and 2.6.5

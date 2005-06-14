@@ -1,0 +1,177 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started June 13 2005 16:00 EDT
+
+
+In attendence: 
+
+Matthias Clasen (mclasen),
+Owen Taylor (otaylor),
+Kristian Rietvelt (kris),
+Federico Mena Quintero (federico),
+Sebastian Bacher (seb128),
+Keith Packard (keithp)
+
+<mclasen>	ok, it is UTC 20:00 now, I hope...
+<owen>	$ date --utc
+<owen>	Mon Jun 13 20:04:50 UTC 2005
+<mclasen>	cool, lets start then
+<owen>	OK, the clock is fairly screwed up on this computer...
+<owen>	But it's *almost* 20:00
+<mclasen>	so, maybe we should start by looking at 2.6.x
+<Chipzz>	irc meeting or are you guys going to use that web thingy again?
+<mclasen>	irc meeting
+<owen>	Chipzz: IRC this week
+<Chipzz>	ah ok so I can just idle here and read along
+<mclasen>	I want to do a 2.6.8 release this week. 
+<Chipzz>	btw totally off-topic wrt gtk+ 2.8, but...
+<mclasen>	we currently have 3 bugs left on the 2.6.8 milestone
+<Chipzz>	is tghe inclusion of a dock widget planned for any of the following releases?
+<mclasen>	Chipzz: there are no concrete plans beyond 2.8, but it is on the blue-sky wishlist
+<mclasen>	federico: the filechooser bug on 2.6.8 is the thing with a race between set_current_folder and select_filename
+<mclasen>	did you say you can fix that this week ?
+<GTKool_2kx>	mclasen: do you know if there will be a "win32" 2.6.8 release soon ?
+<owen>	GTKool_2kx: THat really depends on tml
+<mclasen>	no, ask tml
+<Chipzz>	tml has been making nice progress with evolution :)
+<GTKool_2kx>	mclasen: I will !
+<mclasen>	the other 2 bugs on the 2.6.8 milestone are treeview scrolling bugs
+<mclasen>	kris: are those fixed by your patch ? (165246 and 165034) 
+Jun 13 16:08:42 *	kris looks
+<mclasen>	anyway, I think you said you want to test your patch on HEAD first, right ? so we should probably just move those 2 bugs off the 2.6.8 milestone
+<kris>	i didn't test it, but i am almost sure my patch will fix 165246, not sure about the other bug
+<kris>	but indeed, i want to test on head first
+<mclasen>	ok, then I'll move those bugs
+<mclasen>	anything else we absolutely need to fix before 2.6.8 ?
+<kris>	(after this fix has been committed, i hope to get to the other bugs very soon)
+<mclasen>	did you get any feedback on the scrolling patch ?
+<kris>	only from ssp, telling that it broke the dont-redraw-everything-on-resize optimization
+<kris>	but i think i know how to fix that, will hopefully get to that tonight
+<kris>	jrb appears to be on a mini-vacation and didnt look at the patch yet
+<kris>	i think i will just commit it on head after i fixed the optimization
+<kris>	(i need to move on at some point)
+<mclasen>	kris: sounds good to me
+<mclasen>	ok, then we should maybe switch to 2.7/2.8
+<mclasen>	it appears we are a bit behind our schedule already, and the gnome 2.12 schedule is pretty tight, too
+<kris>	personally, i hope gnome is not going to have a 'hard' depedency on gtk+ 2.8
+<mclasen>	so I think we should drop the major outstanding features which we had on www.gtk.org/plan/2.8 from 2.8, and concentrate on getting 2.8 out in time for gnome 2.12
+<mclasen>	this means we will not have full introspection, gail integration and libglade integration in 2.8
+<federico>	mclasen: is it a real race and not just lack of a flag?
+<mclasen>	federico: it may just be that one op is async, the other not
+<federico>	right
+<owen>	mclasen: I'd rather do that ... I think trying to schedule those features in at this point is basically going to mean an "indefinite slip" 
+<federico>	mclasen: well, select_filename is async if the folder is still loading
+<federico>	mclasen: I think we just need a flag
+<federico>	turn it on when you call unselect_all(); turn it off when the folder finishes loading
+<mclasen>	owen: yes
+<mclasen>	so my plan for keeping up with the 2.8 schedule is to get a 2.7.0 release out by the end of this week
+<kris>	how many months do we have until 2.8.0 final?
+<mclasen>	federico: something like that, yes
+<kris>	do we still want to release on Aug 1?
+<mclasen>	kris: our schedule calls for API freeze be July 1, final by August 1
+<GTKool_2kx>	mclasen : a 2.6.8 or a 2.7.0 this week ?
+<kris>	so we have 1,5 months to stabilize and optimize
+<mclasen>	GTKool_2kx: both
+<owen>	kris: As long as we aren't adding new stuff, I don't think that's unreasonable. 
+<mclasen>	I can't find a Gnome 2.12 schedule atm, so I don't know if there is any room
+<owen>	mclasen: I believe it's mid-september for 2.12.0
+<owen>	Maybe Sep 1
+Jun 13 16:21:38 *	owen looks
+<seb128>	mclasen: http://live.gnome.org/ReleasePlanning_2fTwoPointEleven
+<GTKool_2kx>	mclasen : waouh. so much differences between these two versions ? (which is more stable, which is less stable ?)
+<kris>	tarballs due on Sep 5
+<kris>	so we need to release on August 1st
+<owen>	http://live.gnome.org/ReleasePlanning_2fTwoPointEleven
+<mclasen>	GTKool_2kx: 2.6.8 is just a bug fix release off the stable branch
+<kris>	(brb)
+<mclasen>	so if we drop the big unfinished things, 
+<GTKool_2kx>	mclasen: ok, thanks
+<mclasen>	there are 10 bugs left on 2.8 API Freeze
+<mclasen>	and we have ~2 weeks left to get those done
+<mclasen>	so, the question for today is: what bugs do we have to fix on HEAD before we can do a usable 2.7.0 ?
+<kris>	i'm not sure yet if i have some small treeview api bugs
+<owen>	The only one I'm actually aware of is the nautilus background corruption, which we need to track down
+<mclasen>	owen: that seems to be reported twice, actually
+<mclasen>	306216 and 305459
+<mclasen>	and there is also an older report of a cairo surface leak, 172825
+<owen>	It might be nice to get gnome-font-properties back working, but I don't think it's a blocker
+<federico>	kris: out of curiosity, do you have a list of the scrolling bugs you are fixing?
+<mclasen>	owen: what is the problem with gnome-font-properties ?
+<owen>	mclasen: It has no effect on the cairo backend
+<owen>	(that is, the dpi/hinting/etc. settings. The font selection works fine)
+<mclasen>	ah
+<owen>	kmaraas has been doing a lot of valgrinding, so I think he would have seen 172825 if it was still three
+<mclasen>	owen: close it and hope it doesn't reappear ?
+<owen>	I think close with a "reopen if  you are still seeing this" would be fine
+<mclasen>	ok
+<owen>	I don't think 305459 is related
+<kris>	federico: not really, i started with one bug, and fixed some other stuff along the way
+<mclasen>	I'm adding a 2.7.0 milestone with the short list of things to fix before 2.7.0
+<kris>	appears incremental reflow was like, totally broken
+<mclasen>	kris: if you come up with any treeview api additions, it may be a good idea to move them on 2.8 API Freeze
+<kris>	mclasen: will do
+<mclasen>	ok, I don't have much else to discuss
+<mclasen>	owen, you did not look at my rgba drag cursors patch, did you ?
+<owen>	mclasen: No
+<mclasen>	do you think it makes sense to take the cursor images from the icon theme ?
+<owen>	mclasen: Yes
+<owen>	Or, err, no
+<owen>	I think they should come from the cursor theme
+<owen>	I think we can do gymnastics to fall back if they aren't there
+<mclasen>	do we have any api to get named cursors from the cursor theme, then ?
+<owen>	mclasen: I forget what we ended up doing there
+<owen>	I suppose windows is an argument not to rely on the cursor theme, but it's very strange not to be using the cursor theme for cursors
+<mclasen>	it was my understanding that the current cursor theme technology relies on transparently replacing standard cursors in Xlib...
+<owen>	mclasen: There is also named cursor capabilities
+<mclasen>	oh, good
+Jun 13 16:45:25 *	mclasen opens Xcursor.h
+<owen>	(With a magic way of naming a cursor with a md5 hash of a bitmap of a specific cursor to get a replacement for something like one of Mozilla's cursors)
+<mclasen>	hmm, the header does not make it obvious to me
+<owen>	So, the question is getting the actual bits?
+<mclasen>	hmm, that too. 
+<mclasen>	For e.g. the color picker we need a way to go cursor name -> XID of cursor
+<mclasen>	for dnd we need to go cursor name -> pixbuf, since we need to composite the cursor image with the app provided icon
+<owen>	Should we declare the meeting over, btw, we seem to have strayed off into specifics?
+<mclasen>	yes, meeting is over
+<keithp>	Xcursor.h - you'll never find a more villianous hive...
+<mclasen>	tell me more
+<owen>	keithp: A) So, how do you load a cursor by name?  and B) Is there a way of getting the bits of for a cursor by name?
+<keithp>	owen: you load a cursor by name with XcursorLibraryLoadCursor
+<owen>	So, "file" here is cursor name?
+ *	keithp is looking at code...
+<keithp>	yes
+<keithp>	and it gets to match a filename in the theme directory
+<mclasen>	keithp: and if no file is found, I get None ?
+<keithp>	Note that I'm really not happy with the Xcursor library...
+<keithp>	mclasen: uh.  yes.
+<mclasen>	keithp: and how do I get the bits of a cursor ?
+<keithp>	But that's so wrong it's painful...
+<keithp>	mclasen: there doesn't appear to be a direct function for that
+<keithp>	mclasen: instead, we have XcursorGetDefaultSize, XcursorGetTheme and XcursorLibraryLoadImages
+<keithp>	Check out XcursorLibraryLoadCursor for details on what to do
+<mclasen>	keithp: ok
+<keithp>	mclasen: any chance I can get you to ignore libXcursor and write something sensible instead?
+<mclasen>	keithp: is there any notification if the cursor theme changes, btw ? Is the cursor theme name stored in a root property ?
+<keithp>	It's only in RESOURCE_MANAGER
+<keithp>	Oh, did you know you can replace application cursors without their cooperation now?
+<mclasen>	keithp: no
+<keithp>	yeah, cursors are nicely tagged by name in the X server and you can go replace the underlying image
+<mclasen>	keithp: do clients share the themed cursors, then ?
+<keithp>	XFixesChangeCursorByName
+<keithp>	Umm.
+<mclasen>	keithp: or do I have to replace them for each individual client ?
+<keithp>	They could share, but I don't think they do currently
+<keithp>	Just like Render glyphs are shared
+<mclasen>	thats what I was thinking of
+<keithp>	It was more work than I wanted to do at the time as it's all up in DIX land
+<keithp>	so API consistency and data structure shape stability is very important
+<mclasen>	ok, thanks keith, I have to run now. I
+<keithp>	ta ta
+<mclasen>	ll see if I can make sense of the XCursor functions, and bug you again if not
+<keithp>	If you do, try to figure out how they should work and we can change them
+<mclasen>	owen: do you happen to know if windows has named cursors ? 
+<owen>	mclasen: I don't think so
+<mclasen>	but they probably have a set of standard cursors which we can map our names to...
+<keithp>	owen: right, we don't *really* need names, we mostly need a set of 'stock cursors'.
+
+
+Meeting ended June 13, 17:07 EDT
