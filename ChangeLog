@@ -1,3 +1,8 @@
+2005-06-20  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: Add GTK+ 2.7.0, Pango 1.9.0
+	* projects.html: Add link to Cairo
+
 2005-06-16  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add GTK+ 2.6.8
