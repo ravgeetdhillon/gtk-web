@@ -1,0 +1,82 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started June 22 2005 16:00 EDT
+
+
+In attendence: 
+
+Matthias Clasen (mclasen),
+Tim Janik (rambokid),
+Tor Lillqvist (tml),
+Manish Singh (yosh),
+Federico Mena Quintero (federico),
+Jonathan Blandford (jrb),
+Carlos Garnacho (garnacho)
+
+
+<mclasen>	we seem to be missing some people...
+<mclasen>	ok, just in case anybody wonders, we won't be playing with yarrr this week
+<mclasen>	there were some setup problems, so we don't have a working server today
+<mclasen>	maybe next week
+<mclasen>	so, I would love to discuss the remaining bugs on the 2.8 API Freeze milestone, but most
+<mclasen>	of the relevant people seem to be absent
+<mclasen>	rambokid: did you hear anything from wim regarding atomic refcounting ?
+<rambokid>	not since guadec, where we solved most of the outstanding problems.
+<mclasen>	wim did not post a new patch or anything
+<mclasen>	hey tml
+<mclasen>	is the grab-broken signal in bug 107320 something we should try to get into 2.8 ?
+<tml>	if possible, sure
+<tml>	isn't that one of the things that irritate people most in gtk/win32... (if one excludes rightour crashes)
+ *	tml spent way too much time today staring at screen magnification windows wondering what win32's line rasterization rules exactly are... (#306396)
+<mclasen>	tml: will you do a 2.7 win32 release ?
+<tml>	don't think 2.7.0. 2.7.1 maybe
+<tml>	(source releases will be coming every two weeks approximately?)
+<mclasen>	I hope to do new releases in approximately 2 weeks, yes
+<mclasen>	which means the next one will have to be api frozen, basically
+<tml>	any opinion on my suggested g_mkdir_hier()?
+<tml>	or g_get_hostname()?
+<mclasen>	do you have a bug number, it doesn't show up on my list
+<yosh>	g_get_hostname looked good to me
+<mclasen>	one of the oldest open glib bugs...
+<tml>	#60509
+<tml>	and i'm sure there are lots of small functions in the various gnome libraries (copy-pasted into several, even, occasionally) that could well be in glib. maybe i should systematically have a look through?
+<mclasen>	I think g_get_hostname() is fine
+<federico>	la la la
+<federico>	are people on yarrrr?
+<mclasen>	for g_mkdir_hier() it may be nicer to have a more glib-style api, I think
+<mclasen>	federico: couldn't get the server set up in time, maybe next week
+<federico>	ah, ok
+<tml>	what about the name, the "hier" part isn't necessarily that good?
+<jrb>	federico: IS/IT nazis
+<mclasen>	g_mkdir_with_parents() ?
+<tml>	sounds fine to me
+<yosh>	I'd vote for g_makedirs()
+<mclasen>	also nice
+<tml>	or g_makepath() even
+<yosh>	yeah, that's good too
+<tml>	the plural in g_makedirs() might sound like it makes several unrelated dirs
+<yosh>	g_makepath seems clearest, and not too verbose
+<mclasen>	what about the signature, I guess its valuable to keep it parallel to g_mkdir(), so keep the 0-means-success even if we're not directly wrapping a stdio function here
+<tml>	another thing we could wrap for portability reasons is fsync()
+<mclasen>	before I have to leave, I want to bring up bug 166379 again
+<mclasen>	(the gtk_window_present change due to metacity handling _NET_WM_ACTIVATE differently)
+<mclasen>	I have recently added gtk_window_present_with_time() so that it is possible to do the right thing in terms of focus-stealing-prevention
+<mclasen>	but I wonder if we can or should do something about the move-current-desktop vs. move-window-to-current-desktop change
+<federico>	move-window-to-current-desktop is evil
+<federico>	does the wm spec say what to do on activate?
+<mclasen>	federico: no, the spec basically says that the activated window and the user should meet somewhere. that could be the current desktop, or it could be the one on which the window lived before
+<federico>	so what does metacity do?
+<mclasen>	it used to move the window to the current desktop, but it got changed to change to current desktop instead
+<federico>	change to the window's desktop?
+<federico>	btw, I just discovered that kde has six options for the way autocompletion occurs - you get them by right-clicking on a text entry
+<mclasen>	yes, to the window's desktop
+<garnacho>	If I can give my opinion, changing the current desktop feels quite wrong i.e. with nautilus
+<mclasen>	that is my opinion, too
+<federico>	so it depends on the app
+<federico>	ugh
+<mclasen>	federico: but we don't offer api for apps to do it one way or the other...
+<federico>	so, who actually uses present()?
+<mclasen>	it is not only present(), actually gdk_window_focus() is responsible for the desktop changing
+<mclasen>	anyway, I've got to go. see you next week, hopefully in yarrr
+
+
+Meeting ended June 21, 17:08 EDT
