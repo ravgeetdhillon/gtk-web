@@ -1,0 +1,111 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started June 28 2005 16:00 EDT
+
+
+In attendence: 
+
+Matthias Clasen (mclasen),
+Maciej Katafiasz (mathrick),
+Owen Taylor (otaylor),
+Ray Strode (halfline),
+Jonathan Blandford (jrb),
+Johan Dahlin (jdahlin)
+
+
+<mclasen>	I'll be here in a second (need to finish filing a bug)
+<mathrick>	are we going to try yarrr today?
+<owen>	matrhick: narrrr
+<mclasen>	yarrr is on the truck
+<mathrick>	owen: narrr being nah?
+<owen>	mathrick: something like that.
+<halfline>	owen: one too many r's in that narrr
+<mclasen>	mathrick: lets hope the server survives and try again next week
+<mathrick>	mclasen: something went wrong last week?
+ *	mathrick didn't read backlogs yet
+<owen>	mathrick: We've been waiting until its on dedicated hardware to try again
+<mclasen>	mathrick: last week the yarrr crew was having IS/IT issues
+<mathrick>	owen: ah
+<mathrick>	mclasen: what's IS?
+<mathrick>	infrastructure?
+<owen>	mathrick: Information Systems. The deparatment is just IT these days, but mclasen hasn't caught up :-)
+<jrb>	mclasen: as opposed to this week, where we're merely having IS/IT issues...
+<mathrick>	owen: :)
+<mclasen>	jrb: but this week we'll have to cope not only without yarr, but also without bugzilla
+<mclasen>	and without cvs...
+<jrb>	mclasen: yup
+<jrb>	mclasen: do we have an agenda?
+<mathrick>	mclasen: bugzilla is painful
+<mclasen>	which is a bit unfortunate, since bugzilla would be helpful for discussing the list of outstanding 2.8 api issues
+<mclasen>	so we will have to go from memory
+<mathrick>	mclasen: log for june 21 is linked wrong, to file from june 13
+<mclasen>	from what I recall there are 4 bugs left on the 2.8 api freeze milestones
+<mclasen>	mathrick: i'll fix that
+<mclasen>	let me try to list them...
+<mclasen>	- reporting complex errors with GError 
+<mclasen>	- threadsafety of class init and get type functions in GObject
+<mclasen>	- invisible text support in GtkTextView
+<mclasen>	- I can't remember the last one
+<mclasen>	I think the complex errors thing can easily be punted, as it is not particularly urgent and there is no patch
+<mclasen>	The tread safety issues will probably also have to wait till 2.10, since there is no patch (at least for the class init part)
+<mclasen>	there is a patch for the get type functions, but rambokid doesn't like the GOnce approach
+<mclasen>	the remaining work on the invisible text support is tracking down some assertions which can still be triggered with the current code
+<mclasen>	once that is done, we can just remove the g_warning about invisible text being unsupported
+<mclasen>	are there other api issues which we need to address before we can declare 2.7.1 api-frozen ?
+<owen>	There is some stuff in Pango that I'm finalizing still, but I have patches for that sitting locally, which should land in the next few days. 
+<mclasen>	owen: do you plan to do a 1.9.1 once that lands ?
+<owen>	mclasen: Yes. I'm going to shoot for 1.9.1 (and 1.8.2) end of this week
+<mclasen>	thats what I'm targeting for 1.7.1 of glib, gtk as well
+<mclasen>	oh, before I forget
+<mclasen>	if anybody here runs XFree 4.3
+<mclasen>	it would be good if someone with an old XFree server could look into that bug where dnd icons and pixbufs in treeview are corrupted
+<mathrick>	mclasen: I do, but I don't know if I will be able to do that in time, not to mention X guts are heavy magic for me
+<owen>	mclasne: Note that the Cairo workaround isn't going to come into play for XFree 4.3, until someone digs up the right vendor string and adds it to Cairo
+<owen>	mathrick: If you want to mail me xdpyinfo, that could be useful
+<mathrick>	owen: sure
+<owen>	mclasen: It's currently only flagging older xorg as being buggy
+<mclasen>	owen: but I thought you said it was likely not the same issue, right ?
+<mathrick>	owen: email addy?
+<owen>	mclasen: Not sure about that ... it *might* not be the same issue, but DND icons do use a background pixmap, so it might also be the same issue
+<owen>	otaylor@redhat.com
+<mathrick>	owen: sent
+<mclasen>	what else ? beyond 2.7.1, there are a number of bugs left on the 2.8 Freeze milestone
+<mclasen>	notably the atomic refcounting issue
+<jdahlin>	GObjectClass constructor
+<owen>	mathrick: Can you reproduce the dnd drag bug currently?
+<jdahlin>	tim promised he'd take a look at it
+<mclasen>	jdahlin: thats an api issue, right ?
+<mathrick>	owen: no, I don't have fresh enough gtk+ built
+<jdahlin>	mclasen: yes, adding a new vfunc
+<mathrick>	owen: lemme see if jhbuild is any good
+<mclasen>	jdahlin: can you move that to the 2.8 API freeze milestone
+<mclasen>	...when bugzilla is back
+<owen>	mathrick: Hmm, OK, was just about to check in a cairo change that might help, to check before/after but if you don't have something built already, we can just ask the bug reporters to retest
+<jdahlin>	mclasen: sure, I'll do so
+<mathrick>	owen: k
+<owen>	mclasen: OK, older XFree86 servers also flagged
+<mclasen>	owen: one thing I quickly discussed with jrb last night is that it would be nice to have a cool demo of the stuff you can do with Cairo
+<mclasen>	owen: either inside gtk-demo or as a separate demo
+<mclasen>	maybe your bewel-brewery can be turned into a demo ?
+<jrb>	along those lines, it'd be really nice to cleanup/modernize gtk-demo
+<owen>	mclasen: bevel is a lousy demo because it involves bits of computational geometry, vector math, etc. But I'll try to come up with something
+<mclasen>	owen: btw, do you think that grab-broken would make a reasonable addition to XFixes ?
+<owen>	mclasen: I think we can mostly do without that client side
+<owen>	[ i was discussing this with mclasen offline, but figured I should answer him here ]
+<mclasen>	I just have to figure out how to recognize the button release that ends the implicit grab...
+<owen>	mclasen: Isn't it just the next release of the initiating button?
+<mclasen>	owen: I think it is the next release event with no buttons pressed
+<mclasen>	ie you could start the implicit grab by pressing 1, then add button 2, release 1 again, and the implicit grab will only be lifted when you release button 2
+<owen>	mclasen: experiment bears that out
+<jdahlin>	jrb: agreed
+<mclasen>	ok, I need to get going
+<jdahlin>	mclasen: I rewrote libglade during the last couple of weeks btw
+<jdahlin>	mclasen: in python currently, but in a way that it doesn't do a two step parsning (all at once) and with proper interfaces, which should be language bindings friendly
+<mclasen>	in python ?
+<jdahlin>	yes, for gazpacho
+<jdahlin>	I'll port it to C when it's stable enough, I'm determined to have it included for 2.10 :)
+<mclasen>	sounds good
+<jrb>	jdahlin: how's gazpacho?
+<jdahlin>	jrb: pretty good, but still plenty of stuff to do
+
+
+Meeting ended Jun 28, 17:12 EDT
