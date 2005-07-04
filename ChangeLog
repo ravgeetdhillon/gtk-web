@@ -1,3 +1,11 @@
+2005-07-04  Matthias Clasen  <mclasen@redhat.com>
+
+	* plan/index.html: Updates
+
+2005-06-21  Matthias Clasen  <mclasen@redhat.com>
+
+	* plan/ideas/index.html: Move some back here.
+
 2005-07-01  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add GLib 2.7.1 and GTK+ 2.7.1
