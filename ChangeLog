@@ -1,3 +1,8 @@
+2005-07-06  Murray Cumming  <murrayc@murrayc.com>
+
+	* bindings.html: Update Haskell entry, based on email from 
+	Duncan Coutts to language-bindings.
+
 2005-07-04  Matthias Clasen  <mclasen@redhat.com>
 
 	* plan/index.html: Updates
