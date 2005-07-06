@@ -1,0 +1,194 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started July 5 2005 15:57 EDT
+
+
+In attendence:
+
+Matthias Clasen (matthias),
+Jonathan Blandford (jrb),
+Kristian Rietveld (kris),
+Owen Taylor (otaylor),
+Federico Mena Quintero (federico),
+Billy Biggs (vektor),
+Tor Lillqvist (tml),
+Carlos Garnacho (gjc),
+John Ehresman (jpe),
+Manish Singh (yosh),
+Johan Dahlin (jdahlin)
+
+
+<matthias>	jrb: do we have yarrr today ?
+<jrb>	matthias: nope...
+<jrb>	matthias: apparently the sysadmins had to take someone to the hospital
+<matthias>	too bad
+<matthias>	was it one of them ?
+<matthias>	after he discussed it with you ?
+<jrb>	I don't know yet
+<jrb>	hopefully it wasn't my fault
+<kris>	DING
+<matthias>	ok, lets start
+<matthias>	maybe we can discuss 309221 first ?
+<matthias>	the problem in that bug is that a treeview change broke reusing cell renderers even more than it was before
+<matthias>	so the proposal is to officially declare reusing cell renderers as not allowed, add a warning if someone does
+<matthias>	but make sure that it works as well/bad as it did before
+<owen>	I think we have to try to regress as little as possible
+<jrb>	yeah
+<jrb>	I don't think we can break existing apps
+<owen>	I'm not sure if even adding a warning is good ... if someone wrote an app that "worked", it has to be kept working, unless they were doing something exceedingly and obviously crackrock
+<owen>	And if multiple apps were doing this, it's not exceedingly and obviously crackrock
+<matthias>	but mentioning in the NEWS that it doesn't really work is ok, right ?
+<jrb>	we've actually said in the past that it's 'discouraged, but works'
+ *	jrb thinks that there's very little we can do about it now
+<matthias>	jrb: but as a matter of fact, it doesn't really work in 2.6 either
+<owen>	We can make *new* features dependent on not doing so ... we just can't break work apps that work currently
+<matthias>	jrb: the breakage is just a bit more subtle than the problem in bug 309221...
+<kris>	if we just add the _set_cell_data calls in the 'main' loop in _bin_expose the problem should be gone
+<kris>	the focus code would work right
+<kris>	it will just be a little slower
+<kris>	and maybe we can mention 
+<kris>	that in the release notes, also with the discouragement
+<matthias>	the general opinion seems to be against adding a runtime warning, so a release notes mention will have to do
+<kris>	yeah
+<matthias>	ok, next topic are remaining drawing issues
+<matthias>	owen: do you think that 305459 and 309512  are cairo issues ?
+<owen>	Well, depending on what you call Cairo
+<owen>	My best guess at the current time is that 305459 is a server bug and 309512 is a cairo bug.
+<owen>	But I don't have good guesses at to the details for either
+<matthias>	hmm, ok
+<owen>	What's really puzzling about 305459 is the precence of a depth-32 visual in the output
+<owen>	xdpyinfo output
+<owen>	I didn't think that was supported with 6.8.2
+<owen>	Oh, composite is on
+<matthias>	owen: i don't see xdypinfo in 305459
+<owen>	Oh, I mean 309512
+<federico>	oralia is begging for lunch now - if anyone wants to know about gtkfilechooser stuff, I don't have time to work on it this week :(
+<federico>	bbiab
+<matthias>	the last visual, 0x47
+<owen>	Yeah
+<matthias>	owen: so it could be worth trying to reproduce that one with composite turned on
+<owen>	mitch_: Yeah, it might be as simple as adding 
+<owen>	Section "Extensions"
+<owen>	#       Option  "Composite" "yes"
+<owen>	EndSection
+<owen>	(Uncommented out) to xorg.conf
+<owen>	I'm not really sure how to tackle 459 if it as a XFree86-specific server bug. Probably first step woudl be to find a rhel3 system to test on. (remote display should be OK)
+<vektor>	Wow, you don't have a RHEL3 system?? :)
+<owen>	(OK, any old xfree86 system, but "around here" rhel3 is most likely to be the relevant thing)
+<owen>	vektor: Not me, I don't do a lot of sustaining work, so maintaining multiboot systems isn't worth it.
+<matthias>	so, do we have all must-fix issues on the 2.8 milestone, or are there other important regressions/crashes which should be on that list ?
+<matthias>	I'm currently looking at the epiphany crashes which are due to my recent grab handling changes
+<matthias>	and then there are reports that evolution is pretty broken currently, which may or may not be related to gtk
+<tml>	hmm, should #58541 be put on the 2.8 milestone? 
+<tml>	or as it really doesn't introduce any new api (only extends existing api to win32, too), can it be committed whenever "ready"?
+<matthias>	tml: whats missing from it being ready ? 
+<matthias>	final review ?
+<tml>	well, more testing, and final review yes
+<gjc>	please someone wake me up when you want to discuss "small apis missing"...
+<owen>	To me, it's HEAD-only stuff. I'm pretty opposed to big changes and new API on the stable branch is ever a good idea
+<owen>	gjc: We aren't going to be able to have a useful dicsussion of the GObject stuff since rambokid isnt' here
+<owen>	If that's what you are interested in
+<gjc>	owen: I don't mean the recent emails about constructors
+<gjc>	it was about the 'traverse' virtual that I wanted to add..
+<matthias>	owen: do you think the plug/socket stuff would still be suitable for HEAD in the current phase of stabilization ?
+<owen>	matthias: right now, yes. Two weeks from now, less sure.
+<gjc>	but, well, if that can't be discussed as well... :|
+<matthias>	gjc: that opens the even bigger "containers in gobject" can of worms...
+<tml>	owen: ok, will finish up obvious dangling issues and commit?
+<gjc>	if that needs so much discussion I guess it's way too late :-\
+<matthias>	tml: does the patch affect the non-win32 code at all ? 
+<owen>	tml: Can you post for one more review? I'll try hard to get quick turnaround
+<owen>	matthias: In theory, no, but it moves it all around.
+<tml>	owen: ok, will do that
+<tml>	matthias: shouldn't
+<matthias>	I'll try to do a 2.7.2 release by the end of this week, provided I fix enough of the regressions/crashes to make it worthwhile
+<matthias>	tml: can you move the plug/socket bug to 2.8 freeze, then ?
+<tml>	matthias: ok
+<tml>	about named cursors: where can one find sample designs for the ones used by gtkcolorsel and gtkdnd?
+<tml>	i.e., cursors called "color-picker", "dnd-ask", "dnd-copy", etc
+<owen>	Win32 should have the dnd cursors natively
+<jpe>	tml, any chance of getting device depedant bitmaps in?
+<owen>	(hopefully accessible)
+<owen>	jpe: You should rebench with head before advocating for them too strongly
+<tml>	owen: at least the IDC_* name mappings that Hans put it doesn't
+<owen>	tml: My quick thought (without investigating) is that Hans's patch isn't right
+<matthias>	tml: the color-picker is a pair of xbms in gtkcolorsel.c, I think, and the dnd cursors used to be the same before I converted them to serialized pixbufs
+<owen>	tml: It's sort of like the user_shell issue ... just having *some* sort of named cursor on win32 isn't useful. The names have to be cross-platform.
+<matthias>	owen: but a meaningful standard set of cursor names is still missing on the X11 side, too
+<owen>	jpe: rendering to ddb's with cairo may have speed issues
+<jpe>	owen, I'll try
+<matthias>	owen: we just use the standard glyph cursor names, because they are the ones that are available 
+<owen>	jpe: BTW, do you still have that complex toplevel-window test case around that you cooked up at some point?
+<owen>	matthias: true... but that doesn't really excuse having two sets of non-standard names
+<jpe>	owen, I would hope it would be faster to go to ddb, at least when rendering to the screen
+<matthias>	owen: granted
+<tml>	owen: dnd cursors on win32 are probably in some other namespace, can't find them in SDK docs right now
+<owen>	jpe: Text and rectangles, maybe. Images, maybe. And that's a good chunk of Cairo. But if it has to fall back to software rendering, having the target in video memory is bad news
+<jpe>	owen, the performance test is attached to #163724
+<matthias>	tml: does my description of the grab-broken events in the bug suffice to add corresponding emissions to the win32 backend ? (I don't even know if win32 has a comparable concept of implicit grabs, though)
+<jpe>	owen, yes you're right about software rendering, though we don't want to make text and rectangles slower than they need to be
+<owen>	jpe: Anyways, my advice would be to simply redo timing with the current code, since it is going through different code (though we aren't 100% cairo rendering yet)
+<tml>	matthias: i think the description is good enough, yes
+<jpe>	owen, the issue is that I need to get cairo building first...
+<owen>	jpe: Is that hard?
+<owen>	It's always been a lot less trouble than the GTK+ stack for me on win32
+<jpe>	owen, haven't tried yet
+<owen>	But that is auto*
+<jpe>	owen, I'll try to do it soon
+<tml>	jpe: building cairo (and libpixman) should be trivial, almost, no "interesting" dependencies
+<jpe>	tml, I'm still using VC++; I think I figured out why the VC++ build is slower, but I still need to benchmark to make sure
+<yosh>	whoa, the VC++ is *slower* than running libtool for every compile?
+<jpe>	yosh, slower at runtime
+<yosh>	oh, runtime, not compile time
+<yosh>	still odd tho
+<jpe>	yosh, it's significantly faster building, mainly because of libtool
+<yosh>	yeah, being slower than libtool would be really shocking
+<tml>	jpe: ah, well, cooking together makefiles for nmake for libpixman and cairo shouldn't take more than, eh, fifteen minutes?
+<owen>	hans may even have posted them at some point
+<jpe>	yosh, I think the runtime difference is because _G_TYPE_CIT in gtype.h avoids a function call in the common case under gcc
+<owen>	Ah, his last attempt was using "cmake"
+<owen>	jpe: That was only a small optimization
+<owen>	I wasn't even convinced that it was a win at all
+<jpe>	I actually have a cc wrapper that I'm using with the auto* generated makefiles -- I haven't tried using it w/ cairo yet
+<matthias>	ok, I don't have more issues on my list. So I guess we should consider the meeting adjourned, unless there are other things we should discuss. Are there ?
+<jpe>	owen, using a profiler, the is_a function in gobject shows up quite high in the total time taken and the optimization does cut the time spent in it
+<owen>	jpe: The optiomization as I recall is only type==type, which isn't very common in GTK+
+<owen>	jpe: type is_a g_object is a lot more common than that
+<owen>	jpe: If you told me the potiimzation sped up overall 2% I could believe that. But 10%? I'd be skeptical
+<jpe>	owen, I think type == type is fairly common in the cast checks, which I'd prefer to leave in
+<owen>	jpe: CIT turns up in the g_return_if_fail(), not the casts
+<jpe>	owen, it is probably closer to 2% that to 10%
+<jpe>	owen, sorry, it is the g_return_if_fail
+<owen>	jpe: So, you see type==type for things like pango_layout_set_text(), etc, but not in gtk_widget_show() or g_object_ref()
+<owen>	I suppose I don't see type==type on my profiles, so maybe I don't have a good idea of how common they are these days, but I've seen improvements in some microbenchmarks by *removing* that optimization
+<owen>	jpe: Anyways, if gcc is significantly faster than vc++, I wouldn't expect that alone to explain things.
+<jpe>	owen, also, comment out the test for a pointer being an object in g_object_ref & _unref shows up in the profiler.  Doesn't the is_a test assume the pointer is an object pointer?
+<owen>	jpe: g_object_ref(), unref() are unconsciousably slow :-(
+<owen>	jpe: The is_a checks are supposed to be pretty defensive
+<jpe>	owen, I'm also playing with turning off the structured exception handing in VC++ (SEH is exception handling in C)
+<owen>	jpe: You *can* be an classed instantiatable type and not be a GObject, but the main point is to catch junk pointers
+<owen>	jpe: Like -fexceptions?
+<owen>	(That is, support for unwinding through C)
+<jpe>	owen, doesn't is_a cast the pointer to a GTypeInstance* and dereference it, assuming it's not NULL
+<owen>	jpe: The idea is that if you segfault there, than you've made things easier to debug
+<owen>	jpe: It's hard to have junk memory that passes the G_IS_OBJECT() test
+<jpe>	owen, not quite like -fexceptions; with SEH you can catch exceptions in C (this was all developed before C++ was widely used)
+<owen>	jpe: GCC has a little support for that these days ...theres __attribute__ (cleanup)
+<jdahlin>	isn't there a patent on SEH that stops gcc from implementing it?
+<jpe>	owen, yes, but if it slows things down then it may not be worth it in minimal debug builds
+<owen>	jdahlin: No idea. Exception handling in C got shot down by the standards committee in any case
+<jpe>	jdahlin, probably now that you mention it
+<owen>	jpe: We dont' support unwindinding through glib or especially not through GTK+ so there is no point in generating code for that
+<owen>	jpe: (Though I don't think it should have much runtime penalty if implemented at all sanely)
+ *	tml tries desperately to remember one win32 thing he had planned to bring up
+<matthias>	isn't the point of having language support for exception handling that it has 0 runtime penalty ?
+<jpe>	owen, it might add a fraction of a % to each function call, but I agree that the penalty shouldn't be significant
+<jdahlin>	tml: would it be possible to have gtk.org provide official win32 builds/installers?
+<tml>	builds are there already. not installers though
+<jdahlin>	I remember the times when I tried using gtk on win32 there's always been a mess with different builds
+<jdahlin>	most programs seems to ship their own version anyway..
+<tml>	i doubt that many actually build it themselves, though?
+<jdahlin>	dunno about that
+
+
+Meeting ended July 5, 17:23 EDT
+
