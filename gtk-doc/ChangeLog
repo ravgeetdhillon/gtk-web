@@ -1,3 +1,8 @@
+2005-07-06  Damon Chaplin  <damon@gnome.org>
+
+	* news.html: 
+	* download.html: added info on 1.4 release.
+
 2005-01-12  Damon Chaplin  <damon@gnome.org>
 
 	* index.html: patch from Stefan Kost to mention GObject classes
