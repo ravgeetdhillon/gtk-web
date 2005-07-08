@@ -1,3 +1,7 @@
+2005-07-08  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: Add GLib 2.7.2 and GTK+ 2.7.2
+
 2005-07-06  Murray Cumming  <murrayc@murrayc.com>
 
 	* bindings.html: Update Haskell entry, based on email from 
