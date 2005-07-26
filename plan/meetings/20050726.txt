@@ -1,0 +1,127 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started July 26 2005 16:02 EDT 
+
+In attendence: 
+
+Matthias Clasen (mclasen),
+Maciej Katafiasz (mathrick),
+Sebastian Bacher (seb128),
+Owen Taylor (owen),
+Federico Mena Quintero (federico),
+Tor Lillqvist (tml),
+Carlos Garnacho (garnacho),
+Tim Janik (rambokid)
+
+<mclasen>	ok, lets start, I guess
+<mclasen>	I'll have to leave at 5 straight today, packing stuff...
+<mclasen>	so, lets start by asking if anybody has seen any issues with the atomic refcounting changes in glib ?
+<mathrick>	it'd be good to get owen and rambokid here, methinks
+<mclasen>	well, rambokid will provide his own review, I was more interested in hearing if anybody had actually seen problems
+<mclasen>	or performance issues
+<mclasen>	owen: did you end up doing pango 1.9.1 without a new cairo, or will there be a new cairo later today ?
+<owen>	mclasen: I ended up doing it without... but it depends on CVS cairo
+<mclasen>	just like gtk does
+<owen>	I hope later today, but I think tomorrow might be more realistic at this point. We'll see
+<owen>	I *really* want to get the new Pango into rawhide for testing
+<mclasen>	if you do, can you also push gtk ?
+<owen>	mclasen: Yes, if I remember how to drive beehive :-)
+<seb128>	do you know if a new glitz version is planned? current cairo require a 0.4.4 and current tarball is 0.4.3 
+<owen>	seb128: I don't think it 's high on anybody's radar, but if you point it out to cworth after cairo is out, he should be able to push a tarball
+<mclasen>	seb128: you can build without, no ?
+<seb128>	owen: k, thanks
+<seb128>	mclasen: yeah (that's what I do for Ubuntu atm), but some people would like to get cairo built with it
+<federico>	as for 2.8 being ready to go...
+<federico>	will cairo freeze its api soon?  will it stay frozen?
+<mclasen>	federico: I think 0.6 will have all api *changes* dones, there may still be some small additions before 1.0, if I understood carl correctly
+<mclasen>	federico: and as owen pointed out, 0.6 should be out today or tomorrow
+<mclasen>	and 1.0 before gnome 2.12
+<federico>	owen had a little bunch of changes for the font options as of yesterday...
+<mclasen>	I guess thats what held up 0.6
+<owen>	federico: The only planned API change at this point is removing cairo_status_t returns from some functions ... cworth is trying to get that done today
+<mclasen>	so, are there any bugs that we should consider blockers for 2.8 at this point, or does the current code look good enough for 2.8.0 ?
+<federico>	owen: does cairo intend to have api promises similar to gnome's?  like minor release don't add/change apis?
+<federico>	mclasen: not really blocker, but butt-ugly - the "icons are not downscaled" one
+<federico>	let me get the number
+<owen>	federico: I'm not sure about versioning schemes, but yes, really, the goal is that there won't be incompatible changes aftr this for a long time
+<federico>	mclasen: #310653
+<mclasen>	federico: did you look at that one ?
+<federico>	mclasen: not yet
+<mclasen>	owen: regarding cairo releases, I thought that it might be a good idea to start cc'ing gnome-announce-list on the releases
+<owen>	mclasen: probably should start inviting cworth to these meetings
+<mclasen>	that too
+ *	owen really feels that there should be more things we should be panicking about at this point, but can't think of them
+<mclasen>	we can start panicking next week
+<owen>	Well, there's oGalaxyO's cairo font cache corruption bug I can't reproduce
+<owen>	But not being able to reproduce it, my panic level on that is low
+<mclasen>	I thought that maybe we should do a release candidate tarball next monday or tuesday, to give use some extra room to panic...
+<seb128>	my fileselector crashes on opening here for several app but federico blames gnomevfs :p
+<owen>	I suppose I could panic about the fact that we are still drawing bevels with gdk_draw_line(), but nobody uses the default theme anyways
+<owen>	(BTW, on the font cache corruption crash, if people (with cairo CVS installed) want to try running gnome-about for a while and see if it crashes, that would be interesting)
+<mclasen>	ok
+<owen>	mclasen: Yeah, a candidate release is likely a good idea. Though you get into nasty versioning issues if you call it something other than 2.7.5 or 2.7.99
+<mclasen>	I had considered to go for the prosaic 2.7.5
+<owen>	2.7.5 sounds fine
+<mclasen>	owen: gnome-about clearly has refresh issues here...
+<owen>	mclasen: refresh issues?
+<owen>	Hey tml
+<mclasen>	it started normal, but now that I look again, its just a white window
+<tml>	sorry i'm late. anything for me?
+<owen>	mclasen: And you actually have cvs cairo?
+<mclasen>	no
+<owen>	If not, kill it quick, it's probably 750 megs
+<mclasen>	heh
+<owen>	The issue is - http://bugzilla.gnome.org/show_bug.cgi?id=311299 - there was a cairo bug that I fixed, but then ogalaxyo is still having problems with the fixed version
+<owen>	tml: I don't think so, really. We were discussing show stoppers for 2.8.0
+<garnacho>	owen: just crashed here... with cairo from this sunday
+<tml>	owen: tnx
+<garnacho>	should it be more up to date?
+<mclasen>	rambokid: did you have a chance to look at the atomic refcounting patch ?
+<owen>	garnacho: Hmm, well, I think the fix went in saturday, but testing with current would be most useful
+<owen>	tml: anything particular on your side you want to see get ito 2.8.0 or pango-1.10?
+<federico>	seb128: is that the "invalid hal file" one?
+<garnacho>	owen: ok, recompiling
+<federico>	owen: I don't know the details of this - but was it the case that intermixing xlib and cairo drawing made cairo slow?  or something like that?
+<federico>	man, sysprof is *nice*
+<federico>	it Just Works
+<tml>	owen: not at this point. there are bugs to fix, but no absolute showstoppers imho
+<seb128>	federico: I've not looked the detail, I just know that I can't open a file with gedit and the backtrace matches the bug I've pointed the other day
+<seb128>	federico: I'll try debugging that tomorrow
+<federico>	seb128: if it is an invalid/old hal file, I think hal shouldn't be returning garbage
+<federico>	seb128: e.g. it's really easy to put in an "if (volume_name = null)" in gtkfilesystemgnomevfs.c, but what's the core of the problem?
+<mclasen>	ok, I'm going to leave in a few minutes; I'll try to put up the logs later from home
+<mclasen>	federico: remember to do any filechooser fixes which you want to get into 2.6.9 this week, I'
+<federico>	mclasen: ok, I'll try to find time for that
+<mclasen>	ll do a 2.6.9 next monday
+<garnacho>	owen: got the crash again with cairo HEAD...
+<mclasen>	and then release candidates for 2.8...
+<seb128>	federico: I'll work on debugging it, but anyway gtk should not just crash my app 
+<rambokid>	mclasen: not today, i'll do that in the next few days though.
+<seb128>	even if hal gives some garbage name
+<owen>	garnacho: Hmm, that's good to know
+<owen>	garnacho: is the backtrace somewhere within the cairo font cache code?
+<mclasen>	rambokid: I'll be gone till Sunday, so please cc owen on any mail regarding that
+<mclasen>	see you all next week, bye
+<signal handler called>
+<garnacho>	#3  _ft_unscaled_font_lock_face (unscaled=0x900) at cairo-ft-font.c:395
+<garnacho>	#4  0xb74fcadd in cairo_ft_scaled_font_lock_face (abstract_font=0x8395300)
+<garnacho>	    at cairo-ft-font.c:2345
+<garnacho>	#5  0xb753f487 in pango_cairo_fc_font_lock_face (font=0x900)
+<garnacho>	    at pangocairo-fcfont.c:250
+<rambokid>	mclasen: aha.
+<garnacho>	owen: ^
+<garnacho>	do I put the complete backtrace in the bug report?
+<owen>	garnacho: No, not useful. I already have plenty of unuseful backtraces from ali
+<owen>	garnacho: I have to figture out some way of catching the point when the cache gets corrupted
+<garnacho>	aha, if I can be of any help...
+<owen>	garnacho: Can you put yourself on CC on that bug? I'll see if I can come up with a diagnostic patch for cairo
+<owen>	garnacho: Also, what sort of system are you testing on? 
+<garnacho>	Xorg on debian 386
+<garnacho>	and jhbuild gnome
+Jul 26 16:59:10 *	garnacho has just subscribed
+<owen>	garnacho: gcc version? (grasping at straws...)
+<garnacho>	gcc (GCC) 3.3.5 (Debian 1:3.3.5-3)
+<owen>	garnacho: smp system?
+<garnacho>	no
+
+
+Meeting ended 17:05 EDT
