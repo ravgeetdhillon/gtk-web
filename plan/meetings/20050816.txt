@@ -1,0 +1,301 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started August 16 2005 16:02 EDT 
+
+In attendence: 
+Matthias Clasen (matthias)
+Jonathan Blandford (jrb)
+Maciej Katafiasz (mathrick)
+Billy Biggs (vektor)
+Sebastien Bacher (seb128)
+Owen Taylor (owen)
+Tor Lillqvist (tml)
+Gustavo Carneiro (gjc)
+Johan Dahlin (jdahlin)
+Manish Singh (yosh)
+
+<matthias>	ok, I guess we should probably start
+<matthias>	I actually had some notes for this meeting somewhere...
+<matthias>	first think I wanted to ask if anybody has the time and feels qualified to write a series of articles about GTK+
+<matthias>	I got contacted by somebody who seeks an author for a series of 4 articles about development with GTK+
+<matthias>	...it would be a paid job, unfortunately I don't have the time
+<jrb>	what type of article?
+*	matthias looks for the mail
+<mathrick>	and how fast do they need it?
+<matthias>	gah, my evolution is gone, a second
+<matthias>	so, the one-sencence outline for the article series reads
+<matthias>	"The audience is a developer or development manager choosing their approach to their next application development project. GTK+ offers them a chance to build an application that will be used by a wider range of people.
+<matthias>	"
+<matthias>	there are more details what each article would be about
+<matthias>	regarding time frame, I have no idea, but the mail says that the original author did not deliver, so there might be a longer timeframe
+<matthias>	anyway, if you are interested, send me mail
+<mathrick>	matthias: care to give the detailed ones too?
+<matthias>	I'll just give the details for the first article:
+<matthias>	Article 1: Why use GTK+
+<matthias>	> 
+<matthias>	> 
+<matthias>	> Describe a user moving across multiple platforms including handheld devices.
+<matthias>	> 
+<matthias>	> 
+<matthias>	> Describe a developer moving across the same platforms by using cross platform development tools including jcc, Java, Eclipse, Python, and PHP.
+<matthias>	> 
+<matthias>	> 
+<matthias>	> Describe the advantage and use of GTK+ in a popular combination of language and platform. Use GIMP versus Paint Shop Pro.
+<matthias>	> 
+<matthias>	> 
+<matthias>	> Summarise the freedom of choice end users gain from applications that work and look the same on Windows and Linux, plus the long term advantage to Linux.
+<matthias>	> 
+<jrb>	geeze; active editor
+<matthias>	yep
+<mathrick>	heh
+<matthias>	ok, so the next topic on my list is stable releases
+<vektor>	I love stable releases.
+<matthias>	I will do a 2.6.10 release sometime this week or next week
+<matthias>	currently, it just has fixes for 2 crashers that sneaked into 2.6.9
+<matthias>	I there are any other grave bugs in 2.6.9 that should be fixed in 2.6.10, it would be good to point them out
+<matthias>	I'm not aware of any other bugs in that category 
+<matthias>	I also think we should do a 2.8.1 release next Monday in time for Gnome 2.12
+<jrb>	matthias: hrm.  are you going to do any more before 2.12?
+<matthias>	jrb: isn't Monday the last day for 2.12 ?
+<jrb>	matthias: as in, do I need to get off my lazy butt and finish those IconView patches?
+<matthias>	code freeze after that ?
+<matthias>	jrb: you got the subtle hint...
+<matthias>	if anybody else has important fixes that would be embarrasing to miss gnome 2.12, please point them out
+<matthias>	or put them on the 2.8.1 milestone
+<seb128>	matthias: the icon scaling issue is really ugly ...
+<matthias>	I have applied most of the fixes which I had held off before 2.8.0, so I'm now back to my regular bugzilla harvesting
+<matthias>	seb128: did you have any success with looking into that ?
+<seb128>	nop, fer looked on it and said it returns the 48x48 icon when there is no 24x24 version
+<seb128>	dunno if that's the expected behaviour
+<seb128>	should it return something else or scale?
+<seb128>	I don't know the code a lot and I'm quite busy with other stuff
+<matthias>	sounds reasonable so far, but shouldn't we scale it down ?
+<seb128>	that's my point
+<matthias>	seb128: and why would that only occur with the unix backend, or did it also happen with gnome-vfs ?
+<seb128>	the nautilus menu, the recent menu, the fileselector, etc are ugly because they have 48x48 icons 
+<seb128>	that happens for all sort of app, that's not a fs issue ...
+<seb128>	and that happens with the gtk version of the fs
+<matthias>	seb128: If I can to reproduce it by removing some 24x24 icons from my icon theme, I will look into why we don't scale
+<matthias>	seb128: but why don't you have 24x24 icons ?
+<seb128>	matthias: I've asked on the bug but got no reply .. if you have a pointed I can investigate, but I don't know where to start and I don't want to spend hours reading the gtk code
+<seb128>	matthias: ask gnome-icon-theme guys? That's the current 2.11 tarballs
+<seb128>	$ dpkg -L gnome-icon-theme | grep pdf
+<seb128>	/usr/share/icons/gnome/16x16/mimetypes/gnome-mime-application-pdf.png
+<seb128>	/usr/share/icons/gnome/48x48/mimetypes/gnome-mime-application-pdf.png
+<seb128>	example
+<seb128>	so the recent files menu display the 48x48 one
+<seb128>	same for sh files or gz files
+<seb128>	same for the new document icon from the nautilus context menu
+<matthias>	seb128: ok, thats a starting point, I'll try to reproduce with the pdf icon
+<seb128>	with the gtk version of the fileselector I get the issue on the left pane for the fileselector icon too
+<seb128>	s/fileselector icon/FS icon/
+<matthias>	ok, so I guess it is time to discuss the Project Ridley stuff now
+<seb128>	matthias: ping me whenever you want when I'm on IRC if you want get some data on the issue or to give me a hand debugging
+<mathrick>	project ridley?
+<matthias>	jrb is trying to re-energize the platform consolidation project
+<matthias>	ie moving all the widget-level stuff into gtk
+<matthias>	we started a wiki page live.gnome.org/ProjectRidley (?)
+<matthias>	it is a big cleanup list; and needs sorting and filtering
+<matthias>	certainly too much for 2.10
+*	jrb returns
+<matthias>	jrb had the idea to publish this as a project
+<jrb>	so, I was trying to get that going again
+<matthias>	with the hope to attract some outside participants
+<matthias>	like we have someone working on the recent files stuff now
+<jrb>	I want to get buy in from outside of the core gtk team 
+<jrb>	(and hopefully, grow the team a little bit)
+<matthias>	it would be unhealthy to grow the code base that much without growing the team, anyway...
+<jrb>	yeah
+<matthias>	hey owen
+<jrb>	I'm also thinking that we could call it GTK+ 3.0 after Ridley lands
+<matthias>	owen: we started discussing live.gnome.org/ProjectRidley
+<tml>	ProjectRidley sounds like something sorely needed
+<matthias>	jrb: don't you think the list in that page is too long for one release cycle ?
+<jrb>	just to make a cleaner break with the past
+<tml>	jrb: you mean we should break ABI?
+<owen>	An obvious question is "can we get to zero external libraries? Should we *try* to get to zero?"
+<mathrick>	jrb: then we'd certainly need one more thing: html widget in default stack
+<jrb>	matthias: I assume so, but really don't know.  If we can get 3/4 of it done in one cycle, there's temptation to go all the way
+<jrb>	tml: no
+<owen>	There are three rough categies of API:
+<jrb>	tml: I'm thinking mostly about marketing here
+<owen>	 A) Cross-platform API - things that make sense on Windows / OS X
+*	gama (~gama@BHE035161.res-com.wayinternet.com.br) has joined #gtk-devel
+<owen>	 B) X / freedesktop.org specific API
+<owen>	 C) GNOME specific API
+<owen>	Going to zero external libraries would imply that either B) and C) are empty or that we are willing to put that stuff into GTK+
+<jrb>	owen: we've never successfully been able to eliminate C) in our plans; we have been able to minimize it heavily
+*	gjc (~gjc@bl5-163-179.dsl.telepac.pt) has joined #gtk-devel
+<jrb>	owen: and we've been putting B in GTK+
+<owen>	jrb: In your plans, you mean?
+<matthias>	owen: I think most of the things on the list fall into A), but it may take considerable effort to actually make them cross-platform
+<jrb>	owen: sure... though there have been multiple attempts at it
+*	GTKool_2kx (~benroot@84.4.176.40) has left #gtk-devel
+<matthias>	it might be good to go over the cleanup list and classify the items as A), B) or C)
+<jrb>	matthias: it gets a bit complicated; where does the print dialog go?
+<owen>	jrb: Print dialog is definitely A)
+<matthias>	jrb: I think its clearly A), but needs a lot of work to actually become cross-platform
+<matthias>	jrb: ie the api is cross-platformable (?), the implementation is not currently
+<owen>	main B) or C) right now are gnome-vfs, session management, and maybe some bits of egg
+<mathrick>	do we want to use native print dialogue on win32 for example?
+<mathrick>	or are we going filechooser route and use our own implementation?
+<jrb>	(what mathrick said)
+<jrb>	perhaps that's not worth discussing, though..
+<owen>	mathrick: Umm, well, the problem is probably the same
+<gjc>	imho, using native dialogs in win32 means inconsistency with the rest of gtk
+<owen>	mathrick: You can't use native dialogs and present the GTK+ mainloop API
+<mathrick>	ah, I forgot they had brain-dead API
+<owen>	mathrick: The idea with the filechooser is that we'd eventually write one for windows that would be at least immediately familiar to a windows user, if not 100% identical
+<owen>	mathrick: I haven't looked into the print dialog APIs to see how well we can do with a non-native print dialog
+<jrb>	anyway, if Ridley takes a couple release cycles, I think it's a worthwhile goal.
+<tml>	win32 print dialogs hook out to printer vendor specific extensions, don't they?
+<mathrick>	jrb: if it takes couple cycles, the impact of it and reason for naming next version 3.0 is going to be smaller :>
+<jrb>	and it gives a project for people doing platform work to work under
+<tml>	s/extensions/"advanced" dialogs/
+<gjc>	btw, sorry if this was already discussed, but how does introspection stand for gtk 2.10?
+<jrb>	mathrick: I was proposing naming moving GTK+ to 3.0 on completion, as we could then go to ISVs and say "develop with GTK+-3.0+deps and gnome-vfs"
+<mathrick>	jrb: ok
+<owen>	gjc: it gets rolled into the project plan sort of by default, but someone is going to have to do the work
+<mathrick>	jrb: but then, we need to do 2 things really
+<matthias>	gjc: I plan to pick up work on that again, we'll see how far we get in time for 2.10...
+<mathrick>	1) identify useful, currently external APIs we want to have
+<mathrick>	2) Identify other APIs we would need to present complete stack
+<mathrick>	HTML widget falls into 2) as of today
+<mathrick>	as does canvas until someone writes good cairo one
+<matthias>	mathrick: the list is long enough without trying hard to find further gaps in our stack...
+<owen>	I'd count canvas in 2) really as well. 
+<mathrick>	matthias: it's not hard
+<matthias>	mathrick: also, don't we have too many html widgets already ?
+<mathrick>	matthias: HTML widget is probably 2nd most asked question
+<mathrick>	matthias: 'xactly
+<mathrick>	and noone really works
+<mathrick>	which is the problem
+<yosh>	what's the 1st most asked question?
+<mathrick>	yosh: threads?
+<mathrick>	or maybe HTML
+<gjc>	doing a "full" html widget is too difficult and out of scope of gtk, is it not?
+<owen>	gjc: A html widget from scratch is crazy
+<mathrick>	gjc: I mean something a'la qt's thing
+<owen>	gjc: If we are going to recommend something, it pretty much has to be either GtkMozEmbed or Gtk+webcore
+<mathrick>	Qt just has its html thingy, and if you want really full HTML, then you think about using something else. But for simple documentation browsing or mail composition, it's very good
+<gjc>	well, as long as the limitations are clearly documented...
+<owen>	Anyways, I think we have enough for 2.10 without worrying about HTML or richertext
+<jrb>	indeed
+<vektor>	Printing? :)
+<jrb>	vektor: it's on that page
+<mathrick>	I wasn't thinking about 2.10 necessarily, rather about project ridley as a whole
+<jdahlin>	Is 2.10 branched yet?
+<owen>	vektor: Printing is really the top of the list for me (being the font/graphics guy) ... and I think in terms of missing functionality printing + libglade are the big ones
+<owen>	jdahlin: No.
+<vektor>	owen: Agreed.
+<matthias>	owen: the canvas is also pretty big
+<owen>	jdahlin: We usually wait just a little bit to see how things go
+<matthias>	owen: s/big/possibly high impact/
+<jdahlin>	owen: Okay
+<mathrick>	owen: how does migration to different theming model / micro widgets stuff look? Is it totally pipe-dream now?
+<owen>	matthias: I'm not sure ... it's never *entirely* clear to me whether using a canvas helps or not, compared to writing a custom display engine
+<gjc>	owen: well, in linux I think we can get by for the moment with cairo + pdf+ evince as replacement for print dialog :)
+<jdahlin>	owen: I need to get the ball rolling on libglade again
+<jrb>	mathrick: to a certain extent, the feature set of ridley is determined by what exists...
+<mathrick>	jrb: I know, but ignoring one of the most requested feature is going to be hard if we want to be complete. And yes, I'm perfectly aware that writing HTML widget sucks :)
+<owen>	mathrick: I don't know how to do it bette rhtan I did 6 months ago
+<matthias>	mathrick: it should be more a platform consolidation project than a platform completion project
+<mathrick>	owen: you did it 6 months ago?
+<matthias>	heh
+<mathrick>	I thought it was only blue sky talk
+<owen>	mathrick: Putting effort into gtkwebcore might be a good way to progress there, though I guess it doesn't have editing
+<owen>	mathrick: What I"m saying is "I didn't know how to do it 6 months ago, I still don't know how to do it know"
+<jrb>	a better idea is to get the gtkwebcore guys more active in GTK+
+<mathrick>	owen: oh
+<jdahlin>	jrb: or active at all?
+<owen>	jrb: Well, "put more effort into" might be a) check if it's in a state we can recommend b) start recommending it
+<mathrick>	owen: yeah, if anything, I'd go for webcore, gecko pretty much has proven it isn't usable as fire-and-forget embeddable solution
+<mathrick>	and gtkmozembed is useless
+<matthias>	lets get back to stuff that is in the platform already
+<owen>	mathrick: Well, it doesn seem to work OK for yelp/devhelp
+<mathrick>	owen: but it's maintenance nightmare
+<matthias>	owen: doesn == does or doesn't ?
+<mathrick>	gecko changes its api on every release
+<owen>	mathrick: == "does"
+<owen>	mtathias, that is
+*	owen gives up on the whole concept of keyboards
+<mathrick>	and requires deep prodding in its internals to get anything done
+<mathrick>	owen: heh
+<matthias>	owen: there is this neat new russian keyboard...
+<gjc>	we need an extensible html widget, for example so that you can insert rectangular elements wherein rendering is delegated to the application
+<matthias>	can we stop talking about html ?
+<matthias>	I would be more interested in how we proceed with the cleanup list in ProjectRidley
+<matthias>	how do we turn that into a roadmap for gtk 2.10 and beyond
+<owen>	I don't really understand ProjectRidly
+<owen>	In that, I understand how we can deal with libglade, and libgnomeprint
+<owen>	and gnome-druid
+<owen>	but what are you going to do with something like the authentication stuff in libgnomeui?
+<jrb>	owen: how much of that do you see us hitting?
+<owen>	jrb: Well, the problem exists if it's a non-zero set, rihgt?
+<matthias>	owen: is that "anything that depends on gnome-vfs must find a different home" ?
+<jrb>	owen: the nature of the problem changes
+<jrb>	owen: if it's just that one thing, we finish libgnomevfsui and call it done
+<jrb>	or, we make GTK+ depend on libgnomevfs
+<owen>	jrb: THat's not happneing next cycle
+<matthias>	jrb: err, rather not
+<jrb>	fine
+<jrb>	lets just figure out where we're putting things, though.  adn put them there.
+<mathrick>	I don't believe it's attainable or worthwile to try and make GTK+ the only dependency of GNOME
+<jrb>	mathrick: that's not the point. 
+<mathrick>	even MSFT doesn't do that :)
+<mathrick>	jrb: then what's the point of depending on gnomevfs?
+<jrb>	mathrick: the point is to get things that should have been in GTK+, into GTK+, and straightn out the other stuff
+<mathrick>	yep
+<jrb>	mathrick: in a perfect world, with a good gnome-vfs, it would make a lot of sense ot put it lower on the stack
+<jrb>	mathrick: eg, it would have made the file chooser much easier; gdk_pixbuf_new_from_uri() could exist, etc
+<mathrick>	jrb: perhaps
+<jrb>	and we could do things like authentication
+<jrb>	dialogs
+<mathrick>	yeah, but it's not happening with gnome-vfs I think, perhaps DVFS if it ever gets created
+*	jrb isn't holding his breath...
+<mathrick>	neither am I
+<mathrick>	but reality is, gvfs is very messy
+<yosh>	what's DVFS?
+<mathrick>	yosh: xdg vapourware
+<mathrick>	sane replacement for gnome-vfs and kio
+<yosh>	ah
+<matthias>	dsane, maybe
+<jrb>	dbunk
+<jrb>	anyway, do we have some interest in pushing this?
+<jdahlin>	or FUSE?
+<mathrick>	jdahlin: NO
+<mathrick>	fuse is ugly hack
+<mathrick>	same as SMB on win32 is
+<matthias>	jrb: pushing for a gnome-vfs replacement below gtk ?
+<jrb>	matthias: no.  Getting a project/momentum toward cleaning up the Platform.
+<matthias>	jrb: should we not ? I thought you were convinced its a good idea ?
+<jrb>	matthias: I am.  But I didn't want to do it without people here interested.  I'm not doing all the engineering alone...
+<matthias>	I'm interested, many of the items on that cleanup list have been on gtk roadmaps before, or were generally agreed on before
+*	tml is certainly interested
+<mathrick>	jrb: the idea is very good, that's essentially what has been said during "gnome hacking no fun" blog galore
+<mathrick>	and also, our users clearly expect that
+<matthias>	jrb: turing this into a named project might give it the necessary momentum
+<jrb>	okay.  I'll try to write something up and send it today or tomorrow
+<jrb>	matthias: yeah.  that's part of the point 
+<matthias>	jrb: we should just be clear that the full cleanup list is *not* the expected 2.10 feature list
+<jrb>	matthias: indeed. 
+<matthias>	owen: you said printing was one of your top priorities, do you plan to look into an api proposal for that ?
+<owen>	matthias: Yeah, I'm willing to be signed up for that
+<matthias>	owen: cool, thanks
+<jrb>	matthias: we need to flesh out the ridley page a bit more.  Maybe I'll try ot find you tomorrow to discuss it
+<jrb>	if anyone else wants to add to it, please do so
+<matthias>	jrb: I'll be in my cube all day
+<jrb>	matthias: unlike today....
+<matthias>	jrb: I already convinced Emmanuele Bassi to add to the page
+<matthias>	he put quite a lot of work into his recent-files rework; we should probably review his api and give him some feedback
+<jrb>	matthias: yeah.  That comment was more directed to the others, like tml and jdahlin 
+*	jrb names name
+<matthias>	btw, owen, I updated www.gtk.org for the 2.8 releases. I hope I did it the right way, moving all previous news to the oldernews.html page
+<owen>	After our discussion of pango.org, you are asking me about the "right way" to maintain a web site?
+<matthias>	err, rigth
+<matthias>	right
+<matthias>	ok, if nobody has any further insights into 2.10 planning / Project Ridley, lets call the meeting closed 
+<matthias>	see you next week, and remember to fix important 2.8.1 bugs by next monday
+
+
+Meeting ended 17:32 EDT
+
