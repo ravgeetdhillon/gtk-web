@@ -14,6 +14,6 @@ cp gtk-faq.sgml /web/gtk/faq/
 cd /web/gtk/faq
 db2html -u gtk-faq.sgml
 ./online_faq_fix gtk-faq/gtk-faq.html
-mv gtk-faq/gtk-faql.html ./index.html
+mv gtk-faq/gtk-faq.html ./index.html
 rm -rf gtk-faq
 chmod 755 index.html
