@@ -1,5 +1,6 @@
 CVS
 /ChangeLog
+/api/[0-9]*
 /docs
 /install.sh
 /install.exclude

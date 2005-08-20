@@ -1,5 +1,9 @@
 2005-08-20  Owen Taylor  <otaylor@redhat.com>
 
+	* install.exclude: Add api/[0-9]*
+
+2005-08-20  Owen Taylor  <otaylor@redhat.com>
+
 	* faq/update_faq: Fix to use db2html -u ... direct
 	invocation of Jade no longer worked.
 
