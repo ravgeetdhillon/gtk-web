@@ -1,3 +1,8 @@
+2005-08-20  Owen Taylor  <otaylor@redhat.com>
+
+	* faq/update_faq: Fix to use db2html -u ... direct
+	invocation of Jade no longer worked.
+
 2005-08-18  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add 2.6.10
