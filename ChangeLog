@@ -1,3 +1,7 @@
+2005-08-23  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: Add GLib 2.8.1
+
 2005-08-20  Owen Taylor  <otaylor@redhat.com>
 
 	* install.exclude: Add api/[0-9]*
