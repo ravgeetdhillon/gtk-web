@@ -1,0 +1,109 @@
+
+<html>
+<head>
+<title>GTK+- 2.10 Plans</title>
+
+<!--#include file="site_top.html" -->
+
+<table border=0 cellpadding=0 cellspacing=0><tr><td valign=top>
+
+<!--#include file="section_begin.html"-->
+GTK+ 2.10 Plans
+<!--#include file="section_end.html"-->
+
+<P>
+<B>Overview</B>
+	    <UL>
+	      <P>This plan is just a first draft. Possible major themes for the 2.10
+                 release are
+                 <UL>
+                   <LI>Platform consolidation
+                   <LI>Printing support
+                   <LI>Introspection
+                 </UL>
+              <P>The platform consolidation plans are explained in detail on the
+                 <a href="http://live.gnome.org/ProjectRidley">Project Ridley</a> page.
+                 Some ideas about printing are contained in 
+                 Owens talk on <a href="http://people.redhat.com/otaylor/guadec5/">the future of rendering 
+                 in GNOME</a>.
+                 Information about the full introspection plans can be found
+                 e.g. in bug <a href="http://bugzilla.gnome.org/show_bug.cgi?id=139486">#139486</a> 
+                or in this mailing list <a href="http://mail.gnome.org/archives/gtk-devel-list/2005-January/msg00039.html">thread</a>.
+	  </UL>
+</P>	    
+<P>
+<B>Tentative schedule</B>
+	    <UL>
+	      <P>There is no schedule yet, but there seems to be some consensus to aim for
+                 a 9 month release cycle, which would give a May 2006 target date, skipping
+                 GNOME 2.14, but far enough ahead of the likely GNOME 2.16 release to make
+                 the release team feel comfortable.
+              </P>
+            </UL>
+</P>	    
+
+<P>
+<B>Possible features</B> (filled circles denote features which are already in CVS)
+	  <UL>
+
+            <LI type="circle"><P>Integrate libglade (<a href="http://live.gnome.org/LibgladeInGtk">details</a>)
+
+            <LI type="circle"><P>Toolbar editor. See EggToolbarEditor in libegg. (<a
+		  href="http://bugzilla.gnome.org/show_bug.cgi?id=120645">#120645</a>)</P></LI>
+
+            <LI type="circle"><P>Tray icon. See EggStatusIcon in libegg (<a
+		  href="http://bugzilla.gnome.org/show_bug.cgi?id=105101">#105101</a>)</P></LI>
+
+            <LI type="circle"><P>Recent files support (<a
+		  href="http://live.gnome.org/RecentFileAndBookmarks">details</a>)</P></LI>
+
+            <LI type="circle"><P>Druid/Wizard support (<a href="http://bugzilla.gnome.org/show_bug.cgi?id=115348">#115348</a>)</P>
+
+	    <LI type="circle">Possible GtkTreeView features (Jonathan, Kris):
+                <P>
+	    	<UL type="circle">
+		   <LI type="circle">Save expanded node state (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=50054">#50054</A>)</LI>
+		   <LI type="circle">DnD with multiple items (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=70479">#70479</A>)</LI>
+		   <LI type="circle">Support for state saving (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=75128">#75128</A>)</LI>
+		   <LI type="circle">A column editor (<A HREF="http://bugzilla.gnome.org/show_bug.cgi?id=80867">#80867</A>)</LI>
+               </UL>
+            </LI>   
+
+	    <LI type="circle">Possible GObject features:
+                <P>
+	    	<UL type="circle">
+	            <LI>Full introspection (<a
+				      href="http://bugzilla.gnome.org/show_bug.cgi?id=139486">#139486</a>)</P>
+                </UL>
+            </LI> 
+	  </UL>
+</P>	    
+
+<B>Bugs on the 2.10 API freeze and 2.10 milestones</B>
+<P>
+	    <UL>
+	      <LI><a
+		  href="http://bugzilla.gnome.org/buglist.cgi?product=glib&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&target_milestone=2.10+Freeze&target_milestone=2.10+API+freeze">GLib
+		  Bugs</a>
+		(<a
+		  href="http://bugzilla.gnome.org/buglist.cgi?product=glib&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&target_milestone=---">unmilestoned</a>)
+	      </LI>
+	      <LI><a
+		  href="http://bugzilla.gnome.org/buglist.cgi?product=pango&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&target_milestone=1.12+Freeze&target_milestone=1.12+API+Freeze">Pango
+		  Bugs</a>
+		(<a
+		  href="http://bugzilla.gnome.org/buglist.cgi?product=pango&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&target_milestone=---">unmilestoned</a>)
+	      </LI>
+	      <LI><a
+		  href="http://bugzilla.gnome.org/buglist.cgi?product=gtk%2b&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&target_milestone=2.10+Freeze&target_milestone=2.10+API+freeze">GTK+
+		  Bugs</a>
+		(<a
+		  href="http://bugzilla.gnome.org/buglist.cgi?product=gtk%2b&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&target_milestone=---">unmilestoned</a>)
+	      </LI>
+</P>	    
+
+<!--#include file="site_bottom.html" -->
+
+</html>
+
+
