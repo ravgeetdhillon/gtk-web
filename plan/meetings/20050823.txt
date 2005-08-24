@@ -1,0 +1,241 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started August 23 2005 16:02 EDT 
+
+In attendence: 
+Matthias Clasen (matthias)
+Jonathan Blandford (jrb)
+Kristian Rietveld (kris)
+Owen Taylor (owen)
+Tor Lillqvist (tml)
+Johan Dahlin (jdahlin)
+Jody Goldberg (jody)
+Behdad Esfabod (behdad)
+Billy Biggs (vektor)
+Thorsten Schoenfeld (kaffee)
+John Ehresman (jpe)
+
+
+<mclasen>	ok, its time already
+<kris>	yay
+<mclasen>	ok, so I guess we should discuss Project Ridley and how to destill a 2.10 schedule from it
+<mclasen>	before diving into that: I'll do 2.8.1 later tonight or early tomorrow
+<mclasen>	after testing owens font options patch
+<jrb>	when's branching going to happen?
+<mclasen>	thats a good question
+<owen>	I'm going to do pango r.s.n., since behdad has some outstanding cleanups he wants to do 
+<kris>	mclasen: i have a patch which might be nice for 2.8.1
+<mclasen>	I think glib/gtk should follow
+<mclasen>	kris: oh, whats it about ?
+<kris>	mclasen: i can commit it once i get my gtk+ updated
+<kris>	mclasen: gtktreemodelsort speedup
+<tml>	would it be unthinkable to change g_spawn* to use UTF-8 on win32 at this point in 2.8 (and do the usual #define magic in headers and add binary compatibility wrappers)?
+<mclasen>	kris: can you get it in tonight ?
+<tml>	if not, need to at least document that g_spawn* take system codepage strings on win32, not glib encoding
+<kris>	mclasen: sure
+<mclasen>	kris: does it break anything ? :-)
+<kris>	mclasen: nope
+<mclasen>	kris: I'll wait for it then
+<kris>	i'll update gtk+ on my devel box right now
+<kris>	takes a while
+<mclasen>	tml: if it is a win32 only change, I think it's basically your call
+<tml>	mclasen: ok. somehow i didn't remember the g_spawn* API when did the glib encoding = utf-8 on win32 changes ..
+<owen>	tml: While wegenerally try to avoid it, anything that we can do 2.6 to 2.8 we *can* do 2.8 to 2.8.1 - there isn't a black-and-white line there
+<mclasen>	tml: unfortunately, I already did a glib 2.8.1 release last night, so it would go only into 2.8.2, or you'd have to do a patched 2.8.1 for win32
+<tml>	mclasen: no big deal imho. i assume 2.8.2 is not *that* far away?
+<mclasen>	tml: a couple of weeks
+<tml>	fine
+<mclasen>	tml: I was planning on doing the next 2.8.x releases in time for gnome 2.12.1, unless something urgent comes up
+ *	mclasen curses his gtk build picking up -lpixman from somewhere...
+<mclasen>	kris: don't know if you noticed yet, but jrb and I put your name next to the treeview things on the Project Ridley page
+<kris>	mclasen: jrb told me
+<mclasen>	kris: I hope that aligns with your own 2.10 plans...
+<kris>	mclasen: yeah
+<kris>	mclasen: especially dnd :)
+<kris>	mclasen: i'll probably add some more items there
+<mclasen>	kris: I think we should create a separate 2.10 schedule
+<mclasen>	kris: and keep the Project Ridley pages strictly for the 'platform consolidation' tasks
+<jrb>	yeah, we should make it clear that Ridley isn't is for GTK+-2.0
+<jrb>	er, 3.0
+<kris>	ok
+<mclasen>	or 2.10, even
+<kris>	i am going to copy most treeview items to 2.10 anyway (:
+<mclasen>	so, what period of time should we target for the 2.10 schedule ? 6, 9, 12 months ?
+<kris>	are we going for a 2.10 or 3.0?
+<kris>	or don't we know that yet
+<kris>	?
+<jrb>	mclasen: I'd be happy with 6 so long as we're able to get things in
+<jrb>	mclasen: say 2.10 in 6 months, 3.0 in 12
+<mclasen>	I think we are going for an ABI and API compatible release, that could be named 2.10
+<kris>	i would say 9
+<kris>	then
+<tml>	well, 9 months would put it more comfortably in the middle between GNOME releases?
+<mclasen>	jrb: I just fear that we're going to get in a crunch with the next gnome release then (like we did this cycle)
+<kris>	also
+<kris>	and, I think that 6 months is just too short for gtk+
+<jdahlin>	could 2.10 be skipped?
+<owen>	jdhadlin: I don't want to see us do a 2 year cycle or anything like that
+<mclasen>	jdahlin: you mean do 2.12 in 12 months ?
+<jdahlin>	mclasen: or 3.0
+<owen>	jdahlin: I think releasing on a reaosnably compact schedule is very beneficial
+<jdahlin>	owen: agreed, but if more time is needed..
+<owen>	especially since what we are talking about for ridley is lots of medium size things rather than any huge things
+<mclasen>	some are large, like printing and canvas
+<jrb>	jdahlin: do you need more time?
+<owen>	mclasen: But doesn't that just argue for developing them over a 2 release cycle, say?
+<jdahlin>	jrb: for my tasks I doubt it
+<kris>	i think 12 months is really the maximum cycle length
+ *	mclasen knew it. libtool is to blame again. -lpixman survived in .la files...
+<mclasen>	looking back, 2.8 took us 8 months from the release of 2.6
+<jdahlin>	jrb: well, depends. libglade in gtk+ can be a very big tasks. I think some restrains are needed
+<mclasen>	and maybe 6 months of real development time, since we had about a month of slack time over christmas, and a slow period at the end
+<tml>	mclasen: yeah. oh why don't the gnome libs use something like sanitize-la.sh?
+<jdahlin>	jrb: for gazpacho I'm still tweaking the loader every once and then (but the interfaces seems stable)
+<xinclude> etc
+<jdahlin>	doh
+<mclasen>	xchat crash in the other cube...
+<mclasen>	so if we would target 9 months, would that make you feel comfortable about getting printing done, owen ?
+<xinclude> etc
+<jrb>	jdahlin: yeah
+<owen>	mclasen: Hmm. It really depends on how much time I'll have on GTK+ which isn't very predictable
+<owen>	mclasen: My guess is that it's ~3 months of full-time work
+<owen>	mclasen: But since the APIs should (IMO) be simple, I think it's the sort of thing where a half-job could be a good start and wouldn't present problems
+<owen>	mclasen: So I'd be OK with 9 for that
+<mclasen>	ok
+<owen>	Have we looked at how that lines up wiht the gnome release schedule?
+<jdahlin>	let me just check so I get things straight: are 2.10, 3.0 and project ridley 3 separate releases?
+<owen>	I guess, without looking, 9 months from today should put us 2.5 months into the 2.16 release cycle
+<owen>	jdahlin: Project ridley isn't a release, it's a project
+<mclasen>	owen: is anything known about gnome releases beyond 2.12 ?
+<owen>	mclasen: Well, we've done 6 months cycles constitently for a good long time now. So, there's a reasonable *guess* that will continue
+<mclasen>	owen: I guess the message of a 9month target would be: we knowingly skip 2.14, but we leave enough room to feel comfortable about meeting 2.16
+<owen>	jdahlin: I think the idea is that 2.10 is a milestone on the road to ridley and 3.0 is completion
+<jdahlin>	owen: so parts of it can go into $next and others in $next+1 ?
+<jdahlin>	ah, I see
+<owen>	(For whatever "completion" is)
+<mclasen>	jdahlin: yes, and possibly $next+2
+<jrb>	jdahlin: ridley is done not when we release GTK+, but when we don't require libgnome ->libgnomeui
+<jdahlin>	jrb: aren't they tied together?
+<mclasen>	So, looking at the project ridley list, it seems we currently put printing and most of the small libegg things on the 2.10 schedule with some confidence
+<jrb>	jdahlin: sure.  And people are confused enough that maybe we should just call 'get GTK-3.0 out' project ridley
+<jdahlin>	jrb: most people are going to think that 2.0->3.0 = API/ABI brekage
+<jrb>	jdahlin: that's what education is for
+<mclasen>	one way to make the marketing aspect of a major version increase more obvious would be to follow the java example
+<mclasen>	and go 2.10 -> 12.0
+<tml>	whoa
+<owen>	mclasen: Except that doesn't really solve the "huge verison numbers" problem
+<mclasen>	but I guess we are to conservative for that
+<jrb>	GTK+-30
+<tml>	roman numbers!
+<mclasen>	or maybe GTK 35+, considering most of the core developers are OLD
+<jrb>	oooh
+<tml>	GTK X
+<jrb>	GTK+-XXX
+<tml>	we could even have a gtk.xxx domain then ;-)
+<kris>	35???
+<zdzichuBG>	users don't really like big version changes (2.x -> 3.x) without visible changes
+<jrb>	zdzichuBG: we'll have a good story, though
+<jrb>	zdzichuBG: as we'll deprecate a stack of libraries along with it
+<kris>	else we can just choose another default theme
+<jrb>	anyway, it sounds like we don't have much of a plan
+<jrb>	maybe we should just go a couple weeks before finalizing the schedule
+<zdzichuBG>	jrb: right, but it's rather developer-, not user-visible
+<jrb>	zdzichuBG: we're a toolkit; not an app
+<kris>	indeed.
+<jrb>	zdzichuBG: or, we could do what kris says.
+<mclasen>	jrb: I'll put up an initial proposal, so we have some basis for further discussion next week 
+<owen>	jrb: Lack of a plan isn't a reason for waiting, it's a reason for making a plan :-)
+<jrb>	mclasen: sounds good
+<mclasen>	ja, mach nur einen Plan
+<jrb>	heh
+<mclasen>	jrb: so how do we go about finding people interested in looking at the libgnome/libgnomeui tasks ?
+<jrb>	mclasen: sameway we do other such things; publicize them and hope someone bites, or wait for someone to show up
+<kris>	mclasen: patch has been committed.
+<jody>	mclasen: can I propose a few more widgets for ridley ?
+<mclasen>	kris: thanks
+<mclasen>	jody: if you don't propose libxml...
+<jrb>	jody: only if they currently exist in a library
+<jrb>	jody: otherwise, they should just be proposed for GTK+-2.10
+<jody>	jrb: I'm thinking of a few of the things in goffice
+<jdahlin>	what about finishing introspection?
+<kris>	i am hacking on a column view widget
+<owen>	jdahlin: It's not "ridley" but it's definitely on the tentative 2.10 list
+<mclasen>	jdahlin: yes, I am going to get back to that
+<mclasen>	jdahlin: there are actually patches coming out of the language-bindings world for it
+<jdahlin>	mclasen: gustavos repository changes?
+<jdahlin>	s/changes/improvements/
+<mclasen>	jdahlin: and some other patches as well
+ *	kaffee is currently working on the Perl side of things.
+<kaffee>	and it looks like gobject-introspection is alreay reasonably complete, from POV.
+<jrb>	still need to generate the metadata files...
+<mclasen>	jrb: header scanning...
+<kaffee>	one tricky bit might be to get the offsets and sizes of struct fields correct.
+<behdad>	[sorry that I make noise in meeting time, but I think a GTK 3.0 release makes sense to keep up with the hype with Qt 4.0]
+<owen>	behdad: By the time that 3.0 is out ,they'll be on 5.0, most likely
+<kris>	haha
+<owen>	behdad: But yes, incrementing the major version does keep it obvious that we are making progress
+<vektor>	I think it's easier to emphasize backwards compatibility when marketing than to emphasize that you've added billions of new features in 2.random_number.
+<mclasen>	kaffee: the plan for the offsets was to have a little tool generate them at build time, and then merge the results with a master api description
+<kaffee>	mclasen: yeah, I think that would work with some offsetof() and sizeof() magic.
+<owen>	I almost think that we should make 2.10 3.0 on the excuse of "2.8  + 0.2 == 3.0"
+<jdahlin>	should we also make it a goal that 3.x only has 5 minor releases before 4.0?
+ *	jrb would vote for that iff we can kill libgnome/ui and we take 9 months 
+<mclasen>	owen: don't start the decimal version number game; all the prominent enough numbers are already taken by metacity, tex, etc
+<jrb>	2.A
+<kris>	i think we should first come up with a list of features, which are reasonable to get in one release
+<kris>	and then come up with a schedule
+<owen>	mclasen: But there are so many irrationals out there....
+<mclasen>	owen: but so few of them have catchy names...
+<jrb>	owen: I thought dramage's shirt had a comprehensive list of them all
+<tml>	owen: any thoughts on #314114?
+<mclasen>	kris: you are right, of course. This whole version number discussion is probably not relevant to the next GTK+ version anyway
+<mclasen>	since completion of ridley in 9 months is pretty unlikely
+<owen>	tml: Well,t he current values are clearly way wrong, as you see any time you bring up a color selector
+<mclasen>	so, the list of features which I think I'll put on the draft schedule is: introspection, printing, all the libegg things from the ridley list, kris' other treeview stuff
+<mclasen>	for the remaining things, we'll have to see how they proceed
+<owen>	tml: I havne't looked at how you would want to fix it
+<tml>	owen: pity there is no ave_x_advance in cairo_font_extents_t
+<mclasen>	ok, anyway, I need to get on the bike
+<mclasen>	see you next week
+<jody>	mclasen: when you say 'printing' are you putting a dialog in gtk, and a print-job into glib ?
+<jody>	or is everything into gtk, or part into cairo ?
+<owen>	jody: I think print-job goes into gtk or gdk
+<behdad>	owen: regarding OpenGL (#119189), after the model taken for cairo integration, do you still think that /idiosynchratic scheme/ of attaching OpenGL context to arbitrary widgets is not the way to go?
+<owen>	jody: the actual pdf/ps/gdi generation code is in cairo
+<jody>	owen: I disagree.  the job settings are not gui related
+<owen>	behdad: Yes. I think you just have a function to get the GL visual
+<owen>	jody: that may be the case, but things have to go somewhere and I dont' want glib depending on libgnomecups or whatever
+<jpe>	does printing including getting the text widget to print its buffer?
+<jody>	owen: that's a given.  we wouldn't want gtk depending on cups either.  the transports need to be in modules.  as with gdk-pixbuf
+<owen>	jody: In the end, i don't think the goal is create a be-all-and-end-all printing solution, but rather to create something that meets the needs of normal applications
+<owen>	jody: So, in my vague plans, things like querying current jobs are out of scope as well
+<jody>	owen: we don't need all singing all dancing, but 'normal' is subject to debate
+<owen>	jpe: Maybe. Printing widgets is unlikely, but a GtkTextView "paginate and print" might be general enough to be useful
+<owen>	jody: but of course. :-) as always
+<jody>	owen: people expect their print dialogs to have connections out into the system, eg add printer, or list jobs
+<owen>	jody: I don't think everyhting that is in the print dialog should be in the API
+<owen>	jody: that is, I dont' want to design a clean two layer system:
+<owen>	 "Non-gui API for talking to printers"
+<owen>	 "Print dialog built on non-gui API"
+<owen>	Because I think that will pose portability problems, and also cause us to expose a really complex API to applications (trees of options, anyone?)
+<jody>	owen: applications need a way to persist the print settings
+<owen>	jody: we can have stringify or something like that.
+<jpe>	owen, printing simple text is going to be something many applications will want
+<vektor>	Going to be?  I think it's something apps already want.
+<owen>	jpe: An interesting part of the design phase here is collecting requirements. There are very few apps on Linux that do "simple" printing
+<jody>	owen: there is more to debate here, but I've got to go feed the youngins
+<owen>	jpe: Most things that print are pretty complex - whether it's the GIMP, FireFox, OOo. So, getting a sense of the typical app may take some work
+<owen>	jody: It won't be set in stone tomorrow :-)
+<jpe>	owen, I guess I think of the custom database app as more typical because every business ends up writing one
+<owen>	jpe: Yes, that' sdefinitely more typical
+<owen>	(GTK+ does a fairly bad job of catering to that crowd ... no entry validation features, etc)
+<owen>	jpe: But would you want to print a GtkTextView in that sort of app?
+<jdahlin>	gedit?
+<owen>	jpe: Perhaps what you want there is gtk_text_buffer_draw (buffer, cr, x, y, width) and assume it's not going to overflow the page
+<owen>	jdahlin: gedit isn't an inspiration for adding API that they could just do themselves
+<jpe>	owen, eventually these apps want complex reports, but the ability to print free form text is a start
+<jpe>	owen, I would say the ability to print word-wrapped text that looks close to what it looks like on the screen is the minimum requirement
+<jpe>	owen, you might glance at the win32 rich edit control -- lookup EM_FORMATRANGE in msdn
+<jpe>	owen, not that gtk+ can't do better than it, but it is something that kind of works
+
+
+Meeting ended 17:23 EDT
