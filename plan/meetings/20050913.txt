@@ -1,0 +1,224 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started September 13 2005 16:00 EDT 
+
+In attendence:
+
+Tim Janik (rambokid)
+Matthias Clasen (mclasen)
+Jonathan Blandford (jrb)
+Torsten Schoenfeld (kaffee)
+Federico Mena Quintero (federico)
+Kjartan Maraas (kmaraas)
+Kristian Rietveld (kris)
+Alex Larsson (alex)
+Johan Dahlin (jdahlin)
+David Bellot (david_b_02)
+
+
+<rambokid>	anyone got an idea where owen is?
+<mclasen>	owen is busy doing non-GTK+ stuff atm
+<jrb>	rambokid: yeah -- he'll be out for the rest of the week, probably
+<rambokid>	yosh: you're around now?
+<mclasen>	ok, so I don't have a real agenda for today
+<mclasen>	but I wanted to ask if there are any bugs which we should tackle for 2.8.4
+<kaffee>	if the patch in 316125 is correct, then this might be a candidate.
+<mclasen>	haven't looked at it yet, I'll put it on 2.8.4
+<jrb>	is David Bellot here?
+<mclasen>	jrb: who would that be ? Is he one of th canvas enthusiasts ?
+<jrb>	yeah; he was one of the people who wanted to do the Canvas
+<jrb>	mclasen: did all the effort here http://live.gnome.org/ProjectRidley_2fGnomeCanvas
+<rambokid>	the patch in 316125 won't work properly for active gtk grabs
+<rambokid>	jrb: do you mean that this is 2.8.x relevant at all?
+<jrb>	rambokid: the canvas isn't 2.8 relevant
+<rambokid>	yeah...
+<mclasen>	rambokid: how would an active grab affect the patch ? there are no events involved 
+<rambokid>	mclasen: the button can enter prelight state eventhough a grab is in effect. i'm currently commenting on the report.
+<mclasen>	rambokid: ah, right
+<federico>	I've been quite out of the loop, but suse 10 is fortunately finished now 
+<federico>	any showstoppers in the file chooser that I should fix soon?
+<mclasen>	just make it fast
+<kmaraas>	federico, the profiling code seems to be compiled in by default
+<federico>	kmaraas: cvs update your 2-8 branch
+<kmaraas>	federico, and it's causing reports of invalid reads from valgrind
+<kmaraas>	federico, ok
+<federico>	kmaraas: I'm leaving it on in HEAD - mclasen pointed me to your bug :)
+<jrb>	federico: the 3 second start up time
+<kmaraas>	federico, ok, cool
+<federico>	jrb: ???
+<mclasen>	so, switching to 2.10 / project ridley
+<kris>	is there any news in this area?
+<mclasen>	I haven't gotten around to looking at the recent-files proposal yet
+<mclasen>	but ebassi seems to have taken our xml discussion last week to heart, and wrote a GMarkup-based XBel parser...
+<jrb>	federico: (hitting C-o in gedit for me takes 3 seconds for the dialog to map; just echoing what mclasen said about speed)
+<kaffee>	ebassi's log entry: http://log.emmanuelebassi.net/2005/09/11/surgeon/
+<mclasen>	kris: the latest news is that I have finished the keyboard-related libegg things
+<mclasen>	kris: and carlos has been busy reworking the assistant api
+<kris>	nice
+<federico>	jrb: consistently?  or just on the first invocation?
+<kris>	maybe we should setup a 2.10/project ridley blog
+<kris>	(maybe that will even attract more testers)
+<jrb>	kris: that's not a bad idea
+<jrb>	clarkbw and I had a long chat about assistants on Friday
+<mclasen>	kris: not sure it'll help much. We already have a number of channels (wiki, mailing list, bugs)
+<jrb>	federico: (first one, but I rarely open a second file)
+<mclasen>	kris: I added a "Status" column to the tables on the wiki and put "Done" there for the tasks I completed. I agree that its a bit minimalistic for progress indication...
+<kris>	yeah
+<kris>	but the thing with blogs is
+<kris>	we might be added to planet gnome
+<kris>	and then *everybody* reads about the progress
+<kris>	and how much we kick ass
+<kris>	etc
+<kmaraas>	yeah, I think that's a good idea
+<kris>	people will notice about new features much earlier
+<kris>	and hopefully test earlier ;)
+<mclasen>	kris: or how much we don't kick ass...
+<kmaraas>	since very little information goes out to the rest of the community unless you follow gtk-devel-list I reckon
+<kris>	requests for comments on new APIs will be much more visible
+<jrb>	mclasen: but we have been kicking ass.  no promise of future ass kicking, but....
+<mclasen>	kris: I concur, it would be a good idea. Now we just need to hire a blog editor...
+<kris>	ok
+<kris>	i will volunteer
+<rambokid>	mclasen: there's no way you could force information to be hidden anyway, so...
+<kris>	i hope i will be able to keep up though ;)
+<rambokid>	kris: i just wonder, how does that differ in the gtk team people blogging personally about stuff, since that shows up on planet anyway?
+<kris>	rambokid: not much
+<rambokid>	or are there persons out that that like blogging on multiple blogs? (i don't do that)
+<kris>	i am going to blog on the treeview stuff once i get started on that
+<kris>	but that's just treeview
+<mclasen>	kris: so why not just post an occasional "state of the ridley" summary on your blog ?
+<alex>	a separate blog/aggregator for ridley seems a bit unnecessary imho
+<kris>	mclasen: also fine with me
+<rambokid>	mclasen: yeah, my point.
+<kris>	i'll do that than
+<kris>	that will also force me to read gtk-devel-list better (:
+<rambokid>	heh ;)
+<mclasen>	kris: cvs-commits too
+<kris>	oh
+<kris>	yeah
+<kris>	maybe i should subscribe to that again
+<jrb>	kris: you can just filter off gtk+
+<rambokid>	kris: it's pretty easy to filter at least with procmail
+<kris>	yeah
+<kris>	procmail rules
+<mclasen>	kris: actually, reading ChangeLog is much better
+<alex>	mclasen: yeah, seems to be much easier
+<rambokid>	mclasen: the commit messags on cvs-commits are supposed to carry the changelog contents.
+<alex>	rambokid: yeah, but you have to read lots of messages instead of just one consecutive file
+<rambokid>	mclasen: or if you meant better==easier, i shut up ;)
+<mclasen>	rambokid: its just reading in emacs vs reading in some more or less crappy mail client, I guess
+<alex>	Btw. I've been working on some code to render widgets to offscreen pixmaps. Today I got enough working so that i could set up a mini-demo.
+<alex>	http://people.redhat.com/alexl/files/offscreen.swf
+<alex>	Its just a silly effect.
+<kris>	alex and his evil effect
+<alex>	the pixel crap is just vnc2swf
+<mclasen>	alex: does it do the redirect-the-whole-subtree approach we were discussing last week ?
+<alex>	mclasen: yes
+<kris>	where are we going to use this code?
+<mclasen>	kris: when embedding widgets in a future canvas
+<alex>	kris: It could be used in various places, but one reason for it is to be able to take any random widget and embedd it in a cavas with full transformations etc
+<kris>	nice
+<jrb>	mclasen: if you used gnus....
+<mclasen>	it would also allow us to get rid of the hacks to do the same in the theme switcher and the doc shooter
+<kris>	yeah
+Sep 13 16:36:36 *	mclasen read "guns"
+<kris>	alex: can i link to that demo in the blog then?
+<alex>	kris: i was gonna blog about it
+<kris>	ok
+<jrb>	kris: if you want to be all meta and trendy, you'd blog about alex's blog entry in your blog entry. (-;
+<kris>	jrb: yeah
+<kris>	i was about to propose that
+<kris>	we could do gtkgtk links instead of boingboing links
+<alex>	then jrb can blog about that blog entry
+<mclasen>	you could also blog about meta, super and hyper
+<jdahlin>	hyper.
+<mclasen>	ok, trying to get somewhat serious again, jrb put the print dialog as a possible hackfest task in the gnome summit wiki
+<mclasen>	but to make that a useful experience, we probably need to do some work beforehand,
+<mclasen>	like collection use cases, come up with some ideas for what the scope of the printing support should be, etc
+<mclasen>	maybe we should collect this information in the wiki
+<jrb>	gtkgtk!  that's awesome
+<jrb>	mclasen: yeah. We'd have to do a bit of legwork to make this worthwhile
+<mclasen>	jrb: I'll set up a wiki page and start putting some thoughts there
+<jrb>	mclasen: cool.  I'll build off it a bit.
+<david_b_02>	meeting started ? meeting finished ?
+<kris>	right in the middle
+<mclasen>	starting to wind down...
+<kris>	though reaching the end i guess
+<mclasen>	I have like 10 more minutes 
+<mclasen>	david_b_02: anything in particular that you wanted to discuss ?
+<david_b_02>	mclasen: no, not yet. I'm a bit late, sorry (I had another meeting at the same time)
+<david_b_02>	maybe yes. Did you guys dicuss about the canvas ?
+<david_b_02>	discuss
+<kris>	that's not a problem, I can't attend like half of the meeting ;)
+<mclasen>	david_b_02: alex showed of his awesome widget embedding demo
+<david_b_02>	where is the demo ?
+<alex>	http://people.redhat.com/alexl/files/offscreen.swf
+<david_b_02>	whaou ! How did you do that ? Is it just texture transformation or do you really change the geometry of objects (men it looks like my old amiga)
+<jrb>	david_b_02: you missed the bulk of the meeting, but we can talk about canvases now a bit
+<david_b_02>	jrb: yes, I'm sorry about that
+<alex>	david_b_02: its not really any canvas at all
+<alex>	david_b_02: I'm writing code that can take any widget (any GdkWindow subhierarchy in fact) and render it onto an offscreen pixmap
+<alex>	david_b_02: then you can render it however you want
+<jrb>	david_b_02: no worries
+<alex>	david_b_02: in the example i render a full copy of the pixmap and then i copy out some lines below it
+<alex>	offset by a sine
+<david_b_02>	ok, I see
+<mclasen>	alex: editing doesn't currently work, right ?
+<alex>	david_b_02: the idea is that with this you can very easily do a correctly stacked, transformed widget embedding in a canvas
+<alex>	mclasen: no, no input events yet
+<alex>	or focus
+<alex>	or pointer motion etc
+<mclasen>	alex: you will not only need client-side composite, but also client-side xieve
+<alex>	mclasen: exactly
+<alex>	you will need to feed it events
+<rambokid>	alex: what are you using to get widgets drawn to a pixmap. did you plug a gdk backend?
+<alex>	so, given a transformed widget on the canvas you transform the events to canvas item coords and pass them onto it
+<alex>	rambokid: I created a new GdkWindow type, GdkOffscreenWindow. When this gets inserted into the hierarchy all child windows of it become that type of window automatically
+<alex>	rambokid: these windows then render to a pixmap
+<alex>	rambokid: and implement subwindows etc using clipping
+<alex>	client-side
+<rambokid>	i see. have you talked to owen about this?
+<david_b_02>	alex: so the rendering is done by the processor ? Or can you do that with the graphics card too ?
+<alex>	yeah
+<rambokid>	ok.
+<alex>	david_b_02: no, all rendering is done using x
+<alex>	david_b_02: just on a pixmap drawable, not a window drawable
+<mclasen>	ok, I need to go. See you next week.
+<alex>	rambokid: not much details, but discussion of the general idea
+<alex>	rambokid: I really have to try it out to see how well it works in practice
+<alex>	rambokid: especially with the input events
+<alex>	rambokid: i'm not sure how well that will work out
+<rambokid>	alex: yeah. i just had a slight recollection that owen had comments on why simply drawing to pixmaps wouldn't work. but that might just be the missing window type you implemented. in any case, he would have mentioned it if you talked to him at all, so all fine ;)
+<alex>	rambokid: simply swapping widget->window with a pixmap doesn't work. My stuff works in most cases, but obviously not with e.g. OpenGL, Xv, GtkPlug/Socket
+<rambokid>	yeah.
+<jrb>	rambokid: for better or worse, a number of themes have g_return_if_fail (GDK_IS_WINDOW (drawable).. ); in them
+<rambokid>	jrb: right, that was part of it.
+<alex>	jrb: even if it wasn't soo, subwindows won't work
+<jrb>	yup
+<jrb>	alex: you haven't given any thoughts to how this fits into a canvas in a bigger picture, right?
+<alex>	jrb: What do you mean. Its pretty obvious how it would be used to implement a canvas item that embedds any Gtk widget hierarchy
+<rambokid>	jrb: i guess if GdkOffscreenWindow is merged into HEAD, this could be used by any canvas/snapshooter to display ordinary widgets.
+<rambokid>	processing input events is another story of course... ;)
+<david_b_02>	a naive question: Can you do that with a pixmap renderer in Cairo (using GTK+cairo) ?
+<alex>	david_b_02: do what?
+<jrb>	alex: I mean, from the widgets point of view.  It's one thing to just transform the bits when they're done, but surely you'd get better results if the widget did that itself..
+<rambokid>	david_b_02: yep, you can access the rendered pixmap contents as a pixbuf. it'd just be hell slow over a remote line.
+<alex>	jrb: in practice i don't think rotated widgets are important enough to matter. Correct stacking order is more important.
+<david_b_02>	rendering widgets using cairo but with a cairo pixmap renderer ? It would give the same kind of results than your own method ?
+<alex>	jrb: things just get strange. With things like non-axis-aligned GdkWindows etc
+<alex>	david_b_02: what do you mean by "cairo pixmap renderer". All cairo rendering in gtk+ is typically done on a pixmap
+<alex>	david_b_02: (the paint stack for the window)
+<alex>	david_b_02: The widgets in my example are rendered with cairo, since this is gtk 2.8
+<jrb>	alex: yeah
+<david_b_02>	alex: ok, I understand. I didn't know that point.
+<alex>	david_b_02: the problematic part is child X windows
+<alex>	not the rendering
+<david_b_02>	why ?
+<alex>	because if you just stick a pixmap in widget->window then you're not able to add child windows to widget->window
+<david_b_02>	ok
+<alex>	(and how else would you render a widget to a pixmap?)
+<rambokid>	mclasen: meeting closed?
+<kris>	rambokid: i think he already left
+<rambokid>	ok, i guess that's a yes then ;)
+
+
+Meeting ended 17:00 EDT
