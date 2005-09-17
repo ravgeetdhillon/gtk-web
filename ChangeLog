@@ -1,3 +1,8 @@
+2005-09-17  Matthias Clasen  <mclasen@redhat.com>
+
+	* documentation.html: Add a link to an
+	 I18N article.
+
 2005-09-07  Matthias Clasen  <mclasen@redhat.com>
 
 	* plan/meetings/gtk-devel-sep-6.html:
