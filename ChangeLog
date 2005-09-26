@@ -1,3 +1,7 @@
+2005-09-26  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: Add GLib 2.8.2
+
 2005-09-17  Matthias Clasen  <mclasen@redhat.com>
 
 	* documentation.html: Add a link to an
