@@ -1,3 +1,8 @@
+2005-10-05  Matthias Clasen  <mclasen@redhat.com>
+
+	* plan/meetings/index.html: Add recent meeting
+	logs.
+
 2005-09-27  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add GTK+ 2.8.4

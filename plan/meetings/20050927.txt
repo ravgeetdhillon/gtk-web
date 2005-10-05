@@ -1,0 +1,238 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started September 27 2005 16:00 EDT 
+
+In attendence:
+
+Kristian Rietveld (kris)
+Tim Janik (rambokid)
+Matthias Clasen (matthias)
+Alex Larsson (alex)
+Johan Dahlin (jdahlin)
+Jonathan Blandford (jrb)
+Thorsten Schoenfeld (kaffee)
+Shawn Amundson (Snorfle_)
+
+
+<kris>	welcome all
+<rambokid>	ehlo krismaster.
+<kris>	matthias might be a few minutes late;
+<kris>	(matthias should show up real soon now)
+<kris>	there he is
+<matthias>	fresh from the bike
+<matthias>	and without an agenda
+<matthias>	what do we need to talk about ?
+<kris>	do we have a schedule for the next 2.8 releases?
+<alex_away>	http://people.redhat.com/alexl/files/offscreen3.html
+<alex_away>	Here is my latest cool screen capture :)
+<matthias>	kris: one went out today...
+<matthias>	kris: I would expect to do the next one in 6-8 weeks
+<kris>	ok
+<kris>	i know one went out today, but was wondering if there was a target date for the next release or whether we would just spin a release once needed
+<alex>	matthias: is owen gonna be around for the meeting today?
+<matthias>	alex: I don't expect him to
+<alex>	ok
+<matthias>	alex: mail is the best way to reach him currently 
+<matthias>	(even for us)
+<alex>	ok
+<alex>	I wanna discuss the Gdk stuff i'm working on
+<alex>	and i think he's still the one who knows that sort of things best
+<matthias>	alex: does that make sense without owen, or should we specifically invite him to a meeting about that topic ?
+<alex>	matthias: i'll mail him for some opinions first. Maybe we can have a meeting about it later.
+<matthias>	sounds good
+<jdahlin>	I have an item for the agenda, a name for GladeXML
+<matthias>	alex: so, what does your demo show ? I only see a black square, due to lack of a plugin...
+<jdahlin>	and the name for an interface which provides additional information about constructable objects (such as how to add a child)
+<jrb>	matthias: it's pretty sweet.  It shows rotated widgets interacting with the moused
+<alex>	matthias: some widgets, and a GtkHScale that lets you rotate some of them
+<rambokid>	alex: do you generate your own crossing events?
+<alex>	rambokid: yeah
+Sep 27 16:16:00 *	matthias remembers that from playing with Fresco 10 years ago...
+<alex>	rambokid: pain in the ass....
+<alex>	rambokid: especially with grabs...
+<rambokid>	alex: yeah, mitch said they once had to cook that logic up for the FB port
+<rambokid>	alex: that might still be sitting around somewhere.
+<alex>	rambokid: I've already done it once for the linux-fb port
+<matthias>	we might need xserver-in-a-lib
+<alex>	rambokid: so, i had both code that i could use and some idea how it works
+<alex>	There are some issues though
+<alex>	for instance, take the GtkComboBox popup menu
+<alex>	it calculates the menu position by taking the root-origin on the top-left corner of widget->window and adding widget->allocation.x/y
+<alex>	Now, if the widget is not axis-aligned this isn't really right...
+<matthias>	alex: that gives you the untransformed position
+<rambokid>	alex: there should be a generic position calculation function in gtk that can deal with this.
+<alex>	half-transformed. The root-origin is using the transform
+<rambokid>	this kind of logic has been replicated in a LOT of places, even in third party apps
+<alex>	rambokid: yeah
+<matthias>	alex: you could transform the displacement vector
+<alex>	matthias: atm i have a signal on the GdkWindow that you can hook up to to add your own window-to-parent-coord transform.
+<alex>	matthias: that would need changes to e.g. GtkComboBox though
+<rambokid>	and everyone gets it wrong since menu popup positions/dimensions need to be bounded by monitor dimensions, and special hacks are involved to sync this with option menu offsets, etc, etc
+<alex>	(the default signal handler does the standard child position transform)
+<matthias>	it would be nice to have an exported positioning function that can handle the few things that are generally needed 
+<matthias>	like clamping to monitors, popping above/below a widget, etc
+<rambokid>	alex: wouldn't it make sense to implement the concept of a virtual desktop that does positioning if drawing multiple windows offscreen?
+<alex>	rambokid: i'm not sure what you mean
+<rambokid>	alex: well for real windows, you have a desktop/rootwindow and a window manager that takes care of the positioning.
+<rambokid>	for drawing offscreen, it's kinda hard to tell where the windows go (all 0,0 would be insane for instance). so you could implement some kind of window manager positioning logic which behaves as if the offscreen windows were positioned on a virtual desktop.
+<alex>	You're talking about toplevel windows here? Composite and the compositing manager have this issue. ATM Composite only allow you to use the "standard transform", ie. the one using the normal window coordinates
+<alex>	keithp supposedly have a plan how to get more general tranformations working, but i haven't seen it
+<rambokid>	alex: hm no. i thought you just had toplevel positioning problems with your offscreen windows (toplevel ones of course), with the corresponding _Get_root_origin.
+<matthias>	jdahlin: what does the current patch use (for names) ?
+<jdahlin>	matthias: GtkObjectBuilder
+<jdahlin>	and the interface is called GtkConstructable
+<rambokid>	matthias: what's this for?
+<kaffee>	wouldn't it be better if the two names matched?  (GtkObjectConstructor + GtkConstructable or GtkObjectBuilder + GtkBuildable)
+<alex>	rambokid: The way i implement gdk_window_get_origin() is, take the gdk_window_get_origin() of the non-offscreen parent of the offscreen window, then add the back-transformed coordinates of the window in relation to the toplevel offscreen window. The transformation is user-specifiable, so in general it would be handled by the canvas widget using the offscreen windows.
+<matthias>	rambokid: libglade functionality
+<jdahlin>	kaffee: definitely
+<rambokid>	alex: ah, i didn't know you were tying this to a an onscreen window.
+<rambokid>	ok, and what's builder respectively buildable doing?
+<rambokid>	matthias: is this a component in its own respect or will it actually use/include libglade code?
+<jdahlin>	builder constructs objects from xml/gmarkup
+<jdahlin>	buildable provides additional information needed by builder, constructing, setting name, attaching children
+<rambokid>	jdahlin: what's buildable technically? an interface? implemented by what?
+<jdahlin>	rambokid: I think an interface, not sure if it's possible yet
+<jdahlin>	eg, it's not written yet
+<jdahlin>	in the python prototype I've used an adapter
+<rambokid>	jdahlin: yeah, but who would iplement it? i.e. supply this functionality?
+<jdahlin>	rambokid: GtkWidget would implement parts of it, GtkContainer other parts
+<rambokid>	adapter yeah, i see.
+<rambokid>	jdahlin: where would the xml come from?
+<jdahlin>	rambokid: a buffer or from disk
+<rambokid>	jdahlin: well how's it produced?
+<jdahlin>	rambokid: in a user interface designer, such as glade
+<rambokid>	and the designer is not supposed to be part of gtk?
+<jrb>	rambokid: for all practical purposes, glade is part of GTK right now
+<rambokid>	jrb: it's not shipped with it/gtkbuilder, so the question still stands.
+<jdahlin>	sure, as soon as matthias accepts pygtk to be included
+<jrb>	rambokid: it's not an interesting question
+<rambokid>	jrb: oh it is, for multiple reasons.
+<jrb>	rambokid: there are at least 3 independent .glade file creaters out there.
+<rambokid>	jrb: like libglade, glade and libglade2?
+<jdahlin>	glade-2, glade-2, gazpacho, stetic
+<jdahlin>	sorry, glade-3
+<Snorfle_>	please add to agenda: website changes
+<rambokid>	the thing is, either you're going to ship an xml creator with gtk, or you get to standardize the xml somehow.
+<rambokid>	jdahlin: i wrote such a builder component already for beast, the xml there is optimized to be easily written by hand.
+<jrb>	rambokid: for better or worse, the .glade format is pretty mature
+<matthias>	rambokid: I don't see how we could accept a libglade-alike in gtk without defining the xml format
+<rambokid>	jdahlin: what i did for the buildable part was attaching function tables to types, and i'm even supporting "adding children" there which are objects which is usefull in a couple szenarios (the most obvious reason is canvas items)
+<jdahlin>	rambokid: xml & easily written by hand does really go well together
+<jrb>	(actually, it's a giant PITA in practice)
+<jdahlin>	rambokid: where can I find this code?
+<rambokid>	jdahlin: so we might want to take that part to private mail, so you can look at some of the work i've done there/concepts i've used which may be interesting for your take.
+<rambokid>	as for the GUI building component, a couple apps are emerging that support basic GUI building functionality and currently this is duplicated across projects.
+<rambokid>	so it might not only be ineteresting to ship a builder with gtk, but to support GUI building as a library component, usable by applicaitons.
+<rambokid>	if an xml based builder component goes into gtk, a GUI building lib obviously should be in sync with that builder functionality.
+<rambokid>	matthias: i don't quite understand your point about libglade-alike, can you rephrase that please?
+<rambokid>	jrb: enough reason for thorough review if your going to move this into a standard supported by gtk. at least that'd be my take opn it.
+<matthias>	rambokid: I don't think we can support generating UI from an xml format without defining the xm format
+<jdahlin>	rambokid: GxkRadgetType seem very similar to what I had in mind
+<rambokid>	jdahlin: the code is as i said in beast, but you probably want a bit of more private chit-chat about this to understand what i did there.
+<rambokid>	matthias: ok yes, agreed. i do think that having a somewhat more formal definition of that xml format than just "it's what libglade uses" would be good in terms of compatibility and reliability.
+<matthias>	rambokid: yes, "what libglade uses" doesn't cut it as a definition
+<rambokid>	jdahlin: yes, it's the radget code. dunno, the funtions might even be partly documented on the beast website at this point.
+<rambokid>	matthias: ok, agreement there ;)
+<matthias>	ok, Snorfle_ mentioned the new website / web server, so let me mention it here: http://beta.gtk.org
+<jdahlin>	did we agree on any names?
+<matthias>	jdahlin: I didn't see any new proposals
+<matthias>	jdahlin: (ignoring GxkRadget...)
+<rambokid>	oh, and for examples of where third party apps need GUI builder funtionality, toolbar editing, menu editing are already wide use examples. and work also is underway to support simple dialog design from properties of plugin networks (a couple other music programs are also working on this).
+<kaffee>	the Screenshot page links to screenshots of 2.4 -- maybe 2.10 or even 2.12 would be better.
+<Snorfle_>	my current plan for the website is to update the look to what is reflected on beta.gtk.org currently
+<jdahlin>	matthias: the current list: Gtk(Object|Widget)(Builder|Constructor|XML|Glade)
+<kaffee>	(GNOME 2.4, that is.)
+<rambokid>	jdahlin: from what i understood so far, GtkBuilder and GtkBuildable makes sense to me.
+<rambokid>	jdahlin: online docs: http://beast.gtk.org/beast-gxk.3.html#fnindex-70
+<jdahlin>	rambokid: I wanted to use an interface, but it seems to be tricky to make it work for the actual construction
+<kaffee>	Snorfle_: the image boxes on the success page overlap the text boxes of different nodes here.
+<matthias>	jdahlin: I think owen was slightly unhappy with GtkBuilder, but I don't recall his objections
+<Snorfle_>	kaffee: is the behavior the same on www.gtk.org?
+<kaffee>	Snorfle_: yes.
+<ebassi>	Snorfle_: same here
+<owen>  GtkBuilder isn't awful, though it isn't terribly descriptive
+<owen>  Is the object really a factory / builder? It corresponds to one resource file right?
+<Snorfle_>	I think that is on purpose, but I didn't write that page
+<rambokid>	jdahlin: right, the function table GxkRadgetType works better there. i don't think this can be properly objectified with the GObject framework unless you create a dedicated function object which would just be an API wrapper around a function table like GxkRadgetType.
+<kaffee>	Snorfle_: on the team page, Søren's umlaut isn't displayed correctly.  (that doesn't happen on gtk.org)
+<rambokid>	kaffee: the don't overlap here, firefox resize the text layout as the images appear.
+<rambokid>	this should be tested with IE though...
+<Snorfle_>	the CSS is not written from scratch (it is public domain) and seems to have a lot of effort working in IE
+<kaffee>	rambokid: hrm, not for me.  (firefox 1.0.7)
+<rambokid>	Snorfle_: well we do have regular windows users though.
+<Snorfle_>	kaffee: oh, it's actually over the text, not just the boxes?
+<Snorfle_>	rambokid: I can test in IE as well
+<kaffee>	Snorfle_: nope, just the boxes.  the text gets wrapped properly.
+<rambokid>	kaffee: where is the team page?
+<kaffee>	in the upper right there's a link.
+<kaffee>	that might be a hint that those two links aren't terribly well discoverable.
+<Snorfle_>	agreed
+<Snorfle_>	however, the goal isn't to keep the site like this long-term.  The goal is to clean it up enough that we have a base which validates so we can make small incremental changes as time goes on.
+<rambokid>	well soeren really doesn't look good there ;)
+<rambokid>	prolly iso vs. UTF-8 again.
+<Snorfle_>	you think if I switch it all to UTF-8 that will go away?
+<matthias>	yes
+<Snorfle_>	I'll do that.
+<rambokid>	Snorfle_: yep. any content you have (docs etc.) are going to be utf-8 anyway (and i18n maintainer names)
+<rambokid>	Snorfle_: couldn't the green of the menu on the left be the blue of the top bar?
+<rambokid>	Snorfle_: and, does it actually have all the content that www.gtk.org has? (with all its boxes etc.)
+<Snorfle_>	rambokid: so they are both blue?
+<rambokid>	Snorfle_: no the menu is green and i don't lik ethe green ;)
+<rambokid>	Snorfle_: oh you mean as outcome? yes, make both blue.
+<Snorfle_>	rambokid: I didn't realize you were anti-green :-)
+<rambokid>	that has some odd conotations... ;)
+<Snorfle_>	heh
+<Snorfle_>	matthias previously commented text size being too small, but I think it's the same as wikipedia and some other sites
+<Snorfle_>	rambokid: talk tigert or one of the other graphics gurus to design us a nice look :-)
+<rambokid>	Snorfle_: or maybe we shouldn't use colorized backgrounds at all for important text (such as menus): http://beast.gtk.org/wiki:UsabilityGuidelines#colors
+<rambokid>	Snorfle_: well, who's responsible for beta?
+<matthias>	though in this case, the color is the only hint about the text being links
+<Snorfle_>	rambokid: I am
+<rambokid>	Snorfle_: i mean for the graphical design of beta.
+<Snorfle_>	rambokid: I ripped off some CSS and did the work myself to get the current look
+<rambokid>	and i agree with matthias on too small text size.
+<rambokid>	Snorfle_: ah, then i don't need to really talk to tigert to change the design ;)
+<rambokid>	(he appears to be way overworked tehse days anyway)
+<Snorfle_>	rambokid: I mean, let's get someone besides me to design it and it would look better
+<Snorfle_>	but, I think it beats the previous attempt from 5 years ago
+<Snorfle_>	my goal is to switch this over on thursday or friday of this week so I can start looking at things like site design instead of html/css
+<matthias>	some content is missing from the old site, though, e.g. the boxes on the right "Origins"
+<Snorfle_>	the "hard" parts will probably be the faq and tutorial
+<Snorfle_>	"Origins" was deleted on purpose, and the other links are to old release announcements
+<rambokid>	Snorfle_: "switch" means save the old site and copy over contents from beta to wilber?
+<matthias>	Snorfle_: I agree that the other box is outdated and should go, but why remove the "Origins", that seems to be useful information ?
+<Snorfle_>	switch will involve migrating www.gtk.org to the cube.gtk.org; currently it runs on wilber.gimp.org.
+<rambokid>	Snorfle_: we need the 1.0 announcement still inked there! ;)
+<rambokid>	Snorfle_: where's cube located? and, was there consensus about moving the actual site at some point?
+<matthias>	rambokid: I don't think we have th 1.0 announcement on www.gtk.org, do we ?
+<rambokid>	matthias: no ;) but 1.0 was a *lot* of work.
+<rambokid>	yeah, shutting up already. just grandpa's ramblings... ;)
+<Snorfle_>	rambokid: we did discuss cube previously
+<rambokid>	Snorfle_: i think i remember the discussion but not the consensus.
+<matthias>	rambokid: one could move the contents of the "Origins" tab to a "History" page, that would be a nice place for the 1.0 announcement
+<Snorfle_>	rambokid: it is located on the University of Minnesota network very close to the servers which first housed the original gtk webpage and faq
+<Snorfle_>	rambokid: the hardware was paid for by me
+<rambokid>	matthias: i was just kidding. but yes, a history page makes sense.
+<Snorfle_>	rambokid: is there objections?
+<Snorfle_>	s/is/are/
+<Snorfle_>	matthias: I like the idea of a history page
+<rambokid>	Snorfle_: i think owen wasn't fully convinced. and my personal concern is that for wilber we got yosh doing maintenance for 7+ years now, and he's pretty reliably around, while i'm not sure that's the same case of r cube.
+<rambokid>	Snorfle_: and of course we (i) don't have accounts on cube. at least not yet.
+<Snorfle_>	yosh has access to cube
+<Snorfle_>	and I will create accounts as needed
+<Snorfle_>	I've also been maintaining the box since january; patches, updates, etc.
+<rambokid>	Snorfle_: well, can you send a announcement of intention (email) and make sure to cc the relevant maintainers? i.e. owen, matthias, yosh, me, ... so if there are any issues left, people can speak up?
+<rambokid>	Snorfle_: that way you can move the site if there aren't any other issues raised.
+<Snorfle_>	sure, sounds like a plan
+<rambokid>	Snorfle_: maybe cc-ing gtk-devel on the heads up would be appropriate?
+<rambokid>	other than that, i'd really like to have dinner now and go to bed.
+<rambokid>	so any other issues left?
+<matthias>	no, I need to go too, lets close the meeting
+<Snorfle_>	I'd rather a private beating than a public one :-)
+<rambokid>	jdahlin: you catch me on irc or email if you have further questions...?
+<rambokid>	Snorfle_: ok, will raise gtk-devel as an issue then if its important ;)
+<yosh>	mmm beatings
+<matthias>	see you next week, bye
+
+
+Meeting ended September 27, 17:30 EDT
