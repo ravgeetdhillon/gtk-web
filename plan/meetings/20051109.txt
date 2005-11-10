@@ -1,0 +1,244 @@
+Kristian Rietveld (kris)
+Tim Janik (rambokid)
+Matthias Clasen (mclasen_)
+Billy Biggs (vektor)   
+Jody Goldberg (jody)  
+Federico Mena Quintero (federico)
+Behdad Esfabod (behdad)
+Mart Raudsepp (leio)
+Carol Spears (carol)
+
+**** BEGIN LOGGING AT Wed Nov  9 21:11:44 2005
+
+Nov 09 21:13:11 <kris>	we start in 45 minutes, right?
+Nov 09 21:19:36 <rambokid>	that's my impression
+Nov 09 21:47:12 -->	ebassi|dinner (~ebassi@213-140-6-105.ip.fastwebnet.it) has joined #gtk-devel
+Nov 09 22:00:15 -->	johannes (~johannes@p5496A029.dip0.t-ipconnect.de) has joined #gtk-devel
+Nov 09 22:00:56 <matthias_>	ok, 4pm here
+Nov 09 22:01:41 <--	jean has quit (Leaving)
+Nov 09 22:01:42 <kris>	ok
+Nov 09 22:01:44 <matthias_>	should we start with the range arrow issue ?
+Nov 09 22:02:18 <matthias_>	I looked through old meeting logs and old bugs, but couldn't find the discussion  I thought I remembered
+Nov 09 22:03:02 <rambokid>	matthias_: well, i guess you could ask around if anyone else remembers...
+Nov 09 22:03:23 <rambokid>	as far as i'm concerned, the funcitonality doesn't need to be configurable.
+Nov 09 22:03:52 -->	behdad (~behdad@CPE000fb55e466d-CM014250035807.cpe.net.cable.rogers.com) has joined #gtk-devel
+Nov 09 22:04:03 <matthias_>	does anyone else remember a discussion about making range arrows insensitive when the range is at an end ?
+Nov 09 22:04:16 -->	richard (~rhult@ua-83-227-193-217.cust.bredbandsbolaget.se) has joined #gtk-devel
+Nov 09 22:05:50 ---	ebassi|dinner is now known as ebassi
+Nov 09 22:06:19 -->	jdahlin (~jdahlin@200-161-81-84.dsl.telesp.net.br) has joined #gtk-devel
+Nov 09 22:06:40 <rambokid>	matthias_: do you remember anyone else who was involved?
+Nov 09 22:06:51 <matthias_>	certainly owen
+Nov 09 22:07:09 <matthias_>	but thats not really useful
+Nov 09 22:07:19 <vektor>	Certainly would pose problems for anyone who overloads the meaning of those arrows.
+Nov 09 22:07:45 <matthias_>	what would you overload them for ?
+Nov 09 22:08:02 <rambokid>	what? i'd rather ask: how?
+Nov 09 22:08:03 -->	federico (~federico@201.137.114.202) has joined #gtk-devel
+Nov 09 22:08:12 <federico>	la la la
+Nov 09 22:08:17 <rambokid>	vektor: you can't do that
+Nov 09 22:08:19 <federico>	KRIS
+Nov 09 22:08:26 <federico>	kris: I need to reply to your lovely lovely mail
+Nov 09 22:08:35 <federico>	kris: it's mostly sane
+Nov 09 22:08:38 <federico>	good job!
+Nov 09 22:08:39 <vektor>	Editors that expand as you scroll to the right.
+Nov 09 22:08:44 <kris>	federico: great
+Nov 09 22:09:13 <matthias_>	ok, lets keep the sensitivity toggling in for now. If we come up with a compelling reason, we can add a setting to turn it off
+Nov 09 22:09:27 <rambokid>	vektor: that is unrelated. the arrow sensitivity just reflects the slider position.
+Nov 09 22:09:33 <rambokid>	matthias_: ok.
+Nov 09 22:09:57 <federico>	is this about scrollbars desensitizing the arrows when the slider bumps into them?
+Nov 09 22:10:07 <federico>	gnumeric will hate that
+Nov 09 22:10:22 <vektor>	rambokid: isn't it the same thing, you need that button to still be clickable when the thumb is at the end so that the application can expand the size of the editor?
+Nov 09 22:11:06 <matthias_>	federico: yes. why will gnumeric hate it ?
+Nov 09 22:11:44 -->	jody (~jody@72.59.8.128) has joined #gtk-devel
+Nov 09 22:11:50 <federico>	matthias_: the scrollbar's area is the nonempty area of the spreadsheet.  But you can click on the arrows to scroll past that.
+Nov 09 22:12:02 <federico>	matthias_: i.e. the scrollbars don't map to A0..IV65535
+Nov 09 22:12:30 <matthias_>	isn't that roughly the use case vektor was describing ?
+Nov 09 22:12:41 <behdad>	it is
+Nov 09 22:12:54 <federico>	matthias_: sorry, I got in late :)
+Nov 09 22:13:01 <federico>	but yes
+Nov 09 22:13:24 <matthias_>	hmm, so this sounds more like we need this to be switchable per-application, rather than a setting
+Nov 09 22:13:36 <rambokid>	federico: you can click on the arrow and cause an action when the trough is at the end?
+Nov 09 22:13:59 <rambokid>	matthias_: per widget actually.
+Nov 09 22:14:06 <matthias_>	right
+Nov 09 22:14:37 <federico>	rambokid: yes
+Nov 09 22:14:38 <federico>	woah
+Nov 09 22:14:41 *	federico tries it
+Nov 09 22:14:47 <federico>	rambokid: actually, it's a lot more magic than that
+Nov 09 22:14:49 <matthias_>	what happens ?
+Nov 09 22:14:53 <federico>	jody: that's some *great* behavior
+Nov 09 22:14:56 <federico>	run gnumeric
+Nov 09 22:15:01 <federico>	write something in A1
+Nov 09 22:15:05 <federico>	write something in A50
+Nov 09 22:15:08 <federico>	scroll to A1
+Nov 09 22:15:14 <federico>	now play with the slider and the arrows
+Nov 09 22:15:26 *	matthias_ installs gnumeric
+Nov 09 22:15:32 *	behdad too
+Nov 09 22:16:09 <federico>	how can you live without gnumeric?
+Nov 09 22:16:17 <behdad>	federico: with bc :-P
+Nov 09 22:16:27 <matthias_>	I am not a manager...
+Nov 09 22:16:30 <behdad>	and join, and tr.
+Nov 09 22:16:30 <vektor>	I've never tried it myself, really.
+Nov 09 22:16:33 <federico>	all my expense reports go through gnumeric
+Nov 09 22:16:43 <behdad>	federico: try gnuchash
+Nov 09 22:16:50 <behdad>	s/ch/c/
+Nov 09 22:16:56 <behdad>	and you may port it to gtk2
+Nov 09 22:16:58 <federico>	behdad: novell does expense reports with a stupid pre-made excel spreadsheet
+Nov 09 22:18:07 <matthias_>	ok, I'm going to reopen the bug about range arrow sensitivity
+Nov 09 22:19:26 <behdad>	wow
+Nov 09 22:19:29 <matthias_>	argh
+Nov 09 22:19:29 <behdad>	so nice
+Nov 09 22:19:56 *	matthias_ installed gnumeric on his work machine instead of locally..
+Nov 09 22:21:15 <matthias_>	should we talk about async filechooser api changes ?
+Nov 09 22:23:20 <matthias_>	the gnumeric behaviour seems to advocate toggling sensitivity for each arrow separately
+Nov 09 22:23:33 <matthias_>	since it does something on the right, but not on the left...
+Nov 09 22:24:02 <rambokid>	matthias_: and per widget, since the rest of the gnumeric dialogs shouldn't change
+Nov 09 22:24:02 <jody>	behdad: they're almost finished porting gnucash to gtk2.  They're using libgoffice for the charting
+Nov 09 22:24:11 <behdad>	jody: nice
+Nov 09 22:24:38 <behdad>	jody: btw, I cannot scroll using the scroll bar when the page is empty, should start with the arrow, then the scroll bar works
+Nov 09 22:25:24 <matthias_>	rambokid: thats what I meant
+Nov 09 22:25:25 <rambokid>	matthias_: can we discuss the FC async API per email? i need more time to answer kris' proposa and i don't think we'll finish that in 30 minutes
+Nov 09 22:25:51 <matthias_>	sure
+Nov 09 22:25:58 <behdad>	matthias_: maybe have a method to change sensitivity on one of the arrows, and the default handler that calls them.  gnumeric can subclass and override that
+Nov 09 22:26:13 <rambokid>	matthias_: well, you said per-arrow, and i think you had a point there, i.e. we probably really need to distinguish bottom/top arrows in the setting
+Nov 09 22:26:54 <rambokid>	behdad: i think a simple setter/getter API for a per-arrow flag will be easier
+Nov 09 22:27:30 <behdad>	rambokid: how can gnumeric use it then?
+Nov 09 22:27:44 <behdad>	note that it's not like in gnumeric the right arrow is always sensitive
+Nov 09 22:27:51 <behdad>	it does have an end, which is IV
+Nov 09 22:28:12 <behdad>	and for the bottom arrow, it's 65536
+Nov 09 22:28:33 <matthias_>	maybe jody can outline what he thinks he would need
+Nov 09 22:29:11 <federico>	matthias_: kris's plan is very good; we already talked about it over mail
+Nov 09 22:29:19 <rambokid>	matthias_: tko isn't here... anyway he already bloged about it: http://blogs.gnome.org/view/tko/2005/11/06/0
+Nov 09 22:29:25 <federico>	matthias_: I'll just answer to his mail to gtk-devel-list
+Nov 09 22:29:51 <matthias_>	I'll answer too
+Nov 09 22:29:58 <federico>	the one thing that's left is how to make older/newer gnomes don't crash.  I do like the idea of using $(prefix)/whatever/2.6.0/filesystems
+Nov 09 22:29:59 <jody>	behdad: good point.  It seems to get disabled when the scrollbar touches the top
+Nov 09 22:30:18 <rambokid>	matthias_: so we're wokring on backfolding maemo-gtk changes into upstream where it makes sense, and this is where the status is kept: http://maemo.org/maemowiki/MaemoGtk26Contributions
+Nov 09 22:30:29 <matthias_>	federico: thats the right approach, imo
+Nov 09 22:30:41 <matthias_>	rambokid: thanks for the pointer
+Nov 09 22:30:43 <rambokid>	behdad: the same way it works currently. basically the flag would just toggle the newly added behaviour. 
+Nov 09 22:30:51 <matthias_>	maybe somebody should blog that, for public excitement...
+Nov 09 22:31:39 <behdad>	rambokid: the proposal is to add a setter/getter to desensitize the arrow OR to turn on/off automatic desensitization of the arrows?
+Nov 09 22:31:46 <kris>	i need to blog about 2.10 again, indeed ;)
+Nov 09 22:32:03 <kris>	also, i think it's also a good idea to discuss FC on the list first, and maybe do the leftovers in next week's meeting
+Nov 09 22:32:35 <rambokid>	behdad: no proposal just brainstorming. if you really want to investigate and comment the issue, please do that in the bug report, lemme dig up the number for you
+Nov 09 22:32:54 <rambokid>	http://bugzilla.gnome.org/show_bug.cgi?id=321056
+Nov 09 22:32:59 <behdad>	thanks
+Nov 09 22:33:52 <federico>	what's the status on printing?
+Nov 09 22:33:55 <jody>	matthias_: after a quick look at the gnumeric code it looks like we use the 'adjust-bounds' signal to massage things
+Nov 09 22:34:29 <jody>	matthias_: so my initial response would be to disable the de-sensitization of the arrows if there is an adjustbounds handler
+Nov 09 22:34:49 <jody>	but that is not terribly elegant.
+Nov 09 22:34:57 <rambokid>	why does gtk head still use lib/gtk-2.0/2.4.0/ and not 2.10 ?
+Nov 09 22:35:19 <matthias_>	jody: maybe things can get arranged so that the insensitivation doesn't happen if the adjust-bounds handler adjusts the bounds...
+Nov 09 22:35:20 <rambokid>	(that was re $prefix as raised by federico)
+Nov 09 22:35:41 <behdad>	jody: but it would be cool if you could still desensitize it when at the real real end.
+Nov 09 22:35:43 <matthias_>	rambokid: because thats ABI version
+Nov 09 22:36:13 <matthias_>	behdad: that would work automatically if the desensitivation would play nicely with adjust-bounds
+Nov 09 22:36:50 <behdad>	matthias_: yes, that sounds good
+Nov 09 22:36:50 <jody>	behdad: agreed.  It would be better if adjust-bounds could set the sensitivity
+Nov 09 22:36:55 <federico>	behdad: you have mail
+Nov 09 22:37:04 <jody>	actually.  it probably can
+Nov 09 22:37:54 <behdad>	matthias_: not sure that it's possible though.  when the slider is at the end, the bounds are not adjusted before the user tries to scroll again, right?
+Nov 09 22:38:50 <behdad>	federico: thanks a lot.
+Nov 09 22:39:19 <matthias_>	behdad: I envisioned automatic desensitiviation would be done if the value is still at the end after the adjust-bounds emission 
+Nov 09 22:39:37 <federico>	behdad: and you are lucky; you got some pretty colors
+Nov 09 22:39:52 <behdad>	federico: any idea about that te language?
+Nov 09 22:40:06 <behdad>	federico: weird.  something's not right.  I'll figure out
+Nov 09 22:40:56 <federico>	behdad: let me re-run the benchmark just for that one
+Nov 09 22:41:07 <federico>	holy shit, I love my benchmark
+Nov 09 22:41:34 <federico>	fuck, it took even longer
+Nov 09 22:41:59 <behdad>	federico: get the benchmark framework out, make it load .so test modules. :-D
+Nov 09 22:42:25 *	federico re-runs with $many iterations
+Nov 09 22:42:32 <rambokid>	matthias_: oh and a quick note on the gmem.c changes. the API is supposedly there, but we still have no sliced bread/memory implementation ;) 
+Nov 09 22:42:47 <matthias_>	rambokid: I noticed that
+Nov 09 22:43:19 <rambokid>	matthias_: it'll take me longer than originally envisioned, after reading the memory part of your patch i read up on magazines in the old and new slab papers and then some more.
+Nov 09 22:43:59 <matthias_>	its not that urgent
+Nov 09 22:44:02 <rambokid>	matthias_: at this point, i have a pretty good idea of what we should have (basically most of the logic of the 2001 paper). 
+Nov 09 22:44:22 <matthias_>	although...
+Nov 09 22:44:42 <matthias_>	people have been asking if all of the recent performance work will be in gnome 2.14
+Nov 09 22:44:59 <rambokid>	matthias_: to shorten that: it should have magazines but also support freeing and do cache colorization to avoid cache line aliasing. 
+Nov 09 22:45:35 <rambokid>	matthias_: it'll land in the next couple weeks, just can't tell you the exact day.
+Nov 09 22:45:39 <matthias_>	rambokid: I trust you to come up with something at least as good as my prototype...
+Nov 09 22:45:50 <matthias_>	err, no, trust is a bad word :-)
+Nov 09 22:45:54 <rambokid>	heh ;)
+Nov 09 22:46:08 <behdad>	let's get to the release schedules
+Nov 09 22:46:51 <carol>	matthias_: i think it is okay for you to trust rambokid. he just does not trust you...
+Nov 09 22:48:13 <matthias_>	I don't know owens plan for pango, or in fact, if he has one
+Nov 09 22:48:45 <federico>	behdad: "te" keeps on sucking
+Nov 09 22:48:54 <behdad>	federico: weird.  will look into.
+Nov 09 22:49:10 <matthias_>	but I don't think backporting all the performance work to the stable branch is a good investment
+Nov 09 22:49:28 <federico>	matthias_: it would be nice to have a generally-faster gnome 2.14
+Nov 09 22:49:34 <behdad>	matthias_: last time we talked about it, we decided to go with gtk+ schedule
+Nov 09 22:49:46 <behdad>	matthias_: but there was nothing like these performance work planned
+Nov 09 22:50:45 -->	gmt (~gentoo@host103-25.pool8251.interbusiness.it) has joined #gtk-devel
+Nov 09 22:50:47 <behdad>	the backporting is really a matter of applying the diffs, but performance work on the stable branch doesn't sound right to me.
+Nov 09 22:51:02 <matthias_>	pango head depends on glib head, so if we decide to do a short cycle for pango, we need to do one for glib too
+Nov 09 22:51:48 <behdad>	matthias_: if need be, we can push back that linebreaking patch
+Nov 09 22:51:50 <matthias_>	which is fine for me, once rambokid lands g_slice
+Nov 09 22:52:16 <behdad>	yeah, sounds good
+Nov 09 22:53:38 <rambokid>	matthias_: what do you mean with that? release glob-2.10 soon but gtk+-2.10 later?
+Nov 09 22:53:59 <rambokid>	glib not glob of course ;)
+Nov 09 22:54:02 <matthias_>	rambokid: yes
+Nov 09 22:54:19 <rambokid>	matthias_: rough ideas on dates?
+Nov 09 22:54:53 <leio>	Would then gtk+-2.10 release come together with a glib-2.12, bringing the numbers out of sync?
+Nov 09 22:55:01 <matthias_>	rambokid: gnome 2.14 is due in february, I think
+Nov 09 22:55:35 <matthias_>	rambokid: if we decided to go this route, we should probably do 2.9 releases soon after you land the g_slice implementation
+Nov 09 22:56:52 <rambokid>	matthias_: there's a problem with that btw. gtktree*something was doing invalid GAllocator business and broke after i removed the GAllocator implementation. so i had to fix gtk HEAD on this.
+Nov 09 22:57:14 <rambokid>	matthias_: for 2.8 that means this fix needs to go into that version as well to work with glib head.
+Nov 09 22:57:17 <matthias_>	rambokid: oh, I think I worked around it in glib head...
+Nov 09 22:57:44 <matthias_>	by setting n_allocs to a nonzero value in the dummy GAllocator
+Nov 09 22:58:14 <rambokid>	matthias_: i hacked the GAllocator use out of head. i'm talking about that code still being in gtk-2-8, so it'd have problems with glib-head
+Nov 09 22:58:36 <matthias_>	rambokid: let me find the bug 
+Nov 09 23:00:23 <behdad>	federico: just to make sure, you got the ltr-rtl patch, not the ltr-only, right?
+Nov 09 23:01:11 <jody>	matthias_: is there a bug I can reply on re: arrow sensitization ?
+Nov 09 23:01:12 <matthias_>	rambokid: http://bugzilla.gnome.org/show_bug.cgi?id=320755
+Nov 09 23:01:39 <matthias_>	jody: http://bugzilla.gnome.org/show_bug.cgi?id=321056
+Nov 09 23:01:40 <behdad>	jody: http://bugzilla.gnome.org/show_bug.cgi?id=321056
+Nov 09 23:03:24 <matthias_>	ok, do you think it is reasonable to try to shorten the cycles for glib and pango ?
+Nov 09 23:04:03 <federico>	behdad: I got the last patch in the bug
+Nov 09 23:04:14 <behdad>	matthias_: I'm with.
+Nov 09 23:04:27 <federico>	behdad: http://bugzilla.gnome.org/attachment.cgi?id=54511&action=view
+Nov 09 23:04:30 <behdad>	federico: ok thanks.  doesn't make any sense though that rtl didn't get better
+Nov 09 23:04:37 <matthias_>	anyway, need to go, family is waiting for dinner. See you next week
+Nov 09 23:04:50 -->	jean (~jean@che21-1-82-239-125-56.fbx.proxad.net) has joined #gtk-devel
+Nov 09 23:04:51 <federico>	behdad: maybe there's a lot of bidi strings?
+Nov 09 23:05:07 <behdad>	federico: figuring out.
+Nov 09 23:05:11 <--	matthias_ has quit (Remote closed the connection)
+Nov 09 23:05:17 <behdad>	federico: it's not about lots, it's about all.
+Nov 09 23:06:29 <--	jdahlin has quit (Ex-Chat)
+Nov 09 23:06:30 <federico>	behdad: uh oh
+Nov 09 23:08:41 <federico>	behdad: what's throwing them off?  the .dat files will have a lot of "%s" shit in them
+Nov 09 23:08:46 <--	johannes has quit (... und tschüß)
+Nov 09 23:08:54 <federico>	arabicarabicarabic %s arabicarabic
+Nov 09 23:09:06 <behdad>	federico: right.  maybe.
+Nov 09 23:09:19 <behdad>	not quite all, but yes, a lot
+Nov 09 23:09:26 <behdad>	lemme gather some stats
+Nov 09 23:09:58 <behdad>	federico: I got the short circuit path hit when typing persian in gedit. 
+Nov 09 23:10:18 <behdad>	it's not quite useless even if most messages don't get into it ;)
+Nov 09 23:11:53 <leio>	wouldn't in real-life usage the %s be already replaced with rtl strings at the point pango gets it?
+Nov 09 23:12:28 <--	_Legion_ has quit (Ex-Chat)
+Nov 09 23:13:12 <behdad>	leio: well, most of the time file names, etc get that place
+Nov 09 23:13:26 <leio>	hmm, true
+Nov 09 23:13:51 <--	jean has quit (Leaving)
+Nov 09 23:13:52 <leio>	also numbers. those were ltr always and make it bidi?
+Nov 09 23:14:10 <behdad>	leio: yes.
+Nov 09 23:14:29 <rambokid>	kris: you're blogging about this, right?
+Nov 09 23:14:49 <leio>	oh well. At least some labels would speed up, and you're dealing with getting better profiling results for that already, I understood :)
+Nov 09 23:15:24 <kris>	rambokid: when i get time agian
+Nov 09 23:15:27 <kris>	rambokid: maybe this weekend
+Nov 09 23:17:55 <rambokid>	good
+Nov 09 23:18:25 <federico>	hmm
+Nov 09 23:18:37 <federico>	maybe pango-language-profile should scan the strings when loading the .dat files
+Nov 09 23:18:40 <behdad>	did we decide about the schedule?
+Nov 09 23:18:45 <federico>	and replace percent-thingies by something reasonable
+Nov 09 23:18:48 <federico>	%s by spaces
+Nov 09 23:18:54 <federico>	%d by 123
+Nov 09 23:19:02 <behdad>	yeah, sounds better
+Nov 09 23:19:11 <behdad>	still spaces are not necessarily realistic
+Nov 09 23:19:11 *	federico eyes behdad
+Nov 09 23:19:59 <federico>	behdad: well, pango-language-profile will have a hard time picking a suitable string... I assume that if you substitute a string inside another one, then that string will also have the same probability of being bidi as the whole language
+Nov 09 23:20:08 <federico>	now
+Nov 09 23:20:13 <federico>	note that I flunked my statistics class
+Nov 09 23:20:18 <behdad>	federico: no, I say go for abcd
+Nov 09 23:20:19 <federico>	so I'm talking out of my ass
+Nov 09 23:20:40 <behdad>	most of the time it's something in latin
+Nov 09 23:21:17 ---	You have left channel #gtk-devel
+**** ENDING LOGGING AT Wed Nov  9 23:21:17 2005
