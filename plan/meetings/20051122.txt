@@ -1,0 +1,78 @@
+Matthias Clasen (matthias)
+Federico Mena Quintero (federico)
+Behdad Esfahbod (behdad)
+Tim Janik (rambokid)
+Carol Spears (carol)
+Billy Biggs (vektor)
+
+
+Nov 22 22:01:38 -->	You are now talking on #gtk-devel
+Nov 22 22:04:10 <mclasen>	I don't have too much time today (have to leave at 4:45)
+Nov 22 22:04:45 <mclasen>	I want to discuss the 2 things in the agenda, but maybe there are other topics ?
+Nov 22 22:06:34 <behdad>	go ahead
+Nov 22 22:06:46 <mclasen>	ok, first thing is the stable branch
+Nov 22 22:06:47 *	behdad looks around
+Nov 22 22:07:25 <mclasen>	turns out that there are a few issues with the file chooser fixes in 2.8.7 that I want to fix before the next gnome release
+Nov 22 22:07:42 <mclasen>	therefore I'll roll another stable release next Monday
+Nov 22 22:08:10 <mclasen>	I hope that we can fix the file chooser by then
+Nov 22 22:08:26 <mclasen>	federico, do you think you will have time to look at the 2 bugs ?
+Nov 22 22:09:48 <mclasen>	hmm,  maybe he does take a shower...
+Nov 22 22:10:12 <behdad>	seems so
+Nov 22 22:10:24 <mclasen>	the other topic I wanted to discuss is the race condition in idle handling that is described in http://bugzilla.gnome.org/show_bug.cgi?id=321886
+Nov 22 22:10:56 <mclasen>	I think the described race is real, but tiny 
+Nov 22 22:11:09 <mclasen>	(otherwise we would have noticed it causing problems by now...)
+Nov 22 22:13:12 <mclasen>	thankfully owen already gave his view on gtk-devel-list@gnome.org
+Nov 22 22:14:27 <behdad>	http://mail.gnome.org/archives/gtk-devel-list/2005-November/msg00130.html
+Nov 22 22:15:00 <rambokid>	mclasen: this looks complicated. if you want me to comment on that, i can read through this unhurriedly ("in ruhe") in the next few days and think about a solution.
+Nov 22 22:15:06 <behdad>	the check & ref thing looks a pretty common solution, if easy to implement.
+Nov 22 22:15:20 <mclasen>	rambokid: might indeed be best to discuss possible fixes via mail
+Nov 22 22:18:08 <mclasen>	I guess most of you probably saw that anders' OS X support landed in cvs today
+Nov 22 22:18:44 *	mclasen thinks we should probably make that a news item on www.gtk.org
+Nov 22 22:19:52 <behdad>	and pango.org
+Nov 22 22:19:53 <rambokid>	yeah, i think that's a good idea
+Nov 22 22:20:10 <mclasen>	oh, yes pango.org too
+Nov 22 22:20:26 <mclasen>	would be a shame to continue neglecting it, now that its a wiki
+Nov 22 22:20:38 <carol>	it would be nice if gtk.org news had some sort of feed
+Nov 22 22:20:58 <behdad>	the pango patch didn't handle docs.
+Nov 22 22:21:04 <behdad>	I suspect it's the same about gtk+
+Nov 22 22:21:14 <mclasen>	carol: nice idea
+Nov 22 22:21:39 <mclasen>	behdad: what new docs do we need ? Maybe a section about compiling on OS X
+Nov 22 22:21:43 <carol>	pango has a feed but they don't have news there
+Nov 22 22:21:56 <mclasen>	behdad: www.pango.org doesn't even have a news section
+Nov 22 22:22:08 <mclasen>	behdad: so no way to advertise the latest speed improvements...
+Nov 22 22:22:51 <behdad>	mclasen: about pango.org, we update the front page that talks about backends.
+Nov 22 22:23:40 <carol>	pango.org is a wiki?
+Nov 22 22:23:40 <behdad>	mclasen: about docs, I get a gtk-doc warning about 34 unused declarations.  all are atsui things.
+Nov 22 22:23:47 <behdad>	carol: yeah, for some time now.
+Nov 22 22:24:10 <behdad>	so, it looks like docs are there, gtk-doc needs to be instructed to use them.  I don't know gtk-doc at all
+Nov 22 22:24:36 <carol>	behdad: wiki's look nice but diffs are not the best way to read the news...
+Nov 22 22:24:50 <behdad>	right
+Nov 22 22:25:38 *	behdad commits federico's latest patch.
+Nov 22 22:26:14 <mclasen>	behdad: are they _-prefixed ?
+Nov 22 22:26:31 <mclasen>	they should either be static or _-prefixed
+Nov 22 22:26:44 <behdad>	mclasen:  no, not really.  like: pango_cairo_atsui_font_get_atsu_font_id
+Nov 22 22:27:13 <behdad>	oh oh, and a typo in the method name I just pasted.
+Nov 22 22:27:14 <mclasen>	behdad: oh, right, pango has docs for these backend functions
+Nov 22 22:27:19 <behdad>	or maybe not.
+Nov 22 22:27:22 <behdad>	yeah..
+Nov 22 22:27:31 <mclasen>	I think
+Nov 22 22:27:56 <carol>	i waited a few years and then started to work with the gimp web site again. it works surprisingly well once you get apache configured correctly.  just something to consider.
+Nov 22 22:28:15 <mclasen>	behdad, we should probably remind anders about providing the docs once we get near the release time
+Nov 22 22:29:01 <mclasen>	behdad, or maybe ask him now, so that he is aware of it, and then remind him if the docs don't show up until close to the release...
+Nov 22 22:29:08 <behdad>	mclasen: yeah. looks like no docs at all.
+Nov 22 22:29:28 <mclasen>	ok, turns out I actually have to leave in 2 minutes, not in 17 as I thought...
+Nov 22 22:29:57 <behdad>	so we release glib and pango stable with gtk+?
+Nov 22 22:31:13 <mclasen>	behdad, you mean the 2.8.x releases next week ?
+Nov 22 22:31:25 <behdad>	mclasen: yes.
+Nov 22 22:32:01 <mclasen>	I don't know a particular reason to do another quick glib release. Is there a need for a stable pango release ? 
+Nov 22 22:32:11 <mclasen>	Maybe for the random font bug
+Nov 22 22:32:28 <behdad>	mclasen: yeah, a few bug fixes landed.
+Nov 22 22:32:49 <mclasen>	behdad, up to you, I think.
+Nov 22 22:33:08 <mclasen>	Anyway, gotta run now. Happy Thanksgiving everybody. See you next week
+Nov 22 22:33:12 <behdad>	ok, as time permits.
+Nov 22 22:33:21 <behdad>	Happy American Thanksgiving.
+Nov 22 22:33:24 <rambokid>	see you, have fun.
+Nov 22 22:34:50 <vektor>	crazy, thanksgiving in november?  what are they thinking.
+Nov 22 22:35:04 <behdad>	they're always late.
+Nov 22 22:37:12 <federico>	mclasen: yeah, I'll look at them
+Nov 22 22:37:23 <federico>	mclasen: after lunch today
