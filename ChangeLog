@@ -1,3 +1,47 @@
+2005-11-28  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: Add releases.
+
+2005-11-17  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: Add releases.
+
+	* plan/meetings/20051116.txt: 
+	* plan/meetings/index.html: Yesterdays meeting.
+
+Thu Nov 10 14:00:39 2005  Tim Janik  <timj@imendio.com>
+
+	* plan/meetings/index.html: added logs for Nov 09 and Oct 25.
+
+2005-10-06  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: Add last weeks releases
+
+2005-10-05  Matthias Clasen  <mclasen@redhat.com>
+
+	* plan/meetings/index.html: Add recent meeting
+	logs.
+
+2005-09-27  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: Add GTK+ 2.8.4
+
+2005-09-26  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: Add GLib 2.8.2
+
+2005-09-17  Matthias Clasen  <mclasen@redhat.com>
+
+	* documentation.html: Add a link to an
+	 I18N article.
+
+2005-09-07  Matthias Clasen  <mclasen@redhat.com>
+
+	* plan/meetings/gtk-devel-sep-6.html:
+	* plan/meetings/index.html: Last meeting
+
+2005-08-31  Matthias Clasen  <mclasen@redhat.com>
+
 2005-11-22  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add GTK+ on Mac OS X announcement.
