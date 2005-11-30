@@ -1,0 +1,265 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started November 29 2005 16:00 EDT 
+
+In attendence: 
+
+Matthias Clasen (matthias)
+Behdad Esfahbod (behdad)
+Maciej Katafiasz (mathrick)
+Mart Rautsepp (leio)
+Mikael Hallendal (Hallski)
+Anders Carlsson (andersca)
+Jonathan Blandford (jrb)
+Tim Janik (rambokid)
+Emanuele Bassis (ebassi)
+
+
+Nov 29 14:59:37 <behdad>	mclasen:  what's the agenda for the meeting?  I probably have to leave just before.
+Nov 29 15:00:34 <mclasen>	behdad: I don't have any specific items
+Nov 29 15:01:14 <mclasen>	behdad: we could quickly talk about the shortened schedule for glib and pango, ie when to declare api freeze and get serious
+Nov 29 15:01:42 <behdad>	right.  I'll read the minutes then.
+Nov 29 15:01:46 <mclasen>	behdad: we could also talk about wether we need to do another quick stable gtk release, to pick up federicos filechooser fixes
+Nov 29 15:01:52 <behdad>	yeah
+Nov 29 15:02:04 <mclasen>	and if andersca shows up, macosx could be discussed
+Nov 29 15:02:38 <behdad>	yeah yeah, Pango's ATSUI stuff needs some work 
+Nov 29 15:02:52 <behdad>	there's a bug open about examples/ not compiling, and also the docs
+Nov 29 15:04:13 <behdad>	ok, 2.13.3 tarballs are due on dec 12.  I'm leaving Toronto for a trip back home on 13th.
+Nov 29 15:04:48 <mclasen>	how is pango looking from your perspective ? anything missing apart from fixing up macosx ?
+Nov 29 15:04:59 <behdad>	I don't think we can get any big items in
+Nov 29 15:05:05 <behdad>	well, yes
+Nov 29 15:05:15 <behdad>	the OpenType stuff in basic module needs fixage
+Nov 29 15:05:23 <mathrick>	is the meeting already on?
+Nov 29 15:05:26 <behdad>	but that's blocking on me communicating with Owen
+Nov 29 15:05:26 <mclasen>	oh, whats broken there ?
+Nov 29 15:05:41 <behdad>	mathrick: I can't make it, so just chatting :)
+Nov 29 15:05:45 <mclasen>	mathrick: no, this is the meeting where we discuss the agenda for the meeting
+Nov 29 15:05:49 <mathrick>	behdad: ah, ok
+Nov 29 15:05:54 <behdad>	mclasen: right now we hit the OpenType code no matter what.  we want to shortcircuit
+Nov 29 15:05:55 <mathrick>	mclasen: aha
+Nov 29 15:06:16 <behdad>	mclasen: the problem is that, in all fc shapers that have opentype support
+Nov 29 15:06:39 <behdad>	we have a line like if (!ruleset) { fallback_shape(.); return; }  opentype shaping here
+Nov 29 15:06:51 <behdad>	I used to think that's handling the case for non-OpenType fonts
+Nov 29 15:07:15 <behdad>	but figured out that it actually is not.  if you dig into the code, the if (!ruleset) never happens.
+Nov 29 15:07:26 <behdad>	so basically the fallback code is just dead code currently.
+Nov 29 15:07:33 <behdad>	and now we have made basic module like this too.
+Nov 29 15:07:58 <behdad>	if the font doesn't have opentype stuff, the opentype code creates a dummy/empty ruleset
+Nov 29 15:08:05 <mclasen>	oh, so we need to figure out how to fall back to fallback_shape
+Nov 29 15:08:09 <behdad>	my guess is that:
+Nov 29 15:08:12 <behdad>	yeah
+Nov 29 15:08:22 <mclasen>	so if (ruleset_is_empty (ruleset) {...}
+Nov 29 15:08:49 <behdad>	I guess there's no way to distinguish between decent opentype fonts, and simple truetype, other than checking for whether the mark, mkmk, kern, etc (all needed) tables are present
+Nov 29 15:08:56 <behdad>	kinda, yeah.
+Nov 29 15:09:04 <behdad>	but then comes the next point
+Nov 29 15:09:22 <behdad>	if for example the font has an opentype kern table, but no mkmk table,
+Nov 29 15:09:42 <behdad>	we can do better by using the opentype code (for kern) AND doing fallback mark-to-mark positioning.
+Nov 29 15:09:54 <mclasen>	mark mark
+Nov 29 15:09:59 <behdad>	we don't have fallback mark-to-mark positioning yet, but that's easy to implement.
+Nov 29 15:10:02 <behdad>	yeah,
+Nov 29 15:10:06 *	mclasen loves those cryptic 4 letter acronyms
+Nov 29 15:10:31 <mathrick>	mclasen: nod
+Nov 29 15:10:45 <behdad>	in the same way, the arabic shaper can be changed to do callback if init, medi, fina, isol tables are not present
+Nov 29 15:11:03 <behdad>	again, we don't have fallback arabic shaping code anymore.  have to introduce it again.
+Nov 29 15:11:18 <mclasen>	is the current situation just a performance regression, or do we get wrong shaping without the fallback ?
+Nov 29 15:11:19 <behdad>	but the point I'm trying to make is that instead of if (something) fallback ; else opentype;
+Nov 29 15:11:37 <behdad>	we have to do if (!this opentype table present) fallback for this opentype feature.
+Nov 29 15:11:59 <behdad>	mclasen: mostly performance.
+Nov 29 15:12:08 <behdad>	remains a tiny issue, 
+Nov 29 15:12:26 <behdad>	which is whether bare truetype hinging should be done even if kern table is present
+Nov 29 15:12:39 <behdad>	that's just a matter of me reading through opentype list archives and decide 
+Nov 29 15:12:47 <behdad>	that I'll do soon.
+Nov 29 15:12:57 <mclasen>	does truetype hinting not use the kern table ?
+Nov 29 15:12:58 <behdad>	s/hinging/kerning/
+Nov 29 15:13:23 <behdad>	no, there's a pre-opentype kerning stuff in truetype it seems
+Nov 29 15:13:29 *	behdad searches
+Nov 29 15:13:58 <behdad>	mclasen: and that is handled by pango_fc_font_kern_glyphs
+Nov 29 15:14:02 <mclasen>	so the question is if there are opentype fonts with quality tt kerning but a crap kern table ?
+Nov 29 15:14:21 <behdad>	not quite.
+Nov 29 15:14:49 <behdad>	currently we are broken.  since fallback is not called at all, and pango_fc_font_kern_glyphs is not called, where it was being called previously
+Nov 29 15:14:59 <behdad>	so we have regression on non-opentype truetype fonts at least
+Nov 29 15:16:26 <mclasen>	ok, so we do need per-table fallback at least for kerning
+Nov 29 15:16:41 <behdad>	yes, I believe so at this point.
+Nov 29 15:17:35 <mathrick>	behdad: but why do you need to read opentype list for that?
+Nov 29 15:18:08 <behdad>	mathrick: it was being discussed there
+Nov 29 15:18:15 <behdad>	mclasen: update, I've been a bit off.
+Nov 29 15:18:27 <behdad>	mclasen: apparently the truetype kern stuff is in table kern.
+Nov 29 15:18:33 <behdad>	so basically we are not regressing.
+Nov 29 15:18:43 <behdad>	opentype fonts may have gpos tables for additional kerning
+Nov 29 15:18:58 <behdad>	quoting here: http://www.microsoft.com/typography/otspec/recom.htm
+Nov 29 15:19:04 <behdad>	'kern' Table Should contain a single kerning pair subtable (format 0). Windows will not support format 2 (two-dimensional array of kern values by class); nor multiple tables (only the first format 0 table found will be used) nor coverage bits 0 through 4 (i.e. assumes horizontal data, kerning values, no cross stream, and override). OpenType fonts containing CFF data do not support the 'kern' table and should therefore specify kerning data using t
+Nov 29 15:22:24 <mathrick>	behdad: and what comes after that? :)
+Nov 29 15:23:02 <behdad>	still looking in the list archives.  but basically this is saying that the basic module is doing correct.
+Nov 29 15:23:08 <behdad>	so it's all about performance now.
+Nov 29 15:23:35 <mathrick>	behdad: so what that means is that 1) kerning for TT and 'kern' table for OT are the exact same thing or 2) OT kern table includes everything TT kern table does?
+Nov 29 15:24:30 <behdad>	mathrick: there's one kern table, which is what TT used to use, and OT uses too.  but given OT's gpos capabilities, you don't have to limit yourself to the limited kern table.  You can do whatever positioning you want using gpos.
+Nov 29 15:32:14 <mathrick>	behdad: so, you won't be at the meeting?
+Nov 29 15:32:31 <mathrick>	behdad: have you checked that m17 stuff yet, or does that take more time?
+Nov 29 15:33:09 <behdad>	mathrick: takes time.  got to find some empty spot.  or wait until current engagements are done :(
+Nov 29 15:33:23 <behdad>	I've got to leave in 20 minutes.
+Nov 29 15:33:50 <mathrick>	behdad: pity
+Nov 29 15:34:10 <leio>	talking of talking about glib/pango releases, what about gtk+? That will lag behind with numbers from now on?
+Nov 29 15:34:24 <behdad>	but after I finish this thing, which is writing my masters thesis finally, I'll have a lot more time to do major stuff in pango
+Nov 29 15:34:42 <behdad>	leio: wasn't the plan to call the result 3.0?
+Nov 29 15:34:44 <behdad>	or maybe not
+Nov 29 15:34:50 <behdad>	that was a separate plan
+Nov 29 15:34:57 <mathrick>	3.0 is after Ridley lands
+Nov 29 15:35:05 <mathrick>	but what is it about lagging?
+Nov 29 15:35:23 <behdad>	mathrick: gtk+ doesn't make a release for GNOME 2.14
+Nov 29 15:35:27 <mathrick>	(note that I haven't read -devel for past several months, so I don't know)
+Nov 29 15:35:30 <behdad>	so glib and gtk+ versions get out of synch
+Nov 29 15:35:34 <mathrick>	behdad: oh
+Nov 29 15:35:42 <mathrick>	that's gonna confuse people
+Nov 29 15:35:47 <behdad>	but that's were the fun starts :)
+Nov 29 15:36:04 <mathrick>	what about skipping numbers when there's new GTK+?
+Nov 29 15:36:04 <behdad>	GNOME 2.14, pango 1.12, glib 2.10, gtk+ 2.8
+Nov 29 15:36:09 <behdad>	gotta love it
+Nov 29 15:36:12 <mathrick>	so that they're back in synch
+Nov 29 15:36:14 <mclasen>	leio: if you compare the version numbers of glib, pango and gtk, you'll notice that they are different already...
+Nov 29 15:36:25 <leio>	micro version, and pango, yes
+Nov 29 15:36:35 <leio>	I believe we will need a release for GNOME-2.14
+Nov 29 15:36:40 <leio>	after I get around to this redraw thing
+Nov 29 15:36:48 <leio>	it is a big problem with cairofied themes
+Nov 29 15:37:01 <behdad>	I like to look at OpenGL thing of Gtk+
+Nov 29 15:37:13 <leio>	I'll bring that up next week maybe, after I've managed to look again at it
+Nov 29 15:37:17 <mclasen>	there will be a few more stable releases before  2.14
+Nov 29 15:37:17 <behdad>	but probably not for 2.10
+Nov 29 15:38:56 <leio>	right, was imagining we could test it in 2.9.x for a while, and get it into stable 2.8 before GNOME 2.14
+Nov 29 15:39:10 <mathrick>	I haven't read the discussion, but I don't really like the idea of desyncing GTK+ and Glib
+Nov 29 15:39:19 <mathrick>	it's gonna hurt in support dept
+Nov 29 15:40:28 <mclasen>	how ?
+Nov 29 15:40:43 <mathrick>	mclasen: the more versions you have, the more people get confused
+Nov 29 15:41:01 <mathrick>	that's why GStreamer switched to synced released
+Nov 29 15:41:07 <mathrick>	we used to have separate numbering
+Nov 29 15:41:31 <leio>	sorry, slight electricity problem
+Nov 29 15:41:43 <mathrick>	mclasen: IMHO, for the sake of simplicity, it's better to make empty (or just bugfixes) GTK+ release
+Nov 29 15:42:04 <behdad>	and get that pushed into thousands of poor guys on dialup?
+Nov 29 15:42:24 <mathrick>	behdad: if we have bugfixes, they would get it anyway
+Nov 29 15:42:40 <behdad>	we don bugfix releases already
+Nov 29 15:42:42 <mclasen>	mathrick: see your contradictory statements: "the more versions you have, the more people get confused" and "its better to make [...] a release"
+Nov 29 15:42:57 <mathrick>	mclasen: distinct versions
+Nov 29 15:43:09 <mathrick>	it's easy when you have glib 2.10 and gtk 2.10
+Nov 29 15:43:22 <mathrick>	well, of course we can just say that it's packagers' job to distribute gtk
+Nov 29 15:43:30 <mclasen>	its also easy when you have glib 2.10 and gtk 2.8 
+Nov 29 15:43:46 <behdad>	"tried it with gtk 2.10, broken, with 2.8, broken too, with 2.6, broken" wait wait wait, they are all the same code, released to keep up the number ;)
+Nov 29 15:43:59 <mclasen>	at least its not more complicated than when you have gtk 2.8 and pango 1.10 or gtk 2.8 and glibc 2.3.5, etc...
+Nov 29 15:44:13 <mathrick>	mclasen: for you. But people don't track releases that closely
+Nov 29 15:44:45 <behdad>	mathrick: what's so special about gtk+ and glib?  users don't really know that they are so tight 
+Nov 29 15:45:06 <mclasen>	mathrick: thats why we have umbrella gnome releases to keep people from figuring it out
+Nov 29 15:46:01 <mathrick>	behdad: to sum up. mclasen knows what you wanted to say wrt OT and fonts and real pango stuff that matters? Then if I have time, I can talk with owen about vertical and stuff, to see if he has any special ideas about that.
+Nov 29 15:46:44 <behdad>	mathrick: yeah, OT problem comes down to me figuring out a way with owen to shortcircuit non-opentype case.
+Nov 29 15:46:49 <mathrick>	behdad: ok
+Nov 29 15:46:57 <behdad>	what we need is someone benchmarking the fallback vs opentype paths
+Nov 29 15:47:21 <mathrick>	behdad: I'm not gonna do any big talk just yet, I don't think I will have much time pre-Feb anyway
+Nov 29 15:47:34 <mathrick>	but I'm reading for the time being
+Nov 29 15:48:38 <leio>	again :(  Would appreciate a log of what I missed priv msg'd or posted
+Nov 29 15:48:47 <behdad>	mathrick: yeah, around that time is better for me too
+Nov 29 15:49:28 <mclasen>	leio: logs will appear on www.gtk.org in due course
+Nov 29 15:49:34 <mclasen>	I'll include pre-meeting chatter
+Nov 29 15:49:42 <leio>	ok
+Nov 29 15:49:53 <leio>	thanks mathrick (I might want to reply on something immediately)
+Nov 29 15:50:23 <mathrick>	leio: np. If you had 200s timeout, you might have missed some earlier stuff, tho
+Nov 29 15:50:29 <leio>	probably
+Nov 29 16:01:25 <mclasen>	ok, time to start, I guess
+Nov 29 16:02:13 *	mathrick looks around for owen
+Nov 29 16:05:24 <mclasen>	he won't be here
+Nov 29 16:06:03 <mathrick>	oh
+Nov 29 16:08:33 <mclasen>	Hallski, so now that the osx code is in cvs, do you have any kind of roadmap or similar ? I mean, there is certainly work left to do, right ?
+Nov 29 16:14:35 <Hallski>	mclasen: yeah there is work left to do
+Nov 29 16:14:41 <Hallski>	mclasen: I'll try to get anders here
+Nov 29 16:15:24 <mclasen>	Hallski, might be cool to just post a state-of-the-os-x port mail to gtk-devel, so that people learn where we stand, and where they can chime in
+Nov 29 16:15:34 <Hallski>	mclasen: there is a http://developer.imendio.com/wiki/Gtk_Mac_OS_X/Things_to_do
+Nov 29 16:15:50 <Hallski>	mclasen: which outlines what is left to do
+Nov 29 16:15:55 <Hallski>	mclasen: but doesn't have any dates 
+Nov 29 16:16:49 <mclasen>	I thought we should discuss the glib and pango schedules today
+Nov 29 16:17:22 <mclasen>	looking at the gnome 2.14 schedule, it has api freeze mid-January
+Nov 29 16:19:04 <mathrick>	jrb: I'll have a minor pokage for you later, when mclasen's done discussing important stuff
+Nov 29 16:19:10 <jrb>	okay
+Nov 29 16:19:44 <mclasen>	so I thought we should strive for api-frozen pango and glib releases before christmas
+Nov 29 16:19:58 <mclasen>	does that sound doable ?
+Nov 29 16:21:07 <rambokid>	mclasen: i'd hope so. 
+Nov 29 16:21:35 <mclasen>	I'll look over the small api additions on the glib 2.10 milestone next week
+Nov 29 16:21:45 <rambokid>	or maybe 2. january if people want to hack on glib over the holidays.
+Nov 29 16:22:27 <mclasen>	maybe, but people should have better things to do over the holidays...
+Nov 29 16:24:49 <mclasen>	andersca: will you add docs for the os x api additions at some point ? Thats mostly pango, I guess
+Nov 29 16:26:15 <mclasen>	from what behdad said earlier, the main thing that needs to be sorted out in pango before 1.12 is better handling of non-opentype fallback, now that the basic shaper uses opentype
+Nov 29 16:27:31 <ebassi>	mclasen: I've received you mail
+Nov 29 16:27:50 <ebassi>	mclasen:  by the way, the parser object lives in libegg/bookmarkfile 
+Nov 29 16:27:56 <andersca>	mclasen: ah, yeah
+Nov 29 16:28:05 <mclasen>	ebassi: ah ok, I'll check that out later
+Nov 29 16:28:11 <andersca>	mclasen: oh wait...there are no api additions
+Nov 29 16:28:18 <ebassi>	mclasen: and mostly addresses your concerns on it ;-)
+Nov 29 16:28:38 <andersca>	mclasen: because it's only a pangocairo backend...
+Nov 29 16:29:22 <mclasen>	andersca: I think the backend api is documented as well in pango, but I'll have a closer look, maybe there is no need for api docs
+Nov 29 16:29:58 <andersca>	mclasen: you mean the functions that the shapers use? (I think that's one currently)
+Nov 29 16:33:37 <mclasen>	andersca: PangoCairoFontMap is documented, so I wonder if PangoATSUIFontMap should be, too
+Nov 29 16:33:57 <andersca>	mclasen: I guess it wouldn't hurt
+Nov 29 16:34:13 <andersca>	mclasen: although PangoATSUIFontMap is an abstract class...
+Nov 29 16:35:47 <mclasen>	andersca: anyway, it may be good to have a section "OS X Rendering" next to the other backend-specific sections in the pango docs
+Nov 29 16:36:24 <andersca>	mclasen: well, there's no real "OSX rendering" APIs, since it just uses the cairo osx backend
+Nov 29 16:36:36 <mclasen>	and also a section about OS X specifics in the GTK api docs (if there are any specifics)
+Nov 29 16:36:51 <andersca>	not yet...
+Nov 29 16:37:15 <mclasen>	but I think collecting that kind of information in your wiki, and converting it to docbook once things are sufficently stable is fine
+Nov 29 16:43:36 <mclasen>	rambokid, some time ago I wrote a patch to add G_TYPE_GTYPE. Should I send that your way for review ?
+Nov 29 16:44:06 <rambokid>	mclasen: yeah, nagging me about patch review in my inbox is always the best way to get a response ;)
+Nov 29 16:44:25 *	mclasen goes looking for that patch
+Nov 29 16:48:33 <mclasen>	mathrick: you had something about treeview ?
+Nov 29 16:48:48 <mathrick>	ah, yeah
+Nov 29 16:49:26 <mathrick>	jrb: http://bugzilla.gnome.org/show_bug.cgi?id=322286
+Nov 29 16:49:52 <mathrick>	kris said it's not done to avoid overloading functions of double click
+Nov 29 16:50:09 <mathrick>	but IMHO, the more important thing here is supporting user's model
+Nov 29 16:50:19 <mathrick>	and there, double click should clearly expand :)
+Nov 29 16:53:35 <mathrick>	separate thing is providing the default implementation, as current row-activated has void prototype. But I have semi-sensible idea on that I think.
+Nov 29 16:53:44 <mclasen>	I think jrb is busy with something else
+Nov 29 16:54:36 <mathrick>	no problem, I'm not going anywhere
+Nov 29 16:54:47 <mathrick>	mclasen: you can speak up too :)
+Nov 29 16:55:02 <mclasen>	I guess the difficult question is if this can be implemented compatibly
+Nov 29 16:55:36 <mclasen>	Other than that, I think the idea to expand on double-click has merit
+Nov 29 16:55:56 <mathrick>	mclasen: I have something which gives not so much impact without change, but which can be enabled trivially
+Nov 29 16:56:39 <mathrick>	mclasen: basically, the idea is to expand if the tree has no row-changed handler, and provide "expand-default" property which would also enable that for when there's handler
+Nov 29 16:56:49 <mathrick>	err
+Nov 29 16:56:52 <mathrick>	row-activated
+Nov 29 16:57:50 <mathrick>	I don't think there's any way to just drop that in for when there's a handler
+Nov 29 16:57:58 <mathrick>	as that would break nautilus immediately
+Nov 29 16:59:07 <ebassi>	mclasen: you've got mail :-)
+Nov 29 17:02:29 <mclasen>	ebassi: I'll respond after studying libegg/bookmarkfile
+Nov 29 17:02:53 <ebassi>	mclasen: okay
+Nov 29 17:05:15 <mclasen>	mathrick: I guess I would have to see a patch 
+Nov 29 17:05:41 <mclasen>	ok, if nothing else to discuss, I propose we consider the meeting closed
+Nov 29 17:05:50 <mathrick>	mclasen: yeah, I was holding back waiting for someone to greenlight me at least a bit
+Nov 29 17:06:10 <mathrick>	mclasen: hmm, one thing
+Nov 29 17:06:38 <mathrick>	mclasen: nothing like vertical text support was ever considered for GTK+ API, right?
+Nov 29 17:07:23 <mathrick>	I'm trying to imagine what would be needed to do that sanely inside GTK+
+Nov 29 17:07:23 <mclasen>	I don't know how much consideration went into that during 1.2 -> 2.0 when pango was born
+Nov 29 17:07:43 <mathrick>	mclasen: dummy dir enums are there
+Nov 29 17:07:48 <mclasen>	but GtkTextDirection has only rtl and ltr
+Nov 29 17:07:57 <mathrick>	hmm?
+Nov 29 17:08:15 <mathrick>	mclasen: I think TTB and BTT should be there too
+Nov 29 17:08:36 <mclasen>	typedef enum
+Nov 29 17:08:36 <mclasen>	{
+Nov 29 17:08:36 <mclasen>	  GTK_TEXT_DIR_NONE,
+Nov 29 17:08:36 <mclasen>	  GTK_TEXT_DIR_LTR,
+Nov 29 17:08:36 <mclasen>	  GTK_TEXT_DIR_RTL
+Nov 29 17:08:36 <mclasen>	} GtkTextDirection;
+Nov 29 17:10:08 <mathrick>	ah
+Nov 29 17:10:23 <mathrick>	mclasen: looking at pango, TTB values are deprecated
+Nov 29 17:10:44 <mathrick>	mclasen: unicode's tr9 specifies algorithm in terms of normal BiDi
+Nov 29 17:10:59 <mathrick>	with small additional hints for block flow
+Nov 29 17:11:11 <mathrick>	that's why they're not needed for layout
+Nov 29 17:11:24 <mathrick>	but for display itself, I think it would be still needed
+Nov 29 17:13:17 <mathrick>	mclasen: do you have any idea as to how much stuff would break if we added TTB and BTT for widgets' default directions?
+Nov 29 17:13:54 <mathrick>	ie, how much logic inside GTK+ is tightly dependent on the direction
+Nov 29 17:15:58 <mclasen>	I guess quite a bit all over the place
+Nov 29 17:16:06 <mclasen>	all the automatic flipping code
+Nov 29 17:17:02 <mathrick>	mclasen: ah, but that's the thing we can fix
+Nov 29 17:18:01 <mathrick>	mclasen: I was more concerned about the stuff which doesn't directly have to do with direction API, ie. the stuff which won't get fixed by default, and especially anything which could end up in 3rd party code
+Nov 29 17:18:30 <mathrick>	mclasen: do widgets need to provide their own flipping?
+Nov 29 17:19:02 <mclasen>	mathrick: if they are simple composites using standard containers, then not
+Nov 29 17:19:19 <mclasen>	mathrick: but if they are doing custom drawing or manual positioning of children, then yes
+Nov 29 17:19:28 <mathrick>	oops
+Nov 29 17:20:10 <mathrick>	mclasen: well, that's gonna hurt, because while you can figure out the layout from the text alone, you don't really know that for widgets
+Nov 29 17:20:28 <mathrick>	anyway, we need to have pango support that first
+Nov 29 17:22:15 <mclasen>	mathrick: I'm not sure widgets need to do anything special for vertical direction (i mean nothing like rtl flipping)
+Nov 29 17:23:08 <mathrick>	mclasen: depends on how far you want to go with vertical stuff
+Nov 29 17:23:40 <mathrick>	mclasen: that is, should menu/toolbars be vertical in vertical locale?
+
+
+Meeting ended 17:23 EST
