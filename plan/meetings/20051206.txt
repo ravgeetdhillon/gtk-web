@@ -1,0 +1,166 @@
+Meeting on irc.gnome.org:#gtk-devel
+Meeting started December 6 2005 16:00 EST
+
+In attendence: 
+
+Matthias Clasen (mclasen), 
+Federico Mena Quintero (federico),
+Tim Janik (rambokid),
+Manish Singh (yosh),
+Michael Natterer (mitch),
+Emanuelle Bassi (ebassi),
+Mart Rautsepp (leio)
+
+
+<mclasen>	hey, its time already
+<mclasen>	ok, I only have half an hour today
+<mclasen>	first topic: glib 2.10 
+<mclasen>	I deprecated GMemChunk yesterday, and ported GTK+ head to g_slice
+<mclasen>	of course, yesterday evening I realized that we need GTK 2.8 to work with glib 2.10
+<federico>	when you register a GTypeInfo for a certain struct size, does the allocation at instantiation go through g_slice?
+<mclasen>	yes
+<federico>	has anyone seen whether the heap is smaller after an app boots up?
+<rambokid>	federico: always. n_preallocs needs to be deprecated as well.
+<mclasen>	rambokid: you mean just updating the docs to say that its ignored ?
+<rambokid>	mclasen: yeah. i think there is no more deprecation we can do here.
+<mclasen>	I think thats fine
+<federico>	rambokid: I'd love to see a scatter plot that shows time vs. size of each allocation
+<rambokid>	federico: not sure i understand you
+<federico>	X axis is wall time
+<federico>	Y axis is size of allocations
+<federico>	each time you allocate something, you put a dot in the chart
+<mclasen>	but if you put too many dots at the same point, the paper will tear...
+ *	federico sprinkles some cantor dust on mclasen
+<rambokid>	federico: do you do that just for the current g_slice code?
+<rambokid>	federico: or for g_malloc? and with what application?
+<federico>	rambokid: *shrug* probably... though doing it for g_malloc wouldn't hurt, either
+<federico>	rambokid: typical big app with lots of objects - nautilus, evolution...
+<federico>	rambokid: cache-wise, I guess we won't do any worse than if everything just went through glibc malloc()
+<federico>	like
+<rambokid>	i'm just not sure that graphs provides a lot of useful information ;)
+<federico>	are two small mallocs of different sizes contiguous in memory?
+<rambokid>	no not small ones. the glibc malloc implementation is actually ptmalloc2 which uses different types of bins (cache buckets basically)
+<federico>	pango has a shitload of small allocations of possibly different sizes - how many cache lines will we use to measure a string?
+<mclasen>	ok, so I get from this discussion that we really need to do more measurements...
+<mclasen>	To facilitate that, I want to do another glib 2.9 release this week
+<mclasen>	Do we have any outstanding things that should go in before, or can I do it tomorrow ?
+<rambokid>	mclasen: the sorted inserts
+<rambokid>	i think giving us tomorrow to get that nailed and a few test cases would be good.
+<mclasen>	ok, then it'll be Friday, since I'm unavailble on Thursday
+<rambokid>	great
+<mclasen>	and I should probably also do a gtk 2.8 release soon, to get the fix for memchunk deprecation out in a release
+<federico>	do we have a --disable-gslice or something, for valgrind?
+<rambokid>	federico: no. i'm pondering an env var as suggested on gtk-devel-list though.
+<federico>	rambokid: an env var would be even better - I hate having to recompile glib/gtk to get debugging stuff
+<rambokid>	mclasen: yes, that gtk+-2.8 release needs to be out before or in sync with the new glib release that deprecats memchunks
+<rambokid>	federico: exactly. kinda like MALLOC_CHECK_
+<federico>	rambokid: the slab allocator paper mentions cache = slab_cache_new ("some-subsystem", 42)
+<federico>	rambokid: i.e. you pass a string that identifies that particular cache
+<rambokid>	federico: g_slice_ doesn't have any statistics or debugging facilities currently.
+<federico>	rambokid: that would be really nice for debugging, though right now everything goes through the same centralized cache...
+<rambokid>	basically memchunks weren#t good at that either, and for gmem.c i wrote g_mem_profiling_table and no one ever used it as far as i figured.
+<federico>	was it ever publicized?
+<federico>	or was there a case where you found a bug using that?
+<mclasen>	rambokid: I used it a bit, fwiw
+<rambokid>	federico: having that same centralized cache is actually what buys as speed and memory-efficiency ;)
+<federico>	having instrumentability would be nice - but then we also need nice examples of how to put it into use
+<rambokid>	federico: the profiling table is in glib. you can simply set gmem to use profiling allocation functions before calling any other glib function
+<federico>	rambokid: not for gslice :)
+<rambokid>	no. haven't written anything like that for gslice, as i said already ;)
+<federico>	that's what I'm saying.  We should have profiling stuff before the API is frozen.
+<rambokid>	ah. sorry. didn#t get that part.
+<federico>	actually, just looking at allocation sizes / frequencies just for GObjects would be pretty interesting
+<rambokid>	federico: ok, i suggest you send an API proposal for that to gtk-devel then, so we can discuss the details and its merit.
+<federico>	widget-happy apps would love that
+ *	federico looks at vektor
+<federico>	rambokid: do you know if linux has a signal or something to indicate memory pressure?  i.e. something we could use to free full magazines?
+<yosh>	I don't think it does
+<rambokid>	unfortunately not in user space. that is one of the nice things in the kernel allocator, but we can't replicate it.
+<rambokid>	the "kernel allocator" from the slab paper i meant of course.
+<federico>	looks like this makes a good case to prod the kernel people for such a mechanism :)
+<yosh>	it wouldn't be very hard
+<rambokid>	federico: heh, sounds like a brave undertaking. i'd support it however.
+<yosh>	well, implementation wise. kernel politicswise I dunno ;)
+<rambokid>	yosh: dunno, you can't safely access the glib structures from a signal handler. it'd at least be tricky to get this right, especially in MT context.
+<rambokid>	federico: i think this'd even make a lot of sense in the context of embedded devices.
+<federico>	yosh: AIX has such a signal, I think
+<mclasen>	who would get signalled if memory is tight ? the biggest memory hog ?
+<yosh>	rambokid: I meant on the kernel end. the actual response implementation in glib would need some thought
+<federico>	mclasen: everyone
+<federico>	mclasen: free some magazines, compact your caches, perform GC (windows does that), etc.
+<rambokid>	yosh: i think it's even non-.trivial on the kernel end. would you signal ona certain threshold? currently the kernel signals (kills) if it runs out of memory which would obviously be too late to ask user programs to voloutarily release memory.
+<yosh>	rambokid: iirc the kernel has some thresholds already
+<federico>	yosh: we could have fd = pipe(); g_set_fd_to_notify_when_sigmemory_comes_in (fd); g_io_add_watch (fd, tell_glib_to_compact_gslice)
+<rambokid>	federico: there could be notification API in glib to compact even more.
+<yosh>	federico: yes, that was my first thought as well
+<rambokid>	ok, to make this short, is anyone really going to turn this into an actual proposal for the kernel people?
+<federico>	so let's implement that
+<federico>	and while waiting for the kernel get its act together, let's have glib set up a 10-second timeout to emit that signal :)
+<rambokid>	(someone say yes now, and we can move on ;)
+ *	rambokid shoots federico in the ...
+<rambokid>	naah, but behave from now on! ;)
+<mclasen>	I can talk to some of our kernel people
+<federico>	rambokid: I can probably goad the mono guys to get a push
+<rambokid>	ok, novel and red hat takes that on then. next topic... ;)
+<mclasen>	I need to leave about now, so you get to pick your next topic on your own...
+<rambokid>	ok, done then. everybody can do naked table dance once mclasen has left.
+ *	mclasen leaves hurriedly
+ *	federico wiggles his b00ty
+ *	mitch looks away
+<ebassi>	federico: please, don't. :-)
+ *	mitch takes out the felt pen
+<federico>	caution, dude
+<federico>	my b00ty has airborne defense mechanisms
+<mitch>	haha
+<mitch>	i sign faster than my shadow
+<federico>	anyway
+<federico>	do we have an API freeze date for gtk.next?
+<federico>	I want to get volunteers to implement the must-have APIs that we have been missing for years
+<federico>	gtk_radio_button_gimme_selected_id()
+<federico>	etc.
+<rambokid>	we have a date for glib API freeze
+<rambokid>	and i don't want to have an API freeze for gtk just yet, because mitch and i have still a load of API TODOs for gtk.
+<rambokid>	(that also means we're unlikely to volounteer for even more API todos ;)
+<federico>	rambokid: what sort of stuff do you have?
+<rambokid>	federico: this is what we're working on for some time: http://maemo.org/maemowiki/MaemoGtk26Contributions
+<rambokid>	basically sorting out / applying / backfolding gtk-2.6.10-maemo-code-bp.diff.gz as linked on that page.
+<federico>	oooh, nice
+<federico>	mmeeks will like the display close stuff
+<rambokid>	display close stuff is a good example for things still in progress ;)
+<leio>	it's marked as close on the maemo wiki, as far I can see
+<leio>	closed*
+<leio>	but I can probably take your word over the wiki :)
+<rambokid>	leio: yes, it's marked closed because the grunt work is applied but lots of small needed fixes keep popping up. ask mitch about that ;)
+<federico>	anyway
+<federico>	what's left in glib?
+<federico>	is gslice documented now?
+<rambokid>	yes
+<leio>	I'm first concerned about runtime screen changes in the X side
+<rambokid>	thanks to mclasen mostly
+<federico>	rambokid: so all gslice allocations are on 2*sizeof(void*) boundaries?
+<rambokid>	yes
+<federico>	what if I want 4-byte allocations?
+<rambokid>	you loose. with malloc as well.
+<federico>	hmm, true
+<federico>	I just wonder if it would be good to expose an allocator with pretty much the same API as the one in the paper
+<federico>	where you can specify the alignment, create your own caches, etc.
+<federico>	not for general use, but for very particular problems
+<mitch>	leio: screen changes? that works fine
+<mitch>	leio: it did work fine before
+<leio>	I suppose I mixed it with display changes
+<rambokid>	i did as well. the vmem resource allocator logic is also very nice. we don't have too many use cases for that though, and g_slice doesn't implement the page allocator described in that paper, so that API wouldn't easily be provided on top of g_slice
+<leio>	can you arbitrarily plug a CRT into a laptop and have it work?
+<leio>	(and put/drag gtk+ stuff onto it)
+<mitch>	leio: there are no dynamic screens, unfortunately
+<mitch>	leio: could do that by opening a new x server
+<federico>	rambokid: I haven't got to the vmem part of the papers yet - is that gimme_unused_int_in_range()?
+<rambokid>	kind of, yes. 
+<leio>	aight, dynamic screens is what I meant, sorry for the slight confusion
+<rambokid>	federico: basically, if you have so specialiced needs, you might be best off fetching libumem and linking it into your program i'd guess.
+<federico>	rambokid: heh, yeah :)
+<rambokid>	federico: the aix signal is apparently called SIGDANGER
+<federico>	good name :)
+<yosh>	heh
+
+
+Meeting ended 17:29 EST
