@@ -9,7 +9,7 @@ Tim Janik (rambokid),
 Manish Singh (yosh),
 Michael Natterer (mitch),
 Emanuelle Bassi (ebassi),
-Mart Rautsepp (leio)
+Mart Raudsepp (leio)
 
 
 <mclasen>	hey, its time already

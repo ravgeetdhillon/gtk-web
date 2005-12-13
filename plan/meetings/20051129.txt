@@ -6,7 +6,7 @@ In attendence:
 Matthias Clasen (matthias)
 Behdad Esfahbod (behdad)
 Maciej Katafiasz (mathrick)
-Mart Rautsepp (leio)
+Mart Raudsepp (leio)
 Mikael Hallendal (Hallski)
 Anders Carlsson (andersca)
 Jonathan Blandford (jrb)
