@@ -1,3 +1,9 @@
+2005-12-20  Murray Cumming  <murrayc@murrayc.com>
+
+	* bindings.html: Add columns for GTK+ 2.8 
+	support. Updated self-reported status for 
+	gtk2hs and slgtk.
+
 2005-12-09  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Releases
