@@ -1,0 +1,30 @@
+Jan 31 16:03:48 <mclasen>	ok, time to start, I guess
+Jan 31 16:04:12 -->	behdad (~behdad@CPE000fb55e466d-CM014250035807.cpe.net.cable.rogers.com) has joined #gtk-devel
+Jan 31 16:05:34 <mclasen>	oh, I just learned I have to leave in 10 minutes
+Jan 31 16:06:22 <mclasen>	so maybe I should just give a status update on ridley stuff I have been working on since the last meeting
+Jan 31 16:06:43 <mclasen>	the GtkAssistant is in pretty good shape now, I think
+Jan 31 16:07:12 <mclasen>	it has docs, a migration guide, gtk-demo example, etc
+Jan 31 16:07:18 <rambokid>	mclasen: sounds good. the file chooser isn't ontopic anyway since federico hasn't finished reviewing it afaik.
+Jan 31 16:08:03 <mclasen>	I added the hook function to GtkLinkButton that (I think) was discussed last week
+Jan 31 16:08:21 <mclasen>	so that mainly needs some docs 
+Jan 31 16:08:36 <ebassi>	mclasen: I'm finishing the description and the porting guide
+Jan 31 16:08:41 <mclasen>	cool, thanks
+Jan 31 16:09:58 <mclasen>	the other patches I have been looking at are notebook dnd and mitch' rich text support
+Jan 31 16:11:04 <ebassi>	I'm also working on a replacement for GnomeApp, but with a generic overridable class for document based applications. I'll send something on the list as soon as I flesh it out a bit more to see if someone is interested
+Jan 31 16:11:23 <mclasen>	please do
+Jan 31 16:11:59 <rambokid>	mclasen: rich text was updated today, i think mitch has kinda completed it now
+Jan 31 16:12:13 <mclasen>	rambokid: i was about to compile it when the meeting started
+Jan 31 16:12:21 <rambokid>	cool
+Jan 31 16:13:04 <mclasen>	I think we may need to try it out in practise a bit more, to see how support for multiple formats works in practise
+Jan 31 16:13:28 -->	richard (~rhult@ua-83-227-193-217.cust.bredbandsbolaget.se) has joined #gtk-devel
+Jan 31 16:14:06 <rambokid>	i'm pretty sure the rich text patch needs testing, yes ;)
+Jan 31 16:15:26 <mclasen>	I'll look into that when I get it built
+Jan 31 16:15:56 <mclasen>	sorry, need to take off now. short meeting...or you can just continue without me...
+Jan 31 16:16:03 <kris>	ok
+Jan 31 16:16:09 <kris>	i am fooling with tree view as usual
+Jan 31 16:16:11 <kris>	(and packing)
+Jan 31 16:16:29 <mclasen>	oh, you're moving soon ?
+Jan 31 16:16:34 <kris>	Friday
+Jan 31 16:16:44 <mclasen>	cool, good luck with that
+Jan 31 16:16:51 <kris>	thanks
+

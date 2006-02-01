@@ -1,0 +1,91 @@
+Jan 17 16:04:45 <mclasen>	ok, I suck and did not send out any agenda
+Jan 17 16:04:54 <kris>	i have an agenda point!!
+Jan 17 16:04:55 <kris>	hooray!
+Jan 17 16:05:01 <mclasen>	saved by kris!
+Jan 17 16:05:11 <mclasen>	put it on the agenda
+Jan 17 16:05:21 <kris>	ok
+Jan 17 16:05:28 <kris>	if people have some updates on the 2.10 progress, tell them now
+Jan 17 16:05:37 <kris>	i am trying to put together another ridley/gtk+ 2.10 blog entrry
+Jan 17 16:05:40 <kris>	(right now)
+Jan 17 16:06:00 <mclasen>	hmm, lets see
+Jan 17 16:06:37 <mclasen>	I did some some API additions like the current-value property in GtkRadioAction
+Jan 17 16:06:54 <deadchip>	lol
+Jan 17 16:07:08 <mclasen>	and we have some themability improvements like new style properties in the notebook (with more coming from maemo, I guess)
+Jan 17 16:07:25 <mclasen>	the pixbuf engine can theme expanders and resize grips now
+Jan 17 16:08:03 <mclasen>	we made progress on maemo merges (you probably now the details better there)
+Jan 17 16:08:06 <kris>	(note that the last entry was posted in the beginning of october)
+Jan 17 16:08:21 <kris>	it looks like win32 had a bunch of clipboard improvements, if I am not mistaken
+Jan 17 16:08:28 *	mclasen scrolls way back in ChangeLog
+Jan 17 16:09:10 *	kris is also scrolling the changelog
+Jan 17 16:09:16 <mclasen>	kris: settings for animations, timeout handling
+Jan 17 16:10:03 <mclasen>	symbolic colors (don't know if that has been sufficently blogged yet)
+Jan 17 16:10:13 <kris>	i think jrb did blog about that, or not?
+Jan 17 16:10:19 <kris>	if so, I can just link to that post
+Jan 17 16:11:15 <mclasen>	kris: yes, jrb blogged it
+Jan 17 16:12:11 <mclasen>	quartz backend got added
+Jan 17 16:12:15 <kris>	I am so not going to be able to mention everything ;)
+Jan 17 16:12:30 <kris>	display-migration and closing maybe?
+Jan 17 16:12:40 <mclasen>	oh, yes, that too
+Jan 17 16:13:14 <mclasen>	there is a bunch of optimization work all over the place (using slice allocator, reduce signal handlers...)
+Jan 17 16:13:33 <kris>	oh, i didnr see the reduce signal handlers in the changelog
+Jan 17 16:14:01 <kris>	can sombody summarize the floating object discussion maybe?
+Jan 17 16:14:38 <mclasen>	another bunch of optimizations was to convert remaining private structs to IPN
+Jan 17 16:14:53 <kris>	IPN?
+Jan 17 16:15:42 <mclasen>	instance private data
+Jan 17 16:15:49 <kris>	oh, right
+Jan 17 16:16:42 <mclasen>	oh, and just today I got back to gtkassistant, and hope to finish that off in the next few days
+Jan 17 16:16:58 <kris>	nice
+Jan 17 16:17:10 <kris>	i am slowly getting back to treeview, as you might have noticed
+Jan 17 16:17:14 <kris>	don't have a lot of time right now though
+Jan 17 16:17:39 <mclasen>	you might want to mention that the optimization frenzy at the end of last year kind of moved our focus to pango and glib for a while
+Jan 17 16:17:46 <kris>	yeah
+Jan 17 16:17:52 <mclasen>	which explains that Ridley appears to have stalled a bit
+Jan 17 16:18:06 <mclasen>	but we're getting back to it now!
+Jan 17 16:18:10 <kris>	yes!!!
+Jan 17 16:20:43 <mclasen>	kris: if you are also want to mention things that are in the pipeline, you might want to mention the notebook dnd bug, which has a working patch, that we should be able to get in shape for 2.10
+Jan 17 16:21:44 <jrb>	mclasen: also, I'd like to list things for Ridley that are in progress
+Jan 17 16:22:22 <jrb>	mclasen: or have code.  Such as possibly libglade or the canvas
+Jan 17 16:23:07 <mclasen>	ok, almost finished: the assistant, the hyperlink button, notebook dnd
+Jan 17 16:23:30 *	kris makes more notes
+Jan 17 16:24:04 <mclasen>	some code available, but some work needed: libglade integration
+Jan 17 16:24:20 <kris>	do I want to mention something about the float/sink, GInitiallyUnowned stuff?
+Jan 17 16:24:22 <kris>	and if so what
+Jan 17 16:24:30 <mclasen>	prototypes available, but much more work needed: print dialog, canvas widget
+Jan 17 16:24:47 <mclasen>	kris: rather not...
+Jan 17 16:24:57 <kris>	then I will silently forget about that
+Jan 17 16:25:06 <kris>	man
+Jan 17 16:25:09 <kris>	this is going to be one long entry
+Jan 17 16:26:13 <mclasen>	kris: you could also mention the async branch
+Jan 17 16:26:18 <kris>	yeah
+Jan 17 16:29:22 <jrb>	mclasen: for printing, maybe just mention that we're trying to put together some planning there
+Jan 17 16:30:48 <kris>	how's recentchooser doing?
+Jan 17 16:31:17 *	mclasen needs to get to that, too
+Jan 17 16:31:43 <mclasen>	it is waiting for us
+Jan 17 16:34:35 <kris>	ok, so we have goocanvas, foocanvas and sven's canvas
+Jan 17 16:34:36 <kris>	...
+Jan 17 16:34:58 <jrb>	actually, if anyone cares about printing, let me know
+Jan 17 16:36:02 <mclasen>	kris: goocanvas is the cairoification of foocanvas, so we really only have two
+Jan 17 16:36:18 <mclasen>	and since I haven't seen any code from sven yet, we really only have one...
+Jan 17 16:36:39 <kris>	yeah
+Jan 17 16:36:47 <kris>	hrm
+Jan 17 16:36:52 <kris>	sven's wiki page is also down
+Jan 17 16:40:00 <mclasen>	I don't know if damon is currently working on goocanvas. The last thing I saw was that it found a temporary home in cairo cvs
+Jan 17 16:53:06 <kris>	mclasen: what was the reduce signal handlers thing about?
+Jan 17 16:53:54 <mclasen>	kris: it was me spotting gimp connecting more than 30000 signal handlers at startup (just opening the prefs and one image)
+Jan 17 16:54:47 <mclasen>	kris: GtkAction had quite a bit of signal handler overhead, it was connecting 4-5 notify::<detail> handlers on itself
+Jan 17 16:55:02 <mclasen>	and the gimp uses a lot of actions
+Jan 17 16:58:08 <kris>	right, so I guess something "Signal handler overhead was reduced, by revising connections to notify::<detail> signals.  For example GtkAction was connecting to about 5 notify handlers on itself, which have been removed."
+Jan 17 16:58:14 <kris>	*like
+Jan 17 16:58:15 <kris>	would do
+Jan 17 16:59:57 <mclasen>	kris: shouldn't stress that point too much. after all signals are still the preferred way to do many things
+Jan 17 17:00:05 <kris>	hmm
+Jan 17 17:00:09 <kris>	i can also not mention it ;)
+Jan 17 17:00:23 *	kris thinks
+Jan 17 17:00:34 <kris>	ah, look
+Jan 17 17:00:35 <mclasen>	kris: I would just mention it among all the other optimizations
+Jan 17 17:00:37 <kris>	i can add it in here
+Jan 17 17:07:13 -->	errorlevel (errorlevel@12.171.16.136) has joined #gtk-devel
+Jan 17 17:19:12 <mclasen>	ok, I'm on the way out. 
+Jan 17 17:19:30 <mclasen>	Looking forward to your humongous blog entry, kris
+Jan 17 17:19:48 <kris>	working on it
+Jan 17 17:19:56 <kris>	i think it is almost done

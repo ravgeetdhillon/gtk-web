@@ -1,0 +1,75 @@
+Jan 24 16:04:33 <mclasen>	hey its time
+Jan 24 16:04:43 <kris>	yes
+Jan 24 16:05:18 <mclasen>	I see you are doing cool stuff, kris
+Jan 24 16:05:49 <kris>	slowly clearing the bug queue ...
+Jan 24 16:06:04 <mclasen>	when we were looking at the rubberband selection stuff, we noticed that we should have the alternating rows in the selection too
+Jan 24 16:06:11 <mclasen>	ETable does that
+Jan 24 16:06:13 <kris>	yeah
+Jan 24 16:06:18 <kris>	it's on my list already ;)
+Jan 24 16:06:24 <mclasen>	ah, nice
+Jan 24 16:06:37 <mclasen>	(you should see my list sometime...)
+Jan 24 16:07:16 <kris>	yeah
+Jan 24 16:07:19 <kris>	i don't write my list down
+Jan 24 16:07:25 <kris>	so I forget half of it every month
+Jan 24 16:07:42 <mclasen>	prevents it from growing excessively...
+Jan 24 16:08:00 <kris>	yup ;)
+Jan 24 16:08:36 <mclasen>	so, do we have any important outstanding fixes that should go in gtk 2.8.11 ? 
+Jan 24 16:08:59 <mclasen>	I want to do that around the end of the week, for gnome 2.13.90
+Jan 24 16:09:00 <kris>	going to release 2.8.11 already?
+Jan 24 16:09:02 <kris>	ah
+Jan 24 16:09:26 <mclasen>	also, I fixed some crasher bugs for which I want to get the fixes into rawhide
+Jan 24 16:10:11 <mclasen>	kris: there were some bug reports about crashes in tree model code
+Jan 24 16:10:21 <mclasen>	i think tree model filter, mostly
+Jan 24 16:10:58 <kris>	not the sort model?
+Jan 24 16:11:03 <kris>	i fixed a little bug in the sort model in head
+Jan 24 16:11:09 <kris>	recently
+Jan 24 16:11:48 <mclasen>	oh, maybe it was the sort model
+Jan 24 16:12:41 <kris>	and that fix fixed some crashers
+Jan 24 16:13:08 <mclasen>	ok, maybe it was that
+Jan 24 16:13:53 <kris>	http://bugzilla.gnome.org/show_bug.cgi?id=326289
+Jan 24 16:15:51 <mclasen>	yes, thats one of the bugs I remembered
+Jan 24 16:16:01 -->	ebassi (~ebassi@213-140-6-105.ip.fastwebnet.it) has joined #gtk-devel
+Jan 24 16:16:45 <mclasen>	so, kris, if you want to blog a state-of-Ridley update sometime, we have GtkAssistant and GtkLinkButton in cvs now
+Jan 24 16:16:59 <kris>	yeah, that's in my notes already
+Jan 24 16:17:03 <kris>	i started keeping notes
+Jan 24 16:17:11 <mclasen>	both are not 100% finished, but getting there
+Jan 24 16:17:12 <kris>	since i usually read changelog on each cvs up
+Jan 24 16:17:33 <ebassi>	mclasen: thanks for the link button, by the way
+Jan 24 16:17:39 <mclasen>	another thing I committed together with the link button is style properties for link-color and visible-link-color
+Jan 24 16:18:05 <mclasen>	those may be useful independent of GtkLinkButton
+Jan 24 16:18:59 <mclasen>	ebassi: jrb thinks that it sucks, with having to connect to "clicked" manually
+Jan 24 16:19:35 <ebassi>	mclasen: the hook function might be useful, after all
+Jan 24 16:20:51 <mclasen>	ebassi: with the hook function it sucks less. Ideally, jrb wants to have some init function (like gnome_program_init) set up default hooks
+Jan 24 16:21:29 <mclasen>	ebassi: maybe a longterm solution here could be to just load a module that does such things
+Jan 24 16:22:15 <ebassi>	mclasen: yep. otherwise we would have to know the default browser - and that would mean yet anothe XSetting (something that I wouldn't want to add)
+Jan 24 16:22:53 <ebassi>	I can re-add the hook function to the linkbutton
+Jan 24 16:23:10 <mclasen>	ebassi: XSettings sucks as a general proxy-to-GConf mechanism...
+Jan 24 16:23:53 <mclasen>	ebassi: maybe we need to break down and define a really simple  readonly config interface for toolkit use, and then implement that in a module based on gconf
+Jan 24 16:24:27 <ebassi>	or add a backend for it inside gconf
+Jan 24 16:25:09 <mclasen>	ebassi: but all that is not really directly relevant to the question of hook vs signal in GtkLinkButton
+Jan 24 16:26:35 <mclasen>	ebassi: if we readd the hook, would it replace the signal, or is it possible to use the signal instead of the hook ?
+Jan 24 16:27:52 <ebassi>	mclasen: I think that we could keep both the signal and the hook. the signal could useful for a bunch of things other than launching the URI
+Jan 24 16:28:57 <ebassi>	mclasen: otherwise, we should override the hook if a signal is defined. I think a signal should have precedence over the hook
+Jan 24 16:30:01 <mclasen>	ebassi: thats probably ok
+Jan 24 16:30:18 <mclasen>	either way
+Jan 24 16:30:24 <mclasen>	as long as we document it
+Jan 24 16:30:53 <ebassi>	mclasen: yep
+Jan 24 16:31:16 -->	jpe (~jpe@c-24-63-110-73.hsd1.ma.comcast.net) has joined #gtk-devel
+Jan 24 16:31:21 <mclasen>	ebassi: If you feel like putting a little more work into GtkLinkButton, 
+Jan 24 16:31:51 <mclasen>	it would be great if you could cook up a short/long description for the docs (probably just one paragraph for a widget this simple)
+Jan 24 16:32:03 <ebassi>	mclasen: sure
+Jan 24 16:32:06 <rkaway>	i'm not exactly sure what you guys are doing there, but it sounds like you might be interested in having a RUN_LAST signal, where the signal's default handler inkoes the hook. that way, users can get notified before and after hook invokation, and if neccessary intercept the signal emission before the hook is executed.
+Jan 24 16:32:37 <rkaway>	s/inkoes/invokes/
+Jan 24 16:32:48 <mclasen>	ebassi: and maybe a porting guide from GnomeHRef to GtkLinkButton
+Jan 24 16:33:01 <mclasen>	ebassi: which can probably also be really short
+Jan 24 16:33:19 <mclasen>	rkaway: unfortunately, we are not free to change the definition of the signal
+Jan 24 16:33:26 <mclasen>	since it is GtkButton::clicked
+Jan 24 16:33:39 <ebassi>	mclasen: yep, considering its usage. do you want me to open a bug for review?
+Jan 24 16:34:01 <mclasen>	ebassi: that would be great
+Jan 24 16:34:24 <ebassi>	mclasen: okay
+Jan 24 16:35:39 <rkaway>	mclasen: in that case, you could introduce a ::hook-signal or whatever you call it that implements the desired semantics and simply emit that from the ::clicked default handler. but as i said, i don't really know what you guys are doing, so i might be off track for your particular usage case.
+Jan 24 16:37:13 <mclasen>	rkaway: I don't think it is worth a lot of effort to prevent hook and signal from both being executed. We can just document the order in which they are executed, and let users handle the mutual exclusion themselves
+Jan 24 16:38:44 <mclasen>	rkaway: I'll also do another glib release in time for gnome 2.13.90 (ie before Jan 30). Is there anything besides the debug envvars which I should wait for ?
+Jan 24 16:39:47 <rkaway>	mclasen: i have some pending stability fixes besides the env vars, and i'm trying to get those in asap, but i'm not sure yet when that'll happen, so don't block on me please ;)
+Jan 24 16:40:18 <mclasen>	ok, I won't get to a glib release before friday, anyway, so you have some more days...
+Jan 24 16:40:57 <mclasen>	hmm, family is picking me up, gotta go. See you. I'll try to not forget uploading the logs again...
