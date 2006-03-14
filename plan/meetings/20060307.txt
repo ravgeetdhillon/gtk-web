@@ -1,0 +1,162 @@
+Mar 07 16:01:35 <kris>	I'm writing a new ridley/2.10 blog entry as we speak
+Mar 07 16:01:38 <kris>	was about t ime again
+Mar 07 16:01:38 *	mclasen looks at the agenda
+Mar 07 16:02:04 <mclasen>	ok, one thing jrb asked me to bring up is schedule 
+Mar 07 16:02:27 <kris>	ah yes
+Mar 07 16:02:30 <mclasen>	we have been kindof vague about it, so far, saying to target April/May for a 2.10 release
+Mar 07 16:02:30 <kris>	we are in march already
+Mar 07 16:02:39 <mclasen>	right
+Mar 07 16:02:51 <kris>	and I guess we really want libglade in too ...
+Mar 07 16:02:56 <mclasen>	so, maybe we should go over the major outstanding things that  everybody wants to get in
+Mar 07 16:03:30 <mclasen>	so, now that fc5 is basically done
+Mar 07 16:03:55 <mclasen>	I will return to recent-files, which have been unfairly neglected for a long time
+Mar 07 16:04:05 <kris>	great
+Mar 07 16:04:21 ---	ebassi|dinner is now known as ebassi
+Mar 07 16:04:31 <mclasen>	I hope that we should be able to use the big amount of work done by ebassi, and get that finished in 2 weeks
+Mar 07 16:04:32 <ebassi>	mclasen: :-)
+Mar 07 16:04:54 <mclasen>	after that, I need to return to introspection
+Mar 07 16:05:07 <mclasen>	that is basically my plan for the remaining time until gtk 2.10
+Mar 07 16:05:14 -->	jdahlin (~jdahlin@200-171-140-32.dsl.telesp.net.br) has joined #gtk-devel
+Mar 07 16:05:51 <mclasen>	what are the other big pieces for 2.10 ?
+Mar 07 16:06:08 <kris>	tooltips
+Mar 07 16:06:11 <kris>	working on that
+Mar 07 16:06:21 <kris>	hope to get a new/updated proposal out this week
+Mar 07 16:06:31 <kris>	async filechooser, and the review is about done iirc
+Mar 07 16:06:40 -->	gjc (~gjc@bl6-38-113.dsl.telepac.pt) has joined #gtk-devel
+Mar 07 16:06:46 <jrb>	printing, too
+Mar 07 16:06:54 <mclasen>	async filechooser will need some more rounds, or how does it look ?
+Mar 07 16:07:03 <kris>	yeah, if we can mention printing we can also mention libglade ;)
+Mar 07 16:07:07 <kris>	some tree view thigns
+Mar 07 16:07:09 <jdahlin>	gtkbuilder if not already mentioned
+Mar 07 16:07:11 <jdahlin>	eh
+Mar 07 16:07:20 <kris>	and if I have time left, I want to get multi row DnD in
+Mar 07 16:07:32 <kris>	mclasen: small API change, some polishing i think
+Mar 07 16:07:41 <kris>	mclasen: i haven't seen the full review yet
+Mar 07 16:07:42 <mclasen>	I'm not sure if printing will be sufficently done by april, will it, jrb ?
+Mar 07 16:08:12 <jrb>	mclasen: I don't know.  That's up to Alex.  I was hoping he'd be able to present something today
+Mar 07 16:08:32 <mclasen>	well, he sent the mail on Friday
+Mar 07 16:08:32 <kris>	they seem to be making a lot of progress though
+Mar 07 16:08:48 <kris>	as for canvas, I guess we need to look at libccc
+Mar 07 16:08:53 <kris>	probably 2.12 candidate though
+Mar 07 16:08:57 <mclasen>	yes, definitively
+Mar 07 16:09:06 <jrb>	canvas seems a longer shot to me
+Mar 07 16:09:14 <jrb>	but the canvas also doesn't do as badly externally
+Mar 07 16:09:14 <kris>	jdahlin: libglade will be renamed gtkbuilder?
+Mar 07 16:09:34 <kris>	jrb: true, but would be really nice to have in gtk+, together with printing
+Mar 07 16:09:46 <jdahlin>	kris: maybe, the name libglade is just rather unlikely
+Mar 07 16:09:53 <kris>	jdahlin: yeah true
+Mar 07 16:09:53 -->	AME (~chatzilla@portal.extratech.com) has joined #gtk-devel
+Mar 07 16:10:21 <mclasen>	so, how do we schedule this to ensure that we are in good shape when May comes ?
+Mar 07 16:10:26 <gjc>	+1 for functional names
+Mar 07 16:10:49 <kris>	mclasen: i guess all big stuff should be in before April ~15 ...
+Mar 07 16:10:58 <mclasen>	is it realistic to target end of March for having all big pieces in basically committable shape ?
+Mar 07 16:11:01 <kris>	then allow one month for polishing bug fixing 
+Mar 07 16:11:04 -->	federico (~federico@dsl-201-128-39-153.prod-infinitum.com.mx) has joined #gtk-devel
+Mar 07 16:11:14 <kris>	and release just before the end of May?
+Mar 07 16:12:03 <jdahlin>	I'd prefer a little later, otherwise the gtkbuilder work will be a little tight
+Mar 07 16:12:40 *	kris wouldn't mind slipping to the first half of June
+Mar 07 16:12:47 <gjc>	mclasen: do you want introspection in?  I can help, but don't think API freeze on April 15 would be feasible..
+Mar 07 16:12:59 <jdahlin>	why not tie the schedule to gnome 2.16?
+Mar 07 16:13:20 <kris>	I would rather not tie the schedule to any gnome release
+Mar 07 16:13:33 <gjc>	because gnome devs always complain "gtk+ not stable" :P
+Mar 07 16:13:36 <jrb>	jdahlin: we need a lead time for 2.16
+Mar 07 16:13:43 <jrb>	jdahlin: but june as a target isn't too bad
+Mar 07 16:14:00 <kris>	IIRC we tied  to the gnome schedule with 2.4
+Mar 07 16:14:04 <mclasen>	gjc: I want, but we'll have to see how easy finishing it will be (some ugly things are still missing, like a header parser...)
+Mar 07 16:14:08 <kris>	and I disappeared during the 2.4 cycle (sorry for that)
+Mar 07 16:14:12 <jdahlin>	jrb: when is 2.16 going to freeze?
+Mar 07 16:14:19 <kris>	(but I still think 2.4 was kind of rushed because of the gnome released)
+Mar 07 16:14:24 <jdahlin>	late july?
+Mar 07 16:14:28 <--	AME has quit (Chatzilla 0.9.67+ [SeaMonkey 1.0/2006013012])
+Mar 07 16:14:42 <kris>	basically, we need a stable .0 release out before gnome freezes
+Mar 07 16:14:48 <mclasen>	jdahlin: I'd really like to target May for a release. If we slip a little bit, and if gtkbuilder is a bit later than the other big pieces, so be it
+Mar 07 16:14:53 <mclasen>	but we should try
+Mar 07 16:15:33 <kris>	let's just target end of May then, with a possible slip to first half of June?
+Mar 07 16:15:34 <jdahlin>	mclasen: the api can get in earlier, just not widget support for everything
+Mar 07 16:16:05 <mclasen>	jdahlin: thats fine
+Mar 07 16:16:43 <jdahlin>	great
+Mar 07 16:16:46 <mclasen>	lets move along the agenda (I'm a bit time-challenged today)
+Mar 07 16:16:54 <kris>	as always ;)
+Mar 07 16:17:03 <mclasen>	kris: wait till you have a family...
+Mar 07 16:17:15 <jdahlin>	just a last note, adding interfaces to objects is probably breaking the api
+Mar 07 16:17:29 <kris>	mclasen: ;)
+Mar 07 16:17:48 <mclasen>	jdahlin: you need to make sure you handle the case of missing implementations
+Mar 07 16:17:59 -->	muntyan (~muntyan@pool-71-113-224-59.herntx.dsl-w.verizon.net) has joined #gtk-devel
+Mar 07 16:18:26 <jdahlin>	mclasen: true, good workaround
+Mar 07 16:19:23 <mclasen>	ok, we already talked quickly about the async filechooser status. Do you have anything to add, federico ?
+Mar 07 16:19:26 <federico>	kris: I just mailed you what I have so far to your @imendio address.  this is taking way longer than I expected.
+Mar 07 16:20:17 <kris>	great, thanks
+Mar 07 16:20:48 <mclasen>	ok, notebook signal problems were already discusses, we can skip that
+Mar 07 16:20:49 <federico>	mclasen: each of the big patched files is taking me half a day to check :(  I'm happy that it seems to work, modulo a few bugs.  
+Mar 07 16:21:06 <kris>	I plan to do fixes on the branch before we merge, but I guess that won't surprise anyone
+Mar 07 16:21:30 <mclasen>	federico: ok, then I guess we'll just have to wait until your review gets finished
+Mar 07 16:22:03 <mclasen>	my personal agenda item is bug 33360, which is about GtkAboutDialog
+Mar 07 16:22:20 <rambokid>	as for -Wl,--export-dynamic, the easy and good solution now is simply to remove gmoedule-2.0.pc and inform people to use gmodules-no-export-2.0.pc by default (in NEWS probably). that should fix the issue good enough. rationale was presented on gtk-devel-list today.
+Mar 07 16:22:39 <kris>	mclasen: you are missing a "3"
+Mar 07 16:23:02 <mclasen>	kris: too many 3's in bugs lately (I managed to file bug 333333...)
+Mar 07 16:23:08 <kris>	haha
+Mar 07 16:23:40 <mclasen>	rambokid: that has the potential to break the build of a lot of things though, doesn't it ?
+Mar 07 16:24:22 <mclasen>	if they have gmodule-2.0 in their list of required pc files...
+Mar 07 16:25:51 <jdahlin>	what about having gmodule-2.0 and gmodule-export-2.0 ?
+Mar 07 16:26:08 <gjc>	yes, that's what i was thinking too
+Mar 07 16:26:11 <mclasen>	jdahlin: currently we have gmodule-2.0, gmodule-no-export-2.0 and gmodule-export-2.0
+Mar 07 16:26:13 <rambokid>	mclasen: that is the whole point, really. because the third party packages need to switch to gmodules-no-export-2.0.pc. if you'd want a more subtle change, you could take the flag out of gmodule-2.0.pc and "just" deprecate it. that will break very few builds, but the few builds that break will be kinda hard to figure for some maintainers.
+Mar 07 16:26:56 <mclasen>	rambokid: I guess I'm just as conservative as owen... Would be nice if pkgconfig had a means of deprecating .pc filess
+Mar 07 16:27:18 <rambokid>	mclasen: so it's break all gmodule users in obvious ways (and have them read NEWS as a result), or break a few in a hard-to-figure manner. i prefer the first option because allthough some people won't like it, they won't have to spend endless hours debugging something stupid and hard to figure.
+Mar 07 16:27:56 <gjc>	it's not that hard to figure
+Mar 07 16:27:57 <rambokid>	mclasen: yeah, like have it spew a message if you usd a .pc file... kinda like the linking warning you get for mktemp() nowadays ;)
+Mar 07 16:28:29 <muntyan>	what about users building soft released a year ago, with dead maintainer?
+Mar 07 16:28:50 <gjc>	if applications have g_warning("plugin import failed %s", g_module_error()) when importing plugins, it will be quite obvious what's going on
+Mar 07 16:29:30 <rambokid>	gjc: it depends on where it breaks. if you depend on -Wl,--export-dynamic somewhere and it's suddenly gone, the exact error you're getting depends much on your code and build setup (could cause errors only during runtime even)
+Mar 07 16:29:32 <--	jrb has quit (Read error: 104 (Connection reset by peer))
+Mar 07 16:30:39 <rambokid>	gjc: so in general, it's very hard to figure. removing just gmodule-2.0.pc is very easy to figure though, and definitely breaks during the build process (at configure time even)
+Mar 07 16:31:10 <mclasen>	and doing that in 2.10.2 sounds ok to everybody ?
+Mar 07 16:31:37 <gjc>	i guess this is only a problem to distributions..
+Mar 07 16:31:45 <kris>	no strong opinion here,.
+Mar 07 16:32:05 ---	jdahlin is now known as jd-afk
+Mar 07 16:32:21 <rambokid>	mclasen: didn't you mean 2.10.1? that is the next release, right?
+Mar 07 16:32:32 <kris>	rambokid: 2.10.1 was released today
+Mar 07 16:32:56 <rambokid>	mclasen: i'd really like to get owen's opinion on whether it's ok to do that during a stable branch...
+Mar 07 16:33:24 <rambokid>	mclasen: wow, you already threw it out? (haven't fixed gtk+-2.8 yet even)
+Mar 07 16:33:51 <mclasen>	rambokid: I'll send mail to owen and cc you
+Mar 07 16:34:00 <rambokid>	mclasen: i cc:-ed him already.
+Mar 07 16:34:04 <mclasen>	rambokid: cool
+Mar 07 16:34:21 <federico>	kris: mailed you again - I just finished with gtkfilesystemmodel
+Mar 07 16:34:24 <mclasen>	ok, I'm on the way out
+Mar 07 16:34:30 <federico>	kris: damn, dude, you are smart.  That file scares me to death.
+Mar 07 16:34:40 <mclasen>	feel free to continue without me, sorry for being so short on time...
+Mar 07 16:34:44 <rambokid>	mclasen: you'll put up the log, right?
+Mar 07 16:34:52 <mclasen>	I'll make an honest attempt
+Mar 07 16:34:59 <rambokid>	good.
+Mar 07 16:35:11 <carol>	i can put the log online
+Mar 07 16:35:13 ---	You are now known as mclasen_away
+Mar 07 16:35:18 <kris>	federico: rewriting the _path_do function there was quite an experience
+Mar 07 16:36:16 <federico>	kris: yeah, it's really hard to understand what it is supposed to do
+Mar 07 16:36:26 <federico>	and it kills me that right now we don't really use it :)
+Mar 07 16:36:46 <kris>	yeah
+Mar 07 16:36:51 <kris>	we do at only 2 places or something
+Mar 07 16:36:53 <federico>	ok, I have to run to lunch
+Mar 07 16:36:56 <kris>	it was one of the last things I fixed
+Mar 07 16:36:59 <kris>	have a nice meal
+Mar 07 16:37:05 <federico>	kris: I mean, we don't use the multi-level tree right now
+Mar 07 16:37:13 <kris>	federico: true
+Mar 07 16:37:21 <federico>	but I want to replace ACTION_SELECT_FOLDER with a folder tree
+Mar 07 16:37:25 <kris>	I did bring up a file chooser with the multi-level tree once
+Mar 07 16:37:28 <federico>	to remove the ambiguities in "which folder am I selecting?"
+Mar 07 16:37:33 <kris>	oh, nice
+Mar 07 16:38:57 <federico>	ok, bbl
+Mar 07 16:39:17 <--	johannes_ has quit (... und tschüß)
+Mar 07 16:39:17 <federico>	kris: I hope I can be done with at least everything but gtkfilechooserdefault.c today
+Mar 07 16:39:57 <kris>	federico: would rock
+Mar 07 16:40:07 <kris>	ok, I guess we discussed everything but bug 333360 now
+Mar 07 16:40:09 <federico>	(that one also scares me) :)
+Mar 07 16:40:23 <kris>	i guess we can move 333360 to next week and close this meething?
+Mar 07 16:40:25 <kris>	meeting even
+Mar 07 16:40:48 -->	ijuma_home (~ijuma_hom@ismael.plus.com) has joined #gtk-devel
+Mar 07 16:40:54 ---	federico is now known as f_lunhc
+Mar 07 16:40:59 ---	f_lunhc is now known as f_lunch
+Mar 07 16:42:20 <carol>	Bug #333360, reported by dsd@gentoo.org: gtk+/2.8.x (UNCONFIRMED): GtkAboutDialog deletes upon delete_event but hides upon close button click - http://bugzilla.gnome.org/show_bug.cgi?id=333360
+Mar 07 16:42:39 <carol>	now you can close the meeting
+Mar 07 16:45:11 <kris>	ok then
+Mar 07 16:45:16 <kris>	we're done for today
+Mar 07 16:46:31 <ebassi>	kris: seems so :-)
