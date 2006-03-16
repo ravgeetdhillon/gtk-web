@@ -1,3 +1,8 @@
+2006-03-16  Matthias Clasen  <mclasen@redhat.com>
+
+	* projects.html: Break to a sane line length,
+	add link to gtkperf.
+
 2006-03-14  Matthias Clasen  <mclasen@redhat.com>
 
 	* plan/meetings/index.html: Last weeks meeting
