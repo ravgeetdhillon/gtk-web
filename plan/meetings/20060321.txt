@@ -1,0 +1,58 @@
+**** BEGIN LOGGING AT Tue Mar 21 15:36:40 2006
+
+Mar 21 15:58:03 <mclasen>	ok, should we start a few minutes early ?
+Mar 21 15:59:23 <mclasen>	I did not send out an agenda, so it is first come, first serve...
+Mar 21 16:02:12 <mclasen>	ok, so I finally sat down to look at the recent files code again
+Mar 21 16:02:24 <mclasen>	and I think we should start getting it integrated soon
+Mar 21 16:03:05 <mclasen>	it seems to work pretty well, and the code looks good to me 
+Mar 21 16:03:26 <jrb>	did you talk to orph at all?
+Mar 21 16:03:31 <jrb>	or poked him?
+Mar 21 16:03:33 <mclasen>	yes, 
+Mar 21 16:03:49 <jrb>	mclasen: did he have good feedback?
+Mar 21 16:03:53 <mclasen>	ebassi said that he had a chat with orph earlier
+Mar 21 16:04:18 <mclasen>	and that the current simple use of recent-files in gimmie seems easily portable to the new code
+Mar 21 16:04:26 <ebassi>	jrb: I had a short chat with orph. he needed a finer-grained signal handling that *could* be possible to add
+Mar 21 16:04:38 <mclasen>	orph said he would look at the recentchooser code and give some feedback
+Mar 21 16:05:10 <mclasen>	he did mention that what he would really like to see would be an "infinite log" of used files, and a way to get statistics off that...
+Mar 21 16:05:38 <ebassi>	mclasen: the bookmarkfile has no size limit, like the recent-files code had
+Mar 21 16:05:53 <ebassi>	mclasen: ne thing I forgot - we might need a global recent manager object
+Mar 21 16:06:09 <ebassi>	something attached to the screen, like the icon theme
+Mar 21 16:06:31 <mclasen>	ebassi: but just letting it grow without limits is probably not a good idea, performance-wise
+Mar 21 16:06:50 <ebassi>	mclasen: yep, we already have a "purge" API
+Mar 21 16:06:52 <mclasen>	might be better to have a "backup file" for not so recent files, and let that grow
+Mar 21 16:07:09 <mclasen>	then only the special apps that care about the full history need to parse it
+Mar 21 16:07:26 <ebassi>	sounds fine
+Mar 21 16:08:06 <mclasen>	ebassi: such a global recent manager object would also help with the performance implications of using recent files in the file chooser, I guess
+Mar 21 16:08:13 -->	ck (~ck@p54A2CD6B.dip.t-dialin.net) has joined #gtk-devel
+Mar 21 16:08:45 <ebassi>	mclasen: yep, especially if federico wants to add the recent directories into each file chooser
+Mar 21 16:09:26 <ebassi>	I don't think it's worth a function, though
+Mar 21 16:10:02 <ebassi>	just let the recentchooser/filechooser add it to the gdkscreen and then access it using g_object_set/get
+Mar 21 16:12:18 <mclasen>	for the icon theme we have _new(), _get_default(), _get_for_screen(), _set_screen(). We could use a similar set of functions for the recentmanager
+Mar 21 16:14:38 <--	deadchip has quit (If you have nothing to do, don't do it here.)
+Mar 21 16:15:01 <ebassi>	I don't think that it could be useful for the "general public": if the user wants to handle the recent manager himself, he can pass it to the widgets; if he doesn't, the widgets will automagically use the global manager themselves
+Mar 21 16:15:20 <ebassi>	he can pass his own instance, I mean
+Mar 21 16:18:01 <mclasen>	sounds good to me
+Mar 21 16:19:11 <mclasen>	martyn, are you here ?
+Mar 21 16:21:44 <rambokid>	he's off for the moment
+Mar 21 16:22:15 <mclasen>	I just wanted to make sure that he has seen the threadpool bug that I cc'ed him on
+Mar 21 16:24:08 <mclasen>	mitch: did you get the dnd registration problem sorted out ? I did not follow that bug in detail...
+Mar 21 16:25:58 <mitch>	mclasen: the patch i attached should fix it
+Mar 21 16:26:08 <mitch>	even in a clean way, unlike my fears
+Mar 21 16:26:18 <mclasen>	do you want me to look at it, or will you just commit it ?
+Mar 21 16:28:07 <rambokid>	ebassi: such a manager object should be usable from multiple toolkits though. so should be spec-ed out on freedesktop.org or the xdg list
+Mar 21 16:28:29 <ebassi>	rambokid: I'm going to send the storage format on xdg list
+Mar 21 16:28:40 <rambokid>	ebassi: great
+Mar 21 16:28:40 <ebassi>	I've already sent it, last year
+Mar 21 16:28:49 <ebassi>	got positive comments
+Mar 21 16:29:24 <mitch>	mclasen: i'll ask for confirmation whether the sourceview color dropping works and commit
+Mar 21 16:29:26 <rambokid>	mclasen: is that another threadpool bug than the one i talked about with martyn and he later discussed with you? (yesterday)
+Mar 21 16:29:35 <mitch>	mclasen: review can never hurt tho :)
+Mar 21 16:29:41 <mclasen>	rambokid: yes, another one
+Mar 21 16:29:54 <mclasen>	http://bugzilla.gnome.org/show_bug.cgi?id=335215
+Mar 21 16:30:52 <mclasen>	ah, before I need to run out 
+Mar 21 16:31:24 <mclasen>	I am always short on time for these meetings, so rambokid proposed to just move them half an hour earlier
+Mar 21 16:31:31 <mclasen>	is that ok for everybody ?
+Mar 21 16:31:37 <ebassi>	fine for me
+Mar 21 16:32:31 <mclasen>	ok, lets do half an hour earlier next week, then
+Mar 21 16:32:57 <mclasen>	I'm off. (I promise to try harder to get the logs posted, this week...)
+
