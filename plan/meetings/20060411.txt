@@ -1,0 +1,186 @@
+Apr 11 15:27:23 *	mclasen gets coffee
+Apr 11 15:32:35 <mclasen>	cool, alex is here
+Apr 11 15:32:39 <mclasen>	hey alex_away
+Apr 11 15:33:39 <mclasen>	alex_away: maybe we should start by discussing the status of the printing branch
+Apr 11 15:34:00 <alex>	ok
+Apr 11 15:34:10 <alex>	I think its in a pretty good status now
+Apr 11 15:34:59 <alex>	There are some things that are not in it at all yet
+Apr 11 15:35:03 <alex>	API docs
+Apr 11 15:35:13 <alex>	Print preview
+Apr 11 15:35:29 <alex>	adding app-specific widgets to the dialogs
+Apr 11 15:35:57 <alex>	Other than that i think its mostly "finished"
+Apr 11 15:36:03 <mclasen>	which of these do you think are blocking the merge ?
+Apr 11 15:36:24 <alex>	None really
+Apr 11 15:36:32 <mclasen>	one point I am slightly nervous about is the fact that we have no cairo 1.2 yet
+Apr 11 15:36:40 <alex>	yeah...
+Apr 11 15:36:57 <alex>	I'd like to have someone do a more thorough review too
+Apr 11 15:37:07 <alex>	jody did one a while ago
+Apr 11 15:37:16 <mclasen>	I never saw his comments
+Apr 11 15:37:20 <alex>	but i haven't seen the output from that unfortunately :(
+Apr 11 15:37:31 <alex>	Maybe we should ping him
+Apr 11 15:37:34 <mclasen>	oh, we should get that
+Apr 11 15:38:15 <alex>	API docs is a must for the release, but both print preview and app-specific tab is non-critical and can be punted to later versions if needed.
+Apr 11 15:38:26 <alex>	Its more important that we get the core solid
+Apr 11 15:39:44 <alex>	mclasen: Have you looked much at the printing branch?
+Apr 11 15:42:36 <mclasen>	alex: not too much, beyond the smallscale fixing I did here and there
+Apr 11 15:43:33 <mclasen>	alex: I think it would be great to look at converting one or two applications to the new printing api, to test the new api
+Apr 11 15:43:34 <alex>	I'm running out of things to fix, so the main thing i'd like at this point is someone with experience in the printing world looking at the apis
+Apr 11 15:43:46 <alex>	Didn't j5 do gedit?
+Apr 11 15:43:54 <alex>	or start on it at least
+Apr 11 15:43:58 <mclasen>	alex: hmm, I don't know if he did before he left
+Apr 11 15:44:03 <mclasen>	when is he back, btw ?
+Apr 11 15:44:09 <alex>	He was gonna do it on the plane
+Apr 11 15:44:15 <alex>	dunno when he'll be back
+Apr 11 15:44:19 <alex>	soon i think
+Apr 11 15:44:36 <mclasen>	I hear he may be back next week
+Apr 11 15:45:03 <mclasen>	alex: another person with printing experience is lewing, but his view may be a bit skewed...
+Apr 11 15:45:52 <jrb_>	he's at the conference right now
+Apr 11 15:46:08 <alex>	Is his experience only from f-spot work, or did he work on gnome-print?
+Apr 11 15:46:09 <jrb_>	alex: did you ever get jody to review it?
+Apr 11 15:46:25 <alex>	jrb_: Yeah, he spent a day at it, but then never posted the results...
+Apr 11 15:46:35 <dom>	gnumeric and abiword are 2 apps that absolutely need to print. getting them to do an API review would be great
+Apr 11 15:46:51 <mclasen>	alex: I think lewing is mostly about photo printing
+Apr 11 15:47:11 <mclasen>	with strong requirements about gamut matching, colorspace  conversion, and other odd things
+Apr 11 15:47:18 <alex>	yeah
+Apr 11 15:47:27 <alex>	thats all in cairo-land though
+Apr 11 15:48:40 <mclasen>	true
+Apr 11 15:49:43 <mclasen>	alex: so, I think it is a good idea to hold off with merging until j5 is back and can show us his gedit port, and jody has given us some feedback
+Apr 11 15:49:45 <alex>	dom: Did you look at the api?
+Apr 11 15:49:55 <dom>	alex: no, i haven't yet
+Apr 11 15:49:58 <alex>	mclasen: Sounds good to me
+Apr 11 15:50:09 <alex>	mclasen: I need to spend some time doing upstream gnome work
+Apr 11 15:50:20 <mclasen>	alex: in the meantime, we should maybe switch to starting api docs 
+Apr 11 15:50:43 <alex>	mclasen: yeah
+Apr 11 15:50:44 <mclasen>	alex: did you and j5 ever produce some kind of highlevel architecture overview writeup ?
+Apr 11 15:50:56 <mclasen>	was that in the summit slides ?
+Apr 11 15:51:10 <dom>	alex: do you have a link (viewcvs maybe?) to the relevant header?
+Apr 11 15:53:00 <mclasen>	there's jody
+Apr 11 15:53:22 <alex>	mclasen: only http://cvs.gnome.org/viewcvs/*checkout*/libegg/libegg/print-operation/README?rev=1.3 and the summit slides
+Apr 11 15:54:05 <alex>	jody: Did you write down stuff from your review of the printing work?
+Apr 11 15:54:06 <jody>	mclasen: I liked the api for the most part but did not have time to connect it to gnumeric.  My compaints were nit-picks rather than anything substantive
+Apr 11 15:54:31 <mclasen>	alex: ok, I may make an attempt to convert that to an overview section for the api docs
+Apr 11 15:54:53 <alex>	dom: http://cvs.gnome.org/viewcvs/*checkout*/gtk%2B/gtk/gtkprintoperation.h?rev=1.1.2.7 is a good start
+Apr 11 15:55:02 <dom>	alex: thanks. i was just browsing it
+Apr 11 15:56:02 <jody>	alex: The main items were the use of gtk_print_operation_set_unit, and falling into the same UI pitfall as gnomeprintui for lists
+Apr 11 15:56:33 <alex>	jody: What do you think is problematic with _set_unit?
+Apr 11 15:56:44 <jody>	alex: gtk_print_operation_set_unit seemed to control the display unit for margins and paper sizes
+Apr 11 15:57:16 <alex>	jody: It shouldn't
+Apr 11 15:57:28 <jody>	even if we assume some locale dependent default value that is going to make a mess
+Apr 11 15:57:42 <alex>	jody: It only affects the coordinate space of the cairo_t you get from the print context
+Apr 11 15:58:20 <jody>	hmm, then why was I seeing paper/margins in cm for US Letter ?
+Apr 11 15:58:20 <mclasen>	seems api docs would help review as well...
+Apr 11 15:58:45 *	jody thought that was tied to the _set_unit call
+Apr 11 15:58:48 <alex>	jody: All the api for setting/getting paper size and margins have a unit argument
+Apr 11 15:58:51 <dom>	jody: canada uses the metric system, but us paper sizes?
+Apr 11 15:59:04 <dom>	so maybe it defaults to canadian units
+Apr 11 15:59:06 <jody>	dom: yes
+Apr 11 15:59:16 <alex>	jody: We do however try to auto-detect what units to use in the ui
+Apr 11 15:59:24 <alex>	maybe that is the problem
+Apr 11 15:59:56 <mclasen>	alex: that reminds me (via gettext()) of a question I had about the paper names
+Apr 11 16:00:07 <jody>	alex: I suspect the unit should get loaded from the paper type
+Apr 11 16:00:15 <mclasen>	alex: theres a lot of strings marked N_(), but you never call gettext() on them...
+Apr 11 16:00:30 <alex>	mclasen: oh, thats a bug...
+Apr 11 16:00:45 <alex>	jody: Really?
+Apr 11 16:00:48 <mclasen>	alex: easy enough to fix, I'll do it
+Apr 11 16:01:04 <alex>	jody: So, europeans would see the size of a letter paper in inch?
+Apr 11 16:01:45 <jody>	alex: It seems consistent to display paper size in native units
+Apr 11 16:02:03 <jody>	the margins are a tougher call
+Apr 11 16:02:48 <jody>	but when you feed in 8.5x11in, displaying it as 21.59x27.94cm seems odd
+Apr 11 16:03:49 <alex>	odd perhaps, but for a european its clearly easier to tell what size that would be
+Apr 11 16:03:56 <jody>	For all of the lists I'd also reccomend avoiding gnomeprintui's 'dump it in a list' approach
+Apr 11 16:04:16 <jody>	There was alot of complaint about long lists of printers and paper sizes
+Apr 11 16:04:31 <alex>	What would you recommend then?
+Apr 11 16:05:00 <jody>	Adding a MRU collection with a sub menu/dialog with the full list
+Apr 11 16:05:06 <alex>	jody: get_default_user_units() in http://cvs.gnome.org/viewcvs/*checkout*/gtk%2B/gtk/gtkpagesetupunixdialog.c?rev=1.1.2.10 
+Apr 11 16:06:37 <alex>	jody: I'm more worried about the API anyway
+Apr 11 16:06:43 <alex>	jody: We can tweak the ui later
+Apr 11 16:07:28 <jody>	alex: I thought as much which is why my goal is to actually use it.  On reading it seemed a delight after gnomeprint
+Apr 11 16:07:39 <alex>	jody: cairo helps a lot
+Apr 11 16:08:09 <alex>	One thing that i think might bite people is the pango-layout issue
+Apr 11 16:08:31 <alex>	i.e. you can't create pangolayouts as you do normally
+Apr 11 16:08:48 <alex>	because then you'll get one targeted to the screen
+Apr 11 16:09:08 <alex>	gtk_print_context_create_layout (GtkPrintContext *context)
+Apr 11 16:09:12 <alex>	you have to use that
+Apr 11 16:09:54 <jody>	alex: that came up in gnomeprint too, I think people will expect it.
+Apr 11 16:10:30 <dom>	alex: is there a way to get the pango font map for a GtkPrintContext?
+Apr 11 16:10:39 <jody>	alex: although we are still fighting with what may require some pango api to help map layouts from the screen onto the printer context
+Apr 11 16:10:41 <alex>	gtk_widget_create_pango_layout
+Apr 11 16:11:07 <alex>	that sets the bidi direction automatically, while gtk_print_context_create_layout doesn't
+Apr 11 16:11:23 <alex>	dom: gtk_print_context_get_fontmap
+Apr 11 16:11:29 <dom>	alex: gorgeous
+Apr 11 16:12:03 <jody>	alex: the battle to know what the screen pango context is using as a dpi is troublesome
+Apr 11 16:12:12 <alex>	dom: or gtk_print_context_create_context, or gtk_print_context_create_layout for helper functions
+Apr 11 16:12:28 <mclasen>	alex: do you expect the paper names to actually be translated ? 
+Apr 11 16:12:48 <alex>	mclasen: I'm uncertain about that actually.
+Apr 11 16:13:11 <alex>	mclasen: I think i decided that it makes sense for some paper names
+Apr 11 16:13:25 <alex>	i.e. "Japanese Double Postcard"
+Apr 11 16:13:38 <mclasen>	japanische Dopppelpostkarte
+Apr 11 16:13:38 <alex>	But i don't think "Letter" should be translated...
+Apr 11 16:13:56 <alex>	tricky
+Apr 11 16:13:58 <jody>	mclasen: translating the paper size does make sense, although for persistence we need to ensure that a unique untranslated name is used
+Apr 11 16:14:24 <alex>	jody: We always persist the PWG 5101.1-2002 PWG name
+Apr 11 16:14:27 <jody>	alex: s/Letter/US Letter/ and it seems translatable
+Apr 11 16:14:39 <jody>	alex: good, that will handle custom names nicely
+Apr 11 16:14:54 *	jody is pushing MS to adopt that in place of it's massive ugly enum
+Apr 11 16:15:01 <jody>	for office 12
+Apr 11 16:15:06 <behdad>	ah, missed again :(
+Apr 11 16:15:12 <alex>	You're in a position to push MS?
+Apr 11 16:15:26 <alex>	anyway, the win32 enum is teh suck
+Apr 11 16:15:37 <alex>	The enum was extended in WinXP
+Apr 11 16:15:44 <alex>	how are old apps supposed to handle that?
+Apr 11 16:15:47 *	jody is on the ecma tc45 (office 12 file format)
+Apr 11 16:15:54 <alex>	just getting a new enum value returned??
+Apr 11 16:16:04 <mclasen>	map to the closest old size ?
+Apr 11 16:16:17 <alex>	mclasen: Its just a random set of enums...
+Apr 11 16:16:28 <jody>	alex: the apps don't handle the enum directly, they just pass it around
+Apr 11 16:16:59 <alex>	What if you want to e.g. display the size of the paper selected?
+Apr 11 16:17:02 <jrb_>	behdad: http://rafb.net/paste/results/4C4XIN87.html
+Apr 11 16:17:10 <jody>	alex: if they load something with a new value on an old OS without the enum I suspect it'll just fail
+Apr 11 16:17:42 <behdad>	jrb_: thanks.
+Apr 11 16:17:46 <alex>	I had to implement a COM object in C today
+Apr 11 16:17:48 <alex>	bleaugh
+Apr 11 16:17:58 <jody>	alex: they need to ask windows for the size associated with the enum.
+Apr 11 16:18:02 <jody>	ick
+Apr 11 16:18:09 <alex>	jody: Is there an API call for that?
+Apr 11 16:18:14 <alex>	jody: i never found one
+Apr 11 16:20:10 <jody>	alex: DeviceCapabilities (... DC_PAPERSIZE, res, NULL)
+Apr 11 16:20:27 <jody>	there's code in libgnomeprint/libgnomeprint/modules/win32/gnome-print-win32.c
+Apr 11 16:22:08 <mclasen>	alex, jody: will it be possible to write a meaningful "porting guide" for going from libgnomeprint to gtk-printing ?
+Apr 11 16:22:26 <alex>	jody: Interesting...
+Apr 11 16:22:31 <jody>	alex: Will it be possible to use GtkPrintSettings without calling gtk_init ?
+Apr 11 16:22:39 <alex>	mclasen: I actually never used gnomeprint...
+Apr 11 16:22:50 <mclasen>	alex: good point
+Apr 11 16:23:14 <jody>	mclasen: it's feasible.  Most gnomeprint code was cut-n-paste
+Apr 11 16:23:25 <alex>	void                    gtk_print_operation_set_show_dialog        (GtkPrintOperation  *op,
+Apr 11 16:23:25 <alex>									    gboolean            show_dialog);
+Apr 11 16:23:39 <alex>	That was supposed to be used for console apps
+Apr 11 16:24:02 <alex>	Hopefully it'll work without gtk_init with that
+Apr 11 16:24:07 <alex>	i'm not sure
+Apr 11 16:24:22 <alex>	And I'm not actually sure i implemented that
+Apr 11 16:24:28 <mclasen>	alex: gtk_init does things like calling setlocale(), etc
+Apr 11 16:24:47 <jody>	alex: my goal is to support the creation of a GtkPrintSettings to store the settings for importers/exporters
+Apr 11 16:24:57 <mclasen>	alex: so, thats probably another thing to write a little demo app for; printing from the console
+Apr 11 16:25:05 <jody>	without requiring a gui
+Apr 11 16:25:29 <alex>	mclasen: clearly you'd have to initialize gobject, locale etc manually
+Apr 11 16:25:40 <alex>	jody: I'll look into it
+Apr 11 16:25:49 <mclasen>	right, thus a demo app to figure out and demonstrate what you have to do manually...
+Apr 11 16:25:58 <jody>	alex: It also wasn't clear how you'd send custom ps/pdf to a printer
+Apr 11 16:26:30 <alex>	jody: The cross-platform api doesn't really support that
+Apr 11 16:26:33 <jody>	mclasen: alternatively, could GtkPrintSettings live in glib ?
+Apr 11 16:26:56 <alex>	jody: If you use the unix-only apis it should be possible
+Apr 11 16:28:04 <jody>	alex: that would be fine, OOo is very unlikely to be using gtk on win32
+Apr 11 16:28:11 <alex>	that is the plan
+Apr 11 16:29:01 <mclasen>	ok, I have to pack up in a few minutes
+Apr 11 16:29:18 <alex>	gboolean                 gtk_print_job_set_source_file (GtkPrintJob              *print_job,
+Apr 11 16:29:18 <alex>								const char               *filename,
+Apr 11 16:29:18 <alex>								GError                  **error);
+Apr 11 16:29:26 <alex>	thats what you use to send a custom file
+Apr 11 16:29:52 <mclasen>	so, we agreed to postpone any print branch merges until next week, and work on api docs in the meantime, right ?
+Apr 11 16:30:02 <alex>	yeah
+Apr 11 16:31:02 <mclasen>	before I leave, federico said that he's still stuck in bugfighting, and hasn't had a chance to look more at the async-filechooser branch
+Apr 11 16:31:17 <mclasen>	and I haven't seen kris in a while, so I don't know how close to mergable that branch is...
+Apr 11 16:32:09 <jody>	mclasen: http://bugzilla.gnome.org/show_bug.cgi?id=332266 ?
+Apr 11 16:32:10 <ebassi>	mclasen: as soon as the async branch lands, and federico lands his changes to the filechooser, I can add recent files support too
+Apr 11 16:33:33 <mclasen>	jody: do you have any answers to behdad's questions ?
+Apr 11 16:33:49 <mclasen>	ebassi: have a patch ?
+Apr 11 16:34:00 <mclasen>	have to go, sorry. see you next week
