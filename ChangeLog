@@ -1,3 +1,7 @@
+2006-05-15  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: Add GLib 2.11.1
+
 2006-05-15  Murray Cumming  <murrayc@murrayc.com>
 
 	* bindings.html: Update the Gtk# entry, and added 
