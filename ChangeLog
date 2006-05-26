@@ -1,3 +1,7 @@
+2006-05-26  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: Add GLib 2.10.3
+
 2006-05-16  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add GTK+ 2.9.1
