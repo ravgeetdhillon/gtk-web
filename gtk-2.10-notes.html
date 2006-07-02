@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>GTK+ - GTK+-2.10 Release notes</title>
+
+<!--#include file="site_top.html" -->
+
+<pre>GTK+ 2.10 Specific Notes
+========================
+
+* The hexadecimal Unicode input feature has been reworked. It no longer
+  blocks the use of the sixteen Ctrl-Shift-&lt;hex digit&gt; key sequences. Now
+  it only uses Ctrl-Shift-u.
+
+* A memory leak in GtkStyle handling has been fixed. This may expose bugs
+  in third-party widgets which forget to call gtk_style_attach() in their
+  realize functions.
+
+* Range widgets like GtkScrollbar now render their arrows insensitive
+  when the slider is at the end. Applications which react to arrow
+  clicks even if the slider is at the end may want to use the new
+  gtk_range_set_[upper/lower]_stepper_sensitivity() functions to
+  prevent the arrows from being rendered insensitive.
+
+* GtkObject now uses the "floating reference" support in GObject. 
+  GTK_OBJECT_IS_FLOATING() will still work, but direct checking
+  of the GTK_FLOATING flag will no longer detect the floating 
+  reference. Details about floating references can be found in the docs:
+  <a href="http://developer.gnome.org/doc/API/2.0/gobject/gobject-The-Base-Object-Type.html#floating-ref">http://developer.gnome.org/doc/API/2.0/gobject/gobject-The-Base-Object-Type.html#floating-ref</a>
+
+* Accelerators like (_F) are now stripped from labels when they are 
+  displayed in toolbars. If this is not wanted, the feature can be 
+  suppressed by inserting a Unicode control character, e.g ZWNJ.
+
+* The pixbuf theme engine can now customize expanders (in GtkTreeView
+  and GtkExpander) and resize grips, using the new EXPANDER and
+  RESIZE_GRIP function values.
+
+* Dialogs created by gtk_about_dialog_new() no longer hide automatically
+  when the user clicks close. It is the applications responsibility to
+  hide or destroy the dialog.
+
+* Several new signals have been added to GtkNotebook. Care has been taken
+  to choose signal names which do not collide with signals added by well-known
+  derived classes. The names which can no longer be used for signals in 
+  objects derived from GtkNotebook are page-reordered, page-removed and
+  page-added.
+
+* Due to the interface changes in the file chooser backend interface, 
+  the GTK+ ABI version has been bumped to 2.10.0. Third-party filesystem 
+  backends have to be ported to the new interface, other modules, such as 
+  theme engines, input method modules or pixbuf loaders have to be rebuilt 
+  so that they are installed in the right place for GTK+ to find them.
+
+How to report bugs
+==================
+
+Bugs should be reported to the GNOME bug tracking system.
+(<a href="http://bugzilla.gnome.org">http://bugzilla.gnome.org</a>, product gtk+.) You will need to create an
+account for yourself.
+  
+In the bug report please include:
+  
+* Information about your system. For instance:
+
+   - What operating system and version
+   - What version of X
+   - For Linux, what version of the C library
+
+  And anything else you think is relevant.
+
+* How to reproduce the bug. 
+
+  If you can reproduce it with the testgtk program that is built in the
+  gtk/ subdirectory, that will be most convenient.  Otherwise, please
+  include a short test program that exhibits the behavior.  As a last
+  resort, you can also provide a pointer to a larger piece of software
+  that can be downloaded.
+
+* If the bug was a crash, the exact text that was printed out when the
+  crash occured.
+
+* Further information such as stack traces may be useful, but is not
+  necessary. If you do send a stack trace, and the error is an X error,
+  it will be more useful if the stacktrace is produced running the test
+  program with the --sync command line option.
+
+Patches
+=======
+
+Patches should also be submitted to bugzilla.gnome.org. If the patch
+fixes an existing bug, add the patch as an attachment to that bug
+report.
+
+Otherwise, enter a new bug report that describes the patch, and attach
+the patch to that bug report.
+
+Bug reports containing patches should include the PATCH keyword in their
+keyword fields. If the patch adds to or changes the GTK programming
+interface, the API keyword should also be included.
+  
+Patches should be in unified diff form. (The -u option to GNU diff.)
+</pre>
+
+<!--#include file="site_bottom.html" -->
+
+</html>
