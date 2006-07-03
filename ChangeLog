@@ -1,3 +1,11 @@
+2006-07-03  Matthias Clasen  <mclasen@redhat.com>
+
+	* glib-2.12-announcement.html:
+	* gtk-2.10-announcement.html:
+	* index.html: Add the release announcements
+	manually, since mail archives seeem still
+	broken.
+
 2006-07-02  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add releases
