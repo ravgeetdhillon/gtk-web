@@ -1,3 +1,7 @@
+2006-07-10  Matthias Clasen  <mclasen@redhat.com>
+
+	* download/index.html: Updates
+
 2006-07-04  Emmanuele Bassi  <ebassi@gnome.org>
 
 	* papers+slides.html: Add a link to my guadec 2006 slides.
@@ -24,7 +28,7 @@ Tue Jul  4 16:01:16 2006  Tim Janik  <timj@imendio.com>
 	* gtk-2.10-notes.html: New file
 
 2006-06-20  Matthias Clasen  <mclasen@redhat.com>
-
+	
 	* index.html: Add GLib 2.11.4
 
 2006-06-13  Matthias Clasen  <mclasen@redhat.com>
