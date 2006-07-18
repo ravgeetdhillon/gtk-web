@@ -1,5 +1,9 @@
 2006-07-18  Murray Cumming  <murrayc@murrayc.com>
 
+	* bindings.html: Added td nodes to remove blank spaces in the table.
+
+2006-07-18  Murray Cumming  <murrayc@murrayc.com>
+
 	* bindings.html: Mention 2.10.
 	Add lua-gtk, and update information on the GtkAda, based on emails 
 	to language-bindings.
