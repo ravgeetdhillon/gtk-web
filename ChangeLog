@@ -1,3 +1,9 @@
+2006-07-18  Murray Cumming  <murrayc@murrayc.com>
+
+	* bindings.html: Mention 2.10.
+	Add lua-gtk, and update information on the GtkAda, based on emails 
+	to language-bindings.
+
 2006-07-10  Behdad Esfahbod  <behdad@gnome.org>
 
 	* index.html: Add releases.
