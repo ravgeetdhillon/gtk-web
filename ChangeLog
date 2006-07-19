@@ -1,3 +1,7 @@
+2006-07-20  Kristian Rietveld  <kris@gtk.org>
+
+	* papers+slides.html: add mitch' talk on GTypeModule.
+
 2006-07-18  Murray Cumming  <murrayc@murrayc.com>
 
 	* bindings.html: Added td nodes to remove blank spaces in the table.
