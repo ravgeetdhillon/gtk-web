@@ -31,6 +31,31 @@
       <h2 class="section-heading">News</h2>
 
       <!-- NOTE: Change the contents for each page -->
+<h3>GTK-Doc 1.8 (Feb 16 2007) </h3>
+<ul>
+<li>Made it easier to include example code in the source code comment blocks.
+   "|[ ... ]|" can be used to delineate example code (it just gets converted
+   to "&lt;informalexample&gt;&lt;programlisting&gt;"), and most of the text in example
+   code is left as it is. The only thing that is still expanded is
+   '#' to allow links to a symbol's documentation, e.g. '#GtkWidget'.
+<li>Made the field widths wider for the HTML output, so it looks a bit nicer.
+<li>Added a '--rebuild-sections' option to gtkdoc-scan to automatically rebuild
+   the MODULE-sections.txt file. This only works if all the header files are
+   organized neatly and functions don't need rearranging in the docs.
+<li>Added a '--rebuild-types' option to gtkdoc-scan to automatically rebuild
+   the MODULE.types file, so you don't need to add new types manually.
+<li>Leave CDATA sections as they are, in the extra XML content files and within
+   source code comment blocks.
+<li>Allow the section id and #include's to be set within the "SECTION:" comment
+   block, using "@Section_ID:xxx" and "@Include:".
+<li>Added "--default-includes" option to specify the default #include's (for
+   people who are using --rebuild-sections and so can't specify it in
+   MODULE-sections.txt).
+<li>Added a '--query-child-properties' argument to help document child
+   properties of arbitrary GObjects (used by things like canvas widgets).
+<li>Fixed documentation of signals of interfaces.
+</ul>
+
 <h3>GTK-Doc 1.7 (Jul 29 2006) </h3>
 
 <ul>
