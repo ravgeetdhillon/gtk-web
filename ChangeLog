@@ -1,3 +1,18 @@
+2007-03-18  Tshepang Lekhonkhobe
+
+	* index.html, oldnews.html: transferred most NEWS entries from
+	former to latter.
+
+	* index.html: made release names link to release announcements
+	to reduce eyesore. updated info on the GTK+ 2.x box
+
+	* people.html: updated GTK+ 2.0 and 2.2 links to be a 2.10 link.
+	changed bugzilla link to be GTK+-specific.
+	
+	* introduction.html: updated link to Glade.
+	
+	* debian.html: purged due to being obsolete and unlinked-to.
+
 2007-01-18  Behdad Esfahbod  <behdad@gnome.org>
 
 	* index.html: New releases
