@@ -9,7 +9,7 @@ else
   exit 1
 fi
 
-rsync -rlt --delete --exclude-from=$CVSDIR/install.exclude $CVSDIR/ $INSTALLDIR/
+rsync -rlt --omit-dir-times --delete --exclude-from=$CVSDIR/install.exclude $CVSDIR/ $INSTALLDIR/
 
 make_link () {
   from=$1

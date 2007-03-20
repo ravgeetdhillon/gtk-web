@@ -1,3 +1,12 @@
+Tue Mar 20 10:46:35 2007  Tim Janik  <timj@gtk.org>
+
+	* gtk+-1.2-Changes.html:
+	* gtk+-1.2-NEWS.html:
+	* glib-1.2-NEWS.html: fixed SSI paths.
+
+	* install.exclude:
+	* install.sh: fixed rsync installation command for SVN.
+
 2007-03-18  Tshepang Lekhonkhobe
 
 	* index.html, oldnews.html: transferred most NEWS entries from
