@@ -1,76 +1,73 @@
-<html>
-<head>
-<title>GTK+ - Bug Tracker</title>
-
+<!--#include file="site_begin.html" -->
 <!--#include file="site_top.html"-->
 
 <!--#include file="section_begin.html"-->
 How to report bugs in GTK+
 <!--#include file="section_end.html"-->
 
-<P>
-(The following is taken from the <A HREF="/faq/">FAQ</A>.)
-</P><P>
+<p>
+(The following is taken from the <A href="/faq/">FAQ</a>.)
+</p><p>
 Bugs should be reported to the GNOME bug tracking system 
-(<A HREF="http://bugzilla.gnome.org/">http://bugzilla.gnome.org</A>). You will 
+(<A href="http://bugzilla.gnome.org/">http://bugzilla.gnome.org</a>). You will 
 need to enter your email address and receive a password before you can use the 
 system to register a new bug report.
-</P><P>
+</p><p>
 There are a number of options to select and boxes to fill in when submitting a 
 bug report. Please remember that the more information you give, the easier it 
 will be to track the problem down. Extra information that may prove useful includes:
-<P>
+<p>
 <I>How to reproduce the bug.</I>
-</P>
-<UL>
-<P>
+</p>
+<ul>
+<p>
 If you can reproduce it with the testgtk program that is built in the gtk/ 
 subdirectory, that will be most convenient. Otherwise, please include a short 
 test program that exhibits the behavior. As a last resort, you can also provide 
 a pointer to a larger piece of software that can be downloaded.
-</P><P>
+</p><p>
 (Bugs that can be reproduced within the GIMP are almost as good as bugs that can 
 be reproduced in testgtk. If you are reporting a bug found with the GIMP, please 
 include the version number of the GIMP you are using)
-</P><P>
-</UL>
-<P>
+</p><p>
+</ul>
+<p>
 <I>If the bug was a crash, the exact text that was printed out when the crash 
 occurred.</I>
-</P><P>
+</p><p>
 <I>Further information such as stack traces may be useful, but are not necessary.</I> 
-<UL>
+<ul>
 If you do send a stack trace, and the error is an X error, it will be more useful 
 if the stacktrace is produced running the test program with the --sync command 
 line option.
-</UL>
-</P>
+</ul>
+</p>
 
 <!--#include file="section_begin.html"-->
 How we use Bugzilla
 <!--#include file="section_end.html"-->
 
-<P>
+<p>
 This information below is mostly useful for people who try to work 
 on the bugs in Bugzilla.
-</P>
-<P>
+</p>
+<p>
 <I>Component</I>
-</P>
-<UL>
-<P>
+</p>
+<ul>
+<p>
 We are moving towards more fine-grained components, to make the large number
 of open bugs more manageable. Some of the more complex widgets have their
 own component now, others are grouped together, e.g. the "combobox" component
 is used for bugs related to GtkCombo, GtkOptionMenu, GtkEntryCompletion and
 GtkComboBox.
-</P>
-</UL>
-<P>
+</p>
+</ul>
+<p>
 <I>State</I>
-</P>
-<UL>
-<P>
+</p>
+<ul>
+<p>
 We do not use the UNCONFIRMED state, bugs in the UNCONFIRMED and NEW states
 are treated the same. Bugs will generally stay in the NEW state until 
 they are either resolved in some way or moved to the NEEDINFO state. The 
@@ -79,36 +76,36 @@ is needed. The bug reporter is expected to reopen the bug if he provides
 the requested information. We occasionally close bugs which have been in 
 the NEEDINFO state for a long time (at least 6 months) without any response 
 from the bug reporter.
-</P>
-</UL>
-<P>
+</p>
+</ul>
+<p>
 <I>Priority and Severity</I>
-</P>
-<UL>
-<P>
+</p>
+<ul>
+<p>
 We generally don't pay much attention to these fields, except for the use
 of the Priority field to denote "must fix" bugs for a certain release.
-</P>
-</UL>
-<P>
+</p>
+</ul>
+<p>
 <I>Milestones</I>
-</P>
-<UL>
-<P>
+</p>
+<ul>
+<p>
 An unmilestoned bug has not been looked at in depth yet. Milestones of GTK+ 
 bugs generally indicate the next version in which the bug <I>can</I> be fixed 
 - there is no guarantee that the bug <I>will</I> be fixed in that version.
 We use the priority field to distinguish "must fix" bugs for a version. Bugs
 with milestone x.y.z and priority High are the ones which we consider 
 "must fix" bugs for release x.y.z.
-</P>
-<P>
+</p>
+<p>
 Starting with the 2.8 development cycle, we will try a new approach to
 milestones that is closer to how we work with bugs and will hopefully 
 let us avoid moving an ever-growing mountain of bugs from milestone to
 milestone.
-</P>
-<P>
+</p>
+<p>
 We keep the idea of the 3 "current work" milestones, 
 <ul>
  <li><p>2.6.x</p>
@@ -124,8 +121,8 @@ following criteria is met:
 All other bugs are assigned to a set of "pool milestones". These are 
 groups of bugs that are intended to help people figure out what bugs
 they should sign up to fix for a milestone.
-</P>
-<P>
+</p>
+<p>
 Here is a list of our current pool milestones:
 <dl>
  <dt>Need diagnosis
@@ -153,38 +150,38 @@ Here is a list of our current pool milestones:
  <dt>Big API
  <dd><p>Big API additions (1 week to 1 year)</p>
  </dl>
-</P>
-</UL>
-<P>
+</p>
+</ul>
+<p>
 <I>Keywords</I>
-</P>
-<UL>
-<P>
+</p>
+<ul>
+<p>
 A number of keywords are used regularly with GTK+ bugs, none of them
 are used 100% consistently. The more common ones are:
-<UL>
-<LI><P><B>PATCH</B> a possible patch is attached to the bug. Note that not
+<ul>
+<LI><p><b>PATCH</b> a possible patch is attached to the bug. Note that not
   all bugs with attached patches automatically get this keyword. If a patch
   is found unsuitable for some reason, the PATCH keyword is removed.
   The PATCH keyword is no longer needed today, since Bugzilla can query
   for bugs with patches now.
-<LI><P><B>easy-fix</B> marks bugs which are considered relatively
+<LI><p><b>easy-fix</b> marks bugs which are considered relatively
   straightforward to fix, so that volunteers have a good chance of producing
   an acceptable fix.
-<LI><P><B>PATCH_NEEDED</B> indicates that we need help with this because 
+<LI><p><b>PATCH_NEEDED</b> indicates that we need help with this because 
   either we don't care enough to fix it ourselves, or it's something we have 
   no clue about.
-<LI><P><B>API</B> bug involves API changes. 
-<LI><P><B>string</B> bug involves string changes.
-<LI><P><B>keynav</B> bug has something to do with keyboard navigation.
-<LI><P><B>accessibility</B> issues like widgets which fail to implement
+<LI><p><b>API</b> bug involves API changes. 
+<LI><p><b>string</b> bug involves string changes.
+<LI><p><b>keynav</b> bug has something to do with keyboard navigation.
+<LI><p><b>accessibility</b> issues like widgets which fail to implement
     accessibility interfaces.
-<LI><P><B>portability</B> issues like build failures on certain platforms.
-<LI><P><B>multihead</B> marks bugs having to do with the support for
+<LI><p><b>portability</b> issues like build failures on certain platforms.
+<LI><p><b>multihead</b> marks bugs having to do with the support for
  multiple screens/displays. 
-</UL>
-</P>
-</UL>
+</ul>
+</p>
+</ul>
 
 <!--#include file="site_bottom.html"-->
 

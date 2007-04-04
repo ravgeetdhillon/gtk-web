@@ -1,3 +1,48 @@
+2007-03-29 Tshepang Lekhonkhobe <tshepang@gmail.com>
+	* glib-1.2-NEWS.html:
+	* gtk-2.10-notes.html:
+	* section_end.html:
+	* gtk-2.10-announcement.html:
+	* box_begin.html:
+	* bindings.html:
+	* box_middle.html:
+	* announce.html:
+	* gtk-2.0.0-notes.html:
+	* gtk-2.4.0-notes.html:
+	* about.html:
+	* oldnews.html:
+	* atk-1.0.0-announce.html:
+	* books.html:
+	* gtk-2.8.0-notes.html:
+	* translations.html:
+	* introduction.html:
+	* site_top.html:
+	* tutorials.html:
+	* projects.html:
+	* mailinglists.html:
+	* bugs.html:
+	* papers+slides.html:
+	* documentation.html:
+	* glib-2.0.0-announce.html:
+	* box_end.html:
+	* glib-2.10.0-notes.html:
+	* people.html:
+	* gtk+-2.0.0-announce.html:
+	* 2.0.0-announce.html:
+	* gtk+-1.2-Changes.html:
+	* section_begin.html:
+	* gtk-2.2.0-notes.html:
+	* gtk+-1.2-NEWS.html:
+	* gtk-2.6.0-notes.html:
+	* glib-2.12-announcement.html:
+	* mirrors.html:
+	* pango-1.0.0-announce.html:
+	* site_begin.html: this was added and 'linked' in all above files; it
+	contains the doctype and some other related info.
+	* index.html: This is the only file I ensured to be valid "XHTML 1.0
+	Transitional".
+
+
 Tue Mar 20 10:46:35 2007  Tim Janik  <timj@gtk.org>
 
 	* gtk+-1.2-Changes.html:
