@@ -1,3 +1,7 @@
+Fri Apr 13 16:24:19 2007  Tim Janik  <timj@gtk.org>
+
+	* index.html: added a section about contributing to Gtk+.
+
 2007-04-12 Tshepang Lekhonkhobe <tshepang@gmail.com>
 
 	* index.html: Pango 1.16.2 release
