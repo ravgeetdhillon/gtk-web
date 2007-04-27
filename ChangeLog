@@ -1,5 +1,9 @@
 2007-04-27  Behdad Esfahbod  <behdad@gnome.org>
 
+	* index.html: Pango 1.16.4 release
+
+2007-04-27  Behdad Esfahbod  <behdad@gnome.org>
+
 	* download/index.html: Update stable Pango version to 1.16
 
 Fri Apr 13 16:24:19 2007  Tim Janik  <timj@gtk.org>
