@@ -1,3 +1,7 @@
+2007-04-27  Behdad Esfahbod  <behdad@gnome.org>
+
+	* download/index.html: Update stable Pango version to 1.16
+
 Fri Apr 13 16:24:19 2007  Tim Janik  <timj@gtk.org>
 
 	* index.html: added a section about contributing to Gtk+.
