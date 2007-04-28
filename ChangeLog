@@ -1,3 +1,50 @@
+2007-04-28  Martyn Russell  <martyn@imendio.com>
+
+	* glib-1.2-NEWS.html:
+	* beos/index.old.html:
+	* beos/index.html:
+	* gtk-2.10-notes.html:
+	* gtk-2.10-announcement.html:
+	* bindings.html:
+	* apps/alphabetically.html:
+	* apps/by_category.html:
+	* success/index.html:
+	* announce.html:
+	* news/submit.html:
+	* news/index.html:
+	* gtk-2.4.0-notes.html:
+	* about.html:
+	* oldnews.html:
+	* books.html:
+	* translations.html:
+	* introduction.html:
+	* tutorials.html:
+	* site_top.html:
+	* projects.html:
+	* mailinglists.html:
+	* bugs.html:
+	* documentation.html:
+	* papers+slides.html:
+	* glib-2.10.0-notes.html:
+	* people.html:
+	* plan/2.10/index.html:
+	* plan/2.4/willfix.html:
+	* plan/2.4/index.html:
+	* plan/2.6/index.html:
+	* plan/ideas/index.html:
+	* plan/2.8/index.html:
+	* plan/index.html:
+	* plan/meetings/index.html:
+	* gtk+-1.2-Changes.html:
+	* download/index.html:
+	* gtk+-1.2-NEWS.html:
+	* glib-2.12-announcement.html:
+	* site_bottom.html:
+	* screenshots/index.html:
+	* mirrors.html:
+	* api/index.html:
+	* index.html: Updated to remove the executable property.
+
 2007-04-27  Behdad Esfahbod  <behdad@gnome.org>
 
 	* index.html: Pango 1.16.4 release
