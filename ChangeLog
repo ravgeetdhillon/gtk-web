@@ -1,5 +1,11 @@
 2007-04-28  Martyn Russell  <martyn@imendio.com>
 
+	* MAINTAINERS:
+	* install.exclude: Added myself and Tim to the MAINTAINERS file
+	and made sure it doesn't get installed.
+
+2007-04-28  Martyn Russell  <martyn@imendio.com>
+
 	* announce.html:
 	* books.html:
 	* freshmeat_update.sh:

@@ -3,6 +3,7 @@ HISTORIC
 
 CVS
 /ChangeLog
+/MAINTAINERS
 /api/[0-9]*
 /docs
 /install.sh
