@@ -27,7 +27,7 @@ for i in api apps beos download faq screenshots success plan plan/2.4 plan/2.6 p
   done
 done
 
-make_link gtk_news.html news/gtk_news.html
+# make_link gtk_news.html news/gtk_news.html
 make_link gtk_app_categories.html apps/gtk_app_categories.html
 make_link gtk_app_index.html apps/gtk_app_index.html
 make_link web/alphabetically.html apps/index.html
