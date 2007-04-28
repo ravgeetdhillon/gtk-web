@@ -1,5 +1,29 @@
 2007-04-28  Martyn Russell  <martyn@imendio.com>
 
+	* announce.html:
+	* books.html:
+	* freshmeat_update.sh:
+	* glib-1.2-NEWS.html:
+	* gtk+-1.2-NEWS.html:
+	* gtk_app_categories.html:
+	* gtk_app_index.html:
+	* gtk_news.html:
+	* gtk_news_top_10.html:
+	* images/freshmeat/core.freshmeat.net/images/?D=A:
+	* images/freshmeat/core.freshmeat.net/images/?M=A:
+	* images/freshmeat/core.freshmeat.net/images/?M=D:
+	* images/freshmeat/core.freshmeat.net/images/?N=A:
+	* images/freshmeat/core.freshmeat.net/images/?N=D:
+	* images/freshmeat/core.freshmeat.net/images/?S=A:
+	* images/freshmeat/core.freshmeat.net/images/index.html:
+	* images/freshmeat/index.html:
+	* images/freshmeat/index.html.1:
+	* index.html:
+	* news/index.html:
+	* news/submit.html: Removed, these have been unused for a while now.
+
+2007-04-28  Martyn Russell  <martyn@imendio.com>
+
 	* glib-1.2-NEWS.html:
 	* beos/index.old.html:
 	* beos/index.html:
