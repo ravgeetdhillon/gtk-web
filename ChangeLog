@@ -1,3 +1,10 @@
+2007-04-30  Martyn Russell  <martyn@imendio.com>
+
+	* apps/alphabetically.html:
+	* apps/by_category.html: Removed these, they are unused.
+	
+	* install.sh: Updated the install script after removing unused files.
+
 2007-04-28  Martyn Russell  <martyn@imendio.com>
 
 	* MAINTAINERS:
