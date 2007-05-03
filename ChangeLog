@@ -1,3 +1,7 @@
+2007-05-03  Martyn Russell  <martyn@imendio.com>
+
+	* index.html: News: GLib and GTK+ releases (patch from Tshepang Lekhonkhobe).
+
 2007-04-30  Martyn Russell  <martyn@imendio.com>
 
 	* apps/alphabetically.html:
