@@ -1,3 +1,7 @@
+2007-05-14  Behdad Esfahbod  <behdad@gnome.org>
+
+	* index.html: Pango 1.17.0 release
+
 2007-05-03  Martyn Russell  <martyn@imendio.com>
 
 	* index.html: News: GLib and GTK+ releases (patch from Tshepang Lekhonkhobe).
