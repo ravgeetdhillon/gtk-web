@@ -1,0 +1,276 @@
+May 22 22:07:47 <ebassi>	so, action points for the meeting
+May 22 22:07:59 <ebassi>	(kindly provided by rambokid)
+May 22 22:08:05 <ebassi>	1. where are we wrt FOSDEM release schedule
+May 22 22:08:31 <rambokid>	ebassi: i'd like to handle 2 and 3 before that
+May 22 22:08:37 <rambokid>	since those are supposed to be short
+May 22 22:08:46 <ebassi>	rambokid: was about to paste them :-)
+May 22 22:08:56 <ebassi>	2. summary of board meeting about gtk+
+May 22 22:09:00 <rambokid>	oh, thought you meant to call for 1. sorry ;)
+May 22 22:09:08 <ebassi>	3. are people interested in the foundation sponsoring a phone call meeting for gtk+ developers
+May 22 22:09:12 <bratsche>	If it's possible, can I add one other item to the list?  I'd like to talk briefly about rambokid's GtkTasks stuff on live.g.o
+May 22 22:09:18 <rambokid>	bratsche: sure
+May 22 22:09:34 <bratsche>	Cool, I'll save for last.
+May 22 22:09:50 <ebassi>	bratsche: sure, since we already kinda decided the last action point (time for the next meeting)
+May 22 22:10:07 <xan>	I'll say something about GtkTasks too
+May 22 22:10:15 <rambokid>	2: lemme quickly wrap up last thursday then. the advisory board invited matthias and me to join a conference call as gtk representatives. matthias unfortunately dropped out early. 
+May 22 22:10:28 <mclasen>	damn phones
+May 22 22:12:17 <rambokid>	so representation was up to me basically. i gave a short run down on the "state of gtk maintenance" email from last year, the feedback we got on it in email, comments, conferences and the efforts that came from it: 1) a heads up email asking for corporate support on foundaiton list; 2) xan's bug love list; 3) the GtkTasks page.
+May 22 22:13:22 <rambokid>	some companies then promised to put some heads on genuine upstream gtk work. not sure when that'll happen though. in any case i ponted them at the mailing list, irc channel and Gtktasks page to get their contributors started.
+May 22 22:14:47 <rambokid>	some companies also showed interest in providing financial support, but we (the gtk project and gnome foundation) have curently no idea how to utilize that. allthough there are known other OSS organizaitons out there that *do* make good use of money by doing contracting or hiring contributors (OSDL, mozilla foundaiton, apache foundation, ...)
+May 22 22:17:23 <rambokid>	also, Jeff offered that the gnome foundation host a conference call for the glib/gtk team to discuss matters. part of this IRC meeting is to find out if there is actuall interest in that. and then we'd need a list of people to deduce the conference facility from that (depending on the number of people joining they need to adapt the system afaiu). this was also mentioned on gtk-devel-list already: http://mail.gnome.org/archives/gtk-devel-list/2007-May/msg00225.html
+May 22 22:18:17 <bratsche>	Would the conference call happen in addition to the irc meetings, or instead of?
+May 22 22:18:41 <rambokid>	that's it for last thursday. we're still awaiting the minutes of the board meeting on the foundation list
+May 22 22:18:49 <kris>	From what I understood it would be in addition to the IRC meetings
+May 22 22:18:54 <kris>	and with a much lower frequency
+May 22 22:19:18 <bratsche>	Cool.  Because I assume it would (out of necessity) not be as open to everyone as the irc meetings.
+May 22 22:19:20 *	mclasen would envision that to be more of a once-in-a-release-cycle kind of thing
+May 22 22:19:40 <rambokid>	yeah, prolly if we announce demand for it. say for discussing possi ble use of financial funds, or around release time if we need high communicaiton bandwith on a meeting
+May 22 22:20:01 <rambokid>	yeah, like mclasen says
+May 22 22:20:19 <kris>	yeah indeed
+May 22 22:20:51 <bratsche>	Thanks.
+May 22 22:21:03 <ebassi>	we cannot always steal^Wask for a room at fosdem/guadec for that :-)
+May 22 22:21:29 <rambokid>	so, that was my "quick" wrap up on thursday. as for the conference call, i think it might be best if someone signed up to collect: a) conference call agenda items (release? funding ideas?); b) a list of people who want to join. 
+May 22 22:21:34 <kris>	I would say the fosdem/guadec meetings are in addition of the phone and irc meetings ;)
+May 22 22:22:03 <rambokid>	ebassi: do you think you could do that as "meeting manager" as well? ;) *pretty-please-with-flowers*
+May 22 22:22:36 *	mclasen bows to ebassi for volunteering to the irc-meeting-master position
+May 22 22:22:41 <ebassi>	rambokid: sure, and no need for flowers ;-)
+May 22 22:22:52 <ebassi>	just a beer ;-D
+May 22 22:22:55 <rambokid>	ebassi: rock, i was short on them anyway ;9
+May 22 22:23:06 *	rambokid has some spare cactuses though
+May 22 22:23:35 <rambokid>	kris: speaking of guadec gtk team meeting, there're rumors that you had news on that?
+May 22 22:24:03 <kris>	well, not really news, but it is very likely that it will be scheduled before my "gtk+ state of the union" talk, which is on Wednesday
+May 22 22:24:20 <kris>	last thing I heard is that the meeting may possible take place on the GUADEC Monday
+May 22 22:24:33 <mclasen>	will we have quorum at guadec ? who's going to be there ?
+May 22 22:24:45 <kris>	and as a true student I will bring my notebook and pencil and write notes ;)
+May 22 22:24:47 <ebassi>	will prolly poke ross to get a room empty for the meeting
+May 22 22:24:58 <kris>	ebassi: ross suggested the Monday
+May 22 22:25:05 <kris>	ebassi: so I guess he is aware already :)
+May 22 22:25:22 <ebassi>	kris: yeah, but he also kept the schedule on post it notes, so you never know :-)
+May 22 22:25:26 <kris>	haha
+May 22 22:25:58 <rambokid>	ebassi: good to see you take care of that also ;)
+May 22 22:26:57 <rambokid>	which reminds me, during the board meeting we also figured that gtk is pretty short on pure "managerial" roles, and pondered putting heads on that as well. things seem to get a little better with GtkTasks and especially our new meeting manager ;)
+May 22 22:27:42 <ebassi>	yeah, gtktasks helped a lot to put the finger on what's missing
+May 22 22:27:45 <bratsche>	What other kind of managerial roles do you have in mind?
+May 22 22:27:58 <rambokid>	so... should we talk about GtkTasks then, if there is anything people want to bring up about it and after that come to the gtk release schedule and xan's bug list?
+May 22 22:29:01 <rambokid>	bratsche: i don#t have anything more in mind atm. GtkTasks is really meant to be adapted over time as we see needs arise. so if anyone has input on what things should or should not be on that list, please post to gtk-devel-list so we can adjust the opened volounteer positions on it
+May 22 22:29:44 <rambokid>	mclasen: e.g. if you can think of a volounteer description that would help you in the gtk release process, that'd probably be good to put there.
+May 22 22:29:44 <bratsche>	Okay, well I just wanted to see what other people think about how some of the GtkTask roles should work.  I've signed up for testing/committing, but often don't really know what bugs I should focus on next.  So I was propose maybe people CC me or Mathias Hasselmann if they're ready for testing/committing.
+May 22 22:30:23 <bratsche>	Or just see what the other hackers think, like how I should be working in that role.
+May 22 22:30:25 <mclasen>	rambokid: I'll ponder a bit
+May 22 22:30:32 <xan>	bratsche, people being ready for testing probably overlaps with the task I'm starting, so we should probably work together there
+May 22 22:30:49 *	rambokid already puts bratsche on bug report CC:s for bug patches ready to commit
+May 22 22:31:09 <ebassi>	question: does the build brigade build gtk+? and if yes: do they build with distcheck?
+May 22 22:31:30 <ebassi>	because most of the time it's fixing distcheck that sucks the life out of releasing
+May 22 22:31:49 <rambokid>	ebassi: dunno, care to investigate? 
+May 22 22:31:50 <bratsche>	xan: Okay, so we can talk about how to work together then.
+May 22 22:31:56 <mclasen>	one thing that we could consider adding to the tasks list is (pre-)release testing
+May 22 22:32:18 <mclasen>	traditionally, we haven't done any prereleases, and instead let port maintainers fix up things after a stable release
+May 22 22:32:35 <rambokid>	(we should really keep ACTION items from these IRC meetings and check back on them the next week)
+May 22 22:32:48 <ebassi>	rambokid: (already doing it)
+May 22 22:32:52 <mclasen>	ebassi: pretty sure they don't distcheck, but we can ask anyway
+May 22 22:32:53 <rambokid>	rock ;)
+May 22 22:33:35 <ebassi>	mclasen: okay, so we can have a "don-t-touch-the-repository" period for smoketesting a release
+May 22 22:33:53 <mclasen>	in general, I feel that "portability" should figure somewhere on the tasks list
+May 22 22:34:04 <mclasen>	ie ensure that things work on win32/osx/directfb
+May 22 22:35:00 <jdahlin>	that would be easiest to test by having automated builders for all platforms
+May 22 22:35:03 <bratsche>	I don't know if it's a permanent role, but if ebassi is like the "meeting coordinator" it might be useful to create a role like that on GtkTasks and assign it to him.
+May 22 22:35:04 <mclasen>	ebassi: indeed, keeping translators from committing in the middle of distchecks has been the bane of doing releases...
+May 22 22:35:29 <mclasen>	ebassi: I really need to figure out how to use locks in svn
+May 22 22:35:32 <xan>	bratsche, I think there's one already
+May 22 22:35:52 <bratsche>	D'oh
+May 22 22:36:07 <bratsche>	My bad, you're right.  "Meeting management" - Emmanuele Bassi
+May 22 22:36:08 <bratsche>	;)
+May 22 22:36:27 <ebassi>	jdahlin: I don't know if there are different archs; debian might want to do use their machines for the directfb port
+May 22 22:36:42 <ebassi>	jdahlin: different archs in the build brigade, I mean
+May 22 22:36:43 <jdahlin>	ebassi: do you know if the build brigate uses buildbot?
+May 22 22:36:49 <rambokid>	mclasen: you should talk to bkor about svn locks. iirc, the default config needs tweaking for locks.
+May 22 22:36:49 <jdahlin>	brigade
+May 22 22:36:55 <ebassi>	jdahlin: yeah; either that or tinderbox
+May 22 22:37:13 <bkor>	buildbot
+May 22 22:37:16 <jdahlin>	ebassi: I know that rhult has a jhbuilder configuration for osx and arc did one for win32
+May 22 22:37:34 <jdahlin>	s/jhbuilder/jhbuild/
+May 22 22:37:34 <mclasen>	rambokid: will do; my previous attempts at locking po/ChangeLog ended inconclusively
+May 22 22:37:50 <bkor>	it will be moved to a GNOME server soon.. plus we have a machine almost doing nothing (only bittorrent), do that'll probably be another build mahcine
+May 22 22:38:16 <bkor>	no idea about svn locks btw :)
+May 22 22:38:25 <mclasen>	are we done with GtkTasks for now ?
+May 22 22:38:36 <bratsche>	I am, thanks.
+May 22 22:38:37 *	mclasen would like to discuss release schedule before leaving
+May 22 22:38:55 <xan>	I'd like to say something about the P7 task
+May 22 22:38:56 <bratsche>	xan mentioned having something to say about it.. did you already?
+May 22 22:39:10 <rambokid>	bkor/mclasen: the svn book has some simple examples for svn locks iirc. i can dig it up for you in case you don't have the URL
+May 22 22:39:30 <mclasen>	rambokid: I tried those, yeah
+May 22 22:39:35 <rambokid>	mclasen: did we decide on something like a build manager role?
+May 22 22:39:44 <xan>	basically, we need to implement some mechanism to flag bugs that need attention from a (core?) maintainer ASAP
+May 22 22:39:51 <rambokid>	mclasen: ok, you know more than me then. i just read about locks ;)
+May 22 22:40:00 <xan>	and periodically poke the relevant people towards them
+May 22 22:40:17 <ebassi>	xan: keywords and a link on the gtk+ page on bugzilla?
+May 22 22:40:47 <xan>	ebassi, sounds fine, ideally it would work pretty similarly to gnome-love
+May 22 22:40:56 <robster>	bug dependency might be more appreciated
+May 22 22:41:04 <robster>	or something in the whiteboard.
+May 22 22:41:31 <rambokid>	xan: i'd rather see a wiki page list of such bugs or have regular email postings about needs-review or works-but-needs-commit-permission bug lists. that's because bugzilla query is already a beast to use, and bugzilla queries don't poke me regularly  ;)
+May 22 22:41:59 <xan>	rambokid, I can still make humanly readable summaries as needed, but probably using bugzilla is a good idea
+May 22 22:42:08 <xan>	related to that, we really need to clean up bugzilla :)
+May 22 22:42:27 *	mclasen was distracted, sorry
+May 22 22:42:43 <kris>	xan: yeah I can imagine some cleaning is needed there ...
+May 22 22:42:46 <mclasen>	rambokid: what's a build manager's responsibility ? ensuring buildability ?
+May 22 22:42:46 <bratsche>	I've been (slowly) working on cleaning up the Win32 bugs in Bugzilla.
+May 22 22:42:59 <kris>	I really hope to get back to my GtkTreeView bug list soonish ...
+May 22 22:43:00 <tko>	bugzilla can send annoying 'your buglist needs attention' mails.. shouldn't be too difficult to use different queries as source
+May 22 22:43:11 <kris>	I know what's there, just need to take the time to comment and close a bunch of those
+May 22 22:43:13 <bkor>	rambokid: http://bugzilla.gnome.org/reports/patch-status.cgi .. no need for a wiki IMO
+May 22 22:43:23 <xan>	kris, lots of bugs could be just closed, a list could be made of potential candidates for a mass-closing, but it kinda misses the point because someone would need to review it
+May 22 22:43:39 <kris>	xan: yeah, they still need review
+May 22 22:43:44 <bratsche>	xan: I can help with cleaning in general as well, if needed.
+May 22 22:43:54 <rambokid>	mclasen: yeah maybe. also to make sure we have/get buildbots running for various versions (stable, trunk) and various platforms. look into and report distcheck breakage these kind of things.
+May 22 22:44:18 <xan>	if someone is willing to review it I'm willing to work on a list of "closable" bugs too
+May 22 22:44:35 <kris>	and as far as GtkTreeView is concerned, the thing is kind of out of hand right now, so I've been thinking about writing a bunch of proper test suites first and then continue maintenance/bugfixing ...
+May 22 22:44:57 <rambokid>	xan: i personally prefer a regular bug summary posting, yes. of course i didn#t mean to keep you from using bugzilla for it ;)
+May 22 22:45:24 <mclasen>	kris: seems like the right approach in general
+May 22 22:45:32 <xan>	rambokid, ok
+May 22 22:45:58 <mclasen>	rambokid: I'll draft something for "build manager" role
+May 22 22:45:59 <kris>	mclasen: yes, but writing those tests will take a while 
+May 22 22:46:03 <xan>	rambokid, I'll check what owen used to do and probably start to copy-cat it
+May 22 22:46:13 <kris>	mclasen: though it seems like a good job for me when I am bored in the summer
+May 22 22:46:22 <xan>	rambokid, although probably in the beginning it will be mostly about cleaning the old stuff
+May 22 22:46:43 *	mclasen thinks that the product pages in bugzilla do a very good job as a bug summary
+May 22 22:46:56 <kris>	the browse mode in bugzilla you mean?
+May 22 22:47:53 <mclasen>	http://bugzilla.gnome.org/browse.cgi?product=gtk%2B
+May 22 22:47:59 <kris>	yeah
+May 22 22:48:49 <rambokid>	xan: i'd like to see a humanized list of possible-closable bugs as well, yes. that's probably a good start. people you should be able to poke about giving reviews should be mclasen, kris, mitch, ebassi, me (depending a bit on what area the bugs are about)
+May 22 22:49:24 <xan>	mclasen, it would be a summary of bugs in need of input from a maintainer to get some conclusion, not a general summary 
+May 22 22:49:45 <mclasen>	xan: might still be useful, sure
+May 22 22:49:46 <rambokid>	xan: i'll try to dig up old bug lists from owen. they were really nice (to the point and also had [maintainer] in square brackets so i could skip over treeview stuff for instance)
+May 22 22:50:17 <xan>	rambokid, cool, thanks
+May 22 22:52:27 *	mclasen looks at that browse page, and notices gtk bugs above 2000 again :-(
+May 22 22:54:54 <mclasen>	time to talk about releases ?
+May 22 22:55:44 <behdad>	my only input is that I want to go on and commit changes to gtk+ trunk that require pango-1.18.  so, I need to release pango-1.18 before gtk+-2.12.  a release of before guadec works for me.
+May 22 22:56:39 <mclasen>	behdad: shouldn't be a problem, I think
+May 22 22:57:42 <mclasen>	so, what about glib ? do we have any outstanding api additions for glib 2.14 ?
+May 22 22:58:01 <rambokid>	xan: found two good examples: http://mail.gnome.org/archives/gtk-devel-list/2002-December/msg00051.html http://mail.gnome.org/archives/gtk-devel-list/2003-November/msg00061.html
+May 22 22:58:06 <kris>	is that gregex and friends API fully settled yet?
+May 22 22:58:15 <ebassi>	mclasen: there was the ftw()-like API, but since there's no idea on how to make it work, I think it'll have to wait
+May 22 22:58:24 <kris>	I didn't really follow that complete discussion, but there was a lot of noise about it
+May 22 22:59:21 <mclasen>	I haven't heard further complaints lately
+May 22 22:59:45 <mclasen>	yevgen is unhappy with the two-object approach
+May 22 23:00:11 <mclasen>	owen was unhappy with the one-object approach...
+May 22 23:00:29 <xan>	rambokid, nice, even comes with keyword symbols
+May 22 23:01:03 <rambokid>	mclasen: i side with  owen btw
+May 22 23:01:33 <mclasen>	I can understand the api simplicity argument, but the two object approach just seems cleaner, conceptually
+May 22 23:02:08 <rambokid>	mclasen: yes, and simplicity can be implemented on top of that
+May 22 23:02:30 <rambokid>	but not the other way around (efficiency on top of simplicity doesn't work here)
+May 22 23:03:10 <mclasen>	if there are no further api changes ready to land, are there any serious bugs that need to be fixed before glib 2.14 ?
+May 22 23:04:59 <ebassi>	mclasen: sorry, about api changes - xdg-user-dirs thingie?
+May 22 23:05:26 <mclasen>	I don't think we have a worked out api proposal for that, though, do we ?
+May 22 23:06:14 <ebassi>	mmh, nope; unless people are satisfied with the current cut-and-paste api
+May 22 23:06:31 <mclasen>	no, certainly not
+May 22 23:07:01 <ebassi>	I mean satisfied with the api, not the cut-and-paste :-)
+May 22 23:07:14 <mclasen>	alex outlined some of the considerations for such an api in the bug
+May 22 23:08:18 <rambokid>	the g_thread_init requirements should be relaxed before the next stable branch...
+May 22 23:08:31 <rambokid>	still trying to find the time to get around to that
+May 22 23:08:35 <mclasen>	thats the one bug I was about to bring up...
+May 22 23:08:39 <rambokid>	it's definitely on my list
+May 22 23:09:45 <mclasen>	I don't know if I can promise much coding time for that problem, but I can offer to run test on big multiprocessor machines
+May 22 23:11:00 <mclasen>	ok, if there is no further input on glib, I'll try to get another tentatively api frozen snapshot next week
+May 22 23:11:24 <mclasen>	moving on to gtk
+May 22 23:13:06 <mclasen>	the one thing that I have had on my needs-review list forever is the gtkbuilder work
+May 22 23:13:33 <kris>	I think we estimated 2 months of review time for that at FOSDEM ...
+May 22 23:13:46 <mclasen>	are there other big missing pieces for 2.12, or is that the only one ?
+May 22 23:14:34 *	kris gets his list from the fosdem meeting
+May 22 23:14:35 <kris>	okay, I have:
+May 22 23:14:44 <kris>	- libsexy cherrypicking
+May 22 23:14:59 <kris>	anyway, we didn't have time for that so prolly need to punt this
+May 22 23:15:04 <kris>	- recent manager updates
+May 22 23:15:07 <kris>	ebassi?
+May 22 23:15:27 <ebassi>	kris: we're good; we just need a couple of fixes in the file chooser
+May 22 23:15:34 <kris>	okay, great
+May 22 23:15:38 <kris>	- "sane" notebook DnD
+May 22 23:15:46 <kris>	This is about fixing the API introduced in 2.10
+May 22 23:15:55 <mclasen>	partly done
+May 22 23:16:04 <mclasen>	one patch still outstanding
+May 22 23:16:10 <kris>	okay, so that's in order too
+May 22 23:16:14 <kris>	last item on that list:
+May 22 23:16:17 <kris>	- Offscreen rendering
+May 22 23:16:40 <garnacho_>	mclasen: if there's anything I can do to help with that...
+May 22 23:17:04 <mclasen>	garnacho_: tell me if the signal patch looks good to you, and maybe verify that it actually works...
+May 22 23:17:43 <garnacho_>	mclasen: ah, ok, will have a look :)
+May 22 23:17:46 <mclasen>	did somebody look at offscreen rendering, ie dust off alex' patches ? rambokid ?
+May 22 23:18:09 <rambokid>	kris: offscreen is http://bugzilla.gnome.org/show_bug.cgi?id=318807 . the last patch i attached there works for most cases but still needs some bugs worked out (maybe tricky) and more thorough review before being applied. and that's just for the widget snapshooting then, this part doesn't yet have event redirection.
+May 22 23:18:33 <kris>	okay, doesn't sound like this is going to make 2.12 then?
+May 22 23:19:06 <mclasen>	doesn't sound like it
+May 22 23:19:24 <rambokid>	so, it's in the works but probably not fully done in time (i'd also expect us to give this some serious testing period for which there isnt too much/enough time before the next release)
+May 22 23:19:37 <kris>	yeah
+May 22 23:21:01 <kris>	anyway, for some not-so-big items
+May 22 23:21:22 <kris>	* I still want to look into the position code ofthe new  tooltips API, since positioning right now is still kind of weird/borked
+May 22 23:21:24 <xan>	rambokid, if you could use a hand there (with say, testing) just do tell
+May 22 23:21:40 <rambokid>	xan: thanks
+May 22 23:21:43 <kris>	I didn't have the time yet to look into that, but I am getting some kind of ideas 
+May 22 23:21:48 <rambokid>	mclasen: "signal patch"?
+May 22 23:22:10 <mclasen>	rambokid: adding a signal to GtkNotebook to replace the global window creation hook
+May 22 23:22:12 <kris>	* Maybe I should try to get that GtkTreeView column resizing fix up in 2.12, since one or two people actually tested it right now
+May 22 23:22:38 <rambokid>	kris: oh, is there anything that we need to *fix* with the new tooltips API before the release btw? (the controller interfaces can still be added later)
+May 22 23:23:10 <kris>	rambokid: I think the tooltips placement b0rk really counts as something which needs fixing, because it is really awkward at the moment and properly fixing it might require API
+May 22 23:23:11 <rambokid>	mclasen: ah. please make sure mitch reviews that. i know that he has a lot of good input on this due to writing the gimp variant of it.
+May 22 23:23:26 <mclasen>	proposal: should we do a devel snapshot later this week or early next week; then try to get GtkBuilder reviewed before guadec ?
+May 22 23:23:30 <kris>	* I can have a tap-n-hold patch RSN now, I think that API is mostly settled
+May 22 23:23:30 <mclasen>	rambokid: will do
+May 22 23:23:50 <kris>	mclasen: I think dev snapshots are never bad
+May 22 23:24:03 <ebassi>	+1
+May 22 23:24:08 <rambokid>	kris: might require API? the old tooltips code doesn't have any for that either...
+May 22 23:24:10 <mclasen>	talking about smaller api additions, I'd like to land desrt's composited window patch
+May 22 23:24:21 <kris>	rambokid: that one didn't handle complex widgets ....
+May 22 23:25:02 <mclasen>	ok then, I'll commit to do devel releases of glib and gtk before the next meeting
+May 22 23:25:30 <rambokid>	kris: ok, i'd apprechiate an email then if you can explain why you think API might be required. (and if you're sure that this can't be post-2.12 API *additions*)
+May 22 23:26:06 <rambokid>	mclasen: do you have a bug # for desrts patch?
+May 22 23:26:07 <kris>	rambokid: I don't know yet if it's required or not because I didnt have time yet to properly research this topic
+May 22 23:26:24 <rambokid>	kris: understood
+May 22 23:26:42 <kris>	but I *really* want a GTK+ 2.12.0 release to properly position tooltips
+May 22 23:27:18 <mitch>	(are we talking glib stable release too close to a gtk release?)
+May 22 23:28:47 <garnacho_>	talking of small gtk+ api additions, would it be too late to consider patch in #116650?
+May 22 23:28:57 <rambokid>	mitch: what do you mean? 
+May 22 23:28:58 <mclasen>	rambokid: http://bugzilla.gnome.org/show_bug.cgi?id=412882
+May 22 23:29:34 <mitch>	rambokid: xdg_user_dir in glib, gimp now has a complete implementation for xdg,win32,osx
+May 22 23:29:50 <ebassi>	bug #116650 - per-tab action area in gtknotebook
+May 22 23:30:42 <mitch>	rambokid: i don't find the resp. glib bug again, gah
+May 22 23:30:55 <garnacho_>	ebassi: no, my patch is for the notebook, not per-tab, who'd be so crazy to do that? :)
+May 22 23:31:08 <mclasen>	ebassi: is that the ff 1.5 approach to tab closing ? thats just wrong...
+May 22 23:31:21 <garnacho_>	kind of like the general close button in firefox 1.x / mozilla
+May 22 23:31:40 <ebassi>	garnacho_: right, sorry:misread the title :-)
+May 22 23:31:46 <rambokid>	garnacho_: please add mitch to CC: of 116650 as well ;)
+May 22 23:32:05 <rambokid>	mclasen: thx
+May 22 23:32:59 <mclasen>	mitch: If you feel strongly about getting that into the next glib, we can leave the door open for it 
+May 22 23:33:05 <bratsche>	garnacho_: Does your patch work the way Firefox works now, or the way it used to?  Is the button next to all tabs, or is it on the currently focused tab?
+May 22 23:33:45 <garnacho_>	rambokid: added
+May 22 23:33:54 <mitch>	mclasen: it's not strongly, but these are really useful shortcuts apps should have in their file choosers
+May 22 23:34:05 <garnacho_>	bratsche: next to all tabs, to the right in ltr and to the left in rtl
+May 22 23:34:10 <rambokid>	mitch: ebassi/mclasen asked about an API proposal for xdg_user_dir earlier
+May 22 23:34:24 <mitch>	here? missed that sorry :)
+May 22 23:34:28 <kris>	oooh does mitch get to write an API proposal!
+May 22 23:34:30 <kris>	cool!
+May 22 23:34:35 <bratsche>	garnacho_: Cool, I like it better that way. :)
+May 22 23:34:41 <kris>	first ! -> ?
+May 22 23:35:02 <mitch>	rambokid: all we need is an api and some configure check review, the rest can be copied 1:1 from gimp
+May 22 23:35:25 <mitch>	there is is: http://bugzilla.gnome.org/show_bug.cgi?id=432651
+May 22 23:35:36 <mclasen>	mitch: and rambokid asked to have you review http://bugzilla.gnome.org/show_bug.cgi?id=386935
+May 22 23:35:49 <mitch>	looking
+May 22 23:35:57 <mitch>	(not reviewing now :-)
+May 22 23:36:21 <rambokid>	garnacho_: yeah, it'd be good if you had an eye on mitch reviewing all new notebook APIs, he has loads of experience from gimp ;)
+May 22 23:36:24 <mitch>	i will probably port gimp to that and check if it's feasible to do everything gimp does
+May 22 23:36:42 <mitch>	wanted to do this anyway a loooong time ago ;)
+May 22 23:36:53 <garnacho_>	:)
+May 22 23:38:42 <mclasen>	are we mostly done ?
+May 22 23:39:04 <kris>	what are we going to do about the schedule dates?
+May 22 23:39:16 <kris>	I think the tentative schedule said we were supposed to be feature complete at this time
+May 22 23:39:50 <kris>	and if we are going to push for gtkbuilder review, I guess it wouldnt hurt to slip both dates (feature complete and release) by a month
+May 22 23:40:14 <ebassi>	so post-guadec release of glib 2.14/gtk+ 2.12 ?
+May 22 23:40:25 <mclasen>	that obviously didn't happen; I think getting a devel release out now, and listing the api additions we are still working on will help a bit
+May 22 23:40:51 <mclasen>	and target at or shortly post guadec for releases
+May 22 23:40:55 <kris>	ebassi: half june would become half july
+May 22 23:41:06 <ebassi>	yeah, makes sense
+May 22 23:41:07 <kris>	ebassi: so that's probably slightly after guadec
+May 22 23:41:31 <mitch>	it's good to be able to talk about stuff anyway before a release, pre guadec serves no purpose but marketing
+May 22 23:41:54 <kris>	that too
+May 22 23:42:01 <kris>	we could discuss some final release bits at guadec
+May 22 23:42:52 <ebassi>	would match what happened last year anyway
+May 22 23:43:07 <rambokid>	oh, if we slip that far, i'd definitely like to get *some* offscreen API in already. (i.e. at least the snapshooting if not yet the event handling)
+May 22 23:43:22 <kris>	go for it then ;)
+May 22 23:43:42 *	rambokid snapshoots

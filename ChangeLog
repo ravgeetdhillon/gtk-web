@@ -1,3 +1,8 @@
+2007-05-23  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* plan/meetings/20070522.txt:
+	* plan/meetings/index.html: Add gtk+ team meeting log.
+
 2007-05-14  Behdad Esfahbod  <behdad@gnome.org>
 
 	* index.html: Pango 1.17.0 release
