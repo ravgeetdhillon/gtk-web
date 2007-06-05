@@ -1,0 +1,213 @@
+Jun 05 21:04:44 <ebassi>	so, meeting starts now
+Jun 05 21:05:40 <ebassi>	agenda for the evening:
+Jun 05 21:05:50 <ebassi>	1. gtk+ schedule followup
+Jun 05 21:06:01 <ebassi>	2. action points from last meeting
+Jun 05 21:06:10 <ebassi>	3. button sensitivity bug
+Jun 05 21:06:32 <behdad>	minor point: is the guadec meeting scheduled already?
+Jun 05 21:07:05 <kris2>	behdad: I'd have to check with ross, but last time I spoke him it will probably happen on the Monday
+Jun 05 21:07:51 <ebassi>	there should be a meeting room available
+Jun 05 21:08:07 <ebassi>	the same that'll be used for the AB room
+Jun 05 21:08:15 <kris2>	sounds nice
+Jun 05 21:08:28 <tko>	and enough time allocated this time?
+Jun 05 21:08:35 <kris2>	should speak with ross tomorrow, so it might even end up in the schedule
+Jun 05 21:09:39 <mclasen>	should we move to 1. gtk+ schedule followup ?
+Jun 05 21:10:10 <mclasen>	two weeks ago we roughly agreed that a guadec release looks doable
+Jun 05 21:10:43 <mclasen>	since then we had 2 devel releases, and it seems that we got most outstanding api landed 
+Jun 05 21:10:48 <mclasen>	with the big exceptions of gtkbuilder 
+Jun 05 21:10:54 <mclasen>	and offscreen rendering
+Jun 05 21:11:39 <behdad>	is anyone looking at offscreen patch at this time?
+Jun 05 21:11:46 <mclasen>	and GtkBuilder review has been restarted on the bug, and on the mailing list
+Jun 05 21:11:53 <ebassi>	behdad: rambokid
+Jun 05 21:12:05 *	behdad didn't notice that
+Jun 05 21:12:06 <mclasen>	behdad: rambokid brought it up last time, don't know if he had time to look at it since
+Jun 05 21:12:52 <jdahlin>	mclasen asked yesterday if it made sense to put the gtkbuilder work on a branch
+Jun 05 21:12:58 <mclasen>	right
+Jun 05 21:12:59 <xan>	kris, tap and hold is not for 2.12 then?
+Jun 05 21:13:26 <kris2>	xan: the patch is pretty close to being complete
+Jun 05 21:13:29 <rambokid>	mclasen: didn't, i was busy with linuxtag basically.
+Jun 05 21:14:09 <jdahlin>	I'd wondering, why not just commit it to trunk? I'm committed to finishing all issues and my employeer has allocated resources to do so
+Jun 05 21:14:16 <kris2>	and the new tooltips code might need a tiny API addition to improve the positioning code, but didnt have time to look into that
+Jun 05 21:14:25 <mclasen>	xan: I don't mind other small things going still
+Jun 05 21:15:02 <ebassi>	we still need to decide for 166995, for instance
+Jun 05 21:15:09 <xan>	mclasen, kris2, great, ping me if you need help for that one
+Jun 05 21:15:11 <ebassi>	but it's really a minor api addition
+Jun 05 21:16:01 <kris2>	yeah, I have some minor api additions too still I think
+Jun 05 21:16:10 *	kris2 is slowly getting up to speed again with handling tree view bugs
+Jun 05 21:16:11 <mclasen>	jdahlin: I guess it is just the question what amount of risk we are taking by committing it to trunk now
+Jun 05 21:16:17 <pbor>	with regard to minor api, I'd really love to finally have cursor color 
+Jun 05 21:16:18 <kris2>	probably because I am very close to exam time :/
+Jun 05 21:16:26 <pbor>	since muntyan worked on that
+Jun 05 21:16:34 <behdad>	kris2: are you parallel installable with kris?
+Jun 05 21:16:47 <mclasen>	jdahlin: maybe we don't need a branch, but just one more week of discussion and working out api details
+Jun 05 21:16:53 <leio>	has anyone entertained the idea of having the possibility of leaving out any bigger API additions from 2.12 if they aren't ready enough by date x, as to be able to commit to a final release date that is early enough for GNOME 2.20 to be able declare gtk2.12 as a dependency, so all the modules can use the already existing additions? It's been at least two gnome's with 2.10 already
+Jun 05 21:16:58 <kris2>	behdad: ;)
+Jun 05 21:17:03 <behdad>	yeah, muntyan's patches are good to have.
+Jun 05 21:17:05 <jdahlin>	mclasen: the development series is meant for this, it can be backed out in worst case
+Jun 05 21:17:20 <tristan>	mclasen, jdahlin, I wonder if its a risk to commit to doing builder in gtk+ and not in gobject
+Jun 05 21:17:48 <tristan>	but fwiw, I agree that functionally we should shoot for trunk, and will offer any help I can
+Jun 05 21:17:57 <mclasen>	jdahlin: I would agree wholeheartedly if we weren't in the "landing phase" 
+Jun 05 21:18:19 <jdahlin>	mclasen: putting it of another week would be fine too, doing an API review, committing and then working working out implementation details, documentation and testing on trunk afterwards.
+Jun 05 21:18:46 <kris2>	though the time for actually testing it in the devel release might be very short -- which is a concern that was raised last week on the irc channel
+Jun 05 21:19:13 <jdahlin>	tristan: what does gobject have to do with gtkbuilder?
+Jun 05 21:19:36 <tristan>	jdahlin, I mean, will we regret not having GtkBuildable actually be GBuildable
+Jun 05 21:19:55 <mclasen>	jdahlin: I guess it comes down to wanting to serialize arbitrary objects vs widgets
+Jun 05 21:20:17 <kris2>	leio: yes, we have been thinking about that at the last FOSDEM and set up a new tentative schedule based on that, which we are still trying to comply with
+Jun 05 21:20:22 <tristan>	and in a worst case scenario, can we replicate it in gobject without breaking some compatability
+Jun 05 21:20:27 <behdad>	many people would love to have it in glib level
+Jun 05 21:20:42 <kris2>	leio: but, and this was also raised last week on irc, it is probably too late for most gnome 2.20 apps to take advantage of most gtk 2.12 stuff anyway
+Jun 05 21:21:12 <behdad>	it's like the printing stuff
+Jun 05 21:21:13 <jdahlin>	Generic GObject serialization is really out of the scope for the GtkBuilder work IMO
+Jun 05 21:21:17 <mclasen>	even so, I would like to see gtk 2.12 in the next gnome release
+Jun 05 21:21:20 <behdad>	people won't start using it until it's in trunk
+Jun 05 21:21:22 <vuntz>	kris2: it's not too late yet
+Jun 05 21:21:26 <mclasen>	because I don't want to maintain the 2.10 branch for another year
+Jun 05 21:21:54 <jdahlin>	Agreed, Gtk+ needs to move forward
+Jun 05 21:21:54 <xan>	speaking of schedules, and I know this is very preliminary, is there any consensus that a canvas should go into 2.14 and do you have any rough estimate of the release date (12 months from 2.12, 16, 20...?)
+Jun 05 21:22:24 <mclasen>	xan: I don't think anybody is prepared to commit do doing the "one true canvas that can go into gtk" in that timeframe
+Jun 05 21:22:42 *	behdad reviews offscreen
+Jun 05 21:23:15 <ebassi>	xan: but in any case, a tentative timeframe for the next release can be outlined once 2.12 is out of the door, or something
+Jun 05 21:23:28 <kris2>	mclasen: yes, fair enough; I really do hope we will be able to come up with a very stable 2.12.0 though
+Jun 05 21:23:33 <leio>	There are certain small things in gtk 2.12 that would be nice for GNOME 2.20 I think. GtkRange::fill-level would be my primary example for things like totem
+Jun 05 21:23:46 <mclasen>	the 2.14 schedule should be worked out at guadec, i'd say
+Jun 05 21:23:54 <kris2>	yeah
+Jun 05 21:23:56 <ebassi>	mclasen: was about to say
+Jun 05 21:23:59 <xan>	the canvas is done when it's done and we speak about 2.14 when 2.12 is done, fair enough :)
+Jun 05 21:24:55 <mclasen>	ok, so do we have agreement on doing one more week of review on gtkbuilder and decide next tuesday about the options
+Jun 05 21:25:04 <mclasen>	where options would be trunk vs branch, I guess
+Jun 05 21:25:06 <kris2>	sure sounds good
+Jun 05 21:25:38 <mclasen>	lets hope more people participate in the review; murray's comments today were already helpful
+Jun 05 21:25:55 <jdahlin>	fair enough, that's acceptable.
+Jun 05 21:26:39 <mclasen>	ok, so where does that leave us for the point we are discussing, the 2.12 schedule ?
+Jun 05 21:27:15 <kris2>	we are on track for guadec and decide about gtkbuilder next week?
+Jun 05 21:27:27 <mclasen>	matches my perception, at least
+Jun 05 21:27:38 <xan>	and input from rambokid about offscreen?
+Jun 05 21:27:45 <mclasen>	I'm prepared to do weekly devel releases from now to guadec if necessary to make it happen
+Jun 05 21:27:55 <ebassi>	in case, half-baked stuff is going to punted
+Jun 05 21:27:59 <rambokid>	xan: as i said above, nothing new
+Jun 05 21:28:26 <mclasen>	talking about releases
+Jun 05 21:28:40 <mclasen>	I''m looking at doing a set of quick followup releases tomorrow 
+Jun 05 21:29:02 <mclasen>	to fix some lockups and crashes
+Jun 05 21:29:10 <pbor>	the central point is: can gnome rely on gtk 2.12 for 2.20, if not weekly releases are not that useful since they will not see testing from rawhide, ubuntu etc and from app developer
+Jun 05 21:29:37 <mclasen>	pbor: we can not really do much more than saying that we are committed to the guadec release schedule
+Jun 05 21:29:45 <mclasen>	at that point it is up to gnome to jump or not
+Jun 05 21:29:46 *	kris2 seconds mclasen 
+Jun 05 21:29:47 <behdad>	may sound crazy but I think we should rework offscreen to allow rendering to arbitrary cairo surfaces.
+Jun 05 21:29:53 <behdad>	or cairo_t even
+Jun 05 21:30:16 <vuntz>	mclasen: if you commit to a guadec release, then it'll be fine for the release team
+Jun 05 21:30:28 <behdad>	doesn't look that hard.  just a couple of api mismatches...
+Jun 05 21:31:15 <pbor>	mclasen: it's not about release dates, it is about "we'll punt stuff not ready by then or we'll slip by a week to wait for feature X"
+Jun 05 21:32:08 <mclasen>	pbor: well, our handling of gtkbuilder should indicate that we are trying to be very careful with not committing big unfinished stuff prematurely at this point...
+Jun 05 21:32:36 <pbor>	ok, that's what I wanted to hear :)
+Jun 05 21:32:58 <mclasen>	should we move to 2. action items from last week ?
+Jun 05 21:33:13 <ebassi>	okay
+Jun 05 21:33:33 <ebassi>	should I remind the pending action items>
+Jun 05 21:33:33 <mclasen>	what were those action items ?
+Jun 05 21:34:00 <lucasr>	just a sanity check: have you just decided that you will release 2.12 for gnome 2.20 with all features that are ready on time?
+Jun 05 21:34:12 <ebassi>	lucasr: yes
+Jun 05 21:34:54 <ebassi>	mclasen: 1. investigate svn locks for release
+Jun 05 21:34:57 <lucasr>	ebassi, ok, thanks
+Jun 05 21:35:08 <mclasen>	ebassi: no change on that one
+Jun 05 21:35:12 <ebassi>	okay
+Jun 05 21:35:16 <mclasen>	my releases worked without locks this time
+Jun 05 21:36:23 <ebassi>	and 2. small api still pending (notebook, xdg-user-dir, ...)
+Jun 05 21:36:37 <ebassi>	the xdg-user-dir got in, did the notebook changes too?
+Jun 05 21:37:05 <mclasen>	notebook went in too
+Jun 05 21:37:50 <ebassi>	mclasen: cool - then we don't have pending stuff, since xan bug reports have been sent and you did the snapshot releases
+Jun 05 21:38:00 <pbor>	do we have a list of small api pending items?
+Jun 05 21:38:08 <kris2>	hrm not really
+Jun 05 21:38:31 <pbor>	 as I said I would really love some of the bits for textview that have been submitted
+Jun 05 21:38:32 <ebassi>	as I said before, bug #166995 
+Jun 05 21:38:38 <jdahlin>	the button sensitivity patch would add api, if it is considered for 2.12.
+Jun 05 21:38:42 <jdahlin>	#56070
+Jun 05 21:38:43 <kris2>	can we have a list somewhere?
+Jun 05 21:38:45 <mclasen>	pbor: I'll have a look at that
+Jun 05 21:38:45 <kris2>	maybe some wiki page?
+Jun 05 21:38:46 <pbor>	kris2 mentioned possible small changes for tooltips
+Jun 05 21:38:54 <ebassi>	and for tap and hold
+Jun 05 21:38:59 <mclasen>	pbor: but adding api to set style properties is a slippery slope
+Jun 05 21:39:14 <pbor>	yeah, I haven't looked yet
+Jun 05 21:39:26 <pbor>	just trying to come up with a list of the small api changes
+Jun 05 21:39:33 <muntyan>	mclasen: there is also a patch to set only cursor solors
+Jun 05 21:39:39 <mclasen>	the button sensitivity bug has certainly been sitting on the top of my "need to review this when I have some free time"  list for a long time...
+Jun 05 21:39:43 <muntyan>	reall samll api
+Jun 05 21:39:52 <mclasen>	muntyan: I'll look
+Jun 05 21:39:57 <kris2>	before we all start shouting our favourites changes ;)  Can we please decide on a place where we can keep a list of these things?
+Jun 05 21:40:21 <mclasen>	kris2: bugzilla seems canonical...
+Jun 05 21:40:27 <jdahlin>	mclasen: I'm willing to help out testing & reviewing, but it's a little bit tricky
+Jun 05 21:40:28 <mclasen>	if only one could find things there...
+Jun 05 21:40:30 <kris2>	with some tracker bug?
+Jun 05 21:40:43 <pbor>	though collecting a list a list similar to xan's would help
+Jun 05 21:40:47 <jdahlin>	mclasen: I did write a small program to help review event emission, which is attached to the bug
+Jun 05 21:41:02 <mclasen>	over time, the constant high inflow of bugs tends to destroy any organizing principle we come up with...
+Jun 05 21:41:10 <mclasen>	jdahlin: very much appreciated !
+Jun 05 21:41:40 <leio>	have the organizing principles from the past been documented?
+Jun 05 21:42:08 <kris2>	well, in the beginning of 2.x we were taking advantages of milestones
+Jun 05 21:42:16 <kris2>	but that completely went out of hand at some point
+Jun 05 21:42:23 <pbor>	leio: there is a "small api" milestone in bugzilla, but it has too much stuff in it
+Jun 05 21:42:36 <tko>	2.12 API freeze ?
+Jun 05 21:42:59 <mclasen>	sorry guys, gotta run out
+Jun 05 21:43:04 <mclasen>	thanks for the productive meeting
+Jun 05 21:43:08 <mclasen>	same time next week ?
+Jun 05 21:43:09 <jdahlin>	thank you!
+Jun 05 21:43:15 <kris2>	later mclasen 
+Jun 05 21:43:15 <ebassi>	mclasen: okay for me
+Jun 05 21:43:19 <mclasen>	later
+Jun 05 21:43:23 <leio>	because with documentation of the principles/policy, people like me could try to help out keeping the bugs organized with the influx of them
+Jun 05 21:43:25 <kris2>	tko: yeah it exists and I think I even have some bugs on it
+Jun 05 21:43:35 <tko>	one way would be to just punt out bugs that simply aren't going to make it
+Jun 05 21:43:55 <kris2>	yeah that is what I was doing during euh
+Jun 05 21:43:56 <kris2>	2.2 or so
+Jun 05 21:44:50 <pbor>	I still think that compiling a small list of minor api changes still needed it would be easier than going through bugzilla
+Jun 05 21:44:57 <kris2>	pbor: yeah
+Jun 05 21:45:11 <kris2>	I think we should put it in a wiki or something
+Jun 05 21:45:16 <kris2>	but I saw nobody agreeing with that ;)
+Jun 05 21:45:28 <pbor>	ok, I'll create a page now :)
+Jun 05 21:45:31 <kris2>	good
+Jun 05 21:46:04 <tko>	as much as I hate target milestones, I'd think they could serve a purpose for planning when used intelligently.. like just clearing out all bugs from 2.12 milestone and using it only for bugs that someone is trying to fix for 2.12
+Jun 05 21:46:25 <tristan>	maybe a per release cycle wiki page
+Jun 05 21:46:40 <ebassi>	tko: we'd need a gtk-only bugmaster, going on bugzilla and asking the maintainers
+Jun 05 21:46:43 <tristan>	create a new one every release and only promote bugs that people are around to have interest in
+Jun 05 21:47:02 <tko>	ebassi: not much different from maintaining a wiki page, is it?
+Jun 05 21:47:07 <tristan>	let forgotton feature bitrot :)
+Jun 05 21:47:08 <tristan>	heh
+Jun 05 21:47:08 <pbor>	tko: I agree, but bugzilla interface is just too painful
+Jun 05 21:48:06 <muntyan>	is there a "some day, maybe" bug status?
+Jun 05 21:48:11 <leio>	I see there are a couple of 2.12 milestones. Could maybe a 2.x milestone help, where API that wants to go in soon but no-one is committed to can be punted in - then there's also an (additional?) place to look for API to review
+Jun 05 21:48:16 <tko>	pbor: weird, I find click bug, select milestone, commit much more straightforward than copy link, copy description, go to wiki page, paste link, paste description
+Jun 05 21:48:17 <muntyan>	there are lots of bugs which won't be closed and won't be fixed either
+Jun 05 21:48:31 <tko>	pbor: not to mention trying to keep the two in sync
+Jun 05 21:49:11 <tko>	muntyan: I'm hoping the NEW state would be that (as opposed to UNCONFIRMED)
+Jun 05 21:50:02 <pbor>	tko: bugzilla as higher entropy... people add bugs etc
+Jun 05 21:50:27 <pbor>	tko: beside it's not that easy to see the sintetic view
+Jun 05 21:50:36 <muntyan>	tko: nobody uses NEW
+Jun 05 21:50:42 <kris2>	anyyyyyyyway, I think we're drifting off a bit
+Jun 05 21:50:51 <pbor>	tko: I don't want a tracker just a short lived list from here to 2.12
+Jun 05 21:50:54 <pbor>	kris2: indeed
+Jun 05 21:50:56 <pbor>	sorry
+Jun 05 21:51:03 <muntyan>	tko: there are lot of UNCONFIRMED which actuall has been confirmed, discussed, have patches, etc.
+Jun 05 21:51:11 <kris2>	pbor: no problem ;)
+Jun 05 21:51:20 <kris2>	 but I think we can better first wrap up the meeting and then continue discussions
+Jun 05 21:51:33 <kris2>	ebassi: ping
+Jun 05 21:51:39 <ebassi>	kris: yes
+Jun 05 21:51:50 <kris2>	ebassi: where are we now wrt the agenda? ;)
+Jun 05 21:51:52 <ebassi>	no more stuff pending, afair
+Jun 05 21:52:05 <tristan>	the button sensitivity bug ?
+Jun 05 21:52:12 <tristan>	or did that slide
+Jun 05 21:52:22 <kris2>	and we put the bug jdahlin pointed us at on the api-to-review page?
+Jun 05 21:52:44 <ebassi>	tristan: jdahlin offered mclasen help in review
+Jun 05 21:52:50 <tristan>	ah
+Jun 05 21:53:31 <ebassi>	kris: yep, I'd say that we should definitely try and get the sensitivity bug into 2.12
+Jun 05 21:53:42 <kris2>	ok
+Jun 05 21:53:47 <kris2>	any more questions?
+Jun 05 21:53:49 <leio>	does fixing that bug involve new API?
+Jun 05 21:53:51 <kris2>	else we better close the meeting now
+Jun 05 21:54:04 <ebassi>	leio: yes, a couple of new symbols in the GdkEventType, afair
+Jun 05 21:54:27 <leio>	ok, cool, 2.12 makes sense then
+Jun 05 21:54:46 <kris2>	in which case wouldnt 2.12 make sense?
+Jun 05 21:57:22 <leio>	right. are we closing the meeting now?
+Jun 05 21:57:32 <pbor>	do you have a # for the button sensitivity bug?
+Jun 05 21:57:38 <ebassi>	#56070
+Jun 05 21:58:08 <pbor>	http://live.gnome.org/GTK%2B/SmallApiAdditions
+Jun 05 21:58:49 <pbor>	if you have suggestions on what else should go there let me know
+Jun 05 21:58:53 <pbor>	(or add to the wiki)
+Jun 05 21:59:24 <ebassi>	okay then, meeting closed; will push the log and send the minutes to the list after dinner

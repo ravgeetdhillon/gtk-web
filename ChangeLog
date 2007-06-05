@@ -1,3 +1,8 @@
+2007-06-05  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* plan/meetings/20070605.txt:
+	* plan/meetings/index.html: Add gtk+ team meeting log.
+
 2007-05-28  Emmanuele Bassi  <ebassi@gnome.org>
 
 	* index.html: News: GLib and GTK+ releases; fix the link for the
