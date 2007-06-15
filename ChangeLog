@@ -1,5 +1,9 @@
 2007-06-15  Emmanuele Bassi  <ebassi@gnome.org>
 
+	* index.html: News: GLib, Pango and GTK+ releases.
+
+2007-06-15  Emmanuele Bassi  <ebassi@gnome.org>
+
 	* plan/meetings/20070612.txt:
 	* plan/meetings/index.html: Add gtk+ team meeting log.
 
