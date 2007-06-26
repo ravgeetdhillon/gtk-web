@@ -1,0 +1,225 @@
+* mclasen looks for the agenda
+<pbor> http://live.gnome.org/GTK%2B/Meetings
+<mclasen> ok, so what do we start with ? 
+<mclasen> small api additions ? 
+<pbor> ok
+<mclasen> are there any left that people want to land before the next devel snapshot ?
+<pbor> wiki page: http://live.gnome.org/GTK%2B/SmallApiAdditions
+<jdahlin> Would be nice to have the simpler GtkBuilder api; http://bugzilla.gnome.org/show_bug.cgi?id=447969 (with patch)
+<tristan> mclasen, I would like to get gdk_image_get_shared_pixmap() in if thats reasonable
+<pbor> I think kris also had some api changes required to make GtkTooltips deprecated (some api explicitely use GtkTooltips)
+<tristan> (this one for reference: http://bugzilla.gnome.org/show_bug.cgi?id=441853)
+<mclasen> tristan: I don't know if it is reasonable, I'd rather not add random new things to the list at this point
+<tristan> mclasen, ok, we'll be using a patched gtk+ for that though
+<mclasen> jdahlin: same goes for convenience api on top of GtkBuilder, I think; I think we should concentrate on sorting out the issues with the current api, like refcounting
+<jdahlin> mclasen: when is the API freeze?
+<mclasen> I guess that is what we are trying to determine here ? I'd like to declare the next snapshot api frozen if at all possible
+<jdahlin> I agree that the reference counting is more important, it's actually a requirement before that convenience function can written properly
+<tristan> so what is the status of refcounting stuff, just docs to be written or people want the behaviour to change ?
+<pbor> can we sort out the small api stuff before shifting to GtkBuilder, it's nex on the agenda
+<jdahlin> it needs to change, the current behavior is not sufficient 
+<jdahlin> sure, sorry
+<tristan> ok ok sorry
+<tristan> :)
+<mclasen> pbor: ok, the one api addition that I kinda promised to look at is the pixbuf orientation thing
+<mclasen> and I'm going to look at it tomorrow
+<pbor> mclasen: ok should I add it to the list on the wiki?
+<mclasen> it is on the wiki
+<pbor> ah, oops
+<mclasen> i guess the one somewhat important item on that wiki page is the tooltip positioning 
+<mclasen> but kris is not here to talk about it
+<pbor> yes, and also the new tooltips stuff kris noticed today after deprecating GtkTooltips
+<pbor> I guess we should ask kris when he's around
+<mclasen> yes
+<pbor> so I guess we are done  with small api... should we move to GtkBuilder?
+<mclasen> all the other things on the wiki page look like convenience api, or committed or unimportant
+<pbor> yep
+<mclasen> ok, GtkBuilder integration status now
+<jdahlin> reference counting is the last major todo (447967)
+<jdahlin> strictly speaking, it won't require API changes, but it's important to get it right before people starts using it
+<mclasen> jdahlin: so, what exactly is the current proposal  for how things should work ?
+<jdahlin> mclasen: I posted a little bit of my thoughts to the mailing list earlier today
+<jdahlin> I'd like to make it possible to unref the builder and make all objects not fetched (or references by a fetched object) to be freed as soon as you unref the builder itself
+<tbf> hmm. i am late.
+<jdahlin> it might be more than we actually need though, the memory used by the builder is much less than the memory used by libglade
+<mclasen> jdahlin: that should work fine for objects, but for toplevel windows, it doesn't quite work, I think
+<jdahlin> so it might not matter too much to have the builder lying around as long as the process/interface live
+* tristan just commented on that bug
+<tristan> sorry for being late in catching up
+<tristan> so, we want orphaned objects to be cleaned up... why ?
+<tbf> as outlined already today: keeping the builder around can make things quite convinient
+<jdahlin> mclasen: so what should be done for top-levels?
+<mclasen> jdahlin: I think if they are not fetched and destroyed by the app, they are leaked
+<jdahlin> mclasen: right, that's what we need to decide
+<mclasen> the builder could destroy them, but it is a bit hard to know for the builder which ones to destroy and which ones not
+<jdahlin> should the gtkbuilder claim ownership of all objects, or is it up to the application?
+<tristan> I think everything should be leeked
+* tristan thinks the latter completely
+<jdahlin> rambokid: do you have an opinion?
+<tbf> objects passed to the outside by the builder could have their ref-count raised
+<tristan> an object that was built by the builder but never seen by the application code, might still be doing something usefull too
+<mclasen> tbf: no, we don't have reffing getters, the app needs to ref itself
+<tbf> so everything attached would stay alive, even even if the builder gets destroyed
+<tbf> mclasen: so the methods cannot have an "_get_" in their name
+<jdahlin> gtk_builder_steal_object() ? :)
+<pbor> the builder is a sort of factory so returning a reffed object may make sense...
+<tbf> pbor: +1
+<mclasen> if we leak everything (ie don't unref when the builder goes away), then you don't have to return a new reference
+<mclasen> the application can just use the initial one 
+<rambokid> jdahlin: i'm not quite sure what the problem is. isn't it ok if the builder returns objects like they are created? i.e. non-toplevels are floating, and toplevels are being refernced by the toplevel-list anyways...
+<tristan> mclasen, nod, which is classic libglade behaviour
+<rambokid> i.e. make it behave exactly like g_object_new
+<mclasen> I think that is fine
+<jdahlin> rambokid: the problem, in my opinion is that the application developer needs to know about all the objects created by a userinterface (models, ui manager, sizegroups etc) and unref them when not using them any longer
+<tristan> jdahlin, if they put unused objects in the interface, they are to blame for not using them no ?
+<tristan> its like calling g_object_new() and then forgetting the return value
+<mclasen> the problematic aspect I see is that the builder returns a bunch of objects in different states, ownership-wise
+<mclasen> some are toplevels that need to be destroyed, some are floating, 
+<jdahlin> tristan: it's more like that the application developer might not be aware that a treemodel or sizegroup is created when a certain operation is done in the user interface designer
+<mclasen> some are straight objects
+<tristan> jdahlin, thats another can of worms though
+<tristan> and more importantly - an object never seen by the application code might still be doing something important.
+<rambokid> urm, no. the application developer should *only* deal with toplevel handles. that is not a problem for non-toplevel widgets that are children, since those are referenced by their containers. so the only questionable thing are non-widget objects, right? in general, keeping such widgets around only makes sense in the context of a window. so the best thing to do here is to g_object_set_qdata_full(window, "key-for-this-object-kind", sinke_ref(o
+<rambokid> bject), g_object_unref). for some types, e.g. size groups, you need a list though.
+<tko> I'd think everything should be owned by the builder until you ask for it (gtk_builder_ref_object ?)
+<tbf> what about a destructor for gtk builder similiar to g_string_free(str, free)?
+<mclasen> earlier there was talk of allowing non-toplevel widgets as root objects in builder files
+<tristan> mclasen, I believe thats already allowed
+<tristan> and rambokid, usually you dont care about dealing with the window, you just want a handle on some button so you can set it insensitive later on
+<jdahlin> yes, but if we introduce the concept rambokid just mentioned we'd have to treat toplevels which are widgets but not windows differently
+<rambokid> tristan: you always care aout a window, because a window is the only thing that makes sense showing and hiding and every app has to decide that individually for every window.
+<tristan> and all that complexity scares the crap out of me
+<tristan> rambokid, sure, unless its initially visible ok.
+<jdahlin> tristan: that's mostly a bad idea anyway
+<rambokid> jdahlin: not really, you could do the same for those, i.e. attach references as QData. the only difference is that you hand them out floating, i.e. still you behave like g_object_new
+<jdahlin> rambokid: okay, that sounds reasonable
+<tristan> I think that if I asked the builder to build something and it dissapears after unreffing the builder, thats a little unfair
+<pbor> rambokid: not at all, in the app I just care about a window, but enforcing to create the whole window from builder is wrong... I may just want to build some part of the ui and stick it in a sidepane of my main app window
+<tristan> but also, if toplevels, non-widget GObjects and GTK_WIDGET_TOPLEVEL objects all get cased differently... only chaos can ensue :-S
+<rambokid> tristan: also, windows are the single object class that the developers have to conciously destroy, so there's no way of getting rid of dealing with a window handle for a developer. but from that, everytihng else can automatically follow via qdata and ref_sink/unref
+<tristan> rambokid, what about actions ?
+<rambokid> tristan: absolutely, especially since ref/unref is a memory managment issue, and widget appears/dosappears is a user visible effect, i.e. part of the user experience/interface. memory management issues should *never* have user visible effects (i.e. have widgets disappear because a gc is run ;)
+<tristan> they have to be explicitly destroyed I would think
+<pbor> anyway, it seems that builder refcounting still needs some thought... maybe this discussion should be carried on in bugzilla/mailinglist and we should move on?
+<tristan> pbor++
+<jdahlin> true
+<rambokid> pbor: right, i'm not saying the builder should be constrained to toplevel creation. the point is just to keep all non-widget references from the "toplevel" object created by the builder and handed out to the user. and that could still be a floating non-window object (i.e. mimicking g_object_new which you can also use for windows and widgets)
+<jdahlin> I just realized that I need to change two of the builder apis to include a reference to the builder itself as the first argument
+<jdahlin> it'll be needed for pixbuf handling, but that can wait, just as long as we get the API change in
+<pbor> rambokid: ok
+<mclasen> ok, so what is the timeframe for sorting out the builder refcounting ?
+<mclasen> I'd like to have that fixed in the next snapshot, ideally
+<mclasen> can we get that sorted out this week ?
+<jdahlin> I'll give it a shot, rambokid gave me some useful hints, which shouldn't be too difficult to implement
+<jdahlin> I can't promise that it'll be finish this week though, it should probably be reviewed for instance.
+<mclasen> sure
+<jdahlin> when do you plan to release the next snapshot?
+<mclasen> as soon as possible, I guess
+<mclasen> end of this week sounds like a realistic goal
+<jdahlin> okay, let's see if we can make it before
+<pbor> jdahlin: ok. apart from refcounting and those small api changes you mentioned, anything else regarding gtkbuilder?
+<mclasen> docs
+<mclasen> I said I'd give it a go, and failed last week
+<mclasen> but I made some inroads towards it last night
+<jdahlin> pbor: we have two apis which should probably be put off to 2.14, due to lack of time
+<jdahlin> I committed a libglade converter which is pretty good but would need some more work, can be done post 2.12 too.
+<pbor> jdahlin: what about the "root" widget argument issue... it seems everyone uses it and it keeps coming up on the mailing list (gedit, murrayc. muntyan, etc)?
+<mclasen> jdahlin: does your converter warn if it meets an unsupported construct ?
+<jdahlin> mclasen: no, it doesn't. I think it's possible to support everything libglade does
+<mclasen> oh, I know, I just wondered if the builder is verbal about what is not done yet
+<jdahlin> pbor: it have to wait, I don't have to time address that
+<jdahlin> oh, the builder itself will complain
+<jdahlin> or crash..
+<mclasen> one hopes for the former...
+<mclasen> is the error handling in the builder in good shape ?
+<jdahlin> it's better than it was initially, but still not perfect
+<pbor> jdahlin: fair enough: "don't have time" is one thing "will never support it" is another (though I have to admit that it disappoints me, gtkbuilder was merged on the basis that missing thing would be added before 2.12 otherwise it would have not been merged...)
+<tristan> really ?
+<pbor> that was my impression at least
+<jdahlin> pbor: is partial object tree construction a required feature?
+<jdahlin> it would require API changes at least
+<ebassi> pbor: personally, the "regression" argument is kind of moot; the builder is much more than libglade ever was, and the partial object construction was exploiting a missing functionality in libglade
+<ebassi> jdahlin: would it be hard to add a "root" (construct-only) property later on for those needing this feature?
+<pbor> jdahlin: for me to use it is and judging from the mailing list looks like I am not the only one, but I am not the one making the call whether is a required feature
+<tristan> or even builder_parse_subtree() api...
+<jdahlin> ebassi: it shouldn't be done in the constructor I think, rather when adding a file
+<tristan> pbor, the builder wont be unusable for people who formerly used the "root" argument correct ?
+<ebassi> jdahlin: right
+<ebassi> jdahlin: gtk_builder_add_from_file_with_root() is ugly, but would require an api addition instead of a change
+<tristan> wouldnt't that define "required" ?
+<jdahlin> ebassi: a property or method could also be done, set_root() for instance
+<mclasen> ebassi: doesn't look too ugly to me
+<ebassi> jdahlin: yep, that too
+<ebassi> mclasen: I tend to be wary of using many prepositions inside a single call :-)
+<pbor> ebassi: discussing whether is or isn't a regression is of no use, what matters is if builder is powerful enough for all usecases of libglade and/or it will at least be in the future... otherwise we end up with another half cooked thing in gtk that real apps do not use
+<jdahlin> pbor: don't get me wrong, I'd like to support it. But it's very difficult the way the parser was written
+<ebassi> lest we add a dom-like parser in glib
+* ebassi runs
+<jdahlin> pbor: the first version of the builder patch I wrote did the parsing in a similar way to libglade (2 steps), but people seem to prefer doing the whole construction in one go
+<pbor> jdahlin: at the risk of sounding like a asshole, I do not care about the internal detail just about the fact that my usecase is taken into account or a valid alternative provided :)
+<tristan> pbor, splitting up your dialogs into individual files is not a valid alternative ?
+<tristan> sure the root argument is "nice" if you want it all in one file, but is it a valid use case ?
+<pbor> tristan: they already are, but requiring to hand edit files is not what I call nice
+<jdahlin> pbor: I'll probably add an option to the converter script, which will do that for you
+<pbor> and how would I edit them afterwards?
+<jdahlin> you can't anyway, since there's no gtkbuilder designer out there yet
+<tristan> heh, I'm making no promises for glade 3.4
+<mclasen> pbor: would the convenience api proposed by havoc cover your use case involving root ?
+* pbor wonders if the fact that there is no designer is a symptom that we are rushing things
+<pbor> mclasen: lemme re read it
+<jdahlin> pbor: chicken and egg problem, really..
+<tristan> pbor, not at all, we've been holding tight waiting for the mythical builder to appear
+<tristan> if the builder ever happens, we'll start spending our time supporting it
+<jdahlin> pbor: let me try to have a look at supporting partial tree building this week, it might be possible to make it work without rewriting the parser
+<jpetersen_> are there any other use cases for root beside filtering a parent GtkWindow required by glade/libglade?
+<pbor> mclasen: I just see two mails by havoc on the archive and they do not seem to contain related stuff...
+<jdahlin> jpetersen_: good point, I'm not sure there are
+<tristan> jpetersen_, sure, you can be allowed to store everything in one file and parse windows individually
+<jdahlin> jpetersen_: the glade files are really done in that way since it's easier to have one glade file represent the whole project, for all toplevels
+<tristan> only a matter of preference though if you ask me
+<jdahlin> pbor: for instance, writing a separate parser which only task will be to filter out unneeded parts
+<pbor> jdahlin: ok thanks, I didn't want to sound too negative
+<mclasen> pbor: let me find the bug
+<jdahlin> http://bugzilla.gnome.org/show_bug.cgi?id=447969
+<pbor> I still fail to see how that utilities relate to non toplevels root elements...
+<mclasen> well, it allows you to explicitly load named objects
+<mclasen> but maybe we should move to the next agenda item
+<tristan> mclasen, it allows you to assign loaded objects to pointer values as a convenience - I dont see it ommitting parents though
+<pbor> mclasen: well, if objects can be non toplevels (and the relative toplevels not be created) than ok, but as far as I understood the problem was not the api but the underlying implementation
+<pbor> mclasen: anyway I agree we should move on now
+<mclasen> tristan: I assume it is the kind of convenience api that constructs the builder internally, and throws away all the objects that are not explicitly assigned or children of those
+<mclasen> next agenda item is "filechooser bugzilla status"
+<mclasen> dunno who put that up ?
+<pbor> ebassi: ?
+<ebassi> I put it on the agenda
+<tristan> mclasen, I dont read it that way but sure... lets move on :)
+<ebassi> short story: there are some file chooser bugs in bugzilla with a patch attached; I went through those and I'd also like to go through the list of file system issues
+tristan is now known as tristan|away
+<ebassi> most of these bugs either are crashers hard to reproduce or deal with the appearance of the file chooser
+<ebassi> so I'd like to put them on a fast track for review and commit before 2.12
+<ebassi> (I'll have to put the list on the wiki, if we are going to have a small bugs list)
+<ebassi> end of request :-)
+<xan> ebassi, if they are not on my llist, and you think it serves any purpose, and you already have your list done, you could send it to me
+<ebassi> one bug already went down tonight (bug #324543)
+<ebassi> xan: yeah, a couple are on your list, I'll send you the rest
+<xan> ok, I actually don't remember if I managed to go through all of them or not
+<xan> (it's exhausting)
+<mclasen> ok, next point ?
+<mclasen> small bugs list
+<ebassi> xan: yes, it is - also most of them were reported agains 2.4 or 2.6, so it's really uncertain whether they still apply
+<ebassi> mclasen: that was something you mentioned on irc last week - having a list like the small api list, right?
+<mclasen> oh, ok
+<mclasen> I guess we should just move on to the last point then
+<pbor> well if no one has one I have one of such small bugs: http://bugzilla.gnome.org/show_bug.cgi?id=448313
+<pbor> though it looks like more in the behdad field of competence
+<mclasen> pbor: I'll poke behdad on that one
+<pbor> thanks
+<mclasen> ok, last agenda item is next devel snapshots
+<mclasen> I said earlier that I think getting them done by the end of the week is realistic
+<mclasen> but we should probably re-evaluate where we stand wrt to the outstanding gtkbuilder and tooltips api issues later in the week
+<jdahlin> I'll do my best to sort out the remaning issues.
+<pbor> ok, so meeting is over? should I put the logs one the wiki given that ebassi was not here when we started?
+<ebassi> the tooltip positioning issue is blocking a couple of changes around the file and recent chooser widgets (removing the uri from the treeview to make it more compact)
+<ebassi> pbor: you can send them to me (at least the part before 21:45) for editing and minutes
+<mclasen> kris had a reasonable looking api proposal for tooltip positioning, I think
+<pbor> ebassi: ok, sure
