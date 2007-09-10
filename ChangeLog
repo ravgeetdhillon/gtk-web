@@ -1,3 +1,10 @@
+2007-09-10  Murray Cumming  <murrayc@murrayc-desktop>
+
+	* bindings.html: Updated the entries for Pascal, 
+	wxwidgets (renamed from wxwindows), ruby and 
+	lisp (adding cells-gtk), based on emails to 
+	the language-bindings mailing list.
+
 2007-08-10  Matthias Clasen <mclasen@redhat.com>
 
 	* index.html: Catch up on releases
