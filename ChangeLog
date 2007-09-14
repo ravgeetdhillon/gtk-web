@@ -1,3 +1,8 @@
+2007-09-14  Matthias Clasen <mclasen@redhat.com>
+
+	* index.html:
+	* oldnews.html: Updates
+
 2007-09-13  Matthias Clasen <mclasen@redhat.com>
 
 	* gtk-2.12-notes.html: Add GTK+ 2.12 release notes
