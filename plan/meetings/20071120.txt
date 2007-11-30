@@ -1,0 +1,275 @@
+Nov 20 20:04:46 <mclasen>	should we start ? or are we still expecting more people ?
+Nov 20 20:05:26 <tbf>	well, i am ready for questions
+Nov 20 20:05:56 *	mclasen admits to not having read the extended layout essay yet
+Nov 20 20:06:00 <kris>	me neither
+Nov 20 20:06:20 <kris>	I actually lost the mail
+Nov 20 20:06:22 <ebassi>	I poked alexl, but he's probably still away
+Nov 20 20:06:39 <kris>	need to get somebody to bounce it to me to get my archives complete again ;)
+Nov 20 20:06:53 <mclasen>	I can do that
+Nov 20 20:07:06 <kris>	ah bitte!
+Nov 20 20:07:59 <bratsche>	I read part of it, but we had a meeting at work and I didn't finish it yet.
+Nov 20 20:08:39 <kris>	it was only sent out this morning wasnt it?
+Nov 20 20:08:49 <kris>	i havent had time yet to properly read email
+Nov 20 20:08:49 <bratsche>	Yeah.
+Nov 20 20:08:51 -->	fer (~fherrera@175.Red-88-5-64.staticIP.rima-tde.net) has joined #gtk-devel
+Nov 20 20:09:41 <mclasen>	ok, so why don't we start with something easier
+Nov 20 20:10:16 <mclasen>	timj cancelled gtk 2.14 and decided that the next release will be 2.16
+Nov 20 20:10:31 <kris>	yeah, to be honest I am still not so sure about that
+Nov 20 20:10:35 <mclasen>	I don't have any major problems with it, I hope nobody else has either
+Nov 20 20:10:54 <mclasen>	we'll just have do deal with a bit of short-term confusion as people wonder where 2.14 went
+Nov 20 20:11:20 <kris>	yes, hopefully that will be short-term, otherwise skipping 2.14 wont improve the current situation imho
+Nov 20 20:11:36 <mclasen>	but of course, there is a big chance of the gap opening up again
+Nov 20 20:11:44 <tko>	just don't unsync again... :)
+Nov 20 20:11:44 <mclasen>	depending on what we decide about gvfs
+Nov 20 20:11:46 <tbf>	mclasen: well, a 2.14 folder with some readme file on the ftp server will help
+Nov 20 20:11:49 <ebassi>	I'm more or less concerned with a glib release containing gio and/or gsettings in time for 2.22
+Nov 20 20:11:57 <mclasen>	exactly
+Nov 20 20:12:00 <kris>	indeed
+Nov 20 20:12:27 <tbf>	so we really try a quick gtk release this time?
+Nov 20 20:12:29 <kris>	personally I dont see a new gtk+ release in the coming 9 months (at least)
+Nov 20 20:12:35 <kris>	tbf: no
+Nov 20 20:12:39 <mclasen>	tbf: glib, not gtk
+Nov 20 20:13:11 <tbf>	mclasen: well, when synching the version numbers, a quick glib, also implies a quick gtk
+Nov 20 20:13:19 <leio>	that will probably make a 2.12 -> 2.18 jump for gtk+ to sync version numbers up for GNOME-2.24 then?
+Nov 20 20:13:30 <tbf>	otherwise tim's fast forward for gtk+ was pointless
+Nov 20 20:13:35 <kris>	yes, so maybe syncing version numbers doesn't make all that much sense
+Nov 20 20:13:35 <tko>	do you have a ballpark estimate for estimate for gtk+?
+Nov 20 20:13:43 <mclasen>	tbf: well, we can just fast forward some more
+Nov 20 20:13:52 -->	mitch (~mitch@port-212-202-198-49.dynamic.qsc.de) has joined #gtk-devel
+Nov 20 20:13:53 <mclasen>	ballpark estimate is next guadec
+Nov 20 20:13:55 <mclasen>	I thinki
+Nov 20 20:14:11 <tbf>	well, in that situation it might be better to let gtk just fall behind
+Nov 20 20:14:12 <kris>	yes, that's what we came up with last guadec basically
+Nov 20 20:14:26 <tko>	that's about 9 months
+Nov 20 20:14:29 <tbf>	frequent random fast forwards help nobody
+Nov 20 20:14:44 <dang>	Maybe just sync both gtk+ and glib with gnome?
+Nov 20 20:14:57 <dang>	Then, whatever gnome release it's in, use that number.
+Nov 20 20:14:57 <kris>	tko: yeah, but there is not much to estimate before we determine the list of features ;)
+Nov 20 20:15:13 <ebassi>	dang: that would mean skipping releases
+Nov 20 20:15:22 <kris>	plus I don't want to tie gtk+ to gnome,
+Nov 20 20:15:25 <ebassi>	dang: 2.22, 2.26, 2.30
+Nov 20 20:15:25 <tko>	kris: well, you were the one not seeing a new release in coming 9 months :)
+Nov 20 20:15:38 <ebassi>	kris: yeah, that as well
+Nov 20 20:15:46 <leio>	And if GNOME-2.22 gets gio, are we going to get a nautilus that uses gio/gvfs and GtkFileChooser that uses gnome-vfs module and a whole different set of authentication keeping or is there compatibility planned for gnome-vfs?
+Nov 20 20:15:48 <kris>	tko: it could be in the 10th month, maybe just in time for guadec ;)
+Nov 20 20:16:10 <kris>	leio: the nautilus port to gio/gvfs is very far AFAIK
+Nov 20 20:16:24 <kris>	leio: and somebody is already working on a gio/gvfs file chooser module
+Nov 20 20:16:27 <tko>	kris: anyhow, gnome is very nice with its very predictable release schedule. it would be nice to have similar for gtk :)
+Nov 20 20:16:44 <kris>	tko: if only we had enough developers
+Nov 20 20:16:47 <tbf>	tko: yup. makes it much easier to schedule patches
+Nov 20 20:16:53 <leio>	kris: good point, another file backend module can be shipped from a different package than gtk+ :)
+Nov 20 20:17:18 <kris>	leio: yeah that too
+Nov 20 20:17:25 <ebassi>	tko: it would make gtk+ use smaller, incremental releases with less features
+Nov 20 20:18:03 <tko>	ebassi: I didn't say anything about 6mo cycle or following gnome. just predictable
+Nov 20 20:18:17 <tbf>	ebassi: or features could become more due the predictable schedule
+Nov 20 20:18:28 <ebassi>	tko: well, it's been almost predictable in the past couple of years :-)
+Nov 20 20:18:32 <tbf>	ebassi: just look at the feature explosion that happend to the kernel
+Nov 20 20:18:55 <kris>	does the kernel have a predictable schedule then?
+Nov 20 20:18:58 <tko>	ebassi: well, we can just almost use it :)
+Nov 20 20:19:02 <ebassi>	tbf: the kernel doesn't have to care about breaking invariants, and schedule
+Nov 20 20:19:14 <tbf>	ebassi: true
+Nov 20 20:20:19 <mclasen>	I think this schedule discussion leads nowhere right now
+Nov 20 20:20:24 <kris>	agreed
+Nov 20 20:20:58 <mclasen>	did everybody read alex' proposal for how the gio merge could look, in principal ?
+Nov 20 20:21:28 <ebassi>	yep. sounds sane to me
+Nov 20 20:21:31 <mclasen>	ie have a new shlib inside glib that can contain gobjects, and could host both the gio stuff and the gsettings stuff ?
+Nov 20 20:21:59 <kris>	i think that kind of makes sense
+Nov 20 20:22:03 <tbf>	i am not sure about all this symlink voodoo
+Nov 20 20:22:05 <ebassi>	yeah
+Nov 20 20:22:07 <kris>	though I do want to read more about gsettings on the list
+Nov 20 20:22:12 <ebassi>	kris: agreed
+Nov 20 20:22:18 <mclasen>	later on that discussion got a bit sidetracked by developing (somewhat) wacky linker tricks to merge it all into a single shlib, but I think that is a separate discussion, ideallly
+Nov 20 20:22:20 <kris>	because to me it felt like it suddenly turned up
+Nov 20 20:22:22 <tbf>	but libsomething between libgobject and libgtk really makes sense
+Nov 20 20:22:32 <Amaranth>	gsettings is desrt's dconf thing?
+Nov 20 20:22:40 <mclasen>	kris: not really. desrt gave a talk about it last guadec
+Nov 20 20:22:50 <ebassi>	Amaranth: yeah
+Nov 20 20:23:00 -->	andre (~andre@dslb-088-070-077-139.pools.arcor-ip.net) has joined #gtk-devel
+Nov 20 20:23:06 <kris>	mclasen: I don't think that counts as discussion or API review
+Nov 20 20:23:11 <ebassi>	mclasen: yeah, but not real public discussion on the API
+Nov 20 20:23:15 <mclasen>	i didn't meant to imply that
+Nov 20 20:23:28 <tbf>	it is versatile enough to be useful without gtk, but as we don't have that immediate library it is in libgtk now
+Nov 20 20:23:29 -->	vuntz (~vuntz@fennas.vuntz.net) has joined #gtk-devel
+Nov 20 20:24:07 <mclasen>	maybe lets finish the gio merge plan discussion before moving to gsettings
+Nov 20 20:24:46 <mclasen>	one contentious point (as always) is naming the new lib. Are there any new proposals  ?
+Nov 20 20:25:08 <mclasen>	so far, I've heard libgfoundation (which is long) or libgbase (which is short but sounds like something below gobject
+Nov 20 20:25:13 <ebassi>	libgdesktop :-)
+Nov 20 20:26:19 <ebassi>	as a library also implementing bits of the freedesktop
+Nov 20 20:26:44 <ebassi>	(maybe move xdgmime there, so people can use it without copying and pasting. I know, pipe dreams)
+Nov 20 20:26:58 <mclasen>	xdgmime will be inside gio
+Nov 20 20:27:01 <ebassi>	oh, right
+Nov 20 20:27:10 <mclasen>	so, yeah
+Nov 20 20:27:12 -->	herzi (~herzi@p548FF80F.dip.t-dialin.net) has joined #gtk-devel
+Nov 20 20:27:14 <mclasen>	it will be there
+Nov 20 20:27:16 <tbf>	and therefore within libgdesktop
+Nov 20 20:27:42 <ebassi>	but it would be a nice place to shovel the freedesktop standards that don't belong in gtk+
+Nov 20 20:27:45 <tbf>	ebassi: the freedesktop.org link is a good point for libgdesktop
+Nov 20 20:28:43 -->	nud (~sf@91.86.77.211) has joined #gtk-devel
+Nov 20 20:28:53 <mclasen>	ok, I'm not entirely sold, but at least its another alternative that hasn't been discussed yet...
+Nov 20 20:29:22 <mclasen>	since alex is not here right now, it probably doesn't make much sense to dive into details of gio/gvfs api etc
+Nov 20 20:29:26 <tko>	gOS ? :)
+Nov 20 20:29:35 <mclasen>	thats taken, no ?
+Nov 20 20:29:46 <tko>	oh?
+Nov 20 20:29:50 <kris>	libgsystem
+Nov 20 20:31:20 <kris>	next point?
+Nov 20 20:31:28 <mclasen>	do people feel that gio has received sufficient on-list api review ?
+Nov 20 20:32:08 <Amaranth>	I haven't seen anyone really commenting on it
+Nov 20 20:32:13 <mitch>	it won't get any real review unless we merge it as early as possible before the next release :/
+Nov 20 20:32:19 <mitch>	as always :(
+Nov 20 20:32:25 <ebassi>	I'd say so, but I'd like to see the changes alex did for the nautilus gio-branch as well
+Nov 20 20:32:31 <Amaranth>	I'd be worried about it being designed by the nautilus maintainer, for the nautilus maintainer :P
+Nov 20 20:32:49 <kris>	I think some people have extensively looked at it
+Nov 20 20:32:54 <ebassi>	Amaranth: the whole discussion on input streams and file objects happened some time ago
+Nov 20 20:33:01 <ebassi>	Amaranth: that's basically gio :-)
+Nov 20 20:33:03 <Amaranth>	hmm, must have missed it
+Nov 20 20:33:07 <mclasen>	he is also the gnome-vfs maintainer...
+Nov 20 20:33:24 <Amaranth>	sure, which means he knows what not to do
+Nov 20 20:33:26 <kris>	I can try to look at it closely too, but I am not sure if I can get that done in the coming 2 weeks :/
+Nov 20 20:33:26 <leio>	I was just going to say it would be nice to see more users of the current API than nautilus - might take a merge first for that and an intent to release for gnome 2.22..
+Nov 20 20:33:34 <Amaranth>	Probably just need someone else using it
+Nov 20 20:33:40 <Amaranth>	Yeah, what leio said
+Nov 20 20:33:52 <mclasen>	anyway, I think alex' is not quite ready for merging it yet (still, finishing up the nautilus port), so there is still time for people to look at it and comment
+Nov 20 20:34:04 <leio>	(on that note, I can try to find time to port wxGTK's MIME and VFS system to gio)
+Nov 20 20:34:17 <ebassi>	leio: I think gedit maintainers are giving a hand in the gio branch, and gedit has some nice (in a vfs sense) corner cases
+Nov 20 20:34:33 <mclasen>	yeah
+Nov 20 20:34:44 <mclasen>	when I asked pbor about a gedit port, he said he would take patches....
+Nov 20 20:34:45 <ebassi>	leio: also the file monitoring api is so sweet I cried a little
+Nov 20 20:34:55 <tbf>	what i've seen and what alex talked about on guadec looked very reasonable
+Nov 20 20:35:41 <mclasen>	do we need to discuss timeframes for merging gio ?
+Nov 20 20:36:01 <tbf>	his ideas for icon handling looked weird for the first moment, but alex had gave me good reasons, when we talked about it at guadec
+Nov 20 20:36:14 <mclasen>	I haven't talked to alex lately about his take on when it will be ready for merging
+Nov 20 20:36:49 <mclasen>	thus I don't know if it is really realistic if I throw out a "before Christmas" 
+Nov 20 20:36:52 <tbf>	also the abstractions he uses are well tested
+Nov 20 20:37:01 <tbf>	java stream api and such
+Nov 20 20:38:56 <mclasen>	so I'll take the timeframe question back to alex and pick that discussion up on the list again
+Nov 20 20:39:10 <mclasen>	next topic is gsettings, I think
+Nov 20 20:39:24 <vuntz>	I missed the beginning of the meeting, so maybe it has been discussed... If gio is merged in early, will there be a glib 2.16 for GNOME 2.22?
+Nov 20 20:39:39 <tbf>	mclasen: still on gio (had to find the url)
+Nov 20 20:39:55 <tbf>	mclasen: but from reading his last posting he considers it ready for merge: http://blogs.gnome.org/alexl/2007/11/02/last-gnome-vfs-symbol-gone/
+Nov 20 20:40:09 <mclasen>	tbf: ok, thanks
+Nov 20 20:40:43 <mclasen>	vuntz: that is the plan I am currently operating on, and I haven't really heard any other opinioins
+Nov 20 20:41:21 <vuntz>	mclasen: ok. The plan I was aware of was using gio-standalone for 2.22. As long as we can have gio, everything is fine :-)
+Nov 20 20:41:31 <mclasen>	there is the slight complication that gio/gvfs really needs some gtk-level parts to realize its full benefit
+Nov 20 20:41:57 <mclasen>	those things would probably have to find a temporary home or live as copy-and-paste material until the next gtk release
+Nov 20 20:43:22 <mclasen>	vuntz: I'll double-check with alex' on his current thinking and post my findings on the list
+Nov 20 20:43:33 <vuntz>	thanks
+Nov 20 20:43:41 <mclasen>	desrt: so, current state of gsettings
+Nov 20 20:43:56 <desrt>	uh oh!
+Nov 20 20:44:17 <desrt>	what's up? :)
+Nov 20 20:44:32 <mclasen>	we are moving to the next topic on the agenda
+Nov 20 20:44:39 <mclasen>	which is "current state of gsettings"
+Nov 20 20:44:40 <desrt>	oh.  we're having a meeting?
+Nov 20 20:44:43 <desrt>	nice.
+Nov 20 20:44:52 <desrt>	the current state of gsettings:
+Nov 20 20:44:53 <kris>	...
+Nov 20 20:45:03 <desrt>	  the api that is there is good.  it will stay, most likely
+Nov 20 20:45:10 <desrt>	  there will be new api to support sub-settings
+Nov 20 20:45:21 <desrt>	  also possible new api to support collections
+Nov 20 20:45:31 <desrt>	  also, have to think about the schema problem a bit more
+Nov 20 20:45:39 <mclasen>	I think perhaps we need a 5 line highlevel intro
+Nov 20 20:45:41 <desrt>	that's it, i guess
+Nov 20 20:45:51 <desrt>	oh.  ok
+Nov 20 20:45:51 <mclasen>	not everybody may be intimate with what gsettings aspire to be
+Nov 20 20:46:08 <desrt>	so gsettings is sort of like the property interface on objects
+Nov 20 20:46:18 <tko>	I for one must've missed the introduction to gsettings
+Nov 20 20:46:22 <desrt>	an object can define any number of properties on itself
+Nov 20 20:46:35 <desrt>	and anything that is a gobject supports these g_object_{get,set} calls to access those properties
+Nov 20 20:46:38 <tbf>	desrt: is there a repo somewhere? or even api docs?
+Nov 20 20:46:42 <desrt>	yes and yes
+Nov 20 20:46:49 <desrt>	http://git.desrt.ca/ -- gsettings is inside dconf
+Nov 20 20:47:03 <desrt>	http://desrt.mcmaster.ca/gsettings/gsettings-GSettings.html <-- api docs
+Nov 20 20:47:39 <desrt>	essentially you can think of something implementing gsettings as having a set of strongly-typed keys that can take on various values.  again, this is very much like the set of properties associated with an object
+Nov 20 20:47:52 <desrt>	the number of keys present never changes
+Nov 20 20:48:05 <desrt>	and all keys always have a value and the value is always of the "correct" type
+Nov 20 20:48:20 <desrt>	because of these strong type guarentees you can do stuff like:
+Nov 20 20:48:22 <desrt>	int foo;
+Nov 20 20:48:31 <desrt>	g_settings_get (my_object, "foo", &foo);
+Nov 20 20:48:41 <desrt>	and know that you will always be getting an integer
+Nov 20 20:48:47 <desrt>	(by the same logic that you can do the same with g_object_get)
+Nov 20 20:48:56 <mclasen>	too abstract...you should start out by saying that it is a gconf replacement
+Nov 20 20:49:03 <desrt>	it's not
+Nov 20 20:49:33 <tko>	is there an overview somewhere?
+Nov 20 20:49:39 <desrt>	not really.
+Nov 20 20:49:44 <mclasen>	too bad, I certainly hoped it would obsolete gconf...
+Nov 20 20:49:50 <desrt>	i guess there's this: http://live.gnome.org/dconf
+Nov 20 20:50:00 <desrt>	mclasen; that's more dconf's job :)
+Nov 20 20:50:27 <desrt>	that wiki page is a bit dated but it actually gives a fairly decent overview of how these bits fit together
+Nov 20 20:50:52 <kris>	why do we want to obsolete gconf?
+Nov 20 20:51:09 <desrt>	it's quite broken
+Nov 20 20:51:14 <ebassi>	kris: wrong position on the stack, bad dependencies, archietctural/design mistakes
+Nov 20 20:51:20 <ebassi>	architectural, even
+Nov 20 20:51:21 <desrt>	it has performance problems, and its treatment of schemas is really backwards
+Nov 20 20:51:37 <desrt>	it's also dead code.  it's maintainer has no intention of working on it anymore
+Nov 20 20:51:41 <desrt>	*its
+Nov 20 20:51:46 <kris>	why not fix gconf instead of introducing something completely new?  the design mistakes are that bad?
+Nov 20 20:51:53 <kris>	you could become its maintainer
+Nov 20 20:51:57 <desrt>	s/maintainer/author?/
+Nov 20 20:51:58 <ebassi>	kris: yeah, it's bad
+Nov 20 20:52:06 <mclasen>	kris: havoc has been trying to sell his "three things that need fixing in gconf" for years...
+Nov 20 20:52:07 <ebassi>	kris: it would imply API breakage anyway
+Nov 20 20:52:18 <kris>	mclasen: I know ;)
+Nov 20 20:52:21 <ebassi>	kris: at least the schema handling :-)
+Nov 20 20:52:27 ---	mitch is now known as mitchAFK
+Nov 20 20:52:46 <desrt>	the fundamental thing about the gsettings approach is that the schema is part of your application
+Nov 20 20:52:50 <Amaranth>	mclasen: I thought that was "three things a rewrite of gconf should get right"
+Nov 20 20:52:52 <desrt>	dconf has no idea what the schema is
+Nov 20 20:53:09 <tbf>	kris: well, just compare how small the gsettings api is - compared with gconf's api
+Nov 20 20:53:11 <desrt>	your app won't even start if the schema isn't installed properly
+Nov 20 20:53:30 <desrt>	and because the app is so tightly tied to it, it can trust it a lot more than you can currently trust gconf
+Nov 20 20:53:36 <mclasen>	Amaranth: yes, basically
+Nov 20 20:53:51 <kris>	tbf: yes, it is much smaller than gconf, but that is not a valid argument for just replacing gconf ...
+Nov 20 20:54:03 -->	seb128 (~seb128@ANancy-156-1-91-161.w86-204.abo.wanadoo.fr) has joined #gtk-devel
+Nov 20 20:54:04 <desrt>	tbf; also, it will grow
+Nov 20 20:54:38 <desrt>	hmm.  nice.
+Nov 20 20:54:41 <mclasen>	kris: the valid argument is that it is actually fixing the well-known architectural problems in gconf
+Nov 20 20:54:47 <desrt>	the first 4 items on my "TODO" list on that wiki page have been done already :)
+Nov 20 20:54:51 <tko>	so when talking about gsettings here, does it also imply dconf?
+Nov 20 20:54:52 <tbf>	kris: to me it is: similiar feature set with much smaller code base is a very good reason to drop the large code base
+Nov 20 20:54:58 <kris>	mclasen: yeah I understand now ;)
+Nov 20 20:55:08 <desrt>	tko; that's a good question for debate
+Nov 20 20:55:13 <desrt>	tko; it's up in the air how we are going to structure all of this
+Nov 20 20:55:33 <desrt>	the line of thinking last i heard is that we will make some new library withing the 'glib' package... like libgplatform or something like this
+Nov 20 20:55:51 <desrt>	it will depend on gobject and be all of the things that we would have put into libglib if it was allowed to depend on libgobject
+Nov 20 20:55:52 <mclasen>	we discussed that while you were not paying attention...
+Nov 20 20:55:59 <desrt>	oh.  nice.  what's up? :)
+Nov 20 20:56:31 <kris>	tbf: even if the gsettings api is small, the code base might be huge ...
+Nov 20 20:56:34 *	desrt really didn't know that you guys have meetings here
+Nov 20 20:56:36 <mclasen>	nothing, just that everybody seemed to agree to have another shlib for stuff depending on gobject inside the glib tarball is a reasonable approach
+Nov 20 20:56:48 <desrt>	cool.
+Nov 20 20:56:51 <desrt>	i think it's a good way to go too.
+Nov 20 20:56:59 <desrt>	gsettings will live in that library
+Nov 20 20:57:04 <kris>	can we move on before we drift off again?
+Nov 20 20:57:10 <desrt>	but gsettings is just an interface... it needs an implementor
+Nov 20 20:57:11 <mclasen>	sure
+Nov 20 20:57:33 <desrt>	there will be some code in that library to dlopen() dconf, which implements gsettings using the dconf database
+Nov 20 20:57:54 <mclasen>	I think it is clear that we have much more confidence, knowledge and agreement on gio/gvfs at this point than about gsettings/dconf
+Nov 20 20:58:08 <desrt>	that's definitely true for me too
+Nov 20 20:58:14 <desrt>	gsettings is far less mature
+Nov 20 20:58:18 <tko>	one thing that seems suspect in gsettings is that how can one be reasonably certain that his code doesn't accidentally trigger a crash because of a typo?
+Nov 20 20:58:37 <desrt>	tko; how do you mean?
+Nov 20 20:58:47 <mclasen>	so my proposal for the near term would be to have gsettings discussion on the list, and moving ahead with merging gio/gvfs without gsettings for now
+Nov 20 20:59:08 <desrt>	mclasen; did y'all come up with a name for that library yet? :)
+Nov 20 20:59:19 <tko>	something more reliable and automatic than hoping for the best and random manual poking around
+Nov 20 20:59:30 <mclasen>	desrt: new proposals today were libgdesktop or libgsystem
+Nov 20 20:59:39 <desrt>	gsystem is nice
+Nov 20 20:59:51 <desrt>	gdesktop is nice too, i guess :)
+Nov 20 21:00:03 <mclasen>	we've been going for an hour now...
+Nov 20 21:00:13 <mclasen>	should we table extended layout till next week ?
+Nov 20 21:00:24 <mclasen>	and have some list discussion about it in the meantime ?
+Nov 20 21:00:50 <kris>	since the mail was only sent out today having the list discuss it is probably not a bad idea
+Nov 20 21:00:51 <mclasen>	most people have not read the long description yet, anyway ?
+Nov 20 21:00:53 *	desrt will try and have something more concrete to talk about for next week for gsettings
+Nov 20 21:01:12 <mclasen>	anything else we should discuss before closing for today ?
+Nov 20 21:01:46 <mclasen>	that doesn't seem to be the case
+Nov 20 21:01:56 <mclasen>	ebassi: do we have some arrangement for meeting logs ?
+Nov 20 21:02:07 <mclasen>	thanks again for doing the legwork for the meeting btw
+Nov 20 21:02:13 <--	seb128 (~seb128@ANancy-156-1-91-161.w86-204.abo.wanadoo.fr) has left #gtk-devel
+Nov 20 21:02:28 <--	mitchAFK has quit (Ping timeout: 600 seconds)
+Nov 20 21:02:49 <ebassi>	mclasen: np - I'll write up the minutes and put the logs on gtk-web if it's okay
+Nov 20 21:03:01 <mclasen>	cool, thanks
+Nov 20 21:03:11 <mclasen>	do we reconvene next week ?
+Nov 20 21:03:13 <mclasen>	or the week after ?
+Nov 20 21:04:33 <mclasen>	ok, no answer means ebassi can decide when to send the next invitation...
+Nov 20 21:04:39 <ebassi>	hehe
+Nov 20 21:04:41 <mclasen>	see you all next time
+Nov 20 21:04:46 <desrt>	sounds fine by me :)
