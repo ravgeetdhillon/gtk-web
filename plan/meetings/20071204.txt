@@ -1,0 +1,231 @@
+ *	mclasen gets coffee
+<mclasen>	ok, lets start, I think
+<mclasen>	any additions to the agenda ?
+<mclasen>	if not, then we should probably just start with the first item
+<mclasen>	* GIO merge post-mortem and follow-up
+<mclasen>	alex_: can you give a quick summary of the current state of things ?
+<alex_>	I think there are still a couple of issues that makes it not build on win32
+<alex_>	But they should be quite easy to fix
+<alex_>	Otherwise i think we're in pretty good shape
+<alex_>	We landed a lot of docs, and I did all the alias setup work to avoid PLT references and to export minimal set of symbols
+<mclasen>	have any bindings people commented on the gio api ?
+<mclasen>	like murrayc or jdahlin_
+<alex_>	slomo has been working on it a bit
+<alex_>	and i think he's a c++ bindings guy
+<jdahlin_>	I've looked at it, but haven't found time to do a careful review
+<alex_>	but i got no specific comments wrt binding it
+<kris>	we (as in the imendians) looked over the API last week
+<alex_>	but he likes it
+<jdahlin_>	it would be nice to have GClosures variant callbacks, but it's not a big deal
+<kris>	at least we found some stuff that could be improved
+<mclasen>	ah, I think one of the ideas behind the current callback design was to avoid variants...
+<alex_>	jdahlin_: it helps that all callbacks are the same api
+<kris>	I think people will be following up about that this or next week
+<danw>	avoid variants how?
+<mclasen>	kris: do you have anything that can or should be discussed now, or should we handle it on list ?
+<alex_>	I'm not sure what you mean by callbacks
+<mclasen>	danw: by having generic callbacks, and a generic result object
+<alex_>	eh, i mean variants
+<alex_>	but all callbacks for async i/o are:
+<alex_>	typedef void (*GAsyncReadyCallback) (GObject *source_object,
+<alex_>					     GAsyncResult *res,
+<alex_>					     gpointer user_data);
+<kris>	mclasen: we can probably do it on the list, various people made various notes and I don't have most of those ;)
+<tbf>	"closure callback" - does that mean having destroy notifiers for the user_data argument?
+<danw>	is every callback guaranteed to only be called back once?
+<alex_>	which should mean that its easier to bind
+<alex_>	danw: yes
+<kris>	ah I see
+<kris>	the callbacks thing was one of the items on the list
+<alex_>	even on cancellation you get the callback
+<murrayc>	mclasen: Marko Anastastov seems to have the C++ bindings for gio almost done. He's used (and hated) gnome-vfs, so he is a good tester.
+<tbf>	murrayc: really likes having that destroy notifiers for C++ bindings
+<jdahlin_>	alex_, isn't g_mount_for_location/g_mount_for_location_finish missing a g_file_* prefix?
+<kris>	we were wondering about GDestroyNotify for user_data also
+<murrayc>	alex_: The comments you got from Marko were for the bindings.
+<danw>	if you know the callback is always invoked exactly once (not zero, not more than once), you can survive not having the destroynotify
+<alex_>	for destroy notify you can just chain the callback as its guaranteed to come
+<murrayc>	danw: Yes.
+<murrayc>	danw: As long as it's not async.
+<murrayc>	danw: actually, yes, even if it's async.
+<danw>	why not if it's async?
+<danw>	right
+<kris>	alex_: ah, nice
+<alex_>	jdahlin_: Well, one could think of its as a file operation, but i'm not sure what a better name with a g_file_ prefix would be
+<mclasen>	some of these things probably should be in the docs, like the guarantee that every callback is called exactly once
+<alex_>	its more something that operates on the global state
+<mclasen>	and some hint for how to handle user_data destruction
+<jdahlin_>	alex_, just browsing the headers, all other functions had that prefix in gfile.h
+<alex_>	i.e. the set of mounts
+<alex_>	Take g_file_mount_mountable()
+<alex_>	This takes a GFile that points to a file of type MOUNTABLE and mounts it
+<alex_>	(mountable is a new type, like a directory is a type of file. An example of it would be a smb share when enumerating a smb server)
+<jdahlin_>	right, got it.
+<rhult>	too bad we alreay have a bunch of functions called g_file_* that now will have nothing to do with GFiles 
+<alex_>	however, g_mount_for_location instead mounts the filesystem that contains the particular file
+<alex_>	rhult: yeah, that is sort of weird...
+<alex_>	so, its not quite an operation on that particular file
+<jdahlin_>	rhult, that could be solved by doing a s/g_/gio_/g, if someone cares enough
+<rhult>	we could have gone the gio_ or g_io way I suppose
+<rhult>	yea
+<mclasen>	before we get too bogged down in the detailed api review (which we agreed to take to the list), can you summarize the state of the rest of the stack, alex ?
+<alex_>	GIOFile, GIOInputStream, GIOBufferedInputStream
+<mclasen>	ie gvfs, nautilus, file chooser, etc ?
+<alex_>	everything gets longer and more ugly
+<alex_>	ok
+<alex_>	gvfs is the part that is in least good shape atm
+<alex_>	It only has smb, sftp and trash backend
+<alex_>	although gicmo+danw is starting with http/dav
+<alex_>	It also doesn't allow you to build backends out of tree atm
+<danw>	he was hoping to make progress on that this weekend. do you know if he did?
+<alex_>	To do that it requires some cleanup of the headers and to install them in the right places etc.
+<mclasen>	does gnome-vfs have any out-of-tree backends ?
+<alex_>	Also, i think there are a bunch of GFile operations that are not supported yet. Especially the async versions of many ops (these will fallback to threaded implementations using the sync ones, but native async ones would be much better)
+<alex_>	burn:
+<alex_>	obexftp
+<alex_>	fonts:
+<alex_>	themes:
+<mclasen>	ok, I guess that shows that there is value in allowing it
+<alex_>	Anyway, gvfs is sort of isolated from the rest of the stack though. i.e. you can do a lot of stuff without it
+<rx4>	iirc, there was a stress test for gtk themes/engines, right?
+<alex_>	and it has no important public api 
+<alex_>	so, as long as it mostly works we're ok
+<alex_>	nautilus / eel is in better shape
+<alex_>	I really like a lot of simplifications and cleanups i've been able to do in the new code
+<alex_>	However, there are still a few feature regressions
+<alex_>	I've implemented copy/move/delete/trash/empty trash by now
+<alex_>	but link, duplicate, new folder and a few other things are still stubbed
+<alex_>	I expect those to land by the end of the week.
+<mclasen>	is http://live.gnome.org/GioToDo an uptodate view of the current situation ?
+<alex_>	These things need some serious testing though, as they are potential data-losers
+<alex_>	yes
+<alex_>	that is uptodate inasmuch as I remembered everything
+<alex_>	might be some more minor things missing in nautilus, but none come to mind
+<mclasen>	one question I have is how we want to handle the parts that eventually need to land in gtk
+<alex_>	I haven't really given that much time yet
+<mclasen>	given that we won't have a gtk release for 2.22
+<kris>	we can handle the gtk+ parts later?
+<kris>	or not?
+<mclasen>	we could either put them in gtk as the become ready
+<alex_>	I think we should land things as they are ready
+<mclasen>	or "park" them in some other library like egg
+<alex_>	even if we don't release it in a stable release yet
+<mclasen>	putting them in gtk might make copy-and-paste a little harder, but thats ok, I guess
+<alex_>	Then we could perhaps sync it out to libegg
+<alex_>	with a s/gtk/egg/
+<mclasen>	yeah
+<alex_>	I've got some stuff in libeel
+<alex_>	some that could be user more or less as-is
+<alex_>	some that needs work
+<mclasen>	I think I am going to look a bit into the gtk+ parts on the todo list 
+<alex_>	mclasen: cool
+<mclasen>	I already did a very quick hack for pixbuf loading
+<alex_>	I have not looked at the existing gtkfilesystem implementation
+<mclasen>	by wrapping an output stream around a pixbuf loader
+<alex_>	mclasen: that seemed sort of weird to me
+<mclasen>	it was very quick, at least...
+<alex_>	mclasen: consuming an input stream seems more natural
+<mclasen>	yeah, pixbuf loaders are wierd like that
+<alex_>	i.e. gdk_pixbuf_new_from_stream (input_stream)
+<mclasen>	you write to them
+<alex_>	but i guess that could use the output stream under the cover
+<mclasen>	yeah, I'll give it some more thought
+<mclasen>	we probably also want to support writing pixbufs out to a stream
+<tko>	I suppose the most straightforward low level change would be to add inputstream support to pixbufloader
+<mclasen>	anyway, I think it is time to switch to the next agenda item, after we already dropped it last week...
+<mclasen>	(thanks for the update, alex)
+<mclasen>	* Extended layout hints (Google Summer of Code)
+<alex_>	So, one more gio thing
+<alex_>	It really could use lots of tests
+<alex_>	Are anyone interested in writing tests or a test suite?
+<mclasen>	now that we have a shiny test framework, that should be a breeze...
+<kris>	yeah
+<kris>	and it would be a good way to find issues in the test framework or things that can be improved there
+<alex_>	Well... i/o is sort of complicated
+<tko>	ah, yes.. I'm not too comfortable with my patches to xattr stuff without reasonable test coverage
+<alex_>	an ideal setup would use loopback mounts to test stuff on fat, test out of diskspace, etc, etc
+ *	mclasen first needs to learn how to use the new test framework 
+<alex_>	heh
+<mclasen>	I guess I'll look at setting up the framework for tests, and then hope for lots of contributions...
+ *	tjafk is now known as timj
+<kris>	timmy
+<timj>	alex_: i think it'd help if you could write an email listing what tests are useful to implement and how to achieve that. (some should be possible to implement right away without loopback mounts, etc)
+<alex_>	I'll try to come up with some
+<alex_>	Just testing basic functionallity is good
+<alex_>	but another important part is catching all the corner cases and i/o errors
+<mclasen>	ok, back to extended layout ?
+<mclasen>	the discussion on the list sort of died out without any clear conclusions, I think
+<tbf>	mclasen: guess also due my silence
+<mclasen>	the two contentious points I saw being raised there were 
+<mclasen>	a) details about how the interface should look to make implementing it easy
+<mclasen>	b) the best size allocation algorithm for extended layout
+<tbf>	mclasen: well, i am in state of big disagreement on both topics
+<tbf>	mclasen: imho the changes havoc's proposes make things more complicated, not simplier
+<timj>	mclasen: i haven't had time to look at extended layout at all yet. and will look into GIO API first
+<kris>	it would be useful if you could back up your disagreements with arguments on the mailing list
+<tbf>	as you have to track more state variables to track natural and minimum size at once
+<mclasen>	timj: ok
+<mclasen>	I'm hoping that we can revive the extended layout discussion on list, anyway
+<kris>	yes, that would be good
+<tbf>	the pattern i used for reducing code duplication in minimum and natural size calculation is adding a flag to the old size request function
+<mclasen>	tbf: I guess I'd have to look at some examples 
+<mclasen>	maybe I should actually look at your patches...
+<mclasen>	tbf: if you could follow up on the list explaining your pattern, and showing an example that demonstrates it, I'm sure we can settle this relatively minor point easily
+<mclasen>	how about b) ?
+<tbf>	mclasen: guess that alternate algorithm should be evaluated
+<tbf>	mclasen: but my gut feeling is high code complexity for little effect
+<mclasen>	I think that the quest for the one true size allocation alg. is pointless, honestly
+<mclasen>	how a container distributes its allocation is up to the container, basically
+<tbf>	mclasen: also it changes the complexity class for all size algorithms from usually O(n) to O(n log n)
+< 100 almost always, so I wouldn't worry much about asymptotic complexity
+<tbf>	mclasen: erm... log(8) is > 2 already.... so for containters with just 8 widgets we already risk to double size allocation time
+<tbf>	mclasen: ok.... carefuly placing chaining loops and so on will help alot
+<mclasen>	is size allocation time ever a bottleneck ?
+<mclasen>	unless you do ugly things with size groups 
+<mclasen>	I guess width-for-height allows you to make horizontal and vertical size groups depend on each other ?
+<tbf>	mclasen: well, when resizing for instance this Pidgin window, i can see GTK+ doing its size allocation work
+<tbf>	so imho size allocation is quite slow already
+<tbf>	mclasen: recursively? no.
+<mclasen>	tbf: if you put a width-for-height widget in both a horizontal and a vertical group, doesn't that effectively tie them together ?
+<tbf>	mclasen: still thinking about this....
+<mclasen>	tbf: anyway, I don't think the n log n case will be hit very often, if you keep the children sorted based on the differences, they should be almost perfectly sorted - unless the size requests change wildly
+<tbf>	but unless i did some mess, i only use the height-for-width information to distribute space when container got its size allocated
+<tbf>	all the size group stuff happens before
+<tbf>	after size-request, before size allocate
+<mclasen>	oh, hmm
+<mclasen>	I guess I really need to study your patches in more detail
+<mclasen>	will you follow up on the list with your arguments, if I promise to read your patches ?
+<tbf>	will follow up on list
+<mclasen>	anything else on extended layout ? otherwise we should quickly move to the last topic
+<mclasen>	since we're over an hour already
+<mclasen>	ok, last agenda item is
+<mclasen>	* Version bump for GTK+/GLib
+<mclasen>	I don't know who put it up. kris ?
+<kris>	i didnt
+<kris>	but still I have concerns whether just bumping gtk+'s version to match glib is a good idea
+<tbf>	i also doubt it
+<kris>	the confusion has been done already, IMHO
+<kris>	just bumping the gtk+ version will bring another round of confusion
+<xan>	it feels pointless if you plan to release glib more frequently, as the plans seems to be
+<tbf>	the reasoning for the bump is to reduce confusion, but this only is valid if the bump happens rarely
+<kris>	and in the end there are no guarantees that we are not going to desync glib/gtk+ in the future
+<mclasen>	that is how things look for this cycle, at least
+<tbf>	.....but if we can predict that we will have to bump often, it might be better just the let them run out of sync
+<leio>	I like the version number distance as it gives a feeling that they aren't tied together and you can use glib without gtk+ (for console apps, daemons, whatever) to get a "better C". It seems there aren't many non-GUI users of glib until recently (outside GNOME maybe syslog-ng comes to mind)
+<tbf>	leio: interesting aspect
+ *	mclasen has no strong preference either way
+<mclasen>	but if we decide to sync them, we need to keep them in sync from now on
+<tbf>	mclasen: its just a version number, so no much reason for doing voodoo with it
+<mclasen>	if nothing else, occasionally skipping a version makes for good trivia questions 20 years from now:
+<mclasen>	GTK+ 2.14 was that the one that added the gvfs dependency ?
+<kris>	hahahaha
+<mclasen>	I guess we won't settle this question today..
+<mclasen>	time to stop
+<mclasen>	see you guys at the next meeting in (?) two weeks, I guess
+<kris>	yeah two weeks
+<kris>	have a good evening
+<mclasen>	almost xmas then
+<kris>	yeah scary
+<tbf>	ciao
+<mclasen>	so bring cookies and candles, maybe
+<kris>	and beer
