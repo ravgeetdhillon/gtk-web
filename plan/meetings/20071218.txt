@@ -1,0 +1,210 @@
+*	mclasen wonders if he's late or early
+<kris>	right on time I guess we get started now
+<mclasen>	ok
+<mclasen>	sorry for being right on time, then
+<mclasen>	first point is fairly quick, I want to do a glib release this week
+<mclasen>	trying to get to it on Thursday, but it may spill over into Friday
+<mclasen>	I don't think we are ready to declare it api frozen yet
+<alex_>	I'd like to do gvfs, eel and nautilus releases to go with that
+<behdad>	we don't have to really
+<mclasen>	alex_: sounds like a good plan
+<alex_>	although my xmas vacation starts on friday
+<behdad>	would have been nice to target the gnome release this week, but not going to happen I guess
+<alex_>	but i can probably do it anyway
+<kris>	gnome is releasting tomorrow already
+<mclasen>	not quite possible, I think
+<mclasen>	there is some outstanding gio api stuff between davidz and alex
+<mclasen>	that we should probably sorted out
+<behdad>	well, doesn't have to be frozen
+<alex_>	it seems better to be a few days after the gnome release and have to change less api after the first release
+<timj>	alex_: hm, i mean to ask you one thing about libgio...
+<mclasen>	nice segway into the second topic
+<mclasen>	which is 'recap gio api review' 
+<tbf>	libcore(dump).so
+<timj>	alex_: you kept repeating the argument that libgio needs to depend on libgobject and might gain more gobject based glib stuff in the future. come to think of that, shouldn't we use a library name like libglibobjects.so or similar? (not talking about the .pc name here, just the .so name)
+<tbf>	ok, wrong guess :-)
+<bratsche>	heh
+<alex_>	timj: there was multiple "generic" names proposed (libgcore, etc), but not that particular one
+<alex_>	i don't have anything inherently against the idea (although that particular name is a bit long perhaps)
+<alex_>	We just would have to pick a name, and it seemed hard to come up with a great one
+<timj>	alex_: i'm not after this specific name here, was just wondering if something more generic than gio wouldn't be suitable
+<mclasen>	the problem was coming up with something sufficiently appealing
+<mclasen>	libgcore, libgfoundation, libgsystem all failed in that respect, I think
+<timj>	libgliboo.so? ;)
+<alex_>	Anyway, the gio api review. I've got a bunch of fallout from that on a todo list at work
+<alex_>	But i've been away from work today doing xmas shopping
+<mclasen>	gee
+<alex_>	so i don't have it here
+*	mclasen hasn't started yet
+<tbf>	mclasen: libgee already exists
+<alex_>	but there were a few left
+<alex_>	libgoo?
+<alex_>	:)
+<behdad>	goocanvas..
+<kris>	i propose sch
+<tbf>	kris: sch?
+<mclasen>	the point of my 'recap' topic was to check if the proponents of the name space unification can live with the current compromise
+<behdad>	gfoundation is okayish
+<behdad>	GSList *g_foundation_get_members()
+<behdad>	mitch is not here
+<bratsche>	What about gbase?
+<tbf>	didn't we have glibbase?
+<tbf>	bratsche: two idiots, same idea :-D
+<alex_>	all your gbase belong to us
+<bratsche>	tbf: hehe
+*	tbf votes for base or gbase
+<bratsche>	Yeah, shorter is better.  Foundation is too long, imo.
+<behdad>	you don't ever get to type it btw
+<behdad>	mclasen: what's the current compromise, some renamed to GIO*?
+*	behdad didn't quite follow latest changes
+<alex_>	no GIO namespace really, we just killed a bunch of things that unnecessarily wasted namespace
+<mclasen>	behdad: there was quite a bit of cleanup 
+<behdad>	right
+*	behdad checks
+-->	mitchAFK (~mitch@c-89a3e055.1157-1-64736c20.cust.bredbandsbolaget.se) has joined #gtk-devel
+<behdad>	g_async_result looks to me like something that should either be renamed or live out of gio
+<behdad>	I mean, made generic.
+<alex_>	out of gio?
+<behdad>	it obviously can't live in glib
+<alex_>	like, in a forth glib library?
+<alex_>	and, whats not generic about it?
+<behdad>	no.  just making sure it's not gio-specific
+*	behdad is just quickly going over gio.symbols
+<mclasen>	eek
+<behdad>	nothing.  looks fine.
+*	mclasen hears laptop disk making funny noise
+<alex_>	mclasen: click of death?
+<mclasen>	silent again; maybe it was the fan
+<mclasen>	timj: do you want to spend more time looking for an alternative soname ?
+<tbf>	libgfuture
+<ebassi>	libglib3000
+<ebassi>	what could possibly go wrong?
+<mclasen>	libstick
+<tbf>	hehe
+<bratsche>	heh
+<timj>	not personally. if someone could post a list of semi serious candidates to the list, we could make a call
+<mclasen>	we can try again to do that, maybe it is more successful this time...
+<timj>	i  think  something that reminds of "glib" and "objects" would be good enough
+<mclasen>	i'll send a list of semi-serious candidates to the list and see what happens.
+<mclasen>	ok, that last point I put on the agenda was extended layout, again
+<tbf>	ok, so what shall i do, that we get it in?
+<mclasen>	although I don't know if we have much new insight there since the last time we discussed it
+<kris>	I will review the cell view, tree view and related bits once you guys settled on the API
+<mclasen>	tbf: the one thing I wanted to point out about your sorting concern
+<kris>	because it doesn't  feel productive to review to me if the API/inner works is still up in the air
+<tbf>	mclasen: well, gtktable is inefficient already: O(n²)
+<mclasen>	is that I think you should be able to do much better than n log n, since the list should be almost always nearly sorted
+<tbf>	mclasen: and merge sort only has O(n log n) on a unsorted list
+<mclasen>	unless the requisitions of the children vary wildly
+<tbf>	mclasen: on a sorted list it is O(n) - so sorting shouldn't be a concern
+<tbf>	mclasen: false alert
+<mclasen>	fok, cool
+<mclasen>	timj: I wonder if you had time to review the extended layout work at all ?
+<mclasen>	iirc, you have some prior art in that area...
+<timj>	haven't had time for review yet nufortunnately
+<tbf>	mclasen: maybe we should start in small steps... natural size for gtklabel and gtk[hv]box
+<tbf>	plus the required interface definition
+<behdad>	I think the main question at this point is, whether to go with Havoc's proposal of a merged natural and minimum extents, or separate calls as it is right now
+<behdad>	the rest looked like implementation details to me
+<tbf>	behdad that's indeed an interesting question: my feeling is, that his proposal makes things more complicated - not more easy
+<tbf>	behdad: as you have to maintain more state in your size request functions and take care, not to confuse things
+<behdad>	tbf: you can always make that method simply call two other ones to fill in each of natural and min
+<tbf>	behdad: the other direction also works
+<behdad>	on the other hand, gives you the ability to for example build a pangolayout once, then measure it differently to set both natural and min
+<behdad>	tbf: other direction has overhead
+<behdad>	you end up computing some stuff twice
+<behdad>	and if you always going to call both, makes sense to merge to me
+<tbf>	behdad: you have to completly reconfigure the layout anyway
+<--	msanchez has quit (Ex-Chat)
+<behdad>	tbf: no.  it may be as simple as calling set_width on it.  building the layout is done once.
+*	behdad brings up tbf's mail
+<behdad>	there was another advantage to havoc's idea
+<behdad>	was it nov or oct?
+<behdad>	found
+<behdad>	http://mail.gnome.org/archives/gtk-devel-list/2007-November/msg00145.html
+<behdad>	havoc's version decouples width and height completely
+<behdad>	that is, when computing natural width, also computing natural height is pretty much useless
+<behdad>	you really need to recompute proper height based on allocated width later anyway
+<behdad>	so I like havoc's api better
+<behdad>	or maybe yours is more natural and lends to more optimizations.  donno
+<mclasen>	I assume you can always pass NULL for the out arguments to forego the calculation of a piece of information ?
+<mclasen>	if there are out parameters, that is...
+<behdad>	well, the implementation should support it still
+<tbf>	mclasen: but if you do not want to get lost in if/else desert, you calculate everything anyway
+<mclasen>	I guess
+<behdad>	I suggest writing havoc's api and implementing it for gtklabel
+<behdad>	then compare the two
+<mclasen>	so I don't think I can see a clear advantage to either variant
+<mclasen>	so looking at a real case like gtklabel and deciding based on that seems reasonable
+<behdad>	tbf: can you do that, or too much work?
+<tbf>	behdad: from re-reading the code: for gtklabel separating height and width calculation would require calulation size requests, twice
+<tbf>	behdad: for gtklabel, height and width are quite coupled
+<behdad>	I'll try to review your stuff again then.
+*	mclasen is looking at the patches, too
+<tbf>	well, i can try to rewrite gtklabel to support havoc's suggestions...
+<behdad>	tbf: ok, we can meet later and take an in-depth look then
+<mclasen>	tbf: so, your email has this
+<behdad>	say, friday
+<mclasen>	I have to admit, that I have to check the impact of my size-negotiation
+<mclasen>	code on size-groups, as I forgot to define an invariant similar to the
+<mclasen>	natural-size invariant. Just realized that, when writing this up.
+<mclasen>	any further insight into how size groups fit into extended layout ?
+<tbf>	no new insights
+-->	federico (~federico@189.129.77.141) has joined #gtk-devel
+<tbf>	hey federico
+<federico>	hey hey
+<federico>	tbf: did you guys talk about the new geometry manager yet?
+<tbf>	federico: we still do
+<behdad>	was almost closing it
+<federico>	ah
+<federico>	does anyone have an irc log? :)
+<mclasen>	federico: do you have something to say about it ?
+<tbf>	mclasen: hmm... size groups on elipsized labels could cause some trouble at current state.... i could imagine....
+<federico>	mclasen: nothing other than I Want It Now(tm) :)
+<behdad>	federico: http://pastebin.ca/822627
+<federico>	behdad: thanks!
+<behdad>	federico: basically what we discussed was whether havoc's alternative api is better....
+<behdad>	and mclasen asked if tbf has any new insight in the problem he pointed out in his mail
+<behdad>	seems not.
+*	behdad fades away for a bit
+<tbf>	mclasen: let me switch branches and write a short test-program
+<mclasen>	tbf: good plan
+<mclasen>	did we agree to meet again later this week to look over your patches in more detail ?
+<tbf>	mclasen: seems so
+<mclasen>	ok, I'll make an honest effort to study them by then
+<mclasen>	oh, one more thing
+<federico>	hmm
+<federico>	I'd try to minimize having to re-measure
+<federico>	that's what kills us right now in gtktreeview
+<mclasen>	somebody brought up the idea of allowing children to be dropped if space is scarce
+<mclasen>	tbf: is that doable as an addition to your implementation ?
+<alex_>	mclasen: can't you do that already with a custom container?
+<--	Lethalman has quit (Read error: 104 (Connection reset by peer))
+<mclasen>	alex_: I guess, yeah; like the toolbar handles its overflow menu
+<mclasen>	but it is complicated
+<alex_>	if you also know your childrens natural width you can probably do it well
+<mclasen>	yeah
+<mclasen>	any other points to discuss today ? 
+<tbf>	mclasen: let's assume "scarce space" is defined by "allocated-size < natural-size"... then i could try to remove !important widgets, until "allocated-size >= natural-size"
+*	mclasen gotta run out in 5 min, kids demand to go sledding before it gets dark
+<tbf>	mclasen: so with that definition it should work - at least for boxes
+<tbf>	s/remove/temporarly hide/
+<mclasen>	right
+<tbf>	mclasen: the sorted list will help in picking candidates
+<mclasen>	yeah
+<tbf>	mclasen: regarding havoc's api for gtklabel....
+<mclasen>	ok, if we stay with our 2 week schedule, the next meeting would be 
+<mclasen>	on january 1
+<mclasen>	I guess thats bad
+<mclasen>	so we'd probably move that a week back ?
+<tbf>	...still wonder if i should apply the ellipses/rotation fixups, before implementing that API - for fair comparision
+<ebassi>	mclasen: jan 8 then?
+<mclasen>	yeah, I guess
+<mclasen>	merry xmas everyone
+*	mclasen runs out
+<kris>	mclasen: happy holidays
+<kris>	jan 8 sounds good, I think I will be dead on Jan 1
+<tbf>	ciao
+<tbf>	kris: discipline, discipline! :-D
+<kris>	not on Dec 31
+<kris>	;)
