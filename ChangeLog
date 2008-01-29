@@ -1,5 +1,28 @@
 2008-01-29  Martyn Russell  <martyn@imendio.com>
 
+	* commerce.html:
+	* development.html:
+	* documentation-old.html:
+	* documentation.html:
+	* download-linux.html:
+	* download-macos.html:
+	* download-windows.html:
+	* download.html:
+	* features.html:
+	* gtk.css:
+	* images/*:
+	* images/commerce/*:
+	* images/screenshots/*:
+	* images/svg/*:
+	* index.html:
+	* mailing-lists.html:
+	* overview.html:
+	* screenshots-old.html:
+	* screenshots.html:
+	* setuid.html: Added new website files for gtk.org face lift.
+
+2008-01-29  Martyn Russell  <martyn@imendio.com>
+
 	* api/: Removed unused files in preparation for new GTK+ web pages.
 
 2008-01-29  Martyn Russell  <martyn@imendio.com>

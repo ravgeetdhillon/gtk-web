@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html"/>
+
+    <meta name="Description" content="GTK+ Home Page" />
+    <meta name="Keywords" content="GTK, GTK+, Gimp, Toolkit" />
+
+    <meta name="allow-search" content="yes" />
+    <meta name="revisit-after" content="10 Days" />
+
+    <meta name="reply-to" content="gtk-devel@gnome.org" />
+    
+    <link href="gtk.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="images/gtk-logo.ico" type="image/x-icon" />
+
+    <title>GTK+ - Features</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="header"><h1>The GTK+ Project</h1></div>
+      <div id="menu">
+	<table>
+	  <tr>
+	    <td><a title="About GTK+." href="index.html">About</a></td>
+	    <td><a title="Find out what GTK+ can do for you." href="features.html" class="current">Features</a></td>
+	    <td><a title="Download the latest version of GTK+." href="download.html">Download</a></td>
+	    <td><a title="See applications using GTK+ on various platforms." href="screenshots.html">Screenshots</a></td>
+	    <td><a title="Read up on documentation about how to use GTK+." href="documentation.html">Documentation</a></td>
+	    <td><a title="Find out how you can get involved in the develop of GTK+." href="development.html">Development</a></td>
+	  </tr>
+	</table>
+      </div>
+      <div id="content">
+	<h2><a name="Stability">Stability</a></h2>
+	<p>GTK+ has been developed for over a decade to be able to
+	  deliver the enticing features and superb performance that it
+	  brings to your application development. GTK+ is supported by a
+	  large community of developers and has core maintainers from
+	  companies such as <a href="http://www.redhat.com/">Red Hat</a>, <a href="http://www.novell.com/">Novell</a>, <a href="http://imendio.com/">Imendio</a> and <a href="http://o-hand.com/">Opened Hand</a>.</p> 
+	
+	<h2><a name="CrossPlatform">Cross Platform</a></h2>
+	<p>Originally GTK+ was developed for X Windows but it has grown
+	  over the years to include backend support for other well known
+	  windowing systems. Today you can use GTK+ on:</p> 
+	<ul>
+	  <li><a href="download-linux.html">GNU/Linux and Unix</a></li>
+	  <li><a href="download-windows.html">Windows</a></li>
+	  <li><a href="download-macos.html">Mac OS X</a></li>
+	</ul>
+	
+	<h2><a name="Mobile">Mobile</a></h2>
+	<p>The GMAE (<a href="http://www.gnome.org/mobile/">GNOME Mobile
+	    &amp; Embedded</a>) initiative has advanced the use, development and
+	  commercialization of GNOME components as a mobile and embedded
+	  user experience platform. It has brought together industry
+	  leaders, expert consultants, key developers and the community
+	  and industry organizations they represent. As a direct result of
+	  this, GTK+ has features pertaining to mobile and embedded
+	  platform requirements.</p>  
+	<p>GTK+ has been involved in a number of embedded initiatives
+	  over the past few years including the development of:</p>
+	
+	<ul>
+	  <li>Nokia <a href="http://europe.nokia.com/A4145104">770</a>
+	  / <a href="http://web.nseries.com/products/#l=products,n800">800</a>
+	  / <a href="http://web.nseries.com/products/#l=products,n810">810</a></li> 
+	  <li><a href="http://www.laptop.org/">One Laptop Per Child Project</a></li>
+	  <li><a href="http://www.openmoko.com/">OpenMoko</a></li>
+	</ul>
+	
+	<h2><a name="Accommodating">Accommodating</a></h2>
+	<p>GTK+ caters for a number features that today's developers are
+	  looking for in a toolkit, they include:</p>
+	
+	<ul>
+	  <li>Native look and feel</li>
+	  <li>Theme support</li>
+	  <li>Thread safe</li>
+	  <li>Object orientated approach</li>
+	  <li>Internationalization</li>
+	  
+	  <li>Localization</li>
+	  <li>Accessibility</li>
+	  <li>Bidirectional text support (LTR/RTL, Left To Right/Right To Left)</li>
+	  <li>UTF8 support</li>
+	  <li>Documentation</li>
+	</ul>
+	
+	<h2><a name="Interfaces">Interfaces</a></h2>
+	<p>GTK+ has a comprehensive collection of core widgets which include:</p>
+	<ul>
+	  <li>Windows (normal window or dialog, about and assistant dialogs)</li>
+	  <li>Displays (label, image, progress bar, status bar)</li>
+	  <li>Buttons and toggles (check buttons, radio buttons, toggle buttons and link buttons)</li>
+	  <li>Numerical (horizontal or vertical scales and spin buttons) and text data entry (with or without completion)</li>
+	  <li>Multi-line text editor</li>
+	  <li>Tree, list and icon grid viewer (with customizable renderers and model/view separation)</li>
+	  <li>Combo box (with or without an entry)</li>
+	  <li>Menus (with images, radio buttons and check items)</li>
+	  <li>Toolbars (with radio buttons, toggle buttons and menu buttons)</li>
+	  <li>UI Manager (creating menus and toolbars from XML)</li>
+	  <li>Selectors (color selection, file chooser, font selection)</li>
+	  <li>Layouts (tabulated widget, table widget, expander widget, frames, separators and more)</li>
+	  <li>Status icon (notification area on Linux, tray icon on Windows)</li>
+	  <li>Printing widgets</li>
+	  <li>Recently used documents (menu, dialog and manager)</li>
+	</ul>
+      
+	<h2><a name="Foundations">Foundations</a></h2>
+	<p>GTK+ is built on top of GLib. GLib provides the fundamental
+	  algorithmic language constructs commonly duplicated in
+	  applications. This library has features such as (this list is
+	  not a comprehensive list):</p>    
+	<ul>
+	  <li>Basic types &amp; type conversions</li>
+	  <li>Event loop</li>
+	  <li>Dynamic loading of modules (i.e. plug-ins)</li>
+	  <li>Thread support</li>
+	  <li>Timer support</li>
+	  <li>Memory allocator</li>
+	  <li>Queues (synchronous and asynchronous)</li>
+	  <li>Lists (singly linked and doubly linked)</li>
+	  <li>Hash tables</li>
+	  <li>Arrays</li>
+	  <li>Trees (N-ary and binary balanced)</li>
+	  <li>String functions</li>
+	  <li>Hash tables</li>
+	  <li>Simple XML parser</li>
+	  <li>Base64 (encoding &amp; decoding)</li>
+	</ul>
+	
+      <h2><a name="LanguageBindings">Language Bindings</a></h2>
+	<p>Language Bindings (or 'Wrappers') allow GTK+ to be used from
+	  other programming languages, in the style of those
+	  languages. They are relatively easy to create because GTK+ is
+	  designed with them in mind.</p>  
+	
+	<p>These projects follow
+	  the <a href="http://www.gnome.org/start/unstable/bindings/">GNOME
+	    Platform Bindings</a> schedule, which guarantees API stability
+	  and time-based releases.</p>
+	<p>If this page happens to be out of date,
+	  <img src="images/mail.png" alt="envelope"/><a href="mailto:language-bindings@gnome.org?subject=Out%20of%20date%20language%20bindings"> Contact the Language Bindings Team</a>,
+	  but please ask language
+	  specific questions on the appropriate project's mailing list.
+	  This web page is in the gtk-web cvs module.</p> 
+	
+	<table class="styled">
+	  <tr><th colspan="2">Key</th></tr>
+	  <tr>
+	    <td><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td>Unsupported</td>
+	  </tr>
+	  <tr>
+	    <td><img src="images/progress-pending.png" alt=""/></td>
+	    <td>Partially Supported</td>
+	  </tr>
+	  <tr>
+	    <td><img src="images/progress-complete.png" alt=""/></td>
+	    <td>Supported</td>
+	  </tr>
+	</table>
+        
+	<table class="styled">
+	  <tr>
+	    <th>Language</th>
+	    <th>Project</th>
+	    <th>2.0</th>
+	    <th>2.2</th>
+	    <th>2.4</th>
+	    <th>2.6</th>
+	    <th>2.8</th>
+	    <th>2.10</th>
+	  </tr>
+	  <tr>
+	    <td>C++</td>
+	    <td><a href="http://www.gtkmm.org">gtkmm</a></td>
+	    
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td></td>
+	    
+	    <td><a href="http://xfc.xfce.org/">Xfce Foundation Classes</a></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  
+	  <tr>
+	    <td></td>
+	    <td><a href="http://vdkbuilder.sourceforge.net/">VDK</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td></td>
+	    <td><a href="http://www.wxwindows.org/">wxWindows/Gtk</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr>
+	    <td>Java</td>
+	    <td><a href="http://java-gnome.sourceforge.net/">java-gnome</a></td>
+	    
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>Perl</td>
+	    
+	    <td><a href="http://gtk2-perl.sourceforge.net/">gtk2-perl</a></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	  </tr>
+	  
+	  <tr>
+	    <td>Python</td>
+	    <td><a href="http://www.pygtk.org/">PyGTK</a></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>Ada</td>
+	    <td><a href="http://libre.act-europe.fr/GtkAda/">GtkAda</a></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-complete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr>
+	    <td>C#</td>
+	    
+	    <td><a href="http://gtk-sharp.sourceforge.net/">Gtk#</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  
+	  <tr class="odd">
+	    <td>Common Lisp</td>
+	    <td><a href="http://tenkan.org/clgtk/">CL-GTK</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr>
+	    <td>D</td>
+	    <td><a href="http://dui.sourceforge.net/">DUI</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>Eiffel</td>
+	    
+	    <td><a href="http://www.netlabs.net/hp/richieb/gtk_eiffel.html">eGTK</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  
+	  <tr>
+	    <td></td>
+	    <td><a href="http://www.eiffel.com/products/vision/page.html">EiffelVision, GEL</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>Erlang</td>
+	    <td><a href="http://erlgtk.sourceforge.net">erlgtk</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr>
+	    <td>Euphoria</td>
+	    <td><a href="http://sourceforge.net/projects/eugtk/">eugtk</a></td>
+	    
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>Felix</td>
+	    
+	    <td><a href="http://felix.sf.net">felix</a></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  
+	  <tr>
+	    <td>Fortran</td>
+	    <td><a href="http://sourceforge.net/projects/pilib">pilib</a></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>Gauche (Scheme)</td>
+	    <td><a href="http://www.shiro.dreamhost.com/scheme/gauche/packages.html">Gauche-gtk</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr>
+	    <td>Guile</td>
+	    
+	    <td><a href="http://www.gnu.org/software/guile-gtk">guile-gtk</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  
+	  <tr class="odd">
+	    <td>Haskell</td>
+	    <td><a href="http://haskell.org/gtk2hs/">Gtk2Hs</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr>
+	    <td>JavaScript</td>
+	    <td><a href="http://its.gsu.edu/jsg/js/JSGtk/">JSGtk</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>Lua</td>
+	    
+	    <td><a href="http://luaforge.net/projects/lua-gtk">lua-gtk</a></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  
+	  <tr>
+	    <td>Objective-Caml</td>
+	    <td><a href="http://wwwfun.kurims.kyoto-u.ac.jp/soft/olabl/lablgtk.html">lablGTK</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>Octave</td>
+	    <td><a href="https://sourceforge.net/projects/octave-gtk/">Octave GTK+</a></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr>
+	    <td>Pascal</td>
+	    
+	    <td><a href="http://www.freepascal.org/packages/gtk.html">GTK+ for Free Pascal</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  
+	  <tr class="odd">
+	    <td>Pike</td>
+	    <td><a href="http://pike.ida.liu.se/">Pike</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr>
+	    <td>PHP</td>
+	    <td><a href="http://gtk.php.net">PHP-GTK</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>Ruby</td>
+	    
+	    <td><a href="http://ruby-gnome2.sourceforge.jp/">Ruby-GNOME2</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  
+	  <tr>
+	    <td>Scheme</td>
+	    <td><a href="http://bigloo-lib.sourceforge.net/">Bigloo, gtk+</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>S-Lang</td>
+	    <td><a href="http://space.mit.edu/~mnoble/slgtk">SLgtk</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr>
+	    <td>Smalltalk</td>
+	    
+	    <td><a href="ftp://alpha.gnu.org/gnu/smalltalk/">Part of GNU Smalltalk</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  
+	  <tr class="odd">
+	    <td>TCL</td>
+	    <td><a href="http://tcl-gtk.sourceforge.net">tcl-gtk</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr>
+	    <td></td>
+	    <td><a href="http://www.dr-baum.net/gnocl/">gnocl</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>TOM</td>
+	    <td><a href="http://gerbil.org/tom/">TOM/gtk</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    
+	  </tr>
+	  <tr>
+	    <td>XBase</td>
+	    <td><a href="http://xbgtk.sourceforge.net/">xbgtk</a></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-pending.png" alt=""/></td>
+	    
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td align="center"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	</table>
+	
+<!--
+      In the following tables, "complete" means that the project is thought
+      to wrap every part of the C API that you are likely to need in
+      that programming language, and that it has a stable API; "almost
+      complete" means that we think it will reach "complete;" status
+      soon; "supported" means that the project targets that version of
+      API, or an earlier API-compatible version; "none" means that the
+      project has no wrapper for that version of the API. These
+      descriptions are mostly self-reported by the project
+      maintainers.
+-->
+      </div> <!-- content -->
+      
+      <div id="footer">Copyright 2007-2008 The GTK+ Team</div>
+
+    </div> <!-- container -->
+    
+  </body>
+</html>
+

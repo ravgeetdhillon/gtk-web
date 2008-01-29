@@ -1,0 +1,266 @@
+/* GTK+ Green = #3ee63c, Red = #f6524d, Blue = #3e76e4 */
+
+body {
+    background : #d0d0cb;
+    width : 700px;
+    margin : 0 auto;
+    font-family : sans-serif;
+}
+
+a {
+    text-decoration : none;
+    color : #3465a4;
+}
+
+a:hover {
+    border-bottom : 1px dotted;
+}
+
+a img, a:hover img {
+    border : 0 none;
+}
+
+img {
+    vertical-align : middle;
+}
+
+h2, h2 a {
+    color : #cc0000;
+    margin-top : 1em;
+    margin-bottom : 0.1em;
+}
+
+h3 {
+    margin-top : 1em;
+    margin-bottom : 0.1em;
+}
+
+h4 {
+    margin-bottom : 0.1em;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
+    border-bottom : none;
+}
+
+q {
+    font-style : italic;
+    color : gray;
+}
+
+p {
+    margin-top : 0em;
+    margin-bottom : 0.7em;
+    vertical-align : middle;
+}
+
+/* This is the only non-compliance, but it is needed */
+p:last-child {
+    margin-bottom : 0em;
+}
+
+pre {
+    background : #797b76;
+    color : #fff;
+    padding : 5px;
+    margin-bottom : 1em;
+}
+
+ul > li {
+    list-style-image : url(images/bullet.gif);
+    list-style-type : circle;
+}
+
+ul > li:hover {
+    list-style-image : url(images/bullet.gif);
+}
+
+os.ul {
+    list-style-image : none;
+    list-style : none;
+}
+
+#screenshots {
+    width : 100%;
+}
+
+#screenshots tr {
+    vertical-align : bottom;
+    text-align : center;
+    font-size : 80%;
+}
+
+#screenshots tr td {
+    padding : 10px;
+}
+
+table.documentation-table td, table.documentation td, table.maintainers td {
+    padding-right : 12px;
+    text-align : left;
+}
+
+table.styled th, table.documentation th, table.maintainers th {
+    padding-top : 6px;
+    border-bottom : 1px solid #999;
+    text-align : left;
+}
+
+table.styled, table.documentation {
+    border-collapse : collapse;
+    border : 0;
+    margin-left : 18px;
+}
+
+table.maintainers {
+    border-collapse : collapse;
+    border : 0;
+    margin-left : 18px;
+    margin-right : 18px;
+    margin-bottom : 12px;
+}
+
+table.styled th, table.styled td {
+    padding-right : 12px;
+    text-align : left;
+}
+
+table.styled th {
+    padding-top : 6px;
+    border-bottom : 1px solid #999;
+}
+
+table.styled tr td {
+    padding : 3px;
+}
+
+table.styled tr td.required {
+    text-align : center;
+}
+
+table.styled img {
+    vertical-align : middle;
+}
+
+#header {
+    background : #729fcf url(images/gtk-header.png);
+    height : 145px;
+}
+
+#header h1 {
+    display : none;
+}
+
+#container {
+    background : #fff;
+}
+
+#menu {
+    background : #000;
+    color : #fff;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align : center;
+}
+
+#menu a {
+    color : #fff;
+}
+
+#menu table {
+    margin-left : auto;
+    margin-right : auto;
+}
+
+#menu td {
+    padding-left : 6px;
+    padding-right : 6px;
+}
+
+.current {
+    font-weight : bold;
+}
+
+#content {
+    padding : 3px 3.5em 2em 3.5em;
+    line-height : 150%;
+}
+
+#content a {
+    line-height : 150%;
+    font-weight : bold;
+}
+
+#columns {
+    clear : both;
+    margin-top : 2em;
+}
+
+#news {
+    float : left;
+    width : 48%;
+}
+
+#news h2, #events h2 {
+    margin-top : 0em;
+}
+
+#events {
+    margin-left : 48%;
+    padding-left : 10px;
+    padding-left : 2em;
+}
+
+p.news-title, p.events-title {
+    margin : 0em;
+    font-weight : bold;
+}
+
+p.news-date, p.events-date {
+    margin : 0em;
+    font-size : 90%;
+    color : #888a85;
+}
+
+p.news-desc, p.events-desc {
+    margin : 0em;
+}
+
+p.news-link, p.events-link {
+    margin : 0em;
+    padding-bottom : 1em;
+}
+
+p.news-title, p.events-title {
+    margin : 0em;
+}
+
+#technology {
+    margin-top : 2em;
+    margin-left : -3.5em;
+}
+
+#technology li {
+    list-style : none;
+    padding-bottom : 1em;
+    clear : both;
+}
+
+#technology li img {
+    float : left;
+    margin : 1em;
+}
+
+table tr.odd {
+    background : #e4e4e1;
+}
+
+#footer {
+    clear : both;
+    background : #5987bd;
+    color : #fff;
+    text-align : center;
+    padding : 1em;
+    border-style : solid;
+    border-color : #3465a4;
+    border-width : 1px 0 0 0;
+}
