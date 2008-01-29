@@ -1,3 +1,10 @@
+2008-01-29  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update to link to the latest packages on
+	ftp.gnome.org. Add links win_iconv packages and some explanation
+	about the relationship between win_iconv and GNU libiconv. Some
+	other edits.
+
 2008-01-29  Behdad Esfahbod  <behdad@gnome.org>
 
 	* index.html: Hackfest is 5 days, not 4.

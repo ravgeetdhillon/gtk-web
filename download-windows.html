@@ -39,15 +39,18 @@
 	<h2><a name="Requirements">Requirements</a></h2>
 	<h3>Packages</h3>
 	<p>You will need to get the GLib, Cairo, Pango, ATK, GTK+,
-	  libpng, libjpeg, libtiff and zlib packages to build against
-	  GTK+.</p>
+	  gettext-runtime, libpng, libjpeg, libtiff and zlib developer packages to
+	  build against GTK+, and the corresponding runtime packages
+	  to run GTK+ programs.</p>
 	
 	<p>These packages are for people who develop software that uses
 	  GTK+. The binaries (DLLs and executables) in these packages are
 	  not for programs that use
 	  the <a href="http://www.cygwin.com/">Cygwin</a> Unix emulation
 	  environment. Currently, Cygwin has packages for GTK+ available
-	  directly in its installer which you should use.</p>
+	  directly in its installer from its package repositories
+	  which you should use. Note that the Cygwin GTK+ uses the X11
+	  backend.</p>
 	
 	<h3>Using Microsoft's Compiler</h3>
 	<p>It is possible to use these packages with Microsoft's
@@ -63,17 +66,22 @@
 	  only on NT-based Windows operating systems.</p>
 	
 	<h2><a name="StableRelease">Stable Release</a></h2>
-	<p>To build GTK+ 2.10 you may find the user guide helpful. For
+	<p>To build GTK+ 2.12 you may find the user guide helpful. For
 	  additional help, the <a href="http://library.gnome.org/devel/gtk-faq/stable/">FAQ</a> is a good starting
 	  point.</p> 
 	
 	<p>There are 3 types of download options
-	  below. <strong>Binaries</strong> packages are purely the DLLs and
-	  executables you will need to run your application with
-	  GTK+. <strong>Dev</strong> packages have include files,
-	  import libraries and documentation you will
-	  need. <strong>Source</strong> packages provide the actual
-	  tarballs to build GTK+ yourself.</p>   
+	  below. <strong>Binaries</strong> packages provide only the DLLs
+	  and other files used you will need to run your GTK+-using application. 
+	  <strong>Dev</strong> packages provide include files,
+	  import libraries, documentation and additional tools. 
+	  <strong>Source</strong> packages provide the source code
+	  for the component in question.</p>
+
+	<p>If you want to repackage the necessary runtime files
+	  together with your application into an installer, you can choose
+	  to leave out for instance message catalogs for languages
+	  that your application isn't localised to anyway.</p>
 	
 	<h3>GTK+</h3>
 	
@@ -85,24 +93,24 @@
 	  </tr>
 	  <tr>
 	    <td>GLib</td>
-	    <td>2.14.4</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.14/glib-2.14.4.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.14/glib-dev-2.14.4.zip"><img src="images/download.png" alt=""/> Dev</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.14/glib-2.14.4.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td>2.14.5</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.14/glib-2.14.5.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.14/glib-dev-2.14.5.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.14/glib-2.14.5.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr class="odd">
 	    <td>GTK+</td>
-	    <td>2.12.3</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.12/gtk+-2.12.3.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.12/gtk+-dev-2.12.3.zip"><img src="images/download.png" alt=""/> Dev</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.12/gtk+-2.12.3.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td>2.12.6</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.12/gtk+-2.12.6.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.12/gtk+-dev-2.12.6.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.12/gtk+-2.12.6.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr>
 	    <td>Pango</td>
-	    <td>1.18.3</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.18/pango-1.18.3.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.18/pango-dev-1.18.3.zip"><img src="images/download.png" alt=""/> Dev</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/pango/1.18/pango-1.18.3.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td>1.18.4</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.18/pango-1.18.4.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.18/pango-dev-1.18.4.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/pango/1.18/pango-1.18.4.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr class="odd">
 	    <td>ATK</td>
@@ -113,15 +121,15 @@
 	  </tr>
 	  <tr>
 	    <td>Cairo</td>
-	    <td>1.4.10</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/cairo-1.4.10.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/cairo-dev-1.4.10.zip"><img src="images/download.png" alt=""/> Dev</a></td>
-	    <td><a href="http://cairographics.org/releases/cairo-1.4.10.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td>1.4.14</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/cairo-1.4.14.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/cairo-dev-1.4.14.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://cairographics.org/releases/cairo-1.4.14.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	</table>
 	
 	<h3>Third Party Dependencies</h3>
-	<p>You won't need all of these packages to just use GTK+, some
+	<p>You won't need all of these packages to just use GTK+ Some
 	of the optional packages are needed for building applications
 	like the GIMP on Windows. Required packages are illustrated with
 	<img src="images/progress-complete.png" alt=""/>.</p>
@@ -136,23 +144,34 @@
 	  <tr>
 	    <td>zlib</td>
 	    <td>1.2.3</td>
-	    <td colspan="2"><a href="http://www.zlib.net/zlib123-dll.zip"><img src="images/download.png" alt=""/> Binaries &amp; Dev</a></td>
-	    <td>-</td>
+	    <td colspan="3"><a href="http://www.zlib.net/zlib123-dll.zip"><img src="images/download.png" alt=""/> Binaries &amp; Dev</a></td>
 	    <td class="required"><img src="images/progress-complete.png" alt=""/></td>
 	  </tr>
 	  <tr class="odd">
-	    <td>libiconv</td>
+	    <td>win_iconv</td>
+	    <td>20080128</td>
+	    <td colspan="3"><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/win_iconv-tml-20080128.zip"><img src="images/download.png" alt=""/> Dev &amp; Sources</a></td>
+	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr>
+	    <td>GNU libiconv</td>
 	    <td>1.9.1</td>
 	    <td colspan="2"><a href="http://www.gimp.org/~tml/gimp/win32/libiconv-1.9.1.bin.woe32.zip"><img src="images/download.png" alt=""/> Binaries &amp; Dev</a></td>
 	    <td><a href="http://www.gimp.org/~tml/gimp/win32/libiconv-1.9.1.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
-	    <td class="required"><img src="images/progress-complete.png" alt=""/></td>
+	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>win_iconv DLL</td>
+	    <td>20080128</td>
+	    <td colspan="3"><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/win_iconv_dll-tml-20080128.zip"><img src="images/download.png" alt=""/> Binaries &amp; sources</a></td>
+	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
 	  </tr>
 	  <tr>
-	    <td>gettext</td>
+	    <td>gettext-runtime</td>
 	    <td>0.17</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-0.17.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-dev-0.17.zip"><img src="images/download.png" alt=""/> Dev</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-tools-0.17.zip"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-0.17-1.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-dev-0.17-1.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.17.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
 	    <td class="required"><img src="images/progress-complete.png" alt=""/></td>
 	  </tr>
 	  <tr class="odd">
@@ -181,10 +200,9 @@
 	  </tr>
 	  <tr>
 	    <td>pkg-config</td>
-	    <td>0.20</td>
-	    <td><a href="http://www.gimp.org/~tml/gimp/win32/pkg-config-0.20.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
-	    <td>-</td>
-	    <td><a href="http://www.gimp.org/~tml/gimp/win32/pkg-config-0.20.0.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td>0.23</td>
+	    <td colspan="2"><a href="http://www.gimp.org/~tml/gimp/win32/pkg-config-0.23.zip"><img src="images/download.png" alt=""/> Tool binaries</a></td>
+	    <td><a href="http://www.gimp.org/~tml/gimp/win32/pkg-config-0.23.0.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
 	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
 	  </tr>
 	  <tr class="odd">
@@ -224,11 +242,24 @@
 	<h4>About zlib</h4>
 	<p>This is the compression library used by libjpeg and libtiff.</p>
 	
-	<h4>About libiconv</h4>
-	<p><a href="http://www.gnu.org/software/libiconv/">GNU libiconv</a> is an implementation of <a href="http://www.opennc.org/onlinepubs/7908799/xsh/iconv.html">libiconv</a>. GLib 2.14.4 and earlier links to iconv.dll, so you will need this. There is also <a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/win_iconv-tml-20071205.zip">an alternative implementation of iconv</a> for public domain on windows. It has a much smaller footprint than GNU libiconv and will be linked into GLib in future builds.</p>
+	<h4>About win_iconv</h4>
+	<p>win_iconv is an implementation of <a
+        href="http://www.opennc.org/onlinepubs/7908799/xsh/iconv.html">iconv</a>
+        for Windows by Yukihiro Nakadaira that has a much smaller
+	footprint than GNU libiconv. The win_iconv package above
+	includes the header file, static archive library and
+	the source file. This library is
+	linked statically into GLib&nbsp;2.14.5 and later, thus not
+	needed separately at run-time.</p>
+
+	<h4>About iconv.dll</h4>
+	<p>GLib 2.14.4 and earlier links to iconv in a separate DLL,
+	iconv.dll. This can either be the GNU libiconv or the
+	win_iconv DLL which is intented to be a drop-in
+	replacement.</p>
 
 	<h4>About gettext</h4>
-	<p>The GNU internationalization library. GLib uses intl.dll so you will need this.</p>
+	<p>The GNU internationalization library. All of the GTK+ stack uses it.</p>
 
 	<h4>About libjpeg, libpng and libtiff</h4>
 	<p>These are image libraries used by GTK+. You will need these.</p>
