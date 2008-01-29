@@ -1,5 +1,16 @@
 2008-01-29  Martyn Russell  <martyn@imendio.com>
 
+	* notes/glib-2.10.0-notes.txt:
+	* notes/gtk-2.0.0-notes.txt:
+	* notes/gtk-2.10-notes.txt:
+	* notes/gtk-2.12-notes.txt:
+	* notes/gtk-2.2.0-notes.txt:
+	* notes/gtk-2.4.0-notes.txt:
+	* notes/gtk-2.6.0-notes.txt:
+	* notes/gtk-2.8.0-notes.txt: Added for historical reference.
+
+2008-01-29  Martyn Russell  <martyn@imendio.com>
+
 	* faq/gdp-gtkfaq.dsl:
 	* faq/online_faq_fix:
 	* faq/update_faq:

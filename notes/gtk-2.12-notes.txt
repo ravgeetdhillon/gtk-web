@@ -1,0 +1,160 @@
+Release notes for 2.12
+======================
+
+* gtk_about_dialog_get/set_name() were deprecated in favour of
+  gtk_about_dialog_get/set_program_name(), the GtkAboutDialog now uses the
+  "program-name" property instead of the conflicting "name" property.
+
+* The gdk-pixbuf tiff loader now requires libtiff 3.6.0 or later.
+
+* Support for Windows 9x/ME has officially been removed. It hasn't worked
+  since 2.6 anyway.
+
+* The GtkTextBufferTargetInfo enumeration values have been changed from
+  G_MAXUINT-0, G_MAXUINT-1, G_MAXUINT-2, etc, to -1, -2, -3 to stay within
+  ANSI C limits.
+
+* A change in the handling of _NET_WM_USER_TIME properties on toplevel
+  windows can cause deadlock problems with window managers that are using
+  GDK for drawing decorations. In particular, metacity <= 2.18.0 is affected
+  by this. The problem has been fixed in metacity 2.18.1.
+
+* Semi-private GtkTextLayout api has changed: new GtkTextLayout method
+  invalidate_cursors(), and new functions gtk_text_layout_invalidate_cursors()
+  and gtk_text_layout_cursors_changed(), which should be used in place of
+  gtk_text_layout_invalidate() and gtk_text_layout_changed() if invalidation
+  is due to marks moved or changed selection; new GtkTextLineDisplay structure
+  member. Source compatibility is preserved; binary compatibility may break
+  only if GtkTextLineDisplay structure was created on stack or as a part
+  of another structure (in particular GnomeCanvas and its clones do not need
+  recompiling).
+
+* Another new signal has been added to GtkNotebook. The new signal
+  is called create-window, so this name can no longer be used for signals
+  in objects derived from GtkNotebook.
+
+* The gtk_notebook_set/get_group_id() functions were found to be insufficient
+  and have been deprecated in favour of gtk_notebook_set/get_group().
+
+* The move-focus signal has been moved to GtkWidget, to unify the 
+  various implementations of this signal in specific widgets. Great care 
+  has been taken to make sure that all code using this signal continues
+  to work.
+
+* An unused and hardly visible GtkFrame has been removed from the menu 
+  widget hierarchy when GtkComboBox::appears-as-list style property is 
+  set. Any RC file applying a different style to any widget below the 
+  widget path "gtk-combobox-popup-window.GtkFrame" should take into 
+  account that the frame no longer exists.
+
+* The external print preview application used by GtkPrintOperationPreview 
+  is now passed the print settings on the command line with the 
+  --print-settings parameter pointing to a temp file containing the 
+  settings. The preview application assumes ownership of the file and 
+  should delete it once it does not need it anymore. The --print-settings 
+  commandline option is understood by Evince 0.9.0 and newer. To use a 
+  different print preview application, change the gtk-print-preview-command 
+  setting in your gtkrc file, e.g. gtk-print-preview-command = "ggv %f"
+
+* GtkMenuShell is now defined as an abstract type. It was already 
+  documented as an abstract class, and there is little reason to 
+  instantiate it.
+
+* The GtkTooltips struct (this is the old tooltips API) is now considered
+  private. Code that used to access this struct, in particular the
+  tips_data_list field, will need to change. All of the old tooltips
+  API has been deprecated in favour of a new implementation and
+  API. This affects all of the gtk_tooltips_ functions, and functions 
+  which take a GtkTooltips argument, such as gtk_tool_item_set_tooltip()
+  and gtk_menu_tool_button_set_arrow_tooltip().
+  
+* The memory management of the GtkRecentManager object has been changed,
+  as using the screen didn't guarantee that the singleton instance was
+  correctly destroyed. The screen-related functions have been deprecated,
+  and should not be used anymore; the GtkRecentManager instance returned by
+  the gtk_recent_manager_get_default() function is guaranteed to be valid
+  for the entire lifetime of an application.
+
+* A number of interfaces that have been superseded by newer interfaces for 
+  a long time have finally been deprecated. This includes 
+  gtk_widget_ref/unref(), gtk_rc_style_ref/unref() and the old file selector.
+
+* The various coordinate systems in use in GtkTreeView widgets have
+  been clarified in the documentation, and in the cause of doing so, 
+  the functions gtk_tree_view_widget_to_tree_coords() and
+  gtk_tree_view_tree_to_widget_coords() have been deprecated in 
+  favour of a new family of gtk_tree_view_convert_ functions.
+
+* gtk_menu_item_remove_submenu() has been deprecated in favour of
+  gtk_menu_item_set_submenu (..., NULL).
+
+* gtk_default_draw_check() has been fixed to really decrease the
+  indicator size by one pixel to ensure an odd size instead of
+  accidentially increasing it.
+  Consequently, gtk_cell_renderer_toggle_render() could be fixed to
+  not subtract 1 from the size passed to gtk_paint_option(), which
+  was just a workaround for above off-by-two for even sizes (theme
+  engines now get the real indicator size passed).
+  The default toggle size of GtkCheckMenuItem and GtkCellRendererToggle
+  has been changed to 13 to be consistent with GtkCheckButton.
+  The only visible change with default settings is that the indicator in
+  GtkCellRendererToggle has changed its size from 11 to 13 and is now
+  consistent with menus and toggle buttons.
+
+* GTK+ has always required that gtk_init() (or a variant thereof) is
+  called before any other GTK+ function. Some applications call functions
+  like gtk_clipboard_get() to check if they need to call gtk_init(),
+  anyway. A change in GLib 2.14 has recently broken this unsupported
+  practise. It is worth pointing out that calling gtk_init() twice
+  does no harm.
+
+
+How to report bugs
+==================
+
+Bugs should be reported to the GNOME bug tracking system.
+(http://bugzilla.gnome.org, product 
+gtk+.) You will need to create an account for yourself.
+  
+In the bug report please include:
+  
+* Information about your system. For instance:
+
+   - What operating system and version
+   - What version of X
+   - For Linux, what version of the C library
+
+  And anything else you think is relevant.
+
+* How to reproduce the bug. 
+
+  If you can reproduce it with one of the tests or demos built with GTK+, 
+  such as demos/gtk-demo/gtk-demo, that would be most convenient. Otherwise, 
+  please include a short test program that exhibits the behavior. As a 
+  last resort, you can also provide a pointer to a larger piece of software 
+  that can be downloaded.
+
+* If the bug was a crash, the exact text that was printed out when the
+  crash occured.
+
+* Further information such as stack traces may be useful, but is not
+  necessary. If you do send a stack trace, and the error is an X error,
+  it will be more useful if the stacktrace is produced running the test
+  program with the --sync command line option.
+
+
+Patches
+=======
+
+Patches should also be submitted to bugzilla.gnome.org. If the patch
+fixes an existing bug, add the patch as an attachment to that bug
+report.
+
+Otherwise, enter a new bug report that describes the patch, and attach
+the patch to that bug report.
+
+Bug reports containing patches should include the PATCH keyword in their
+keyword fields. If the patch adds to or changes the GTK+ programming
+interface, the API keyword should also be included.
+  
+Patches should be in unified diff form. (The -u option to GNU diff.)

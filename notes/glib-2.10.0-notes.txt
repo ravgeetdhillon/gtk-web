@@ -1,0 +1,32 @@
+Notes about GLib 2.10
+=====================
+
+* The functions g_snprintf() and g_vsnprintf() have been removed from
+  the gprintf.h header, since they are already declared in glib.h. This
+  doesn't break documented use of gprintf.h, but people have been known
+  to include gprintf.h without including glib.h.
+
+* The Unicode support has been updated to Unicode 4.1. This adds several
+  new members to the GUnicodeBreakType enumeration.
+
+* The support for Solaris threads has been retired. Solaris has provided 
+  POSIX threads for long enough now to have them available on every 
+  Solaris platform. 
+
+* 'make check' has been changed to validate translations by calling 
+  msgfmt with the -c option. As a result, it may fail on systems with 
+  older gettext implementations (GNU gettext < 0.14.1, or Solaris gettext). 
+  'make check' will also fail on systems where the C compiler does not
+  support ELF visibility attributes.
+
+* The GMemChunk API has been deprecated in favour of a new 'slice 
+  allocator'. See the g_slice documentation for more details. 
+
+* A new type, GInitiallyUnowned, has been introduced, which is
+  intended to serve as a common implementation of the 'floating reference'
+  concept that is e.g. used by GtkObject. Note that changing the
+  inheritance hierarchy of a type can cause problems for language
+  bindings and other code which needs to work closely with the type
+  system. Therefore, switching to GInitiallyUnowned should be done
+  carefully. g_object_compat_control() has been added to GLib 2.8.5
+  to help with the transition.
