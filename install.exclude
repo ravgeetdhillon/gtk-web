@@ -1,32 +1,21 @@
 .svn
 HISTORIC
+api/2.6
+tutorial1.2
 
-CVS
-/ChangeLog
-/MAINTAINERS
-/api/[0-9]*
-/docs
-/install.sh
-/install.exclude
 
-+ /faq/
-+ /faq/update_faq
-+ /faq/online_faq_fix
-+ /faq/gdp-gtkfaq.dsl
-/faq/*
-+ /tutorial1.2/
-+ /tutorial1.2/update_tut
-+ /tutorial1.2/online_tut_fix
-/tutorial1.2/*
-+ /tutorial2.0/
-+ /tutorial2.0/update_tut
-+ /tutorial2.0/online_tut_fix
-/tutorial2.0/*
+#/ChangeLog
+#/MAINTAINERS
+#/api/[0-9]*
+#/docs
+#/install.sh
+#/install.exclude
 
-/faq.old.one
-/tutorial1.0
-/tutorial1.2.old
-/beos/screenshots/old
 
-/USED_CVS
-/USED_CVS_12
+#/faq.old.one
+#/tutorial1.0
+#/tutorial1.2.old
+#/beos/screenshots/old
+
+#/USED_CVS
+#/USED_CVS_12
