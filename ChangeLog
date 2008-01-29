@@ -1,5 +1,9 @@
 2008-01-29  Martyn Russell  <martyn@imendio.com>
 
+	* api/: Removed unused files in preparation for new GTK+ web pages.
+
+2008-01-29  Martyn Russell  <martyn@imendio.com>
+
 	* all: Removed unused files in preparation for new GTK+ web pages.
 
 2008-01-29 11:41:37  Tim Janik  <timj@imendio.com>
