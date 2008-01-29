@@ -1,3 +1,8 @@
+2008-01-29 21:46:08  Tim Janik  <timj@imendio.com>
+
+	* features.html: some rewording, removed double hash
+	tables, added scanner and charset handling.
+
 2008-01-29 20:08:17  Tim Janik  <timj@imendio.com>
 
 	* install.exclude: keep .htaccess in place.
