@@ -1,3 +1,7 @@
+2008-01-29 20:08:17  Tim Janik  <timj@imendio.com>
+
+	* install.exclude: keep .htaccess in place.
+
 2008-01-29  Martyn Russell  <martyn@imendio.com>
 
 	* notes/gtk-2.10-notes.txt:
