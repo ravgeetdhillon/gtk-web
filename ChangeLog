@@ -1,5 +1,14 @@
 2008-01-29  Martyn Russell  <martyn@imendio.com>
 
+	* faq/gdp-gtkfaq.dsl:
+	* faq/online_faq_fix:
+	* faq/update_faq:
+	* scripts/install.sh:
+	* scripts/last_10.pl:
+	* scripts/update_mirrors.sh: Removed because they are no longer used
+
+2008-01-29  Martyn Russell  <martyn@imendio.com>
+
 	* screenshots-old.html: Add information about BeOS.
 
 2008-01-29  Martyn Russell  <martyn@imendio.com>
