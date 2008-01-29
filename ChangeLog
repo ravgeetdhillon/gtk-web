@@ -1,5 +1,11 @@
 2008-01-29  Martyn Russell  <martyn@imendio.com>
 
+	* notes/gtk-2.10-notes.txt:
+	* notes/gtk-2.12-notes.txt: Renamed for consistency and to fix
+	redirects we have in place.
+
+2008-01-29  Martyn Russell  <martyn@imendio.com>
+
 	* notes/gtk-1.2-notes.txt: Added for historical reference.
 
 2008-01-29 19:15:25  Tim Janik  <timj@imendio.com>
