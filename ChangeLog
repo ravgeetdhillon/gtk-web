@@ -1,3 +1,7 @@
+2008-01-29  Martyn Russell  <martyn@imendio.com>
+
+	* notes/gtk-1.2-notes.txt: Added for historical reference.
+
 2008-01-29 19:15:25  Tim Janik  <timj@imendio.com>
 
 	* install.exclude: more updates.
