@@ -1,3 +1,7 @@
+2008-01-29  Martyn Russell  <martyn@imendio.com>
+
+	* overview.html: Fixed Cairo link.
+
 2008-01-29  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Update to link to the latest packages on
