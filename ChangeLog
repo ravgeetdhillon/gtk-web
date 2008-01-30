@@ -1,8 +1,8 @@
 2008-01-30  Martyn Russell  <martyn@imendio.com>
 
-	* gtk.css: Make the width scalable and also the spacing between
-	the menu items. Also set the body colour default to be black so it
-	doesn't break for some themes.
+	* gtk.css: Make the width scalable for between the menu items.
+	Also set the body colour default to be black so it doesn't break
+	for some themes. 
 	
 	* index.html: Add the contributing blurb to the back of the last
 	paragraph. 
