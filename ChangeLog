@@ -1,5 +1,9 @@
 2008-01-30  Martyn Russell  <martyn@imendio.com>
 
+	* features.html: Fixed typo in language bindings table.
+
+2008-01-30  Martyn Russell  <martyn@imendio.com>
+
 	* gtk.css: Make the width scalable for between the menu items.
 	Also set the body colour default to be black so it doesn't break
 	for some themes. 
