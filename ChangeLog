@@ -1,3 +1,7 @@
+2008-01-30  Martyn Russell  <martyn@imendio.com>
+
+	* documentation.html: Fixed typos about GtkTextView tutorial.
+
 2008-01-29  Martyn Russell  <martyn@imendio.com>
 
 	* overview.html: Fixed Cairo link.
