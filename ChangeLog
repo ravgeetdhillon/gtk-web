@@ -1,3 +1,9 @@
+2008-01-30  Andreas Nilsson  <andreas@imendio.com>
+
+	* gtk-logo.ico: Favicon using the new logo.
+	* images/screenshots/openmoko-screenshot.png: actual screenshot.
+	* images/screenshots/openmoko-thumbnail.png: actual thumbnail.
+
 2008-01-30  Martyn Russell  <martyn@imendio.com>
 
 	* documentation.html: Fixed typos about GtkTextView tutorial.
