@@ -1,5 +1,10 @@
 2008-01-30  Andreas Nilsson  <andreas@imendio.com>
 
+	* features.html: it is 770, N800, N810 apparently. Fixed.
+	* gtk.css: body now specifies base color, should work better.
+
+2008-01-30  Andreas Nilsson  <andreas@imendio.com>
+
 	* gtk-logo.ico: Favicon using the new logo.
 	* images/screenshots/openmoko-screenshot.png: actual screenshot.
 	* images/screenshots/openmoko-thumbnail.png: actual thumbnail.
