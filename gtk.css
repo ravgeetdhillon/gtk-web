@@ -1,8 +1,9 @@
 /* GTK+ Green = #3ee63c, Red = #f6524d, Blue = #3e76e4 */
 
 body {
+    color : black;
     background : #d0d0cb;
-    width : 700px;
+    width : 50em;
     margin : 0 auto;
     font-family : sans-serif;
     color: black;
@@ -173,8 +174,8 @@ table.styled img {
 }
 
 #menu td {
-    padding-left : 6px;
-    padding-right : 6px;
+    padding-left : 0.5em;
+    padding-right : 0.5em;
 }
 
 .current {
