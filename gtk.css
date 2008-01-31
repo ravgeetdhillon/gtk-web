@@ -141,12 +141,12 @@ table.styled img {
 
 #header {
     background : #729fcf url(images/header-background.png);
-    height : 145px;
+    height : 145px;     /* fixed height */
     text-align: center;
 }
 
 #header img {
-    padding-top: 20px;
+    padding-top: 20px;  /* fixed height */
 }
 
 #header h1 {
@@ -160,8 +160,8 @@ table.styled img {
 #menu {
     background : #000;
     color : #fff;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     text-align : center;
 }
 
@@ -184,7 +184,7 @@ table.styled img {
 }
 
 #content {
-    padding : 3px 3.5em 2em 3.5em;
+    padding : 1em 3.5em 2.5em 3.5em;
     line-height : 150%;
 }
 
@@ -209,7 +209,6 @@ table.styled img {
 
 #events {
     margin-left : 48%;
-    padding-left : 10px;
     padding-left : 2em;
 }
 
@@ -259,11 +258,8 @@ table tr.odd {
 
 #footer {
     clear : both;
+    padding : 0.5em;
     background : #5987bd;
     color : #fff;
     text-align : center;
-    padding : 1em;
-    border-style : solid;
-    border-color : #3465a4;
-    border-width : 1px 0 0 0;
 }

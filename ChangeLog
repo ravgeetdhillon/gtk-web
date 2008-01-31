@@ -1,5 +1,9 @@
 2008-01-31  Martyn Russell  <martyn@imendio.com>
 
+	* gtk.css: More px->em conversions I missed earlier.
+
+2008-01-31  Martyn Russell  <martyn@imendio.com>
+
 	* gtk.css: Convert more px->em to make things more scalable. 
 
 2008-01-31  Andreas Nilsson  <andreas@imendio.com>
