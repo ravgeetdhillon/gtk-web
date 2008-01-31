@@ -3,8 +3,7 @@
 body {
     color : black;
     background : #d0d0cb;
-/*    width : 45em;*/
-    width : 700px;
+    width : 45em;
     margin : 0 auto;
     font-family : sans-serif;
     color: black;
@@ -65,7 +64,7 @@ p:last-child {
 pre {
     background : #797b76;
     color : #fff;
-    padding : 5px;
+    padding : 0.5em;
     margin-bottom : 1em;
 }
 
@@ -94,16 +93,16 @@ os.ul {
 }
 
 #screenshots tr td {
-    padding : 10px;
+    padding : 0.5em;
 }
 
 table.documentation-table td, table.documentation td, table.maintainers td {
-    padding-right : 12px;
+    padding-right : 1em;
     text-align : left;
 }
 
 table.styled th, table.documentation th, table.maintainers th {
-    padding-top : 6px;
+    padding-top : 0.5em;
     border-bottom : 1px solid #999;
     text-align : left;
 }
@@ -111,29 +110,25 @@ table.styled th, table.documentation th, table.maintainers th {
 table.styled, table.documentation {
     border-collapse : collapse;
     border : 0;
-    margin-left : 18px;
+    margin-left : 1.5em;
 }
 
 table.maintainers {
     border-collapse : collapse;
     border : 0;
-    margin-left : 18px;
-    margin-right : 18px;
-    margin-bottom : 12px;
+    margin-left : 1.5em;
+    margin-right : 1.5em;
+    margin-bottom : 1.5em;
 }
 
 table.styled th, table.styled td {
-    padding-right : 12px;
+    padding-right : 1em;
     text-align : left;
 }
 
 table.styled th {
-    padding-top : 6px;
+    padding-top : 0.5em;
     border-bottom : 1px solid #999;
-}
-
-table.styled tr td {
-    padding : 3px;
 }
 
 table.styled tr td.required {
@@ -151,7 +146,7 @@ table.styled img {
 }
 
 #header img {
-	padding-top: 20px;
+    padding-top: 20px;
 }
 
 #header h1 {
