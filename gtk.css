@@ -145,8 +145,13 @@ table.styled img {
 }
 
 #header {
-    background : #729fcf url(images/gtk-header.png);
+    background : #729fcf url(images/header-background.png);
     height : 145px;
+    text-align: center;
+}
+
+#header img {
+	padding-top: 20px;
 }
 
 #header h1 {

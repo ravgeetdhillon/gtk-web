@@ -1,3 +1,26 @@
+2008-01-31  Andreas Nilsson  <andreas@imendio.com>
+
+	* commerce.html:
+	* development.html:
+	* documentation-old.html:
+	* documentation.html:
+	* download-linux.html:
+	* download-macos.html:
+	* download-windows.html:
+	* download.html:
+	* features.html:
+	* gtk.css:
+	* index.html:
+	* mailing-lists.html:
+	* overview.html:
+	* screenshots-old.html:
+	* screenshots.html:
+	* setuid.html: added string to pick up the logo
+	* images/header-logo.png: added
+	* images/header-background.png: added
+	* images/header.png: removed
+	* images/gtk-header.png: removed
+
 2008-01-31  Martyn Russell  <martyn@imendio.com>
 
 	* features.html: Fixed wxWidgets link and blurb
