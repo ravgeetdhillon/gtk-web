@@ -1,3 +1,7 @@
+2008-01-31  Martyn Russell  <martyn@imendio.com>
+
+	* features.html: Fixed wxWidgets link and blurb
+
 2008-01-30  Martyn Russell  <martyn@imendio.com>
 
 	* features.html: Fixed typo in language bindings table.
