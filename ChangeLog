@@ -1,3 +1,7 @@
+2008-02-01  Andreas Nilsson  <andreas@imendio.com>
+
+	* images/header-logo.png: Small logo tweak (more dynamic)
+
 2008-01-31  Martyn Russell  <martyn@imendio.com>
 
 	* gtk.css: More px->em conversions I missed earlier.
