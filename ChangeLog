@@ -1,5 +1,9 @@
 2008-02-01  Andreas Nilsson  <andreas@imendio.com>
 
+	* gtk.css: fix to make the logo look ok in ie6
+
+2008-02-01  Andreas Nilsson  <andreas@imendio.com>
+
 	* images/header-logo.png: Small logo tweak (more dynamic)
 
 2008-01-31  Martyn Russell  <martyn@imendio.com>

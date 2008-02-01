@@ -149,6 +149,11 @@ table.styled img {
     padding-top: 20px;  /* fixed height */
 }
 
+/* icky crap to work around ie6 shitty png support */
+#header img {
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader('header-logo.png');
+}
+
 #header h1 {
     display : none;
 }
