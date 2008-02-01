@@ -1,5 +1,25 @@
 2008-02-01  Andreas Nilsson  <andreas@imendio.com>
 
+	* commerce.html:
+	* development.html:
+	* documentation-old.html:
+	* documentation.html:
+	* download-linux.html:
+	* download-macos.html:
+	* download-windows.html:
+	* download.html:
+	* features.html:
+	* gtk.css:
+	* index.html:
+	* mailing-lists.html:
+	* overview.html:
+	* pngfix.js:
+	* screenshots-old.html:
+	* screenshots.html:
+	* setuid.html: new approach to the ie6 crap. Works now. :)
+
+2008-02-01  Andreas Nilsson  <andreas@imendio.com>
+
 	* gtk.css: fix to make the logo look ok in ie6
 
 2008-02-01  Andreas Nilsson  <andreas@imendio.com>
