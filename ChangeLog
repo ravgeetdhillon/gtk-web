@@ -1,3 +1,7 @@
+2008-02-10  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Correct pkg-config links.
+
 2008-02-01  Andreas Nilsson  <andreas@imendio.com>
 
 	* commerce.html:
