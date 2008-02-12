@@ -1,3 +1,7 @@
+2008-02-12  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update GLib binaries version to 2.14.6-1.
+
 2008-02-10  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Correct pkg-config links.
