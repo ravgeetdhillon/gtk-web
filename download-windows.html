@@ -55,6 +55,16 @@
 	  which you should use. Note that the Cygwin GTK+ uses the X11
 	  backend.</p>
 	
+	<p>You are welcome to redistribute GTK+ binaries, including 
+	  applications that bundle them, on other web sites,
+	  CD-ROM, and other media. You don't have to ask for
+	  permission. That's one of the points of Free Software. One
+	  important thing that the <A
+	  HREF="http://www.fsf.org/licenses/licenses.html">GNU
+	  licenses</A> require is that <b>you must also redistribute
+	  the source</b> code. This usually means at least the
+	  gettext, GLib, GTK+, Pango and Atk sources.</p>
+
 	<h3>Using Microsoft's Compiler</h3>
 	<p>It is possible to use these packages with Microsoft's
 	  compiler. However, these DLLs use the MSVCRT.DLL runtime
@@ -205,7 +215,7 @@
 	    <td>pkg-config</td>
 	    <td>0.23</td>
 	    <td colspan="2"><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config-0.23.zip"><img src="images/download.png" alt=""/> Tool binaries</a></td>
-	    <td><a href="http://pkgconfig.freedesktop.org/releases/pkg-config-0.23.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config-0.23.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
 	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
 	  </tr>
 	  <tr class="odd">
@@ -265,7 +275,14 @@
 	<p>The GNU internationalization library. All of the GTK+ stack uses it.</p>
 
 	<h4>About libjpeg, libpng and libtiff</h4>
-	<p>These are image libraries used by GTK+. You will need these.</p>
+	<p>These are image file format libraries used by GTK+. You
+	will need these.</p>
+
+	<p>The libpng package provides <TT>libpng13.dll</TT>. Newer
+	versions of gnuwin32's build of libpng confusingly provide
+	libpng12.dll. I don't know whether these builds actually are
+	binary compatible even if the DLL name is different. Yes, I
+	should start using/suggesting a newer build of libpng.</p>
 
 	<h4>About pkg-config</h4>
 	<p>This program is useful for Makefiles and extensively used in building software according to the GTK+ and GNOME conventions using autotools. It uses a <q>database</q> specifying inter-dependencies among software packages. It is used to get the compile and link flags needed when building software using libraries that provide pkg-config data. This requires GLib 2.x.</p>

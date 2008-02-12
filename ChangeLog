@@ -1,6 +1,8 @@
 2008-02-12  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Update GLib binaries version to 2.14.6-1.
+	Copy from the old page on the GIMP site a section about
+	redistribution, and about the libpng binaries from gnuwin32.
 
 2008-02-10  Tor Lillqvist  <tml@novell.com>
 
