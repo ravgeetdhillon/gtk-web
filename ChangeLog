@@ -1,3 +1,8 @@
+2008-02-13  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Bump gtk+ version to 2.12.8. Make GLib
+	version consistent. Don't bother talking about building GTK+ here.
+
 2008-02-12  Andreas Nilsson  <andreas@imendio.com>
 
 	* download-linux.html: bump pango version from 1.16 to 1.18
