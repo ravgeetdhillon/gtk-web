@@ -1,3 +1,8 @@
+2008-02-14  Andreas Nilsson  <andreas@imendio.com>
+
+	* plan/meetings/20080212.txt:
+	* plan/meetings/index.html: added february meeting log
+
 2008-02-13  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Bump gtk+ version to 2.12.8. Make GLib
