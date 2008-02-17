@@ -1,3 +1,7 @@
+2008-02-18  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update GLib binaries to 2.14.6-2 build...
+
 2008-02-15  Andreas Nilsson  <andreas@imendio.com>
 
 	* features.html: made ruby and gtk# bindings up to date
