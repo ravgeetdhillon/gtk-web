@@ -1,3 +1,7 @@
+2008-02-21  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update pkg-config link to 0.23-2 build.
+
 2008-02-18  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Update GLib link to 2.14.6-2 build. 
