@@ -65,18 +65,24 @@
 	  the source</b> code. This usually means at least the
 	  gettext, GLib, GTK+, Pango and Atk sources.</p>
 
-	<h3>Using Microsoft's Compiler</h3>
-	<p>It is possible to use these packages with Microsoft's
-	  compiler. However, these DLLs use the MSVCRT.DLL runtime
-	  library. This means that also applications that use these DLLs
-	  should use the MSVCRT.DLL runtime. Specifically, this means that
+	<h3>What toolchain to use?</h3>
+	<p>The most natural toolchain to use together with these packages would
+	  probably be the GNU compiler and other utilities. When
+	  targeting Windows, that combination is known as <a href="http://www.mingw.org">MinGW</a>
+ 	  Using Cygwin tools to build non-Cygwin Windows binaries is not recommended unless you
+	  are very careful and look out for mixups.</p>
+
+	<p>It is possible to use these packages also with Microsoft's
+	  compiler. However, the DLLs use the MSVCRT.DLL runtime
+	  library. This means that also applications that use the DLLs
+	  should preferrably use the MSVCRT.DLL runtime. Specifically, this means that
 	  you should not use newer versions of the Microsoft compiler than
 	  Visual C++ 6 without knowing exactly what you are doing.</p>
 	
-	<h3>Which version?</h3>
-	<p>The 2.8 and newer versions of GTK+ won't run on Windows 9x
-	  because it uses Cairo which uses some APIs that are implemented
-	  only on NT-based Windows operating systems.</p>
+	<h3>Which Windows versions?</h3>
+	<p>The current GTK+ stack uses APIs that are implemented
+	  only on Windows 2000 or later. Long obsolete versions of
+	  GTK+ did run on Win9x and NT 4, too.</p>
 	
 	<h2><a name="StableRelease">Stable Release</a></h2>
 	<p>There are 3 types of download options
