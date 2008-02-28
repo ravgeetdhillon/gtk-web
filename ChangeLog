@@ -1,3 +1,7 @@
+2008-02-29  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: New version of win_iconv.
+
 2008-02-23  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Clarify what toolchains are supported.
