@@ -1,3 +1,7 @@
+2008-03-07  Andreas Nilsson  <andreas@imendio.com>
+
+	* index.html: removed fosdem and added guadec from upcoming events.
+
 2008-03-06  Andreas Nilsson  <andreas@imendio.com>
 
 	* index.html: added latest gtk and glib releases
