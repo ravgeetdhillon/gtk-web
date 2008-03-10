@@ -1,3 +1,12 @@
+2008-03-10  Martyn Russell  <martyn@imendio.com>
+
+	* development.html:
+	* features.html:
+	* index.html: Mention and link to the new language-bindings page.
+	This work is based on a patch from Andreas Nilsson.
+
+	* language-bindings.html: Added.
+
 2008-03-07  Andreas Nilsson  <andreas@imendio.com>
 
 	* index.html: removed fosdem and added guadec from upcoming events.
