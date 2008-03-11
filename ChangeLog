@@ -1,3 +1,8 @@
+2008-03-11  Andreas Nilsson  <andreas@imendio.com>
+
+	* index.html: added news about latest glib releases.
+	* news-archives.html: and moved two older posts to this page.
+
 2008-03-10  Martyn Russell  <martyn@imendio.com>
 
 	* development.html:
