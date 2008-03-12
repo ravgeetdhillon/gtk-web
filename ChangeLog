@@ -1,3 +1,8 @@
+2008-03-12  Martyn Russell  <martyn@imendio.com>
+
+	* index.html:
+	* news-archives.html: Updated for new release of GTK+ 2.12.9.
+
 2008-03-11  Andreas Nilsson  <andreas@imendio.com>
 
 	* index.html: added news about latest glib releases.
