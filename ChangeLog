@@ -1,7 +1,7 @@
 2008-03-18  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Update GLib to 2.16.1, atk to 1.22.0,
-	Pango to 1.20.0 and win_iconv to 20080317.
+	Pango to 1.20.0, GTK+ to 2.12.9 and win_iconv to 20080317.
 
 2008-03-12  Martyn Russell  <martyn@imendio.com>
 
