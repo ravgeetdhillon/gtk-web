@@ -1,3 +1,7 @@
+2008-03-20  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update win_iconv to 20080320.
+
 2008-03-18  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Update GLib to 2.16.1, atk to 1.22.0,
