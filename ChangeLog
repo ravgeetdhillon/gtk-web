@@ -1,3 +1,7 @@
+2008-03-26  Cody Russell  <bratsche@gnome.org>
+
+	* development.html: Refer people to #gtk+ for general help.
+
 2008-03-25  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Tentatively add an all-in-one GTK+ bundle.
