@@ -110,7 +110,7 @@
 	run-time, you need to figure out which files you can leave out
 	yourself.</p>
 
-	<h3>GTK+</h3>
+	<h3>GTK+ individual packages</h3>
 	
 	<table class="styled">
 	  <tr>
@@ -264,6 +264,12 @@
 	    <td>-</td>
 	    <td class="required"><img src="images/progress-pending.png" alt=""/></td>
 	  </tr>
+	  <tr class="odd">
+	    <td>proxy-libintl</td>
+	    <td>20080327</td>
+	    <td colspan="3"><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/proxy-libintl-20080327.zip"><img src="images/download.png" alt=""/> Binaries &amp; sources</a></td>
+	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
 	</table>
 
 	<h4>About zlib</h4>
@@ -311,7 +317,18 @@
 	<p>This is required by fontconfig.</p>
 
 	<h4>About dirent</h4>
-	<p>This download is the public implementation of dirent.h from <a href="http://www.mingw.org/">MinGW</a>. Needed for Microsoft Visual C++ users that want to compile GLib. Not directly related to GLib.</p>
+	<p>This is the public domain implementation of dirent.h from <a href="http://www.mingw.org/">MinGW</a>. It is needed by Microsoft Visual C++ users that want to compile GLib. Not directly related to GLib.</p>
+
+	<h4>About proxy-libintl</h4> <p>This is a very small
+	library. It acts as a proxy for the intl.dll from
+	gettext-runtime, loading it dynamically, and failing
+	gracefully. Fallback dummy functions are used if intl.dll
+	isn't found. It is a static archive and the intent is to start
+	linking this into the binaries in the GTK+ stack instead of
+	referring directly to intl.dll. This enables application
+	packagers to leave out the gettext-runtime binaries if they
+	don't need or want to support i18n, without having to build
+	own versions that don't use intl.dll.</p>
 
       </div> <!-- content -->
 

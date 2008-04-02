@@ -1,7 +1,7 @@
 2008-04-02  Tor Lillqvist  <tml@novell.com>
 
-	* download-windows.html: Update GLib to 2.16.2. Update GTK+
-	bundle to 2.12.9-20080402 which includes GLib 2.16.2.
+	* download-windows.html: Update GLib to 2.16.2. Update GTK+ bundle
+	to 2.12.9-20080402 which includes GLib 2.16.2. Add proxy-libintl.
 
 2008-03-30  Matthias Clasen  <mclasen@redhat.com>
 
