@@ -1,3 +1,7 @@
+2008-04-03  Andreas Nilsson  <andreas@imendio.com>
+
+	* documentation.html: fixed url to Mitch presentation.
+
 2008-04-02  Martyn Russell  <martyn@imendio.com>
 
 	* download-linux.html: Link to gnome instead of gtk for FTP downloads.
