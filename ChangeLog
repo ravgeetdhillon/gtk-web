@@ -1,5 +1,10 @@
 2008-04-07  Andreas Nilsson  <andreas@imendio.com>
 
+	* gtk.css: added footnote class
+	* language-bindings.html: updated perl status
+
+2008-04-07  Andreas Nilsson  <andreas@imendio.com>
+
 	* language-bindings.html: moved the blurb about updating to the bottom.
 
 2008-04-07  Andreas Nilsson  <andreas@imendio.com>

@@ -263,3 +263,7 @@ table tr.odd {
     color : #fff;
     text-align : center;
 }
+
+.footnote {
+	font-size: 80%;
+}
