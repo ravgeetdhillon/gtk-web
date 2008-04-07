@@ -1,6 +1,12 @@
+2008-04-07  Murray Cumming  <murrayc@murrayc.com>
+
+	* mailing-lists.html: Corrected the English, and corrected the 
+	description of the language-bindings list so that people do not use it 
+	for questions about using their favourite binding.
+
 2008-04-07  Andreas Nilsson  <andreas@imendio.com>
 
-	* language-bindings.html: removed all language bindings that was
+	* language-bindings.html: removed all language bindings that are
 	older than 2.6 and added gnome status.
 
 2008-04-04  Andreas Nilsson  <andreas@imendio.com>
