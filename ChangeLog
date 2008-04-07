@@ -1,3 +1,8 @@
+2008-04-07  Andreas Nilsson  <andreas@imendio.com>
+
+	* language-bindings.html: updated some bindings to 2.12 and
+	corrected a sentence about official bindings that was unclear.
+
 2008-04-07  Murray Cumming  <murrayc@murrayc.com>
 
 	* mailing-lists.html: Corrected the English, and corrected the 
