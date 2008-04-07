@@ -1,3 +1,8 @@
+2008-04-07  Andreas Nilsson  <andreas@imendio.com>
+
+	* language-bindings.html: removed all language bindings that was
+	older than 2.6 and added gnome status.
+
 2008-04-04  Andreas Nilsson  <andreas@imendio.com>
 
 	* language-bindings.html: changed the status of Ada bindings.
