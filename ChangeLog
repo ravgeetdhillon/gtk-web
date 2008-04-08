@@ -1,3 +1,8 @@
+2008-04-08  Andreas Nilsson,,,  <andreas@imendio.com>
+
+	* language-bindings.html: updated status on ruby bindings and added
+	Lablgtk project.
+
 2008-04-07  Andreas Nilsson  <andreas@imendio.com>
 
 	* gtk.css: added footnote class
