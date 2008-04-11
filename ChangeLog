@@ -1,4 +1,8 @@
-2008-04-08  Andreas Nilsson,,,  <andreas@imendio.com>
+2008-04-11  Andreas Nilsson  <andreas@imendio.com>
+
+	* language-bindings.html: added guile bindings
+
+2008-04-08  Andreas Nilsson  <andreas@imendio.com>
 
 	* language-bindings.html: updated status on ruby bindings and added
 	Lablgtk project.
