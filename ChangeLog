@@ -1,3 +1,8 @@
+2008-04-17  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update GLib to 2.16.3, cairo to 1.6.4 and
+	the GTK+ bundle to 2.12.9-20080417 which includes them.
+
 2008-04-11  Andreas Nilsson  <andreas@imendio.com>
 
 	* language-bindings.html: added guile bindings
