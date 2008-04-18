@@ -1,5 +1,9 @@
 2008-04-18  Andreas Nilsson  <andreas@imendio.com>
 
+	* language-bindings.html: fixed 2.10 status to be correct for php-gtk.
+
+2008-04-18  Andreas Nilsson  <andreas@imendio.com>
+
 	* language-bindings.html: added php-gtk bindings
 
 2008-04-18  Tor Lillqvist  <tml@novell.com>
