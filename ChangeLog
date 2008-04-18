@@ -1,3 +1,7 @@
+2008-04-18  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update proxy-libintl to 20080418.
+
 2008-04-17  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Update GLib to 2.16.3, cairo to 1.6.4 and
