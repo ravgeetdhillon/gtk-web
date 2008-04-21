@@ -1,3 +1,7 @@
+2008-04-21  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update Pango to 1.20.2 and gtk-bundle to 20080421.
+
 2008-04-21  Andreas Nilsson  <andreas@imendio.com>
 
 	* language-bindings.html: added rgtk2 bindings.
