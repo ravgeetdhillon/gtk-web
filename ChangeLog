@@ -1,5 +1,11 @@
 2008-04-23  Tor Lillqvist  <tml@novell.com>
 
+	* download-windows.html: Point the gtk+ bundle to the symlink
+	without timestamp instead. Does this make more sense? I don't
+	know.
+
+2008-04-23  Tor Lillqvist  <tml@novell.com>
+
 	* download-windows.html: Update cairo to 1.6.4-1 and gtk-bundle to 20080423.
 
 2008-04-21  Tor Lillqvist  <tml@novell.com>
