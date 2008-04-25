@@ -1,3 +1,13 @@
+2008-04-25  Martyn Russell  <martyn@imendio.com>
+
+	* download-windows.html: Put the "Patch" link in the table on the
+	line below, makes the table look better. Also, use the "<strong>"
+	tag instead of "<b>" tag.
+	
+	* mailing-lists.html: Updated the text about the gtk-devel-list
+	mailing list to reflect how ONLY core development of the toolkit
+	should be discussed.
+
 2008-04-23  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Point the gtk+ bundle to the symlink
