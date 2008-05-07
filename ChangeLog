@@ -1,5 +1,10 @@
 2008-05-07  Andreas Nilsson  <andreas@imendio.com>
 
+	* mailing-lists.html: changed the request-strings back.
+	Should work correct now.
+
+2008-05-07  Andreas Nilsson  <andreas@imendio.com>
+
 	* mailing-lists.html: Fixed subscribe urls to point to actual 
 	mailing lists.
 
