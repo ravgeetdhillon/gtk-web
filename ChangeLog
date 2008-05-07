@@ -1,5 +1,10 @@
 2008-05-07  Andreas Nilsson  <andreas@imendio.com>
 
+	* download-macos.html: Changed "come soon" to "Coming soon" as
+	that's actually a real sentence.
+	
+2008-05-07  Andreas Nilsson  <andreas@imendio.com>
+
 	* mailing-lists.html: Changed text as it's not possible to send a
 	e-mail with the subject subscribe to a list and get subscribed.
 
