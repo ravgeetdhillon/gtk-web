@@ -1,3 +1,9 @@
+2008-05-21  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update libpng to 1.2.29 built by
+	me. Update GTK+ and cairo to newer builds that link to this newer
+	libpng, because the libpng DLL name changed.
+
 2008-05-20  Martyn Russell  <martyn@imendio.com>
 
 	* documentation.html: Added a tutorial by Jan Bodnar.
