@@ -320,7 +320,9 @@
 	<h4>About dirent</h4>
 	<p>This is the public domain implementation of dirent.h from <a href="http://www.mingw.org/">MinGW</a>. It is needed by Microsoft Visual C++ users that want to compile GLib. Not directly related to GLib.</p>
 
-	<h4>About proxy-libintl</h4> <p>This is a very small
+	<h4>About proxy-libintl</h4> 
+
+	<p>proxy-libintl is a very small static
 	library. It acts as a proxy for the intl.dll from
 	gettext-runtime, loading it dynamically, and failing
 	gracefully. Fallback dummy functions are used if intl.dll
@@ -330,6 +332,13 @@
 	packagers to leave out the gettext-runtime binaries if they
 	don't need or want to support i18n, without having to build
 	own versions that don't use intl.dll.</p>
+
+	<p>When building DLLs against the proxy-libintl static library
+	and using the GNU linker's auto-export feature (i.e. not using
+	a .def file, and not using __declspec(dllexport)), it is a
+	good idea to pass the -Wl,--exclude-libs=libintl.a in your
+	LDFLAGS so that the libintl functions don't get exported from
+	your DLL.</p>
 
       </div> <!-- content -->
 
