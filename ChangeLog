@@ -1,5 +1,10 @@
 2008-06-04  Tor Lillqvist  <tml@novell.com>
 
+	* download-windows.html: Update libtiff to 3.8.2. Update section
+	about libpng.
+
+2008-06-04  Tor Lillqvist  <tml@novell.com>
+
 	* download-windows.html: Update GTK+ to 2.12.10 and Pango to
 	1.20.3.
 

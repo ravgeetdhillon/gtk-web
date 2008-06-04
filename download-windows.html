@@ -221,8 +221,8 @@
 	  <tr class="odd">
 	    <td>libtiff</td>
 	    <td>3.8.2</td>
-	    <td><a href="http://gnuwin32.sourceforge.net/downlinks/tiff-bin-zip.php"><img src="images/download.png" alt=""/> Binaries</a></td>
-	    <td><a href="http://gnuwin32.sourceforge.net/downlinks/tiff-lib-zip.php"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/libtiff-3.8.2.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/libtiff-dev-3.8.2.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td>-</td>
 	    <td class="required"><img src="images/progress-complete.png" alt=""/></td>
 	  </tr>
@@ -299,11 +299,14 @@
 	<p>These are image file format libraries used by GTK+. You
 	will need these.</p>
 
-	<p>The libpng package provides <TT>libpng13.dll</TT>. Newer
-	versions of gnuwin32's build of libpng confusingly provide
-	libpng12.dll. I don't know whether these builds actually are
-	binary compatible even if the DLL name is different. Yes, I
-	should start using/suggesting a newer build of libpng.</p>
+	<p>The libpng package linked to above provides
+	<TT>libpng12-0.dll</TT>. This package is built by me (Tor
+	Lillqvist). Previously the GTK+ stack was built against the
+	gnuwin32 build of libpng. Confusingly, gnuwin32's older builds
+	of libpng provided <TT>libpng13.dll</TT>, and their newer
+	builds provided <TT>libpng12.dll</TT>. I don't know whether
+	these builds actually are binary compatible even if the DLL
+	name was different. To be safe, never rename DLLs.</p>
 
 	<h4>About pkg-config</h4>
 	<p>This program is useful for Makefiles and extensively used in building software according to the GTK+ and GNOME conventions using autotools. It uses a <q>database</q> specifying inter-dependencies among software packages. It is used to get the compile and link flags needed when building software using libraries that provide pkg-config data. This requires GLib 2.x.</p>
