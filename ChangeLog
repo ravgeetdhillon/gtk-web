@@ -1,3 +1,8 @@
+2008-06-04  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update GTK+ to 2.12.10 and Pango to
+	1.20.3.
+
 2008-05-21  Martyn Russell  <martyn@imendio.com>
 
 	* documentation.html: Fixed the link for Tim and Kris'
