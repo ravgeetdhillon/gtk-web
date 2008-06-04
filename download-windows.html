@@ -73,9 +73,9 @@
 	  are very careful and look out for mixups.</p>
 
 	<p>It is possible to use these packages also with Microsoft's
-	  compiler. However, the DLLs use the MSVCRT.DLL runtime
+	  compiler. However, the DLLs use the <TT>msvcrt.dll</TT> runtime
 	  library. This means that also applications that use the DLLs
-	  should preferrably use the MSVCRT.DLL runtime. Specifically, this means that
+	  should preferrably use the <TT>msvcrt.dll</TT> runtime. Specifically, this means that
 	  you should not use newer versions of the Microsoft compiler than
 	  Visual C++ 6 without knowing exactly what you are doing.</p>
 	
@@ -287,10 +287,11 @@
 	needed separately at run-time.</p>
 
 	<h4>About iconv.dll</h4>
-	<p>GLib 2.14.4 and earlier links to iconv in a separate DLL,
-	iconv.dll. This can either be the GNU libiconv or the
-	win_iconv DLL which is intented to be a drop-in
-	replacement.</p>
+
+	<p>GLib 2.14.4 and earlier link to iconv in a separate DLL,
+	<TT>iconv.dll</TT>. This can either be the GNU libiconv
+	<TT>iconv.dll</TT>, or the identically named win_iconv_dll one
+	which obviosuly is intented to be a drop-in replacement.</p>
 
 	<h4>About gettext</h4>
 	<p>The GNU internationalization library. All of the GTK+ stack uses it.</p>
@@ -326,15 +327,15 @@
 	<h4>About proxy-libintl</h4> 
 
 	<p>proxy-libintl is a very small static
-	library. It acts as a proxy for the intl.dll from
+	library. It acts as a proxy for the <TT>intl.dll</TT> from
 	gettext-runtime, loading it dynamically, and failing
-	gracefully. Fallback dummy functions are used if intl.dll
+	gracefully. Fallback dummy functions are used if <TT>intl.dll</TT>
 	isn't found. It is a static archive and the intent is to start
 	linking this into the binaries in the GTK+ stack instead of
-	referring directly to intl.dll. This enables application
+	referring directly to <TT>intl.dll</TT>. This enables application
 	packagers to leave out the gettext-runtime binaries if they
 	don't need or want to support i18n, without having to build
-	own versions that don't use intl.dll.</p>
+	own versions that don't use <TT>intl.dll</TT>.</p>
 
 	<p>When building DLLs against the proxy-libintl static library
 	and using the GNU linker's auto-export feature (i.e. not using
