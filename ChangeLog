@@ -1,3 +1,7 @@
+2008-06-09  Martyn Russell  <martyn@imendio.com>
+
+	* language-bindings.html: Added the D programming language bindings.
+
 2008-06-09  Andreas Nilsson  <andreas@imendio.com>
 
 	* language-bindings.html: 2.8 and 2.10 partially supported in the
