@@ -1,3 +1,8 @@
+2008-06-09  Andreas Nilsson  <andreas@imendio.com>
+
+	* language-bindings.html: 2.8 and 2.10 partially supported in the
+	s-lang bindings.
+
 2008-06-04  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Update libtiff to 3.8.2. Update section
@@ -7,8 +12,8 @@
 
 	* download-windows.html: Update GTK+ to 2.12.10 and Pango to
 	1.20.3.
-
-2008-05-21  Martyn Russell  <martyn@imendio.com>
+	
+2008-05-21  Martyn Russell  <martyn@imendio.com> 
 
 	* documentation.html: Fixed the link for Tim and Kris'
 	presentation at GUADEC 2006 of the highlights of GTK+ 2.10. This
