@@ -1,3 +1,11 @@
+2008-06-17  Martyn Russell  <martyn@imendio.com>
+
+	* commerce.html:
+	* download.html:
+	* index.html: 
+	* news-archives.html: Added links to gtkfile.org and fixed out of
+	date news on the main page and in the archives. 
+
 2008-06-09  Martyn Russell  <martyn@imendio.com>
 
 	* language-bindings.html: Added the D programming language bindings.
