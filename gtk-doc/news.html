@@ -1,237 +1,321 @@
-<html>
-<head>
-<!-- NOTE: Change the title for each page. -->
-<title>GTK-Doc News</title>
-<link rel="stylesheet" href="gtk-doc.css" type="text/css">
-</head>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html"/>
 
-<body>
+    <meta name="Description" content="GTK-Doc Home Page" />
+    <meta name="Keywords" content="GTK-Doc, gtkdoc, GTK, GTK+, Gimp, Toolkit" />
 
-<h1 class="banner">GTK-Doc API Documentation Generator</h1>
+    <meta name="allow-search" content="yes" />
+    <meta name="revisit-after" content="10 Days" />
+    <meta name="reply-to" content="gtk-devel@gnome.org" />
+    
+    <link href="../gtk.css" rel="stylesheet" type="text/css" />
+    <link href="../images/gtk-logo.ico" rel="icon" type="image/x-icon" />
 
-<table cellspacing=0 cellpadding=0 width="100%">
-  <tr>
-    <!-- Table of Contents. -->
-    <td class="contents-all" valign="top">
-      <table class="contents-header" width=100% cellspacing=0 cellpadding=0>
-	<tr><td class="contents-header">Sections</td></tr>
-      </table>
-      <table class="contents" width=100% cellspacing=0 cellpadding=0>
-	<tr><td class="contents"><a HREF="index.html">Home</a></td></tr>
-	<tr><td class="contents"><a HREF="examples.html">Examples</a></td></tr>
-	<tr><td class="contents"><a HREF="news.html">News</a></td></tr>
-	<tr><td class="contents"><a HREF="requirements.html">Requirements</a></td></tr>
-	<tr><td class="contents"><a HREF="download.html">Download</a></td></tr>
-      </table>
-    </td>
-    <!-- END of Table of Contents. -->
+    <title>GTK-Doc - News</title>
 
-    <td valign=top width="99%">
-      <!-- NOTE: Change this heading for each page. -->
-      <h2 class="section-heading">News</h2>
+<!--[if lt IE 7.]>
+<script defer type="text/javascript" src="pngfix.js"></script>
+<![endif]-->
 
-      <!-- NOTE: Change the contents for each page -->
-<h3>GTK-Doc 1.9 (Sep 30 2007) </h3>
+  </head>
+  
+  <body>
+    <div id="container">
+      <div id="header"><img src="images/header-logo.png" alt="gtk logo" width="574" height="112" /><h1>The GTK-Doc Project</h1></div>
+      <div id="menu">
+	<table>
+	  <tr>
+	    <td><a title="About GTK-Doc." href="index.html">About</a></td>
+	    <td><a title="Find out what's new with GTK-Doc." href="news.html" class="current">News</a></td>
+	    <td><a title="Find out what GTK-Doc requires to use it." href="requirements.html">Requirements</a></td>
+	    <td><a title="Download the latest version of GTK-Doc." href="download.html">Download</a></td>
+	    <td><a title="Visit the GTK+ project." href="../index.html">GTK+</a></td>
+	  </tr>
+	</table>
+      </div>
+      <div id="content">
+	<h2>Current Release</h2>
+	<h3>GTK-Doc 1.10 (Mar 20 2008)</h3>
+	<ul>
+	  <li>460753: enable vpath build in gtkdoc-mkhtml</li>
+	  <li>503119: Add dependency on content_files to SGML
+	    target</li> 
+	  <li>127049: building reference documentation fails when
+	    builddir != s...</li>
+	  <li>481811: Inline function bodies are confused with
+	    declarations</li>
+	  <li>448879: Use a footer when generating HTML
+	    documentation</li>
+	  <li>492005: Deprecation guard warnings for properties and
+	    signals</li>
+	  <li>498521: Inconsistent compiler flags passed in
+	    gtk-doc.make</li>
+	  <li>365913: gtk-doc output is not predictable</li>
+	  <li>446648: gtk-doc does not handle forward typedef'd
+	    enums</li>
+	  <li>468278: Display proper types for properties</li>
+	  <li>497367: don't use US-ASCII for output encoding</li>
+	  <li>501066: Missing quotes around gtkdoc-rebase check cause
+	    a warning</li>
+	  <li>508897: [PATCH] Fix build when gtk-doc is not
+	    installed</li>
+	  <li>509539: Building documentation aborts when no .types
+	    file is present</li>
+	  <li>512154: Struct member type attributes are limited to
+	    one token</li>
+	  <li>513318: gtk-doc.el doesn't work fine with emacs22</li>
+	</ul>
+	
+	<h2>Historic Releases</h2>
+	<h3>GTK-Doc 1.9 (Sep 30 2007)</h3>
+	<ul>
+	  <li>419308: unsynced regexps for parameter parsing</li>
+	  <li>449618: Top navigation bar is in the way</li>
+	  <li>453717: fixxref logic to determine absolute path&quot;s
+	    is flawed</li>
+	  <li>457173: unit tests for gtk-doc</li>
+	  <li>465920: Use gtkdoc-rebase</li>
+	  <li>467773: default master doc should have proper
+	    extension</li>
+	  <li>141869: Poor error generated when faced with a type
+	    declared as <q>...</q></li>
+	  <li>156643: Avoid make error in gtk-doc.make</li>
+	  <li>322035: wrong macro parsing</li>
+	  <li>323938: gtk-doc.m4 check is silent</li>
+	  <li>324535: gtk-doc doesn&quot;t handle deprecation inside
+	    enumerations</li>
+	  <li>355352: If you don&quot;t have an instantiatable type
+	    for a gtypeinter...</li>
+	  <li>379466: Improve C parser to handle TYPE\nVARIABLE in
+	    function pro...</li>
+	  <li>380824: docs are truncated if line begins with <q>*
+	      returns </q></li>
+          <li>383456: <q>make check</q> test for 100%
+            documentation</li>
+	  <li>411739: Gtk-doc fails to handle <q>struct tm *
+	      function_name ();</q></li>
+	  <li>415388: Please clean -undocumented.txt files</li>
+	  <li>418027: gtkdoc-mkdb does not handle #ifdef in enum
+	    {}</li>
+	  <li>419997: parameter name trouble</li>
+	  <li>428596: Warnings with gtk-doc.m4 macros</li>
+	  <li>434134: fixxrefs like sed for installing pregenerated
+	    docs</li>
+	  <li>436565: Report undeclared symbols into a file</li>
+	  <li>445596: Impossible to link a page with an anchor</li>
+	  <li>445693: Does not understand <q>unsigned long</q> as a
+	    type</li>
+	  <li>450338 : Make gtk-doc.m4 fail when needed gtk-doc is not
+	    installed</li>
+	  <li>454916: gtk-doc should permit generation of URI-based
+	    cross-refer...</li>
+	  <li>457077: add --no-implicit-returns to gtkdoc-mkdb</li>
+	  <li>459225: Accept automake-1.10 in autogen.sh</li>
+	  <li>459725: <q>jhbuild build gtk-doc</q> fails on make</li>
+	  <li>460127: parsing nested union/structs confuses
+	    public/private state</li>
+	  <li>465365: [PATCH] gtk-doc does not compile</li>
+	  <li>466559: [CSS] styling &lt; hr / &gt;</li>
+	  <li>471014: G_CONST_RETURN * G_CONST_RETURN * function not
+	    picked up</li>
+	  <li>477532: function variables</li>
+	  <li>479913: gtk-doc.notmpl.make is not distributed</li>
+	  <li>479923: distclean test output properly</li>
+	</ul>
 
-<ul>
-<li>419308 : unsynced regexps for parameter parsing</li>
-<li>449618 : Top navigation bar is in the way</li>
-<li>453717 : fixxref logic to determine absolute path's is flawed</li>
-<li>457173 : unit tests for gtk-doc</li>
-<li>465920 : Use gtkdoc-rebase</li>
-<li>467773 : default master doc should have proper extension</li>
-<li>141869 : Poor error generated when faced with a type declared as '...</li>
-<li>156643 : Avoid make error in gtk-doc.make</li>
-<li>322035 : wrong macro parsing</li>
-<li>323938 : gtk-doc.m4 check is silent</li>
-<li>324535 : gtk-doc doesn't handle deprecation inside enumerations</li>
-<li>355352 : If you don't have an instantiatable type for a gtypeinter...</li>
-<li>379466 : Improve C parser to handle TYPE\nVARIABLE in function pro...</li>
-<li>380824 : docs are truncated if line begins with '* returns '</li>
-<li>383456 : &quot; make check &quot; test for 100% documentation</li>
-<li>411739 : Gtk-doc fails to handle &quot; struct tm * function_name (); &quot;</li> 
-<li>415388 : Please clean -undocumented.txt files</li>
-<li>418027 : gtkdoc-mkdb does not handle #ifdef in enum {}</li>
-<li>419997 : parameter name trouble</li>
-<li>428596 : Warnings with gtk-doc.m4 macros</li>
-<li>434134 : fixxrefs like sed for installing pregenerated docs</li>
-<li>436565 : Report undeclared symbols into a file</li>
-<li>445596 : Impossible to link a page with an anchor</li>
-<li>445693 : Does not understand &quot; unsigned long &quot; as a type</li>
-<li>450338 : Make gtk-doc.m4 fail when needed gtk-doc is not installed</li>
-<li>454916 : gtk-doc should permit generation of URI-based cross-refer...</li>
-<li>457077 : add --no-implicit-returns to gtkdoc-mkdb</li>
-<li>459225 : Accept automake-1.10 in autogen.sh</li>
-<li>459725 : &quot; jhbuild build gtk-doc &quot; fails on make</li>
-<li>460127 : parsing nested union/structs confuses public/private state</li>
-<li>465365 : [PATCH] gtk-doc does not compile</li>
-<li>466559 : [CSS] styling &lt; hr / &gt;</li> 
-<li>471014 : G_CONST_RETURN * G_CONST_RETURN * function not picked up</li>
-<li>477532 : function variables</li>
-<li>479913 : gtk-doc.notmpl.make is not distributed</li>
-<li>479923 : distclean test output properly</li>
-</ul>
+	<h3>GTK-Doc 1.8 (Feb 16 2007)</h3>
+	<ul>
+	  <li>Made it easier to include example code in the source
+	    code comment blocks.</li> 
+	  <li><q>|[ ... ]|</q> can be used to delineate example code (it
+	    just gets converted
+	    to <q>&lt;informalexample&gt;&lt;programlisting&gt;</q>),
+	    and most of the text in example code is left as it is. The
+	    only thing that is still expanded is <q>#</q> to allow
+	    links to a symbol&quot;s documentation,
+	    e.g. <q>#GtkWidget</q>.</li> 
+	  <li>Made the field widths wider for the HTML output, so it
+	    looks a bit nicer.</li> 
+	  <li>Added a <q>--rebuild-sections</q> option to gtkdoc-scan
+	    to automatically rebuild the MODULE-sections.txt file. This
+	    only works if all the header files are organized neatly and
+	    functions don&quot;t need rearranging in the docs.</li>
+	  <li>Added a <q>--rebuild-types</q> option to gtkdoc-scan to
+	    automatically rebuild the MODULE.types file, so you
+	    don&quot;t need to add new types manually.</li>
+	  <li>Leave CDATA sections as they are, in the extra XML
+	  content files and within source code comment blocks.</li> 
+	  
+	  <li>Allow the section id and #include&quot;s to be set
+	    within the <q>SECTION:</q> comment block,
+	    using <q>@Section_ID:xxx</q> and <q>@Include:</q>.</li>
+	  <li>Added <q>--default-includes</q> option to specify the
+	      default #include&quot;s (for people who are using
+	      --rebuild-sections and so can&quot;t specify it in
+	      MODULE-sections.txt).</li>
+	  <li>Added a <q>--query-child-properties</q> argument to help
+	    document child properties of arbitrary GObjects (used by
+	    things like canvas widgets).</li>
+	  <li>Fixed documentation of signals of interfaces.</li>
+	</ul>
+	
+	<h3>GTK-Doc 1.7 (Jul 29 2006)</h3>
+	<ul>
+	  <li>Fixed bug that resulted in empty <q>@:</q> lines in the
+	    templates.</li>
+	  <li>Fixed a few bugs with the XSL code.</li>
+	  <li>Supported a few more variations of C syntax.</li>
+	  <li>Remove the internally-used '-struct' suffix from links
+	    to widget structs.</li>
+	  <li>Fixed a few missing build dependencies.</li>
+	  <li>Added a new <q>C-x4s</q> binding to the emacs lisp code,
+	    to insert a blank section header in the source code.</li>
+	  <li>Fixed bug that ignored inline section header docs with
+	    '-' in their names.</li> 
+	  <li>Added a 'make docs' target that can be used to build the
+	    docs even when gtk-doc has been disabled at configure
+	    time.</li> 
+	</ul>
+	
+	<h3>GTK-Doc 1.6 (Apr 9 2006)</h3>
+	<ul>
+	  <li>Removed the hard dependancy on openjade or jade, since
+	    XML is used mainly now rather than SGML.</li>
+	  <li>Install the .pc file in $(datadir) rather than $(libdir)
+	    since gtk-doc is architecture-independant.</li>
+	  <li>Added <q>--ignore-decorators</q> option to ignore a list
+	    of declarators in function declarations.</li> 
+	  <li>Support <q>#Object::signal&quot;/&quot;#Object:property</q> to link to
+	    signals/properties.</li> 
+	  <li>Fixed missing index terms.</li>
+	</ul>
+	
+	<h3>GTK-Doc 1.5 (Mar 7 2006)</h3>
+	<ul>
+	  <li>Output the new version of devhelp2 information, but
+	    still generate the old devhelp files so older versions of
+	    DevHelp still work OK.</li> 
+	  <li>Fixed the initial creation of the *-sections.txt file so
+	    the object hierarchy, signals and properties all work
+	    automatically.</li> 
+	  <li>Show information about signal flags (run
+	    first/last).</li> 
+	  <li>Support a --source-suffixes argument specifying which
+	    source files to scan.</li>
+	  <li>Support other root object types besides GObject and
+	    GInterface.</li>
+	  <li>Use a fixed navigation bar for the generated
+	    documentation.</li>
+	  <li>New documentation from Stefan Kost.</li>
+	  <li>Handle more variations of C syntax.</li>
+	</ul>
+	
+	<h3>GTK-Doc 1.4 (Jul 3 2005)</h3>
+	<ul>
+	  <li>Support section documentation (title, short description,
+	    long description and 'see also') within the source code. I
+	    think everything can now be documented within the source
+	    code.</li>
+	  <li>Support Stable/Unstable/Private stability levels for
+	    everything.</li>
+	</ul>
+	
+	<h3>GTK-Doc 1.3 (Jan 9 2005)</h3>
+	<ul>
+	  <li>Use the new style.css stylesheet instead of hard-wiring
+	    the styles.</li>
+	  <li>Updated the documentation and example build files.</li>
+	  <li>Added support for a gallery of widget images.</li>
+	  <li>Output default values for widget properties and allowed
+	    ranges.</li>
+	  <li>Only underline links in the docs when the mouse hovers
+	    over them.</li>
+	  <li>Added support for placing the parameter table anywhere
+	    within the function documentation (using
+	    the <q>&lt;!--PARAMETERS--&gt;</q> marker).</li>
+	  <li>Handle more variations of C syntax.</li>
+	</ul>
 
-<h3>GTK-Doc 1.8 (Feb 16 2007) </h3>
+	<h3>GTK-Doc 1.2 (Feb 16 2004)</h3>
+	<ul>
+	  <li>Added widget signals and properties to undocumented
+	    output and statistics.</li>
+	  <li>Added support for an index of all symbols.</li>
+	  <li>Emit "Since:" information for signals and
+	    properties.</li>
+	  <li>Added derived subclasses and interfaces to the widget
+	    hierarchies.</li>
+	  <li>Added .cat SGML catalog file.</li>
+	  <li>Support properties on interfaces.</li>
+	  <li>Added <q>--help</q> options to the scripts.</li>
+	</ul>
+	
+	<h3>GTK-Doc 1.1 (Apr 18 2003)</h3>
+	<ul>
+	  <li>Add a gtk-doc.m4 macro that allows packages to provide
+	    consistent checking for gtk-doc.</li>
+	  <li>Check to make sure that the XML catalog actually
+	    contains entries for the DocBook XML DTD and XSLT
+	    stylesheets. Please consult the README file if your system's
+	    XML catalog isn't set up.</li>
+	  <li>Add infrastructure for including the standard gtk-doc
+	    makefile glue, so that maintainers of packages don't need to
+	    worry about keeping it up to date. See glib head for an
+	    example of its use.</li> 
+	  <li>Some updates to the devhelp contents file generation, as
+	    suggested by Hallski.</li>
+	  <li>Fix some bugs in the DocBook XML codepath that were
+	    preventing inter-module cross references from being
+	    resolved.</li> 
+	  <li>Fix some bugs in extraction of object property
+	    documentation.</li>
+	</ul>
+	
+	<h3>GTK-Doc 1.0	(Jan 20 2003)</h3>
+	<ul>
+	  <li>Added support for <q>Since:</q> and <q>Deprecated:</q>
+	    tags, and look for deprecated guard macros in header
+	    files.</li> 
+	  <li>Support /*&lt; public &gt;*/ and /*&lt; private &gt;*/ markers for
+		all structs.</li> 
+	  <li>New <q>--ignore-files</q> option for gtkdoc-mkdb, to
+	    ignore files or directories.</li> 
+	  <li>Used the <q>sgml-raw</q> output type with openjade, to
+	    avoid problems with Lynx.</li> 
+	  <li>Added .pc pkg-config file which can be used to check the
+	    gtk-doc version.</li> 
+	</ul>
+	
+	<h3>GTK-Doc 0.10 (Nov 14 2002)</h3>
+	<ul>
+	  <li>--output-format option to select whether SGML or XML is
+	    generated.</li>
+	  <li>Use openjade or jade when converting SGML to HTML.</li> 
+	  <li>Use xsltproc to convert XML to HTML, with a new
+	    look.</li>
+	  <li>In XML mode, support XIncludes as an alternative to
+	    entities.</li>
+	  <li>In XML mode, create .devhelp files.</li> 
+	  <li>List interfaces in the object hierarchy.</li>
+	  <li>Create docs for signals on interfaces.</li>
+	  <li>Generate links between interface and their
+	    implementations and prerequisites.</li>
+	  <li>Create docs for child and style properties.</li>
+	  <li>Use blurbs for property documentation.</li>
+	  <li>Allow inline documentation for signals and
+	    properties.</li>
+	</ul>
 
-<ul>
-<li>Made it easier to include example code in the source code comment blocks.
-   "|[ ... ]|" can be used to delineate example code (it just gets converted
-   to "&lt;informalexample&gt;&lt;programlisting&gt;"), and most of the text in example
-   code is left as it is. The only thing that is still expanded is
-   '#' to allow links to a symbol's documentation, e.g. '#GtkWidget'.
-<li>Made the field widths wider for the HTML output, so it looks a bit nicer.
-<li>Added a '--rebuild-sections' option to gtkdoc-scan to automatically rebuild
-   the MODULE-sections.txt file. This only works if all the header files are
-   organized neatly and functions don't need rearranging in the docs.
-<li>Added a '--rebuild-types' option to gtkdoc-scan to automatically rebuild
-   the MODULE.types file, so you don't need to add new types manually.
-<li>Leave CDATA sections as they are, in the extra XML content files and within
-   source code comment blocks.
-<li>Allow the section id and #include's to be set within the "SECTION:" comment
-   block, using "@Section_ID:xxx" and "@Include:".
-<li>Added "--default-includes" option to specify the default #include's (for
-   people who are using --rebuild-sections and so can't specify it in
-   MODULE-sections.txt).
-<li>Added a '--query-child-properties' argument to help document child
-   properties of arbitrary GObjects (used by things like canvas widgets).
-<li>Fixed documentation of signals of interfaces.
-</ul>
-
-<h3>GTK-Doc 1.7 (Jul 29 2006) </h3>
-
-<ul>
-<li>Fixed bug that resulted in empty "@:" lines in the templates.
-<li>Fixed a few bugs with the XSL code.
-<li>Supported a few more variations of C syntax.
-<li>Remove the internally-used '-struct' suffix from links to widget structs.
-<li>Fixed a few missing build dependencies.
-<li>Added a new "C-x4s" binding to the emacs lisp code, to insert a blank
-   section header in the source code.
-<li>Fixed bug that ignored inline section header docs with '-' in their names.
-<li>Added a 'make docs' target that can be used to build the docs even when
-   gtk-doc has been disabled at configure time.
-</ul>
-
-
-<h3>GTK-Doc 1.6 (Apr 9 2006) </h3>
-
-<ul>
-<li>Removed the hard dependancy on openjade or jade, since XML is used mainly
-   now rather than SGML.
-<li>Install the .pc file in $(datadir) rather than $(libdir) since gtk-doc is
-   architecture-independant.
-<li>Added "--ignore-decorators" option to ignore a list of declarators in
-   function declarations.
-<li>Support '#Object::signal'/'#Object:property' to link to signals/properties.
-<li>Fixed missing index terms.
-</ul>
-
-
-<h3>GTK-Doc 1.5 (Mar 7 2006) </h3>
-
-<ul>
-<li>Output the new version of devhelp2 information, but still generate the old
-   devhelp files so older versions of DevHelp still work OK.
-<li>Fixed the initial creation of the *-sections.txt file so the object
-   hierarchy, signals and properties all work automatically.
-<li>Show information about signal flags (run first/last).
-<li>Support a --source-suffixes argument specifying which source files to scan.
-<li>Support other root object types besides GObject and GInterface.
-<li>Use a fixed navigation bar for the generated documentation.
-<li>New documentation from Stefan Kost.
-<li>Handle more variations of C syntax.
-</ul>
-
-
-<h3>GTK-Doc 1.4 (Jul 3 2005) </h3>
-
-<ul>
-<li>Support section documentation (title, short description, long description
-   and 'see also') within the source code. I think everything can now be
-   documented within the source code.
-<li>Support Stable/Unstable/Private stability levels for everything.
-</ul>
-
-
-<h3>GTK-Doc 1.3 (Jan 9 2005) </h3>
-
-<ul>
-<li>Use the new style.css stylesheet instead of hard-wiring the styles.
-<li>Updated the documentation and example build files.
-<li>Added support for a gallery of widget images.
-<li>Output default values for widget properties and allowed ranges.
-<li>Only underline links in the docs when the mouse hovers over them.
-<li>Added support for placing the parameter table anywhere within the function
-   documentation (using the "&lt;!--PARAMETERS--&gt;" marker).
-<li>Handle more variations of C syntax.
-</ul>
-
-
-<h3>GTK-Doc 1.2     (Feb 16 2004)</h3>
-
-<ul>
-<li>Added widget signals and properties to undocumented output and statistics.
-<li>Added support for an index of all symbols.
-<li>Emit "Since:" information for signals and properties.
-<li>Added derived subclasses and interfaces to the widget hierarchies.
-<li>Added .cat SGML catalog file.
-<li>Support properties on interfaces. 
-<li>Added "--help" options to the scripts.
-</ul>
-
-
-<h3>GTK-Doc 1.1     (Apr 18 2003)</h3>
-
-<ul>
-<li>Add a gtk-doc.m4 macro that allows packages to provide consistent
-   checking for gtk-doc.
-<li>Check to make sure that the XML catalog actually contains entries
-   for the DocBook XML DTD and XSLT stylesheets.  Please consult the
-   README file if your system's XML catalog isn't set up.
-<li>Add infrastructure for including the standard gtk-doc makefile
-   glue, so that maintainers of packages don't need to worry about
-   keeping it up to date.  See glib head for an example of its use.
-<li>Some updates to the devhelp contents file generation, as suggested
-   by Hallski.
-<li>Fix some bugs in the DocBook XML codepath that were preventing
-   inter-module cross references from being resolved.
-<li>Fix some bugs in extraction of object property documentation.
-</ul>
-
-
-<h3>GTK-Doc 1.0	(Jan 20 2003)</h3>
-
-<ul>
-<li>Added support for "Since:" and "Deprecated:" tags, and look for deprecated
-   guard macros in header files.
-<li>Support /*< public >*/ and /*< private >*/ markers for all structs.
-<li>New "--ignore-files" option for gtkdoc-mkdb, to ignore files or directories.
-<li>Used the "sgml-raw" output type with openjade, to avoid problems with Lynx.
-<li>Added .pc pkg-config file which can be used to check the gtk-doc version.
-</ul>
-
-
-<h3>GTK-Doc 0.10	(Nov 14 2002)</h3>
-
-<ul>
-<li>--output-format option to select whether SGML or XML is generated. 
-<li>Use openjade or jade when converting SGML to HTML.
-<li>Use xsltproc to convert XML to HTML, with a new look.
-<li>In XML mode, support XIncludes as an alternative to entities.
-<li>In XML mode, create .devhelp files. 
-<li>List interfaces in the object hierarchy.
-<li>Create docs for signals on interfaces.
-<li>Generate links between interface and their implementations and
-   prerequisites.
-<li>Create docs for child and style properties.
-<li>Use blurbs for property documentation.
-<li>Allow inline documentation for signals and properties. 
-</ul>
-
-    </td>
-  </tr>
-</table>
-
-</body>
+      </div> <!-- content -->
+      
+      <div id="footer">Copyright 2007-2008 The GTK+ Team</div>
+      
+    </div> <!-- container -->
+  
+  </body>
 </html>

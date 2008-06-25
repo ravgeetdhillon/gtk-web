@@ -1,3 +1,7 @@
+2008-06-25  Martyn Russell  <martyn@imendio.com>
+
+	* documentation.html: Added a link to the GTK-Doc pages.
+
 2008-06-23  Andreas Nilsson  <andreas@imendio.com>
 
 	* language-bindings.html: updated status of Lua bindings.

@@ -1,3 +1,14 @@
+2008-06-25  Martyn Russell  <martyn@imendio.com>
+
+	* download.html:
+	* index.html:
+	* news.html: 
+	* requirements.html: Updated all pages to follow the new style of
+	gtk.org. Also added Release 2.10 to the news and download pages.
+
+	* examples.html:
+	* gtk-doc.css: Removed, no longer needed.
+	
 2007-09-30  Stefan Kost  <ensonic@users.sf.net>
 
 	* download.html:

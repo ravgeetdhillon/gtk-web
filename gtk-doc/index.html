@@ -1,64 +1,96 @@
-<html>
-<head>
-<!-- NOTE: Change the title for each page. -->
-<title>GTK-Doc</title>
-<link rel="stylesheet" href="gtk-doc.css" type="text/css">
-</head>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html"/>
 
-<body>
+    <meta name="Description" content="GTK-Doc Home Page" />
+    <meta name="Keywords" content="GTK-Doc, gtkdoc, GTK, GTK+, Gimp, Toolkit" />
 
-<h1 class="banner">GTK-Doc API Documentation Generator</h1>
+    <meta name="allow-search" content="yes" />
+    <meta name="revisit-after" content="10 Days" />
+    <meta name="reply-to" content="gtk-devel@gnome.org" />
+    
+    <link href="../gtk.css" rel="stylesheet" type="text/css" />
+    <link href="../images/gtk-logo.ico" rel="icon" type="image/x-icon" />
 
-<table cellspacing=0 cellpadding=0 width="100%">
-  <tr>
-    <!-- Table of Contents. -->
-    <td class="contents-all" valign="top">
-      <table class="contents-header" width=100% cellspacing=0 cellpadding=0>
-	<tr><td class="contents-header">Sections</td></tr>
-      </table>
-      <table class="contents" width=100% cellspacing=0 cellpadding=0>
-	<tr><td class="contents"><a HREF="index.html">Home</a></td></tr>
-	<tr><td class="contents"><a HREF="examples.html">Examples</a></td></tr>
-	<tr><td class="contents"><a HREF="news.html">News</a></td></tr>
-	<tr><td class="contents"><a HREF="requirements.html">Requirements</a></td></tr>
-	<tr><td class="contents"><a HREF="download.html">Download</a></td></tr>
-      </table>
-    </td>
-    <!-- END of Table of Contents. -->
+    <title>GTK-Doc - About</title>
 
-    <td valign=top width="99%">
-      <!-- NOTE: Change this heading for each page. -->
-      <h2 class="section-heading">Introduction</h2>
+<!--[if lt IE 7.]>
+<script defer type="text/javascript" src="pngfix.js"></script>
+<![endif]-->
 
-      <!-- NOTE: Change the contents for each page. -->
-      <p>
-GTK-Doc is used to document C code. It is typically used to document the public
-API of libraries, such as the GTK+ and GNOME libraries, but it can also be
-used to document application code.
-      <p>
-Note that GTK-Doc wasn't originally intended to be a general-purpose
-documentation tool, so it can be a bit awkward to setup and use.
-For a more polished general-purpose documentation tool you may want to look
-at <a href="http://www.doxygen.org/">Doxygen</a>.
-However GTK-Doc has some special code
-to document the signals and properties of GTK+ widgets and GObject classes
-which other tools may not have.
-      <p>
-GTK-Doc allows your documentation to be written in 2 ways:
-      <ul>
-	<li>Embedded inside the source code in specially-formatted comments.
-	<li>Added to the 'template' files which gtk-doc outputs after scanning
-	    all the header files and parsing the declarations.
-      </ul>
-      <p>
-From these source code comments and template files GTK-Doc generates a Docbook
-XML (or SGML) document, which is then transformed into HTML.
-The generated HTML documentation can be browsed in an ordinary web browser or
-by using the special
-<a href="http://www.imendio.com/projects/devhelp/">Devhelp API browser</a>.
-    </td>
-  </tr>
-</table>
+  </head>
+  
+  <body>
+    <div id="container">
+      <div id="header"><img src="images/header-logo.png" alt="gtk logo" width="574" height="112" /><h1>The GTK-Doc Project</h1></div>
+      <div id="menu">
+	<table>
+	  <tr>
+	    <td><a title="About GTK-Doc." href="index.html" class="current">About</a></td>
+	    <td><a title="Find out what's new with GTK-Doc." href="news.html">News</a></td>
+	    <td><a title="Find out what GTK-Doc requires to use it." href="requirements.html">Requirements</a></td>
+	    <td><a title="Download the latest version of GTK-Doc." href="download.html">Download</a></td>
+	    <td><a title="Visit the GTK+ project." href="../index.html">GTK+</a></td>
+	  </tr>
+	</table>
+      </div>
+      <div id="content">
+	<h2>What is GTK-Doc?</h2>
+	<p>GTK-Doc is a project which was started to generate API
+	  documentation from comments added to C code. It is typically
+	  used to document the public API of GTK+ and GNOME libraries,
+	  but it can also be used to document application code.</p> 
 
-</body>
+	<h2>History</h2>
+	<p>GTK-Doc wasn't originally intended to be a general-purpose
+	  documentation tool, so it can be a bit awkward to setup and
+	  use. For a more polished general-purpose documentation tool
+	  you may want to look
+	  at <a href="http://www.doxygen.org/">Doxygen</a>. However
+	  GTK-Doc has some special code to document the signals and
+	  properties of GTK+ widgets and GObject classes which other
+	  tools may not have.</p>  
+
+	<h2>How it works</h2>
+	<p>GTK-Doc allows your documentation to be written in 2
+	  ways:</p> 
+
+	<ul>
+	  <li>Embedded inside the source code in specially-formatted
+	  comments.</li> 
+	  <li>Added to the <em>template</em> files which gtk-doc outputs
+	  after scanning all the header files and parsing the
+	  declarations.</li> 
+	</ul>
+
+	<p>From these source code comments and template files GTK-Doc
+	  generates a <a href="http://www.docbook.org/">Docbook</a>
+	  XML
+	  (or <a href="http://en.wikipedia.org/wiki/SGML">SGML</a>)
+	  document, which is then transformed into HTML.</p> 
+	<p>The generated HTML documentation can be browsed in an
+	  ordinary web browser or by using the
+	  special <a href="http://developer.imendio.com/projects/devhelp/">Devhelp
+	  API browser</a>.  
+	</p>
+
+	<h2>Example Projects</h2>
+	<p>GTK-Doc is mainly used to document the GTK+ and GNOME
+	  libraries. The documentation for these is available online.
+	  To see this documentation, you can choose from the
+	  documentation listed on
+	  the <a href="../documentation.html">GTK+ documentation</a>
+	  page.</p>
+
+      </div> <!-- content -->
+      
+      <div id="footer">Copyright 2007-2008 The GTK+ Team</div>
+      
+    </div> <!-- container -->
+  
+  </body>
 </html>
