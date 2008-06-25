@@ -2,6 +2,13 @@
 
 	* download.html:
 	* index.html:
+	* news.html:
+	* requirements.html: Don't include a link to gtk.org in the header.
+
+2008-06-25  Martyn Russell  <martyn@imendio.com>
+
+	* download.html:
+	* index.html:
 	* news.html: 
 	* requirements.html: Updated all pages to follow the new style of
 	gtk.org. Also added Release 2.10 to the news and download pages.
