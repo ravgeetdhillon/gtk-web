@@ -1,3 +1,10 @@
+2008-07-02  Martyn Russell  <martyn@imendio.com>
+
+	* index.html:
+	* news-archives.html: Added GTK+ 2.12.11 and GLib 2.16.4 releases
+	to the news and updated the upcoming events to include GNOME Asia
+	summit. 
+
 2008-06-25  Martyn Russell  <martyn@imendio.com>
 
 	* documentation.html: Added a link to the GTK-Doc pages.
