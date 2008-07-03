@@ -1,3 +1,9 @@
+2008-07-03  Martyn Russell  <martyn@imendio.com>
+
+	* index.html: 
+	* news-archives.html: Added GLib 2.17.4 and made it obvious that
+	ALL releases are either *stable* or *unstable*. 
+
 2008-07-02  Martyn Russell  <martyn@imendio.com>
 
 	* index.html:
