@@ -1,3 +1,8 @@
+2008-07-08  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update GLib to 2.16.4, Pango to 1.20.5,
+	GTK+ to 2.12.11 and Freetype to 2.3.6.
+
 2008-07-03  Martyn Russell  <martyn@imendio.com>
 
 	* index.html: 
