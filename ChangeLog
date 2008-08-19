@@ -1,3 +1,8 @@
+2008-08-19  Andreas Nilsson  <andreas@imendio.com>
+
+	* index.html:
+	* news-archives.html: Added GTK+ 2.13.7 and GLib 2.17.7 release. 
+
 2008-08-14  Martyn Russell  <martyn@imendio.com>
 
 	* development.html: Updated Emmanuele's affiliation.
