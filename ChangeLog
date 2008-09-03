@@ -1,3 +1,7 @@
+2008-09-04  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update GLib to 2.18.0.
+
 2008-09-03  Martyn Russell  <martyn@imendio.com>
 
 	* index.html:
