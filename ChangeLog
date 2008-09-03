@@ -1,3 +1,8 @@
+2008-09-03  Martyn Russell  <martyn@imendio.com>
+
+	* index.html:
+	* news-archives.html: Added GLib 2.18.0 release.
+
 2008-08-19  Andreas Nilsson  <andreas@imendio.com>
 
 	* index.html:
