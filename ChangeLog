@@ -1,3 +1,10 @@
+2008-09-04  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: 
+	* news-archives.html: Add GTK+ 2.14.0
+
+	* notes/gtk-2.14.0-notes.txt: Release notes for GTK+ 2.14
+
 2008-09-04  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Update GLib to 2.18.0.

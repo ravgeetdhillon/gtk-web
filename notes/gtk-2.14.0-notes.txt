@@ -1,0 +1,82 @@
+Release notes for 2.14
+======================
+
+* gtkitemfactory.h is now completely deprecated.
+  As gtkactiongroup.h and gtkstock.h no longer include the gtkitemfactory.h
+  header, this might break application using gtk_item_factory_* symbols
+  without including gtkitemfactory.h - even though this behaviour has never
+  been supported in the first place.
+
+* The GtkFileSystem semi-private interface has been removed.
+  The GTK+ filechooser implementation now uses GIO directly, which has
+  rendered external filesystem implementations unnecessary. Consequently,
+  the GtkFileSystem interface is no longer available, nor the filechooser
+  will load any GtkFileSystem implementation.
+
+* GtkComboBox now renders the popdown button insensitive when
+  the model is empty. Applications which want to populate the list
+  only before displaying it can set gtk_combo_box_set_button_sensitivity
+  to GTK_SENSITIVITY_ON, so that the button is always sensitive or
+  GTK_SENSITIVITY_OFF to make it insensitive respectively.
+
+* GtkAdjustment now enforces that values are restricted to the
+  range [lower, upper - page_size]. This has always been the documented
+  behaviour, and the recommended practice is to set page_size to 0
+  when using adjustments for simple scalar values, like in a slider
+  or spin button. 
+
+* gdk-pixbuf will use GIO for mime type detection if possible. For
+  this to work, shared-mime-info needs to be installed and XDG_DATA_DIRS
+  set accordingly at configure time. Otherwise, gdk-pixbuf falls
+  back to its built-in sniffing implementation.
+
+
+How to report bugs
+==================
+
+Bugs should be reported to the GNOME bug tracking system.
+(http://bugzilla.gnome.org, product gtk+.) You will need to create an
+account for yourself.
+  
+In the bug report please include:
+  
+* Information about your system. For instance:
+
+   - What operating system and version
+   - What version of X
+   - For Linux, what version of the C library
+
+  And anything else you think is relevant.
+
+* How to reproduce the bug. 
+
+  If you can reproduce it with one of the tests or demos built with GTK+, 
+  such as demos/gtk-demo/gtk-demo, that would be most convenient. Otherwise, 
+  please include a short test program that exhibits the behavior. As a 
+  last resort, you can also provide a pointer to a larger piece of software 
+  that can be downloaded.
+
+* If the bug was a crash, the exact text that was printed out when the
+  crash occured.
+
+* Further information such as stack traces may be useful, but is not
+  necessary. If you do send a stack trace, and the error is an X error,
+  it will be more useful if the stacktrace is produced running the test
+  program with the --sync command line option.
+
+
+Patches
+=======
+
+Patches should also be submitted to bugzilla.gnome.org. If the patch
+fixes an existing bug, add the patch as an attachment to that bug
+report.
+
+Otherwise, enter a new bug report that describes the patch, and attach
+the patch to that bug report.
+
+Bug reports containing patches should include the PATCH keyword in their
+keyword fields. If the patch adds to or changes the GTK+ programming
+interface, the API keyword should also be included.
+  
+Patches should be in unified diff form. (The -u option to GNU diff.)
