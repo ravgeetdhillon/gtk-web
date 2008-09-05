@@ -2,6 +2,8 @@
 
 	* download-windows-64bit.html: Page for 64-bit Windows downloads.
 
+	* download.html: Add link to it.
+
 2008-09-05  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Actually update GLib to build 2.18.0-2.
