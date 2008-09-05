@@ -1,3 +1,14 @@
+2008-09-05  Martyn Russell  <martyn@imendio.com>
+
+	* download-linux.html: Updated the download links to GTK+ 2.14 and
+	GLib 2.18.
+	
+	* index.html:
+	* news-archives.html: Moved the last 2 items from the news on the
+	index.html into the news-archives.html. Removed the new news about
+	GTK+ 2.14.{0|1} from the new-archives.html. It will be moved there
+	when there are 5 newer items on the main page. 
+
 2008-09-04  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: 
