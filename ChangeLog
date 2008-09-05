@@ -1,3 +1,8 @@
+2008-09-05  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update GTK+ to 2.14.1, and the bundle
+	correspondingly.
+
 2008-09-05  Martyn Russell  <martyn@imendio.com>
 
 	* index.html: Fixed the page formatting and added a link for the
