@@ -1,5 +1,10 @@
 2008-09-05  Martyn Russell  <martyn@imendio.com>
 
+	* index.html: Fixed the page formatting and added a link for the
+	GTK+ 2.14.1 release for people to read more.
+
+2008-09-05  Martyn Russell  <martyn@imendio.com>
+
 	* download-linux.html: Updated the download links to GTK+ 2.14 and
 	GLib 2.18.
 	
