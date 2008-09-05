@@ -1,3 +1,12 @@
+2008-09-05  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update GLib to build 2.18.0-2, GTK+ to
+	2.14.0-1, and the GTK+ bundle correspondingly. Wonder if people
+	will complain about my changed file naming scheme... now with
+	underscores separators and an architecture (win32 or win64)
+	field. Still neeed add a separate secion for the 64-bit versions
+	on this page, or something.
+
 2008-09-04  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: 
