@@ -41,19 +41,27 @@
       <div id="content">
 	<h2><a name="Requirements">Requirements</a></h2>
 	<h3>Packages</h3>
-	<p>You will need to get the GLib, cairo, Pango, ATK, GTK+,
-	  gettext-runtime, libpng, libjpeg, libtiff and zlib developer packages to
-	  build against GTK+, and the corresponding runtime packages
-	  to run GTK+ programs.</p>
+	<p>You will need to get the GLib, cairo, Pango, ATK, and GTK+
+	  developer packages to build against GTK+. To run GTK+ programs you
+	  will also need the libpng and zlib packagages, and if your
+	  code uses gettext for internationalisation and/or you want
+	  GTK+ internalisation, the
+	  gettext-runtime package.</p>
 	
-	<p>These packages are for people who develop software that uses
-	  GTK+. The binaries (DLLs and executables) in these packages are
-	  not for programs that use
+	<p>The packages here are for people who develop software that uses
+	  GTK+. This page is not intended directly for end-users. It is expected
+	  that people who build installers for GTK+ applications for Windows
+	  bundle GTK+ with them.</p>
+
+	<p>These packages are
+	  not for developing or running programs that use
 	  the <a href="http://www.cygwin.com/">Cygwin</a> Unix emulation
-	  environment. Currently, Cygwin has packages for GTK+ available
-	  directly in its installer from its package repositories
+	  environment. Cygwin has GTK+ packages available
+	  directly in its installer
 	  which you should use. Note that the Cygwin GTK+ uses the X11
-	  backend.</p>
+	  backend, so you will need to also run an X11 server then
+	  when you run GTK+ programs on Cygwin, but presumably that is
+	  what Cygwin users want.</p>
 	
 	<p>You are welcome to redistribute GTK+ binaries, including 
 	  applications that bundle them, on other web sites,
