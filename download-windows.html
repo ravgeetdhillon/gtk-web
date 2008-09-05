@@ -167,7 +167,7 @@
 	<h3>Third Party Dependencies</h3>
 	<p>You won't need all of these packages to just use GTK+ Some
 	of the optional packages are needed for building applications
-	like the GIMP on Windows. Required packages are illustrated with
+	like GIMP on Windows. Required packages are illustrated with
 	<img src="images/progress-complete.png" alt=""/>.</p>
 	
 	<table class="styled">
@@ -281,32 +281,9 @@
 	  </tr>
 	</table>
 
-	<h4>About zlib</h4>
-	<p>This is the compression library used by libjpeg and libtiff.</p>
-	
-	<h4>About win_iconv</h4>
-	<p>win_iconv is an implementation of <a
-        href="http://www.opennc.org/onlinepubs/7908799/xsh/iconv.html">iconv</a>
-        for Windows by Yukihiro Nakadaira that has a much smaller
-	footprint than GNU libiconv. The win_iconv package above
-	includes the header file, static archive library and
-	the source file. This library is
-	linked statically into GLib&nbsp;2.14.5 and later, thus not
-	needed separately at run-time.</p>
-
-	<h4>About iconv.dll</h4>
-
-	<p>GLib 2.14.4 and earlier link to iconv in a separate DLL,
-	<TT>iconv.dll</TT>. This can either be the GNU libiconv
-	<TT>iconv.dll</TT>, or the identically named win_iconv_dll one
-	which obviosuly is intented to be a drop-in replacement.</p>
-
-	<h4>About gettext</h4>
-	<p>The GNU internationalization library. All of the GTK+ stack uses it.</p>
-
-	<h4>About libjpeg, libpng and libtiff</h4>
-	<p>These are image file format libraries used by GTK+. You
-	will need these.</p>
+	<h4>About libpng</h4>
+	<p>This is an image file format library used by GTK+, and
+	required.</p>
 
 	<p>The libpng package linked to above provides
 	<TT>libpng12-0.dll</TT>. This package is built by me (Tor
@@ -317,14 +294,43 @@
 	these builds actually are binary compatible even if the DLL
 	name was different. To be safe, never rename DLLs.</p>
 
+	<h4>About zlib</h4>
+	<p>This is the compression library used by libpng, libjpeg and libtiff.</p>
+	
+	<h4>About win_iconv</h4>
+	<p>win_iconv is an implementation of <a
+        href="http://www.opennc.org/onlinepubs/7908799/xsh/iconv.html">iconv</a>
+        for Windows by Yukihiro Nakadaira that has a much smaller
+	footprint than GNU libiconv. The win_iconv package above
+	includes the header file, static archive library and
+	the source file. This library is
+	linked statically into GLib and thus not
+	needed separately at run-time.</p>
+
+	<h4>About iconv.dll</h4>
+
+	<p>GLib 2.14.4 and earlier link to iconv in a separate DLL,
+	<TT>iconv.dll</TT>. This can either be the GNU libiconv
+	<TT>iconv.dll</TT>, or the identically named win_iconv_dll one
+	which obviosuly is intented to be a drop-in replacement.</p>
+
+	<h4>About gettext</h4>
+	<p>The GNU internationalization library. All of the GTK+ stack
+	uses it, but through proxy-libintl (see below) so it is
+	actually optional at run-time..</p>
+
+	<h4>About libjpeg and libtiff</h4>
+	<p>These libraries are not directly used by GTK+. Used for
+	instance by GIMP.</p>
+
 	<h4>About pkg-config</h4>
 	<p>This program is useful for Makefiles and extensively used in building software according to the GTK+ and GNOME conventions using autotools. It uses a <q>database</q> specifying inter-dependencies among software packages. It is used to get the compile and link flags needed when building software using libraries that provide pkg-config data. This requires GLib 2.x.</p>
 
 	<h4>About freetype</h4>
-	<p>This is used by the GIMP and by Pango's pangoft2 library. For just GTK+ applications you will not need it.</p>
+	<p>This is used by GIMP and by Pango's pangoft2 library. For just GTK+ applications you will not need it.</p>
 
 	<h4>About fontconfig</h4>
-	<p>Fontconfig is used by the FreeType2 backend in Pango (pangoft2) and by GIMP. Contrary to what many seem to think, fontconfig is in no way dependent on X11, so it does make some sense to use it on Windows. GTK+ does not use pangoft2, so you probably will not need this unless for the GIMP. This is a slightly fixed version of fontconfig 2.4.2 from the date indicated.</p>
+	<p>Fontconfig is used by the FreeType2 backend in Pango (pangoft2) and by GIMP. Contrary to what many seem to think, fontconfig is in no way dependent on X11, so it does make some sense to use it on Windows. GTK+ does not use pangoft2, so you probably will not need this unless for GIMP. This is a slightly fixed version of fontconfig 2.4.2 from the date indicated.</p>
 
 	<h4>About libexpat</h4>
 	<p>This is required by fontconfig.</p>
