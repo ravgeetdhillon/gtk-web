@@ -1,5 +1,9 @@
 2008-09-05  Tor Lillqvist  <tml@novell.com>
 
+	* download-windows.html: Actually update GLib to build 2.18.0-2.
+
+2008-09-05  Tor Lillqvist  <tml@novell.com>
+
 	* download-windows.html: Clarifications and improvements.
 
 2008-09-05  Tor Lillqvist  <tml@novell.com>
