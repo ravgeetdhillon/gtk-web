@@ -1,3 +1,8 @@
+2008-09-04  Matthias Clasen  <mclasen@redhat.com>
+
+	* index.html: 
+	* news-archives.html: Add GTK+ 2.14.1
+
 2008-09-05  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Update GLib to build 2.18.0-2, GTK+ to
