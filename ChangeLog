@@ -1,3 +1,8 @@
+2008-09-05  tor lillqvist  <tml@novell.com>
+
+	* download.html: gtkfiles.org has been killed. Comment out the
+	link to it (which now just shows osnews.com).
+
 2008-09-05  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows-64bit.html: Page for 64-bit Windows downloads.
