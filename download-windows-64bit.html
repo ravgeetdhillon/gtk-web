@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html"/>
+
+    <meta name="Description" content="GTK+ Home Page" />
+    <meta name="Keywords" content="GTK, GTK+, Gimp, Toolkit" />
+
+    <meta name="allow-search" content="yes" />
+    <meta name="revisit-after" content="10 Days" />
+
+    <meta name="reply-to" content="gtk-devel@gnome.org" />
+    
+    <link href="gtk.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="images/gtk-logo.ico" type="image/x-icon" />
+
+    <title>GTK+ - Download for 64-bit Windows (x86_64)</title><!--[if lt IE 7.]>
+<script defer type="text/javascript" src="pngfix.js"></script>
+<![endif]-->
+
+  </head>
+  
+  <body>
+    <div id="container">
+      <div id="header"><img src="images/header-logo.png" alt="gtk logo" width="574" height="112" /><h1>The GTK+ Project</h1></div>
+      <div id="menu">
+	<table>
+	  <tr>
+	    <td><a title="About GTK+." href="index.html">About</a></td>
+	    <td><a title="Find out what GTK+ can do for you." href="features.html">Features</a></td>
+	    <td><a title="Download the latest version of GTK+." href="download.html" class="current">Download</a></td>
+	    <td><a title="See applications using GTK+ on various platforms." href="screenshots.html">Screenshots</a></td>
+	    <td><a title="Read up on documentation about how to use GTK+." href="documentation.html">Documentation</a></td>
+	    <td><a title="Find out how you can get involved in the develop of GTK+." href="development.html">Development</a></td>
+	  </tr>
+	</table>
+      </div>
+      <div id="content">
+	<h2><a name="Requirements">Requirements</a></h2>
+	<h3>Packages</h3>
+	<p>You will need to get the GLib, cairo, Pango, ATK, and GTK+
+	  developer packages to build against GTK+. To run GTK+ programs you
+	  will also need the libpng and zlib packagages, and if your
+	  code uses gettext for internationalisation and/or you want
+	  GTK+ internalisation, the gettext package.</p>
+	
+	<p>The packages here are for people who develop software that uses
+	  GTK+. This page is not intended directly for end-users. It is expected
+	  that people who build installers for GTK+ applications for Windows
+	  bundle GTK+ with them.</p>
+
+	<p>You are welcome to redistribute GTK+ binaries, including 
+	  applications that bundle them, on other web sites,
+	  CD-ROM, and other media. You don't have to ask for
+	  permission. That's one of the points of Free Software. One
+	  important thing that the <A
+	  HREF="http://www.fsf.org/licenses/licenses.html">GNU
+	  licenses</A> require is that <strong>you must also redistribute
+	  the source</strong> code. This usually means at least the
+	  gettext, GLib, GTK+, Pango and Atk sources.</p>
+
+	<h3>What toolchain to use?</h3>
+	<p>The most natural toolchain to use together with these packages is
+	  the GNU compiler and other utilities. When
+	  targeting Windows, that combination is known as <a
+	  href="http://www.mingw.org">MinGW</a>. Support for 64-bit
+	  Windows is not yet available from the official MinGW
+	  project. There is a separate porting effort for 64-bit
+	  Windows called <a
+	  href="http://mingw-w64.soureceforge.net">mingw-w64</a>. These
+	  packages have been built using that compiler,
+	  cross-compiling from 32-bit Windows.
+	  </p>
+
+	<p>It might be possible to use these packages also with Microsoft's
+	  compiler. Unlike the 32-bit versions, that has not been
+	  actually tested, though. The DLLs here use the
+	  <TT>msvcrt.dll</TT> runtime
+	  library.</p>
+	
+	<h2><a name="StableRelease">Stable Release</a></h2>
+	<p>There are 3 types of download options
+	  below. <strong>Binaries</strong> provide only the DLLs and
+	  other files used you will need to run your GTK+-using
+	  application. <strong>Dev</strong> packages provide include
+	  files, import libraries, documentation and additional tools. 
+	  <strong>Source</strong> packages provide the source code
+	  for the component in question.</p>
+
+	<p>If you want to repackage the necessary runtime files
+	  together with your application into an installer, you can choose
+	  to leave out for instance message catalogs for languages
+	  that your application isn't localised to anyway.</p>
+	
+	<h3>GTK+ individual packages</h3>
+	
+	<table class="styled">
+	  <tr>
+	    <th>Package</th>
+	    <th>Version</th>
+	    <th colspan="3">Downloads</th>
+	  </tr>
+	  <tr>
+	    <td>GLib</td>
+	    <td>2.18.0</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/glib/2.18/glib_2.18.0-2_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/glib/2.18/glib-dev_2.18.0-2_win64.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.18/glib-2.18.0.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>GTK+</td>
+	    <td>2.14.1</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/gtk+/2.14/gtk+_2.14.1-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/gtk+/2.14/gtk+-dev_2.14.1-1_win64.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.14/gtk+-2.14.1.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
+	  </tr>
+	  <tr>
+	    <td>Pango</td>
+	    <td>1.20.5</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/pango/1.20/pango_1.20.5-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/pango/1.20/pango-dev_1.20.5-1_win64.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/pango/1.20/pango-1.20.5.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>ATK</td>
+	    <td>1.22.0</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/atk/1.22/atk_1.22.0-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/atk/1.22/atk-dev_1.22.0-1_win64.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/atk/1.22/atk-1.22.0.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
+	  </tr>
+	  <tr>
+	    <td>cairo</td>
+	    <td>1.6.4-2</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/cairo_1.6.4-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/cairo-dev_1.6.4-1_win64.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://cairographics.org/releases/cairo-1.6.4.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
+	  </tr>
+	</table>
+	
+	<h3>Third Party Dependencies</h3>
+	<p>You won't need all of these packages to just use GTK+ Some
+	of the optional packages are needed for building applications
+	like the GIMP on Windows. Required packages are illustrated with
+	<img src="images/progress-complete.png" alt=""/>.</p>
+	
+	<table class="styled">
+	  <tr>
+	    <th>Package</th>
+	    <th>Version</th>
+	    <th colspan="3">Downloads</th>
+	    <th>&nbsp;</th>
+	  </tr>
+	  <tr>
+	    <td>zlib</td>
+	    <td>1.2.3</td>
+	    <td><a href="http://ftp.gnome.org/pub/GNOME/binaries/win64/dependencies/zlib_1.2.3-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/GNOME/binaries/win64/dependencies/zlib_1.2.3-1_win64.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td class="required"><img src="images/progress-complete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>win_iconv</td>
+	    <td>20080731</td>
+	    <td colspan="3"><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/win-iconv_tml-20080731_win64.zip"><img src="images/download.png" alt=""/> Dev &amp; Sources</a></td>
+	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr>
+	    <td>gettext</td>
+	    <td>0.17</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/gettext_0.17-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/gettext-dev_0.17-1_win64.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.17.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td class="required"><img src="images/progress-complete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>libpng</td>
+	    <td>1.2.29</td> 
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/libpng_1.2.29-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/libpng-dev_1.2.29-1_win64.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td>-</td>
+	    <td class="required"><img src="images/progress-complete.png" alt=""/></td>
+	  </tr>
+	  <tr>
+	    <td>libjpeg</td>
+	    <td>6b</td>
+	    <td><a href="http://ftp.gnome.org/pub/GNOME/binaries/win64/dependencies/jpeg_6b-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/GNOME/binaries/win64/dependencies/jpeg-dev_6b-1_win64.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td>-</td>
+	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>Freetype</td>
+	    <td>2.3.6</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/freetype_2.3.7-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/freetype-dev_2.3.7-1_win64.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/freetype-2.3.7.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr>
+	    <td>Fontconfig</td>
+	    <td>2.4.2</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/fontconfig_2.6.0-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/fontconfig-dev_2.6.0-1_win64.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://www.fontconfig.org/release/fontconfig-2.6.0.tar.gz"><img src="images/download.png" alt=""/> Source</a></td>
+	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>libexpat</td>
+	    <td>2.0.0</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/expat_2.0.1-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/expat-dev_2.0.1-1_win64.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td>-</td>
+	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr>
+	    <td>proxy-libintl</td>
+	    <td>20080728</td>
+	    <td colspan="3"><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/proxy-libintl-20080728.zip"><img src="images/download.png" alt=""/> Binaries &amp; sources</a></td>
+	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	</table>
+
+	<h4>About zlib</h4>
+	<p>This is the compression library used by libpng.</p>
+	
+	<h4>About win_iconv</h4>
+	<p>win_iconv is an implementation of <a
+        href="http://www.opennc.org/onlinepubs/7908799/xsh/iconv.html">iconv</a>
+        for Windows by Yukihiro Nakadaira that has a much smaller
+	footprint than GNU libiconv. The win_iconv package above
+	includes the header file, static archive library and
+	the source file. This library is
+	linked statically into GLib and thus not
+	needed separately at run-time.</p>
+
+	<h4>About gettext</h4>
+	<p>The GNU internationalization library. All of the GTK+ stack
+	uses it, but through proxy-libintl (see below) so it is
+	actually optional at run-time.</p>
+
+	<h4>About libpng</h4>
+	<p>This is an image file format library used by GTK+.</p>
+
+	<h4>About libjpeg</h4>
+	<p>This library not directly used by GTK+.</p>
+
+	<h4>About freetype</h4>
+	<p>This is used by the GIMP and by Pango's pangoft2
+	library. For just GTK+ applications it is not needed.</p>
+
+	<h4>About fontconfig</h4>
+	<p>Fontconfig is used by the FreeType2 backend in Pango
+	(pangoft2) and by GIMP. For just GTK+ applications it is not
+	needed.</p>
+
+	<h4>About libexpat</h4>
+	<p>This is a library required by fontconfig.</p>
+
+	<h4>About proxy-libintl</h4> 
+	<p>proxy-libintl is a very small static
+	library. It acts as a proxy for the the DLL from
+	gettext, loading it dynamically, and failing
+	gracefully, using fallback dummy functions if the DLL
+	isn't found. It is a static archive and is linked
+	into the binaries in the GTK+ stack instead of
+	referring directly the gettext DLL. This enables application
+	packagers to leave out the gettext binaries if they
+	don't need or want to support internationalization.</p>
+
+	<p>When building DLLs against the proxy-libintl static library
+	and using the GNU linker's auto-export feature (i.e. not using
+	a .def file, and not using __declspec(dllexport)), it is a
+	good idea to pass the -Wl,--exclude-libs=libintl.a in your
+	LDFLAGS so that the libintl functions don't get exported from
+	your DLL.</p>
+
+      </div> <!-- content -->
+
+      <div id="footer">Copyright 2007-2008 The GTK+ Team</div>
+
+    </div> <!-- container -->
+    
+  </body>
+</html>

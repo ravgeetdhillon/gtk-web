@@ -1,5 +1,9 @@
 2008-09-05  Tor Lillqvist  <tml@novell.com>
 
+	* download-windows-64bit.html: Page for 64-bit Windows downloads.
+
+2008-09-05  Tor Lillqvist  <tml@novell.com>
+
 	* download-windows.html: Actually update GLib to build 2.18.0-2.
 
 2008-09-05  Tor Lillqvist  <tml@novell.com>
