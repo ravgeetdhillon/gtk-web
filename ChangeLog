@@ -1,4 +1,11 @@
-2008-09-05  tor lillqvist  <tml@novell.com>
+2008-09-06  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows-64bit.html: Add pkg-config, update bundle to
+	one that includes pkg-config.
+
+	* download-windows.html: Improve the pkg-config description.
+
+2008-09-05  Tor Lillqvist  <tml@novell.com>
 
 	* download.html: gtkfiles.org has been killed. Comment out the
 	link to it (which now just shows osnews.com).

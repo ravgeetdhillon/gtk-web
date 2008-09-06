@@ -100,7 +100,7 @@
 	<p>If you find choosing, downloading and unpacking the
 	individual zip archives below a chore, here is an all-in-one
 	<a
-	href="http://ftp.gnome.org/pub/gnome/binaries/win64/gtk+/2.14/gtk+-bundle_2.14.1-20080905_win64.zip"><img
+	href="http://ftp.gnome.org/pub/gnome/binaries/win64/gtk+/2.14/gtk+-bundle_2.14.1-20080906_win64.zip"><img
 	src="images/download.png" alt=""/>bundle</a> of the GTK+
 	stack including 3rd-party dependencies. This bundle contains both binaries and
 	developer files. If you intend to redistribute the GTK+
@@ -188,6 +188,14 @@
 	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
 	  </tr>
 	  <tr class="odd">
+	    <td>pkg-config</td>
+	    <td>0.23-2</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/pkg-config_0.23-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/pkg-config-dev_0.23-1_win64.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config-0.23.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
+	  </tr>
+	  <tr>
 	    <td>libpng</td>
 	    <td>1.2.29</td> 
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/libpng_1.2.29-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
@@ -195,7 +203,7 @@
 	    <td>-</td>
 	    <td class="required"><img src="images/progress-complete.png" alt=""/></td>
 	  </tr>
-	  <tr>
+	  <tr class="odd">
 	    <td>libjpeg</td>
 	    <td>6b</td>
 	    <td><a href="http://ftp.gnome.org/pub/GNOME/binaries/win64/dependencies/jpeg_6b-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
@@ -203,7 +211,7 @@
 	    <td>-</td>
 	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
 	  </tr>
-	  <tr class="odd">
+	  <tr>
 	    <td>Freetype</td>
 	    <td>2.3.6</td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/freetype_2.3.7-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
@@ -211,7 +219,7 @@
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/freetype-2.3.7.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
 	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
 	  </tr>
-	  <tr>
+	  <tr class="odd">
 	    <td>Fontconfig</td>
 	    <td>2.4.2</td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/fontconfig_2.6.0-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
@@ -219,7 +227,7 @@
 	    <td><a href="http://www.fontconfig.org/release/fontconfig-2.6.0.tar.gz"><img src="images/download.png" alt=""/> Source</a></td>
 	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
 	  </tr>
-	  <tr class="odd">
+	  <tr>
 	    <td>libexpat</td>
 	    <td>2.0.0</td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/expat_2.0.1-1_win64.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
@@ -227,7 +235,7 @@
 	    <td>-</td>
 	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
 	  </tr>
-	  <tr>
+	  <tr class="odd">
 	    <td>proxy-libintl</td>
 	    <td>20080728</td>
 	    <td colspan="3"><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/proxy-libintl-20080728.zip"><img src="images/download.png" alt=""/> Binaries &amp; sources</a></td>
@@ -261,6 +269,15 @@
 	<h4>About libjpeg</h4>
 	<p>This library is not directly used by GTK+. Used for
 	instance by GIMP.</p>
+
+	<h4>About pkg-config</h4>
+	<p>This program is useful for Makefiles and configure scripts
+	and extensively used in building software according to the
+	GTK+ and GNOME conventions using autotools. It uses a
+	<q>database</q> specifying inter-dependencies among software
+	packages. It is used to get the compile and link flags needed
+	when building software using libraries that provide pkg-config
+	data. It requires GLib 2.x.</p>
 
 	<h4>About freetype</h4>
 	<p>This is used by GIMP and by Pango's pangoft2
