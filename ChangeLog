@@ -1,3 +1,10 @@
+2008-09-10  Andreas Nilsson  <andreas@imendio.com>
+
+	reviewed by: <delete if not using a buddy>
+
+	* index.html: changed projects link from gtkfiles.org to gtk-apps.org
+	as the former is down. Thanks to Franz Reiter for the hint.
+
 2008-09-06  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows-64bit.html: Add pkg-config, update bundle to
