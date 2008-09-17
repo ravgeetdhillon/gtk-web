@@ -1,3 +1,11 @@
+2008-09-17  Martyn Russell  <martyn@imendio.com>
+
+	* index.html: 
+	* news-archives.html: Updated the news about GTK+ 2.12.12 and GLib
+	2.16.6. Also, reverted the link to gnomefiles.org for projects.
+	Some of the most known about applications aren't listed at
+	gtk-apps.org. 
+
 2008-09-10  Andreas Nilsson  <andreas@imendio.com>
 
 	reviewed by: <delete if not using a buddy>
