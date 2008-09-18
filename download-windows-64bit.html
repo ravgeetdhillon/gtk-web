@@ -86,9 +86,16 @@
 	  below. <strong>Binaries</strong> provide only the DLLs and
 	  other files used you will need to run your GTK+-using
 	  application. <strong>Dev</strong> packages provide include
-	  files, import libraries, documentation and additional tools. 
+	  files, import libraries, documentation and additional
+	  tools, and also for reference the script used to build the
+	  component in question. In case patches have been applied to
+	  the upstream sources before building, these are inline in
+	  the build script.
 	  <strong>Source</strong> packages provide the source code
-	  for the component in question.</p>
+	  for the component in question. In most cases, this is simply
+	  the pristine upstream source release tarball, possibly
+	  copied to the same server as the binaries to satisfy the
+	  license.</p>
 
 	<p>If you want to repackage the necessary runtime files
 	  together with your application into an installer, you can choose

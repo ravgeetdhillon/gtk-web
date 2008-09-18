@@ -1,3 +1,8 @@
+2008-09-19  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: The issues mentioned below were purely
+	local on my machine... Advertise newest builds again.
+
 2008-09-18  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Revert to the version before GLib 2.18
