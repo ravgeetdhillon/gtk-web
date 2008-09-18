@@ -41,27 +41,19 @@
       <div id="content">
 	<h2><a name="Requirements">Requirements</a></h2>
 	<h3>Packages</h3>
-	<p>You will need to get the GLib, cairo, Pango, ATK, and GTK+
-	  developer packages to build against GTK+. To run GTK+ programs you
-	  will also need the libpng and zlib packagages, and if your
-	  code uses gettext for internationalisation and/or you want
-	  GTK+ internalisation, the
-	  gettext-runtime package.</p>
+	<p>You will need to get the GLib, cairo, Pango, ATK, GTK+,
+	  gettext-runtime, libpng, libjpeg, libtiff and zlib developer packages to
+	  build against GTK+, and the corresponding runtime packages
+	  to run GTK+ programs.</p>
 	
-	<p>The packages here are for people who develop software that uses
-	  GTK+. This page is not intended directly for end-users. It is expected
-	  that people who build installers for GTK+ applications for Windows
-	  bundle GTK+ with them.</p>
-
-	<p>These packages are
-	  not for developing or running programs that use
+	<p>These packages are for people who develop software that uses
+	  GTK+. The binaries (DLLs and executables) in these packages are
+	  not for programs that use
 	  the <a href="http://www.cygwin.com/">Cygwin</a> Unix emulation
-	  environment. Cygwin has GTK+ packages available
-	  directly in its installer
+	  environment. Currently, Cygwin has packages for GTK+ available
+	  directly in its installer from its package repositories
 	  which you should use. Note that the Cygwin GTK+ uses the X11
-	  backend, so you will need to also run an X11 server then
-	  when you run GTK+ programs on Cygwin, but presumably that is
-	  what Cygwin users want.</p>
+	  backend.</p>
 	
 	<p>You are welcome to redistribute GTK+ binaries, including 
 	  applications that bundle them, on other web sites,
@@ -88,7 +80,7 @@
 	  Visual C++ 6 without knowing exactly what you are doing.</p>
 	
 	<h3>Which Windows versions?</h3>
-	<p>The current GTK+ stack uses APIs that are available
+	<p>The current GTK+ stack uses APIs that are implemented
 	  only on Windows 2000 or later. Long obsolete versions of
 	  GTK+ did run on Win9x and NT 4, too.</p>
 	
@@ -111,7 +103,7 @@
 	<p>If you find choosing, downloading and unpacking the
 	individual zip archives below a chore, here is an all-in-one
 	<a
-	href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.14/gtk+-bundle_2.14.1-20080905-1_win32.zip"><img
+	href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.12/gtk+-bundle-2.12.11.zip"><img
 	src="images/download.png" alt=""/> bundle</a> of the GTK+
 	stack including 3rd-party dependencies. This bundle contains both binaries and
 	developer files. If you intend to redistribute the GTK+
@@ -129,17 +121,17 @@
 	  </tr>
 	  <tr>
 	    <td>GLib</td>
-	    <td>2.18.0</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.18/glib_2.18.0-2_win32.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.18/glib-dev_2.18.0-2_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.18/glib-2.18.0.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td>2.16.5</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.16/glib-2.16.5.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.16/glib-dev-2.16.5.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.16/glib-2.16.5.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr class="odd">
 	    <td>GTK+</td>
-	    <td>2.14.1</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.14/gtk+_2.14.1-1_win32.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.14/gtk+-dev_2.14.1-1_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.14/gtk+-2.14.1.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td>2.12.11</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.12/gtk+-2.12.11.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.12/gtk+-dev-2.12.11.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.12/gtk+-2.12.11.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr>
 	    <td>Pango</td>
@@ -167,7 +159,7 @@
 	<h3>Third Party Dependencies</h3>
 	<p>You won't need all of these packages to just use GTK+ Some
 	of the optional packages are needed for building applications
-	like GIMP on Windows. Required packages are illustrated with
+	like the GIMP on Windows. Required packages are illustrated with
 	<img src="images/progress-complete.png" alt=""/>.</p>
 	
 	<table class="styled">
@@ -224,7 +216,7 @@
 	    <td><a href="http://gnuwin32.sourceforge.net/downlinks/jpeg-bin-zip.php"><img src="images/download.png" alt=""/> Binaries</a></td>
 	    <td><a href="http://gnuwin32.sourceforge.net/downlinks/jpeg-lib-zip.php"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td>-</td>
-	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
+	    <td class="required"><img src="images/progress-complete.png" alt=""/></td>
 	  </tr>
 	  <tr class="odd">
 	    <td>libtiff</td>
@@ -281,9 +273,32 @@
 	  </tr>
 	</table>
 
-	<h4>About libpng</h4>
-	<p>This is an image file format library used by GTK+, and
-	required.</p>
+	<h4>About zlib</h4>
+	<p>This is the compression library used by libjpeg and libtiff.</p>
+	
+	<h4>About win_iconv</h4>
+	<p>win_iconv is an implementation of <a
+        href="http://www.opennc.org/onlinepubs/7908799/xsh/iconv.html">iconv</a>
+        for Windows by Yukihiro Nakadaira that has a much smaller
+	footprint than GNU libiconv. The win_iconv package above
+	includes the header file, static archive library and
+	the source file. This library is
+	linked statically into GLib&nbsp;2.14.5 and later, thus not
+	needed separately at run-time.</p>
+
+	<h4>About iconv.dll</h4>
+
+	<p>GLib 2.14.4 and earlier link to iconv in a separate DLL,
+	<TT>iconv.dll</TT>. This can either be the GNU libiconv
+	<TT>iconv.dll</TT>, or the identically named win_iconv_dll one
+	which obviosuly is intented to be a drop-in replacement.</p>
+
+	<h4>About gettext</h4>
+	<p>The GNU internationalization library. All of the GTK+ stack uses it.</p>
+
+	<h4>About libjpeg, libpng and libtiff</h4>
+	<p>These are image file format libraries used by GTK+. You
+	will need these.</p>
 
 	<p>The libpng package linked to above provides
 	<TT>libpng12-0.dll</TT>. This package is built by me (Tor
@@ -294,49 +309,14 @@
 	these builds actually are binary compatible even if the DLL
 	name was different. To be safe, never rename DLLs.</p>
 
-	<h4>About zlib</h4>
-	<p>This is the compression library used by libpng, libjpeg and libtiff.</p>
-	
-	<h4>About win_iconv</h4>
-	<p>win_iconv is an implementation of <a
-        href="http://www.opennc.org/onlinepubs/7908799/xsh/iconv.html">iconv</a>
-        for Windows by Yukihiro Nakadaira that has a much smaller
-	footprint than GNU libiconv. The win_iconv package above
-	includes the header file, static archive library and
-	the source file. This library is
-	linked statically into GLib and thus not
-	needed separately at run-time.</p>
-
-	<h4>About iconv.dll</h4>
-
-	<p>GLib 2.12.4 and earlier link to iconv in a separate DLL,
-	<TT>iconv.dll</TT>. This can either be the GNU libiconv
-	<TT>iconv.dll</TT>, or the identically named win_iconv_dll one
-	which obviosuly is intented to be a drop-in replacement.</p>
-
-	<h4>About gettext</h4>
-	<p>The GNU internationalization library. All of the GTK+ stack
-	uses it, but through proxy-libintl (see below) so it is
-	actually optional at run-time.</p>
-
-	<h4>About libjpeg and libtiff</h4>
-	<p>These libraries are not directly used by GTK+. Used for
-	instance by GIMP.</p>
-
 	<h4>About pkg-config</h4>
-	<p>This program is useful for Makefiles and configure scripts
-	and extensively used in building software according to the
-	GTK+ and GNOME conventions using autotools. It uses a
-	<q>database</q> specifying inter-dependencies among software
-	packages. It is used to get the compile and link flags needed
-	when building software using libraries that provide pkg-config
-	data. This requires GLib 2.x.</p>
+	<p>This program is useful for Makefiles and extensively used in building software according to the GTK+ and GNOME conventions using autotools. It uses a <q>database</q> specifying inter-dependencies among software packages. It is used to get the compile and link flags needed when building software using libraries that provide pkg-config data. This requires GLib 2.x.</p>
 
 	<h4>About freetype</h4>
-	<p>This is used by GIMP and by Pango's pangoft2 library. For just GTK+ applications you will not need it.</p>
+	<p>This is used by the GIMP and by Pango's pangoft2 library. For just GTK+ applications you will not need it.</p>
 
 	<h4>About fontconfig</h4>
-	<p>Fontconfig is used by the FreeType2 backend in Pango (pangoft2) and by GIMP. Contrary to what many seem to think, fontconfig is in no way dependent on X11, so it does make some sense to use it on Windows. GTK+ does not use pangoft2, so you probably will not need this unless for GIMP. This is a slightly fixed version of fontconfig 2.4.2 from the date indicated.</p>
+	<p>Fontconfig is used by the FreeType2 backend in Pango (pangoft2) and by GIMP. Contrary to what many seem to think, fontconfig is in no way dependent on X11, so it does make some sense to use it on Windows. GTK+ does not use pangoft2, so you probably will not need this unless for the GIMP. This is a slightly fixed version of fontconfig 2.4.2 from the date indicated.</p>
 
 	<h4>About libexpat</h4>
 	<p>This is required by fontconfig.</p>

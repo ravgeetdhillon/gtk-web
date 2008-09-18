@@ -1,3 +1,9 @@
+2008-09-18  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Revert to the version before GLib 2.18
+	and GTK+ 2.14 until I have resolved some issues with the bleeding
+	edge builds.
+
 2008-09-18  Matthias Clasen  <mclasen@redhat.com>
 
 	* index.html: Add GTK+ 2.14.2
