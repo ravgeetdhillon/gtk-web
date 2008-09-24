@@ -1,3 +1,8 @@
+2008-09-24  Andreas Nilsson  <andreas@imendio.com>
+
+	* index.html: Removed Maemo summit from upcoming events and added
+	Boston Summit.
+
 2008-09-24  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows-64bit.html: Update GLib to 2.18.1-2 and atk to
