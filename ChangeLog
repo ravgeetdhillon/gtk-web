@@ -1,5 +1,8 @@
 2008-09-24  Tor Lillqvist  <tml@novell.com>
 
+	* download-windows-64bit.html: Update GLib to 2.18.1-2 and atk to
+	1.24.0.
+
 	* download-windows.html: Update GTK+ to 2.14.3. Update gtk+-bundle
 	to 2.14.3-20080924.
 
