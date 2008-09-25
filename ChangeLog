@@ -1,5 +1,10 @@
 2008-09-25  Tor Lillqvist  <tml@novell.com>
 
+	* download-windows.html: Update Pango to 1.22.0, cairo to 1.7.6
+	and libpng to 1.2.32. Update gtk+-bundle.
+
+2008-09-25  Tor Lillqvist  <tml@novell.com>
+
 	* download-windows-64bit.html: Update GTK+ to 2.14.3. Update jpeg
 	to build 6b-2. Add libtiff as gdk-pixbuf now is built without the
 	GDI+ loaders until the problem with them has been fixed and a
