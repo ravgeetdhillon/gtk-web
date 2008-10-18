@@ -1,3 +1,9 @@
+2008-10-18  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html
+	* download-windows-64bit.html: Update GTK+ to 2.14.4-1 (with a few
+	backported patches from SVN). Update gtk+-bundle.
+
 2008-10-17  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html
