@@ -1,3 +1,8 @@
+2008-10-20  Andreas Nilsson  <andreas@imendio.com>
+
+	* index.html: added recent releases and removed boston summit.
+	* news-archives.html: moved older news over.
+
 2008-10-18  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html
