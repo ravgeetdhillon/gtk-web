@@ -1,3 +1,8 @@
+2008-11-08  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update GTK+ to 2.14.4-2 (with two more
+	backported patches from SVN). Update gtk+-bundle correspondingly.
+
 2008-10-29  Tor Lillqvist  <tml@novell.com>
 
 	Bug 558404 - Link to mingw-w64 wrong on download page
