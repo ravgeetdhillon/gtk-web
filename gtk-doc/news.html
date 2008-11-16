@@ -39,89 +39,86 @@
       </div>
       <div id="content">
 	<h2>Current Release</h2>
-	<h3>GTK-Doc 1.10 (Mar 20 2008)</h3>
+	<h3>GTK-Doc 1.11 (Nov 16 2008)</h3>
 	<ul>
-	  <li>460753: enable vpath build in gtkdoc-mkhtml</li>
-	  <li>503119: Add dependency on content_files to SGML
-	    target</li> 
-	  <li>127049: building reference documentation fails when
-	    builddir != s...</li>
-	  <li>481811: Inline function bodies are confused with
-	    declarations</li>
-	  <li>448879: Use a footer when generating HTML
-	    documentation</li>
-	  <li>492005: Deprecation guard warnings for properties and
-	    signals</li>
-	  <li>498521: Inconsistent compiler flags passed in
-	    gtk-doc.make</li>
-	  <li>365913: gtk-doc output is not predictable</li>
-	  <li>446648: gtk-doc does not handle forward typedef'd
-	    enums</li>
-	  <li>468278: Display proper types for properties</li>
-	  <li>497367: don't use US-ASCII for output encoding</li>
-	  <li>501066: Missing quotes around gtkdoc-rebase check cause
-	    a warning</li>
-	  <li>508897: [PATCH] Fix build when gtk-doc is not
-	    installed</li>
-	  <li>509539: Building documentation aborts when no .types
-	    file is present</li>
-	  <li>512154: Struct member type attributes are limited to
-	    one token</li>
-	  <li>513318: gtk-doc.el doesn't work fine with emacs22</li>
+	  <li>531572 : one-page generation option
+	  <li>448879 : Use a footer when generating HTML documentation</li>
+	  <li>311857 : xsltproc very slow generating index for gtk-docs.sgml</li>
+	  <li>335239 : Using gnome-doc-utils for gtk-doc documentation</li>
+	  <li>460753 : enable vpath build in gtkdoc-mkhtml</li>
+	  <li>473342 : Warn about repeated symbols in sections</li>
+	  <li>487727 : DocBook XML DTD version</li>
+	  <li>523669 : make check: Element publisher content does not follow the...</li>
+	  <li>530758 : gtk-doc should not expand XML tags and their attributes</li>
+	  <li>533262 : no-template mode scans different source files</li>
+	  <li>534627 : gtk-doc uses non-standard HTML element</li>
+	  <li>542137 : No declaration found for: gsf_output_*</li>
+	  <li>543855 : Fix for Bug 460753 (enable vpath build in gtkdoc-mkhtml) ...</li>
+	  <li>544172 : Fails to parse return value of 'char const *'</li>
+	  <li>552822 : Add rules to create $(REPORT_FILES)</li>
+	  <li>553407 : Example Makefile.am uses obsolete INCLUDES instead of AM_...</li>
+	  <li>554718 : gtk-doc needs to allow versioned TARGET_DIR</li>
+	  <li>554833 : Be more careful with &quot; struct _ &lt; struct_name &gt;  &quot; </li>
+	  <li>558082 : evince docs build fails with GTK_DISABLE_SINGLE_INCLUDES</li>
+	  <li>559281 : Correct check for existance of gtkdoc-rebase</li>
 	</ul>
 	
 	<h2>Historic Releases</h2>
+	<h3>GTK-Doc 1.10 (Mar 20 2008)</h3>
+	<ul>
+	  <li>460753: enable vpath build in gtkdoc-mkhtml</li>
+	  <li>503119: Add dependency on content_files to SGML target</li> 
+	  <li>127049: building reference documentation fails when builddir != s...</li>
+	  <li>481811: Inline function bodies are confused with declarations</li>
+	  <li>448879: Use a footer when generating HTML documentation</li>
+	  <li>492005: Deprecation guard warnings for properties and signals</li>
+	  <li>498521: Inconsistent compiler flags passed in gtk-doc.make</li>
+	  <li>365913: gtk-doc output is not predictable</li>
+	  <li>446648: gtk-doc does not handle forward typedef'd enums</li>
+	  <li>468278: Display proper types for properties</li>
+	  <li>497367: don't use US-ASCII for output encoding</li>
+	  <li>501066: Missing quotes around gtkdoc-rebase check cause a warning</li>
+	  <li>508897: [PATCH] Fix build when gtk-doc is not installed</li>
+	  <li>509539: Building documentation aborts when no .types file is present</li>
+	  <li>512154: Struct member type attributes are limited to one token</li>
+	  <li>513318: gtk-doc.el doesn't work fine with emacs22</li>
+	</ul>
+
 	<h3>GTK-Doc 1.9 (Sep 30 2007)</h3>
 	<ul>
 	  <li>419308: unsynced regexps for parameter parsing</li>
 	  <li>449618: Top navigation bar is in the way</li>
-	  <li>453717: fixxref logic to determine absolute path&quot;s
-	    is flawed</li>
+	  <li>453717: fixxref logic to determine absolute path&quot;s is flawed</li>
 	  <li>457173: unit tests for gtk-doc</li>
 	  <li>465920: Use gtkdoc-rebase</li>
-	  <li>467773: default master doc should have proper
-	    extension</li>
-	  <li>141869: Poor error generated when faced with a type
-	    declared as <q>...</q></li>
+	  <li>467773: default master doc should have proper extension</li>
+	  <li>141869: Poor error generated when faced with a type declared as <q>...</q></li>
 	  <li>156643: Avoid make error in gtk-doc.make</li>
 	  <li>322035: wrong macro parsing</li>
 	  <li>323938: gtk-doc.m4 check is silent</li>
-	  <li>324535: gtk-doc doesn&quot;t handle deprecation inside
-	    enumerations</li>
-	  <li>355352: If you don&quot;t have an instantiatable type
-	    for a gtypeinter...</li>
-	  <li>379466: Improve C parser to handle TYPE\nVARIABLE in
-	    function pro...</li>
-	  <li>380824: docs are truncated if line begins with <q>*
-	      returns </q></li>
-          <li>383456: <q>make check</q> test for 100%
-            documentation</li>
-	  <li>411739: Gtk-doc fails to handle <q>struct tm *
-	      function_name ();</q></li>
+	  <li>324535: gtk-doc doesn&quot;t handle deprecation inside enumerations</li>
+	  <li>355352: If you don&quot;t have an instantiatable type for a gtypeinter...</li>
+	  <li>379466: Improve C parser to handle TYPE\nVARIABLE in function pro...</li>
+	  <li>380824: docs are truncated if line begins with <q>* returns </q></li>
+      <li>383456: <q>make check</q> test for 100% documentation</li>
+	  <li>411739: Gtk-doc fails to handle <q>struct tm * function_name ();</q></li>
 	  <li>415388: Please clean -undocumented.txt files</li>
-	  <li>418027: gtkdoc-mkdb does not handle #ifdef in enum
-	    {}</li>
+	  <li>418027: gtkdoc-mkdb does not handle #ifdef in enum {}</li>
 	  <li>419997: parameter name trouble</li>
 	  <li>428596: Warnings with gtk-doc.m4 macros</li>
-	  <li>434134: fixxrefs like sed for installing pregenerated
-	    docs</li>
+	  <li>434134: fixxrefs like sed for installing pregenerated docs</li>
 	  <li>436565: Report undeclared symbols into a file</li>
 	  <li>445596: Impossible to link a page with an anchor</li>
-	  <li>445693: Does not understand <q>unsigned long</q> as a
-	    type</li>
-	  <li>450338 : Make gtk-doc.m4 fail when needed gtk-doc is not
-	    installed</li>
-	  <li>454916: gtk-doc should permit generation of URI-based
-	    cross-refer...</li>
+	  <li>445693: Does not understand <q>unsigned long</q> as a type</li>
+	  <li>450338 : Make gtk-doc.m4 fail when needed gtk-doc is not installed</li>
+	  <li>454916: gtk-doc should permit generation of URI-based cross-refer...</li>
 	  <li>457077: add --no-implicit-returns to gtkdoc-mkdb</li>
 	  <li>459225: Accept automake-1.10 in autogen.sh</li>
 	  <li>459725: <q>jhbuild build gtk-doc</q> fails on make</li>
-	  <li>460127: parsing nested union/structs confuses
-	    public/private state</li>
+	  <li>460127: parsing nested union/structs confuses public/private state</li>
 	  <li>465365: [PATCH] gtk-doc does not compile</li>
 	  <li>466559: [CSS] styling &lt; hr / &gt;</li>
-	  <li>471014: G_CONST_RETURN * G_CONST_RETURN * function not
-	    picked up</li>
+	  <li>471014: G_CONST_RETURN * G_CONST_RETURN * function not picked up</li>
 	  <li>477532: function variables</li>
 	  <li>479913: gtk-doc.notmpl.make is not distributed</li>
 	  <li>479923: distclean test output properly</li>
