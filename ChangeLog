@@ -1,3 +1,8 @@
+2008-11-25  Andreas Nilsson  <andreas@imendio.com>
+
+	* index.html: updated news about recent GLib and GTK+ releases.
+	* news-archives.html: and moved two items to the archives.
+
 2008-11-21  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: Update Pango to 1.22.2 and gtk+-bundle to
