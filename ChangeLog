@@ -1,3 +1,8 @@
+2008-11-25  Martyn Russell  <martyn@imendio.com>
+
+	* documentation.html: Fixed bug #558705, The url of the tutorial
+	"The Glib Object system" (and its pdf) doesn't work for me. 
+
 2008-11-25  Andreas Nilsson  <andreas@imendio.com>
 
 	* index.html: updated news about recent GLib and GTK+ releases.
