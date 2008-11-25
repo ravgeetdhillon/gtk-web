@@ -1,3 +1,9 @@
+2008-11-25  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: 
+	* download-windows-64bit.html: Update GLib to 2.18.3, GTK+ to
+	2.14.5 and Pango to 1.22.2. Update gtk+-bundle.
+
 2008-11-25  Martyn Russell  <martyn@imendio.com>
 
 	* documentation.html: Fixed bug #558705, The url of the tutorial
