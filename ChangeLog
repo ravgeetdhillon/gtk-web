@@ -1,5 +1,9 @@
 2008-11-28  Andreas Nilsson  <andreas@imendio.com>
 
+	* index.php: forgot to remove the upcoming events.
+
+2008-11-28  Andreas Nilsson  <andreas@imendio.com>
+
 	* gtk.css: more padding between news items
 	* index.html: deleted
 	* index.php: added, with feed from gtk blog

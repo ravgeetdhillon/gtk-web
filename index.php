@@ -103,34 +103,7 @@ For older news, visit our <a href="news-archives.php">archives</a>.
 	  <div id="events">
 	    <h2><a name="UpcomingEvents">Upcoming Events</a></h2>
 	    
-	    <div class="events-item">
-	      <p class="events-title">Maemo Desktop Summit 2008 in Berlin</p>
-	      <p class="events-date">19-20 September, 2008</p>
-	      <p class="events-desc">The Open Source in Mobile World
-		conference is an interesting venue to know more about
-		the business and technical context of the Maemo
-		platform. Nokia is active in this event and invites the
-		Maemo community to join it.</p>
-	      <p class="events-link"><a href="https://wiki.maemo.org/Maemo_Summit_2008">Read more...</a></p>
-	    </div>
-	    
-	    <div class="events-item">
-	      <p class="events-title">GNOME Asia Summit 2008 in Beijing, China</p>
-	      <p class="events-date">17-18 October, 2008</p>
-	      <p class="events-desc">The first GNOME Asia Summit will
-		take place from October 17th through the 18th 2008, in
-		Beijing, China. Approximately 300 people are expected to
-		attend. This will be an exciting event with a variety of
-		people attending. The theme of the summit is <q>Go GNOME-
-		  Free Your Desktop</q> which refers to the primary goals of
-		the GNOME.Asia Summit, spreading the knowledge of GNOME
-		across Asia, and building a more vibrant, thriving
-		community around it.</p> 
-	      <p class="events-link">We are calling for participants
-		and speakers now!
-		Please <a href="mailto:asia-summit@gnome.org">send your
-		  talk proposals in</a> now!.</p> 
-	    </div>
+	    There are currently no upcoming events.
 	    
 	  </div> <!-- events -->
 	</div> <!-- columns -->
