@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html 
      PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -30,7 +29,7 @@
       <div id="menu">
 	<table>
 	  <tr>
-	    <td><a title="About GTK+." href="index.html" class="current">About</a></td>
+	    <td><a title="About GTK+." href="index.php" class="current">About</a></td>
 	    <td><a title="Find out what GTK+ can do for you." href="features.html">Features</a></td>
 	    <td><a title="Download the latest version of GTK+." href="download.html">Download</a></td>
 	    <td><a title="See applications using GTK+ on various platforms." href="screenshots.html">Screenshots</a></td>
@@ -57,7 +56,7 @@
 	  GTK+. Understand who started it, the basic architecture and
 	  why we use the license we do.</p>
 	<p>GTK+ has been involved in
-	  many <a href="http://www.gtkfiles.org/">projects</a> and
+	  many <a href="http://www.gtk-apps.org/">projects</a> and
 	  some big platforms. To see what people think of GTK+ and
 	  how it has been used in commercial
 	  projects, <a href="commerce.html">read the success
@@ -70,67 +69,67 @@
         <div id="columns">
 	  <div id="news">
 
-            <div class="news-item">
-              <p class="news-title">GLib 2.18.3 stable release</p>
-              <p class="news-date">25 November 2008</p>
-              <p class="news-desc">
-		This is a bug fix release in the 2.18 series.</p>
-              <p class="news-link"><a href="http://mail.gnome.org/archives/gtk-devel-list/2008-November/msg00035.html">Read more...</a></p>
-            </div>
+	  <h2>Recent news</h2>
 
-            <div class="news-item">
-              <p class="news-title">GTK+ 2.14.5 stable release</p>
-              <p class="news-date">25 November 2008</p>
-              <p class="news-desc">
-		This is a bugfix release in the 2.14 series.</p>
-              <p class="news-link"><a href="http://mail.gnome.org/archives/gtk-devel-list/2008-November/msg00036.html">Read more...</a></p>
-            </div>
+<?php
+require_once('magpierss/rss_fetch.inc');
+define('MAGPIE_CACHE_DIR', '/var/cache');
 
+$rss = fetch_rss('http://blogs.gnome.org/gtk/feed/');
+$items = array_slice($rss->items, 0, 5);
 
+foreach ($items as $item) {
+        $href = '';
+        $title = $item['title'];
+	$timestamp = date('F j, Y',$item['date_timestamp']);
+        $desc = $item['content']['encoded'];
+?>
 
-	    <h2><a name="RecentNews">Recent News</a></h2>
+           <div class="news-item">
+              <p class="news-title"><? echo $title ?></p>
+              <p class="news-date"><? echo $timestamp ?></p>
+              <p class="news-desc"><? echo $desc ?></p>
+	      <? echo $href ?>
+           </div>
 
-            <div class="news-item">
-              <p class="news-title">GTK+ 2.14.4 stable release</p>
-              <p class="news-date">20 October 2008</p>
-              <p class="news-desc">
-		This is a bug fix release in the 2.14 series.</p>
-              <p class="news-link"><a href="http://mail.gnome.org/archives/gtk-devel-list/2008-October/msg00116.html">Read more...</a></p>
-            </div>
+<?
+}
+?>
 
-            <div class="news-item">
-              <p class="news-title">GLib 2.19.0 unstable release</p>
-              <p class="news-date">20 October 2008</p>
-              <p class="news-desc">
-		This is the first development release leading up to GLib 2.20.</p>
-              <p class="news-link"><a href="http://mail.gnome.org/archives/gtk-devel-list/2008-October/msg00115.html">Read more...</a></p>
-            </div>
+For older news, visit our <a href="news-archives.php">archives</a>.
 
-            <div class="news-item">
-              <p class="news-title">GLib 2.18.2 stable release</p>
-              <p class="news-date">20 October 2008</p>
-              <p class="news-desc">
-		This is a bug fix release in the 2.18 series.</p>
-              <p class="news-link"><a href="http://mail.gnome.org/archives/gtk-devel-list/2008-October/msg00114.html">Read more...</a></p>
-            </div>
-
-	          
-	    <p>For older news, visit our <a href="news-archives.html">archives</a>.</p>
-	    
-	    <br/>
 	  </div> <!-- news -->
 	  
 	  <div id="events">
 	    <h2><a name="UpcomingEvents">Upcoming Events</a></h2>
 	    
 	    <div class="events-item">
-	There are currently no upcoming events.
-	<!--  
-	      <p class="events-title"> </p>
-	      <p class="events-date"> </p>
-	      <p class="events-desc"> </p> 
-	      <p class="events-link"> </p> 
-	-->
+	      <p class="events-title">Maemo Desktop Summit 2008 in Berlin</p>
+	      <p class="events-date">19-20 September, 2008</p>
+	      <p class="events-desc">The Open Source in Mobile World
+		conference is an interesting venue to know more about
+		the business and technical context of the Maemo
+		platform. Nokia is active in this event and invites the
+		Maemo community to join it.</p>
+	      <p class="events-link"><a href="https://wiki.maemo.org/Maemo_Summit_2008">Read more...</a></p>
+	    </div>
+	    
+	    <div class="events-item">
+	      <p class="events-title">GNOME Asia Summit 2008 in Beijing, China</p>
+	      <p class="events-date">17-18 October, 2008</p>
+	      <p class="events-desc">The first GNOME Asia Summit will
+		take place from October 17th through the 18th 2008, in
+		Beijing, China. Approximately 300 people are expected to
+		attend. This will be an exciting event with a variety of
+		people attending. The theme of the summit is <q>Go GNOME-
+		  Free Your Desktop</q> which refers to the primary goals of
+		the GNOME.Asia Summit, spreading the knowledge of GNOME
+		across Asia, and building a more vibrant, thriving
+		community around it.</p> 
+	      <p class="events-link">We are calling for participants
+		and speakers now!
+		Please <a href="mailto:asia-summit@gnome.org">send your
+		  talk proposals in</a> now!.</p> 
 	    </div>
 	    
 	  </div> <!-- events -->

@@ -212,6 +212,10 @@ table.styled img {
     padding-left : 2em;
 }
 
+.news-item {
+  margin-bottom: 1.2em;
+}
+
 p.news-title, p.events-title {
     margin : 0em;
     font-weight : bold;

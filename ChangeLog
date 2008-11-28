@@ -1,3 +1,32 @@
+2008-11-28  Andreas Nilsson  <andreas@imendio.com>
+
+	* gtk.css: more padding between news items
+	* index.html: deleted
+	* index.php: added, with feed from gtk blog
+	* news-archives.html: deleted
+	* news-archives.php: added, with feed from gtk blog
+	* magpierss/extlib/Snoopy.class.inc:
+	* magpierss/rss_cache.inc:
+	* magpierss/rss_fetch.inc:
+	* magpierss/rss_parse.inc:
+	* magpierss/rss_utils.inc: installed magpie
+	* mailing-lists.html
+	* language-bindings.html:
+	* overview.html:
+	* screenshots-old.html:
+	* screenshots.html:
+	* setuid.html:
+	* commerce.html:
+	* development.html:
+	* documentation-old.html:
+	* documentation.html:
+	* download-linux.html:
+	* download-macos.html:
+	* download-windows-64bit.html:
+	* download-windows.html:
+	* download.html:
+	* features.html: changed link to index.php in menu
+
 2008-11-25  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html: 
