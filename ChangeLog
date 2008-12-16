@@ -1,3 +1,8 @@
+2008-12-16  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html: Update GTK+ build to 2.14.6-1. Update
+	gtk+-bundle.
+
 2008-11-28  Andreas Nilsson  <andreas@imendio.com>
 
 	* index.php: forgot to remove the upcoming events.
