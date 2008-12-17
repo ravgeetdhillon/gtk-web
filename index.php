@@ -103,7 +103,16 @@ For older news, visit our <a href="news-archives.php">archives</a>.
 	  <div id="events">
 	    <h2><a name="UpcomingEvents">Upcoming Events</a></h2>
 	    
-	    There are currently no upcoming events.
+              <div class="news-item">
+                <p class="news-title">Gran Canaria Desktop Summit 2009</p>
+                <p class="news-date">July 3-11, 2009</p>
+                <p class="news-desc">The inaugural Desktop Summit, uniting the flagship conferences of the GNOME and KDE communities, GUADEC and Akademy, will be held in Gran Canaria, Canary Islands, Spain the week of July 3-11, 2009.
+
+The conference will be hosted by Cabildo, the local government of Gran Canaria.
+
+The GNOME and KDE communities will use this co-located event to intensify momentum and increase collaboration between the projects. It gives a unique opportunity for key figures to collaborate and improve the free and open source desktop for all. Please visit the <a href="http://www.grancanariadesktopsummit.org/index.php/Main_Page">official website</a> for further information.</p>
+              </div>
+
 	    
 	  </div> <!-- events -->
 	</div> <!-- columns -->
