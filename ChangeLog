@@ -1,3 +1,9 @@
+2009-01-10  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows.html 
+	* download-windows-64bit.html: update GTK+ to 2.14.7, GLib to
+	2.18.4, cairo to 1.8.6 and libpng to 1.2.34.
+
 2008-12-17  Martyn Russell  <martyn@imendio.com>
 
 	* index.php: Fixed some HTML errors.
