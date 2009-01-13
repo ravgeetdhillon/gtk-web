@@ -1,3 +1,11 @@
+2009-01-13  Martyn Russell  <martyn@imendio.com>
+
+	* gtk.css:
+	* index.php: Don't use columns for events/news, we rarely have
+	events and have to keep updating it from gnome.org. Better to pick
+	and choose those and to have more space for the blog which changes
+	more often and can be bigger.
+
 2009-01-10  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html 

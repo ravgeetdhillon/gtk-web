@@ -199,18 +199,26 @@ table.styled img {
 }
 
 #news {
+}
+
+/* Old style for news in columns
+#news {
     float : left;
     width : 48%;
-}
+} */
 
 #news h2, #events h2 {
     margin-top : 0em;
 }
 
 #events {
+}
+
+/* Old style for events in columns
+#events {
     margin-left : 48%;
     padding-left : 2em;
-}
+} */
 
 .news-item {
   margin-bottom: 1.2em;
