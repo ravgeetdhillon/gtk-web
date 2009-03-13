@@ -1,3 +1,7 @@
+2009-03-13  Matthias Clasen  <mclasen@redhat.com>
+
+	* notes/gtk-2.16.0-notes.txt: 2.16 release notes
+
 2009-02-24  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows-64bit.html: Fix a few typos in links, thanks to
