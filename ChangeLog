@@ -1,5 +1,10 @@
 2009-03-17  Tor Lillqvist  <tml@novell.com>
 
+	* download-windows.html: Update GLib to 2.20.0, Pango to 1.24.0
+	and GTK+ to 2.16.0.
+
+2009-03-17  Tor Lillqvist  <tml@novell.com>
+
 	* download-windows-64bit.html: Update 64-bit gettext package. Add
 	warning that the 64-bit stuff is experimental.
 
