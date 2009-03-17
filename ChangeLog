@@ -1,3 +1,8 @@
+2009-03-17  Tor Lillqvist  <tml@novell.com>
+
+	* download-windows-64bit.html: Update 64-bit gettext package. Add
+	warning that the 64-bit stuff is experimental.
+
 2009-03-16  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows.html
