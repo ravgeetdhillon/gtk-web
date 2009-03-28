@@ -1,3 +1,7 @@
+2009-03-28  Andreas Nilsson  <nisses.mail@home.se>
+
+	* index.php: Added back link gtkfiles.org
+
 2009-03-17  Tor Lillqvist  <tml@novell.com>
 
 	* download-windows-64bit.html: Update GLib to 2.20.0, Pango to
