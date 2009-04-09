@@ -41,11 +41,15 @@
       </div>
       <div id="content">
 	<h2>Unstable release</h2>
-	<p>You can check out the latest unstable release of GTK+ and GLib using <a href="http://subversion.tigris.org/">Subversion</a>.</p>
-	<pre>svn checkout http://svn.gnome.org/svn/gtk+/trunk gtk</pre>
-	<pre>svn checkout http://svn.gnome.org/svn/glib/trunk glib</pre>
-	
-	<p>For more information on this, see the <a href="http://live.gnome.org/SVN">instructions on how to use the repository</a></p>
+	<p>You can check out the latest unstable release of GTK+ and GLib using <a href="http://git-scm.com/">git</a>.</p>
+	<pre>git clone git://git.gnome.org/gtk+</pre>
+	<pre>git clone git://git.gnome.org/glib</pre>
+
+	<p>If you plan on pushing changes back upstream and have a GNOME account, use the following instead:</p>
+	<pre>git clone ssh://&lt;username&gt;@git.gnome.org/git/gtk+</pre>
+	<pre>git clone ssh://&lt;username&gt;@git.gnome.org/git/glib</pre>
+
+	<p>For more information on this, see the <a href="http://live.gnome.org/GitMigration/Git">instructions on how to use the repository</a></p>
 	
 	<h2>Stable release</h2>
 	<p>GTK+ is available on:</p>
@@ -74,7 +78,7 @@
 
       </div> <!-- content -->
       
-      <div id="footer">Copyright 2007-2008 The GTK+ Team</div>
+      <div id="footer">Copyright 2007-2009 The GTK+ Team</div>
       
     </div> <!-- container -->
   
