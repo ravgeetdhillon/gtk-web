@@ -1,4 +1,8 @@
-2009-040-09 Matthias Clasen  <mclasen@redhat.com>
+2009-04-12 Matthias Clasen  <mclasen@redhat.com>
+
+	* download-linux.html: Fix links
+
+2009-04-09 Matthias Clasen  <mclasen@redhat.com>
 
 	* download.html: Refer to git, not svn.
 	* download-linux.html: Update to 2.16
