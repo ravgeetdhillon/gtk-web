@@ -1,3 +1,7 @@
+2009-08-16  Andreas Nilsson  <nisses.mail@homese>
+
+	* language-bindings.html: Added xbgtk to the bindings page.
+
 2009-07-31  Tor Lillqvist  <tml@iki.fi>
 
 	* download-windows.html: Update GTK+ to 2.16.5, Pango to 1.24.5,
