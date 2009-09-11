@@ -252,10 +252,10 @@
 	  </tr>
 	  <tr>
 	    <td>Fontconfig</td>
-	    <td>2.7.1</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/fontconfig_2.7.1-2_win32.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/fontconfig-dev_2.7.1-2_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
-	    <td><a href="http://www.fontconfig.org/release/fontconfig-2.7.1.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td>2.7.3</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/fontconfig_2.7.3-1_win32.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/fontconfig-dev_2.7.3-1_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://www.fontconfig.org/release/fontconfig-2.7.3.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
 	    <td class="required"><img src="images/progress-complete.png" alt=""/></td>
 	  </tr>
 	  <tr class="odd">
@@ -337,7 +337,7 @@
 	<p>This is used by GIMP and by Pango's pangoft2 library. For just GTK+ applications you will not need it.</p>
 
 	<h4>About fontconfig</h4>
-	<p>Fontconfig is used by the FreeType2 backend in Pango (pangoft2) and by GIMP. Contrary to what many seem to think, fontconfig is in no way dependent on X11, so it does make some sense to use it on Windows. GTK+ does not use pangoft2, so you probably will not need this unless for GIMP.</p>
+	<p>Fontconfig is used by the FreeType2 backend in Pango (pangoft2) and by cairo's freetype font backend, and by GIMP. Fontconfig is in no way dependent on X11, so it does make some sense to use it on Windows. libpango links to libpangoft2 so you will need fontconfig even if in a pure GTK+ application it won't be used.</p>
 
 	<h4>About libexpat</h4>
 	<p>This is required by fontconfig.</p>
