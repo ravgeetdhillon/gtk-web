@@ -334,21 +334,17 @@
 	when building software using libraries that provide pkg-config
 	data. It requires GLib.</p>
 
-	<h4>About freetype</h4>
-	<p>This is used by cairo and by Pango's pangoft2
-	library. It is linked to but not actually used for just GTK+
-	applications.</p>
+	<h4>About freetype and fontconfig</h4>
 
-	<h4>About fontconfig</h4>
-	<p>Fontconfig is used by the FreeType2 backend in Pango
-	(pangoft2) and by cairo's freetype font backend, and by
-	GIMP. Fontconfig is in no way dependent on X11, so it does
-	make some sense to use it on Windows. libpango links to
-	libpangoft2 so you will need fontconfig even if in a pure GTK+
-	application it won't be used.</p>
+	<p>These libraries are used by cairo and by Pango, so they are
+	required. They provide an alternative font backend. In a
+	normal GTK+ application on Windows their functionality won't
+	actually be used, though. GIMP is an exception, GIMP's text
+	tool uses freetype and fontconfig APIs.</p>
 
 	<h4>About libexpat</h4>
-	<p>This is required by fontconfig.</p>
+
+	<p>This is a library required by fontconfig.</p>
 
 	<h4>About dirent</h4>
 	<p>This is the public domain implementation of dirent.h from
