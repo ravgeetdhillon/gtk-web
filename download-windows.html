@@ -296,7 +296,8 @@
 	name was different. To be safe, never rename DLLs.</p>
 
 	<h4>About zlib</h4>
-	<p>This is the compression library used by libpng, libjpeg and libtiff.</p>
+	<p>This is the compression library used by libpng and libtiff,
+	and thus also required.</p>
 	
 	<h4>About win_iconv</h4>
 	<p>win_iconv is an implementation of <a
@@ -331,22 +332,31 @@
 	<q>database</q> specifying inter-dependencies among software
 	packages. It is used to get the compile and link flags needed
 	when building software using libraries that provide pkg-config
-	data. This requires GLib 2.x.</p>
+	data. It requires GLib.</p>
 
 	<h4>About freetype</h4>
-	<p>This is used by GIMP and by Pango's pangoft2 library. For just GTK+ applications you will not need it.</p>
+	<p>This is used by cairo and by Pango's pangoft2
+	library. It is linked to but not actually used for just GTK+
+	applications.</p>
 
 	<h4>About fontconfig</h4>
-	<p>Fontconfig is used by the FreeType2 backend in Pango (pangoft2) and by cairo's freetype font backend, and by GIMP. Fontconfig is in no way dependent on X11, so it does make some sense to use it on Windows. libpango links to libpangoft2 so you will need fontconfig even if in a pure GTK+ application it won't be used.</p>
+	<p>Fontconfig is used by the FreeType2 backend in Pango
+	(pangoft2) and by cairo's freetype font backend, and by
+	GIMP. Fontconfig is in no way dependent on X11, so it does
+	make some sense to use it on Windows. libpango links to
+	libpangoft2 so you will need fontconfig even if in a pure GTK+
+	application it won't be used.</p>
 
 	<h4>About libexpat</h4>
 	<p>This is required by fontconfig.</p>
 
 	<h4>About dirent</h4>
-	<p>This is the public domain implementation of dirent.h from <a href="http://www.mingw.org/">MinGW</a>. It is needed by Microsoft Visual C++ users that want to compile GLib. Not directly related to GLib.</p>
+	<p>This is the public domain implementation of dirent.h from
+	<a href="http://www.mingw.org/">MinGW</a>. It is needed by
+	Microsoft Visual C++ users that want to compile GLib. Not
+	directly related to GLib.</p>
 
 	<h4>About proxy-libintl</h4> 
-
 	<p>proxy-libintl is a very small static
 	library. It acts as a proxy for the <TT>intl.dll</TT> from
 	gettext-runtime, loading it dynamically, and failing
