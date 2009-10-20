@@ -78,7 +78,7 @@
 	      
 	      The GNOME and KDE communities will use this co-located event to intensify momentum and increase collaboration between the projects. It gives a unique opportunity for key figures to collaborate and improve the free and open source desktop for all. Please visit the <a href="http://www.grancanariadesktopsummit.org/index.php/Main_Page">official website</a> for further information.</p>
           </div>
-	</div> <!-- events -->
+	</div>
 -->
 	
 	<div id="news">
