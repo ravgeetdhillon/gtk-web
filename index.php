@@ -105,6 +105,7 @@ foreach ($items as $item) {
 	     <? echo $href ?>
           </div>
 
+	  <hr/>
 <?
 }
 ?>
