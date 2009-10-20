@@ -205,7 +205,7 @@ table.styled img {
 #news {
     float : left;
     width : 48%;
-} */
+}
 
 #news h2, #events h2 {
     margin-top : 0em;
@@ -213,6 +213,7 @@ table.styled img {
 
 #events {
 }
+*/
 
 /* Old style for events in columns
 #events {

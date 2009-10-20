@@ -82,7 +82,7 @@
 -->
 	
 	<div id="news">
-	  <h2>Recent news</h2>
+	  <h2><a name="RecentNews">Recent news</a></h2>
 
 <?php
 require_once('magpierss/rss_fetch.inc');
