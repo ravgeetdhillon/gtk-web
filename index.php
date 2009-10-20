@@ -65,7 +65,7 @@
 	  <a href="features.html">features</a> page. If you want to 
 	  <a href="development.html#Contributing">contribute</a>, you are 
 	  more than welcome.</p>   
-
+<!--
 	<div id="events">
 	  <h2><a name="UpcomingEvents">Upcoming Events</a></h2>
 	  
@@ -79,6 +79,7 @@
 	      The GNOME and KDE communities will use this co-located event to intensify momentum and increase collaboration between the projects. It gives a unique opportunity for key figures to collaborate and improve the free and open source desktop for all. Please visit the <a href="http://www.grancanariadesktopsummit.org/index.php/Main_Page">official website</a> for further information.</p>
           </div>
 	</div> <!-- events -->
+-->
 	
 	<div id="news">
 	  <h2>Recent news</h2>
