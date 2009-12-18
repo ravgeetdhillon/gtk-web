@@ -1,3 +1,8 @@
+2009-12-18  Stefan Kost  <ensonic@users.sf.net>
+
+	* news.html:
+	  Releasing 1.12.
+
 2009-10-19  Javier Jardón  <jjardon@gnome.org>
 
 	* download.html: Upgrade links to Git repositories
@@ -6,7 +11,7 @@
 
 	* download.html:
 	* news.html:
-	  Releasing 1.11.	  
+	  Releasing 1.11.
 
 2008-10-20  Stefan Kost  <ensonic@users.sf.net>
 

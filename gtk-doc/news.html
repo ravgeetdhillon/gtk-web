@@ -39,9 +39,59 @@
       </div>
       <div id="content">
 	<h2>Current Release</h2>
+	<h3>GTK-Doc 1.12 (Dec 18 2008)</h3>
+	<ul>
+      <li>591450 : Build related fixes</li>
+      <li>466535 : generate documentation as pdf</li>
+      <li>502191 : acronym support</li>
+      <li>532395 : inline function parsing problems (e.g. in glib api docs)</li>
+      <li>536928 : have syntax highlghted and xrefs source code samples</li>
+      <li>562064 : index generation trouble</li>
+      <li>562310 : glib 2.18.3: /bin/sh: line 1: gtkdoc-rebase: command not found</li>
+      <li>562655 : doesn't produce deprecation note for signals</li>
+      <li>565126 : linking to struct members</li>
+      <li>565835 : Three spelling errors in gtk-doc-manual</li>
+      <li>566911 : add support for --help and --version to remaining tools</li>
+      <li>567132 : Take FOO_GET_INTERFACE as standard</li>
+      <li>568702 : gtkdoc-mkhtml no longer works when symlinked</li>
+      <li>568706 : gtkdoc-scan: use CamelCase id for interfaces</li>
+      <li>568708 : gtkdoc-scan should try not to scan files twice</li>
+      <li>568714 : Perl errors when syntax highlighting is not available</li>
+      <li>568732 : missing long descriptions undetected</li>
+      <li>568734 : configure check for gtk-doc prints that gtk-doc cannot be built</li>
+      <li>569339 : abbreviation are not expanded at the start of text</li>
+      <li>572396 : Fix to use shave + gtk-doc + libtool 1.x</li>
+      <li>572612 : Mistakenly substitute -1 with G_MAXULONG in x86_64</li>
+      <li>572967 : use g_strerror</li>
+      <li>574654 : --ignore-decorators does not ignore trailing stuff</li>
+      <li>575574 : Be more friendly for files with a space in their name</li>
+      <li>575623 : Update FSF address</li>
+      <li>575711 :  &lt; table &gt; element mismatch in highlighted code</li>
+      <li>576313 : implicit declarations in testsuite ?</li>
+      <li>577059 : Gnome-doc support can't be disabled</li>
+      <li>577774 : Test suite run even when built with --disable-gtk-doc</li>
+      <li>580206 : gcc warnings in &lt; module &gt; -scan.c</li>
+      <li>580300 : gtkdoc-scan picks up _get_type functions it should not</li>
+      <li>580622 : xml dir is both part of distclean and dist rules</li>
+      <li>581237 : gtk-doc uses wrong gtkdoc-check in &quot; make check &quot; phase</li>
+      <li>584952 :  &quot; uninitialized value in concatenation &quot; gtkdoc-mkdb line 938</li>
+      <li>587103 : return values of function-like macros</li>
+      <li>587196 : Typo in a string</li>
+      <li>589426 : Python is a required dependency</li>
+      <li>591789 : master FTBFS with automake 1.11</li>
+      <li>594224 : Please fix manual about inlined SECTION comments (and show warnings when invalid)</li>
+      <li>596730 : Signed vs. unsigned comparison in gtkdoc-scangobj.in causing compile errors</li>
+      <li>596731 : autogen.sh doesn't recognize automake-1.11</li>
+      <li>602026 : Warn if non-existing function gets referenced</li>
+      <li>602518 : Doesn't support &quot; long int &quot; return type</li>
+      <li>604798 : tests/fail.sh and tests/tools.sh.in use bashisms</li>
+	</ul>
+	
+	<h2>Historic Releases</h2>
+
 	<h3>GTK-Doc 1.11 (Nov 16 2008)</h3>
 	<ul>
-	  <li>531572 : one-page generation option
+	  <li>531572 : one-page generation option</li>
 	  <li>448879 : Use a footer when generating HTML documentation</li>
 	  <li>311857 : xsltproc very slow generating index for gtk-docs.sgml</li>
 	  <li>335239 : Using gnome-doc-utils for gtk-doc documentation</li>
@@ -62,8 +112,7 @@
 	  <li>558082 : evince docs build fails with GTK_DISABLE_SINGLE_INCLUDES</li>
 	  <li>559281 : Correct check for existance of gtkdoc-rebase</li>
 	</ul>
-	
-	<h2>Historic Releases</h2>
+
 	<h3>GTK-Doc 1.10 (Mar 20 2008)</h3>
 	<ul>
 	  <li>460753: enable vpath build in gtkdoc-mkhtml</li>
