@@ -176,9 +176,10 @@
 	<h3>Third Party Dependencies</h3>
 
 	<p>You won't need all of these packages to just use GTK+ Some
-	of the optional packages are needed for building applications
-	like GIMP on Windows. Required packages are illustrated with
-	<img src="images/progress-complete.png" alt=""/>.</p>
+	of the optional packages are needed for building GTK+-using
+	applications like GIMP. The minimal set of packages required
+	by the GTK+ stack itself is indicated with <img
+	src="images/progress-complete.png" alt=""/>.</p>
 	
 	<table class="styled">
 	  <tr>
@@ -236,7 +237,7 @@
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-0.17-1.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-dev-0.17-1.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.17.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
-	    <td class="required"><img src="images/progress-complete.png" alt=""/></td>
+	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
 	  </tr>
 	  <tr class="odd">
 	    <td>libpng</td>
@@ -281,7 +282,7 @@
 	  <tr>
 	    <td>proxy-libintl</td>
 	    <td>20100902</td>
-	    <td colspan="3"><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/proxy-libintl-dev_20100902_win32.zip"><img src="images/download.png" alt=""/> Binaries &amp; sources</a></td>
+	    <td colspan="3"><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/proxy-libintl-dev_20100902_win32.zip"><img src="images/download.png" alt=""/> Binaries, dev &amp; sources</a></td>
 	    <td class="required"><img src="images/progress-incomplete.png" alt=""/></td>
 	  </tr>
 	</table>
@@ -351,14 +352,13 @@
 
 	<p>This is a library required by fontconfig.</p>
 
-	<h4>About proxy-libintl</h4> 
-	<p>proxy-libintl is a very small static
-	library. It acts as a proxy for the <TT>intl.dll</TT> from
-	gettext-runtime, loading it dynamically, and failing
-	gracefully. Fallback dummy functions are used if <TT>intl.dll</TT>
-	isn't found. It is a static archive and the intent is to start
-	linking this into the binaries in the GTK+ stack instead of
-	referring directly to <TT>intl.dll</TT>. This enables application
+	<h4>About proxy-libintl</h4> <p>proxy-libintl is a very small
+	static library. It acts as a proxy for the <TT>intl.dll</TT>
+	from gettext-runtime, loading it dynamically, and failing
+	gracefully. Fallback dummy functions are used if
+	<TT>intl.dll</TT> isn't found. It is a static archive and used
+	by the binaries in the GTK+ stack instead of referring
+	directly to <TT>intl.dll</TT>. This enables application
 	packagers to leave out the gettext-runtime binaries if they
 	don't need or want to support i18n, without having to build
 	own versions that don't use <TT>intl.dll</TT>.</p>
