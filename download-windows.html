@@ -40,7 +40,9 @@
       </div>
       <div id="content">
 	<h2><a name="Requirements">Requirements</a></h2>
+
 	<h3>Packages</h3>
+
 	<p>You will need to get the GLib, cairo, Pango, ATK, and GTK+
 	  developer packages to build against GTK+. To run GTK+ programs you
 	  will also need the fontconfig, freetype, expat, libpng and zlib packagages, and if your
@@ -74,6 +76,7 @@
 	  gettext, GLib, GTK+, Pango and Atk sources.</p>
 
 	<h3>What toolchain to use?</h3>
+
 	<p>The most natural toolchain to use together with these packages would
 	  probably be the GNU compiler and other utilities. When
 	  targeting Windows, that combination is known as <a href="http://www.mingw.org">MinGW</a>
@@ -81,57 +84,62 @@
 	  are very careful and look out for mixups.</p>
 
 	<p>It is possible to use these packages also with Microsoft's
-	  compiler. However, the DLLs use the <TT>msvcrt.dll</TT> runtime
-	  library. This means that also applications that use the DLLs
-	  should preferrably use the <TT>msvcrt.dll</TT> runtime. Specifically, this means that
-	  you should not use newer versions of the Microsoft compiler than
-	  Visual C++ 6 without knowing exactly what you are doing.</p>
+	compiler. However, the DLLs here use the <TT>msvcrt.dll</TT>
+	run-time library. This means that also applications that use
+	the DLLs should preferrably use the <TT>msvcrt.dll</TT>
+	run-time. Specifically, this means that you should not use
+	newer versions of the Microsoft compiler than Visual C++ 6
+	without knowing exactly what you are doing.</p>
 	
 	<h3>Which Windows versions?</h3>
+
 	<p>The current GTK+ stack uses APIs that are available
 	  only on Windows 2000 or later. Long obsolete versions of
 	  GTK+ did run on Win9x and NT 4, too.</p>
 	
-	<h2><a name="StableRelease">Stable Release</a></h2>
-	<p>There are 3 types of download options
-	  below. <strong>Binaries</strong> provide only the DLLs and
-	  other files used you will need to run your GTK+-using
-	  application. <strong>Dev</strong> packages provide include
-	  files, import libraries, documentation and additional
-	  tools, and also for reference the script used to build the
-	  component in question. In case patches have been applied to
-	  the upstream sources before building, these are inline in
-	  the build script.
-	  <strong>Source</strong> packages provide the source code
-	  for the component in question. In most cases, this is simply
-	  the pristine upstream source release tarball, possibly
-	  copied to the same server as the binaries to satisfy the
-	  license.</p>
+	<h2><a name="StableRelease">Downloads</a></h2>
 
-	<p>If you want to repackage the necessary runtime files
-	  together with your application into an installer, you can choose
-	  to leave out for instance message catalogs for languages
-	  that your application isn't localised to anyway.</p>
+	<p>There are three types of downloads
+	below. <strong>Run-time</strong> provide only the DLLs and
+	other files used you will need to run a GTK+-using
+	application. <strong>Dev</strong> packages provide include
+	files, import libraries, documentation and additional tools,
+	and also for reference the script used to build the component
+	in question. In case patches have been applied to the upstream
+	sources before building, these are inline in the build script.
+	<strong>Source</strong> packages provide the source code for
+	the component in question. In most cases, this is simply the
+	pristine upstream source release tarball, possibly copied to
+	the same server as the binaries to satisfy the license.</p>
+
+	<p>GTK+ 2.16 is an old but in some sense more reliable
+	branch. 2.20 is the current maintained version. Choose the one
+	which works better for you.</p>
+	
+	<p>If you want to repackage the necessary run-time files
+	together with your application into an installer, you can choose
+	to leave out for instance message catalogs for languages
+	that your application isn't localised to anyway.</p>
 	
 	<h3>All-in-one bundles</h3>
 
 	<p>If you find choosing, downloading and unpacking the
 	individual zip archives below a chore, there are all-in-one
-	bundles of the GTK+
-	stack including 3rd-party dependencies, both of GTK+ <a
+	bundles of the GTK+ stack including 3rd-party dependencies,
+	both of GTK+ <a
 	href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.16/gtk+-bundle_2.16.6-20100912_win32.zip"><img
 	src="images/download.png" alt=""/>2.16</a> and <a
 	href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.20/gtk+-bundle_2.20.1-20100912_win32.zip"><img
 	src="images/download.png" alt=""/>2.20</a>. The bundles
-	contain both binaries and
-	a lot of developer files, many of which are relatively
-	irrelevant. If you intend to redistribute the GTK+
-	run-time, you need to figure out which files you can leave out
-	yourself. A new bundle will ideally be provided here
-	whenever one of the member packages has been updated.</p>
+	contain both run-time and developer files. Many of the
+	developer files are relatively irrelevant. If you intend to
+	redistribute the GTK+ run-time, you need to figure out which
+	files you can leave out yourself. A new bundle will ideally be
+	provided here whenever one of the member packages has been
+	updated.</p>
 
 	<h3>GTK+ individual packages</h3>
-	
+
 	<table class="styled" width="100%">
 	  <tr>
 	    <th>Package</th>
@@ -141,38 +149,39 @@
 	  <tr>
 	    <td>GLib</td>
 	    <td>2.24.2</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.24/glib_2.24.2-2_win32.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.24/glib_2.24.2-2_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.24/glib-dev_2.24.2-2_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.24/glib-2.24.2.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr class="odd">
 	    <td>GTK+</td>
-	    <td>2.16.6 (old, but in many respects more stable)</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.16/gtk+_2.16.6-3_win32.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td>2.16.6</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.16/gtk+_2.16.6-3_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.16/gtk+-dev_2.16.6-3_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.16/gtk+-2.16.6.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr class="odd">
-	    <td>GTK+</td>
-	    <td>2.20.1 (current maintained branch)</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.20/gtk+_2.20.1-3_win32.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td></td>
+	    <td>2.20.1</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.20/gtk+_2.20.1-3_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.20/gtk+-dev_2.20.1-3_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.20/gtk+-2.20.1.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr>
 	    <td>Pango</td>
 	    <td>1.28.1</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.28/pango_1.28.1-2_win32.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.28/pango_1.28.1-2_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.28/pango-dev_1.28.1-2_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/pango/1.28/pango-1.28.1.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr class="odd">
 	    <td>ATK</td>
 	    <td>1.30.0</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/atk/1.30/atk_1.30.0-2_win32.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/atk/1.30/atk_1.30.0-2_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/atk/1.30/atk-dev_1.30.0-2_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/atk/1.30/atk-1.30.0.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
+	  <tr><th colspan="5"></th></tr>
 	</table>
 	
 	<h3>Required third party dependencies</h3>
@@ -188,45 +197,46 @@
 	  <tr>
 	    <td>zlib</td>
 	    <td>1.2.5</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/zlib_1.2.5-2_win32.zip"><img src="images/download.png" alt=""/> Binaries </a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/zlib_1.2.5-2_win32.zip"><img src="images/download.png" alt=""/> Run-time </a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/zlib-dev_1.2.5-2_win32.zip"><img src="images/download.png" alt=""/> Dev </a></td>
 	    <td><a href="http://www.zlib.net/zlib125.zip"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr class="odd">
 	    <td>cairo</td>
 	    <td>1.10.0</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/cairo_1.10.0-1_win32.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/cairo_1.10.0-1_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/cairo-dev_1.10.0-1_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td><a href="http://cairographics.org/releases/cairo-1.10.0.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr>
 	    <td>libpng</td>
 	    <td>1.4.3</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/libpng_1.4.3-1_win32.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/libpng_1.4.3-1_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/libpng-dev_1.4.3-1_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td>-</td>
 	  </tr>
 	  <tr class="odd">
 	    <td>Freetype</td>
 	    <td>2.4.2</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/freetype_2.4.2-1_win32.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/freetype_2.4.2-1_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/freetype-dev_2.4.2-1_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/freetype-2.4.2.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr>
 	    <td>Fontconfig</td>
 	    <td>2.8.0</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/fontconfig_2.8.0-2_win32.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/fontconfig_2.8.0-2_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/fontconfig-dev_2.8.0-2_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td><a href="http://www.fontconfig.org/release/fontconfig-2.8.0.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr class="odd">
 	    <td>expat</td>
 	    <td>2.0.1</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/expat_2.0.1-1_win32.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/expat_2.0.1-1_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/expat-dev_2.0.1-1_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td>-</td>
 	  </tr>
+	  <tr><th colspan="5"></th></tr>
 	</table>
 
 	<h3>Other third party software</h3>
@@ -251,7 +261,7 @@
 	  <tr class="odd">
 	    <td>gettext-runtime</td>
 	    <td>0.18.1.1</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-0.18.1.1-2.zip"><img src="images/download.png" alt=""/> Binaries</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-0.18.1.1-2.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-dev-0.18.1.1-2.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.18.1.1.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
@@ -260,7 +270,7 @@
 	    <td>0.23-3</td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config_0.23-3_win32.zip"><img src="images/download.png" alt=""/> Tool</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config-dev_0.23-3_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config-0.23.tar.gz"> Sources</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config-0.23.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr class="odd">
 	    <td>win_iconv</td>
@@ -272,14 +282,15 @@
 	    <td>proxy-libintl</td>
 	    <td>20100902</td>
 	    <td></td>
-	    <td colspan="2"><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/proxy-libintl-dev_20100902_win32.zip"><img src="images/download.png" alt=""/> Binaries, dev &amp; sources</a></td>
+	    <td colspan="2"><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/proxy-libintl-dev_20100902_win32.zip"><img src="images/download.png" alt=""/> Dev &amp; sources</a></td>
 	  </tr>
 	  <tr class="odd">
 	    <td>GNU libiconv</td>
 	    <td>1.9.1</td>
-	    <td colspan="2"><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/libiconv-1.9.1.bin.woe32.zip"><img src="images/download.png" alt=""/> Binaries &amp; Dev</a></td>
+	    <td colspan="2"><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/libiconv-1.9.1.bin.woe32.zip"><img src="images/download.png" alt=""/> Run-time &amp; Dev</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/libiconv-1.9.1.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
+	  <tr><th colspan="5"></th></tr>
 	</table>
 
 
@@ -303,9 +314,9 @@
 	<h4>About zlib</h4>
 
 	<p>This is the compression library used by glib and libpng,
-	and thus also required. Above is just repackaged
-	upstream binaries, slightly fixed headers, and import
-	libraries. It provides <tt>zlib1.dll</tt>.</p>
+	and thus also required. The above is just repackaged upstream
+	DLL, slightly fixed headers, and import libraries. It provides
+	<tt>zlib1.dll</tt>.</p>
 	
 	<h4>About pkg-config</h4>
 
