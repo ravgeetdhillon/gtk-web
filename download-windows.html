@@ -13,7 +13,7 @@
     <meta name="revisit-after" content="10 Days" />
 
     <meta name="reply-to" content="gtk-devel@gnome.org" />
-    
+
     <link href="gtk.css" rel="stylesheet" type="text/css" />
     <link rel="icon" href="images/gtk-logo.ico" type="image/x-icon" />
 
@@ -22,7 +22,7 @@
 <![endif]-->
 
   </head>
-  
+
   <body>
     <div id="container">
       <div id="header"><img src="images/header-logo.png" alt="gtk logo" width="574" height="112" /><h1>The GTK+ Project</h1></div>
@@ -43,12 +43,10 @@
 
 	<h3>Packages</h3>
 
-	<p>You will need to get the GLib, cairo, Pango, ATK, and GTK+
-	  developer packages to build against GTK+. To run GTK+ programs you
-	  will also need the fontconfig, freetype, expat, libpng and zlib packagages, and if your
-	  code uses gettext for internationalisation and/or you want
-	  GTK+ internalisation, the
-	  gettext-runtime package.</p>
+	<p>You will need the GLib, cairo, Pango, ATK, gdk-pixbuf and GTK+
+	  developer packages to build software against GTK+. To run
+	  GTK+ programs you will also need the gettext-runtime,
+	  fontconfig, freetype, expat, libpng and zlib packagages.</p>
 	
 	<p>The packages here are for people who develop software that uses
 	  GTK+. This page is not intended directly for end-users. It is expected
@@ -129,8 +127,8 @@
 	both of GTK+ <a
 	href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.16/gtk+-bundle_2.16.6-20100912_win32.zip"><img
 	src="images/download.png" alt=""/>2.16</a> and <a
-	href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.20/gtk+-bundle_2.20.1-20100912_win32.zip"><img
-	src="images/download.png" alt=""/>2.20</a>. The bundles
+	href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.22/gtk+-bundle_2.22.0-20101016_win32.zip"><img
+	src="images/download.png" alt=""/>2.22</a>. The bundles
 	contain both run-time and developer files. Many of the
 	developer files are relatively irrelevant. If you intend to
 	redistribute the GTK+ run-time, you need to figure out which
@@ -148,38 +146,45 @@
 	  </tr>
 	  <tr>
 	    <td>GLib</td>
-	    <td>2.24.2</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.24/glib_2.24.2-2_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.24/glib-dev_2.24.2-2_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.24/glib-2.24.2.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td>2.26.0</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.26/glib_2.26.0-2_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.26/glib-dev_2.26.0-2_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.26/glib-2.26.0.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr class="odd">
+	    <td>ATK</td>
+	    <td>1.32.0</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/atk/1.32/atk_1.32.0-1_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/atk/1.32/atk-dev_1.32.0-1_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/atk/1.32/atk-1.32.0.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
+	  </tr>
+	  <tr>
+	    <td>Pango</td>
+	    <td>1.28.3</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.28/pango_1.28.3-1_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.28/pango-dev_1.28.3-1_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/pango/1.28/pango-1.28.3.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
+	  </tr>
+	  <tr class="odd">
+	    <td>gdk-pixbuf</td>
+	    <td>2.22.0</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gdk-pixbuf/2.22/gdk-pixbuf_2.22.0-1_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gdk-pixbuf/2.22/gdk-pixbuf-dev_2.22.0-1_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.22/gdk-pixbuf-2.22.0.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
+	  </tr>
+	  <tr>
 	    <td>GTK+</td>
 	    <td>2.16.6</td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.16/gtk+_2.16.6-3_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.16/gtk+-dev_2.16.6-3_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.16/gtk+-2.16.6.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
-	  <tr class="odd">
-	    <td></td>
-	    <td>2.20.1</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.20/gtk+_2.20.1-3_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.20/gtk+-dev_2.20.1-3_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.20/gtk+-2.20.1.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
-	  </tr>
 	  <tr>
-	    <td>Pango</td>
-	    <td>1.28.1</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.28/pango_1.28.1-2_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.28/pango-dev_1.28.1-2_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/pango/1.28/pango-1.28.1.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
-	  </tr>
-	  <tr class="odd">
-	    <td>ATK</td>
-	    <td>1.30.0</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/atk/1.30/atk_1.30.0-2_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/atk/1.30/atk-dev_1.30.0-2_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/atk/1.30/atk-1.30.0.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td></td>
+	    <td>2.22.0</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.22/gtk+_2.22.0-2_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.22/gtk+-dev_2.22.0-2_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.22/gtk+-2.22.0.tar.bz2"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr><th colspan="5"></th></tr>
 	</table>
@@ -236,6 +241,13 @@
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/expat-dev_2.0.1-1_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td>-</td>
 	  </tr>
+	  <tr>
+	    <td>gettext-runtime</td>
+	    <td>0.18.1.1</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime_0.18.1.1-2_win32.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-dev_0.18.1.1-2_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.18.1.1.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
+	  </tr>
 	  <tr><th colspan="5"></th></tr>
 	</table>
 
@@ -254,51 +266,32 @@
 	  <tr>
 	    <td>pixman</td>
 	    <td>0.18.4</td>
-	    <td></td>
+	    <td>-</td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pixman-dev_0.18.4-2_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td><a href="http://cairographics.org/releases/pixman-0.18.4.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr class="odd">
-	    <td>gettext-runtime</td>
-	    <td>0.18.1.1</td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-0.18.1.1-2.zip"><img src="images/download.png" alt=""/> Run-time</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-dev-0.18.1.1-2.zip"><img src="images/download.png" alt=""/> Dev</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.18.1.1.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
-	  </tr>
-	  <tr>
 	    <td>pkg-config</td>
 	    <td>0.23-3</td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config_0.23-3_win32.zip"><img src="images/download.png" alt=""/> Tool</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config-dev_0.23-3_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
 	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config-0.23.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
-	  <tr class="odd">
-	    <td>win_iconv</td>
-	    <td>20100912</td>
-	    <td></td>
-	    <td colspan="2"><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/win-iconv-dev_tml-20100912_win32.zip"><img src="images/download.png" alt=""/> Dev &amp; Sources</a></td>
-	  </tr>
 	  <tr>
-	    <td>proxy-libintl</td>
-	    <td>20100902</td>
-	    <td></td>
-	    <td colspan="2"><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/proxy-libintl-dev_20100902_win32.zip"><img src="images/download.png" alt=""/> Dev &amp; sources</a></td>
-	  </tr>
-	  <tr class="odd">
-	    <td>GNU libiconv</td>
-	    <td>1.9.1</td>
-	    <td colspan="2"><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/libiconv-1.9.1.bin.woe32.zip"><img src="images/download.png" alt=""/> Run-time &amp; Dev</a></td>
-	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/libiconv-1.9.1.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
+	    <td>gettext-tools</td>
+	    <td>0.18.1.1</td>
+	    <td>-</td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-tools-dev_0.18.1.1-2_win32.zip"><img src="images/download.png" alt=""/> Dev</a></td>
+	    <td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.18.1.1.tar.gz"><img src="images/download.png" alt=""/> Sources</a></td>
 	  </tr>
 	  <tr><th colspan="5"></th></tr>
 	</table>
 
-
 	<h4>About pixman</h4>
 
-	<p>This is a static build of pixman library, thus it is
-	included in the cairo binary package and there is no separate
-	run-time package.</p>
+	<p>This is a static build of pixman library. It is linked into
+	the cairo DLL and there is no separate pixman run-time
+	package.</p>
 
 	<h4>About libpng</h4>
 
@@ -313,8 +306,8 @@
 
 	<h4>About zlib</h4>
 
-	<p>This is the compression library used by glib and libpng,
-	and thus also required. The above is just repackaged upstream
+	<p>This is the compression library used by glib and
+	libpng. The above is just repackaged upstream
 	DLL, slightly fixed headers, and import libraries. It provides
 	<tt>zlib1.dll</tt>.</p>
 	
@@ -330,54 +323,28 @@
 
 	<h4>About freetype and fontconfig</h4>
 
-	<p>These libraries are used by cairo and by Pango, so they are
-	required. They provide an alternative font backend. In a
+	<p>These libraries are used by cairo and by Pango. They
+	provide an alternative font backend. In a
 	normal GTK+ application on Windows their functionality won't
 	actually be used, though. GIMP is an exception, GIMP's text
 	tool uses freetype and fontconfig APIs.</p>
 
-	<h4>About win_iconv</h4>
-
-	<p>win_iconv is an implementation of <a
-        href="http://www.opennc.org/onlinepubs/7908799/xsh/iconv.html">iconv</a>
-        for Windows by Yukihiro Nakadaira that has a much smaller
-	footprint than GNU libiconv. The win_iconv package above
-	includes the header file, static archive library and the
-	source file. A copy of this library is included and built into
-	GLib and thus not needed separately at run-time.</p>
-
 	<h4>About gettext-runtime</h4>
 
 	<p>The GNU internationalization library. All of the GTK+ stack
-	uses it, but currently through proxy-libintl (see below) so it
-	is actually optional at run-time.</p>
+	uses it. The DLL uses the traditional name intl.dll as it is
+	ABI compatible with older builds of GNU libintl that used that
+	DLL name.</p>
 
-	<h4>About proxy-libintl</h4>
-
-	<p>proxy-libintl is a very small static library. It acts as a
-	proxy for the <TT>intl.dll</TT> from gettext-runtime, loading
-	it dynamically, and failing gracefully. Fallback dummy
-	functions are used if <TT>intl.dll</TT> isn't found. It is a
-	static archive and used by the binaries in the GTK+ stack
-	instead of referring directly to <TT>intl.dll</TT>. This
-	enables application packagers to leave out the gettext-runtime
-	binaries if they don't need or want to support i18n, without
-	having to build own versions that don't use
-	<TT>intl.dll</TT>.</p>
-
-	<p>When building DLLs against the proxy-libintl static library
-	and using the GNU linker's auto-export feature (i.e. not using
-	a .def file, and not using __declspec(dllexport)), it is a
-	good idea to pass -Wl,--exclude-libs=libintl.a so that the
-	libintl functions don't get exported from
-	your DLL.</p>
-
+        <p>Previously the "proxy-libintl" library that
+	loads the gettext-runtime DLL dynamically was used, but now
+	the GTK+ stack is just linked normally to intl.dll.</p>
       </div> <!-- content -->
 
       <div id="footer">Copyright 2007-2010 The GTK+ Team</div>
 
     </div> <!-- container -->
-    
+
   </body>
 </html>
 
