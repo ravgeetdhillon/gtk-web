@@ -1,0 +1,567 @@
+@charset "utf-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	font-size: 100%;
+	font-style: inherit;
+	font-family: inherit;
+	font-weight: inherit;
+	vertical-align: baseline;
+}
+
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary { 
+	display: block;
+}
+
+strong, th, h1, h2, h3, h4, h5, h6, dt { font-weight: bold !important; }
+
+pre {
+	font-family: "Bistream Vera Sans Mono", "DejaVu Sans Mono", monospace;
+	margin-bottom: 16px;
+	padding: 0 8px;
+	font-size: 14px;
+	background-color: #797B76;
+	color: #FFF;
+}
+
+code {
+	font-family: monospace;
+	background-color: #EEE;
+	border: 1px solid #CCC;
+}
+
+a {
+	background-repeat: no-repeat;
+	background-position: center left;
+}
+/*a[href^="http://"],*/ a.external {
+	/* background-image: url("../images/link.png"); This is too heavy design-wise */
+	background-image: url("../images/external.png"); /* Taken from mediawiki */
+	background-position: center right;
+	padding-right: 14px; /* See the part for IE6 to change this */
+}
+/*a[href^="mailto://"],*/ a.email {
+	background-image: url("../images/mail.png");
+	padding-left: 20px; /* See the part for IE6 to change this */
+}
+/*a[href^="mailto://"],*/ a.info {
+	background-image: url("../images/info.png");
+	padding-left: 20px; /* See the part for IE6 to change this */
+}
+/*a[href^="irc://"],*/ a.irc {
+	background-image: url("../images/archives.gif");
+	padding-left: 20px; /* See the part for IE6 to change this */
+}
+/*a[href^="irc://"],*/ a.archives {
+	background-image: url("../images/archives.gif");
+	padding-left: 20px; /* See the part for IE6 to change this */
+}
+/*a[href$=".pdf"]*/ a.pdf {
+	background-image: url("../images/pdf.png");
+	background-position: center left;
+	padding: 0 0 0 20px; /* See the part for IE6 to change this */
+}
+a.download/*, a[href$=".tar.gz"], a[href$=".tar.bz2"], a[href$=".zip"]*/ {
+	background-position: center left;
+	background-image: url("../images/download.png");
+	padding: 0 0 0 20px; /* See the part for IE6 to change this */
+}
+
+a img {
+	border: none;
+}
+
+q {
+	font-style: italic;
+	color: gray;
+}
+
+p { margin-bottom: 1em; }
+h1 {
+	font-size: 2em;
+	margin-bottom: .67em;
+}
+h2 {
+	font-size: 1.5em;
+	margin-bottom: .75em;
+}
+h3 {
+	font-size: 1.17em;
+	margin-bottom: .83em;
+}
+
+a:link, a:visited, h2 {
+	color: #3F79BA /*#3465A4*/;
+	text-decoration: none;
+}
+
+a:link:hover, a:visited:hover {
+	border-bottom: 1px dotted;
+}
+
+a:focus {
+	outline-style: dotted;
+	outline-width: 1px;
+	border-bottom: none !important;
+}
+
+ul {
+	list-style-type: circle;
+}
+
+table {
+	margin-bottom: 32px;
+	border-collapse: collapse;
+	border: 0;
+	margin-top: 8px;
+}
+
+table th {
+	background-color: #FFF;
+	border-bottom: 1px solid #999;
+	text-align: left;
+}
+
+table td, table th {
+	padding-right: 16px;
+	text-align: left;
+	height: auto;
+}
+
+table tr.odd {
+	background: #e4e4e1;
+}
+
+dt {
+	display: inline;
+}
+
+dd {
+	margin-bottom: 16px;
+}
+
+html, body {
+	text-align: center;
+	font-family: "Bitstream Vera Sans", "DejaVu Sans", Charcoal, "Lucida Sans Unicode", "Lucida Sans", "Lucida Grande", Calibri, Helvetica, Arial, sans-serif;
+	font-size: 100%;
+}
+
+html {
+	background-color: #EEE/*#D0D0CB*/;
+	background-image: url("../images/gtkbg.png");
+	background-repeat: no-repeat;
+	background-position: 2% -15px;
+}
+
+#container {
+	width: 900px;
+	margin: 0 auto;
+	font-size: 16px;
+}
+
+#globalnav_wrap {
+	display: block;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: right;
+	background-color: #EEE;
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+}
+#globalnav {
+	border: 1px solid #FFF;
+}
+#globalnav span {
+	display: block;
+	float: left;
+	background-image: url(../images/logo-icon.png);
+	background-repeat: no-repeat;
+	background-position: 8px center;
+	padding-left: 32px !important;
+}
+#globalnav span, #globalnav li a {
+	padding: 8px;
+}
+#globalnav li {
+	display: inline-block;
+}
+#globalnav li:hover {
+	background-color: #FFF;
+}
+#globalnav li a {
+	display: block;
+}
+#globalnav li a:hover {
+	border-bottom: none;
+}
+
+#header {
+	background: url("../images/header-logo.png") no-repeat center top;
+	margin-top: 8px;
+	height: 100px;
+}
+
+body.gtkdoc #header {
+	background-image: url("../images/header-logo-gtk-doc.png");
+}
+
+#header h1 {
+	position: absolute;
+	left: -999px;
+	width: 990px;
+}
+
+#navigation {
+	background-color: #000;
+	padding: 8px 0;	/* line-height */
+}
+
+#navigation ul {
+	list-style: none;
+}
+
+#navigation li {
+	display: inline;
+	margin: 0 8px;
+}
+
+#navigation a, #footer a {
+	color: #FFF;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+#navigation li.current a {
+	font-weight: bold;
+	border-bottom: 1px dotted;
+}
+
+#content {
+	background-color: #FFF;
+	text-align: left;
+	line-height: 1.5em;
+	padding: 20px;
+	position: relative;
+}
+
+#content ul {
+	margin-bottom: 16px;
+}
+
+#content li {
+	margin-left: 24px;
+}
+
+/* Columns */
+.columns {
+	overflow: auto;
+	margin-bottom: 16px;
+}
+
+.left {
+	float: left;
+	width: 420px;
+}
+
+.right {
+	margin-left: 440px;
+}
+
+/* End columns */
+
+.news-item {
+	border-left: 2px solid #CCC;
+	padding-left: 16px;
+	margin-bottom: 32px;
+}
+
+.news-item .header {
+	margin-left: -18px;
+	background-color: #FFF;
+	padding-bottom: 8px;
+	margin-bottom: 0;
+}
+
+.news-title {
+	margin-bottom: 0;
+}
+.news-date {
+	color: #666;
+	font-style: italic;
+}
+
+.sidebar {
+	background-color: #EEE;
+	float: right;
+	width: 300px;
+	padding: 16px;
+	margin: 0 0 16px 16px;
+}
+
+.sidebar h2, .sidebar h3 {
+	font-size: 1.25em;
+	margin-bottom: 0.25em;
+}
+
+.notasidebar {
+	width: 490px; /* try 490 later */
+}
+
+#footer {
+	background-color: #000;
+	clear: both;
+	color: #FFF;
+	margin-bottom: 8px;
+	padding: 12px;
+	font-size: 12px;
+}
+
+/** Features page (it's nice to only have a single css file, since it cuts down on HTTP requests **/
+
+.bubble {
+	background-color: #EEE;
+	padding: 16px;
+	padding-bottom: 1px; /* WOW I FOUND A BUG IN WEBKIT in CHROME! EDIT: oh wait, it's also a bug in gecko. wow grandma what weird css spec you have */
+	margin-bottom: 20px;
+}
+
+/** Download page **/
+.platform_list {
+	line-height: 1em;
+}
+.platform_list li {
+	margin-left: 16px !important;
+	margin-bottom: 8px;
+	padding: 10px 0 0 42px;
+	height: 26px;
+	list-style: none;
+	background-repeat: no-repeat;
+}
+.platform_list .linux { background-image: url(../images/os-linux.png); }
+.platform_list .windows { background-image: url(../images/os-windows.png); }
+.platform_list .macos { background-image: url(../images/os-macos.png); }
+
+/** Screenshot pages **/
+.caption {
+	font-weight: bold;
+	text-align: center;
+}
+.gallery {
+	text-align: center;
+}
+.gallery ul {
+	margin: 0 auto !important;
+	width: 658px;
+}
+.gallery li {
+	width: 200px;
+	min-height: 175px;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 0 !important;
+	margin-right: 16px;
+	margin-bottom: 16px;
+}
+a.image {
+	display: block;
+}
+a.image:hover {
+	border-bottom: none;
+}
+.gallery a img {
+	border: 2px solid #DDD;
+}
+.gallery a:hover img {
+	border-color: #3465A4;
+}
+.gallery a:hover { border-bottom: none; }
+.gallery figcaption a:hover { border-bottom: 1px dotted; }
+
+.gallery .caption {
+	font-weight: normal;
+}
+
+/** Overview page **/
+.diagram {
+	margin-bottom: 1em;
+}
+.librarieslist li {
+	list-style: none;
+	padding-left: 72px;
+	margin-left: 16px !important;
+	background-repeat: no-repeat;
+	background-position: 0 8px;
+	margin-bottom: 16px;
+	padding-right: 32px;
+}
+.librarieslist .glib { background-image: url(../images/glib.png); }
+.librarieslist .pango { background-image: url(../images/pango.png); }
+.librarieslist .cairo { background-image: url(../images/cairo.png); }
+.librarieslist .atk { background-image: url(../images/atk.png); }
+
+/** Language bindings **/
+.bindingtable {
+	margin-left: 24px;
+}
+.bindingtable, .legend {
+	float: left;
+}
+.legend { margin-left: 32px; margin-bottom: 32px; }
+.legend li { list-style: none; margin: 0 !important; }
+.legend ul { margin: 0 !important; }
+.footnote {
+	clear: both;
+}
+
+.newsfeed {
+	font-size: 0.875em;
+	list-style: none;
+}
+.newsfeed li {
+	margin: 0 !important;
+	padding: 8px 4px;
+}
+.newsfeed .time {
+	font-size: 0.857em;
+	color: #AAA;
+	overflow: hidden;
+}
+.newsfeed .date {
+	float: left;
+}
+.newsfeed .relt {
+	float: right;
+}
+.newsfeed li:hover, .newsfeed li.hover {
+	background-color: #FAFAFA;
+}
+.newsfeed li:hover .date, .newsfeed li.hover .date {
+	color: #000;
+	text-decoration: underline;
+}
+.newsfeed_buttons {
+	text-align: right;
+	font-size: 0.75em;
+	color: #AAA;
+	line-height: 1.25em;
+}
+
+.success, .failure, .warning, div.info {
+	margin: 16px 0;
+	padding: 8px;
+}
+.success {
+	border: 1px solid #3465A4;
+	background-color: #7C9FCC;
+}
+.failure, .warning {
+	border: 1px solid #AA0000;
+	background-color: #FFAAAA;
+}
+div.info {
+	border: 1px solid #CCC;
+	background-color: #EEE;
+}
+
+.subnavigation {
+	background-color: #EEE;
+	margin-bottom: 16px;
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	width: 100%;
+	overflow: hidden;
+}
+.subnavigation .title {
+	border-right: 1px solid #CCC;
+	float: left;
+}
+.subnavigation .title span {
+	display: block;
+	border-right: 1px solid #FFF;
+	border-bottom: 1px solid #FFF;
+	padding: 8px;
+}
+.subnavigation ul {
+	margin-bottom: 0 !important;
+	list-style: none;
+	border-top: 1px solid #FFF;
+}
+.subnavigation li {
+	float: left;
+	margin: 0 !important;
+}
+.subnavigation li.current {
+	background-color: #FFF;
+}
+.subnavigation li a {
+	display: block;
+	padding: 8px;
+}
+.subnavigation li a:hover {
+	border-bottom: none;
+}
+.subnavigation li a:active {
+	position: relative;
+	top: 2px;
+	outline: none;
+}
+
+@media print {
+
+	html, body {
+		background-color: #FFF;
+	}
+
+	#header {
+		background-image: none;
+		height: auto;
+	}
+
+	#header h1 {
+		position: static;
+	}
+
+	#navigation {
+		display: none;
+	}
+
+	#container {
+		width: 100%;
+		text-align: left;
+	}
+	#content {
+		background-color: transparent;
+		padding: 0;
+		width: 100%;
+	}
+
+	.sidebar, .bubble {
+		background-color: transparent;
+		padding: 0;
+	}
+
+	.left {
+		width: 50%;
+	}
+	.right {
+		margin-left: 50%;
+		padding-left: 1em;
+	}
+
+	#footer {
+		background-color: transparent;
+		color: inherit;
+		padding: 0;
+		text-align: center;
+	}
+
+	:link, :visited {
+		background-image: none !important;
+		padding: 0 !important;
+		color: inherit !important;
+		text-decoration: underline !important;
+	}
+}

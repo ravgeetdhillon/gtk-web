@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1100" height="400"><!-- 1100x400 -->
+	<desc>Created by Devin Samarin (eboyjr) with help from Rapha&#xEB;l</desc>
+	<defs>
+		<linearGradient id="gtk-grey" x1="0" y1="1" x2="6.123031769111886e-17" y2="0">
+			<stop offset="0%" stop-color="#aaaaaa"/>
+			<stop offset="100%" stop-color="#dddddd"/>
+		</linearGradient>
+		<linearGradient id="gtk-blue" x1="0" y1="1" x2="6.123031769111886e-17" y2="0">
+			<stop offset="0%" stop-color="#729fcf"/>
+			<stop offset="100%" stop-color="#b0d6ff"/>
+		</linearGradient>
+		<linearGradient id="gtk-green" x1="0" y1="1" x2="6.123031769111886e-17" y2="0">
+			<stop offset="0%" stop-color="#7fe719"/>
+			<stop offset="100%" stop-color="#beff7e"/>
+		</linearGradient>
+		<linearGradient id="gtk-red" x1="0" y1="1" x2="6.123031769111886e-17" y2="0">
+			<stop offset="0%" stop-color="#e40000"/>
+			<stop offset="100%" stop-color="#ff3f3f"/>
+		</linearGradient>
+	</defs>
+	<g id="yourapp">
+		<path fill="url(#gtk-blue)" stroke="none" d="M5,5L1095,5L1095,295L1005,295L1005,195L905,195L905,95L195,95L195,195L95,195L95,295L5,295Z" style="opacity: 1; fill-opacity: 1; " opacity="1" fill-opacity="1"/>
+		<text x="550" y="62" text-anchor="middle" style="text-anchor: middle; font: normal normal normal 10px/normal Arial; font-size: 36px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', sans-serif; " font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="36px" font-family="&quot;DejaVu Sans&quot;, &quot;Bitstream Vera Sans&quot;, sans-serif">
+			<tspan>Your GTK+ Application</tspan>
+		</text>
+	</g>
+	<g id="gtk">
+		<path fill="url(#gtk-red)" stroke="none" d="M200,100L900,100L900,195L800,195L800,295L700,295L700,195L400,195L400,295L300,295L300,195L200,195Z" style="opacity: 1; fill-opacity: 1; " opacity="1" fill-opacity="1"/>
+		<text x="550" y="159.5" text-anchor="middle" style="text-anchor: middle; font: normal normal normal 10px/normal Arial; font-size: 36px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', sans-serif; " font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="36px" font-family="&quot;DejaVu Sans&quot;, &quot;Bitstream Vera Sans&quot;, sans-serif">
+			<tspan>GTK+</tspan>
+		</text>
+	</g>
+	<g id="pango">
+		<path fill="url(#gtk-green)" stroke="none" d="M100,200L295,200L295,295L100,295Z" style="opacity: 1; fill-opacity: 1; " opacity="1" fill-opacity="1"/>
+		<text x="197.5" y="259.5" text-anchor="middle" style="text-anchor: middle; font: normal normal normal 10px/normal Arial; font-size: 36px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', sans-serif; " font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="36px" font-family="&quot;DejaVu Sans&quot;, &quot;Bitstream Vera Sans&quot;, sans-serif">
+			<tspan>Pango</tspan>
+		</text>
+	</g>
+	<g id="gdk">
+		<path fill="url(#gtk-green)" stroke="none" d="M405,200L595,200L595,295L405,295Z" style="opacity: 1; fill-opacity: 1; " opacity="1" fill-opacity="1"/>
+		<text x="497.5" y="259.5" text-anchor="middle" style="text-anchor: middle; font: normal normal normal 10px/normal Arial; font-size: 36px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', sans-serif; " font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="36px" font-family="&quot;DejaVu Sans&quot;, &quot;Bitstream Vera Sans&quot;, sans-serif">
+			<tspan>GDK</tspan>
+		</text>
+	</g>
+	<g id="atk">
+		<path fill="url(#gtk-green)" stroke="none" d="M600,200L695,200L695,295L600,295Z" style="opacity: 1; fill-opacity: 1; " opacity="1" fill-opacity="1"/>
+		<text x="647.5" y="259.5" text-anchor="middle" style="text-anchor: middle; font: normal normal normal 10px/normal Arial; font-size: 36px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', sans-serif; " font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="36px" font-family="&quot;DejaVu Sans&quot;, &quot;Bitstream Vera Sans&quot;, sans-serif">
+			<tspan>ATK</tspan>
+		</text>
+	</g>
+	<g id="gio">
+		<path fill="url(#gtk-green)" stroke="none" d="M805,200L1000,200L1000,295L805,295Z" style="opacity: 1; fill-opacity: 1; " opacity="1" fill-opacity="1"/>
+		<text x="900" y="259.5" text-anchor="middle" style="text-anchor: middle; font: normal normal normal 10px/normal Arial; font-size: 36px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', sans-serif; " font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="36px" font-family="&quot;DejaVu Sans&quot;, &quot;Bitstream Vera Sans&quot;, sans-serif">
+			<tspan>GIO</tspan>
+		</text>
+	</g>
+	<g id="cairo">
+		<path fill="url(#gtk-grey)" stroke="none" d="M5,300L495,300L495,395L5,395Z" style="opacity: 1; fill-opacity: 1; " opacity="1" fill-opacity="1"/>
+		<text x="250" y="359.5" text-anchor="middle" style="text-anchor: middle; font: normal normal normal 10px/normal Arial; font-size: 36px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', sans-serif; " font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="36px" font-family="&quot;DejaVu Sans&quot;, &quot;Bitstream Vera Sans&quot;, sans-serif">
+			<tspan>Cairo</tspan>
+		</text>
+	</g>
+	<g id="glib">
+		<path fill="url(#gtk-grey)" stroke="none" d="M500,300L1095,300L1095,395L500,395Z" style="opacity: 1; fill-opacity: 1; " opacity="1" fill-opacity="1"/>
+		<text x="795" y="359.5" text-anchor="middle" style="text-anchor: middle; font: normal normal normal 10px/normal Arial; font-size: 36px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', sans-serif; " font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="36px" font-family="&quot;DejaVu Sans&quot;, &quot;Bitstream Vera Sans&quot;, sans-serif">
+			<tspan>GLib</tspan>
+		</text>
+	</g>
+</svg>
