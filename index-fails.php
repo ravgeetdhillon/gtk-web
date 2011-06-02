@@ -7,6 +7,7 @@ ob_start();
 <div class="sidebar" id="NewsFeed">
 
 	<h2>News Feed</h2>
+<!-- test 0 -->
 	<ul class="newsfeed"><?php
 echo '<!-- test 1 -->';
 $newsfeed = new GTKNewsFeedLoader(IDENTICA);
