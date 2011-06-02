@@ -7,7 +7,7 @@ ob_start();
 <div class="columns">
 
 	<div class="left">
-		<h2 id="StableRelease">Stable release</h2>
+		<h2 id="StableRelease">Stable releases</h2>
 		<p>GTK+ is available on:</p>
 		<ul class="platform_list">
 			<li class="linux"><a href="linux.php">GNU/Linux and Unix</a></li>
@@ -17,7 +17,7 @@ ob_start();
 	</div>
 
 	<div class="right">
-		<h2 id="UnstableRelease">Unstable release</h2>
+		<h2 id="UnstableRelease">Unstable releases</h2>
 		<p>The latest unstable tarballs can be downloaded with <a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/" class="external">HTTP</a> or <a href="ftp://ftp.gtk.org/pub/gtk/" class="external">FTP</a>.</p>
 	</div>
 
