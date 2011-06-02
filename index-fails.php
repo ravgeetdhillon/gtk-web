@@ -8,14 +8,18 @@ ob_start();
 
 	<h2>News Feed</h2>
 	<ul class="newsfeed"><?php
-
-// To use Twitter, replace IDENTICA with TWITTER
+echo '<!-- test 1 -->';
 $newsfeed = new GTKNewsFeedLoader(IDENTICA);
+echo '<!-- test 2 -->';
 $newsfeed->usecaching = false;
+echo '<!-- test 3 -->';
 $items = $newsfeed->load( array( 'count' => 6 ) );
+echo '<!-- test 4 -->';
 
 $first = true;
+echo '<!-- test 5 -->';
 if( $newsfeed->iscached ) echo '<!-- This content is cached -->';
+echo '<!-- test 6 -->'
 
 foreach( $items as $item ) {
 ?> 
