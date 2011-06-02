@@ -295,7 +295,7 @@ pre {
 		<span>Valid <a href="http://validator.w3.org/check?uri=http://<?php echo htmlentities("curlybeast.net:8080".$_SERVER['REQUEST_URI']); ?>&amp;charset=utf-8&amp;doctype=Inline&amp;group=0">XHTML</a> and <a href="http://jigsaw.w3.org/css-validator/validator?uri=<?php echo htmlentities("curlybeast.net:8080"); ?>/css/global.css&amp;profile=css21&amp;usermedium=all&amp;warning=1&amp;lang=en">CSS</a></span>
 <?php if( !isset($nofeedback) ) { ?>
 <?php } ?>
-		| <span>Add ?red to the url to use red headers</span><?php } ?>
+<?php } ?>
 	</div>
 
 </div>
