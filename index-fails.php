@@ -6,8 +6,6 @@ $nav = "about";
  * By Devin Samarin <eboyjr14@gmail.com>
  ***************************************/
 
-echo '<!-- test 0a -->';
-
 define("TWITTER", 1);
 define("IDENTICA", 2);
 
@@ -147,12 +145,7 @@ class GTKNewsFeedLoader {
 	}
 }
 
-echo '<!-- test 0b -->';
-
 ob_start();
-
-echo '<!-- test 0c -->';
-
 ?>
 
 <div class="sidebar" id="NewsFeed">
@@ -161,18 +154,12 @@ echo '<!-- test 0c -->';
 	<ul class="newsfeed">
 <?php
 
-echo '<!-- test 1 -->';
 $newsfeed = new GTKNewsFeedLoader(IDENTICA);
-echo '<!-- test 2 -->';
 $newsfeed->usecaching = false;
-echo '<!-- test 3 -->';
 $items = $newsfeed->load( array( 'count' => 6 ) );
-echo '<!-- test 4 -->';
 
 $first = true;
-echo '<!-- test 5 -->';
 if( $newsfeed->iscached ) echo '<!-- This content is cached -->';
-echo '<!-- test 6 -->'
 
 foreach( $items as $item ) {
 ?> 
