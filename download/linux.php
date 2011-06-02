@@ -14,7 +14,7 @@ $versions = array(
 $oldgtk = array( '2.20', '2.18', '2.16', '2.14', '2.12', '2.10', '2.8', '2.6', '2.4', '1.2' );
 
 ?>
-<h2><a name="Download">Download GTK+ for Linux/Unix</a></h2>
+<h2><a name="Download">Download for GNU/Linux and Unix</a></h2>
 <h3><a name="Requirements">Requirements</a></h3>
 <p>You will need to get the GLib, Pango and GTK+ packages to build GTK+.<br/>You may also need some of the external dependencies that are also linked for each version listed
 below.</p>

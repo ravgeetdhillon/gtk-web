@@ -3,7 +3,7 @@ $nav = "download";
 $title = "GTK+ Download: Windows (32-bit)";
 ob_start();
 ?>
-<h2><a name="Download">Download GTK+ for Windows (32-bit)</a></h2>
+<h2><a name="Download">Download for Windows (32-bit)</a></h2>
 
 <h3><a name="Requirements">Requirements</a></h3>
  

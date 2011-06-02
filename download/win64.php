@@ -4,7 +4,7 @@ $title = "GTK+ Download: Windows (64-bit)";
 ob_start();
 ?>
 
-<h2><a name="Download">Download GTK+ for Windows (64-bit)</a></h2>
+<h2><a name="Download">Download for Windows (64-bit)</a></h2>
 
 <div class="warning"><span>Note that these 64-bit packages are experimental. Binary compatibility between versions is not guaranteed.</span></div>
 
