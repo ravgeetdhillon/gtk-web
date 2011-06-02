@@ -146,7 +146,7 @@ ob_start();
 		<a href="http://o-hand.com/~ebassi/2006-guadec-recent-files/recent-files.pdf" class="pdf">Recent Files and Bookmarks</a>
 		<br />Presentation by Emmanuele Bassi at GUADEC 2006.
 	</li>
-	<li><a href="http://developer.imendio.com/sites/developer.imendio.com/files/Mitch-GModule.pdf" class="pdf">Creating a plug-in system using GTypeModule</a><br />
+	<li><a href="http://www.lanedo.com/~mitch/module-system-talk-guadec-2006/Module-System-Talk-Guadec-2006.pdf" class="pdf">Creating a plug-in system using GTypeModule</a> and example <a href="http://www.lanedo.com/~mitch/module-system-talk-guadec-2006/foo-editor-0.2.tar.bz2">foo-editor.tar.bz2</a><br />
 Presentation by Michael Natterer at GUADEC 2006.</li>
 </ul>
 
