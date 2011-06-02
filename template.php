@@ -292,7 +292,7 @@ pre {
 	<div id="footer">
 		<pre style="display: none;"><!-- For Lynx --></pre>
 		<span>Copyright &copy; 2007-2011 The GTK+ Team</span><?php if (!isset($_GET['production'])) { ?> |
-		<span>Valid <a href="http://validator.w3.org/check?uri=http://<?php echo htmlentities("curlybeast.net:8080".$_SERVER['REQUEST_URI']); ?>&amp;charset=utf-8&amp;doctype=Inline&amp;group=0">XHTML</a> and <a href="http://jigsaw.w3.org/css-validator/validator?uri=<?php echo htmlentities("curlybeast.net:8080"); ?>/css/global.css&amp;profile=css21&amp;usermedium=all&amp;warning=1&amp;lang=en">CSS</a></span>
+		<span>Valid <a href="http://validator.w3.org/check?uri=http://<?php echo htmlentities("gtk.org".$_SERVER['REQUEST_URI']); ?>&amp;charset=utf-8&amp;doctype=Inline&amp;group=0">XHTML</a> and <a href="http://jigsaw.w3.org/css-validator/validator?uri=<?php echo htmlentities("gtk.org"); ?>/css/global.css&amp;profile=css21&amp;usermedium=all&amp;warning=1&amp;lang=en">CSS</a></span>
 <?php if( !isset($nofeedback) ) { ?>
 <?php } ?>
 <?php } ?>
