@@ -42,14 +42,17 @@ ob_start();
 // How about we have PHP automatically generate odd rows for us?
 $maintainers = array(
 	  /* ("Name",                    "Affiliation"), */
-	array("Tim Janik",               "Lanedo GmbH"),
 	array("Matthias Clasen",         "Red Hat"),
+	array("Tim Janik",               "Lanedo GmbH"),
 	array("Behdad Esfahbod",         "Red Hat"),
+	array("Benjamin Otte",           "Red Hat"),
 	array("Federico Mena Quintero",  "Novell"),
 	array("Alexander Larsson",       "Red Hat"),
 	array("Tor Lillqvist",           "Novell"),
+	array("Carlos Garnacho",         "Lanedo GmbH"),
 	array("Kristian Rietveld",       "Lanedo GmbH"),
 	array("Michael Natterer",        "Lanedo GmbH"),
+	array("Ryan Lortie",             "Codethink Ltd"),
 	array("Emmanuele Bassi",         "Intel Open Source Technology Center")
 );
 ?>
