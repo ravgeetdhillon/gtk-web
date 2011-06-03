@@ -7,7 +7,9 @@ ob_start();
 $versions = array(
 	'gtk' => '3.0',
 	'glib' => '2.28',
-	'pango' => '1.28'
+	'pango' => '1.28',
+	'gdk-pixbuf' => '2.22',
+	'atk' => '1.30'
 );
 
 // Versions of GTK+ that are older, but still included on the page in the "Older Versions" section
@@ -16,8 +18,7 @@ $oldgtk = array( '3.0', '2.24', '2.20', '2.18', '2.16', '2.14', '2.12', '2.10', 
 ?>
 <h2><a name="Download">Download for GNU/Linux and Unix</a></h2>
 <h3><a name="Requirements">Requirements</a></h3>
-<p>You will need to get the GLib, Pango and GTK+ packages to build GTK+.<br/>You may also need some of the external dependencies that are also linked for each version listed
-below.</p>
+<p>You will need to get the GLib, Pango, Gdk-Pixbuf, ATK and GTK+ packages to build GTK+.<br/>You may also need some of the external dependencies that are also linked for each version listed below.</p>
 
 <h3><a name="StableRelease">Stable Release</a></h3>
 <p>To build GTK+ <?php echo $versions['gtk']; ?> you may find the installation guide helpful. For additional help, the <a href="http://library.gnome.org/devel/gtk-faq/stable/" class="external">FAQ</a> is a good starting point.</p>
@@ -26,6 +27,8 @@ below.</p>
 	<li><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/<?php echo $versions['gtk']; ?>/" class="download">GTK+ <?php echo $versions['gtk']; ?></a></li>
 	<li><a href="http://ftp.gnome.org/pub/gnome/sources/glib/<?php echo $versions['glib']; ?>/" class="download">GLib <?php echo $versions['glib']; ?></a></li>
 	<li><a href="http://ftp.gnome.org/pub/gnome/sources/pango/<?php echo $versions['pango']; ?>/" class="download">Pango <?php echo $versions['pango']; ?></a></li>
+	<li><a href="http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/<?php echo $versions['gdk-pixbuf']; ?>/" class="download">Gdk-Pixbuf <?php echo $versions['gdk-pixbuf']; ?></a></li>
+	<li><a href="http://ftp.gnome.org/pub/gnome/sources/atk/<?php echo $versions['atk']; ?>/" class="download">ATK <?php echo $versions['atk']; ?></a></li>
 </ul>
 <!--
 <ul>
