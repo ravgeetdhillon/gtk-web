@@ -32,10 +32,10 @@ below.</p>
 <li><a href="ftp://ftp.gtk.org/pub/gtk/v<?php echo $versions['gtk']; ?>/dependencies"><img src="images/download.png" alt=""/> Dependencies</a></li>
 </ul>
 -->
-<p>For details on installing GTK+, see the <a href="http://library.gnome.org/devel/gtk/stable/gtk-building.html" class="external">installation guide</a>.</p>
+<p>For details on installing GTK+, see the <a href="http://library.gnome.org/devel/gtk3/stable/gtk-building.html" class="external">installation guide</a>.</p>
 
 <h3><a name="OlderVersions">Older Versions</a></h3>
-<p>Some applications still require GTK+ 1.2, an older stable version of GTK+. You can have the run-time and development environments for both GTK+ 2.x and GTK+ 1.2 installed simultaneously on your computer.</p>
+<p>Some applications still require GTK+ 2, an older stable version of GTK+. You can have the run-time and development environments for GTK+ 3.x, GTK+ 2.x and GTK+ 1.2 installed simultaneously on your computer.</p>
 <table>
 	<tr>
 		<th>Version</th>
