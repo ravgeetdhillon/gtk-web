@@ -97,7 +97,7 @@ $bindings = array(
 		)
 	),
 
-	"Javascipt" => array(
+	"Javascript" => array(
 		'official' => true,
 		'url' => 'http://live.gnome.org/JavaScript',
 		'support' => array(
