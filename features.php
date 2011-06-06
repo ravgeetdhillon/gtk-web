@@ -63,7 +63,7 @@ ob_start();
 			<li>Native look and feel</li>
 			<li>Theme support</li>
 			<li>Thread safety</li>
-			<li>Object orientated approach</li>
+			<li>Object oriented approach</li>
 			<li>Internationalization</li>
 			<li>Localization</li>
 			<li>Accessibility</li>
