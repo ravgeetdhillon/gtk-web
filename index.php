@@ -5,6 +5,29 @@ ob_start();
 ?>
 
 <div class="sidebar" id="NewsFeed">
+	<ul class="newsfeed">
+<?php
+
+$newsfeed = new GTKNewsFeedLoader(IDENTICA);
+$newsfeed->usecaching = true;
+$items = $newsfeed->load( array( 'count' => 6 ) );
+
+$first = true;
+if( $newsfeed->iscached ) echo '<!-- This content is cached -->';
+
+foreach( $items as $item ) {
+?> 
+		<li<?php if($first) echo ' class="first"'; ?>>
+			<div class="time">
+				<span class="date"><?php echo date("F j, Y", $item['date']); ?></span>
+				<span class="relt"><?php echo $newsfeed->reltime($item['date']); ?></span>
+			</div>
+			<span class="text"><?php echo $item['html']; ?></span>
+		</li>
+<?php
+$first = false;
+} ?>
+	</ul>
 	<div class="newsfeed_buttons">
 		<div>Follow the GTK+ project on:</div>
 		<span>

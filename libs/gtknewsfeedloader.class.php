@@ -144,4 +144,17 @@ class GTKNewsFeedLoader {
 	}
 }
 
+
+/* Fix for older versions of PHP if json_decode is not available on the system. */
+/* This is painfully slow, so use ot caching is recommended (or upgrading to a
+/* recent PHP version which supports json_decode natively. */
+if (!function_exists('json_decode')) {
+	function json_decode($input, $assoc = false) {
+		require_once('JSON.php');
+		$json = new Services_JSON($assoc ? SERVICES_JSON_LOOSE_TYPE : 0);
+		$obj = $json->decode($input);
+		return $obj;
+	}
+}
+
 ?>
