@@ -10,7 +10,7 @@ ob_start();
 
 <h3><a name="Requirements">Requirements</a></h3>
 <h4>Packages</h4>
-<p>You will need to get the GLib, Cairo, Pango, ATK, and GTK+ developer packages to build against GTK+. To run GTK+ programs you will also need the libpng and zlib packagages, and if your code uses gettext for internationalisation and/or you want GTK+ internalisation, the gettext package.</p>
+<p>You will need to get the GLib, Cairo, Pango, ATK, and GTK+ developer packages to build against GTK+. To run GTK+ programs you will also need the libpng and zlib packages, and if your code uses gettext for internationalization and/or you want GTK+ internationalization, the gettext package.</p>
 
 <p>The packages here are for people who develop software that uses GTK+. This page is not intended directly for end-users. It is expected that people who build installers for GTK+ applications for Windows bundle GTK+ with them.</p>
 
