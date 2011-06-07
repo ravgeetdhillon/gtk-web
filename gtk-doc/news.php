@@ -10,6 +10,54 @@ require 'gtkdoc.config.php';
 
 <div class="news-item">
 	<div class="header">
+		<h3 class="news-title">GTK-Doc 1.17</h3>
+		<span class="news-date">Released Feb 26, 2011</span>
+	</div>
+        <ul>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=127049" class="external">Bug 127049</a>: building reference documentation fails when builddir != srcdir</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=640241" class="external">Bug 640241</a>: non-srcdir builds busted</li>
+        </ul>
+</div>
+
+
+<div class="news-item">
+	<div class="header">
+		<h3 class="news-title">GTK-Doc 1.16</h3>
+		<span class="news-date">Released Jan 14, 2011</span>
+	</div>
+        <ul>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=625776" class="external">Bug 625776</a>: serialise doubles and floats always with a decimal dot</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=627269" class="external">Bug 627269</a>: link to signalflags docs from signal descriptions</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=467488" class="external">Bug 467488</a>: GTK+ man pages request</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=481811" class="external">Bug 481811</a>: Inline function bodies are confused with declarations</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=501107" class="external">Bug 501107</a>: EXTRA_DIST automake warnings</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=512565" class="external">Bug 512565</a>: add GTK_DOC_IGNORE</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=518427" class="external">Bug 518427</a>: documentation best pratices needed</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=597937" class="external">Bug 597937</a>: Function pointers as parameters to other functions are parsed improperly</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=612028" class="external">Bug 612028</a>: gtkdoc-fixxref should call /usr/bin/vim -n -e -u NONE -T xterm</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=617478" class="external">Bug 617478</a>: Tooltip is a nuisance</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=618379" class="external">Bug 618379</a>: Navigation is hiding anchors title</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=620249" class="external">Bug 620249</a>: invalid xml for object_index with (n_objects % 3) == 0</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=621931" class="external">Bug 621931</a>: support GType and GVariant types</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=622971" class="external">Bug 622971</a>: List of typos in the GTK-doc manual</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=623777" class="external">Bug 623777</a>: G_TYPE_STRV in signals generate wrong docs</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=623968" class="external">Bug 623968</a>: gtkdoc-mkdb generates invalid xml from sgml in inline comments</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=624199" class="external">Bug 624199</a>: parser picks up contents of large macros</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=624200" class="external">Bug 624200</a>: 'const' confuses the parser</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=627223" class="external">Bug 627223</a>: gtkdoc-fixxref vim highlight fails on xhtml suffix</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=627920" class="external">Bug 627920</a>: `make check` rule to list xml files missing from DOC_MAIN_SGML_FILE</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=628611" class="external">Bug 628611</a>: gtk-doc &gt; = 1.13 creates automagic dependencies on syntax highlighters</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=628794" class="external">Bug 628794</a>: Issue in gtkdoc-mkman.in</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=630288" class="external">Bug 630288</a>: Fix 'scope notified' annotation</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=631336" class="external">Bug 631336</a>: remove lists of gtk+ signal args in gtkdoc-scanobj and -scangobj</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=632587" class="external">Bug 632587</a>: gtkdoc-scanner fails to identify (closure) annotation</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=638330" class="external">Bug 638330</a>: const in parameter list is ignored</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=638831" class="external">Bug 638831</a>: Support GTK+ 3 cell properties</li>
+        </ul>
+</div>
+
+<div class="news-item">
+	<div class="header">
 		<h3 class="news-title">GTK-Doc 1.15</h3>
 		<span class="news-date">Released May 21, 2010</span>
 	</div>
