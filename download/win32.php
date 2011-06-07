@@ -9,7 +9,7 @@ ob_start();
  
 <h4>Packages</h4>
  
-<p>You will need the GLib, cairo, Pango, ATK, gdk-pixbuf and GTK+ developer packages to build software against GTK+. To run GTK+ programs you will also need the gettext-runtime, fontconfig, freetype, expat, libpng and zlib packagages.</p>
+<p>You will need the GLib, cairo, Pango, ATK, gdk-pixbuf and GTK+ developer packages to build software against GTK+. To run GTK+ programs you will also need the gettext-runtime, fontconfig, freetype, expat, libpng and zlib packages.</p>
 
 <p>The packages here are for people who develop software that uses GTK+. This page is not intended directly for end-users. It is expected that people who build installers for GTK+ applications for Windows bundle GTK+ with them.</p>
  
@@ -21,7 +21,7 @@ ob_start();
  
 <p>The most natural toolchain to use together with these packages would probably be the GNU compiler and other utilities. When targeting Windows, that combination is known as <a href="http://www.mingw.org">MinGW</a>. Using Cygwin tools to build non-Cygwin Windows binaries is not recommended unless you are very careful and look out for mixups.</p>
  
-<p>It is possible to use these packages also with Microsoft's compiler. However, the DLLs here use the <code>msvcrt.dll</code> run-time library. This means that also applications that use the DLLs should preferrably use the <code>msvcrt.dll</code>  run-time. Specifically, this means that you should not use newer versions of the Microsoft compiler than Visual C++ 6 without knowing exactly what you are doing.</p>
+<p>It is possible to use these packages also with Microsoft's compiler. However, the DLLs here use the <code>msvcrt.dll</code> run-time library. This means that also applications that use the DLLs should preferably use the <code>msvcrt.dll</code> run-time. Specifically, this means that you should not use newer versions of the Microsoft compiler than Visual C++ 6 without knowing exactly what you are doing.</p>
 
 <h4>Which Windows versions?</h4>
 <p>The current GTK+ stack uses APIs that are available only on Windows 2000 or later. Long obsolete versions of GTK+ did run on Win9x and NT 4, too.</p>
