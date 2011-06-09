@@ -54,10 +54,10 @@ ob_start();
 	</tr>
 	<tr class="even">
 		<td>GTK+</td>
-		<td>2.20.0 (current maintained branch)</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/gtk+/2.20/gtk+_2.20.0-1_win64.zip" class="download">Binaries</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/gtk+/2.20/gtk+-dev_2.20.0-1_win64.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.20/gtk+-2.20.0.tar.bz2" class="download">Sources</a></td>
+		<td>2.22.1 (current maintained branch)</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/gtk+/2.22/gtk+_2.22.1-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/gtk+/2.22/gtk+-dev_2.22.1-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.22/gtk+-2.22.1.tar.bz2" class="download">Sources</a></td>
 	</tr>
 	<tr class="odd">
 		<td>Pango</td>
