@@ -69,9 +69,9 @@ ob_start();
 	<tr class="even">
 		<td>ATK</td>
 		<td>1.32.0</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/atk/1.30/atk_1.32.0-1_win64.zip" class="download">Binaries</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/atk/1.30/atk-dev_1.32.0-1_win64.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/sources/atk/1.30/atk-1.32.0.tar.bz2" class="download">Sources</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/atk/1.32/atk_1.32.0-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/atk/1.32/atk-dev_1.32.0-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/atk/1.32/atk-1.32.0.tar.bz2" class="download">Sources</a></td>
 	</tr>
 	<tr class="odd">
 		<td>cairo</td>
