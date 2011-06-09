@@ -61,10 +61,10 @@ ob_start();
 	</tr>
 	<tr class="odd">
 		<td>Pango</td>
-		<td>1.28.0</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/pango/1.28/pango_1.28.0-1_win64.zip" class="download">Binaries</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/pango/1.28/pango-dev_1.28.0-1_win64.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/sources/pango/1.28/pango-1.28.0.tar.bz2" class="download">Sources</a></td>
+		<td>1.28.3</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/pango/1.28/pango_1.28.3-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/pango/1.28/pango-dev_1.28.3-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/pango/1.28/pango-1.28.3.tar.bz2" class="download">Sources</a></td>
 	</tr>
 	<tr class="even">
 		<td>ATK</td>
