@@ -40,10 +40,10 @@ ob_start();
 	</tr>
 	<tr class="even">
 		<td>GLib</td>
-		<td>2.24.0</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/glib/2.24/glib_2.24.0-2_win64.zip" class="download">Binaries</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/glib/2.24/glib-dev_2.24.0-2_win64.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.24/glib-2.24.0.tar.bz2" class="download">Sources</a></td>
+		<td>2.26.1</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/glib/2.26/glib_2.26.1-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/glib/2.26/glib-dev_2.26.1-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.26/glib-2.26.1.tar.bz2" class="download">Sources</a></td>
 	</tr>
 	<tr class="odd">
 		<td>GTK+</td>
