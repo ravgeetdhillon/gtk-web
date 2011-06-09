@@ -69,10 +69,10 @@ ob_start();
 
 	<tr class="odd">
 		<td>gdk-pixbuf</td>
-		<td>2.22.0</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gdk-pixbuf/2.22/gdk-pixbuf_2.22.0-1_win32.zip" class="download">Run-time</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gdk-pixbuf/2.22/gdk-pixbuf-dev_2.22.0-1_win32.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.22/gdk-pixbuf-2.22.0.tar.bz2" class="download">Sources</a></td>
+		<td>2.22.1</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gdk-pixbuf/2.22/gdk-pixbuf_2.22.1-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gdk-pixbuf/2.22/gdk-pixbuf-dev_2.22.1-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.22/gdk-pixbuf-2.22.1.tar.bz2" class="download">Sources</a></td>
 	</tr>
 
 	<tr class="even">
