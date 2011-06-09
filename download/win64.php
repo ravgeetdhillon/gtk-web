@@ -75,10 +75,10 @@ ob_start();
 	</tr>
 	<tr class="odd">
 		<td>cairo</td>
-		<td>1.8.10</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/cairo_1.8.10-2_win64.zip" class="download">Binaries</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/cairo-dev_1.8.10-2_win64.zip" class="download">Dev</a></td>
-		<td><a href="http://cairographics.org/releases/cairo-1.8.10.tar.gz" class="download">Sources</a></td>
+		<td>1.10.2</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/cairo_1.10.2-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/cairo-dev_1.10.2-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://cairographics.org/releases/cairo-1.10.2.tar.gz" class="download">Sources</a></td>
 	</tr>
 </table>
 
