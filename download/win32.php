@@ -45,10 +45,10 @@ ob_start();
 	</tr>
 	<tr class="even">
 		<td>GLib</td>
-		<td>2.26.0</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.26/glib_2.26.0-2_win32.zip" class="download">Run-time</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.26/glib-dev_2.26.0-2_win32.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.26/glib-2.26.0.tar.bz2" class="download">Sources</a></td>
+		<td>2.28.1</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.28/glib_2.28.1-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.28/glib-dev_2.28.1-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.28/glib-2.28.1.tar.bz2" class="download">Sources</a></td>
 	</tr>
 
 	<tr class="odd">
