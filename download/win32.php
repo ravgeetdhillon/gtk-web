@@ -84,10 +84,10 @@ ob_start();
 	</tr>
 
 	<tr class="odd">
-		<td>2.22.0</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.22/gtk+_2.22.0-2_win32.zip" class="download">Run-time</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.22/gtk+-dev_2.22.0-2_win32.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.22/gtk+-2.22.0.tar.bz2" class="download">Sources</a></td>
+		<td>2.24.0</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.24/gtk+_2.24.0-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.24/gtk+-dev_2.24.0-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-2.24.0.tar.bz2" class="download">Sources</a></td>
 	</tr>
 	
 </table>
