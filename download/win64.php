@@ -28,7 +28,7 @@ ob_start();
 
 <h4>All-in-one bundle</h4>
 
-<p>If you find choosing, downloading and unpacking the individual zip archives below a chore, there are all-in-one bundles of the GTK+ stack including 3rd-party dependencies, both of GTK+ <a href="http://ftp.gnome.org/pub/gnome/binaries/win64/gtk+/2.16/gtk+-bundle_2.16.6-20100208_win64.zip" class="download">2.16</a> and <a href="http://ftp.gnome.org/pub/gnome/binaries/win64/gtk+/2.20/gtk+-bundle_2.20.0-20100402_win64.zip" class="download">2.20</a>. The bundles contain both binaries and a lot of developer files, many of which are relatively irrelevant. If you intend to redistribute the GTK+ run-time, you need to figure out which files you can leave out yourself. A new bundle will ideally be provided here whenever one of the member packages has been updated.</p>
+<p>If you find choosing, downloading and unpacking the individual zip archives below a chore, there are all-in-one bundles of the GTK+ stack including 3rd-party dependencies, both of GTK+ <a href="http://ftp.gnome.org/pub/gnome/binaries/win64/gtk+/2.16/gtk+-bundle_2.16.6-20100208_win64.zip" class="download">2.16</a> and <a href="http://ftp.gnome.org/pub/gnome/binaries/win64/gtk+/2.22/gtk+-bundle_2.22.1-20101229_win64.zip" class="download">2.22</a>. The bundles contain both binaries and a lot of developer files, many of which are relatively irrelevant. If you intend to redistribute the GTK+ run-time, you need to figure out which files you can leave out yourself. A new bundle will ideally be provided here whenever one of the member packages has been updated.</p>
 
 <h3>GTK+ individual packages</h3>
 
