@@ -5,15 +5,21 @@ ob_start();
 ?>
 
 <div class="sidebar" id="NewsFeed">
+
+	<h2>News Feed</h2>
 	<ul class="newsfeed">
-<?php
+		<?php
 
 $newsfeed = new GTKNewsFeedLoader(IDENTICA);
 $newsfeed->usecaching = true;
 $items = $newsfeed->load( array( 'count' => 6 ) );
 
 $first = true;
-if( $newsfeed->iscached ) echo '<!-- This content is cached -->';
+if( $newsfeed->iscached ) {
+	echo '<!-- This content is cached and was last updated '.$newsfeed->reltime(filemtime($newsfeed->cachefile)).' -->';
+} else {
+	echo '<!-- This content was updated just now. -->';
+}
 
 foreach( $items as $item ) {
 ?> 
