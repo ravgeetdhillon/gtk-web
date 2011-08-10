@@ -165,6 +165,23 @@ $bindings = array(
 		)
 	),
 
+	"Pascal" => array(
+		'official' => false,
+		'url' => 'http://wiki.lazarus.freepascal.org/GTK2_Interface',
+		'support' => array(
+			'2.8' => SUPPORTED,
+			'2.10' => SUPPORTED,
+			'2.12' => SUPPORTED,
+			'2.14' => SUPPORTEd,
+			'2.16' => SUPPORTED,
+			'2.18' => SUPPORTED,
+			'2.20' => SUPPORTED,
+			'2.22' => SUPPORTED,
+			'2.24' => SUPPORTED,
+			'3.0' => UNSUPPORTED
+		)
+	),
+
 	"PHP" => array(
 		'official' => false,
 		'url' => 'http://gtk.php.net/',
