@@ -8,8 +8,8 @@ $versions = array(
 	'gtk' => '3.0',
 	'glib' => '2.28',
 	'pango' => '1.28',
-	'gdk-pixbuf' => '2.22',
-	'atk' => '1.30'
+	'gdk-pixbuf' => '2.24',
+	'atk' => '2.0'
 );
 
 // Versions of GTK+ that are older, but still included on the page in the "Older Versions" section
