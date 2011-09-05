@@ -20,6 +20,9 @@ ob_start();
 	<p>#gtk-devel is only used for GTK+ team meetings, and should not be used to ask general questions about GTK+. For all other IRC communication, <a href="irc://irc.gnome.org/%23gtk%2B" class="irc">#gtk+</a> is used.</p>
 </div>
 
+<h2><a name="WheresTheSource">Where's the Source?</a></h2>
+<p>You can clone the source code repository using <a href="http://git-scm.com/" class="external">git</a>. Instructions on how to use bleeding edge versions of GTK+ are available on the <a href="/download/#BleedingEdge">download</a> page.</p>
+
 <h2><a name="Contributing">Contributing</a></h2>
 <p>GTK+ is a large project and relies on voluntary contributions. Everyone is invited to help project development. Starting points for contributors are:</p>
 
@@ -31,9 +34,6 @@ ob_start();
 
 <h2><a name="BestPractices">Best Practices</a></h2>
 <p>When working on GTK+/GLib, there are several points once should consider, to keep the code in shape. See the <a href="http://live.gnome.org/GTK+/BestPractices" class="external">GTK+ Best Practices</a>.</p>
-
-<h2><a name="LanguageBindings">Language Bindings</a></h2>
-<p>For information about programming languages other than C which support GTK+, see the <a href="language-bindings.php">language bindings</a> available.</p>
 
 <h2><a name="Team">Team</a></h2>
 <p>Current core maintainers of GTK+ are:</p>
@@ -69,6 +69,9 @@ $maintainers = array(
 		<td><?php echo $person[1]; ?></td>
 	</tr><?php } ?> 
 </table>
+
+<h2><a name="LanguageBindings">Language Bindings</a></h2>
+<p>For information about programming languages other than C which support GTK+, see the <a href="language-bindings.php">language bindings</a> available.</p>
 
 <h2><a name="Support">Donations</a></h2>
 <p>If you want to help the GTK+ project by donating money OR perhaps your company wants to pay someone to develop GTK+, you can email the GNOME foundation. Any donations to GNOME for GTK+ will ONLY be spent on GTK+.</p>
