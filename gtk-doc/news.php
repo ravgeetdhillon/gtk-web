@@ -10,6 +10,34 @@ require 'gtkdoc.config.php';
 
 <div class="news-item">
 	<div class="header">
+		<h3 class="news-title">GTK-Doc 1.18</h3>
+		<span class="news-date">Released Sep 14, 2011</span>
+	</div>
+        <ul>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=590927" class="external">Bug 590927</a>: Support AM_SILENT_RULES for doc-build steps</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=617121" class="external">Bug 617121</a>: /* &lt; private &gt; */ declarations in enums are still displayed</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=627758" class="external">Bug 627758</a>: A way to ignore a symbol</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=639145" class="external">Bug 639145</a>: shorthand syntax for headings</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=644291" class="external">Bug 644291</a>: Enum parser breaks on assignment of ')'</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=646870" class="external">Bug 646870</a>: HTML_IMAGES no longer in EXTRA_DIST</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=648289" class="external">Bug 648289</a>: gtkdoc-mkdb doesn't compile.</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=648331" class="external">Bug 648331</a>: Specify compatible options for 'highlight' consistently.</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=649269" class="external">Bug 649269</a>: gtkdoc-scanobj should set some of its own CFLAGS/LDFLAGS</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=650407" class="external">Bug 650407</a>: Buildings docs while distchecking produces thousands of “No declaration found” warnings, then fails.</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=652746" class="external">Bug 652746</a>: Documentation of plain boxed structs broken</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=652764" class="external">Bug 652764</a>: Update autotools config a bit</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=655711" class="external">Bug 655711</a>: summarize depscan output by package</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=656453" class="external">Bug 656453</a>: Performance improvements (PATCH)</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=656658" class="external">Bug 656658</a>: gtk-doc.make: install target doesn't install docs when building in a separate directory</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=656773" class="external">Bug 656773</a>: gtk-doc fails to find a symbol declared as 'char* const'</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=656946" class="external">Bug 656946</a>: gtk-doc unable to handle 'extern short int'</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=657377" class="external">Bug 657377</a>: srcdir!=builddir builds discard contents of tmpl</li>
+        </ul>
+</div>
+
+
+<div class="news-item">
+	<div class="header">
 		<h3 class="news-title">GTK-Doc 1.17</h3>
 		<span class="news-date">Released Feb 26, 2011</span>
 	</div>
