@@ -8,8 +8,7 @@ ob_start();
 
 <h3>About</h3>
 <p>Do you have a favorite GTK+ application that you'd like to
-run on your Mac, but you don't really like X-Windows, MacPorts, or
-Fink? Maybe you'd like to have a more Mac-like look and feel, with the
+run on your Mac with a more Mac-like look and feel, with the
 menus up on the menu bar and standard Mac keyboard shortcuts like
 Command-Q? Perhaps you maintain a GTK+ application and want to
 expand your user base to Mac users who want a Mac experience, not a
@@ -46,7 +45,7 @@ libraries with a single command.</p>
 
 <h3>All-in-one bundles</h3>
 <p><a href="http://live.gnome.org/GTK%2B/OSX/Bundling">Bundling</a>
-with the <strong>gtk-mac-bundler</strong> is an easily configured python
+with the <strong>gtk-mac-bundler</strong>, an easily configured python
 program which creates an application bundle for you and populates it
 with your application executable and all of the dependent libraries
 from your GTK+ build, changing the installed names as needed to point
