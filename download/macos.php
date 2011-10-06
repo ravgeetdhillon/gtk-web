@@ -16,18 +16,15 @@ transplanted Unix experience?
 </p>
 
 <h3>Features</h3>
-<p>Integration with GTK+'s <a
-href="http://live.gnome.org/GTK%2B/OSX">Quartz backend</a> provides a
-number of <a
-href="http://live.gnome.org/GTK%2B/OSX/Integration">benefits</a> when
-running your GTK+ application on Mac OS:
+<p>Linking with GTK+'s <a
+href="http://live.gnome.org/GTK%2B/OSX">Quartz backend</a> connects your application to the Mac's native display manager, keyboard, and pointing device. With a little extra code and <a
+href="http://live.gnome.org/GTK%2B/OSX/Integration">gtk-mac-integration</a> you can:
 <ul>
-<li>Connection between your application and the Mac's display, mouse,
-and keyboard</li>
-<li>Application's menus integrate with the Mac Menubar</li>
+
+<li>Integrate the Application's menus with the Mac Menubar</li>
 <li>Manipulate your application's dock tile</li>
 <li>Receive <q>open</q> events from Finder</li>
-<li>Find resources in your bundle</li>
+<li>Find resources in your application bundle</li>
 </ul>
 </p>
 
