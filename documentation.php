@@ -79,6 +79,10 @@ ob_start();
 <h2><a name="Books">Books</a></h2>
 <ul>
 	<li>
+		<a href="http://de.wikibooks.org/wiki/GTK_mit_Builder" class="external">GTK+ 3 with Builder</a>
+		<br />This book was written by Eike Krumbacher (it's in German).
+	</li>
+	<li>
 		<a href="http://www.amazon.com/Foundations-Development-Experts-Voice-Source/dp/1590597931/" class="external">Foundations of GTK+ Development</a>
 		<br />This book was written by Andrew Krause.
 	</li>
