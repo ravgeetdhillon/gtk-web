@@ -5,8 +5,8 @@ ob_start();
 
 // Set the current stable version numbers of GTK+, GLib, and Pango to automatically include it in the page.
 $versions = array(
-	'gtk' => '3.0',
-	'glib' => '2.28',
+	'gtk' => '3.2',
+	'glib' => '2.30',
 	'pango' => '1.28',
 	'gdk-pixbuf' => '2.24',
 	'atk' => '2.0'
