@@ -21,7 +21,7 @@ $oldgtk = array( '3.0', '2.24', '2.20', '2.18', '2.16', '2.14', '2.12', '2.10', 
 <p>You will need to get the GLib, Pango, Gdk-Pixbuf, ATK and GTK+ packages to build GTK+.<br/>You may also need some of the external dependencies that are also linked for each version listed below.</p>
 
 <h3><a name="StableRelease">Stable Release</a></h3>
-<p>To build GTK+ <?php echo $versions['gtk']; ?> you may find the installation guide helpful. For additional help, the <a href="http://library.gnome.org/devel/gtk-faq/stable/" class="external">FAQ</a> is a good starting point.</p>
+<p>To build GTK+ <?php echo $versions['gtk']; ?>, see the <a href="http://library.gnome.org/devel/gtk3/stable/gtk-building.html" class="external">installation guide</a>. For additional help, the <a href="http://library.gnome.org/devel/gtk-faq/stable/" class="external">FAQ</a> is a good starting point.</p>
 
 <ul>
 	<li><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/<?php echo $versions['gtk']; ?>/" class="download">GTK+ <?php echo $versions['gtk']; ?></a></li>
@@ -35,7 +35,6 @@ $oldgtk = array( '3.0', '2.24', '2.20', '2.18', '2.16', '2.14', '2.12', '2.10', 
 <li><a href="ftp://ftp.gtk.org/pub/gtk/v<?php echo $versions['gtk']; ?>/dependencies"><img src="images/download.png" alt=""/> Dependencies</a></li>
 </ul>
 -->
-<p>For details on installing GTK+, see the <a href="http://library.gnome.org/devel/gtk3/stable/gtk-building.html" class="external">installation guide</a>.</p>
 
 <h3><a name="OlderVersions">Older Versions</a></h3>
 <p>Some applications still require GTK+ 2, an older stable version of GTK+. You can have the run-time and development environments for GTK+ 3.x, GTK+ 2.x and GTK+ 1.2 installed simultaneously on your computer.</p>
