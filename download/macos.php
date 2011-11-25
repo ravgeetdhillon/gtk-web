@@ -75,8 +75,7 @@ may wish to subscribe to the <a
 href="http://mail.gnome.org/mailman/listinfo/gtk-osx-devel-list">developer's
 mailing list</a> as well.</p>
 
-<h3>Contributing</h3>
-<p>Bugs, patches and enhancements may be submitted to the <a
-href="http://sourceforge.net/apps/trac/gtk-osx/newticket">tracker</a>.</p>
-
+<h3>Contributing</h3> <p>Bugs, patches and enhancements for building,
+integration, or bundling may be submitted to
+ <a href="https://bugzilla.gnome.org/enter_bug.cgi?alias=&blocked=&bug_severity=normal&cf_gnome_version=---&comment=&component=mac-integration&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text%2Fplain&data=&dependson=&description=&form_name=enter_bug&keywords=&maketemplate=Remember%20values%20as%20bookmarkable%20template&op_sys=Mac%20OS&product=gtk%2B&short_desc=&version=unspecified">Bugzilla, with Product=gtk+ and Component=mac-integration</a>. Bug reports on any other package, including GTK+ itself, should be submitted against that package, not mac-integration. (The GTK+ component for the quartz backend is "quartz".)
 <?php require '../template.php';
