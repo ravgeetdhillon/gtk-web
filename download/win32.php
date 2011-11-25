@@ -30,10 +30,10 @@ ob_start();
 
 <p>There are three types of downloads below. <strong>Run-time</strong> provide only the DLLs and other files used you will need to run a GTK+-using application. <strong>Dev</strong> packages provide include files, import libraries, documentation and additional tools, and also for reference the script used to build the component in question. In case patches have been applied to the upstream sources before building, these are inline in the build script. <strong>Source</strong> packages provide the source code for the component in question. In most cases, this is simply the pristine upstream source release tarball, possibly copied to the same server as the binaries to satisfy the license.</p>
 
-<p>GTK+ 2.16 is an old but in some sense more reliable branch. 2.24 is the current maintained version. Choose the one which works better for you.</p> <p>If you want to repackage the necessary run-time files together with your application into an installer, you can choose to leave out for instance message catalogs for languages that your application isn't localised to anyway.</p>
+<p>GTK+ 2.24 is the current maintained version.</p> <p>If you want to repackage the necessary run-time files together with your application into an installer, you can choose to leave out for instance message catalogs for languages that your application isn't localised to anyway.</p>
 
 <h3>All-in-one bundles</h3>
-<p>If you find choosing, downloading and unpacking the individual zip archives below a chore, there are all-in-one bundles of the GTK+ stack including 3rd-party dependencies, both of GTK+ <a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.16/gtk+-bundle_2.16.6-20100912_win32.zip" class="download">2.16</a> and <a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.22/gtk+-bundle_2.22.1-20101227_win32.zip" class="download">2.22</a>. The bundles contain both run-time and developer files. Many of the developer files are relatively irrelevant. If you intend to redistribute the GTK+ run-time, you need to figure out which files you can leave out yourself. A new bundle will ideally be provided here whenever one of the member packages has been updated.</p>
+<p>If you find choosing, downloading and unpacking the individual zip archives below a chore, there is an <a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.24/gtk+-bundle_2.24.8-20111122_win32.zip" class="download">all-in-one bundle</a> of the GTK+ stack including 3rd-party dependencies. The bundle contains both run-time and developer files. Many of the developer files are relatively irrelevant. If you intend to redistribute the GTK+ run-time, you need to figure out which files you can leave out yourself. A new bundle will ideally be provided here whenever one of the member packages has been updated.</p>
 
 <h4>GTK+ individual packages</h4>
 
@@ -45,51 +45,43 @@ ob_start();
 	</tr>
 	<tr class="even">
 		<td>GLib</td>
-		<td>2.28.1</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.28/glib_2.28.1-1_win32.zip" class="download">Run-time</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.28/glib-dev_2.28.1-1_win32.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.28/glib-2.28.1.tar.bz2" class="download">Sources</a></td>
+		<td>2.28.8</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.28/glib_2.28.8-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.28/glib-dev_2.28.8-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.28/glib-2.28.8.tar.bz2" class="download">Sources</a></td>
 	</tr>
 
 	<tr class="odd">
 		<td>ATK</td>
 		<td>1.32.0</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/atk/1.32/atk_1.32.0-1_win32.zip" class="download">Run-time</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/atk/1.32/atk-dev_1.32.0-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/atk/1.32/atk_1.32.0-2_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/atk/1.32/atk-dev_1.32.0-2_win32.zip" class="download">Dev</a></td>
 		<td><a href="http://ftp.gnome.org/pub/gnome/sources/atk/1.32/atk-1.32.0.tar.bz2" class="download">Sources</a></td>
 	</tr>
 
 	<tr class="even">
 		<td>Pango</td>
-		<td>1.28.3</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.28/pango_1.28.3-1_win32.zip" class="download">Run-time</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.28/pango-dev_1.28.3-1_win32.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/sources/pango/1.28/pango-1.28.3.tar.bz2" class="download">Sources</a></td>
+		<td>1.29.4</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.29/pango_1.29.4-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/pango/1.29/pango-dev_1.29.4-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/pango/1.29/pango-1.29.4.tar.bz2" class="download">Sources</a></td>
 	</tr>
 
 	<tr class="odd">
 		<td>gdk-pixbuf</td>
-		<td>2.22.1</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gdk-pixbuf/2.22/gdk-pixbuf_2.22.1-1_win32.zip" class="download">Run-time</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gdk-pixbuf/2.22/gdk-pixbuf-dev_2.22.1-1_win32.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.22/gdk-pixbuf-2.22.1.tar.bz2" class="download">Sources</a></td>
+		<td>2.24.0</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gdk-pixbuf/2.24/gdk-pixbuf_2.24.0-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gdk-pixbuf/2.24/gdk-pixbuf-dev_2.24.0-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.24/gdk-pixbuf-2.24.0.tar.bz2" class="download">Sources</a></td>
 	</tr>
 
 	<tr class="even">
-		<td rowspan="2">GTK+</td>
-		<td>2.16.6</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.16/gtk+_2.16.6-3_win32.zip" class="download">Run-time</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.16/gtk+-dev_2.16.6-3_win32.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.16/gtk+-2.16.6.tar.bz2" class="download">Sources</a></td>
+		<td>GTK+</td>
+		<td>2.24.8</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.24/gtk+_2.24.8-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.24/gtk+-dev_2.24.8-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-2.24.8.tar.bz2" class="download">Sources</a></td>
 	</tr>
-
-	<tr class="odd">
-		<td>2.24.0</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.24/gtk+_2.24.0-1_win32.zip" class="download">Run-time</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.24/gtk+-dev_2.24.0-1_win32.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-2.24.0.tar.bz2" class="download">Sources</a></td>
-	</tr>
-	
 </table>
 
 <h4>Required third party dependencies</h4>
@@ -113,8 +105,8 @@ ob_start();
 	<tr class="odd">
 		<td>cairo</td>
 		<td>1.10.2</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/cairo_1.10.2-1_win32.zip" class="download">Run-time</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/cairo-dev_1.10.2-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/cairo_1.10.2-2_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/cairo-dev_1.10.2-2_win32.zip" class="download">Dev</a></td>
 		<td><a href="http://cairographics.org/releases/cairo-1.10.2.tar.gz" class="download">Sources</a></td>
 	</tr>
 
@@ -173,18 +165,18 @@ ob_start();
 
 	<tr class="even">
 		<td>pixman</td>
-		<td>0.18.4</td>
+		<td>0.24.0</td>
 		<td></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pixman-dev_0.18.4-2_win32.zip" class="download">Dev</a></td>
-		<td><a href="http://cairographics.org/releases/pixman-0.18.4.tar.gz" class="download">Sources</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pixman-dev_0.24.0-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://cairographics.org/releases/pixman-0.24.0.tar.gz" class="download">Sources</a></td>
 	</tr>
 
 	<tr class="odd">
 		<td>pkg-config</td>
-		<td>0.23-3</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config_0.23-3_win32.zip" class="download">Tool</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config-dev_0.23-3_win32.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config-0.23.tar.gz" class="download">Sources</a></td>
+		<td>0.26</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config_0.26-1_win32.zip" class="download">Tool</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config-dev_0.26-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config-0.26.tar.gz" class="download">Sources</a></td>
 	</tr>
 
 	<tr class="even">
