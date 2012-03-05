@@ -96,7 +96,7 @@ ob_start();
 
 	<div class="bubble" id="Mobile">
 		<h2><a name="Mobile">Mobile</a></h2>
-		<p>The GMAE (<a href="http://www.gnome.org/mobile/" class="external">GNOME Mobile &amp; Embedded</a>) initiative has advanced the use, development and commercialization of GNOME components as a mobile and embedded user experience platform. It has brought together industry leaders, expert consultants, key developers and the community and industry organizations they represent. As a direct result of this, GTK+ has features pertaining to mobile and embedded platform requirements.</p>
+		<p>The GMAE (GNOME Mobile &amp; Embedded) initiative has advanced the use, development and commercialization of GNOME components as a mobile and embedded user experience platform. It has brought together industry leaders, expert consultants, key developers and the community and industry organizations they represent. As a direct result of this, GTK+ has features pertaining to mobile and embedded platform requirements.</p>
 		<p>GTK+ has been involved in a number of embedded initiatives over the past few years including the development of:</p>
 		<ul>
 			<li>Nokia <a href="http://europe.nokia.com/A4145104" class="external">770</a> / <a href="http://web.nseries.com/products/#l=products,n800" class="external">N800</a> / <a href="http://web.nseries.com/products/#l=products,n810" class="external">N810</a> / <a href="http://maemo.nokia.com/n900/" class="external">N900</a></li>
