@@ -335,23 +335,22 @@ $bindings = array(
 		)
 	),
 
-        "Fortran" => array(
-                'official' => false,
-                'url' => 'http://github.com/jerryd/gtk-fortran/wiki',
-                'support' => array(
-                        '2.8' => UNSUPPORTED,
-                        '2.10' => UNSUPPORTED,
-                        '2.12' => SUPPORTED,
-                        '2.14' => SUPPORTED,
-                        '2.16' => SUPPORTED,
-                        '2.18' => SUPPORTED,
-                        '2.20' => UNSUPPORTED,
-                        '2.22' => UNSUPPORTED,
-                        '2.24' => PARTIAL,
-                        '3.0' => PARTIAL
-                )
-        )
-
+	"Fortran" => array(
+		'official' => false,
+		'url' => 'http://github.com/jerryd/gtk-fortran/wiki',
+		'support' => array(
+			'2.8' => UNSUPPORTED,
+			'2.10' => UNSUPPORTED,
+			'2.12' => SUPPORTED,
+			'2.14' => SUPPORTED,
+			'2.16' => SUPPORTED,
+			'2.18' => SUPPORTED,
+			'2.20' => UNSUPPORTED,
+			'2.22' => UNSUPPORTED,
+			'2.24' => PARTIAL,
+			'3.0' => PARTIAL
+		)
+	)
 );
 
 // Alternate image attributes
