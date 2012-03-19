@@ -98,10 +98,10 @@ $tmpnav = array(
 	"about" => array( "About", "/", "About GTK+" ),
 	"features" => array( "Features", "/features.php", "Find out what GTK+ can do for you" ),
 	"download" => array( "Download", "/download/index.php", "Download the latest version of GTK+" ),
-//	"screenshots" => array( "Screenshots", "/screenshots/index.php", "See applications using GTK+ on various platforms" ),
-	"support" => array( "Support", "/support.php", "Support for GTK+ commercially" ),
+	"screenshots" => array( "Screenshots", "/screenshots/index.php", "See applications using GTK+ on various platforms" ),
 	"documentation" => array( "Documentation", "/documentation.php", "Read up on documentation about how to use GTK+" ),
-	"development" => array( "Development", "/development.php", "Get involved in the development of GTK+" )
+	"development" => array( "Development", "/development.php", "Get involved in the development of GTK+" ),
+	"support" => array( "Support", "/support.php", "Support for GTK+ commercially" )
 );
 
 
