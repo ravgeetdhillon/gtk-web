@@ -93,6 +93,12 @@ h3 {
 	margin-bottom: .83em;
 }
 
+#note {
+	margin-top: .65em;
+	font-size: 0.75em;
+	font-weight: lighter;
+}
+
 a:link, a:visited, h2 {
 	color: #3F79BA /*#3465A4*/;
 	text-decoration: none;
