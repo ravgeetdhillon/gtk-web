@@ -100,8 +100,11 @@ $tmpnav = array(
 	"download" => array( "Download", "/download/index.php", "Download the latest version of GTK+" ),
 	"screenshots" => array( "Screenshots", "/screenshots/index.php", "See applications using GTK+ on various platforms" ),
 	"documentation" => array( "Documentation", "/documentation.php", "Read up on documentation about how to use GTK+" ),
-	"development" => array( "Development", "/development.php", "Get involved in the development of GTK+" )
+	"development" => array( "Development", "/development.php", "Get involved in the development of GTK+" ),
+	"support" => array( "Support", "/support.php", "Support for GTK+ commercially" )
 );
+
+
 if (!isset($navlinks)) {
 	$navlinks = $tmpnav;
 } elseif ($globalnav) {
@@ -277,7 +280,7 @@ pre {
 
 	<div id="footer">
 		<pre style="display: none;"><!-- For Lynx --></pre>
-		<span>Copyright &copy; 2007-2011 The GTK+ Team</span> |
+		<span>Copyright &copy; 2007-2012 The GTK+ Team</span> |
 		<span>Valid <a href="http://validator.w3.org/check?uri=http://<?php echo htmlentities("gtk.org".$_SERVER['REQUEST_URI']); ?>&amp;charset=utf-8&amp;doctype=Inline&amp;group=0">XHTML</a> and <a href="http://jigsaw.w3.org/css-validator/validator?uri=<?php echo htmlentities("gtk.org"); ?>/css/global.css&amp;profile=css21&amp;usermedium=all&amp;warning=1&amp;lang=en">CSS</a></span>
 	</div>
 
