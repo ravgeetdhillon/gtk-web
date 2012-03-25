@@ -350,7 +350,7 @@ $bindings = array(
 			'2.24' => PARTIAL,
 			'3.0' => UNSUPPORTED
                 )
-        )
+        ),
 
 
 	"Fortran" => array(
