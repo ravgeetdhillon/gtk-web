@@ -72,11 +72,11 @@ $bindings = array(
 			'2.12' => SUPPORTED,
 			'2.14' => SUPPORTED,
 			'2.16' => SUPPORTED,
-			'2.18' => UNSUPPORTED,
-			'2.20' => UNSUPPORTED,
-			'2.22' => UNSUPPORTED,
-			'2.24' => UNSUPPORTED,
-			'3.0' => UNSUPPORTED
+			'2.18' => SUPPORTED,
+			'2.20' => SUPPORTED,
+			'2.22' => SUPPORTED,
+			'2.24' => SUPPORTED,
+			'3.0' => SUPPORTED
 		)
 	),
 
