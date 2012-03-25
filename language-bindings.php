@@ -335,6 +335,24 @@ $bindings = array(
 		)
 	),
 
+	"Go" => array(
+		'official' => false,
+		'url' => 'http://mattn.github.com/go-gtk/',
+		'support' => array(
+			'2.8' => UNSUPPORTED,
+			'2.10' => UNSUPPORTED,
+			'2.12' => UNSUPPORTED,
+			'2.14' => UNSUPPORTED,
+			'2.16' => UNSUPPORTED,
+			'2.18' => UNSUPPORTED,
+			'2.20' => UNSUPPORTED,
+			'2.22' => UNSUPPORTED,
+			'2.24' => PARTIAL,
+			'3.0' => UNSUPPORTED
+                )
+        )
+
+
 	"Fortran" => array(
 		'official' => false,
 		'url' => 'http://github.com/jerryd/gtk-fortran/wiki',
