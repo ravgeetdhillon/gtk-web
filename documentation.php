@@ -63,9 +63,9 @@ ob_start();
 	</tr>
 	<tr class="even">
 		<td>GDK</td>
-		<td><a href="http://library.gnome.org/devel/gdk/stable/" class="external">Stable</a></td>
-		<td><a href="http://library.gnome.org/devel/gdk/unstable/" class="external">Unstable</a></td>
-		<td><a href="http://library.gnome.org/devel/gdk/" class="external">All</a></td>
+		<td><a href="http://library.gnome.org/devel/gdk3/stable/" class="external">Stable</a></td>
+		<td><a href="http://library.gnome.org/devel/gdk3/unstable/" class="external">Unstable</a></td>
+		<td><a href="http://library.gnome.org/devel/gdk3/" class="external">All</a></td>
 	</tr>
 	<tr class="odd">
 		<td>GTK</td>
