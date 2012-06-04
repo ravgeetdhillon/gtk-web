@@ -218,7 +218,7 @@ $bindings = array(
 
 	"Lua" => array(
 		'official' => false,
-		'url' => 'http://luaforge.net/projects/lua-gtk',
+		'url' => 'http://github.com/pavouk/lgi',
 		'support' => array(
 			'2.8' => SUPPORTED,
 			'2.10' => SUPPORTED,
@@ -228,8 +228,8 @@ $bindings = array(
 			'2.18' => UNSUPPORTED,
 			'2.20' => UNSUPPORTED,
 			'2.22' => UNSUPPORTED,
-			'2.24' => UNSUPPORTED,
-			'3.0' => UNSUPPORTED
+			'2.24' => PARTIAL,
+			'3.0' => SUPPORTED
 		)
 	),
 
