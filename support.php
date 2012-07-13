@@ -36,9 +36,6 @@ $businesses = array(
 	array("Openismus GmbH",          "http://www.openismus.com/about"),
 	array("Codethink Ltd",           "http://www.codethink.co.uk/contact"),
 	array("Collabora Ltd",           "http://www.collabora.com/contact/"),
-	array("Red Hat",                 "http://www.redhat.com/support/"),
-	array("Novell",                  "http://www.novell.com/support"),
-	array("Intel",                   "http://www.intel.com/p/en_US/support"),
 	array("Igalia",                  "http://www.igalia.com/contact/")
 );
 
