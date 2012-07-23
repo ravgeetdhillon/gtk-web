@@ -34,7 +34,7 @@ $businesses = array(
 	/* ("Company",                   "Website"), */
 	array("Lanedo GmbH",             "http://www.lanedo.com/gtk+"),
 	array("Openismus GmbH",          "http://www.openismus.com/about"),
-	array("Codethink Ltd",           "http://www.codethink.co.uk/contact"),
+	array("Codethink Ltd",           "http://www.codethink.co.uk/company/contact"),
 	array("Collabora Ltd",           "http://www.collabora.com/contact/"),
 	array("Igalia",                  "http://www.igalia.com/contact/")
 );
