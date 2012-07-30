@@ -69,11 +69,6 @@ ob_start();
 		</div>
 
 		<div class="bubble"><!-- div -->
-			<h3>EPIC Technology</h3>
-			<p>Roger Leigh, a developer at the UK company EPIC Technology, uses GTK+ and gtkmm to develop point of sale systems. He says <q>I had no problem persuading my boss to use it, since so many high quality applications have been written with it</q>. Leigh particularly appreciates the GObject object system, the separation of functionality into distinct libraries, the emphasis on standards, and the integration with the C++ Standard Library. GUI design in GTK+ is excellent, he says: <q>I tried out Java/Swing a while back, and it didn't even come close to GTK+ in terms of ease of interface design using Glade</q>.</p>
-		</div>
-
-		<div class="bubble"><!-- div -->
 			<h3>BMA Coal, Australia</h3>
 			<p>Kim Adil, at BMA Coal in Australia, used GTK+ to build a cross-platform mining process visualization tool for the mine control room. Developed on Linux and deployed on Windows 2000, the application displays near-real-time equipment location and status for the mine's heavy equipment. It has been so successful that it runs not only in the control room, but on a plasma display at the entrance to the BMA office. BMA Coal selected GTK+ for its licensing, cross-platform ability, and range of features. Adil, a mechanical engineer by with little previous software development experience, says <q>cross platform stability has been quite astounding,</q> and that the GTK+ community and mailing lists were significant factors in the project's success.</p>
 		</div>
