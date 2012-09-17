@@ -43,7 +43,6 @@ ob_start();
 $maintainers = array(
 	  /* ("Name",                    "Affiliation"), */
 	array("Matthias Clasen",         "Red Hat"),
-	array("Tim Janik",               "Lanedo GmbH"),
 	array("Behdad Esfahbod",         "Google"),
 	array("Benjamin Otte",           "Red Hat"),
 	array("Federico Mena Quintero",  "Novell"),
