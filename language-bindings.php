@@ -347,8 +347,8 @@ $bindings = array(
 			'2.18' => SUPPORTED,
 			'2.20' => SUPPORTED,
 			'2.22' => SUPPORTED,
-			'2.24' => UNSUPPORTED,
-			'3.0' => UNSUPPORTED,
+			'2.24' => SUPPORTED,
+			'3.0' => SUPPORTED,
 			'3.2' => UNSUPPORTED
 		)
 	),
