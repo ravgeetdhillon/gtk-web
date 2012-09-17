@@ -24,7 +24,7 @@ define("UNKNOWN", 4, true);
  */
 
 // Versions of GTK used in the table
-$versions = array('2.8', '2.10', '2.12', '2.14', '2.16', '2.18', '2.20', '2.22', '2.24', '3.0', '3.2');
+$versions = array('2.8', '2.10', '2.12', '2.14', '2.16', '2.18', '2.20', '2.22', '2.24', '3.0', '3.2', '3.4');
 
 // Array of languages and their support
 $bindings = array(
@@ -43,7 +43,8 @@ $bindings = array(
 			'2.22' => SUPPORTED,
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
-			'3.2' => SUPPORTED
+			'3.2' => SUPPORTED,
+			'3.4' => SUPPORTED
 		)
 	),
 
@@ -61,7 +62,8 @@ $bindings = array(
 			'2.22' => UNSUPPORTED,
 			'2.24' => UNSUPPORTED,
 			'3.0' => UNSUPPORTED,
-			'3.2' => UNSUPPORTED
+			'3.2' => UNSUPPORTED,
+			'3.4' => UNSUPPORTED
 		)
 	),
 
@@ -79,7 +81,8 @@ $bindings = array(
 			'2.22' => SUPPORTED,
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
-			'3.2' => SUPPORTED
+			'3.2' => SUPPORTED,
+			'3.4' => SUPPORTED
 		)
 	),
 
@@ -97,7 +100,8 @@ $bindings = array(
 			'2.22' => SUPPORTED,
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
-			'3.2' => SUPPORTED
+			'3.2' => SUPPORTED,
+			'3.4' => SUPPORTED
 		)
 	),
 
@@ -115,7 +119,8 @@ $bindings = array(
 			'2.22' => SUPPORTED,
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
-			'3.2' => SUPPORTED
+			'3.2' => SUPPORTED,
+			'3.4' => SUPPORTED
 		)
 	),
 
@@ -133,7 +138,8 @@ $bindings = array(
 			'2.22' => SUPPORTED,
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
-			'3.2' => SUPPORTED
+			'3.2' => SUPPORTED,
+			'3.4' => SUPPORTED
 		)
 	),
 
@@ -151,7 +157,8 @@ $bindings = array(
 			'2.22' => SUPPORTED,
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
-			'3.2' => SUPPORTED
+			'3.2' => SUPPORTED,
+			'3.4' => SUPPORTED
 		)
 	),
 
@@ -169,7 +176,8 @@ $bindings = array(
 			'2.22' => UNSUPPORTED,
 			'2.24' => UNSUPPORTED,
 			'3.0' => UNSUPPORTED,
-			'3.2' => UNSUPPORTED
+			'3.2' => UNSUPPORTED,
+			'3.4' => UNSUPPORTED
 		)
 	),
 
@@ -187,7 +195,8 @@ $bindings = array(
 			'2.22' => SUPPORTED,
 			'2.24' => SUPPORTED,
 			'3.0' => UNSUPPORTED,
-			'3.2' => UNSUPPORTED
+			'3.2' => UNSUPPORTED,
+			'3.4' => UNSUPPORTED
 		)
 	),
 
@@ -205,7 +214,8 @@ $bindings = array(
 			'2.22' => UNSUPPORTED,
 			'2.24' => UNSUPPORTED,
 			'3.0' => UNSUPPORTED,
-			'3.2' => UNSUPPORTED
+			'3.2' => UNSUPPORTED,
+			'3.4' => UNSUPPORTED
 		)
 	),
 
@@ -223,7 +233,8 @@ $bindings = array(
 			'2.22' => UNSUPPORTED,
 			'2.24' => UNSUPPORTED,
 			'3.0' => UNSUPPORTED,
-			'3.2' => UNSUPPORTED
+			'3.2' => UNSUPPORTED,
+			'3.4' => UNSUPPORTED
 		)
 	),
 
@@ -241,7 +252,8 @@ $bindings = array(
 			'2.22' => UNSUPPORTED,
 			'2.24' => PARTIAL,
 			'3.0' => SUPPORTED,
-			'3.2' => SUPPORTED
+			'3.2' => SUPPORTED,
+			'3.4' => SUPPORTED
 		)
 	),
 
@@ -259,7 +271,8 @@ $bindings = array(
 			'2.22' => UNSUPPORTED,
 			'2.24' => UNSUPPORTED,
 			'3.0' => UNSUPPORTED,
-			'3.2' => UNSUPPORTED
+			'3.2' => UNSUPPORTED,
+			'3.4' => UNSUPPORTED
 		)
 	),
 
@@ -277,7 +290,8 @@ $bindings = array(
 			'2.22' => PARTIAL,
 			'2.24' => PARTIAL,
 			'3.0' => PARTIAL,
-			'3.2' => PARTIAL
+			'3.2' => PARTIAL,
+			'3.4' => PARTIAL
 		)
 	),
 
@@ -295,7 +309,8 @@ $bindings = array(
 			'2.22' => UNSUPPORTED,
 			'2.24' => UNSUPPORTED,
 			'3.0' => UNSUPPORTED,
-			'3.2' => UNSUPPORTED
+			'3.2' => UNSUPPORTED,
+			'3.4' => UNSUPPORTED
 		)
 	),
 
@@ -313,7 +328,8 @@ $bindings = array(
 			'2.22' => SUPPORTED,
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
-			'3.2' => SUPPORTED
+			'3.2' => SUPPORTED,
+			'3.4' => SUPPORTED
 		)
 	),
 
@@ -331,7 +347,8 @@ $bindings = array(
 			'2.22' => SUPPORTED,
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
-			'3.2' => SUPPORTED
+			'3.2' => SUPPORTED,
+			'3.4' => SUPPORTED
 		)
 	),
 
@@ -349,7 +366,8 @@ $bindings = array(
 			'2.22' => SUPPORTED,
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
-			'3.2' => UNSUPPORTED
+			'3.2' => UNSUPPORTED,
+			'3.4' => UNSUPPORTED
 		)
 	),
 
@@ -367,7 +385,8 @@ $bindings = array(
 			'2.22' => UNSUPPORTED,
 			'2.24' => PARTIAL,
 			'3.0' => UNSUPPORTED,
-			'3.2' => UNSUPPORTED
+			'3.2' => UNSUPPORTED,
+			'3.4' => UNSUPPORTED
                 )
         ),
 
@@ -386,7 +405,8 @@ $bindings = array(
 			'2.22' => UNSUPPORTED,
 			'2.24' => PARTIAL,
 			'3.0' => PARTIAL,
-			'3.2' => PARTIAL
+			'3.2' => PARTIAL,
+			'3.4' => PARTIAL
 		)
 	)
 );
