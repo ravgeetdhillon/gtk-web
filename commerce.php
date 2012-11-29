@@ -36,11 +36,6 @@ ob_start();
 		</div>
 
 		<div class="bubble"><!-- div -->
-			<h3>Primagraphics</h3>
-			<p>Richard Warren, a senior software engineer for <a href="http://www.primagraphics.com/" class="external">Primagraphics</a>, says GTK+ has let him ship products <q>on the customer's choice of platform, be it Linux, Solaris or even Windows, with a virtually identical application in each case and very little additional engineering effort on our part</q>. He also has kind words for the GTK+ community: <q>The quality of the libraries and the advice, responsiveness and direct access to the developers available through the mailing lists meant that we have never once regretted</q> choosing GTK+ as a development platform.</p>
-		</div>
-
-		<div class="bubble"><!-- div -->
 			<h3>NorayBio</h3>
 			<p>Miguel Pignatelli, a senior scientist at the Bilbao, Spain bioinformatics company <a href="http://www.noraybio.com/" class="external">NorayBio</a>, uses GTK+ in the development of software that predicts protein folding patterns. Although they initially selected GTK+ because they were writing in C, the NorayBio developers have grown to appreciate the way that provides access to both high and low levels of graphical programming and inter-process communications.</p>
 		</div>
