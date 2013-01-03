@@ -11,7 +11,7 @@ ob_start();
 	<p>All documentation for the GTK+ project uses GTK-Doc to generate the HTML pages from comments in the C code. To find out more about GTK-Doc <a href="gtk-doc/" class="external">visit the project page</a>.</p>
 
 	<h2><a name="OlderDocumentation">Older Documentation</a></h2>
-	<p>Although we recommend the GTK+ 3 platform, we keep the <a href="http://library.gnome.org/devel/gtk/stable/">GTK+ 2</a> and the <a href="documentation-old.php">GTK 1.2 Documentation</a> around for those who need it.</p>
+	<p>Although we recommend the GTK+ 3 platform, we keep the <a href="http://library.gnome.org/devel/gtk2/stable/">GTK+ 2</a> and the <a href="documentation-old.php">GTK 1.2 Documentation</a> around for those who need it.</p>
 </div>
 
 
