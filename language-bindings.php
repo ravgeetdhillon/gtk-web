@@ -24,16 +24,18 @@ define("UNKNOWN", 4, true);
  */
 
 // Versions of GTK used in the table
-$versions = array('2.8', '2.10', '2.12', '2.14', '2.16', '2.18', '2.20', '2.22', '2.24', '3.0', '3.2', '3.4');
+$versions = array(/*'2.8',*/ '2.10', '2.12', '2.14', '2.16', '2.18', '2.20', '2.22', '2.24', '3.0', '3.2', '3.4', '3.6');
 
 // Array of languages and their support
 $bindings = array(
+        // Accepts SUPPORTED, PARTIAL, UNSUPPORTED
+        // NOTE: Commented out sections are kept for historical reasons, -mr.
 
 	"C++" => array(
 		'official' => true, // Whether this binding is an official GNOME binding
 		'url' => 'http://www.gtkmm.org/', // Link to this page
-		'support' => array( // Array of support
-			'2.8' => SUPPORTED, // Accepts SUPPORTED, PARTIAL, UNSUPPORTED
+		'support' => array(
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => SUPPORTED,
@@ -44,7 +46,8 @@ $bindings = array(
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
 			'3.2' => SUPPORTED,
-			'3.4' => SUPPORTED
+			'3.4' => SUPPORTED,
+			'3.6' => SUPPORTED
 		)
 	),
 
@@ -52,7 +55,7 @@ $bindings = array(
 		'official' => true,
 		'url' => 'http://www.mono-project.com/GtkSharp',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => UNSUPPORTED,
@@ -63,7 +66,8 @@ $bindings = array(
 			'2.24' => UNSUPPORTED,
 			'3.0' => UNSUPPORTED,
 			'3.2' => UNSUPPORTED,
-			'3.4' => UNSUPPORTED
+			'3.4' => UNSUPPORTED,
+			'3.6' => UNSUPPORTED
 		)
 	),
 
@@ -71,7 +75,7 @@ $bindings = array(
 		'official' => true,
 		'url' => 'http://java-gnome.sourceforge.net/',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => SUPPORTED,
@@ -82,7 +86,8 @@ $bindings = array(
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
 			'3.2' => SUPPORTED,
-			'3.4' => SUPPORTED
+			'3.4' => SUPPORTED,
+			'3.6' => SUPPORTED
 		)
 	),
 
@@ -90,7 +95,7 @@ $bindings = array(
 		'official' => true,
 		'url' => 'http://live.gnome.org/PyGObject',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => SUPPORTED,
@@ -101,7 +106,8 @@ $bindings = array(
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
 			'3.2' => SUPPORTED,
-			'3.4' => SUPPORTED
+			'3.4' => SUPPORTED,
+			'3.6' => SUPPORTED
 		)
 	),
 
@@ -109,7 +115,7 @@ $bindings = array(
 		'official' => true,
 		'url' => 'http://live.gnome.org/JavaScript',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => SUPPORTED,
@@ -120,7 +126,8 @@ $bindings = array(
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
 			'3.2' => SUPPORTED,
-			'3.4' => SUPPORTED
+			'3.4' => SUPPORTED,
+			'3.6' => SUPPORTED
 		)
 	),
 
@@ -128,7 +135,7 @@ $bindings = array(
 		'official' => true,
 		'url' => 'http://live.gnome.org/Vala',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => SUPPORTED,
@@ -139,7 +146,8 @@ $bindings = array(
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
 			'3.2' => SUPPORTED,
-			'3.4' => SUPPORTED
+			'3.4' => SUPPORTED,
+			'3.6' => SUPPORTED
 		)
 	),
 
@@ -147,7 +155,7 @@ $bindings = array(
 		'official' => true,
 		'url' => 'http://gtk2-perl.sourceforge.net/',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => SUPPORTED,
@@ -158,7 +166,8 @@ $bindings = array(
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
 			'3.2' => SUPPORTED,
-			'3.4' => SUPPORTED
+			'3.4' => SUPPORTED,
+			'3.6' => SUPPORTED
 		)
 	),
 
@@ -166,7 +175,7 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://ruby-gnome2.sourceforge.jp/',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => PARTIAL,
@@ -177,7 +186,8 @@ $bindings = array(
 			'2.24' => UNSUPPORTED,
 			'3.0' => UNSUPPORTED,
 			'3.2' => UNSUPPORTED,
-			'3.4' => UNSUPPORTED
+			'3.4' => UNSUPPORTED,
+			'3.6' => UNSUPPORTED
 		)
 	),
 
@@ -185,7 +195,7 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://wiki.lazarus.freepascal.org/GTK2_Interface',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => SUPPORTEd,
@@ -196,7 +206,8 @@ $bindings = array(
 			'2.24' => SUPPORTED,
 			'3.0' => UNSUPPORTED,
 			'3.2' => UNSUPPORTED,
-			'3.4' => SUPPORTED
+			'3.4' => SUPPORTED,
+			'3.6' => SUPPORTED
 		)
 	),
 
@@ -204,7 +215,7 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://gtk.php.net/',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => SUPPORTED,
@@ -215,7 +226,8 @@ $bindings = array(
 			'2.24' => UNSUPPORTED,
 			'3.0' => UNSUPPORTED,
 			'3.2' => UNSUPPORTED,
-			'3.4' => UNSUPPORTED
+			'3.4' => UNSUPPORTED,
+			'3.6' => UNSUPPORTED
 		)
 	),
 
@@ -223,7 +235,7 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://cran.r-project.org/web/packages/RGtk2/index.html',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => UNSUPPORTED,
@@ -234,7 +246,8 @@ $bindings = array(
 			'2.24' => UNSUPPORTED,
 			'3.0' => UNSUPPORTED,
 			'3.2' => UNSUPPORTED,
-			'3.4' => UNSUPPORTED
+			'3.4' => UNSUPPORTED,
+			'3.6' => UNSUPPORTED
 		)
 	),
 
@@ -242,7 +255,7 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://github.com/pavouk/lgi',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => SUPPORTED,
@@ -253,7 +266,8 @@ $bindings = array(
 			'2.24' => PARTIAL,
 			'3.0' => SUPPORTED,
 			'3.2' => SUPPORTED,
-			'3.4' => SUPPORTED
+			'3.4' => SUPPORTED,
+			'3.6' => SUPPORTED
 		)
 	),
 
@@ -261,7 +275,7 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://www.gnu.org/software/guile-gnome/',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => PARTIAL,
@@ -272,7 +286,8 @@ $bindings = array(
 			'2.24' => UNSUPPORTED,
 			'3.0' => UNSUPPORTED,
 			'3.2' => UNSUPPORTED,
-			'3.4' => UNSUPPORTED
+			'3.4' => UNSUPPORTED,
+			'3.6' => UNSUPPORTED
 		)
 	),
 
@@ -280,7 +295,7 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://libre.adacore.com/libre/tools/gtkada/',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => SUPPORTED,
@@ -291,7 +306,8 @@ $bindings = array(
 			'2.24' => PARTIAL,
 			'3.0' => PARTIAL,
 			'3.2' => PARTIAL,
-			'3.4' => PARTIAL
+			'3.4' => PARTIAL,
+			'3.6' => PARTIAL
 		)
 	),
 
@@ -299,7 +315,7 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://wwwfun.kurims.kyoto-u.ac.jp/soft/olabl/lablgtk.html',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => SUPPORTED,
@@ -310,7 +326,8 @@ $bindings = array(
 			'2.24' => UNSUPPORTED,
 			'3.0' => UNSUPPORTED,
 			'3.2' => UNSUPPORTED,
-			'3.4' => UNSUPPORTED
+			'3.4' => UNSUPPORTED,
+			'3.6' => UNSUPPORTED
 		)
 	),
 
@@ -318,7 +335,7 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://www.haskell.org/haskellwiki/Gtk2Hs',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => SUPPORTED,
@@ -329,7 +346,8 @@ $bindings = array(
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
 			'3.2' => SUPPORTED,
-			'3.4' => SUPPORTED
+			'3.4' => SUPPORTED,
+			'3.6' => SUPPORTED
 		)
 	),
 
@@ -337,7 +355,7 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://www.freebasic-portal.de/downloads/ressourcencompiler/gtktobac2-2-0-131.html',
 		'support' => array(
-			'2.8' => SUPPORTED,
+			/*'2.8' => SUPPORTED,*/
 			'2.10' => UNSUPPORTED,
 			'2.12' => UNSUPPORTED,
 			'2.14' => UNSUPPORTED,
@@ -348,7 +366,8 @@ $bindings = array(
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
 			'3.2' => SUPPORTED,
-			'3.4' => SUPPORTED
+			'3.4' => SUPPORTED,
+			'3.6' => SUPPORTED
 		)
 	),
 
@@ -356,7 +375,7 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://www.dsource.org/projects/gtkd',
 		'support' => array(
-			'2.8' => UNSUPPORTED,
+			/*'2.8' => UNSUPPORTED,*/
 			'2.10' => UNSUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => SUPPORTED,
@@ -367,7 +386,8 @@ $bindings = array(
 			'2.24' => SUPPORTED,
 			'3.0' => SUPPORTED,
 			'3.2' => UNSUPPORTED,
-			'3.4' => UNSUPPORTED
+			'3.4' => UNSUPPORTED,
+			'3.6' => UNSUPPORTED
 		)
 	),
 
@@ -375,7 +395,7 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://mattn.github.com/go-gtk/',
 		'support' => array(
-			'2.8' => UNSUPPORTED,
+			/*'2.8' => UNSUPPORTED,*/
 			'2.10' => UNSUPPORTED,
 			'2.12' => UNSUPPORTED,
 			'2.14' => UNSUPPORTED,
@@ -386,7 +406,8 @@ $bindings = array(
 			'2.24' => PARTIAL,
 			'3.0' => UNSUPPORTED,
 			'3.2' => UNSUPPORTED,
-			'3.4' => UNSUPPORTED
+			'3.4' => UNSUPPORTED,
+			'3.6' => UNSUPPORTED
                 )
         ),
 
@@ -395,7 +416,7 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://github.com/jerryd/gtk-fortran/wiki',
 		'support' => array(
-			'2.8' => UNSUPPORTED,
+			/*'2.8' => UNSUPPORTED,*/
 			'2.10' => UNSUPPORTED,
 			'2.12' => SUPPORTED,
 			'2.14' => SUPPORTED,
@@ -406,7 +427,8 @@ $bindings = array(
 			'2.24' => PARTIAL,
 			'3.0' => PARTIAL,
 			'3.2' => PARTIAL,
-			'3.4' => PARTIAL
+			'3.4' => PARTIAL,
+			'3.6' => PARTIAL
 		)
 	)
 );
