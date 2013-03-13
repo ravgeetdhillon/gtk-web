@@ -333,7 +333,7 @@ $bindings = array(
 
 	"Haskell" => array(
 		'official' => false,
-		'url' => 'http://www.haskell.org/haskellwiki/Gtk2Hs',
+		'url' => 'http://projects.haskell.org/gtk2hs/documentation/',
 		'support' => array(
 			/*'2.8' => SUPPORTED,*/
 			'2.10' => SUPPORTED,
