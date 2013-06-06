@@ -10,6 +10,35 @@ require 'gtkdoc.config.php';
 
 <div class="news-item">
 	<div class="header">
+		<h3 class="news-title">GTK-Doc 1.19</h3>
+		<span class="news-date">Released Jun 05, 2013</span>
+	</div>
+        <ul>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=652740" class="external">Bug 652740</a> : Warnings during expansion of content files</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=660436" class="external">Bug 660436</a> : Warning for skip annotations on function parameters</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=661853" class="external">Bug 661853</a> : allow EXTRA_DIST to be predefined</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=668228" class="external">Bug 668228</a> : several of the tests use syntax not compatible with traditional Bourne shells</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=670724" class="external">Bug 670724</a> : gtk-doc.make: double recursion when maintainer-clean</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=670767" class="external">Bug 670767</a> : generated file gnome-doc-utils.m4 is in version control</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=670796" class="external">Bug 670796</a> : (patch) Show commands when building documentation with make</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=671519" class="external">Bug 671519</a> : Self-test relies on nonportable (GNU enhanced) 'date' command</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=671960" class="external">Bug 671960</a> : make dist fails without html/*</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=672710" class="external">Bug 672710</a> : Use new documentation infrastructure</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=676685" class="external">Bug 676685</a> : Allow to order functions without using $MODULE-sections.txt</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=685365" class="external">Bug 685365</a> : (PATCH) Fix contents of warning message, should be &quot; -sections.txt &quot; not &quot; -section.txt &quot;</li> 
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=686148" class="external">Bug 686148</a> : [patch] suggested parameters for gtkdoc-scangobj</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=687685" class="external">Bug 687685</a> : 'g_type_init' is deprecated</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=688204" class="external">Bug 688204</a> : undocumented enum values missing in indexes</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=688423" class="external">Bug 688423</a> : Add support for &quot; transfer floating &quot; introspection annotation</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=689209" class="external">Bug 689209</a> : Automake complains about trailing space after backslash.</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=690438" class="external">Bug 690438</a> : Small improvements</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=696930" class="external">Bug 696930</a> : Incorrect allowed value for a property</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=700981" class="external">Bug 700981</a> : make: copy the files with their relative path included</li>
+        </ul>
+</div>
+
+<div class="news-item">
+	<div class="header">
 		<h3 class="news-title">GTK-Doc 1.18</h3>
 		<span class="news-date">Released Sep 14, 2011</span>
 	</div>
