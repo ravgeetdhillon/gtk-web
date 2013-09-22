@@ -144,7 +144,7 @@ ob_start();
 		<td>0.18.2.1</td>
 		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime_0.18.1.1-2_win32.zip" class="download">Run-time</a></td>
 		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-dev_0.18.1.1-2_win32.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.18.2.1.tar.gz" class="download">Sources</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.18.1.1.tar.gz" class="download">Sources</a></td>
 	</tr>
 
 </table>
@@ -161,18 +161,34 @@ ob_start();
 	</tr>
 
 	<tr class="even">
+		<td>rsvg</td>
+		<td>2.36.4</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/rsvg_2.36.4-1_win32.zip" class="download">Runtime</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/rsvg-dev_2.36.4-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.acc.umu.se/pub/gnome/sources/librsvg/2.36/librsvg-2.36.4.tar.xz" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="even">
+		<td>croco</td>
+		<td>0.6.8</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/croco_0.6.8-1_win32.zip" class="download">Runtime</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/croco-dev_0.6.8-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.acc.umu.se/pub/gnome/sources/libcroco/0.6/libcroco-0.6.8.tar.xz" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="even">
 		<td>pixman</td>
 		<td>0.26.0</td>
-		<td><a href="http://win32builder.gnome.org/packages/pixman_0.26.0-1_win32.zip" class="download">Runtime</a></td>
-		<td><a href="http://win32builder.gnome.org/packages/pixman-dev_0.26.0-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/pixman_0.26.0-1_win32.zip" class="download">Runtime</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/pixman-dev_0.26.0-1_win32.zip" class="download">Dev</a></td>
 		<td><a href="http://cairographics.org/releases/pixman-0.26.0.tar.gz" class="download">Sources</a></td>
 	</tr>
 
 	<tr class="odd">
 		<td>pkg-config</td>
 		<td>0.28</td>
-		<td><a href="http://win32builder.gnome.org/packages/pkg-config_0.28-1_win32.zip" class="download">Tool</a></td>
-		<td><a href="http://win32builder.gnome.org/packages/pkg-config-dev_0.28-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/pkg-config_0.28-1_win32.zip" class="download">Tool</a></td>
+		<td></td>
 		<td><a href="http://pkgconfig.freedesktop.org/releases/pkg-config-0.28.tar.gz" class="download">Sources</a></td>
 	</tr>
 
