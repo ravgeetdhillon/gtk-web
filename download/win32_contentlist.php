@@ -14,12 +14,10 @@ ob_start();
  <li> libcairo-gobject-2.dll : Cairo GObject binding runtime. <strong>Required.</strong> </li>
  <li> libcairo-script-interpreter-2.dll : Script interpreter for Cairo. </li>
  <li> libcroco-0.6-3.dll : CSS2 Parsing library runtime. <strong><font color="red">SVG support.</font></strong> </li>
- <li> libexpat-1.dll : XML parser library runtime. <strong>Required.</strong> </li>
- <li> libffi-5.dll : LibFFI runtime. Bridge between interpreted and compiled code. <strong>Required.</strong> </li>
- <li> libfontconfig-1.dll : Fontconfig runtime. Font sets detection. <strong>Required.</strong> </li>
+ <li> libffi-6.dll : LibFFI runtime. Bridge between interpreted and compiled code. <strong>Required.</strong> </li>
+ <li> libfontconfig-1.dll : Fontconfig runtime. Font sets detection. </li>
  <li> libfreetype-6.dll : FreeType runtime. Portable font engine. <strong>Required.</strong> </li>
  <li> libgailutil-3-0.dll : GTK+ Accessibility Implementation Library Utilities runtime. </li>
- <li> libgcc_s_dw2-1.dll : GCC shared runtime. <strong>Required.</strong> </li>
  <li> libgdk_pixbuf-2.0-0.dll : GDK-Pixbuf runtime. Image loading and pixel buffer manipulation. <strong>Required.</strong> </li>
  <li> libgdk-3-0.dll : GDK runtime. GIMP Drawing Kit. Wraps low-level drawing and windowing functions used by each supported platform for use by GTK+. Each platform is designated as a "backend". <strong>Required.</strong> </li>
  <li> libgio-2.0-0.dll : GIO runtime. Filesystem operations abstraction layer for GLib. <strong>Required.</strong> </li>
@@ -31,16 +29,17 @@ ob_start();
  <li> libiconv-2.dll : Iconv runtime. Text conversion between Unicode and traditional encoding. <strong>Required.</strong> </li>
  <li> libintl-8.dll : Gettext Internationalization runtime. Allons on-the-fly translation of text using locale files. <strong>Required.</strong> </li>
  <li> libjpasper-1.dll : JPEG-2000 runtime. Renders JPEG-2000 images. </li>
- <li> libjpeg-8.dll : LibJPEG runtime. Renders classic JPEG images. </li>
+ <li> libjpeg-9.dll : LibJPEG runtime. Renders classic JPEG images. </li>
  <li> liblzma-5.dll : LibLZMA runtime. LZMA and XZ compression support. <strong><font color="red">SVG support.</font></strong> </li>
  <li> libpango-1.0-0.dll : Pango runtime. Internationalized text rendering. <strong>Required.</strong> </li>
  <li> libpangocairo-1.0-0.dll : Pango Cairo runtime. Render text onto Cairo surfaces. <strong>Required.</strong> </li>
- <li> libpangoft2-1.0-0.dll : Pango FreeType runtime. <strong>Required.</strong> </li>
+ <li> libpangoft2-1.0-0.dll : Pango FreeType runtime. </li>
  <li> libpangowin32-1.0-0.dll : Pango Win32 runtime . <strong>Required.</strong> </li>
  <li> libpixman-1-0.dll : Pixman runtime. Required by Cairo. <strong>Required.</strong> </li>
  <li> libpng15-15.dll : LibPNG runtime. Renders PNG images. <strong>Required.</strong> </li>
  <li> librsvg-2-2.dll : SVG runtime. Renders SVG images. <strong><font color="red">SVG support.</font></strong> </li>
- <li> libxml2-2.dll : XML parser library runtime. <strong><font color="red">SVG support.</font></strong> </li>
+ <li> libxml2-2.dll : XML parser library runtime. <strong>Required</strong> </li>
+ <li> pthreadGC2.dll : POSIX threads runtime. Multithreading support. <strong>Required.</strong> </li>
  <li> zlib1.dll : zlib runtime. GZIP compression support. <strong>Required.</strong> </li>
 </ul>
 
