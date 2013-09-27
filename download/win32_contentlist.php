@@ -5,6 +5,18 @@ ob_start();
 ?>
 <h2><a name="ContentListDesc">GTK+ Bundle content list and description</a></h2>
 
+<h3><a name="ContentListHowTo">How to use this list</a></h3>
+
+<ul>
+ <li>
+  <p>To distribute a minimal GTK+3 program, ship the DLLs marked as <strong>Required</strong> above.</p>
+ </li>
+
+ <li>
+  <p>To distribute a GTK+3 program using .SVG images, ship the DLLs marked with <strong><font color="red">SVG support</font></strong> above, including the "<strong>lib\gdk-pixbuf-2.0</strong>" folder under the root.</p>
+ </li>
+</ul>
+
 <h3><a name="ContentList">Content list</a></h3>
 
 <h4>/bin</h4>
@@ -71,18 +83,6 @@ ob_start();
  <li> /locale : localization files. <strong><font color="green"> Internationalized text support.</font> Required.</strong> </li>
  <li> /themes : graphical themes. </li>
  <li> * : miscellaneous files. </li>
-</ul>
-
-<h3><a name="Description">Description</a></h3>
-
-<ul>
- <li>
-  <p>To distribute a minimal GTK+3 program, ship the DLLs marked as <strong>Required</strong> above.</p>
- </li>
-
- <li>
-  <p>To distribute a GTK+3 program using .SVG images, ship the DLLs marked with <strong><font color="red">SVG support</font></strong> above, including the "<strong>lib\gdk-pixbuf-2.0</strong>" folder under the root.</p>
- </li>
 </ul>
 
 <?php require '../template.php';
