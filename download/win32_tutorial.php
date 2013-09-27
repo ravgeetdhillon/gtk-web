@@ -52,7 +52,7 @@ ob_start();
 </ol>
 
 
-<h3><a name="Developing">Developing wth GTK+3</a></h3>
+<h3><a name="Developing">Developing with GTK+3</a></h3>
 
 <h4>MinGW</h4>
 <p>You should have a working installation, i.e. "gcc.exe" already in your PATH.</p>
@@ -67,7 +67,7 @@ ob_start();
  <li>
   <p>Use this output in your further compilation commands, like this one :</p>
   <p><strong>gcc -o gtk3.exe gtk3.c -mms-bitfields -Ic:/gtk3/include/gtk-3.0 -Ic:/gtk3/include/atk-1.0 -Ic:/gtk3/include/cairo</strong> [...]</p>
-  <p><a href="../images/screenshots/screenshot-tutorial-04a.png" class="image"><img src="../images/screenshots/screenshot-tutorial-04.png" /></a></p>
+  <p><a href="../images/screenshots/screenshot-tutorial-04a.png" class="image"><img src="../images/screenshots/screenshot-tutorial-04a.png" /></a></p>
  </li>
 
  <li>
