@@ -77,6 +77,7 @@ ob_start();
 <h4>/share</h4>
 <ul>
  <li> /doc : license and copyleft. </li>
+ <li> /glib-2.0/schemas : resource files for common dialogs. <strong>Required.</strong> </li>
  <li> /gtk-3.0 : resource files for <i>gtk3-demo</i> program.</li>
  <li> /gtk-doc : documentation in HTML format. </li>
  <li> /icons : icon themes, used by <i>gtk3-demo</i> and <i>gtk3-widget-factory</i>. </li>
