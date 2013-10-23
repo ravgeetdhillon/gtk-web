@@ -26,13 +26,186 @@ ob_start();
 <h4>Which Windows versions?</h4>
 <p>The current GTK+ stack uses APIs that are available only on Windows 2000 or later. Long obsolete versions of GTK+ did run on Win9x and NT 4, too.</p>
 
+<h4>Tutorial</h4>
+<p>An installation and usage <a href="win32_tutorial.php">tutorial</a> is available for beginners.</p>
+
 <h3><a name="StableRelease">Downloads</a></h3>
 
 <p>There are three types of downloads below. <strong>Run-time</strong> provide only the DLLs and other files used you will need to run a GTK+-using application. <strong>Dev</strong> packages provide include files, import libraries, documentation and additional tools, and also for reference the script used to build the component in question. In case patches have been applied to the upstream sources before building, these are inline in the build script. <strong>Source</strong> packages provide the source code for the component in question. In most cases, this is simply the pristine upstream source release tarball, possibly copied to the same server as the binaries to satisfy the license.</p>
+<p>If you want to repackage the necessary run-time files together with your application into an installer, you can choose to leave out for instance message catalogs for languages that your application isn't localised to anyway.</p>
 
-<p>GTK+ 2.24 is the current maintained version.</p> <p>If you want to repackage the necessary run-time files together with your application into an installer, you can choose to leave out for instance message catalogs for languages that your application isn't localised to anyway.</p>
+<h3>GTK+ 3.x</h3>
+<p>GTK+ 3.6.4 is the current maintained version.</p>
 
-<h3>All-in-one bundles</h3>
+<h4>All-in-one bundles</h4>
+<p>If you find choosing, downloading and unpacking the individual zip archives below a chore, there is an <a href="http://win32builder.gnome.org/gtk+-bundle_3.6.4-20130921_win32.zip" class="download">all-in-one bundle</a> of the GTK+ stack including 3rd-party dependencies. The bundle contains both run-time and developer files. Many of the developer files are relatively irrelevant. If you intend to redistribute the GTK+ run-time, you can use this <a href="win32_contentlist.php">content list</a> to figure out which files you can leave out yourself. A new bundle will ideally be provided here whenever one of the member packages has been updated.</p>
+
+<h4>GTK+ individual packages</h4>
+
+<table>
+	<tr>
+		<th>Package</th>
+		<th>Version</th>
+		<th colspan="3">Downloads</th>
+	</tr>
+	<tr class="even">
+		<td>GLib</td>
+		<td>2.34.3</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/glib_2.34.3-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/glib-dev_2.34.3-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.34/glib-2.34.3.tar.xz" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="odd">
+		<td>ATK</td>
+		<td>2.6.0</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/atk_2.6.0-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/atk-dev_2.6.0-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/atk/2.6/atk-2.6.0.tar.xz" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="even">
+		<td>Pango</td>
+		<td>1.30.1</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/pango_1.30.1-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/pango-dev_1.30.1-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/pango/1.30/pango-1.30.1.tar.xz" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="odd">
+		<td>gdk-pixbuf</td>
+		<td>2.26.5</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/gdk-pixbuf_2.26.5-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/gdk-pixbuf-dev_2.26.5-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.26/gdk-pixbuf-2.26.5.tar.xz" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="even">
+		<td>GTK+</td>
+		<td>3.6.4</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/gtk+_3.6.4-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/gtk+-dev_3.6.4-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/3.6/gtk+-3.6.4.tar.xz" class="download">Sources</a></td>
+	</tr>
+</table>
+
+<h4>Required third party dependencies</h4>
+<p>The run-time packages here are required by the GTK+ stack.</p>
+
+<table>
+	<tr>
+		<th>Package</th>
+		<th>Version</th>
+		<th colspan="3">Downloads</th>
+	</tr>
+
+	<tr class="even">
+		<td>zlib</td>
+		<td>1.2.7</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/zlib_1.2.7-1_win32.zip" class="download">Run-time </a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/zlib-dev_1.2.7-1_win32.zip" class="download">Dev </a></td>
+		<td><a href="http://www.zlib.net/zlib127.zip" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="odd">
+		<td>cairo</td>
+		<td>1.10.2</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/cairo_1.10.2-2_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/cairo-dev_1.10.2-2_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://cairographics.org/releases/cairo-1.10.2.tar.gz" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="even">
+		<td>libpng</td>
+		<td>1.5.14</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/libpng_1.5.14-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/libpng-dev_1.5.14-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://sourceforge.net/projects/libpng/files/libpng15/older-releases/1.5.14/libpng-1.5.14.tar.xz/download" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="odd">
+		<td>Freetype</td>
+		<td>2.4.11</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/freetype_2.4.11-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/freetype-dev_2.4.11-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://downloads.sourceforge.net/project/freetype/freetype2/2.4.11/freetype-2.4.11.tar.bz2" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="even">
+		<td>Fontconfig</td>
+		<td>2.10.2</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/fontconfig_2.10.2-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/fontconfig-dev_2.10.2-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://www.fontconfig.org/release/fontconfig-2.10.2.tar.gz" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="even">
+		<td>gettext-runtime</td>
+		<td>0.18.2.1</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime_0.18.1.1-2_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-dev_0.18.1.1-2_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.18.1.1.tar.gz" class="download">Sources</a></td>
+	</tr>
+
+</table>
+
+<h4>Other third party software</h4>
+<p>These packages are not needed to run software that uses just GTK+, or to develop such software. These packages are used when building and running more complex applications.</p>
+
+<table>
+
+	<tr>
+		<th>Package</th>
+		<th>Version</th>
+		<th colspan="3">Downloads</th>
+	</tr>
+
+	<tr class="even">
+		<td>rsvg</td>
+		<td>2.36.4</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/rsvg_2.36.4-1_win32.zip" class="download">Runtime</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/rsvg-dev_2.36.4-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.acc.umu.se/pub/gnome/sources/librsvg/2.36/librsvg-2.36.4.tar.xz" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="even">
+		<td>croco</td>
+		<td>0.6.8</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/croco_0.6.8-1_win32.zip" class="download">Runtime</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/croco-dev_0.6.8-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.acc.umu.se/pub/gnome/sources/libcroco/0.6/libcroco-0.6.8.tar.xz" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="even">
+		<td>pixman</td>
+		<td>0.26.0</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/pixman_0.26.0-1_win32.zip" class="download">Runtime</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/pixman-dev_0.26.0-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://cairographics.org/releases/pixman-0.26.0.tar.gz" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="odd">
+		<td>pkg-config</td>
+		<td>0.28</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/pkg-config_0.28-1_win32.zip" class="download">Tool</a></td>
+		<td></td>
+		<td><a href="http://pkgconfig.freedesktop.org/releases/pkg-config-0.28.tar.gz" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="even">
+		<td>gettext-tools</td>
+		<td>0.18.1.1</td>
+		<td></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-tools-dev_0.18.1.1-2_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.18.1.1.tar.gz" class="download">Sources</a></td>
+	</tr>
+
+</table>
+
+<h3>GTK+ 2.x</h3>
+<p>GTK+ 2.24 is the current maintained version.</p>
+
+<h4>All-in-one bundles</h4>
 <p>If you find choosing, downloading and unpacking the individual zip archives below a chore, there is an <a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.24/gtk+-bundle_2.24.10-20120208_win32.zip" class="download">all-in-one bundle</a> of the GTK+ stack including 3rd-party dependencies. The bundle contains both run-time and developer files. Many of the developer files are relatively irrelevant. If you intend to redistribute the GTK+ run-time, you need to figure out which files you can leave out yourself. A new bundle will ideally be provided here whenever one of the member packages has been updated.</p>
 
 <h4>GTK+ individual packages</h4>
