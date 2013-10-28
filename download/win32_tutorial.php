@@ -16,7 +16,7 @@ ob_start();
 
 <ol>
  <li>
-  <p>Download the latest <a href="http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/3.4/gtk+-bundle_3.4.2-20130314_win32.zip">all-in-one bundle</a> and extract it using right-click -> "Extract All...".
+  <p>Download the latest <a href="http://win32builder.gnome.org/gtk+-bundle_3.6.4-20130921_win32.zip">all-in-one bundle</a> and extract it using right-click -> "Extract All...".
   Choose a location at your will ; we will call it <strong>%GTKDIR%</strong> during next phases.</p>
   <p><a href="../images/screenshots/screenshot-tutorial-01.png" class="image"><img src="../images/screenshots/screenshot-tutorial-01.png" /></a></p>
  </li>
