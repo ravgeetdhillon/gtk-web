@@ -106,10 +106,10 @@ ob_start();
 	</tr>
 	<tr>
 		<td>gettext-runtime</td>
-		<td>0.17</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/gettext-runtime_0.17-3_win64.zip" class="download">Binaries</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/gettext-runtime-dev_0.17-3_win64.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.17.tar.gz" class="download">Sources</a></td>
+		<td>0.18.1.1</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/gettext-runtime_0.18.1.1-2_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/gettext-runtime-dev_0.18.1.1-2_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.18.1.1.tar.gz" class="download">Sources</a></td>
 		<td class="required"><img src="../images/progress-incomplete.png" alt=""/></td>
 	</tr>
 	<tr class="odd">
