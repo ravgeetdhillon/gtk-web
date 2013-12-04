@@ -26,11 +26,167 @@ ob_start();
 
 <p>If you want to repackage the necessary runtime files together with your application into an installer, you can choose to leave out for instance message catalogs for languages that your application isn't localised to anyway.</p>
 
+<h3>GTK+ 3.x</h3>
+<p>GTK+ 3.6.4 is the current maintained version.</p>
+
+<h4>All-in-one bundle</h4>
+
+<p>If you find choosing, downloading and unpacking the individual zip archives below a chore, there is an <a href="http://win32builder.gnome.org/gtk+-bundle_3.6.4-20131201_win64.zip" class="download">all-in-one bundle</a> of the GTK+ stack including 3rd-party dependencies. The bundle contains both binaries and a lot of developer files, many of which are relatively irrelevant. If you intend to redistribute the GTK+ run-time, you can use this <a href="win32_contentlist.php">content list</a> to figure out which files you can leave out yourself. A new bundle will ideally be provided here whenever one of the member packages has been updated.</p>
+
+<h4>GTK+ individual packages</h4>
+
+<table>
+	<tr>
+		<th>Package</th>
+		<th>Version</th>
+		<th colspan="3">Downloads</th>
+	</tr>
+	<tr class="even">
+		<td>GLib</td>
+		<td>2.34.3</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/glib_2.34.3-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/glib-dev_2.34.3-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/glib/2.34/glib-2.34.3.tar.xz" class="download">Sources</a></td>
+	</tr>
+	<tr class="odd">
+		<td>GTK+</td>
+		<td>3.6.4</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/gtk+_3.6.4-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/gtk+-dev_3.6.4-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/3.6/gtk+-3.6.4.tar.xz" class="download">Sources</a></td>
+	</tr>
+	<tr class="odd">
+		<td>Pango</td>
+		<td>1.30.1</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/pango_1.30.1-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/pango-dev_1.30.1-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/pango/1.30/pango-1.30.1.tar.xz" class="download">Sources</a></td>
+	</tr>
+	<tr class="even">
+		<td>ATK</td>
+		<td>2.6.0</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/atk_2.6.0-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/atk-dev_2.6.0-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/atk/2.6/atk-2.6.0.tar.xz" class="download">Sources</a></td>
+	</tr>
+	<tr class="odd">
+		<td>gdk-pixbuf</td>
+		<td>2.26.5</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/gdk-pixbuf_2.26.5-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/gdk-pixbuf-dev_2.26.5-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.26/gdk-pixbuf-2.26.5.tar.xz" class="download">Sources</a></td>
+	</tr>
+</table>
+
+<h4>Required third party dependencies</h4>
+<p>The run-time packages here are required by the GTK+ stack.</p>
+
+<table>
+	<tr>
+		<th>Package</th>
+		<th>Version</th>
+		<th colspan="4">Downloads</th>
+	</tr>
+	<tr>
+		<td>zlib</td>
+		<td>1.2.7</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/zlib_1.2.7-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/zlib-dev_1.2.7-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://www.zlib.net/zlib127.zip" class="download">Sources</a></td>
+	</tr>
+	<tr class="odd">
+		<td>cairo</td>
+		<td>1.10.2</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/cairo_1.10.2-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/cairo-dev_1.10.2-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://cairographics.org/releases/cairo-1.10.2.tar.gz" class="download">Sources</a></td>
+	</tr>
+	<tr class="odd">
+		<td>Freetype</td>
+		<td>2.4.11</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/freetype_2.4.11-1_win64.zip" class="download">Run-time</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/freetype-dev_2.4.11-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://downloads.sourceforge.net/project/freetype/freetype2/2.4.11/freetype-2.4.11.tar.bz2" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="even">
+		<td>Fontconfig</td>
+		<td>2.10.2</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/fontconfig_2.10.2-1_win64.zip" class="download">Run-time</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/fontconfig-dev_2.10.2-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://www.fontconfig.org/release/fontconfig-2.10.2.tar.gz" class="download">Sources</a></td>
+	</tr>
+	<tr>
+		<td>gettext-runtime</td>
+		<td>0.18.1.1</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/gettext-runtime_0.18.1.1-2_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/gettext-runtime-dev_0.18.1.1-2_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.18.1.1.tar.gz" class="download">Sources</a></td>
+	</tr>
+	<tr>
+		<td>libpng</td>
+		<td>1.5.14</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/libpng_1.5.14-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/libpng-dev_1.5.14-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://sourceforge.net/projects/libpng/files/libpng15/older-releases/1.5.14/libpng-1.5.14.tar.xz/download" class="download">Sources</a></td>
+
+	</tr>
+</table>
+
+<h4>Other third party software</h4>
+<p>These packages are not needed to run software that uses just GTK+, or to develop such software. These packages are used when building and running more complex applications.</p>
+
+<table>
+	<tr>
+		<th>Package</th>
+		<th>Version</th>
+		<th colspan="3">Downloads</th>
+	</tr>
+	<tr class="even">
+		<td>rsvg</td>
+		<td>2.36.4</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/rsvg_2.36.4-1_win64.zip" class="download">Runtime</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/rsvg-dev_2.36.4-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.acc.umu.se/pub/gnome/sources/librsvg/2.36/librsvg-2.36.4.tar.xz" class="download">Sources</a></td>
+	</tr>
+	<tr class="even">
+		<td>croco</td>
+		<td>0.6.8</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/croco_0.6.8-1_win54.zip" class="download">Runtime</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/croco-dev_0.6.8-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.acc.umu.se/pub/gnome/sources/libcroco/0.6/libcroco-0.6.8.tar.xz" class="download">Sources</a></td>
+	</tr>
+	<tr class="even">
+		<td>pixman</td>
+		<td>0.26.0</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/pixman_0.26.0-1_win64.zip" class="download">Runtime</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/pixman-dev_0.26.0-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://cairographics.org/releases/pixman-0.26.0.tar.gz" class="download">Sources</a></td>
+	</tr>
+	<tr class="odd">
+		<td>pkg-config</td>
+		<td>0.28</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/pkg-config_0.28-1_win64.zip" class="download">Tool</a></td>
+		<td></td>
+		<td><a href="http://pkgconfig.freedesktop.org/releases/pkg-config-0.28.tar.gz" class="download">Sources</a></td>
+	</tr>
+	<tr class="even">
+		<td>gettext-tools</td>
+		<td>0.18.1.1</td>
+		<td></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/gettext-tools-dev_0.18.1.1-2_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/gettext-0.18.1.1.tar.gz" class="download">Sources</a></td>
+	</tr>
+</table>
+
+<h3>GTK+ 2.x</h3>
+<p>GTK+ 2.22 is the current maintained version.</p>
+
 <h4>All-in-one bundle</h4>
 
 <p>If you find choosing, downloading and unpacking the individual zip archives below a chore, there are all-in-one bundles of the GTK+ stack including 3rd-party dependencies, both of GTK+ <a href="http://ftp.gnome.org/pub/gnome/binaries/win64/gtk+/2.16/gtk+-bundle_2.16.6-20100208_win64.zip" class="download">2.16</a> and <a href="http://ftp.gnome.org/pub/gnome/binaries/win64/gtk+/2.22/gtk+-bundle_2.22.1-20101229_win64.zip" class="download">2.22</a>. The bundles contain both binaries and a lot of developer files, many of which are relatively irrelevant. If you intend to redistribute the GTK+ run-time, you need to figure out which files you can leave out yourself. A new bundle will ideally be provided here whenever one of the member packages has been updated.</p>
 
-<h3>GTK+ individual packages</h3>
+<h4>GTK+ individual packages</h4>
 
 <table>
 	<tr>
@@ -74,11 +230,11 @@ ob_start();
 		<td><a href="http://ftp.gnome.org/pub/gnome/sources/atk/1.32/atk-1.32.0.tar.bz2" class="download">Sources</a></td>
 	</tr>
 	<tr class="odd">
-		<td>cairo</td>
-		<td>1.10.2</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/cairo_1.10.2-1_win64.zip" class="download">Binaries</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/cairo-dev_1.10.2-1_win64.zip" class="download">Dev</a></td>
-		<td><a href="http://cairographics.org/releases/cairo-1.10.2.tar.gz" class="download">Sources</a></td>
+		<td>gdk-pixbuf</td>
+		<td>2.22.1</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/gdk-pixbuf/2.22/gdk-pixbuf_2.22.1-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/gdk-pixbuf/2.22/gdk-pixbuf-dev_2.22.1-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.22/gdk-pixbuf-2.22.1.tar.bz2" class="download">Sources</a></td>
 	</tr>
 </table>
 
@@ -96,6 +252,14 @@ ob_start();
 		<td>1.2.3</td>
 		<td><a href="http://ftp.gnome.org/pub/GNOME/binaries/win64/dependencies/zlib_1.2.3-2_win64.zip" class="download">Binaries</a></td>
 		<td colspan="2"><a href="http://ftp.gnome.org/pub/GNOME/binaries/win64/dependencies/zlib_1.2.3-2_win64.zip" class="download">Dev</a></td>
+		<td class="required"><img src="../images/progress-complete.png" alt=""/></td>
+	</tr>
+	<tr class="odd">
+		<td>cairo</td>
+		<td>1.10.2</td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/cairo_1.10.2-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/cairo-dev_1.10.2-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://cairographics.org/releases/cairo-1.10.2.tar.gz" class="download">Sources</a></td>
 		<td class="required"><img src="../images/progress-complete.png" alt=""/></td>
 	</tr>
 	<tr class="odd">
