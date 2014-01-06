@@ -72,6 +72,6 @@ ob_start();
 </div>
 
 <h2>Community Applications</h2>
-<p>For some time now, free applications which use GTK+ have been listed on the <a href="http://www.gtkfiles.org/" class="external">gtkfiles.org</a> website. This is great for finding out about new releases and searching for applications by category which use the same desktop environment (i.e. GTK+ and GNOME).</p>
+<p>For some time now, free applications which use GTK+ have been listed on the <a href="http://www.gtk-apps.org/" class="external">gtk-apps.org</a> website. This is great for finding out about new releases and searching for applications by category which use the same desktop environment (i.e. GTK+ and GNOME).</p>
 
 <?php require 'template.php';

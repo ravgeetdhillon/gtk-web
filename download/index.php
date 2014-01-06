@@ -45,11 +45,4 @@ git clone ssh://&lt;username&gt;@git.gnome.org/git/gtk+
 <h2 id="RepositoryBrowser">Repository Browser</h2>
 <p>If you prefer to view the git repository from your web browser for <a href="http://git.gnome.org/browse/gtk+" class="external">gtk+</a>, <a href="http://git.gnome.org/browse/glib" class="external">glib</a>, <a href="http://git.gnome.org/browse/pango" class="external">pango</a>, <a href="http://git.gnome.org/browse/gdk-pixbuf" class="external">gdk-pixbuf</a> and <a href="http://git.gnome.org/browse/atk" class="external">atk</a>.</p>
 
-<!--
-<h2>Applications</h2>
-<p>If you're looking for applications built <em>with</em>
-GTK+, you can find many projects available for download at
-<a href="http://www.gtkfiles.org" class="external" class="external">gtkfiles.org</a>.</p>
--->
-
 <?php require '../template.php';
