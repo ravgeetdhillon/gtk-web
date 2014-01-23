@@ -166,7 +166,7 @@ ob_start();
 	<tr class="odd">
 		<td>pkg-config</td>
 		<td>0.28</td>
-		<td><a href="http://win32builder.gnome.org/packages/3.6/pkg-config_0.28-1_win64.zip" class="download">Tool</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/pkg-config_0.28-2_win64.zip" class="download">Tool</a></td>
 		<td></td>
 		<td><a href="http://pkgconfig.freedesktop.org/releases/pkg-config-0.28.tar.gz" class="download">Sources</a></td>
 	</tr>
