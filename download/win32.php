@@ -142,9 +142,9 @@ ob_start();
 	<tr class="even">
 		<td>gettext-runtime</td>
 		<td>0.18.2.1</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime_0.18.1.1-2_win32.zip" class="download">Run-time</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-runtime-dev_0.18.1.1-2_win32.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.18.1.1.tar.gz" class="download">Sources</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/gettext_0.18.2.1-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/gettext-dev_0.18.2.1-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnu.org/pub/gnu/gettext/gettext-0.18.2.1.tar.gz" class="download">Sources</a></td>
 	</tr>
 
 </table>
@@ -190,14 +190,6 @@ ob_start();
 		<td><a href="http://win32builder.gnome.org/packages/3.6/pkg-config_0.28-1_win32.zip" class="download">Tool</a></td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/pkg-config-dev_0.28-1_win32.zip" class="download">Dev</a></td>
 		<td><a href="http://pkgconfig.freedesktop.org/releases/pkg-config-0.28.tar.gz" class="download">Sources</a></td>
-	</tr>
-
-	<tr class="even">
-		<td>gettext-tools</td>
-		<td>0.18.1.1</td>
-		<td></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-tools-dev_0.18.1.1-2_win32.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.18.1.1.tar.gz" class="download">Sources</a></td>
 	</tr>
 
 </table>

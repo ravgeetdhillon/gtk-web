@@ -118,10 +118,10 @@ ob_start();
 	</tr>
 	<tr>
 		<td>gettext-runtime</td>
-		<td>0.18.1.1</td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/gettext-runtime_0.18.1.1-2_win64.zip" class="download">Binaries</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/gettext-runtime-dev_0.18.1.1-2_win64.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/gettext-0.18.1.1.tar.gz" class="download">Sources</a></td>
+		<td>0.18.2.1</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/gettext_0.18.2.1-1_win64.zip" class="download">Run-time</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/gettext-dev_0.18.2.1-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnu.org/pub/gnu/gettext/gettext-0.18.2.1.tar.gz" class="download">Sources</a></td>
 	</tr>
 	<tr>
 		<td>libpng</td>
