@@ -170,13 +170,6 @@ ob_start();
 		<td><a href="http://win32builder.gnome.org/packages/3.6/pkg-config-dev_0.28-1_win64.zip" class="download">Dev</a></td>
 		<td><a href="http://pkgconfig.freedesktop.org/releases/pkg-config-0.28.tar.gz" class="download">Sources</a></td>
 	</tr>
-	<tr class="even">
-		<td>gettext-tools</td>
-		<td>0.18.1.1</td>
-		<td></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/gettext-tools-dev_0.18.1.1-2_win64.zip" class="download">Dev</a></td>
-		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/gettext-0.18.1.1.tar.gz" class="download">Sources</a></td>
-	</tr>
 </table>
 
 <h3>GTK+ 2.x</h3>
