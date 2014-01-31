@@ -55,21 +55,21 @@ ob_start();
 		<td><a href="http://win32builder.gnome.org/packages/3.6/gtk+-dev_3.6.4-1_win64.zip" class="download">Dev</a></td>
 		<td><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/3.6/gtk+-3.6.4.tar.xz" class="download">Sources</a></td>
 	</tr>
-	<tr class="odd">
+	<tr class="even">
 		<td>Pango</td>
 		<td>1.30.1</td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/pango_1.30.1-1_win64.zip" class="download">Binaries</a></td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/pango-dev_1.30.1-1_win64.zip" class="download">Dev</a></td>
 		<td><a href="http://ftp.gnome.org/pub/gnome/sources/pango/1.30/pango-1.30.1.tar.xz" class="download">Sources</a></td>
 	</tr>
-	<tr class="even">
+	<tr class="odd">
 		<td>ATK</td>
 		<td>2.6.0</td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/atk_2.6.0-1_win64.zip" class="download">Binaries</a></td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/atk-dev_2.6.0-1_win64.zip" class="download">Dev</a></td>
 		<td><a href="http://ftp.gnome.org/pub/gnome/sources/atk/2.6/atk-2.6.0.tar.xz" class="download">Sources</a></td>
 	</tr>
-	<tr class="odd">
+	<tr class="even">
 		<td>gdk-pixbuf</td>
 		<td>2.26.5</td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/gdk-pixbuf_2.26.5-1_win64.zip" class="download">Binaries</a></td>
@@ -87,7 +87,7 @@ ob_start();
 		<th>Version</th>
 		<th colspan="4">Downloads</th>
 	</tr>
-	<tr>
+	<tr class="even">
 		<td>zlib</td>
 		<td>1.2.7</td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/zlib_1.2.7-1_win64.zip" class="download">Binaries</a></td>
@@ -101,7 +101,23 @@ ob_start();
 		<td><a href="http://ftp.gnome.org/pub/gnome/binaries/win64/dependencies/cairo-dev_1.10.2-1_win64.zip" class="download">Dev</a></td>
 		<td><a href="http://cairographics.org/releases/cairo-1.10.2.tar.gz" class="download">Sources</a></td>
 	</tr>
+	<tr class="even">
+		<td>libpng</td>
+		<td>1.5.14</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/libpng_1.5.14-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/libpng-dev_1.5.14-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://sourceforge.net/projects/libpng/files/libpng15/older-releases/1.5.14/libpng-1.5.14.tar.xz/download" class="download">Sources</a></td>
+
+	</tr>
 	<tr class="odd">
+		<td>libxml2</td>
+		<td>2.8.0</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/libxml2_2.8.0-1_win64.zip" class="download">Binaries</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/libxml2-dev_2.8.0-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="ftp://xmlsoft.org/libxml2/libxml2-2.8.0.tar.gz" class="download">Sources</a></td>
+
+	</tr>
+	<tr class="even">
 		<td>Freetype</td>
 		<td>2.4.11</td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/freetype_2.4.11-1_win64.zip" class="download">Run-time</a></td>
@@ -109,27 +125,26 @@ ob_start();
 		<td><a href="http://downloads.sourceforge.net/project/freetype/freetype2/2.4.11/freetype-2.4.11.tar.bz2" class="download">Sources</a></td>
 	</tr>
 
-	<tr class="even">
+	<tr class="odd">
 		<td>Fontconfig</td>
 		<td>2.10.2</td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/fontconfig_2.10.2-1_win64.zip" class="download">Run-time</a></td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/fontconfig-dev_2.10.2-1_win64.zip" class="download">Dev</a></td>
 		<td><a href="http://www.fontconfig.org/release/fontconfig-2.10.2.tar.gz" class="download">Sources</a></td>
 	</tr>
-	<tr>
+	<tr class="even">
+		<td>libiconv</td>
+		<td>1.13.1</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/libiconv_1.13.1-1_win64.zip" class="download">Run-time</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/libiconv-dev_1.13.1-1_win64.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.13.1.tar.gz" class="download">Sources</a></td>
+	</tr>
+	<tr class="odd">
 		<td>gettext-runtime</td>
 		<td>0.18.2.1</td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/gettext_0.18.2.1-1_win64.zip" class="download">Run-time</a></td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/gettext-dev_0.18.2.1-1_win64.zip" class="download">Dev</a></td>
 		<td><a href="http://ftp.gnu.org/pub/gnu/gettext/gettext-0.18.2.1.tar.gz" class="download">Sources</a></td>
-	</tr>
-	<tr>
-		<td>libpng</td>
-		<td>1.5.14</td>
-		<td><a href="http://win32builder.gnome.org/packages/3.6/libpng_1.5.14-1_win64.zip" class="download">Binaries</a></td>
-		<td><a href="http://win32builder.gnome.org/packages/3.6/libpng-dev_1.5.14-1_win64.zip" class="download">Dev</a></td>
-		<td><a href="http://sourceforge.net/projects/libpng/files/libpng15/older-releases/1.5.14/libpng-1.5.14.tar.xz/download" class="download">Sources</a></td>
-
 	</tr>
 </table>
 
@@ -149,7 +164,7 @@ ob_start();
 		<td><a href="http://win32builder.gnome.org/packages/3.6/rsvg-dev_2.36.4-1_win64.zip" class="download">Dev</a></td>
 		<td><a href="http://ftp.acc.umu.se/pub/gnome/sources/librsvg/2.36/librsvg-2.36.4.tar.xz" class="download">Sources</a></td>
 	</tr>
-	<tr class="even">
+	<tr class="odd">
 		<td>croco</td>
 		<td>0.6.8</td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/croco_0.6.8-1_win54.zip" class="download">Runtime</a></td>

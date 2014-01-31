@@ -124,6 +124,14 @@ ob_start();
 	</tr>
 
 	<tr class="odd">
+		<td>libxml2</td>
+		<td>2.8.0</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/libxml2_2.8.0-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/libxml2-dev_2.8.0-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="ftp://xmlsoft.org/libxml2/libxml2-2.8.0.tar.gz" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="even">
 		<td>Freetype</td>
 		<td>2.4.11</td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/freetype_2.4.11-1_win32.zip" class="download">Run-time</a></td>
@@ -131,7 +139,7 @@ ob_start();
 		<td><a href="http://downloads.sourceforge.net/project/freetype/freetype2/2.4.11/freetype-2.4.11.tar.bz2" class="download">Sources</a></td>
 	</tr>
 
-	<tr class="even">
+	<tr class="odd">
 		<td>Fontconfig</td>
 		<td>2.10.2</td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/fontconfig_2.10.2-1_win32.zip" class="download">Run-time</a></td>
@@ -140,6 +148,14 @@ ob_start();
 	</tr>
 
 	<tr class="even">
+		<td>libiconv</td>
+		<td>1.13.1</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/libiconv_1.13.1-1_win32.zip" class="download">Run-time</a></td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/libiconv-dev_1.13.1-1_win32.zip" class="download">Dev</a></td>
+		<td><a href="http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.13.1.tar.gz" class="download">Sources</a></td>
+	</tr>
+
+	<tr class="odd">
 		<td>gettext-runtime</td>
 		<td>0.18.2.1</td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/gettext_0.18.2.1-1_win32.zip" class="download">Run-time</a></td>
@@ -168,7 +184,7 @@ ob_start();
 		<td><a href="http://ftp.acc.umu.se/pub/gnome/sources/librsvg/2.36/librsvg-2.36.4.tar.xz" class="download">Sources</a></td>
 	</tr>
 
-	<tr class="even">
+	<tr class="odd">
 		<td>croco</td>
 		<td>0.6.8</td>
 		<td><a href="http://win32builder.gnome.org/packages/3.6/croco_0.6.8-1_win32.zip" class="download">Runtime</a></td>
