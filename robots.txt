@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /api/ # Do not index old API references
