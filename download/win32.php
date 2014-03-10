@@ -101,10 +101,9 @@ ob_start();
 
 	<tr class="even">
 		<td>zlib</td>
-		<td>1.2.7</td>
-		<td><a href="http://win32builder.gnome.org/packages/3.6/zlib_1.2.7-1_win32.zip" class="download">Run-time </a></td>
-		<td><a href="http://win32builder.gnome.org/packages/3.6/zlib-dev_1.2.7-1_win32.zip" class="download">Dev </a></td>
-		<td><a href="http://www.zlib.net/zlib127.zip" class="download">Sources</a></td>
+		<td>1.2.8</td>
+		<td><a href="http://win32builder.gnome.org/packages/3.6/zlib128-dll.zip" class="download">Run-time </a></td>
+		<td><a href="http://www.zlib.net/zlib128.zip" class="download">Sources</a></td>
 	</tr>
 
 	<tr class="odd">
