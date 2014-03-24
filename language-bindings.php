@@ -99,7 +99,7 @@ $bindings = array(
 		'url' => 'http://ruby-gnome2.sourceforge.jp/',
 		'support' => array(
 			'2.24' => PARTIAL,
-			'3.10' => UNSUPPORTED
+			'3.10' => SUPPORTED
 		)
 	),
 
