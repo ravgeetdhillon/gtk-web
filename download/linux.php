@@ -5,6 +5,7 @@ ob_start();
 
 // Set the current stable version numbers of GTK+, GLib, and Pango to automatically include it in the page.
 $versions = array(
+	'gobject-introspection' => '1.38',
 	'gtk' => '3.10',
 	'glib' => '2.38',
 	'pango' => '1.36',
@@ -29,6 +30,7 @@ $oldgtk = array( '3.8', '3.6', '3.4', '3.2', '3.0', '2.24', '2.20', '2.18', '2.1
 	<li><a href="http://ftp.gnome.org/pub/gnome/sources/pango/<?php echo $versions['pango']; ?>/" class="download">Pango <?php echo $versions['pango']; ?></a></li>
 	<li><a href="http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/<?php echo $versions['gdk-pixbuf']; ?>/" class="download">Gdk-Pixbuf <?php echo $versions['gdk-pixbuf']; ?></a></li>
 	<li><a href="http://ftp.gnome.org/pub/gnome/sources/atk/<?php echo $versions['atk']; ?>/" class="download">ATK <?php echo $versions['atk']; ?></a></li>
+        <li><a href="http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/<?php echo $versions['gobject-introspection']; ?>/" class="download">GObject-Introspection <?php echo $versions['gobject-introspection']; ?></a></li>
 </ul>
 <!--
 <ul>
