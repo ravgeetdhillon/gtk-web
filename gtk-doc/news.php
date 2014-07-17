@@ -10,6 +10,26 @@ require 'gtkdoc.config.php';
 
 <div class="news-item">
 	<div class="header">
+		<h3 class="news-title">GTK-Doc 1.21</h3>
+		<span class="news-date">Released Jul 17, 2014</span>
+	</div>
+	<ul>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=170860" class="external">Bug 170860</a> : gtk-doc should have definitions for stability</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=644111" class="external">Bug 644111</a> : one cannot specify against which libs gtkdoc-fixxref should resolve links (problematic with multiple versions)</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=657444" class="external">Bug 657444</a> : &quot; enum foo { ... } &quot; ; not recognized</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=671519" class="external">Bug 671519</a> : Self-test relies on nonportable (GNU enhanced) 'date' command</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=678094" class="external">Bug 678094</a> : the word &quot; returns &quot; in a function description can be parsed as the &quot; Returns: &quot; section</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=722621" class="external">Bug 722621</a> : gtk-doc tarball was created with 32bit uid/gid, unusable with mingw/msys tar</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=724739" class="external">Bug 724739</a> : Self-test fail: gtkdoc-mkdb misusing perl datatype</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=725505" class="external">Bug 725505</a> : new syntax highlighting for code is weird</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=725663" class="external">Bug 725663</a> : configure: non POSIX test usage</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=730658" class="external">Bug 730658</a> : Deprecation warning for non-deprecated type GParamFlags</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=730777" class="external">Bug 730777</a> : Add support for nullable and optional annotations</li>
+	</ul>
+</div>
+
+<div class="news-item">
+	<div class="header">
 		<h3 class="news-title">GTK-Doc 1.20</h3>
 		<span class="news-date">Released Feb 16, 2014</span>
 	</div>
