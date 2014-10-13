@@ -186,7 +186,7 @@ $bindings = array(
 
 	"D" => array(
 		'official' => false,
-		'url' => 'http://www.dsource.org/projects/gtkd',
+		'url' => 'http://gtkd.org/',
 		'support' => array(
 			'2.24' => SUPPORTED,
 			'3.10' => SUPPORTED
