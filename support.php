@@ -32,10 +32,9 @@ ob_start();
 <?php
 $businesses = array(
 	/* ("Company",                   "Website"), */
-	array("Lanedo GmbH",             "http://www.lanedo.com/gtk+"),
-	array("Openismus GmbH",          "http://www.openismus.com/about"),
-	array("Codethink Ltd",           "http://www.codethink.co.uk/company/contact"),
-	array("Collabora Ltd",           "http://www.collabora.com/contact/"),
+	array("Lanedo GmbH",             "http://www.lanedo.com/projects/gtk/"),
+	array("Codethink Ltd",           "http://www.codethink.co.uk/contact.html"),
+	array("Collabora Ltd",           "https://www.collabora.com/contact-us.html"),
 	array("Igalia",                  "http://www.igalia.com/contact/")
 );
 
