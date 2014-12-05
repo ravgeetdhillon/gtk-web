@@ -15,7 +15,7 @@ ob_start();
 	</div>
 	<div class="right">
 		<h3><a href="http://www.gnome.org" class="external"><img src="images/commerce/platforms/gnome.png" alt="GNOME" /></a></h3>
-		<p>The GNOME platform has been developed for over 10 years now and is used by many people expecting the high grade, clean look and feel for their every day desktop. GNOME delivers that with the power of GTK+ sitting underneath the software stack written on top of it.</p>
+		<p>The GNOME platform has been developed since 1997 and is used by many people expecting the high grade, clean look and feel for their every day desktop. GNOME delivers that with the power of GTK+ sitting underneath the software stack written on top of it.</p>
 </div>
 </div>
 
