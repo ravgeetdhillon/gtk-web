@@ -5,7 +5,7 @@ ob_start();
 ?>
 <div class="sidebar">
 	<h2><a name="FAQ">FAQ</a></h2>
-	<p>For information about frequently asked questions, please <a href="http://library.gnome.org/devel/gtk-faq/stable/" class="external">visit the FAQ</a>.</p>
+	<p>For information about frequently asked questions, please <a href="https://developer.gnome.org/gtk3/stable/gtk-question-index.html" class="external">visit the FAQ</a>.</p>
 
 	<h2><a name="Documentation">Documentation</a></h2>
 	<p>Visit our <a href="/documentation.php">documentation</a> page for books, tutorials, articles and presentations about GTK+.</p>

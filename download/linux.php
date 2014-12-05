@@ -22,7 +22,7 @@ $oldgtk = array( '3.10', '3.8', '3.6', '3.4', '3.2', '3.0', '2.24', '2.20', '2.1
 <p>You will need to get the GLib, GObject-Introspection, Pango, Gdk-Pixbuf, ATK and GTK+ packages to build GTK+.<br/>You may also need some of the external dependencies that are also linked for each version listed below.</p>
 
 <h3><a name="StableRelease">Stable Release</a></h3>
-<p>To build GTK+ <?php echo $versions['gtk']; ?>, see the <a href="http://library.gnome.org/devel/gtk3/stable/gtk-building.html" class="external">installation guide</a>. For additional help, the <a href="http://library.gnome.org/devel/gtk-faq/stable/" class="external">FAQ</a> is a good starting point.</p>
+<p>To build GTK+ <?php echo $versions['gtk']; ?>, see the <a href="https://developer.gnome.org/gtk3/stable/gtk-building.html" class="external">installation guide</a>. For additional help, the <a href="https://developer.gnome.org/gtk3/stable/gtk-question-index.html" class="external">FAQ</a> is a good starting point.</p>
 
 <ul>
 	<li><a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/<?php echo $versions['gtk']; ?>/" class="download">GTK+ <?php echo $versions['gtk']; ?></a></li>

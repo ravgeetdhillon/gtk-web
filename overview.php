@@ -16,10 +16,10 @@ ob_start();
 		<p>Over time GTK+ has been built up to be based on four libraries, also developed by the GTK+ team:</p>
 
 		<ul class="librarieslist">
-			<li class="glib"><a href="http://library.gnome.org/devel/glib/" class="external">GLib</a>, a low-level core library that forms the basis of GTK+. It provides data structure handling for C, portability wrappers and interfaces for such run-time functionality as an event loop, threads, dynamic loading and an object system.</li>
+			<li class="glib"><a href="https://developer.gnome.org/glib/" class="external">GLib</a>, a low-level core library that forms the basis of GTK+. It provides data structure handling for C, portability wrappers and interfaces for such run-time functionality as an event loop, threads, dynamic loading and an object system.</li>
 			<li class="pango"><a href="http://www.pango.org" class="external">Pango</a>, a library for layout and rendering of text with an emphasis on internationalization. It forms the core of text and font handling for GTK+.</li>
 			<li class="cairo"><a href="http://www.cairographics.org/" class="external">Cairo</a>, a library for 2D graphics with support for multiple output devices (including the X Window System, Win32) while producing a consistent output on all media while taking advantage of display hardware acceleration when available.</li>
-			<li class="atk"><a href="http://library.gnome.org/devel/atk/" class="external">ATK</a>, a library for a set of interfaces providing accessibility. By supporting the ATK interfaces, an application or toolkit can be used with tools such as screen readers, magnifiers, and alternative input devices.</li>
+			<li class="atk"><a href="https://developer.gnome.org/atk/" class="external">ATK</a>, a library for a set of interfaces providing accessibility. By supporting the ATK interfaces, an application or toolkit can be used with tools such as screen readers, magnifiers, and alternative input devices.</li>
 		</ul>
 
 	</div>
