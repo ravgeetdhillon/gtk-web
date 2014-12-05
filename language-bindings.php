@@ -242,7 +242,7 @@ if(isset($_GET['json'])) {
 <h2><a name="LanguageBindings">Language Bindings</a></h2>
 <p>Language Bindings (or 'wrappers') allow GTK+ to be used from other programming languages, in the style of those languages. They are relatively easy to create because GTK+ is designed with them in mind.</p>
 
-<p>The bindings that are official <a href="http://www.gnome.org/start/unstable/Bindings/" class="external">GNOME Bindings</a> follow the GNOME release schedule which guarantees API stability and time-based releases.</p>
+<p>The official GNOME bindings follow the GNOME release schedule which guarantees API stability and time-based releases.</p>
 
 <p style="display: none;"><!-- For Lynx --></p>
 
