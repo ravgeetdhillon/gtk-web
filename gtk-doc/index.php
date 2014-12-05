@@ -21,7 +21,7 @@ require 'gtkdoc.config.php';
 
 <p>From these source code comments and template files GTK-Doc generates a <a href="http://www.docbook.org/" class="external">Docbook</a> XML (or <a href="http://en.wikipedia.org/wiki/SGML" class="external">SGML</a>) document, which is then transformed into HTML.</p>
 
-<p>The generated HTML documentation can be browsed in an ordinary web browser or by using the special <a href="http://live.gnome.org/devhelp" class="external">Devhelp API browser</a>. Devhelp uses a special <a href="devhelp2.xsd.html">index file</a> to locate and present the manuals.</p>
+<p>The generated HTML documentation can be browsed in an ordinary web browser or by using the special <a href="https://wiki.gnome.org/Apps/Devhelp" class="external">Devhelp API browser</a>. Devhelp uses a special <a href="devhelp2.xsd.html">index file</a> to locate and present the manuals.</p>
 
 <p>For full details have a look at the <a href="http://developer.gnome.org/gtk-doc-manual/unstable/" class="external">GTK-Doc user manual</a>.</p>
 

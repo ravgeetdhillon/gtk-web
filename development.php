@@ -13,10 +13,10 @@ ob_start();
 	<p>For archives and information on how to subscribe, see the list of <a href="mailing-lists.php">mailing lists</a> available.</p>
 
 	<h2><a name="Wiki">Wiki</a></h2>
-	<p>We have a Wiki for drafting, designing and proposing GTK+ development available at <a href="http://live.gnome.org/GTK+" class="external">http://live.gnome.org/GTK+</a>.</p>
+	<p>We have <a href="https://wiki.gnome.org/Projects/GTK+" class="external">wiki pages</a> for drafting, designing and proposing GTK+ development.</p>
 
 	<h2><a name="Meetings">Meetings</a></h2>
-	<p>As regularly as possible, GTK+ team meetings take place in the <a href="irc://irc.gnome.org/%23gtk-devel" class="irc">#gtk-devel</a> IRC channel on irc.gnome.org. Anyone is welcome to join the meeting to listen in and follow the progress of the GTK+ project. <a href="http://live.gnome.org/GTK+/Meetings" class="external">All meetings</a> are recorded and available dating back to early 2004.</p>
+	<p>As regularly as possible, GTK+ team meetings take place in the <a href="irc://irc.gnome.org/%23gtk-devel" class="irc">#gtk-devel</a> IRC channel on irc.gnome.org. Anyone is welcome to join the meeting to listen in and follow the progress of the GTK+ project. <a href="https://wiki.gnome.org/Projects/GTK+/Meetings" class="external">All meetings</a> are recorded and available dating back to early 2004.</p>
 	<p>#gtk-devel is only used for GTK+ team meetings, and should not be used to ask general questions about GTK+. For all other IRC communication, <a href="irc://irc.gnome.org/%23gtk%2B" class="irc">#gtk+</a> is used.</p>
 </div>
 
@@ -27,13 +27,13 @@ ob_start();
 <p>GTK+ is a large project and relies on voluntary contributions. Everyone is invited to help project development. Starting points for contributors are:</p>
 
 <ul class="tasks">
-	<li>Sign up for one of the <a href="http://live.gnome.org/GtkTasks" class="external">project assistance tasks</a>.</li>
-	<li>Hack away on existing <a href="http://live.gnome.org/GtkLove" class="external">bug reports and feature requests</a>.</li>
+	<li>Sign up for one of the <a href="https://wiki.gnome.org/Attic/GtkTasks" class="external">project assistance tasks</a>.</li>
+	<li>Hack away on existing <a href="https://wiki.gnome.org/GtkLove" class="external">bug reports and feature requests</a>.</li>
 	<li>Write to the GTK+ <a href="mailing-lists.php">mailing lists</a> and offer your help.</li>
 </ul>
 
 <h2><a name="BestPractices">Best Practices</a></h2>
-<p>When working on GTK+/GLib, there are several points once should consider, to keep the code in shape. See the <a href="http://live.gnome.org/GTK+/BestPractices" class="external">GTK+ Best Practices</a>.</p>
+<p>When working on GTK+/GLib, there are several points once should consider, to keep the code in shape. See the <a href="https://wiki.gnome.org/Projects/GTK+/BestPractices" class="external">GTK+ Best Practices</a>.</p>
 
 <h2><a name="Team">Team</a></h2>
 <p>Current core maintainers of GTK+ are:</p>

@@ -60,7 +60,7 @@ $bindings = array(
 
 	"Python" => array(
 		'official' => true,
-		'url' => 'http://live.gnome.org/PyGObject',
+		'url' => 'https://wiki.gnome.org/Projects/PyGObject',
 		'support' => array(
 			'2.24' => SUPPORTED,
 			'3.10' => SUPPORTED
@@ -69,7 +69,7 @@ $bindings = array(
 
 	"Javascript" => array(
 		'official' => true,
-		'url' => 'http://live.gnome.org/JavaScript',
+		'url' => 'https://wiki.gnome.org/JavaScript',
 		'support' => array(
 			'2.24' => SUPPORTED,
 			'3.10' => SUPPORTED
@@ -78,7 +78,7 @@ $bindings = array(
 
 	"Vala" => array(
 		'official' => true,
-		'url' => 'http://live.gnome.org/Vala',
+		'url' => 'https://wiki.gnome.org/Projects/Vala',
 		'support' => array(
 			'2.24' => SUPPORTED,
 			'3.10' => SUPPORTED

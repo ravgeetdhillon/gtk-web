@@ -40,7 +40,7 @@ git clone ssh://&lt;username&gt;@git.gnome.org/git/gtk+
 
 <p>NOTE: the modules are: <q>gtk+</q>, <q>glib</q>, <q>pango</q>, <q>gdk-pixbuf</q> and <q>atk</q>.</p>
 
-<p>For more information on this, see the <a href="http://live.gnome.org/Git" class="external">instructions on how to use the repository</a>.</p>
+<p>For more information on this, see the <a href="https://wiki.gnome.org/Git" class="external">instructions on how to use the repository</a>.</p>
 
 <h2 id="RepositoryBrowser">Repository Browser</h2>
 <p>If you prefer to view the git repository from your web browser for <a href="http://git.gnome.org/browse/gtk+" class="external">gtk+</a>, <a href="http://git.gnome.org/browse/glib" class="external">glib</a>, <a href="http://git.gnome.org/browse/pango" class="external">pango</a>, <a href="http://git.gnome.org/browse/gdk-pixbuf" class="external">gdk-pixbuf</a> and <a href="http://git.gnome.org/browse/atk" class="external">atk</a>.</p>
