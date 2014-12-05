@@ -31,36 +31,11 @@ $bindings = array(
         // Accepts SUPPORTED, PARTIAL, UNSUPPORTED
         // NOTE: Commented out sections are kept for historical reasons, -mr.
 
+	/* Official bindings (sorted alphabetically) */
+
 	"C++" => array(
 		'official' => true, // Whether this binding is an official GNOME binding
 		'url' => 'http://www.gtkmm.org/', // Link to this page
-		'support' => array(
-			'2.24' => SUPPORTED,
-			'3.10' => SUPPORTED
-		)
-	),
-
-	"C#" => array(
-		'official' => false,
-		'url' => 'http://www.mono-project.com/GtkSharp',
-		'support' => array(
-			'2.24' => PARTIAL,
-			'3.10' => UNSUPPORTED
-		)
-	),
-
-	"Java" => array(
-		'official' => false,
-		'url' => 'http://java-gnome.sourceforge.net/',
-		'support' => array(
-			'2.24' => SUPPORTED,
-			'3.10' => SUPPORTED
-		)
-	),
-
-	"Python" => array(
-		'official' => true,
-		'url' => 'https://wiki.gnome.org/Projects/PyGObject',
 		'support' => array(
 			'2.24' => SUPPORTED,
 			'3.10' => SUPPORTED
@@ -76,15 +51,6 @@ $bindings = array(
 		)
 	),
 
-	"Vala" => array(
-		'official' => true,
-		'url' => 'https://wiki.gnome.org/Projects/Vala',
-		'support' => array(
-			'2.24' => SUPPORTED,
-			'3.10' => SUPPORTED
-		)
-	),
-
 	"Perl" => array(
 		'official' => true,
 		'url' => 'http://gtk2-perl.sourceforge.net/',
@@ -94,12 +60,122 @@ $bindings = array(
 		)
 	),
 
-	"Ruby" => array(
+	"Python" => array(
+		'official' => true,
+		'url' => 'https://wiki.gnome.org/Projects/PyGObject',
+		'support' => array(
+			'2.24' => SUPPORTED,
+			'3.10' => SUPPORTED
+		)
+	),
+
+	"Vala" => array(
+		'official' => true,
+		'url' => 'https://wiki.gnome.org/Projects/Vala',
+		'support' => array(
+			'2.24' => SUPPORTED,
+			'3.10' => SUPPORTED
+		)
+	),
+
+	/* Other bindings (sorted alphabetically) */
+
+	"Ada" => array(
 		'official' => false,
-		'url' => 'http://ruby-gnome2.sourceforge.jp/',
+		'url' => 'http://libre.adacore.com/libre/tools/gtkada/',
+		'support' => array(
+			'2.24' => PARTIAL,
+			'3.10' => PARTIAL
+		)
+	),
+
+	"C#" => array(
+		'official' => false,
+		'url' => 'http://www.mono-project.com/GtkSharp',
+		'support' => array(
+			'2.24' => PARTIAL,
+			'3.10' => UNSUPPORTED
+		)
+	),
+
+	"D" => array(
+		'official' => false,
+		'url' => 'http://gtkd.org/',
+		'support' => array(
+			'2.24' => SUPPORTED,
+			'3.10' => SUPPORTED
+		)
+	),
+
+	"Fortran" => array(
+		'official' => false,
+		'url' => 'http://github.com/jerryd/gtk-fortran/wiki',
+		'support' => array(
+			'2.24' => PARTIAL,
+			'3.10' => PARTIAL
+		)
+	),
+
+	"FreeBASIC" => array(
+		'official' => false,
+		'url' => 'http://www.freebasic-portal.de/downloads/ressourcencompiler/gtktobac2-2-0-131.html',
+		'support' => array(
+			'2.24' => SUPPORTED,
+			'3.10' => SUPPORTED
+		)
+	),
+
+	"Go" => array(
+		'official' => false,
+		'url' => 'http://mattn.github.com/go-gtk/',
+		'support' => array(
+			'2.24' => PARTIAL,
+			'3.10' => UNSUPPORTED
+                )
+        ),
+
+	"Guile" => array(
+		'official' => false,
+		'url' => 'http://www.gnu.org/software/guile-gnome/',
+		'support' => array(
+			'2.24' => PARTIAL,
+			'3.10' => UNSUPPORTED
+		)
+	),
+
+	"Haskell" => array(
+		'official' => false,
+		'url' => 'http://projects.haskell.org/gtk2hs/documentation/',
+		'support' => array(
+			'2.24' => SUPPORTED,
+			'3.10' => SUPPORTED
+		)
+	),
+
+	"Java" => array(
+		'official' => false,
+		'url' => 'http://java-gnome.sourceforge.net/',
+		'support' => array(
+			'2.24' => SUPPORTED,
+			'3.10' => SUPPORTED
+		)
+	),
+
+	"Lua" => array(
+		'official' => false,
+		'url' => 'http://github.com/pavouk/lgi',
 		'support' => array(
 			'2.24' => PARTIAL,
 			'3.10' => SUPPORTED
+		)
+	),
+
+	"OCaml" => array(
+		'official' => false,
+		'url' => 'http://wwwfun.kurims.kyoto-u.ac.jp/soft/olabl/lablgtk.html',
+		'support' => array(
+			'2.24' => PARTIAL,
+			'3.10' => UNSUPPORTED
 		)
 	),
 
@@ -130,85 +206,12 @@ $bindings = array(
 		)
 	),
 
-	"Lua" => array(
+	"Ruby" => array(
 		'official' => false,
-		'url' => 'http://github.com/pavouk/lgi',
+		'url' => 'http://ruby-gnome2.sourceforge.jp/',
 		'support' => array(
 			'2.24' => PARTIAL,
 			'3.10' => SUPPORTED
-		)
-	),
-
-	"Guile" => array(
-		'official' => false,
-		'url' => 'http://www.gnu.org/software/guile-gnome/',
-		'support' => array(
-			'2.24' => PARTIAL,
-			'3.10' => UNSUPPORTED
-		)
-	),
-
-	"Ada" => array(
-		'official' => false,
-		'url' => 'http://libre.adacore.com/libre/tools/gtkada/',
-		'support' => array(
-			'2.24' => PARTIAL,
-			'3.10' => PARTIAL
-		)
-	),
-
-	"OCaml" => array(
-		'official' => false,
-		'url' => 'http://wwwfun.kurims.kyoto-u.ac.jp/soft/olabl/lablgtk.html',
-		'support' => array(
-			'2.24' => PARTIAL,
-			'3.10' => UNSUPPORTED
-		)
-	),
-
-	"Haskell" => array(
-		'official' => false,
-		'url' => 'http://projects.haskell.org/gtk2hs/documentation/',
-		'support' => array(
-			'2.24' => SUPPORTED,
-			'3.10' => SUPPORTED
-		)
-	),
-
-	"FreeBASIC" => array(
-		'official' => false,
-		'url' => 'http://www.freebasic-portal.de/downloads/ressourcencompiler/gtktobac2-2-0-131.html',
-		'support' => array(
-			'2.24' => SUPPORTED,
-			'3.10' => SUPPORTED
-		)
-	),
-
-	"D" => array(
-		'official' => false,
-		'url' => 'http://gtkd.org/',
-		'support' => array(
-			'2.24' => SUPPORTED,
-			'3.10' => SUPPORTED
-		)
-	),
-
-	"Go" => array(
-		'official' => false,
-		'url' => 'http://mattn.github.com/go-gtk/',
-		'support' => array(
-			'2.24' => PARTIAL,
-			'3.10' => UNSUPPORTED
-                )
-        ),
-
-
-	"Fortran" => array(
-		'official' => false,
-		'url' => 'http://github.com/jerryd/gtk-fortran/wiki',
-		'support' => array(
-			'2.24' => PARTIAL,
-			'3.10' => PARTIAL
 		)
 	)
 );
