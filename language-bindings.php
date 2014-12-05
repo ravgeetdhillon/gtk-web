@@ -277,6 +277,6 @@ foreach($versions as $v) {
 	</ul>
 </div>
 
-<p class="footnote">If this page happens to be out of date, you can edit this page by checking out the <a href="http://git.gnome.org/cgit/gtk-web/" class="external">gtk-web</a> module in <a href="http://git.gnome.org/" class="external">GNOME's Git</a>. If you don't have an account to do this, please contact the  <a href="mailto:language-bindings@gnome.org?subject=Out%20of%20date%20language%20bindings" class="email">GNOME Language Bindings Team</a> for GNOME supported bindings or the <a href="mailto:gtk-devel-list@gnome.org" class="email">gtk-devel list</a> for all other bindings. </p>
+<p class="footnote">If this page happens to be out of date, you can edit this page by checking out the <a href="https://git.gnome.org/browse/gtk-web/" class="external">gtk-web</a> module in <a href="http://git.gnome.org/" class="external">GNOME's Git</a>. If you don't have an account to do this, please contact the  <a href="mailto:language-bindings@gnome.org?subject=Out%20of%20date%20language%20bindings" class="email">GNOME Language Bindings Team</a> for GNOME supported bindings or the <a href="mailto:gtk-devel-list@gnome.org" class="email">gtk-devel list</a> for all other bindings. </p>
 
 <?php require 'template.php';
