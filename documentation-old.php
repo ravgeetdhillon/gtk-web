@@ -5,7 +5,7 @@ ob_start();
 ?>
 
 <h2><a name="OlderDocumentation">Older Documentation</a></h2>
-<p>We recommend the GTK+ 2.x libraries and documentation instead because GTK+ 1.2 is no longer supported, this documentation is available for those that need it.</p> 
+<p>We recommend the GTK+ 3.x libraries and documentation instead because older versions are no longer supported, this documentation is available for those that need it.</p>
 
 <h2><a name="Books">Books</a></h2>
 <ul>
