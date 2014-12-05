@@ -31,11 +31,11 @@ ob_start();
 	</li>
 </ul>
 
-<h2><a name="Tutorials">Tutorials</a></h2>
+<h2><a name="UsefulLinks">Useful Links</a></h2>
 <ul>
 	<li>
-		<a href="/tutorial1.2/">GTK+ 1.2</a>
-		<br />Official Tutorial
+		<a href="http://ometer.com/gtk-colors.html" class="external">How to set the color of a widget</a>
+		<br />A small article by Havoc Pennington.
 	</li>
 </ul>
 

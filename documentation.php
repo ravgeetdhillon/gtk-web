@@ -123,14 +123,6 @@ ob_start();
 		<br />A look at using GLib to effectively manage data within C programs by Tom Copeland.
 	</li>
 	<li>
-		<a href="http://www.ibm.com/developerworks/library/l-u-pango1/" class="external">The Pango connection: Part 1</a>, <a href="http://www.ibm.com/developerworks/library/l-u-pango2/" class="external">Part 2</a>
-		<br />An introduction to Pango by Tony Graham.
-	</li>
-	<li>
-		<a href="http://gnomejournal.org/article/34/writing-a-widget-using-cairo-and-gtk28" class="external">Writing a Widget Using Cairo and GTK+2.8, Part 1</a>, <a href="http://gnomejournal.org/article/36/writing-a-widget-using-cairo-and-gtk28-part-2" class="external">Part 2</a>
-		<br />Article about creating widgets with Cario, the highly capable 2D drawing library.
-	</li>
-	<li>
 		<a href="http://linux.thai.net/~thep/presents/PAN/theppitak-gtk-l10n-paper.pdf" class="pdf">Localizing GTK+</a>
 		<br />An article about input method modules and Pango engines by Theppitak Karoonboonyanan.
 	</li>
@@ -147,22 +139,8 @@ ob_start();
 		<br />Presentation by Alexander Larsson and John Palmieri at GUADEC 2006.
 	</li>
 	<li>
-		<a href="http://o-hand.com/~ebassi/2006-guadec-recent-files/recent-files.pdf" class="pdf">Recent Files and Bookmarks</a>
-		<br />Presentation by Emmanuele Bassi at GUADEC 2006.
-	</li>
-	<li><a href="http://www.lanedo.com/~mitch/module-system-talk-guadec-2006/Module-System-Talk-Guadec-2006.pdf" class="pdf">Creating a plug-in system using GTypeModule</a> and example <a href="http://www.lanedo.com/~mitch/module-system-talk-guadec-2006/foo-editor-0.2.tar.bz2">foo-editor.tar.bz2</a><br />
-Presentation by Michael Natterer at GUADEC 2006.</li>
-</ul>
-
-<h2><a name="UsefulLinks">Useful Links</a></h2>
-<ul>
-	<li>
-		<a href="http://ometer.com/gtk-colors.html" class="external">How to set the color of a widget</a>
-		<br />A small article by Havoc Pennington.
-	</li>
-	<li>
 		<a href="http://www.iki.fi/tml/fosdem-2006.pdf" class="pdf">Windows portability for GNOME software.</a>
-		<br />A PDF document written by Tor Lillqvist.
+		<br />Presentation by Tor Lillqvist at FOSDEM 2006.
 	</li>
 </ul>
 
