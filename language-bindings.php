@@ -41,7 +41,7 @@ $bindings = array(
 	),
 
 	"C#" => array(
-		'official' => true,
+		'official' => false,
 		'url' => 'http://www.mono-project.com/GtkSharp',
 		'support' => array(
 			'2.24' => PARTIAL,
@@ -50,7 +50,7 @@ $bindings = array(
 	),
 
 	"Java" => array(
-		'official' => true,
+		'official' => false,
 		'url' => 'http://java-gnome.sourceforge.net/',
 		'support' => array(
 			'2.24' => SUPPORTED,
