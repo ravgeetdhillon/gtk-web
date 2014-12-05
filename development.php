@@ -33,7 +33,7 @@ ob_start();
 </ul>
 
 <h2><a name="BestPractices">Best Practices</a></h2>
-<p>When working on GTK+/GLib, there are several points once should consider, to keep the code in shape. See the <a href="https://wiki.gnome.org/Projects/GTK+/BestPractices" class="external">GTK+ Best Practices</a>.</p>
+<p>When working on GTK+/GLib, there are several points one should consider, to keep the code in shape. See the <a href="https://wiki.gnome.org/Projects/GTK+/BestPractices" class="external">GTK+ Best Practices</a>.</p>
 
 <h2><a name="Team">Team</a></h2>
 <p>Current core maintainers of GTK+ are:</p>

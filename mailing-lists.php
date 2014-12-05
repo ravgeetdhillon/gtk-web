@@ -10,7 +10,7 @@ ob_start();
 
 <h3>gtk-list@gnome.org</h3>
 <p>This is the main mailing list and probably the one on which you should ask questions about GTK+.</p>
-<p>The is for general topics related to GTK+, including everything from discussion of proposed new features to questions about compiling GTK+.</p>
+<p>This list is for general topics related to GTK+, including everything from discussion of proposed new features to questions about compiling GTK+.</p>
 <p>Mailing list: <a href="mailto:gtk-list-request@gnome.org?subject=subscribe" class="email">Subscribe</a>, <a href="http://mail.gnome.org/mailman/listinfo/gtk-list" class="info">Information</a>, <a href="http://mail.gnome.org/archives/gtk-list/" class="archives">Archives</a></p>
 
 <h3>gtk-app-devel-list@gnome.org</h3>
@@ -19,7 +19,7 @@ ob_start();
 
 <h3>gtk-devel-list@gnome.org</h3>
 <p>This list is for developers of the <strong>core</strong> GTK+ library to discuss GTK+ implementation. GTK+ application development and general GTK+ questions should <strong>not</strong> be asked on this list. The gtk-app-devel-list mailing list is more appropriate for that.</p>
-<p>Bug reports reports and requests for new features should generally be entered in <a href="http://bugzilla.gnome.org" class="external">Bugzilla</a> instead of sent to this list.</p>
+<p>Bug reports and requests for new features should generally be entered in <a href="http://bugzilla.gnome.org" class="external">Bugzilla</a> instead of sent to this list.</p>
 <p>Mailing list: <a href="mailto:gtk-devel-list-request@gnome.org?subject=subscribe" class="email">Subscribe</a>, <a href="http://mail.gnome.org/mailman/listinfo/gtk-devel-list" class="info">Information</a>, <a href="http://mail.gnome.org/archives/gtk-devel-list/" class="archives">Archives</a></p>
 
 <h3>gtk-doc-list@gnome.org</h3>
