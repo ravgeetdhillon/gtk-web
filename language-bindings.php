@@ -125,7 +125,7 @@ $bindings = array(
 		)
 	),
 
-	"Go" => array(
+	"Go (GTK+ 2)" => array(
 		'official' => false,
 		'url' => 'http://mattn.github.com/go-gtk/',
 		'support' => array(
@@ -133,6 +133,15 @@ $bindings = array(
 			'GTK+ 3' => UNSUPPORTED
                 )
         ),
+
+	"Go (GTK+ 3)" => array(
+		'official' => false,
+		'url' => 'https://github.com/conformal/gotk3',
+		'support' => array(
+			'GTK+ 2' => UNSUPPORTED,
+			'GTK+ 3' => PARTIAL
+		)
+	),
 
 	"Guile" => array(
 		'official' => false,
