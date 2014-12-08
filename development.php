@@ -73,7 +73,8 @@ $maintainers = array(
 <p>For information about programming languages other than C which support GTK+, see the <a href="language-bindings.php">language bindings</a> available.</p>
 
 <h2><a name="Support">Donations</a></h2>
-<p>If you want to help the GTK+ project by donating money OR perhaps your company wants to pay someone to develop GTK+, you can email the GNOME foundation. Any donations to GNOME for GTK+ will ONLY be spent on GTK+.</p>
+<p>If you want to help the GTK+ project by donating money OR perhaps your company wants to pay someone to develop GTK+, you can email the
+<a href="http://www.gnome.org/foundation/" class="external">GNOME Foundation</a>. Any donations to GNOME for GTK+ will ONLY be spent on GTK+.</p>
 <ul class="tasks">
 	<li>Contact the <a href="mailto:foundation-list@gnome.org?subject=Supporting%20GTK+" class="email">GNOME Foundation</a>.</li>
 </ul>

@@ -57,7 +57,7 @@ $first = false;
 	<dd>GTK+ is written in C but has been designed from the ground up to support a <a href="language-bindings.php">wide range of languages</a>, not only C/C++. Using GTK+ from languages such as Perl and Python (especially in combination with the <a href="http://glade.gnome.org/" class="external">Glade GUI builder</a>) provides an effective method of rapid application development.</dd>
 
 	<dt id="AreThereRestrictions">Are there any licensing restrictions?</dt>
-	<dd>GTK+ is free software and part of the GNU Project. However, the licensing terms for GTK+, the <a href="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html" class="external">GNU LGPL</a>, allow it to be used by all developers, including those developing proprietary software, without any license fees or royalties.</dd>
+	<dd>GTK+ is free software and part of the <a href="http://www.gnu.org/" class="external">GNU Project</a>. However, the licensing terms for GTK+, the <a href="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html" class="external">GNU LGPL</a>, allow it to be used by all developers, including those developing proprietary software, without any license fees or royalties.</dd>
 </dl>
 
 <p>Get an <a href="overview.php">overview</a> of GTK+. Understand who started it, the basic architecture and why we use the license we do.</p>
