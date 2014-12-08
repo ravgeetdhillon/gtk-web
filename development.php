@@ -12,12 +12,14 @@ ob_start();
 	<h2><a name="MailingLists">Mailing Lists</a></h2>
 	<p>For archives and information on how to subscribe, see the list of <a href="mailing-lists.php">mailing lists</a> available.</p>
 
+	<h2><a name="IRC">IRC</a></h2>
+	<p>The <a href="irc://irc.gnome.org/%23gtk%2B" class="irc">#gtk+</a> IRC channel on irc.gnome.org is used for general discussions and questions about GLib and GTK+.</p>
+
 	<h2><a name="Wiki">Wiki</a></h2>
 	<p>We have <a href="https://wiki.gnome.org/Projects/GTK+" class="external">wiki pages</a> for drafting, designing and proposing GTK+ development.</p>
 
 	<h2><a name="Meetings">Meetings</a></h2>
-	<p>As regularly as possible, GTK+ team meetings take place in the <a href="irc://irc.gnome.org/%23gtk-devel" class="irc">#gtk-devel</a> IRC channel on irc.gnome.org. Anyone is welcome to join the meeting to listen in and follow the progress of the GTK+ project. <a href="https://wiki.gnome.org/Projects/GTK+/Meetings" class="external">All meetings</a> are recorded and available dating back to early 2004.</p>
-	<p>#gtk-devel is only used for GTK+ team meetings, and should not be used to ask general questions about GTK+. For all other IRC communication, <a href="irc://irc.gnome.org/%23gtk%2B" class="irc">#gtk+</a> is used.</p>
+	<p>As regularly as possible, GTK+ team meetings take place at conferences and <a href="https://wiki.gnome.org/Hackfests" class="external">hackfests</a> to discuss the future of GTK+ and define a <a href="https://wiki.gnome.org/Projects/GTK+/Roadmap" class="external">roadmap</a>.</p>
 </div>
 
 <h2><a name="WheresTheSource">Where's the Source?</a></h2>
