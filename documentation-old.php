@@ -7,6 +7,10 @@ ob_start();
 <h2><a name="OlderDocumentation">Older Documentation</a></h2>
 <p>We recommend the GTK+ 3.x libraries and documentation instead because older versions are no longer supported, this documentation is available for those that need it.</p>
 
+<h2><a name="API">API Documentation</a></h2>
+
+<p>The API documentation for GTK+ 2.x is still <a href="https://developer.gnome.org/gtk2/stable/">available</a>.</p>
+
 <h2><a name="Books">Books</a></h2>
 <ul>
 	<li>
@@ -30,6 +34,14 @@ ob_start();
 		<br />This book was written by Arthur Griffith
 	</li>
 </ul>
+
+<h2<a name="Tutorials">Tutorials</a></h2>
+<ul>
+        <li>
+                <a href="https://developer.gnome.org/gtk-tutorial/stable/" class="external">GTK+ 2.x</a>
+                <br />The GTK+ 2.x Tutorial.
+        </li>
+
 
 <h2><a name="UsefulLinks">Useful Links</a></h2>
 <ul>
