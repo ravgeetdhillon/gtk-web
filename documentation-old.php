@@ -35,12 +35,13 @@ ob_start();
 	</li>
 </ul>
 
-<h2<a name="Tutorials">Tutorials</a></h2>
+<h2><a name="Tutorials">Tutorials</a></h2>
 <ul>
         <li>
                 <a href="https://developer.gnome.org/gtk-tutorial/stable/" class="external">GTK+ 2.x</a>
                 <br />The GTK+ 2.x Tutorial.
         </li>
+</ul>
 
 
 <h2><a name="UsefulLinks">Useful Links</a></h2>
