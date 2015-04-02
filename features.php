@@ -10,7 +10,7 @@ ob_start();
 
 	<div class="bubble" id="Stability">
 		<h2><a name="Stability">Stability</a></h2>
-		<p>GTK+ has been developed for over a decade to be able to deliver the enticing features and superb performance that it brings to your application development. GTK+ is supported by a large community of developers and has core maintainers from companies such as <a href="http://www.redhat.com/" class="external">Red Hat</a>, <a href="http://www.novell.com/" class="external">Novell</a>, <a href="http://www.lanedo.com/gtk+.html" class="external">Lanedo</a>, <a href="http://www.codethink.co.uk/" class="external">Codethink</a>, <a href="http://www.openismus.com/" class="external">Openismus</a> and <a href="http://www.intel.com/" class="external">Intel</a>.</p>
+		<p>GTK+ has been developed for over a decade to be able to deliver the enticing features and superb performance that it brings to your application development. GTK+ is supported by a large community of developers and has core maintainers from companies such as <a href="http://www.redhat.com/" class="external">Red Hat</a>, <a href="http://www.novell.com/" class="external">Novell</a>, <a href="http://www.lanedo.com/gtk+.html" class="external">Lanedo</a>, <a href="http://www.codethink.co.uk/" class="external">Codethink</a>, <a href="https://endlessm.com/" class="external">Endless Mobile</a> and <a href="http://www.intel.com/" class="external">Intel</a>.</p>
 	</div>
 
 	<div class="bubble" id="LanguageBindings">
