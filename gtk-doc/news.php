@@ -10,6 +10,35 @@ require 'gtkdoc.config.php';
 
 <div class="news-item">
 	<div class="header">
+		<h3 class="news-title">GTK-Doc 1.22</h3>
+		<span class="news-date">Released May 07, 2015</span>
+	</div>
+	<ul>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=727778" class="external">Bug 727778</a> : &ndash;  &nbsp; gtk-doc doesn't understand annotations for GList-contained types</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=729911" class="external">Bug 729911</a> : Using #TypeName inshort_description makes &quot; - &quot; in HTML index disappear</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=732689" class="external">Bug 732689</a> : strange result on a generated html page</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=732689" class="external">Bug 732689</a> :  &quot; Specific - &gt; General &quot; document title format</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=736073" class="external">Bug 736073</a> : Regression: problems with enum constants</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=736725" class="external">Bug 736725</a> : Documentation consists mostly of empty space</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=741305" class="external">Bug 741305</a> : Scanner issue with enum containing value ='{'</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=741763" class="external">Bug 741763</a> : Example Makefile.am improvements</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=741941" class="external">Bug 741941</a> : Last function argument missing in docs (possibly due to macro in code)</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=743879" class="external">Bug 743879</a> : special case G_DECLARE_*_TYPE</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=743967" class="external">Bug 743967</a> : Make build results reproducible</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=744075" class="external">Bug 744075</a> : Missing struct members if forward declared in another header</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=744368" class="external">Bug 744368</a> : gtkdoc-depscan doesn't handle unicode in .devhelp2 files correctly</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=746118" class="external">Bug 746118</a> : gtkdoc-scan: fix regex for get_type() functions</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=746120" class="external">Bug 746120</a> : Expand annotation recognition on symbol lines</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=746121" class="external">Bug 746121</a> : gtkdoc-mkdb: don't warn on 'deprecated entities'</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=747207" class="external">Bug 747207</a> : Typos in documentation</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=747298" class="external">Bug 747298</a> : Test still tries to check gtkdoc-scanobj</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=748456" class="external">Bug 748456</a> : xsl: Enable ToC generation on empty &lt; toc/ &gt; elements</li>
+	</ul>
+</div>
+
+
+<div class="news-item">
+	<div class="header">
 		<h3 class="news-title">GTK-Doc 1.21</h3>
 		<span class="news-date">Released Jul 17, 2014</span>
 	</div>
