@@ -10,11 +10,22 @@ require 'gtkdoc.config.php';
 
 <div class="news-item">
 	<div class="header">
+		<h3 class="news-title">GTK-Doc 1.32</h3>
+		<span class="news-date">Released May 17, 2015</span>
+	</div>
+	<ul>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=749142" class="external">Bug 749142</a> : Can't build totem-pl-parser from master using gtk-doc 1.22</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=749210" class="external">Bug 749210</a> : mkman: Use full URL to refer to the docbook manpages stylesheet</li>
+	</ul>
+</div>
+
+<div class="news-item">
+	<div class="header">
 		<h3 class="news-title">GTK-Doc 1.22</h3>
 		<span class="news-date">Released May 07, 2015</span>
 	</div>
 	<ul>
-    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=727778" class="external">Bug 727778</a> : &ndash;  &nbsp; gtk-doc doesn't understand annotations for GList-contained types</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=727778" class="external">Bug 727778</a> : gtk-doc doesn't understand annotations for GList-contained types</li>
     <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=729911" class="external">Bug 729911</a> : Using #TypeName inshort_description makes &quot; - &quot; in HTML index disappear</li>
     <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=732689" class="external">Bug 732689</a> : strange result on a generated html page</li>
     <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=732689" class="external">Bug 732689</a> :  &quot; Specific - &gt; General &quot; document title format</li>
