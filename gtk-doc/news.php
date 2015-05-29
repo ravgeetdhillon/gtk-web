@@ -10,7 +10,20 @@ require 'gtkdoc.config.php';
 
 <div class="news-item">
 	<div class="header">
-		<h3 class="news-title">GTK-Doc 1.32</h3>
+		<h3 class="news-title">GTK-Doc 1.24</h3>
+		<span class="news-date">Released May 29, 2015</span>
+	</div>
+	<ul>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=749591" class="external">Bug 749591</a> : gtk-doc 1.23 no longer includes xml namespace in .devhelp2 files</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=749706" class="external">Bug 749706</a> : .gitignore files should not be under version control</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=749816" class="external">Bug 749816</a> : Support syntax highlighting of different languages (patch included)</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=749901" class="external">Bug 749901</a> : Strip common indent when highlighting with vim</li>
+	</ul>
+</div>
+
+<div class="news-item">
+	<div class="header">
+		<h3 class="news-title">GTK-Doc 1.23</h3>
 		<span class="news-date">Released May 17, 2015</span>
 	</div>
 	<ul>
