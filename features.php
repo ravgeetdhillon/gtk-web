@@ -51,7 +51,7 @@ ob_start();
 		<p>Originally GTK+ was developed for the X Window System but it has grown over the years to include backend support for other well known windowing systems. Today you can use GTK+ on:</p>
 		<ul class="platform_list">
 			<li class="linux"><a href="download/linux.php">GNU/Linux and Unix</a></li>
-			<li class="windows"><a href="download/win32.php">Windows (32-bit)</a> and <a href="download/win64.php">64-bit</a></li>
+			<li class="windows"><a href="download/windows.php">Windows</a></li>
 			<li class="macos"><a href="download/macos.php">Mac OS X</a></li>
 		</ul>
 	</div>

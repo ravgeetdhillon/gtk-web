@@ -11,7 +11,7 @@ ob_start();
 		<p>GTK+ is available on:</p>
 		<ul class="platform_list">
 			<li class="linux"><a href="linux.php">GNU/Linux and Unix</a></li>
-			<li class="windows"><a href="win32.php">Windows (32-bit)</a> and <a href="win64.php">64-bit</a></li>
+			<li class="windows"><a href="windows.php">Windows</a></li>
 			<li class="macos"><a href="macos.php">Mac OS X</a></li>
 		</ul>
 	</div>
