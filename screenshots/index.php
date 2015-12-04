@@ -71,13 +71,13 @@ ob_start();
 		<li>
 			<div class="figure"><!-- figure -->
 				<a href="../images/screenshots/screenshot-gedit-osx.png" class="image"><img src="../images/screenshots/thumbnail-gedit-osx.png" alt="[Screenshot]" /></a>
-				<div class="caption"><!-- figcaption --><a href="http://projects.gnome.org/gedit/" class="external">gedit</a> on OS X</div>
+				<div class="caption"><!-- figcaption --><a href="https://wiki.gnome.org/Apps/Gedit" class="external">gedit</a> on OS X</div>
 			</div>
 		</li>
 		<li>
 			<div class="figure"><!-- figure -->
 				<a href="../images/screenshots/screenshot-gedit-vista.png" class="image"><img src="../images/screenshots/thumbnail-gedit-vista.png" alt="[Screenshot]" /></a>
-				<div class="caption"><!-- figcaption --><a href="http://projects.gnome.org/gedit/" class="external">gedit</a> on Windows Vista</div>
+				<div class="caption"><!-- figcaption --><a href="https://wiki.gnome.org/Apps/Gedit" class="external">gedit</a> on Windows Vista</div>
 			</div>
 		</li>
 	</ul>
