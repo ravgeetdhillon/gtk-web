@@ -29,9 +29,8 @@ ob_start();
 <p>GTK+ is a large project and relies on voluntary contributions. Everyone is invited to help project development. Starting points for contributors are:</p>
 
 <ul class="tasks">
-	<li>Sign up for one of the <a href="https://wiki.gnome.org/Attic/GtkTasks" class="external">project assistance tasks</a>.</li>
-	<li>Hack away on existing <a href="https://wiki.gnome.org/Attic/GtkLove" class="external">bug reports and feature requests</a>.</li>
-	<li>Write to the GTK+ <a href="mailing-lists.php">mailing lists</a> and offer your help.</li>
+	<li>Hack away on existing <a href="https://bugzilla.gnome.org/page.cgi?id=browse.html&product=gtk%2B" class="external">bug reports and feature requests</a>.</li>
+	<li>Contact us on the GTK+ development <a href="mailing-lists.php">mailing list</a>.</li>
 </ul>
 
 <h2><a name="BestPractices">Best Practices</a></h2>
