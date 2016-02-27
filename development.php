@@ -30,7 +30,7 @@ ob_start();
 
 <ul class="tasks">
 	<li>Sign up for one of the <a href="https://wiki.gnome.org/Attic/GtkTasks" class="external">project assistance tasks</a>.</li>
-	<li>Hack away on existing <a href="https://wiki.gnome.org/GtkLove" class="external">bug reports and feature requests</a>.</li>
+	<li>Hack away on existing <a href="https://wiki.gnome.org/Attic/GtkLove" class="external">bug reports and feature requests</a>.</li>
 	<li>Write to the GTK+ <a href="mailing-lists.php">mailing lists</a> and offer your help.</li>
 </ul>
 
