@@ -31,54 +31,7 @@ $bindings = array(
         // Accepts SUPPORTED, PARTIAL, UNSUPPORTED
         // NOTE: Commented out sections are kept for historical reasons, -mr.
 
-	/* Official bindings (sorted alphabetically) */
-
-	"C++" => array(
-		'official' => true, // Whether this binding is an official GNOME binding
-		'url' => 'http://www.gtkmm.org/', // Link to this page
-		'support' => array(
-			'GTK+ 2' => SUPPORTED,
-			'GTK+ 3' => SUPPORTED
-		)
-	),
-
-	"Javascript" => array(
-		'official' => true,
-		'url' => 'https://wiki.gnome.org/JavaScript',
-		'support' => array(
-			'GTK+ 2' => SUPPORTED,
-			'GTK+ 3' => SUPPORTED
-		)
-	),
-
-	"Perl" => array(
-		'official' => true,
-		'url' => 'http://gtk2-perl.sourceforge.net/',
-		'support' => array(
-			'GTK+ 2' => SUPPORTED,
-			'GTK+ 3' => SUPPORTED
-		)
-	),
-
-	"Python" => array(
-		'official' => true,
-		'url' => 'https://wiki.gnome.org/Projects/PyGObject',
-		'support' => array(
-			'GTK+ 2' => SUPPORTED,
-			'GTK+ 3' => SUPPORTED
-		)
-	),
-
-	"Vala" => array(
-		'official' => true,
-		'url' => 'https://wiki.gnome.org/Projects/Vala',
-		'support' => array(
-			'GTK+ 2' => SUPPORTED,
-			'GTK+ 3' => SUPPORTED
-		)
-	),
-
-	/* Other bindings (sorted alphabetically) */
+	/* Bindings (sorted alphabetically) */
 
 	"Ada" => array(
 		'official' => false,
@@ -95,6 +48,15 @@ $bindings = array(
 		'support' => array(
 			'GTK+ 2' => PARTIAL,
 			'GTK+ 3' => UNSUPPORTED
+		)
+	),
+
+	"C++" => array(
+		'official' => true, // Whether this binding is an official GNOME binding
+		'url' => 'http://www.gtkmm.org/', // Link to this page
+		'support' => array(
+			'GTK+ 2' => SUPPORTED,
+			'GTK+ 3' => SUPPORTED
 		)
 	),
 
@@ -170,6 +132,15 @@ $bindings = array(
 		)
 	),
 
+	"Javascript" => array(
+		'official' => true,
+		'url' => 'https://wiki.gnome.org/JavaScript',
+		'support' => array(
+			'GTK+ 2' => SUPPORTED,
+			'GTK+ 3' => SUPPORTED
+		)
+	),
+
 	"Lua" => array(
 		'official' => false,
 		'url' => 'http://github.com/pavouk/lgi',
@@ -191,6 +162,24 @@ $bindings = array(
 	"Pascal" => array(
 		'official' => false,
 		'url' => 'http://wiki.lazarus.freepascal.org/GTK2_Interface',
+		'support' => array(
+			'GTK+ 2' => SUPPORTED,
+			'GTK+ 3' => SUPPORTED
+		)
+	),
+
+	"Perl" => array(
+		'official' => true,
+		'url' => 'http://gtk2-perl.sourceforge.net/',
+		'support' => array(
+			'GTK+ 2' => SUPPORTED,
+			'GTK+ 3' => SUPPORTED
+		)
+	),
+
+	"Python" => array(
+		'official' => true,
+		'url' => 'https://wiki.gnome.org/Projects/PyGObject',
 		'support' => array(
 			'GTK+ 2' => SUPPORTED,
 			'GTK+ 3' => SUPPORTED
@@ -229,6 +218,15 @@ $bindings = array(
 		'url' => 'http://gtk-rs.org/',
 		'support' => array(
 			'GTK+ 2' => UNSUPPORTED,
+			'GTK+ 3' => SUPPORTED
+		)
+	),
+
+	"Vala" => array(
+		'official' => true,
+		'url' => 'https://wiki.gnome.org/Projects/Vala',
+		'support' => array(
+			'GTK+ 2' => SUPPORTED,
 			'GTK+ 3' => SUPPORTED
 		)
 	)
