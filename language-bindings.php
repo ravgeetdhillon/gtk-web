@@ -222,6 +222,15 @@ $bindings = array(
 			'GTK+ 2' => PARTIAL,
 			'GTK+ 3' => SUPPORTED
 		)
+	),
+
+	"Rust" => array(
+		'official' => false,
+		'url' => 'http://gtk-rs.org/',
+		'support' => array(
+			'GTK+ 2' => UNSUPPORTED,
+			'GTK+ 3' => SUPPORTED
+		)
 	)
 );
 
