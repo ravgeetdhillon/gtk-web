@@ -169,7 +169,7 @@ $bindings = array(
 	),
 
 	"Perl" => array(
-		'official' => true,
+		'official' => false,
 		'url' => 'http://gtk2-perl.sourceforge.net/',
 		'support' => array(
 			'GTK+ 2' => SUPPORTED,
