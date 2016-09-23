@@ -5,16 +5,16 @@ ob_start();
 
 // Set the current stable version numbers of GTK+, GLib, and Pango to automatically include it in the page.
 $versions = array(
-	'gobject-introspection' => '1.48',
-	'gtk' => '3.20',
-	'glib' => '2.48',
+	'gobject-introspection' => '1.50',
+	'gtk' => '3.22',
+	'glib' => '2.50',
 	'pango' => '1.40',
-	'gdk-pixbuf' => '2.34',
-	'atk' => '2.20'
+	'gdk-pixbuf' => '2.36',
+	'atk' => '2.22'
 );
 
 // Versions of GTK+ that are older, but still included on the page in the "Older Versions" section
-$oldgtk = array( '3.18', '3.16', '3.14', '3.12', '3.10', '3.8', '3.6', '3.4', '3.2', '3.0',
+$oldgtk = array( '3.20', '3.18', '3.16', '3.14', '3.12', '3.10', '3.8', '3.6', '3.4', '3.2', '3.0',
 		 '2.24', '2.20', '2.18', '2.16', '2.14', '2.12', '2.10', '2.8', '2.6', '2.4',
 		 '1.2' );
 
