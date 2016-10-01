@@ -15,8 +15,7 @@ $versions = array(
 
 // Versions of GTK+ that are older, but still included on the page in the "Older Versions" section
 $oldgtk = array( '3.20', '3.18', '3.16', '3.14', '3.12', '3.10', '3.8', '3.6', '3.4', '3.2', '3.0',
-		 '2.24', '2.20', '2.18', '2.16', '2.14', '2.12', '2.10', '2.8', '2.6', '2.4',
-		 '1.2' );
+		 '2.24', '1.2' );
 
 ?>
 <h2><a name="Download">Download for GNU/Linux and Unix</a></h2>
