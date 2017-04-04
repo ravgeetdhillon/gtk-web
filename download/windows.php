@@ -90,6 +90,7 @@ You can then import your GUI from your code using the <code>GtkBuilder</code> AP
 <li>expat</li>
 <li>libpng</li>
 <li>zlib</li>
+</ul>
 </p>
 
 <?php require '../template.php';
