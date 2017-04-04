@@ -5,7 +5,7 @@ ob_start();
 ?>
 <h2><a name="Download">Download for Windows</a></h2>
 
-<p>Note: These instructions are intended for developpers wanting to develop applications based on GTK+, not for end-users.</p>
+<p>Note: These instructions are intended for developers wanting to develop applications based on GTK+, not for end-users.</p>
 
 <h3><a name="Requirements">Requirements</a></h3>
  
@@ -18,7 +18,7 @@ ob_start();
 
 <p>The easiest way to install GTK+ and its dependencies in binary form is through the <a class="external" href="https://msys2.github.io/">MSYS2</a> project. MSYS2 provides a UNIX-like development environment for Windows. It provides packages for many software applications and libraries, including the GTK+ stack. These packages are installed using the <a class="external" href="https://github.com/msys2/msys2/wiki/MSYS2-installation#iv-general-package-management">pacman package manager</a>.</p>
 
-<p>Note: in the following steps, we'll assume you're using a 64-bits Windows. Therefore, the package names include the <code>x86_64</code> architecture identifier. If you're using a 32-bits Windows, please adapt the instructions below using the <code>i686</code> architecture identifier.</p>
+<p>Note: in the following steps, we'll assume you're using a 64-bit Windows. Therefore, the package names include the <code>x86_64</code> architecture identifier. If you're using a 32-bit Windows, please adapt the instructions below using the <code>i686</code> architecture identifier.</p>
 
 <h4>Step 1: Install MSYS2</h4>
 <p>
@@ -32,7 +32,7 @@ ob_start();
 
 <h4>Step 3 (recommended): Install GTK+ core applications</h4>
 <p><strong>Glade</strong> is a GUI designer for GTK+. It lets you design your GUI and export it in XML format.
-You can then import your GUI from your code using the <code>GtkBuilder</code> API. Read the <code>GtkBuilder</code> section in GTK+ manual for more information.</p>
+You can then import your GUI from your code using the <code>GtkBuilder</code> API. Read the <code>GtkBuilder</code> section in the GTK+ manual for more information.</p>
 
 <p>To install Glade:<br />
 <code>pacman -S mingw-w64-x86_64-glade</code>
@@ -44,14 +44,14 @@ You can then import your GUI from your code using the <code>GtkBuilder</code> AP
 <code>pacman -S mingw-w64-x86_64-devhelp</code>
 </p>
 
-<h4>Step 4 (optional): Install the python bindings</h4>
-<p>If you want to develop a GTK+3 application in python, you need to install the python bindings.</p>
+<h4>Step 4 (optional): Install the Python bindings</h4>
+<p>If you want to develop a GTK+3 application in Python, you need to install the Python bindings.</p>
 
-<p>If you develop in python 3:<br />
+<p>If you develop in Python 3:<br />
 <code>pacman -S mingw-w64-x86_64-python3-gobject</code>
 </p>
 
-<p>If you develop in python 2:<br />
+<p>If you develop in Python 2:<br />
 <code>pacman -S mingw-w64-x86_64-python2-gobject</code>
 </p>
 
