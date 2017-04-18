@@ -72,7 +72,7 @@ You can then import your GUI from your code using the <code>GtkBuilder</code> AP
 <p>You are welcome to redistribute GTK+ binaries, including applications that bundle them, on other web sites, CD-ROM, and other media. You don't have to ask for permission. That's one of the points of Free Software. One important thing that the <a class="external" href="http://www.fsf.org/licenses/licenses.html">GNU licenses</a> require is that <strong>you must also redistribute the source code</strong>. This usually means at least the gettext, GLib, GTK+, Pango and Atk sources.</p>
 
 <h4>List of GTK+ dependencies</h4>
-<p>GTK+ depends on several libraries:
+<p>GTK+ depends on several libraries:</p>
 <ul>
 <li>GLib</li>
 <li>cairo</li>
@@ -80,9 +80,8 @@ You can then import your GUI from your code using the <code>GtkBuilder</code> AP
 <li>ATK</li>
 <li>gdk-pixbuf</li>
 </ul>
-</p>
 
-<p>To run GTK+ programs you will also need:
+<p>To run GTK+ programs you will also need:</p>
 <ul>
 <li>gettext-runtime</li>
 <li>fontconfig</li>
@@ -91,6 +90,5 @@ You can then import your GUI from your code using the <code>GtkBuilder</code> AP
 <li>libpng</li>
 <li>zlib</li>
 </ul>
-</p>
 
 <?php require '../template.php';
