@@ -10,6 +10,31 @@ require 'gtkdoc.config.php';
 
 <div class="news-item">
 	<div class="header">
+		<h3 class="news-title">GTK-Doc 1.26</h3>
+		<span class="news-date">Released August 11, 2017</span>
+	</div>
+	<ul>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=773879" class="external">Bug 773879</a> : scangobj: Do not generate unused parameters</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=780789" class="external">Bug 780789</a> : Convert gtkdoc-scan from Perl to Python</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=752126" class="external">Bug 752126</a> : Add support for inline program documentation</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=753052" class="external">Bug 753052</a> : _() causes element a: validity error : ID idx already defined</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=758137" class="external">Bug 758137</a> : GtkLabel and GtkShortcutsShortcut notes on escaping character entities don't render properly</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=764407" class="external">Bug 764407</a> : Broken links to structs in function definitions</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=764543" class="external">Bug 764543</a> : /usr/bin/gtkdoc-mkpdf always exits with an error</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=768675" class="external">Bug 768675</a> : make check fails on master</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=769125" class="external">Bug 769125</a> : gtkdoc-mkhtml/pdf fails on spaces in search path</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=769341" class="external">Bug 769341</a> : gtkdoc-mkdb line 3966 triggers &quot; Negative repeat count does nothing &quot; warnings</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=771255" class="external">Bug 771255</a> :  &quot; Symbol name not found at the start of comment block &quot; warning with &quot; attributes &quot; annotation.</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=773151" class="external">Bug 773151</a> : configure: Lower perl dependency to 5.16.0</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=774168" class="external">Bug 774168</a> : gobject introspection annotations and gtk-doc parser do not agree</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=774812" class="external">Bug 774812</a> : Error messages from xsltproc are hidden by gtkdoc-mkhtml</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=778144" class="external">Bug 778144</a> : Allow disabling introspection for ancillary property mechanisms</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=779566" class="external">Bug 779566</a> : Replace shell executables with Python</li>
+	</ul>
+</div>
+
+<div class="news-item">
+	<div class="header">
 		<h3 class="news-title">GTK-Doc 1.25</h3>
 		<span class="news-date">Released March 21, 2016</span>
 	</div>
