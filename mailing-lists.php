@@ -19,7 +19,7 @@ ob_start();
 
 <h3>gtk-devel-list@gnome.org</h3>
 <p>This list is for developers of the <strong>core</strong> GTK+ library to discuss GTK+ implementation. GTK+ application development and general GTK+ questions should <strong>not</strong> be asked on this list. The gtk-app-devel-list mailing list is more appropriate for that.</p>
-<p>Bug reports and requests for new features should generally be entered in <a href="http://bugzilla.gnome.org" class="external">Bugzilla</a> instead of sent to this list.</p>
+<p>Bug reports and requests for new features should generally be entered in <a href="https://gitlab.gnome.org/GNOME/gtk" class="external">GitLab</a> instead of sent to this list.</p>
 <p>Mailing list: <a href="mailto:gtk-devel-list-request@gnome.org?subject=subscribe" class="email">Subscribe</a>, <a href="http://mail.gnome.org/mailman/listinfo/gtk-devel-list" class="info">Information</a>, <a href="http://mail.gnome.org/archives/gtk-devel-list/" class="archives">Archives</a></p>
 
 <h3>gtk-doc-list@gnome.org</h3>
