@@ -5,9 +5,9 @@ ob_start();
 ?>
 <div class="sidebar">
 	<h2><a name="BugReporting">Bug Reporting</a></h2>
-	<p>Bugs should be reported to the <a href="http://bugzilla.gnome.org/" class="external">GNOME bug tracking system</a>.</p>
+	<p>Bugs in GTK should be reported to the <a href="https://gitlab.gnome.org/GNOME/gtk/issues" class="external">GTK issue tracking system</a>.</p>
 	<p>You will need an email address to register (if you haven't already) before you can use the system to file a new bug report.</p>
-	<p>There are <a href="http://bugzilla.gnome.org/page.cgi?id=bug-writing.html" class="external">guidelines</a> for reporting new bugs. Try to make sure you follow them, so we can help you much more effectively. The use of <a href="http://bugzilla.gnome.org/describekeywords.cgi" class="external">keywords</a> also helps us prioritize bugs.</p>
+        <p>Please, follow the <a href="https://gitlab.gnome.org/GNOME/gtk/blob/master/.gitlab/issue_templates/Bug.md" class="external">template</a> when reporting a new issue.</p>
 
 	<h2><a name="MailingLists">Mailing Lists</a></h2>
 	<p>For archives and information on how to subscribe, see the list of <a href="mailing-lists.php">mailing lists</a> available.</p>
@@ -29,7 +29,7 @@ ob_start();
 <p>GTK+ is a large project and relies on voluntary contributions. Everyone is invited to help project development. Starting points for contributors are:</p>
 
 <ul class="tasks">
-	<li>Hack away on existing <a href="https://bugzilla.gnome.org/page.cgi?id=browse.html&product=gtk%2B" class="external">bug reports and feature requests</a>.</li>
+	<li>Hack away on existing <a href="https://gitlab.gnome.org/GNOME/gtk/issues/" class="external">bug reports and feature requests</a>.</li>
 	<li>Contact us on the GTK+ development <a href="mailing-lists.php">mailing list</a>.</li>
 </ul>
 
@@ -52,7 +52,7 @@ $maintainers = array(
 	array("Carlos Garnacho",         "Red Hat"),
 	array("Kristian Rietveld",       "Lanedo GmbH"),
 	array("Michael Natterer",        "Lanedo GmbH"),
-	array("Ryan Lortie",             "Canonical"),
+	array("Allison Lortie",             "Canonical"),
 	array("Emmanuele Bassi",         "Endless Mobile")
 );
 ?>
