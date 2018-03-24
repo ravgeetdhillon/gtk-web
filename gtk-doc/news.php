@@ -10,6 +10,39 @@ require 'gtkdoc.config.php';
 
 <div class="news-item">
 	<div class="header">
+		<h3 class="news-title">GTK-Doc 1.28</h3>
+		<span class="news-date">Released March 24, 2018</span>
+	</div>
+	<ul>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=791928" class="external">Bug 791928</a> : gtk-doc doesn't understand 'stability: Obsolete'</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=792148" class="external">Bug 792148</a> : cmake: Installed GtkDocConfig.cmake has incorrect bindir path</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=792661" class="external">Bug 792661</a> : use pygments to do syntax highlighing</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=793599" class="external">Bug 793599</a> : Please run testsuite with V=0</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=794051" class="external">Bug 794051</a> : rebase: fix on-line location extraction from devhelp files</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=794182" class="external">Bug 794182</a> : private_header regex is broken</li>
+	</ul>
+</div>
+
+<div class="news-item">
+	<div class="header">
+		<h3 class="news-title">GTK-Doc 1.27</h3>
+		<span class="news-date">Released December 07, 2017</span>
+	</div>
+	<ul>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=773879" class="external">Bug 773879</a> : scangobj: Do not generate unused parameters</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=786174" class="external">Bug 786174</a> : Several test failures on Arch Linux</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=787495" class="external">Bug 787495</a> : gtkdoc-fixxref crashes when running vim for syntax highlighting</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=787768" class="external">Bug 787768</a> : Aborts when glib2.0-dev is not installed</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=787862" class="external">Bug 787862</a> : Always open files in text mode and always use utf-8</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=788473" class="external">Bug 788473</a> : fixxref crashes if a .devhelp2.gz file is found</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=789531" class="external">Bug 789531</a> : Don't depend on the system shell</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=790022" class="external">Bug 790022</a> : mkdb: Add support for (not optional) annotation</li>
+    <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=791131" class="external">Bug 791131</a> : gtk-doc and python3: fixxref failures</li>
+	</ul>
+</div>
+
+<div class="news-item">
+	<div class="header">
 		<h3 class="news-title">GTK-Doc 1.26</h3>
 		<span class="news-date">Released August 11, 2017</span>
 	</div>
