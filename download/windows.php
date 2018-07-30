@@ -10,7 +10,7 @@ ob_start();
 <h3><a name="Requirements">Requirements</a></h3>
  
 <h4>Windows version</h4>
-<p>GTK+ requires Windows Vista or later.</p>
+<p>GTK+ requires Windows 7 or later.</p>
 
 <p>For older versions of Windows, you should do a custom build of older versions of GLib and GTK+.</p>
 
