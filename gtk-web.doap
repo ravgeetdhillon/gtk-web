@@ -5,8 +5,8 @@
          xmlns="http://usefulinc.com/ns/doap#">
 
   <name xml:lang="en">gtk-web</name>
-  <shortdesc xml:lang="en">GTK+ website</shortdesc>
-  <description xml:lang="en">The GTK+ website</description>
+  <shortdesc xml:lang="en">GTK website</shortdesc>
+  <description xml:lang="en">The GTK website</description>
   <bug-database rdf:resource="https://bugzilla.gnome.org/browse.cgi?product=gtk%2B" />
 
   <category rdf:resource="http://api.gnome.org/doap-extensions#infrastructure" />

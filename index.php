@@ -35,7 +35,7 @@ $first = false;
 } ?>
 	</ul>
 	<div class="newsfeed_buttons">
-		<div>Follow the GTK+ project on:</div>
+		<div>Follow the GTK project on:</div>
 		<span>
                         <a href="https://blog.gtk.org" title="Follow the GTK blog">blog</a> |
 			<a href="https://twitter.com/GTKtoolkit" title="Follow GTKtoolkit on Twitter">Twitter</a> |
@@ -46,25 +46,25 @@ $first = false;
 
 </div>
 
-<h2 id="WhatIsGTK"><a name="WhatIsGTK">What is GTK+, and how can I use it?</a></h2>
+<h2 id="WhatIsGTK"><a name="WhatIsGTK">What is GTK, and how can I use it?</a></h2>
 
-<p><span id="intro">GTK+</span>, or the GIMP Toolkit, is a multi-platform toolkit for creating graphical user interfaces. Offering a complete set of widgets, GTK+ is suitable for projects ranging from small one-off tools to complete application suites.</p>
+<p><span id="intro">GTK</span>, or the GIMP Toolkit, is a multi-platform toolkit for creating graphical user interfaces. Offering a complete set of widgets, GTK is suitable for projects ranging from small one-off tools to complete application suites.</p>
 
 <dl>
 	<dt id="WhereCanIUseIt">Where can I use it?</dt>
-	<dd>Everywhere! GTK+ is cross-platform and boasts an easy to use API, speeding up your development time. Take a look at the <a href="screenshots/">screenshots</a> to see a number of platforms GTK+ will run.</dd>
+	<dd>Everywhere! GTK is cross-platform and boasts an easy to use API, speeding up your development time. Take a look at the <a href="screenshots/">screenshots</a> to see a number of platforms GTK will run.</dd>
 
 	<dt id="WhatLanguages">What languages are supported?</dt>
-	<dd>GTK+ is written in C but has been designed from the ground up to support a <a href="language-bindings.php">wide range of languages</a>, not only C/C++. Using GTK+ from languages such as Perl and Python (especially in combination with the <a href="http://glade.gnome.org/" class="external">Glade GUI builder</a>) provides an effective method of rapid application development.</dd>
+	<dd>GTK is written in C but has been designed from the ground up to support a <a href="language-bindings.php">wide range of languages</a>, not only C/C++. Using GTK from languages such as Perl and Python (especially in combination with the <a href="http://glade.gnome.org/" class="external">Glade GUI builder</a>) provides an effective method of rapid application development.</dd>
 
 	<dt id="AreThereRestrictions">Are there any licensing restrictions?</dt>
-	<dd>GTK+ is free software and part of the <a href="http://www.gnu.org/" class="external">GNU Project</a>. However, the licensing terms for GTK+, the <a href="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html" class="external">GNU LGPL</a>, allow it to be used by all developers, including those developing proprietary software, without any license fees or royalties.</dd>
+	<dd>GTK is free software and part of the <a href="http://www.gnu.org/" class="external">GNU Project</a>. However, the licensing terms for GTK, the <a href="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html" class="external">GNU LGPL</a>, allow it to be used by all developers, including those developing proprietary software, without any license fees or royalties.</dd>
 </dl>
 
-<p>Get an <a href="overview.php">overview</a> of GTK+. Understand who started it, the basic architecture and why we use the license we do.</p>
+<p>Get an <a href="overview.php">overview</a> of GTK. Understand who started it, the basic architecture and why we use the license we do.</p>
 
-<p>GTK+ has been involved in many <a href="http://www.gtk-apps.org/" class="external">projects</a> and some big platforms. To get a glimpse of what people think of GTK+ and how it has been used in commercial projects, <a href="commerce.php">read the success stories...</a></p>
+<p>GTK has been involved in many <a href="http://www.gtk-apps.org/" class="external">projects</a> and some big platforms. To get a glimpse of what people think of GTK and how it has been used in commercial projects, <a href="commerce.php">read the success stories...</a></p>
 
-<p>To find out how more about what GTK+ can do for you, visit our <a href="features.php">features</a> page. If you want to <a href="development.php#Contributing">contribute</a>, you are more than welcome.</p>
+<p>To find out how more about what GTK can do for you, visit our <a href="features.php">features</a> page. If you want to <a href="development.php#Contributing">contribute</a>, you are more than welcome.</p>
 
 <?php require 'template.php';
