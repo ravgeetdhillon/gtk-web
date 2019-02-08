@@ -1,6 +1,6 @@
 <?php
 $nav = "documentation";
-$title = "GTK+ Documentation";
+$title = "GTK Documentation";
 ob_start();
 ?>
 <div class="sidebar">
@@ -8,10 +8,10 @@ ob_start();
 	<p>For information about frequently asked questions, please <a href="https://developer.gnome.org/gtk3/stable/gtk-question-index.html" class="external">visit the FAQ</a>.</p>
 
 	<h2><a name="GTK-Doc">GTK-Doc</a></h2>
-	<p>All documentation for the GTK+ project uses GTK-Doc to generate the HTML pages from comments in the C code. To find out more about GTK-Doc <a href="gtk-doc/" class="external">visit the project page</a>.</p>
+	<p>All documentation for the GTK project uses GTK-Doc to generate the HTML pages from comments in the C code. To find out more about GTK-Doc <a href="gtk-doc/" class="external">visit the project page</a>.</p>
 
 	<h2><a name="OlderDocumentation">Older Documentation</a></h2>
-	<p>Although we recommend the GTK+ 3 platform, we keep <a href="documentation-old.php">documentation</a> for older versions of GTK+ around for those who need it.</p>
+	<p>Although we recommend the GTK 3 platform, we keep <a href="documentation-old.php">documentation</a> for older versions of GTK around for those who need it.</p>
 </div>
 
 
@@ -79,7 +79,7 @@ ob_start();
 <h2><a name="Books">Books</a></h2>
 <ul>
 	<li>
-		<a href="http://de.wikibooks.org/wiki/GTK_mit_Builder" class="external">GTK+ 3 with Builder</a>
+		<a href="http://de.wikibooks.org/wiki/GTK_mit_Builder" class="external">GTK 3 with Builder</a>
 		<br />This book was written by Eike Lange (it's in German).
 	</li>
 	<li>
@@ -95,16 +95,16 @@ ob_start();
 <h2><a name="Tutorials">Tutorials</a></h2>
 <ul>
         <li>
-		<a href="https://developer.gnome.org/gtk3/stable/gtk-getting-started.html" class="external">Getting Started with GTK+</a>
-		<br />The GTK+ reference documentation includes a tutorial chapter.
+		<a href="https://developer.gnome.org/gtk3/stable/gtk-getting-started.html" class="external">Getting Started with GTK</a>
+		<br />The GTK reference documentation includes a tutorial chapter.
         </li>
 	<li>
 		<a href="http://scentric.net/tutorial/treeview-tutorial.html" class="external">GTK+ Tree View</a> (<a href="http://scentric.net/tutorial/treeview-tutorial.pdf" class="pdf">pdf</a>)
-		<br />This tutorial covers the GtkTreeView and was written by Tim-Philipp Müller. It was written for GTK+ 2.x, but most of the information applies to GTK+ 3 as well.
+		<br />This tutorial covers the GtkTreeView and was written by Tim-Philipp Müller. It was written for GTK 2.x, but most of the information applies to GTK 3 as well.
 	</li>
 	<li>
 		<a href="http://www.bravegnu.org/gtktext/" class="external">GTK+ Text View</a>
-		<br />This tutorial covers the GtkTextView and was written by Vijay Kumar B. It was written for GTK+ 2.x, but most of the information applies to GTK+ 3 as well.
+		<br />This tutorial covers the GtkTextView and was written by Vijay Kumar B. It was written for GTK 2.x, but most of the information applies to GTK 3 as well.
 	</li>
 	<li>
 		<a href="http://zetcode.com/tutorials/gtktutorial/" class="external">GTK+ 2.x Tutorial for Beginners</a>

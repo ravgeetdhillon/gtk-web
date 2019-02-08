@@ -5,8 +5,8 @@
          xmlns="http://usefulinc.com/ns/doap#">
 
   <name xml:lang="en">gtk-web</name>
-  <shortdesc xml:lang="en">GTK+ website</shortdesc>
-  <description xml:lang="en">The GTK+ website</description>
+  <shortdesc xml:lang="en">GTK website</shortdesc>
+  <description xml:lang="en">The GTK website</description>
   <bug-database rdf:resource="https://bugzilla.gnome.org/browse.cgi?product=gtk%2B" />
 
   <category rdf:resource="http://api.gnome.org/doap-extensions#infrastructure" />
@@ -32,6 +32,13 @@
       <foaf:name>Matthias Clasen</foaf:name>
       <gnome:userid>matthiasc</gnome:userid>
       <foaf:mbox rdf:resource="mailto:mclasen@redhat.com"/>
+    </foaf:Person>
+  </maintainer>
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Emmanuele Bassi</foaf:name>
+      <gnome:userid>ebassi</gnome:userid>
+      <foaf:mbox rdf:resource="mailto:ebassi@gnome.org"/>
     </foaf:Person>
   </maintainer>
 </Project>

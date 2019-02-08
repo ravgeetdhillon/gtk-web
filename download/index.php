@@ -1,6 +1,6 @@
 <?php
 $nav = "download";
-$title = "Download GTK+";
+$title = "Download GTK";
 ob_start();
 ?>
 
@@ -8,7 +8,7 @@ ob_start();
 
 	<div class="left">
 		<h2 id="StableRelease">Stable releases</h2>
-		<p>GTK+ is available on:</p>
+		<p>GTK is available on:</p>
 		<ul class="platform_list">
 			<li class="linux"><a href="linux.php">GNU/Linux and Unix</a></li>
 			<li class="windows"><a href="windows.php">Windows</a></li>
@@ -24,7 +24,7 @@ ob_start();
 </div>
 
 <h2 id="BleedingEdge">Bleeding edge</h2>
-<p>Alternatively, you can check out the latest unstable release of GTK+ using <a href="http://git-scm.com/" class="external">git</a>.</p>
+<p>Alternatively, you can check out the latest unstable release of GTK using <a href="http://git-scm.com/" class="external">git</a>.</p>
 <pre>
 git clone https://gitlab.gnome.org/GNOME/gtk.git
 </pre>

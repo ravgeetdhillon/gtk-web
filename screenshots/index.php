@@ -1,10 +1,10 @@
 <?php
 $nav = "screenshots";
-$title = "GTK+ Screenshots";
+$title = "GTK Screenshots";
 ob_start();
 ?>
 <h2><a name="RunsEverywhere">Runs everywhere!</a></h2>
-<p>Below are screenshots showing applications using GTK+ running on Windows, GNU/Linux and Unix, OSX, and mobile devices.</p>
+<p>Below are screenshots showing applications using GTK running on Windows, GNU/Linux and Unix, OSX, and mobile devices.</p>
 
 <div class="gallery">
 	<ul>
@@ -84,6 +84,6 @@ ob_start();
 </div>
 
 <h2><a name="OlderScreenshots">Older Screenshots</a></h2>
-<p>For older images of GTK+, visit the <a href="museum.php">screenshots museum</a>.</p>
+<p>For older images of GTK, visit the <a href="museum.php">screenshots museum</a>.</p>
 
 <?php require '../template.php';

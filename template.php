@@ -95,13 +95,13 @@ if (!isset($nav)) {
 }
 
 $tmpnav = array(
-	"about" => array( "About", "/", "About GTK+" ),
-	"features" => array( "Features", "/features.php", "Find out what GTK+ can do for you" ),
-	"download" => array( "Download", "/download/index.php", "Download the latest version of GTK+" ),
-	"screenshots" => array( "Screenshots", "/screenshots/index.php", "See applications using GTK+ on various platforms" ),
-	"documentation" => array( "Documentation", "/documentation.php", "Read up on documentation about how to use GTK+" ),
-	"development" => array( "Development", "/development.php", "Get involved in the development of GTK+" ),
-	"support" => array( "Support", "/support.php", "Support for GTK+ commercially" )
+	"about" => array( "About", "/", "About GTK" ),
+	"features" => array( "Features", "/features.php", "Find out what GTK can do for you" ),
+	"download" => array( "Download", "/download/index.php", "Download the latest version of GTK" ),
+	"screenshots" => array( "Screenshots", "/screenshots/index.php", "See applications using GTK on various platforms" ),
+	"documentation" => array( "Documentation", "/documentation.php", "Read up on documentation about how to use GTK" ),
+	"development" => array( "Development", "/development.php", "Get involved in the development of GTK" ),
+	"support" => array( "Support", "/support.php", "Support for GTK commercially" )
 );
 
 
@@ -117,9 +117,9 @@ if (!isset($navlinks)) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Language" content="en-us" />
-<meta name="author" content="The GTK+ Team" />
-<meta name="description" content="GTK+ is a highly usable, feature rich toolkit for creating graphical user interfaces which boasts cross platform compatibility and an easy to use API. GTK+ is licensed under the GNU LGPL 2.1 allowing development of both free and proprietary software with GTK+ without any license fees or royalties." />
-<meta name="keywords" content="gtk, gtk+, gimp, toolkit, user interface" />
+<meta name="author" content="The GTK Team" />
+<meta name="description" content="GTK is a highly usable, feature rich toolkit for creating graphical user interfaces which boasts cross platform compatibility and an easy to use API. GTK is licensed under the GNU LGPL 2.1 allowing development of both free and proprietary software with GTK without any license fees or royalties." />
+<meta name="keywords" content="gtk, gtk, gimp, gnome, toolkit, user interface" />
 <link href="/css/global.css" rel="stylesheet" type="text/css" />
 <link href="/css/browser.css" rel="stylesheet" type="text/css" />
 <link rel="icon" href="/images/gtk-logo.ico" type="image/x-icon" />
@@ -242,7 +242,7 @@ pre {
 </style>
 <![endif]-->
 
-<title><?php if (!isset($title)) { $title = "The GTK+ Project"; } echo htmlentities($title); ?></title>
+<title><?php if (!isset($title)) { $title = "The GTK Project"; } echo htmlentities($title); ?></title>
 </head>
 
 <body<?php if (isset($bodyclass)) { echo ' class="'.$bodyclass.'"'; } ?>>
@@ -250,7 +250,7 @@ pre {
 <?php if (isset($globalnav)) { ?>
 	<div id="globalnav_wrap">
 		<div id="globalnav">
-			<span class="relation">Part of the <a href="../">GTK+ Project</a></span>
+			<span class="relation">Part of the <a href="../">GTK Project</a></span>
 			<ul><?php foreach( $globalnav as $k => $v ) { ?> 
 				<li<?php if ($k == $nav) echo ' class="current"'; ?>><a href="..<?php echo htmlentities($v[1]); ?>"<?php if (isset($v[2])) { echo ' title="'.htmlentities($v[2]).'"'; } ?>><?php echo htmlentities($v[0]); ?></a></li><?php } ?> 
 			</ul>
@@ -280,7 +280,7 @@ pre {
 
 	<div id="footer">
 		<pre style="display: none;"><!-- For Lynx --></pre>
-		<span>Copyright &copy; 2007-2017 The GTK+ Team</span> |
+		<span>Copyright &copy; 2007-2019 The GTK Team</span> |
 		<span>Valid <a href="http://validator.w3.org/check?uri=http://<?php echo htmlentities("gtk.org".$_SERVER['REQUEST_URI']); ?>&amp;charset=utf-8&amp;doctype=Inline&amp;group=0">XHTML</a> and <a href="http://jigsaw.w3.org/css-validator/validator?uri=<?php echo htmlentities("gtk.org"); ?>/css/global.css&amp;profile=css21&amp;usermedium=all&amp;warning=1&amp;lang=en">CSS</a></span>
 	</div>
 

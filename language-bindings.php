@@ -1,6 +1,6 @@
 <?php
 $nav = "features";
-$title = "GTK+ Language Bindings";
+$title = "GTK Language Bindings";
 ob_start();
 
 // Keep these values unique
@@ -24,7 +24,7 @@ define("UNKNOWN", 4, true);
  */
 
 // Versions of GTK used in the table
-$versions = array('GTK+ 2', 'GTK+ 3');
+$versions = array('GTK 2', 'GTK 3');
 
 // Array of languages and their support
 $bindings = array(
@@ -37,8 +37,8 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://libre.adacore.com/libre/tools/gtkada/',
 		'support' => array(
-			'GTK+ 2' => PARTIAL,
-			'GTK+ 3' => PARTIAL
+			'GTK 2' => PARTIAL,
+			'GTK 3' => PARTIAL
 		)
 	),
 
@@ -46,8 +46,8 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://www.mono-project.com/GtkSharp',
 		'support' => array(
-			'GTK+ 2' => PARTIAL,
-			'GTK+ 3' => UNSUPPORTED
+			'GTK 2' => PARTIAL,
+			'GTK 3' => UNSUPPORTED
 		)
 	),
 
@@ -55,8 +55,8 @@ $bindings = array(
 		'official' => true, // Whether this binding is an official GNOME binding
 		'url' => 'http://www.gtkmm.org/', // Link to this page
 		'support' => array(
-			'GTK+ 2' => SUPPORTED,
-			'GTK+ 3' => SUPPORTED
+			'GTK 2' => SUPPORTED,
+			'GTK 3' => SUPPORTED
 		)
 	),
 
@@ -64,8 +64,8 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://gtkd.org/',
 		'support' => array(
-			'GTK+ 2' => SUPPORTED,
-			'GTK+ 3' => SUPPORTED
+			'GTK 2' => SUPPORTED,
+			'GTK 3' => SUPPORTED
 		)
 	),
 
@@ -73,8 +73,8 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://github.com/jerryd/gtk-fortran/wiki',
 		'support' => array(
-			'GTK+ 2' => PARTIAL,
-			'GTK+ 3' => PARTIAL
+			'GTK 2' => PARTIAL,
+			'GTK 3' => PARTIAL
 		)
 	),
 
@@ -82,26 +82,26 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://www.freebasic-portal.de/downloads/ressourcencompiler/gtktobac2-2-0-131.html',
 		'support' => array(
-			'GTK+ 2' => SUPPORTED,
-			'GTK+ 3' => SUPPORTED
+			'GTK 2' => SUPPORTED,
+			'GTK 3' => SUPPORTED
 		)
 	),
 
-	"Go (GTK+ 2)" => array(
+	"Go (GTK 2)" => array(
 		'official' => false,
 		'url' => 'http://mattn.github.com/go-gtk/',
 		'support' => array(
-			'GTK+ 2' => PARTIAL,
-			'GTK+ 3' => UNSUPPORTED
+			'GTK 2' => PARTIAL,
+			'GTK 3' => UNSUPPORTED
                 )
         ),
 
-	"Go (GTK+ 3)" => array(
+	"Go (GTK 3)" => array(
 		'official' => false,
 		'url' => 'https://github.com/conformal/gotk3',
 		'support' => array(
-			'GTK+ 2' => UNSUPPORTED,
-			'GTK+ 3' => PARTIAL
+			'GTK 2' => UNSUPPORTED,
+			'GTK 3' => PARTIAL
 		)
 	),
 
@@ -109,8 +109,8 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://www.gnu.org/software/guile-gnome/',
 		'support' => array(
-			'GTK+ 2' => PARTIAL,
-			'GTK+ 3' => UNSUPPORTED
+			'GTK 2' => PARTIAL,
+			'GTK 3' => UNSUPPORTED
 		)
 	),
 
@@ -118,8 +118,8 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://projects.haskell.org/gtk2hs/documentation/',
 		'support' => array(
-			'GTK+ 2' => SUPPORTED,
-			'GTK+ 3' => SUPPORTED
+			'GTK 2' => SUPPORTED,
+			'GTK 3' => SUPPORTED
 		)
 	),
 
@@ -127,8 +127,8 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://java-gnome.sourceforge.net/',
 		'support' => array(
-			'GTK+ 2' => SUPPORTED,
-			'GTK+ 3' => SUPPORTED
+			'GTK 2' => SUPPORTED,
+			'GTK 3' => SUPPORTED
 		)
 	),
 
@@ -136,8 +136,8 @@ $bindings = array(
 		'official' => true,
 		'url' => 'https://wiki.gnome.org/JavaScript',
 		'support' => array(
-			'GTK+ 2' => SUPPORTED,
-			'GTK+ 3' => SUPPORTED
+			'GTK 2' => SUPPORTED,
+			'GTK 3' => SUPPORTED
 		)
 	),
 
@@ -145,8 +145,8 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://github.com/pavouk/lgi',
 		'support' => array(
-			'GTK+ 2' => PARTIAL,
-			'GTK+ 3' => SUPPORTED
+			'GTK 2' => PARTIAL,
+			'GTK 3' => SUPPORTED
 		)
 	),
 
@@ -154,8 +154,8 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://wwwfun.kurims.kyoto-u.ac.jp/soft/olabl/lablgtk.html',
 		'support' => array(
-			'GTK+ 2' => PARTIAL,
-			'GTK+ 3' => UNSUPPORTED
+			'GTK 2' => PARTIAL,
+			'GTK 3' => UNSUPPORTED
 		)
 	),
 
@@ -163,8 +163,8 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://wiki.lazarus.freepascal.org/GTK2_Interface',
 		'support' => array(
-			'GTK+ 2' => SUPPORTED,
-			'GTK+ 3' => SUPPORTED
+			'GTK 2' => SUPPORTED,
+			'GTK 3' => SUPPORTED
 		)
 	),
 
@@ -172,8 +172,8 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://gtk2-perl.sourceforge.net/',
 		'support' => array(
-			'GTK+ 2' => SUPPORTED,
-			'GTK+ 3' => SUPPORTED
+			'GTK 2' => SUPPORTED,
+			'GTK 3' => SUPPORTED
 		)
 	),
 
@@ -181,8 +181,8 @@ $bindings = array(
 		'official' => true,
 		'url' => 'https://wiki.gnome.org/Projects/PyGObject',
 		'support' => array(
-			'GTK+ 2' => SUPPORTED,
-			'GTK+ 3' => SUPPORTED
+			'GTK 2' => SUPPORTED,
+			'GTK 3' => SUPPORTED
 		)
 	),
 
@@ -190,8 +190,8 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://gtk.php.net/',
 		'support' => array(
-			'GTK+ 2' => PARTIAL,
-			'GTK+ 3' => UNSUPPORTED
+			'GTK 2' => PARTIAL,
+			'GTK 3' => UNSUPPORTED
 		)
 	),
 
@@ -199,8 +199,8 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://cran.r-project.org/web/packages/RGtk2/index.html',
 		'support' => array(
-			'GTK+ 2' => PARTIAL,
-			'GTK+ 3' => UNSUPPORTED
+			'GTK 2' => PARTIAL,
+			'GTK 3' => UNSUPPORTED
 		)
 	),
 
@@ -208,8 +208,8 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://ruby-gnome2.sourceforge.jp/',
 		'support' => array(
-			'GTK+ 2' => PARTIAL,
-			'GTK+ 3' => SUPPORTED
+			'GTK 2' => PARTIAL,
+			'GTK 3' => SUPPORTED
 		)
 	),
 
@@ -217,8 +217,8 @@ $bindings = array(
 		'official' => false,
 		'url' => 'http://gtk-rs.org/',
 		'support' => array(
-			'GTK+ 2' => UNSUPPORTED,
-			'GTK+ 3' => SUPPORTED
+			'GTK 2' => UNSUPPORTED,
+			'GTK 3' => SUPPORTED
 		)
 	),
 
@@ -226,8 +226,8 @@ $bindings = array(
 		'official' => true,
 		'url' => 'https://wiki.gnome.org/Projects/Vala',
 		'support' => array(
-			'GTK+ 2' => SUPPORTED,
-			'GTK+ 3' => SUPPORTED
+			'GTK 2' => SUPPORTED,
+			'GTK 3' => SUPPORTED
 		)
 	)
 );
@@ -259,7 +259,7 @@ if(isset($_GET['json'])) {
 
 ?>
 <h2><a name="LanguageBindings">Language Bindings</a></h2>
-<p>Language Bindings (or 'wrappers') allow GTK+ to be used from other programming languages, in the style of those languages. They are relatively easy to create because GTK+ is designed with them in mind.</p>
+<p>Language Bindings (or 'wrappers') allow GTK to be used from other programming languages, in the style of those languages. They are relatively easy to create because GTK is designed with them in mind.</p>
 
 <p>The official GNOME bindings follow the GNOME release schedule which guarantees API stability and time-based releases.</p>
 

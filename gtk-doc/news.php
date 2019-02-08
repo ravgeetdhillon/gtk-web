@@ -285,7 +285,7 @@ require 'gtkdoc.config.php';
         <ul>
                 <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=625776" class="external">Bug 625776</a>: serialise doubles and floats always with a decimal dot</li>
                 <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=627269" class="external">Bug 627269</a>: link to signalflags docs from signal descriptions</li>
-                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=467488" class="external">Bug 467488</a>: GTK+ man pages request</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=467488" class="external">Bug 467488</a>: GTK man pages request</li>
                 <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=481811" class="external">Bug 481811</a>: Inline function bodies are confused with declarations</li>
                 <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=501107" class="external">Bug 501107</a>: EXTRA_DIST automake warnings</li>
                 <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=512565" class="external">Bug 512565</a>: add GTK_DOC_IGNORE</li>
@@ -309,7 +309,7 @@ require 'gtkdoc.config.php';
                 <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=631336" class="external">Bug 631336</a>: remove lists of gtk+ signal args in gtkdoc-scanobj and -scangobj</li>
                 <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=632587" class="external">Bug 632587</a>: gtkdoc-scanner fails to identify (closure) annotation</li>
                 <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=638330" class="external">Bug 638330</a>: const in parameter list is ignored</li>
-                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=638831" class="external">Bug 638831</a>: Support GTK+ 3 cell properties</li>
+                <li><a href="https://bugzilla.gnome.org/show_bug.cgi?id=638831" class="external">Bug 638831</a>: Support GTK 3 cell properties</li>
         </ul>
 </div>
 
