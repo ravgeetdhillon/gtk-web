@@ -34,4 +34,11 @@
       <foaf:mbox rdf:resource="mailto:mclasen@redhat.com"/>
     </foaf:Person>
   </maintainer>
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Emmanuele Bassi</foaf:name>
+      <gnome:userid>ebassi</gnome:userid>
+      <foaf:mbox rdf:resource="mailto:ebassi@gnome.org"/>
+    </foaf:Person>
+  </maintainer>
 </Project>
