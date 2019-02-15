@@ -14,11 +14,11 @@
    height="100"
    id="svg3765"
    version="1.1"
-   inkscape:version="0.47 r22583"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    inkscape:export-filename="/home/eboyjr/.gvfs/sftp for eboyjr on 192.168.2.6/var/gtk/images/header-logo.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90"
-   sodipodi:docname="header-logo.svg">
+   sodipodi:docname="header-logo-inset.svg">
   <defs
      id="defs3767">
     <linearGradient
@@ -133,13 +133,13 @@
      inkscape:cx="175.82294"
      inkscape:cy="60.131632"
      inkscape:document-units="px"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer6"
      showgrid="false"
      showborder="true"
      borderlayer="true"
      inkscape:showpageshadow="true"
-     inkscape:window-width="1024"
-     inkscape:window-height="548"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="1" />
@@ -203,13 +203,13 @@
        id="text4176"
        y="71.449219"
        x="251.47121"
-       style="font-size:40px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans;filter:url(#filter3639)"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter3639)"
        xml:space="preserve"><tspan
-         style="font-size:56px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:56px;line-height:1.25;font-family:'Bitstream Vera Sans';-inkscape-font-specification:'Bitstream Vera Sans';text-align:start;text-anchor:start"
          y="71.449219"
          x="251.47121"
          id="tspan4178"
-         sodipodi:role="line">The GTK+ Project</tspan></text>
+         sodipodi:role="line">The GTK Project</tspan></text>
     <g
        transform="matrix(0.68766509,0,0,0.68766509,145.28049,5.8922593)"
        id="g4301">

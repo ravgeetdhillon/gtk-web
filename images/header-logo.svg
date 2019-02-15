@@ -15,7 +15,7 @@
    height="100"
    id="svg3765"
    version="1.1"
-   inkscape:version="0.48.1 r9760"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    inkscape:export-filename="/home/martyn/header-logo.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90"
@@ -265,19 +265,19 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.2922222"
-     inkscape:cx="450"
-     inkscape:cy="50"
+     inkscape:zoom="0.81042293"
+     inkscape:cx="388.79059"
+     inkscape:cy="3.7249609"
      inkscape:document-units="px"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer6"
      showgrid="false"
      showborder="true"
      borderlayer="true"
      inkscape:showpageshadow="true"
-     inkscape:window-width="2560"
-     inkscape:window-height="1576"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
      inkscape:window-x="0"
-     inkscape:window-y="24"
+     inkscape:window-y="25"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata3770">
@@ -287,7 +287,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -369,26 +369,25 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
        x="378.36282"
        y="11.147676"
-       id="text3014"
-       sodipodi:linespacing="125%"><tspan
+       id="text3014"><tspan
          sodipodi:role="line"
          id="tspan3016"
          x="378.36282"
-         y="11.147676"></tspan></text>
+         y="11.147676"
+         style="font-size:40px;line-height:1.25;font-family:sans-serif"> </tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:56px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:url(#linearGradient5417);fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.46382979;stroke-dasharray:none;stroke-dashoffset:0;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:url(#linearGradient5417);fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.46382979"
        x="252.11847"
        y="71.271904"
-       id="text3148"
-       sodipodi:linespacing="125%"><tspan
+       id="text3148"><tspan
          sodipodi:role="line"
          id="tspan3150"
          x="252.11847"
          y="71.271904"
-         style="fill:url(#linearGradient5417);fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.46382979;stroke-dasharray:none;stroke-dashoffset:0">The GTK+ Project</tspan></text>
+         style="font-size:56px;line-height:1.25;fill:url(#linearGradient5417);fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.46382979">The GTK Project</tspan></text>
   </g>
 </svg>
