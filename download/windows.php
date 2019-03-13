@@ -20,7 +20,7 @@ href="https://www.msys2.org/">MSYS2</a>, which provides a UNIX-like
 environment for Windows. Both of these repositories also provide
 packages for a large number of other useful open source libraries.</p>
 
-<p>(If you really want to build GTK from the pristine sources
+<p>If you really want to build GTK from the pristine sources
 yourself, you can use the project files for Microsoft Visual Studio
 provided by the GTK releases. Learn more on <a class="external"
 href="https://wiki.gnome.org/Projects/GTK/Win32/MSVCCompilationOfGTKStack">how
@@ -28,7 +28,7 @@ to build the GTK stack using Microsoft Visual Studio</a> and read
 these other tips on <a class="external"
 href="https://blogs.gnome.org/nacho/2015/02/19/building-gtk-3-with-msvc-2013/">how
 to build GTK with MSVC on Windows</a>. In almost all cases, using the
-packages from vcpkg or MSYS2 is much simpler though.)</p>
+packages from vcpkg or MSYS2 is much simpler though.</p>
 
 <p>These instructions all assume you are using Windows 7 or later. For
 older versions of Windows, you will need to do a custom build of older
@@ -92,7 +92,7 @@ in <code>/usr/share/glib-2.0/schemas/</code> and copy that to
 generator to do that for you, and distribute the result.  </p>
 
 
-<h2>Using GTK from MSYS2 packages</h2>
+<h2><a name="MSYS2">Using GTK from MSYS2 packages</a></h2>
 
 <h3>Installation</h3>
 
