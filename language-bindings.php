@@ -98,7 +98,7 @@ $bindings = array(
 
 	"Go (GTK 3)" => array(
 		'official' => false,
-		'url' => 'https://github.com/conformal/gotk3',
+		'url' => 'https://github.com/gotk3/gotk3',
 		'support' => array(
 			'GTK 2' => UNSUPPORTED,
 			'GTK 3' => PARTIAL
