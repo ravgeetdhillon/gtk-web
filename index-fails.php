@@ -162,7 +162,7 @@ $first = true;
 if( $newsfeed->iscached ) echo '<!-- This content is cached -->';
 
 foreach( $items as $item ) {
-?> 
+?>
 		<li<?php if($first) echo ' class="first"'; ?>>
 			<div class="time">
 				<span class="date"><?php echo date("F j, Y", $item['date']); ?></span>
@@ -179,8 +179,6 @@ $first = false;
 		<div>Follow the GTK project on:</div>
 		<span>
 			<a href="http://twitter.com/GTKtoolkit" title="Follow GTKtoolkit on Twitter">Twitter</a> |
-			<a href="http://identi.ca/gtktoolkit" title="Follow GTKtoolkit on identi.ca">identi.ca</a> |
-                        <a href="https://plus.google.com/114139219146791168347" title="Follow GTK on Google+" rel="publisher">Google+</a>
 		</span>
 	</div>
 
