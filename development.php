@@ -46,7 +46,6 @@ $maintainers = array(
 	array("Matthias Clasen",         "Red Hat"),
 	array("Behdad Esfahbod",         "Google"),
 	array("Benjamin Otte",           "Red Hat"),
-	array("Federico Mena Quintero",  "Novell"),
 	array("Alexander Larsson",       "Red Hat"),
 	array("Tristan Van Berkom",      "Codethink"),
 	array("Carlos Garnacho",         "Red Hat"),
