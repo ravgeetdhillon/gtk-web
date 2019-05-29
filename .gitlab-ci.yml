@@ -6,6 +6,8 @@ variables:
 
 before_script:
   - bundle --version
+  - ruby --version
+  - gem version
   - bundle install
 
 test:
