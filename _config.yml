@@ -19,8 +19,8 @@ markdown: kramdown
 kramdown: 
   parse_block_html: true
   input: GFM
-# plugins:
-#   - jekyll-feed
+plugins:
+  - jekyll-feed
 sass:
   sass_dir: _sass
 include:
