@@ -1,0 +1,21 @@
+headings_and_descriptions:
+  - sectionId: apps
+    heading: Apps built with GTK
+    description: With GTK, you can create cross platform GUI apps and the process is super easy. Check out some of the apps built using GTK and its libraries.
+  - sectionId: features
+    heading: Apps built with GTK
+    description: With GTK, you can create cross platform GUI apps and the process is super easy. Check out some of the apps built using GTK and its libraries.
+  - sectionId: installations
+    heading: Getting Started
+    description: With GTK 4, you can create applications that run on Windows, GNU/Linux and Unix, OSX, and mobile devices.
+  - sectionId: tutorials
+    heading: Quick Tutorials
+    description: Creating an application using GTK 4 is super easy. Check out this short tutorial on how the things are done from Setup till the deployment.
+
+gtk_info:
+  - title: What is GTK?
+    description: GTK, or the GIMP Toolkit, is a multi-platform toolkit for creating graphical user interfaces. Offering a complete set of widgets, GTK is suitable for projects ranging from small one-off tools to complete application suites.
+    img: architecture.svg
+  - title: What can it do?
+    description: GTK can be configured to change the look of the widgets drawn; this is done using different display engines. Several display engines exist which try to emulate the look of the native widgets on the platform in use.
+    img: screenshot2.jpg

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>{{site.title}}</title>
+	<link rel="stylesheet" href="./assets/css/theme.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="./assets/css/main.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<script src="./assets/jquery/dist/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="./assets/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<header class="navbar navbar-light bg-light small">
+		<nav class="container navbar-expand-md">
+			<a href="#" class="navbar-brand"><img src="./assets/img/gtk-logo.png" width="40" height="40" /><strong>GTK4+</strong></a>
+			<a class="btn navbar-toggler border-0 p-0" role="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+				<i class="fas fa-ellipsis-h"></i>
+			</a>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+				{% assign menu_links = site.data.navigation.menu_links %}
+				{% for link in menu_links %}
+					{% if link.header %}
+						<li class="nav-item border-bottom-trans border-bottom-hover"><a href="{{link.href}}" class="nav-link float-right">{{link.name}}</a></li>
+					{% endif %}
+				{% endfor %}
+				</ul>
+			</div>
+		</nav>
+	</header>

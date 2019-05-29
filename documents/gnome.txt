@@ -1,0 +1,24 @@
+mentor's contact: ebassi@gnome.org
+
+name:RavgeetDhillon
+password: Rav@1904gsoc
+
+Hey! So, the current period is meant for getting to know the project and start planning for the actual implementation
+ravgeetdhillon: Since we're planning to replace the website, submitting patches is kind of pointless :-)
+ravgeetdhillon: But a good start would be to gather all the text on the existing website and identifying the bits that can be kept and those that can be removed
+ravgeetdhillon: You can reach me over email at ebassi@gnome.org
+ravgeetdhillon
+great.
+ebassi
+ravgeetdhillon: Another good thing to do would be to go through the current gtk.org structure and create a site map, with the whole tree of the site, and the various links between sections
+We can put this up on the wiki; actually, let me create a wiki page that we can work on together
+ravgeetdhillon: Do you have an account on wiki.gnome.org?
+ravgeetdhillon
+For now I don't have any
+But if it's needed I can surely make one?
+
+I created this wiki page, and we can use it as a shared workspace: https://wiki.gnome.org/Projects/GTK/WebsiteRedesign
+You should be able to edit it
+ravgeetdhillon: As I said, the next step is to break down the existing site; create the site map, the cross references, all the external links, and the various assets used in it
+ravgeetdhillon: Also, all the content in terms of text
+ravgeetdhillon: Then we can start reworking the site, and see what we can keep and what we have to redo

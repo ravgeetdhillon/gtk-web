@@ -1,0 +1,86 @@
+menu_links:
+  - name: GTK4+
+    href: /
+    header: false
+    footer: true
+    section: Project
+  - name: Blog
+    href: /blog/
+    header: true
+    footer: true
+    section: Company
+  - name: Apps
+    href: /apps/
+    header: true
+    footer: true
+    section: Project
+  - name: Docs
+    href: /docs/
+    header: true
+    footer: true
+    section: Project
+  - name: Downloads
+    href: https://download.gnome.org/sources/gtk+/
+    header: true
+    footer: true
+    section: Project
+  - name: Community
+    href: /community/
+    header: true
+    footer: true
+    section: Company
+  - name: License
+    href: https://gitlab.gnome.org/GNOME/gtk/blob/master/COPYING/
+    header: false
+    footer: true
+    section: Project
+  - name: Releases
+    href: /releases/
+    header: false
+    footer: true
+    section: Project
+  - name: FAQs
+    href: /faqs/
+    header: false
+    footer: true
+    section: Support
+  - name: Gitlab
+    href: https://gitlab.gnome.org/GNOME/gtk/
+    header: true
+    footer: true
+    section: Project
+  - name: Mailing Lists
+    href: https://gitlab.gnome.org/GNOME/gtk/
+    header: false
+    footer: true
+    section: Company
+  - name: Report a Bug
+    href: https://gitlab.gnome.org/GNOME/gtk/
+    header: false
+    footer: true
+    section: Support
+  - name: Request a feature
+    href: https://gitlab.gnome.org/GNOME/gtk/
+    header: false
+    footer: true
+    section: Support
+  - name: Code of Conduct
+    href: https://wiki.gnome.org/Foundation/CodeOfConduct
+    header: false
+    footer: true
+    section: Company
+  - name: Donate
+    href: /donate/
+    header: false
+    footer: true
+    section: Company
+
+social_links:
+  - icon: fab fa-twitter
+    href: https://twitter.com/GTKtoolkit/
+  - icon: fab fa-facebook
+    href: https://www.facebook.com/GTKtelevisor/
+  - icon: fab fa-gitlab
+    href: https://gitlab.gnome.org/GNOME/gtk/
+  - icon: fab fa-discourse
+    href: https://discourse.gnome.org/c/platform/core/

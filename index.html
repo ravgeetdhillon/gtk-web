@@ -1,0 +1,138 @@
+---
+---
+
+{% assign data = site.data %}
+
+{%- include header.html -%}
+
+<section class="pt-3 pt-md-4" id="landing">
+	<div class="container landing-sm d-flex align-items-center">
+		<div class="row">
+			<div class="col-lg-6 d-flex justify-content-center flex-column">
+				<h1 class="display-3"><strong>{{ site.name }}</strong></h1>
+				<br>
+				<p class="lead">{{ site.mini_description }}</p>
+				<br>
+				<div>
+					<a href="/docs/" class="btn btn-primary btn-md" role="button">Get Started</a>
+					<a href="/apps/" class="btn btn-outline-secondary btn-md" role="button">View Apps</a>
+				</div>
+				<br>
+				<p class="small text-muted">Currently v{{ site.gtkVersion }}</p>
+			</div>
+			<div class="col-lg-6 d-none d-md-flex justify-content-center flex-column">
+				<img src="./assets/img/landing1.png" style="width: 100%" />
+			</div>
+		</div>
+	</div>
+</section>
+
+{% assign gtk_info = data.stuff.gtk_info %}
+<section class="pb-4" id="info">
+	<div class="container">
+		{% for info in gtk_info %}
+		<div class="row py-4 d-flex {% cycle '', 'flex-md-row-reverse' %}">
+			<div class="col-12 col-md-5 pt-4">
+				<h2 class="font-weight-light border-bottom border-secondary pb-2 mb-3 w-25 text-nowrap">{{ info.title }}</h2>
+				<p class="text-muted">{{ info.description }}</p>
+			</div>
+			<div class="col-12 col-md-7 d-flex justify-content-center align-items-center">
+				<img src="./assets/img/{{ info.img }}" class="img-fluid img-shadow rounded" alt="{{ info.title }}" />
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+
+{% assign installations_info = data.stuff.headings_and_descriptions | where: "sectionId", "installations" %}
+<section class="py-4 bg-light" id ="installations">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-5">
+				<h1 class="font-weight-light">{{ installations_info[0].heading }}</h1>
+				<br>
+				<p class="text-muted">{{ installations_info[0].description }}<br>Check out the <a href="/downloads/" class="text-primary text-decoration-none">complete list.</a></p>
+			</div>
+			<div class="col-12 col-md-7 d-flex flex-column justify-content-center align-items-center">
+				<ul class="list-unstyled list-inline text-small">
+				{% assign installations = data.installations %}
+				{% assign size = installations.systems | size | divided_by:2 %}
+				{% for system in installations.systems limit:size %}
+					<li class="list-inline-item display-4"><a href="{{ system.href }}" class="text-primary px-2" title="{{ system.name }}"><i class="{{ system.icon }}"></i></a></li>
+				{% endfor %}
+				</ul>
+				<ul class="list-unstyled list-inline text-small">
+				{% for system in installations.systems offset:size %}
+					<li class="list-inline-item display-4"><a href="{{ system.href }}" class="text-primary px-2" title="{{ system.name }}"><i class="{{system.icon}}"></i></a></li>
+				{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% assign features = data.features %}
+<section class="py-4" id="features">
+	<div class="container">
+		<div class="row">
+			{% for feature in features.features_list %}
+			<div class="col-12 col-sm-6 col-md-4 px-sm-3 px-md-4 py-3">
+				<img src="./assets/illustrations/{{ feature.img }}" class="img-fluid pb-3 d-block mx-auto mx-sm-0" style="height: 200px;" alt="{{ feature.title }}" />
+				<h6>{{ feature.title }}</h1>
+				<p class="text-muted">{{ feature.description | markdownify }}</p>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+{% assign apps_info = data.stuff.headings_and_descriptions | where: "sectionId", "apps" %}
+<section class="pt-4" id="apps">
+	<div class="container py-3 d-flex flex-column align-items-center">
+		<div class="row text-center d-flex justify-content-center">
+			<div class="col-sm-12 col-md-10">
+				<h1 class="font-weight-light">{{ apps_info[0].heading }}</h1>
+				<p class="text-muted">{{ apps_info[0].description }}</p>
+			</div>
+		</div>
+		<div class="row d-flex justify-content-center w-100 w-lg-75 pt-3">
+			{% assign apps = data.apps %}
+			{% for app in apps.apps_list %}
+			<div class="col-6 col-sm-4 col-md-3 d-flex flex-column align-items-center justify-content-center text-center py-3 shadow-hover">
+				<div class="app-holder">
+					<img src="./assets/img/apps/{{ app.logo }}" class="img-fluid app-icon" alt="{{ app.name }}" />
+					<a href="{{ app.link }}" class="nav-link stretched-link">{{ app.name }}</a>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<br>
+		<div class="row">
+			<div class="col text-center small text-muted">
+				<p><a href="/apps/" class="text-decoration-none">View more</a> or submit your <a href="#" class="text-decoration-none">own app.</a></p>
+			</div>
+		</div>
+	</div>
+	<hr class="w-75">
+</section>
+
+{% assign tutorials = data.stuff.headings_and_descriptions | where: "sectionId", "tutorials" %}
+<section class="py-4" id="tutorials">
+	<div class="container py-4">
+		<div class="row">
+			<div class="embed-responsive embed-responsive-16by9 col-12 col-md-6 rounded">
+				<iframe class="embed-responsive-item py-3 px-3" src="{{ site.tutorial_video_link }}" allowfullscreen></iframe>
+			</div>
+			<div class="col-12 col-md-6 px-3 py-3 px-md-4 d-flex flex-column justify-content-center">
+				<h1 class="font-weight-light">{{ tutorials[0].heading }}</h1>
+				<br>
+				<p class="text-muted">{{ tutorials[0].description }}</p>
+				<div>
+					<a href="#" class="btn border border-primary text-primary btn-sm" role="button">Developers Guide</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{%- include footer.html -%}

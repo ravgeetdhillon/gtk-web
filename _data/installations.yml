@@ -1,0 +1,25 @@
+systems:
+  - name: Linux
+    icon: fab fa-linux
+    href: /setup/linux/
+    procedure: >-
+      hi
+      how are you
+  - name: Windows
+    icon: fab fa-windows
+    href: /setup/windows/
+  - name: MacOS
+    icon: fab fa-apple
+    href: /setup/macos/
+  - name: Ubuntu
+    icon: fab fa-ubuntu
+    href: /setup/ubuntu/
+  - name: Fedora
+    icon: fab fa-fedora
+    href: /setup/fedora/
+  - name: Suse
+    icon: fab fa-suse
+    href: /setup/suse/
+  - name: Redhat
+    icon: fab fa-redhat
+    href: /setup/redhat/

@@ -1,0 +1,39 @@
+#resources to get the information from
+https://www.gtk.org/
+https://gitlab.gnome.org/GNOME/gtk/
+https://gnome.pages.gitlab.gnome.org/gtk/gtk/
+https://developer.gnome.org/gtk4/stable
+
+#purpose of gtk
+GTK+ is the primary library used to construct user interfaces in GNOME applications. It provides user interface controls and signal callbacks to control user interfaces.
+
+#sitemap
+
+index.html
+
+apps.html
+
+downloads.html > 
+    windows.html
+    macos.html
+    linux.html
+
+releases.html
+
+blog.html
+documentation.html >
+development.html > 
+community.html >
+    mailing-lists.html
+    social-media-links such as twitter, instagram, matrix, irc etc..
+    reporting bugs to https://gitlab.gnome.org/GNOME/gtk/
+    requesting features to https://gitlab.gnome.org/GNOME/gtk/
+    faqs
+    meetups if any
+    // more links can be added to this list
+
+support.html
+language-bindings.html >
+404.html >
+robots.txt >
+sitemap.xml >
