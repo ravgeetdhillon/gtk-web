@@ -5,9 +5,6 @@ variables:
   LC_ALL: C.UTF-8
 
 before_script:
-  - bundle --version
-  - ruby --version
-  - gem --version
   - gem install bundler
   - bundle install
 
