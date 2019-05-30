@@ -37,3 +37,10 @@
 		});
 	});
 </script> -->
+
+
+move /Y node_modules/bootstrap assets/ >> save.txt
+move /Y node_modules/jquery assets/ >> save.txt
+move /Y node_modules/popper.js assets/ >> save.txt
+rmdir node_modules /S /Q >> save.txt
+sass assets/scss/theme.scss assets/css/theme.css >> save.txt

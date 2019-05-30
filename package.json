@@ -1,15 +1,20 @@
 {
-  "name": "gtk-website",
+  "name": "gtk-web",
   "version": "1.0.0",
-  "description": "",
+  "description": "Official website for GTK. Visit https://gtk.org/",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.gnome.org/ravgeetdhillon/gtk-web.git"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0"
   }
 }

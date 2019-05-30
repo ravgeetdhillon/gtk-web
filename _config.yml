@@ -11,9 +11,7 @@ logo:
 collections:
   apps:
     output: true
-  authors:
-    output: true
-  setup:
+  setups:
     output: true
 markdown: kramdown
 kramdown: 
