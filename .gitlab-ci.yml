@@ -9,17 +9,14 @@ before_script:
   - apt-get install -y libssl-dev build-essential wget
   - wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
   - source /root/.bashrc
-  - nvm install 6.6.0
-  - nvm use 6.6.0
-  - node -v
-  - npm -v
+  - nvm install
   - npm install
   - gem install bundler
   - bundle install
-  - move /Y node_modules/bootstrap assets/
-  - move node_modules/jquery assets/
-  - move /Y node_modules/popper.js assets/
-  - rmdir node_modules
+  - mv node_modules/bootstrap assets/ -f
+  - mv node_modules/jquery assets/ -f
+  - mv node_modules/popper.js assets/ -f
+  - rm -rf node_modules
   - sass assets/scss/theme.scss assets/css/theme.css
   
 test:
