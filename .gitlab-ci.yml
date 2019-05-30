@@ -5,6 +5,7 @@ variables:
   LC_ALL: C.UTF-8
 
 before_script:
+  - gem install bundler
   - bundle install
   - npm install
   - move /Y node_modules/bootstrap assets/
