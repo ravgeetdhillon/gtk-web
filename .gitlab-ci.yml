@@ -18,7 +18,7 @@ before_script:
   - mv node_modules/jquery assets/ -f
   - mv node_modules/popper.js assets/ -f
   - rm -rf node_modules
-  - sass assets/scss/theme.scss assets/css/theme.css
+  - sass assets/scss/theme.scss:assets/css/theme.css
   
 test:
   stage: test
