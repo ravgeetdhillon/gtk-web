@@ -4,10 +4,19 @@ variables:
   JEKYLL_ENV: production
   LC_ALL: C.UTF-8
 
-before_script:
+  before_script:
+  - apt-get update -qy 
+  - apt-get install -qy locales
+  - echo "en_US UTF-8" > /etc/locale.gen
+  - locale-gen en_US en_US.UTF-8
+  - export LANG=en_US.UTF-8
+  - export LANGUAGE=en_US:en
+  - export LC_ALL=en_US.UTF-8
+  - apt-get install -y npm
+  - ln -s /usr/bin/nodejs /usr/bin/node
+  - npm install -g npm
   - gem install bundler
   - bundle install
-  - npm install
   - move /Y node_modules/bootstrap assets/
   - move node_modules/jquery assets/
   - move /Y node_modules/popper.js assets/
