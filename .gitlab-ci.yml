@@ -12,6 +12,8 @@ before_script:
   - export LANG=en_US.UTF-8
   - export LANGUAGE=en_US:en
   - export LC_ALL=en_US.UTF-8
+  - curl -sL https://deb.nodesource.com/setup_10.x
+  - apt-get install -y nodejs
   - apt-get install -y npm
   - ln -s /usr/bin/nodejs /usr/bin/node
   - npm install -g npm
