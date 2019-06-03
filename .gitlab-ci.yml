@@ -4,22 +4,7 @@ variables:
   JEKYLL_ENV: production
   LC_ALL: C.UTF-8
 
-stages:
-  - installation
-  - structuring
-  - generation
-  - test
-  - deploy
-
-gems:
-  stage: installation
-  script:
-  - gem install bundler
-  - bundle update
-
-npm:
-  stage: installation
-  script:
+before_script:
   - apt-get update -y
   - apt-get install -y curl
   - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
@@ -27,29 +12,14 @@ npm:
   - nvm install node
   - nvm use node
   - npm install
-  artifacts:
-    paths:
-    - node_modules
-
-structuring:
-  stage: structuring
-  script:
+  - gem install bundler
+  - bundle update
   - mv node_modules/bootstrap assets/ -f
   - mv node_modules/jquery assets/ -f
   - mv node_modules/popper.js assets/ -f
   - mv node_modules/@fortawesome assets/ -f
   - mv node_modules/@primer assets/ -f
   - rm -rf node_modules
-  artifacts:
-    paths:
-    - assets
-
-sass:
-  stage: generation
-  script:
-  - ruby -v
-  - gem install sass
-  - sass -v
   - sass assets/scss/theme.scss assets/css/theme.css
   - sass assets/@primer/css/markdown/index.scss assets/css/markdown.css
   
