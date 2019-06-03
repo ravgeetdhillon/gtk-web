@@ -14,7 +14,7 @@ stages:
 gems:
   stage: installation
   script:
-  - gem install bundler sass
+  - gem install bundler
   - bundle update
 
 npm:
@@ -44,6 +44,9 @@ structuring:
 sass:
   stage: generation
   script:
+  - ruby -v
+  - gem install sass
+  - sass -v
   - sass assets/scss/theme.scss assets/css/theme.css
   - sass assets/@primer/css/markdown/index.scss assets/css/markdown.css
   
