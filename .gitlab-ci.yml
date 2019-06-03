@@ -14,7 +14,7 @@ stages:
 gems:
   stage: installation
   script:
-  - gem install bundler
+  - gem install bundler sass
   - bundle update
 
 npm:
