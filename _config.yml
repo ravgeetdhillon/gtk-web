@@ -4,7 +4,7 @@ description: GTK is a highly usable, feature rich toolkit for creating graphical
 mini_description: GTK is a free and open-source cross-platform widget toolkit for creating graphical user interfaces.
 gtkVersion: 3.94
 baseurl: ''
-url: ''
+url: 'https://ravgeetdhillon.pages.gitlab.gnome.org/gtk-web/'
 site_repo: https://gitlab.gnome.org/ravgeetdhillon/gtk-web/
 tutorial_video_link: https://www.youtube.com/embed/bNA-Q8fQqTc
 logo: gtk-logo.ico
