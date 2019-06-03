@@ -1,7 +1,7 @@
 {
   "name": "gtk-web",
   "version": "1.0.0",
-  "description": "Official website for GTK. Visit https://gtk.org/",
+  "description": "The dependencies for the official website of GTK. Visit https://gtk.org/",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,6 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.2",
+    "@primer/css": "^12.4.0",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.15.0"

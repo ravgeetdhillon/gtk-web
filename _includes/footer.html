@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-5 col-md-4 py-3 py-sm-2">
-                <img src="./assets/img/GnomeLogoHorizontal.svg" class="img-fluid pb-2" width="100" />
+                <img src="{{ '/assets/img/GnomeLogoHorizontal.svg' | prepend: site.url }}" class="img-fluid pb-2" width="100" />
                 <p>GTK4+ is a GNOME product.</p>
                 <p>GTK is maintained by the core team of <strong><a href="#" class="text-muted">maintainers</a></strong> under GNOME.</p>
                 {% assign date_arr = site.time | date_to_string | split: ' ' %}
@@ -17,7 +17,7 @@
                         <ul class="list-unstyled text-small">
                             {% for link in menu_links %}
                                 {% if link.footer and link.section == "Project" %}
-                                <li><a href="{{link.href}}" class="text-info">{{link.name}}</a></li>
+                                <li><a href="{{ link.href }}" class="text-info">{{ link.name }}</a></li>
                                 {% endif %}
                             {% endfor %}
                         </ul>
@@ -27,7 +27,7 @@
                         <ul class="list-unstyled text-small">
                             {% for link in menu_links %}
                                 {% if link.footer and link.section == "Support" %}
-                                <li><a href="{{link.href}}" class="text-info">{{link.name}}</a></li>
+                                <li><a href="{{link.href}}" class="text-info">{{ link.name }}</a></li>
                                 {% endif %}
                             {% endfor %}
                         </ul>
@@ -48,12 +48,12 @@
                 <h5>About the Site</h5>
                 <ul class="list-unstyled text-small">
                     <li>Powered by <strong><a href="https://jekyllrb.com/" class="text-muted">Jekyll</a></strong>.</li>
-                    <li>Hosted on <strong><a href="{{site.repo}}" class="text-muted">Gitlab</a></strong>.</li>
+                    <li>Hosted on <strong><a href="{{ site.repo }}" class="text-muted">Gitlab</a></strong>.</li>
                 </ul>
                 <ul class="list-unstyled list-inline text-small">
                 {% assign social_links = site.data.navigation.social_links %}
                 {% for link in social_links %}
-                    <li class="list-inline-item"><a href="{{link.href}}" class="text-muted text-primary"><i class="{{link.icon}}"></i></a></li>
+                    <li class="list-inline-item"><a href="{{ link.href }}" class="text-muted text-primary"><i class="{{ link.icon }}"></i></a></li>
                 {% endfor %}
                 </ul>
             </div>
