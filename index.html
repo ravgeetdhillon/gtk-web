@@ -96,12 +96,12 @@
 			</div>
 		</div>
 		<div class="row d-flex justify-content-center w-100 w-lg-75 pt-3">
-			{% assign apps = data.apps %}
-			{% for app in apps.apps_list %}
+			{% assign apps = site.apps %}
+			{% for app in apps %}
 			<div class="col-6 col-sm-4 col-md-3 d-flex flex-column align-items-center justify-content-center text-center py-3 shadow-hover">
 				<div class="app-holder">
-					<img src="./assets/img/apps/{{ app.logo }}" class="img-fluid app-icon" alt="{{ app.name }}" />
-					<a href="{{ app.link }}" class="nav-link stretched-link">{{ app.name }}</a>
+					<img src="{{ '/apps/' | prepend: site.url }}{{ app.img }}" class="img-fluid app-icon" alt="{{ app.name }}" />
+					<a href="{{ app.url }}" class="nav-link stretched-link">{{ app.name }}</a>
 				</div>
 			</div>
 			{% endfor %}
