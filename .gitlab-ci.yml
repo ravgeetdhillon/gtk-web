@@ -40,6 +40,9 @@ structuring:
   - mv node_modules/@fortawesome assets/ -f
   - mv node_modules/@primer assets/ -f
   - rm -rf node_modules
+  artifacts:
+    paths:
+    - assets
 
 sass:
   stage: generation
