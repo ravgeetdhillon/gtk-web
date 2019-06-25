@@ -10,23 +10,25 @@
 	<meta name="author" content="The GTK Team">
 	<meta name="description" content="GTK is a highly usable, feature rich toolkit for creating graphical user interfaces which boasts cross platform compatibility and an easy to use API. GTK is licensed under the GNU LGPL 2.1 allowing development of both free and proprietary software with GTK without any license fees or royalties.">
 	<meta name="keywords" content="gtk, gtk, gimp, gnome, toolkit, user interface">	
-	<link rel="icon" href="{{ '/assets/img/' | prepend: site.url | append: site.logo }}" type="image/x-icon">
-	<link rel="shortcut icon" href="{{ '/assets/img/' | prepend: site.url | append: site.logo }}" type="image/x-icon">
+	<link rel="icon" href="{{ '/assets/img/' | prepend: site.url | append: site.data.stuff.logo }}" type="image/x-icon">
+	<link rel="shortcut icon" href="{{ '/assets/img/' | prepend: site.url | append: site.data.stuff.logo }}" type="image/x-icon">
 	<title>{{site.title}}</title>
 	<link rel="stylesheet" href="{{ '/assets/@fortawesome/fontawesome-free/css/all.min.css' | prepend: site.url }}" type="text/css" media="screen" />
-	<link rel="stylesheet" href="{{ '/assets/css/theme.css' | prepend: site.url }}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ '/assets/css/markdown.css' | prepend: site.url }}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ '/assets/css/theme.css' | prepend: site.url }}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ '/assets/css/colorful.css' | prepend: site.url }}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ '/assets/css/index.css' | prepend: site.url }}" type="text/css" media="screen" />
 	<script src="{{ '/assets/jquery/dist/jquery.min.js' | prepend: site.url }}"></script>
 	<script src="{{ '/assets/popper.js/dist/umd/popper.min.js' | prepend: site.url }}"></script>
 	<script src="{{ '/assets/bootstrap/dist/js/bootstrap.min.js' | prepend: site.url }}"></script>
+	<script src="{{ '/assets/slick-carousel/slick/slick.min.js' | prepend: site.url }}"></script>
+	
 </head>
 
 <body>
-	<header class="navbar navbar-light bg-light small">
-		<nav class="container-fluid navbar-expand-md px-0 px-md-3">
-			<a href="/" class="navbar-brand"><img src="{{ '/assets/img/gtk-logo.png' | prepend: site.url }}" width="40" height="40" /><strong>GTK4+</strong></a>
+	<header class="navbar small">
+		<nav class="container navbar-expand-md px-0 px-md-3">
+			<a href="/" class="navbar-brand"><img src="{{ '/assets/img/gtk-logo.png' | prepend: site.url }}" width="40" height="40" /><strong>GTK</strong></a>
 			<a class="btn navbar-toggler border-0 p-0" role="button" data-toggle="collapse" data-target="#navbarSupportedContent">
 				<i class="fas fa-ellipsis-h"></i>
 			</a>
@@ -37,7 +39,7 @@
 					{% assign page_split = page.url | split: '/' %}
 					{% assign page_type = page_split[1] | capitalize %}
 					{% if link.header %}
-						<li class="nav-item border-bottom-trans border-bottom-hover"><a href="{{ link.href }}" class="nav-link float-right">{{ link.name }}</a></li>
+						<li class="nav-item"><a href="{{ link.href }}" class="nav-link text-dark float-right">{{ link.name }}</a></li>
 					{% endif %}
 				{% endfor %}
 				</ul>

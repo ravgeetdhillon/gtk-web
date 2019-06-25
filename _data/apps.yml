@@ -1,49 +1,49 @@
 apps_list:
+  - name: Fonts
+    link: /apps/
+    logo: Fonts-app.png
   - name: Calculator
     link: /apps/
     logo: Calculator-app.png
+  - name: Blender
+    link: /apps/
+    logo: Blender-app.png
   - name: Chess
     link: /apps/
     logo: Chess-app.png
   - name: Dictionary
     link: /apps/
     logo: Dictionary-app.png
-  - name: Evolution
-    link: /apps/
-    logo: Evolution-app.png
-  - name: Fonts
-    link: /apps/
-    logo: Fonts-app.png
-  - name: Blender
-    link: /apps/
-    logo: Blender-app.png
   - name: GIMP
     link: /apps/
     logo: GIMP-app.png
   - name: Games
     link: /apps/
     logo: Games-app.png
+  - name: Evolution
+    link: /apps/
+    logo: Evolution-app.png
   - name: Image Viewer
     link: /apps/
     logo: ImageViewer-app.png
-  - name: Key Sign
-    link: /apps/
-    logo: Keysign-app.png
-  - name: Maps
-    link: /apps/
-    logo: Maps-app.png
-  - name: Password Safe
-    link: /apps/
-    logo: PasswordSafe-app.png
   - name: Polari
     link: /apps/
     logo: Polari-app.png
   - name: Social
     link: /apps/
     logo: Social-app.png
-  - name: Terminal
+  - name: Key Sign
     link: /apps/
-    logo: Terminal-app.png
+    logo: Keysign-app.png
+  - name: Maps
+    link: /apps/
+    logo: Maps-app.png
   - name: Transmission
     link: /apps/
     logo: Transmission-app.png
+  - name: Password Safe
+    link: /apps/
+    logo: PasswordSafe-app.png
+  - name: Terminal
+    link: /apps/
+    logo: Terminal-app.png

@@ -1,0 +1,7 @@
+use_cases:
+  - title: Develop Management Systems
+    description: Read about Solvo Ltd. on how they used GTK to develop their warehouse managament system for enhanced performance and internationalization.
+  - title: Visualisation Tools
+    description: Catch up with Kim Adil, at BMA Coal, Australia, on he used GTK to build a cross-platform mining process visualization tool for the mine control room.
+  - title: Image Processing and Analysis
+    description: Read about the VIPS, used by The London National Gallery for storing high resolution digital images of art work for museums worldwide.

@@ -9,8 +9,8 @@ menu_links:
     header: true
     footer: true
     section: Company
-  - name: Apps
-    href: /apps/
+  - name: Usecases
+    href: /usecases/
     header: true
     footer: true
     section: Project
@@ -40,7 +40,7 @@ menu_links:
     footer: true
     section: Project
   - name: FAQs
-    href: /faqs/
+    href: https://developer.gnome.org/gtk3/stable/gtk-question-index.html
     header: false
     footer: true
     section: Support
@@ -50,7 +50,7 @@ menu_links:
     footer: true
     section: Project
   - name: Mailing Lists
-    href: https://gitlab.gnome.org/GNOME/gtk/
+    href: /mailing-lists
     header: false
     footer: true
     section: Company
@@ -70,10 +70,20 @@ menu_links:
     footer: true
     section: Company
   - name: Donate
-    href: /donate/
+    href: http://www.gnome.org/foundation/
     header: false
     footer: true
     section: Company
+  - name: Consultation
+    href: /support#consultation
+    header: false
+    footer: true
+    section: Support
+  - name: Training
+    href: /support#training
+    header: false
+    footer: true
+    section: Support
 
 social_links:
   - icon: fab fa-twitter

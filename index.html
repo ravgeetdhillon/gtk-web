@@ -1,138 +1,282 @@
 ---
 ---
 
-{% assign data = site.data %}
-
 {%- include header.html -%}
 
-<section class="pt-3 pt-md-4" id="landing">
+<section class="pt-5 pb-4 d-flex flex-column align-items-center" id="landing">
 	<div class="container landing-sm d-flex align-items-center">
-		<div class="row">
-			<div class="col-lg-6 d-flex justify-content-center flex-column">
-				<h1 class="display-3"><strong>{{ site.name }}</strong></h1>
-				<br>
-				<p class="lead">{{ site.mini_description }}</p>
-				<br>
-				<div>
-					<a href="/docs/" class="btn btn-primary btn-md" role="button">Get Started</a>
-					<a href="/apps/" class="btn btn-outline-secondary btn-md" role="button">View Apps</a>
+		<div class="row d-flex justify-content-center">
+			<div class="col-md-5 d-flex justify-content-center flex-column main-heading">
+				<h1 class="display-4 pb-3">Create interfaces, that users just love</h1>
+				<p class="text-muted pb-3">Offering a complete set of widgets, GTK is suitable for projects ranging from small one-off tools to complete application suites.</p>
+				<div class="pb-3 d-flex">
+					<a href="/docs/" class="btn btn-md btn-primary" role="button">Learn GTK</a>
+					<div class="dropdown">
+						<a class="btn btn-md btn-outline-secondary dropdown-toggle ml-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Downloads</a>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+							<a href="/downloads/linux" class="dropdown-item"><i class="fab fa-linux"></i> Linux</a>
+							<a href="/downloads/windows" class="dropdown-item"><i class="fab fa-windows"></i> Windows</a>
+							<a href="/downloads/macos" class="dropdown-item"><i class="fab fa-apple"></i> MacOS</a>
+						</div>
+					</div>
 				</div>
-				<br>
-				<p class="small text-muted">Currently v{{ site.gtkVersion }}</p>
+				<p class="small text-muted">Currently v{{ site.data.stuff.gtkVersion }}</p>
 			</div>
-			<div class="col-lg-6 d-none d-md-flex justify-content-center flex-column">
-				<img src="./assets/img/landing1.png" style="width: 100%" />
-			</div>
-		</div>
-	</div>
-</section>
-
-{% assign gtk_info = data.stuff.gtk_info %}
-<section class="pb-4" id="info">
-	<div class="container">
-		{% for info in gtk_info %}
-		<div class="row py-4 d-flex {% cycle '', 'flex-md-row-reverse' %}">
-			<div class="col-12 col-md-5 pt-4">
-				<h2 class="font-weight-light border-bottom border-secondary pb-2 mb-3 w-25 text-nowrap">{{ info.title }}</h2>
-				<p class="text-muted">{{ info.description }}</p>
-			</div>
-			<div class="col-12 col-md-7 d-flex justify-content-center align-items-center">
-				<img src="./assets/img/{{ info.img }}" class="img-fluid img-shadow rounded" alt="{{ info.title }}" />
-			</div>
-		</div>
-		{% endfor %}
-	</div>
-</section>
-
-{% assign installations_info = data.stuff.headings_and_descriptions | where: "sectionId", "installations" %}
-<section class="py-4 bg-light" id ="installations">
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-md-5">
-				<h1 class="font-weight-light">{{ installations_info[0].heading }}</h1>
-				<br>
-				<p class="text-muted">{{ installations_info[0].description }}<br>Check out the <a href="/downloads/" class="text-primary text-decoration-none">complete list.</a></p>
-			</div>
-			<div class="col-12 col-md-7 d-flex flex-column justify-content-center align-items-center">
-				<ul class="list-unstyled list-inline text-small">
-				{% assign installations = data.installations %}
-				{% assign size = installations.systems | size | divided_by:2 %}
-				{% for system in installations.systems limit:size %}
-					<li class="list-inline-item display-4"><a href="{{ system.href }}" class="text-primary px-2" title="{{ system.name }}"><i class="{{ system.icon }}"></i></a></li>
-				{% endfor %}
-				</ul>
-				<ul class="list-unstyled list-inline text-small">
-				{% for system in installations.systems offset:size %}
-					<li class="list-inline-item display-4"><a href="{{ system.href }}" class="text-primary px-2" title="{{ system.name }}"><i class="{{system.icon}}"></i></a></li>
-				{% endfor %}
-				</ul>
+			<div class="col-md-7 d-none d-md-flex justify-content-center flex-column">
+				<div class="col img-grp">
+					<img src="./assets/img/editor.png" class="img-fluid editor shadow-lg" />
+					<img src="./assets/img/calendar.png" class="img-fluid calendar shadow-lg" />
+					<img src="./assets/img/music.png" class="img-fluid music shadow-lg" />
+				</div>
 			</div>
 		</div>
 	</div>
+	<button class="btn btn-light shadow-sm rounded-circle mt-4" onclick="slideDown()"><i class="fas fa-chevron-down"></i></button>
 </section>
 
-{% assign features = data.features %}
-<section class="py-4" id="features">
-	<div class="container">
-		<div class="row">
-			{% for feature in features.features_list %}
-			<div class="col-12 col-sm-6 col-md-4 px-sm-3 px-md-4 py-3">
-				<img src="./assets/illustrations/{{ feature.img }}" class="img-fluid pb-3 d-block mx-auto mx-sm-0" style="height: 200px;" alt="{{ feature.title }}" />
-				<h6>{{ feature.title }}</h1>
-				<p class="text-muted">{{ feature.description | markdownify }}</p>
-			</div>
-			{% endfor %}
-		</div>
-	</div>
-</section>
-
-{% assign apps_info = data.stuff.headings_and_descriptions | where: "sectionId", "apps" %}
-<section class="pt-4" id="apps">
-	<div class="container py-3 d-flex flex-column align-items-center">
+<section class="py-4" id="usecases">
+	<div class="container d-flex flex-column align-items-center">
 		<div class="row text-center d-flex justify-content-center">
-			<div class="col-sm-12 col-md-10">
-				<h1 class="font-weight-light">{{ apps_info[0].heading }}</h1>
-				<p class="text-muted">{{ apps_info[0].description }}</p>
+			<div class="col-md-10 col-lg-7">
+				<h2 class="text-center font-weight-light mb-3">Overcome Complex Challenges</h2>
+				<p class="text-muted">
+					GTK is cross-platform and boasts an easy to use API, speeding up your development time and helping you tackle challenges whether you are GTK Developer or developing using GTK.
+				</p>			
 			</div>
 		</div>
-		<div class="row d-flex justify-content-center w-100 w-lg-75 pt-3">
-			{% assign apps = site.apps %}
-			{% for app in apps %}
-			<div class="col-6 col-sm-4 col-md-3 d-flex flex-column align-items-center justify-content-center text-center py-3 shadow-hover">
-				<div class="app-holder">
-					<img src="{{ '/apps/' | prepend: site.url }}{{ app.img }}" class="img-fluid app-icon" alt="{{ app.name }}" />
-					<a href="{{ app.url }}" class="nav-link stretched-link">{{ app.name }}</a>
-				</div>
+		<div class="row">
+			<div class="col-8 mx-auto">
+				<img src="./assets/illustrations/language_bindings.svg" class="w-100 img-fluid" style="height:100%;" />
 			</div>
-			{% endfor %}
 		</div>
 		<br>
-		<div class="row">
-			<div class="col text-center small text-muted">
-				<p><a href="/apps/" class="text-decoration-none">View more</a> or submit your <a href="#" class="text-decoration-none">own app.</a></p>
+		<div class="row d-flex justify-content-center pt-3">
+			{% assign cases = site.data.usecases.use_cases %}
+			{% for case in cases %}
+			<div class="col-md-4 pb-4 pb-md-0">
+				<h6>{{ case.title }}</h6>
+				<span class="text-muted small">{{ case.description }}</span>
+				<br>
+				<a href="/usecases/{{ case.title }}" class="small border-bottom text-decoration-none border-primary">Read More</a>
+			</div>
+			{% endfor %}
+			<div class="col-12 text-center pt-3 pt-md-4">
+				<a href="/usecases/" class="btn btn-md btn-outline-primary" role="button">Discover Usecases</a>
 			</div>
 		</div>
 	</div>
-	<hr class="w-75">
 </section>
 
-{% assign tutorials = data.stuff.headings_and_descriptions | where: "sectionId", "tutorials" %}
-<section class="py-4" id="tutorials">
-	<div class="container py-4">
-		<div class="row">
-			<div class="embed-responsive embed-responsive-16by9 col-12 col-md-6 rounded">
-				<iframe class="embed-responsive-item py-3 px-3" src="{{ site.tutorial_video_link }}" allowfullscreen></iframe>
+<section class="py-4" id="bindings">
+	<div class="container">
+		<div class="row text-center d-flex justify-content-center">
+			<div class="col-md-10 col-lg-7">
+				<h2 class="font-weight-light mb-3">Work with the language of your choice</h2>
+				<p class="text-muted">
+					Develop your GTK app with the language of your choice by using Language Bindings or wrappers and take the full advantage of the official GNOME bindings which guarantee API stability and time-based releases.
+				</p>			
 			</div>
-			<div class="col-12 col-md-6 px-3 py-3 px-md-4 d-flex flex-column justify-content-center">
-				<h1 class="font-weight-light">{{ tutorials[0].heading }}</h1>
-				<br>
-				<p class="text-muted">{{ tutorials[0].description }}</p>
-				<div>
-					<a href="#" class="btn border border-primary text-primary btn-sm" role="button">Developers Guide</a>
+		</div>
+		<div class="row d-flex flex-column align-items-center py-4">
+			<div class="col-lg-8 p-0 rounded-top overflow-hidden">
+				<div class="list-group flex-row flex-wrap" id="list-tab" role="tablist">
+				{% assign codes = site.data.sample_codes.codes %}
+				{% for code in codes %}
+					{% if forloop.first == true %}
+						<a class="col grp-btn btn btn-dark py-1 px-1 small border-0 rounded-0 active" id="list-{{ code.ext }}-list" data-toggle="list" href="#list-{{ code.ext }}" role="tab" aria-controls="{{ code.ext }}" aria-selected="true">{{ code.name }}</a>
+					{% else %}
+						<a class="col grp-btn btn btn-dark py-1 px-1 small border-0 rounded-0" id="list-{{ code.ext }}-list" data-toggle="list" href="#list-{{ code.ext }}" role="tab" aria-controls="{{ code.ext }}" aria-selected="false">{{ code.name }}</a>
+					{% endif %}
+				{% endfor %}
+				</div>
+			</div>
+			<div class="col-lg-8 p-0 bg-light rounded-bottom border border-info border-top-0 pl-3 overflow-auto">
+				<div class="tab-content" id="nav-tabContent">
+				{% for code in codes %}
+					{% if forloop.first == true %}
+						<div class="tab-pane overflow-y-auto fade small active show" id="list-{{ code.ext }}" role="tabpanel" aria-labelledby="list-{{ code.ext }}-list">
+						{{ code.snippet | markdownify }}
+						</div>
+					{% else %}
+						<div class="tab-pane overflow-auto fade small" id="list-{{ code.ext }}" role="tabpanel" aria-labelledby="list-{{ code.ext }}-list">
+						{{ code.snippet | markdownify }}
+						</div>
+					{% endif %}
+				{% endfor %}
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
+{% assign apps = site.data.apps.apps_list %}
+<section class="py-4" id="apps">
+	<div class="container py-3">
+		<div class="row text-center d-flex justify-content-center">
+			<div class="col-md-10 col-lg-7">
+				<h2 class="font-weight-light mb-3">Apps built with GTK</h2>
+				<p class="text-muted">
+					Developers around the world have used GTK as a platform to create apps that solve problems faced by the end users.
+				</p>			
+			</div>
+		</div>
+		<div class="app-logos slider pt-4 pb-5">
+			{% for app in apps %}
+			<div class="slide d-flex flex-column align-items-center text-center" title="{{ app.name }} App" onclick="window.location.assign('https://wiki.gnome.org/Apps/{{ app.name }}')">
+				<img src="{{ '/assets/img/apps/' | prepend: site.url }}{{ app.logo }}" class="img-fluid app-icon" alt="{{ app.name }}" />
+				<span class="text-muted small">{{ app.name }}</span>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5 pt-4">
+				<h2 class="font-weight-light mb-3">Integrations for Rapid Application Development</h2>
+				<p class="text-muted">Glade is a RAD tool which enables quick & easy development of user interfaces for the GTK toolkit and the GNOME desktop environment.<br>Check out this easy tutorial on <a href="https://developer.gnome.org/gnome-devel-demos/stable/toolbar_builder.py.html.en">how to create a toolbar</a> using Glade.</p>
+			</div>
+			<div class="col-lg-7 d-flex justify-content-center align-items-center">
+				<img src="./assets/img/glade.png" class="img-fluid w-100 shadow-lg" alt="Integration of Glade and GTK" />
+			</div>
+		</div>
+	</div>
+	<hr class="w-75 mt-5">
+</section>
+
+{% assign features = site.data.stuff.features_list %}
+{% assign total_size = site.data.stuff.features_list | size %}
+{% assign halfway = total_size | divided_by: 2 %}
+<section class="pt-3 pb-4" id="features">
+	<div class="container"> 
+		<div class="row text-center d-flex justify-content-center">
+			<div class="col-md-10 col-lg-7">
+				<h2 class="font-weight-light mb-3">A feature rich development tool</h2>
+				<p class="text-muted">
+					GTK has all the features that a widget toolkit needs to have. These features make it the most trusted toolkit for developing Linux Apps.
+				</p>			
+			</div>
+		</div>
+		<div class="row feature-holder py-4">
+			<div class="col-sm-6 px-3">
+			{% assign halfway = halfway | minus: 1 %}
+			{% for i in (0..halfway) %}
+				<div class="col px-0 px-sm-3">
+					<h6 class="mb-1">{{ features[i].title }}</h6>
+					<span class="text-muted small">{{ features[i].description | markdownify }}</span>
+					<br>
+				</div>
+			{% endfor %}
+			</div>
+
+			<div class="col-sm-6 px-3">
+			{% assign halfway = halfway | plus: 1 %}
+			{% assign total_size = total_size | minus: 1 %}
+			{% for i in (halfway..total_size) %}
+				<div class="col px-0 px-sm-3">
+					<h6 class="mb-1">{{ features[i].title }}</h6>
+					<span class="text-muted small">{{ features[i].description | markdownify }}</span>
+					<br>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+	</div>
+	<section class="py-4" id="development">
+		<div class="container">
+			<div class="row py-4">
+				<div class="col-md-6 px-md-4 pb-4 pb-md-0">
+					<h2 class="font-weight-light mb-3">Develop with GTK</h2>
+					<span class="text-muted">By taking the advantage of GTK being a cross-platform development tool and it's easy to use API, you can develop amazing apps using the GTK. If you are interested in developing an app, get started now by developing this <a href="https://developer.gnome.org/gtk3/stable/ch01s04.html#id-1.2.3.12.5">trivial app</a>.</span>
+				</div>
+				<div class="col-md-6 px-md-4 pb-4 pb-md-0">
+					<h2 class="font-weight-light mb-3">Develop GTK</h2>
+					<span class="text-muted">GTK is a large project and relies on voluntary contributions from the developers around the world. To help us with the project development, hack away on the existing <a href="https://gitlab.gnome.org/GNOME/gtk/issues/">bugs and feature requests</a>.</span>
+				</div>
+			</div>
+			<hr class="w-75">
+			<div class="row py-4 text-center d-flex justify-content-center">
+				<div class="col-md-10 col-lg-7">
+					<h2 class="font-weight-light mb-3">Looking for Help?</h2>
+					<span class="text-muted"> If you want to ask questions about GTK, whether it's for developing applications with GTK or contributing to GTK itself, you can use the GNOME <a href="https://discourse.gnome.org">Discourse</a> instance, under the <a href="https://discourse.gnome.org/c/platform/core">Platform/Core</a> category. You can use tags like <i>gtk</i> or <i>glib</i> to narrow down the topic of discussion to specific libraries. You can also ask questions on our <a href="irc://irc.gnome.org/%23gtk">IRC</a></a> channel.</span>
+				</div>
+			</div>
+		</div>
+	</section>
+</section>
+<!-- 
+<section class="py-4" id="tutorials">
+	<div class="container">
+		<div class="row">
+			<div class="embed-responsive embed-responsive-16by9 col-12 col-md-6 rounded">
+				<iframe class="embed-responsive-item py-3 px-3" src="{{ site.data.stuff.tutorial_video_link }}" allowfullscreen></iframe>
+			</div>
+			<div class="col-12 col-md-6 px-3 py-3 px-md-4 d-flex flex-column justify-content-center">
+				<h2 class="font-weight-light mb-3">Quick Tutorials</h2>
+				<p class="text-muted">Creating an application using GTK 4 is super easy. Check out this short tutorial on how the things are done from Setup till the deployment.</p>
+				<div>
+					<a href="#" class="btn btn-sm btn-outline-primary" role="button">Developers Guide</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section> -->
+
+{% assign news_and_events = site.data.stuff.news_and_events_list %}
+<section class="py-4" id="events">
+	<div class="container">
+		<h2 class="text-center font-weight-light mb-3">News and Events</h2>
+		<div class="row py-4">
+			{% for news in news_and_events %}
+			<div class="col-md-4 px-3 pb-4 pb-md-0">
+				<div class="w-100 px-4 py-4 rounded shadow bg-light h-100">
+					<h6 class="border-bottom border-primary pb-2">{{ news.title }}</h6>
+					<span class="text-muted small">{{ news.description | markdownify }}</span>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<script>
+	function slideDown() {
+		location.assign("#usecases");
+	}
+
+	// controls the appearance of code container for language bindings
+	var tabs = document.querySelectorAll(".tab-pane");
+	var i, l = tabs.length;
+	var max = 400;
+	for (i = 0; i < l; i++) {
+		tabs[i].style.height = max + "px";
+	}
+
+	// controls the app silder
+	$(document).ready(function(){
+		$('.app-logos').slick({
+			slidesToShow: 6,
+			swipeToSlide: true,
+			autoplay: true,
+			autoplaySpeed: 2500,
+			arrows: false,
+			dots: false,
+			pauseOnHover: false,
+			responsive: [
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 4
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 3
+				}
+			}]
+		});
+	});
+
+	$('.dropdown-toggle').dropdown()
+</script>
 {%- include footer.html -%}

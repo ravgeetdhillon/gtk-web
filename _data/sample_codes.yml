@@ -1,0 +1,135 @@
+codes:
+  - name: Java
+    ext: java
+    snippet: |
+      ```java
+
+      import java.util.*; 
+
+      class GFG { 
+        static boolean isPrime(int n) 
+        {
+          if (n <= 1) 
+            return false; 
+  
+          for (int i = 2; i < n; i++) 
+            if (n % i == 0) 
+              return false; 
+        
+          return true; 
+        } 
+        
+        public static void main(String[] args) 
+        { 
+          if(isPrime(11)) 
+          System.out.println(" true") ; 
+          
+          else
+          System.out.println(" false"); 
+          
+        } 
+      }
+      ```
+  - name: Python
+    ext: py
+    snippet: |
+      ```python
+
+      def isPrime(n): 
+        if (n <= 1): 
+          return False
+
+        for i in range(2, n): 
+          if (n % i == 0): 
+            return False
+
+        return True
+
+      if isPrime(11): 
+        print ("true") 
+      else: 
+        print ("false")
+      ```
+  - name: C++
+    ext: cpp
+    snippet: |
+      ```cpp
+
+      #include <bits/stdc++.h> 
+      using namespace std; 
+
+      bool isPrime(int n) 
+      {
+        if (n <= 1) 
+          return false;
+
+        for (int i = 2; i < n; i++) 
+          if (n % i == 0) 
+            return false; 
+
+        return true; 
+      }
+      int main() 
+      { 
+        isPrime(11) ? cout << " true\n" : 
+              cout << " false\n"; 
+        return 0; 
+      }
+      ```
+  - name: PHP
+    ext: php
+    snippet: |
+      ```php
+
+      <?php
+      function isPrime($n) 
+      { 
+        if ($n <= 1) 
+          return false; 
+
+        for ($i = 2; $i < $n; $i++) 
+          if ($n % $i == 0) 
+            return false; 
+
+        return true; 
+      } 
+
+      if(isPrime(11)) 
+        echo("true"); 
+      else
+        echo("false"); 
+
+      ?>
+      ```
+  - name: C#
+    ext: cs
+    snippet: |
+      ```csharp
+
+      using System; 
+
+      class GFG 
+      {
+        static bool isPrime(int n) 
+        {
+          if (n <= 1) 
+            return false; 
+        
+          for (int i = 2; i < n; i++) 
+            if (n % i == 0) 
+              return false; 
+        
+          return true; 
+        } 
+
+        static void Main() 
+        { 
+          if(isPrime(11)) 
+            Console.Write(" true") ; 
+          
+          else
+            Console.Write(" false"); 
+        } 
+      }
+
+      ```

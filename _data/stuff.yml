@@ -1,21 +1,39 @@
-headings_and_descriptions:
-  - sectionId: apps
-    heading: Apps built with GTK
-    description: With GTK, you can create cross platform GUI apps and the process is super easy. Check out some of the apps built using GTK and its libraries.
-  - sectionId: features
-    heading: Apps built with GTK
-    description: With GTK, you can create cross platform GUI apps and the process is super easy. Check out some of the apps built using GTK and its libraries.
-  - sectionId: installations
-    heading: Getting Started
-    description: With GTK 4, you can create applications that run on Windows, GNU/Linux and Unix, OSX, and mobile devices.
-  - sectionId: tutorials
-    heading: Quick Tutorials
-    description: Creating an application using GTK 4 is super easy. Check out this short tutorial on how the things are done from Setup till the deployment.
+mini_description: GTK is a free and open-source cross-platform widget toolkit for creating graphical user interfaces.
+gtkVersion: 3.96
+site_repo: https://gitlab.gnome.org/ravgeetdhillon/gtk-web/
+tutorial_video_link: https://www.youtube.com/embed/bNA-Q8fQqTc
+logo: gtk-logo.ico
 
-gtk_info:
-  - title: What is GTK?
-    description: GTK, or the GIMP Toolkit, is a multi-platform toolkit for creating graphical user interfaces. Offering a complete set of widgets, GTK is suitable for projects ranging from small one-off tools to complete application suites.
-    img: architecture.svg
-  - title: What can it do?
-    description: GTK can be configured to change the look of the widgets drawn; this is done using different display engines. Several display engines exist which try to emulate the look of the native widgets on the platform in use.
-    img: screenshot2.jpg
+features_list:
+  - title: Cross Platform
+    description: Projects build using GTK and its dependencies run on well known operating systems.
+    img: cross_platform.svg
+  - title: Open Source
+    description: GTK is an free and open source project maintained by GNOME and an active community of contributors.
+    img: open_source.svg
+  - title: Foundations
+    description: GTK is built on top of GLib. GLib provides the fundamental algorithmic language constructs commonly duplicated in applications.
+    img: api.svg
+  - title: Language Bindings
+    description: GTK is written in C but has been designed to support a wide range of languages such as Perl, Python and [many more](/languages).
+    img: language_bindings.svg
+  - title: Interfaces
+    description: GTK has a comprehensive collection of core widgets like Buttons, Windows, Toolbars for use in your application.
+    img: interfaces.svg
+  - title: API
+    description: GTK boasts of an easy to use [API](/documentation) which helps in decreasing your development time and produce better results.
+    img: api.svg
+  - title: Accomodation
+    description: GTK caters for a number features like Native look and feel, theme support, Object oriented approach that today's developers look for in a toolkit.
+    img: api.svg
+  - title: Stability
+    description: GTK4 deliver the enticing features and superb performance which adds to your applications.
+    img: stability.svg
+
+news_and_events_list:
+  - title: Catchup with GTK
+    description: Get in touch with GTK developers through [IRC](irc://irc.gnome.org/%23gtk). Get daily updates about GTK and its community from [GTK blog](https://blog.gtk.org/) or through it's [twitter](https://twitter.com/GTKtoolkit/) handle.
+  - title: Meet the community
+    description: As regularly as possible, GTK team meetings take place at conferences and [hackfests](https://wiki.gnome.org/Hackfests) to discuss the future of GTK and define a [roadmap](https://wiki.gnome.org/Projects/GTK/Roadmap).
+  - title: Help evolve GTK
+    description: If you are a developer and want to contribute towards GTK, you are more than welcome to do so. [Get started now](/docs/) to get some familarity to GTK.

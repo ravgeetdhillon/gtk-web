@@ -1,13 +1,8 @@
 name: The GTK Project
 title: The GTK Project | A free and open-source cross-platform widget toolkit
 description: GTK is a highly usable, feature rich toolkit for creating graphical user interfaces which boasts cross platform compatibility and an easy to use API. GTK is licensed under the GNU LGPL 2.1 allowing development of both free and proprietary software with GTK without any license fees or royalties.
-mini_description: GTK is a free and open-source cross-platform widget toolkit for creating graphical user interfaces.
-gtkVersion: 3.94
 baseurl: ''
 url: 'https://ravgeetdhillon.pages.gitlab.gnome.org/gtk-web/'
-site_repo: https://gitlab.gnome.org/ravgeetdhillon/gtk-web/
-tutorial_video_link: https://www.youtube.com/embed/bNA-Q8fQqTc
-logo: gtk-logo.ico
 markdown: kramdown
 kramdown: 
   parse_block_html: true
@@ -17,24 +12,14 @@ highlighter: rouge
 #   - jekyll-feed
 sass:
   sass_dir: _sass
-include:
-  - .htaccess
+# include:
+#   - .htaccess
 exclude: 
-  - compileSass.bat
-  - startJekyll.bat
   - documents/
   - Gemfile
   - Gemfile.lock
   - package.json
   - package-lock.json
-  - sitemap.xml
-collections:
-  apps:
-    output: true
-    permalink: /apps/:path/
-defaults:
-  - scope:
-      path: ''
-      type: apps
-    values:
-      layout: app
+
+# for dev only
+keep_files: [assets]
