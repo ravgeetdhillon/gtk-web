@@ -1,0 +1,30 @@
+// $theme-colors: (
+// 	"primary": #4a86cf,
+// 	"secondary": #f57900,
+// 	"info": #d3d7cf,
+// 	"dark": #2e3436
+// );
+$theme-colors: (
+	"primary": #3B86E2,
+	"secondary": #F28518,
+	"tertiary": #94D354,
+	"info": #C0C4BD,
+	"light": #F8F9FA,
+	"dark": #04080F
+);
+
+
+$spacer: 1rem;
+$spacers: (
+	0: 0,
+	1: ($spacer * .25),
+	2: ($spacer * .5),
+	3: $spacer,
+	4: ($spacer * 2),
+	5: ($spacer * 4),
+	6: ($spacer * 8)
+);
+
+$font-size-base: 1.15rem;
+
+@import "../bootstrap/scss/bootstrap";

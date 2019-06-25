@@ -6,19 +6,23 @@ variables:
 
 before_script:
   - apt-get update -y
-  - apt-get install -y libssl-dev build-essential wget
-  - wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+  - apt-get install -y curl
+  - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
   - source /root/.bashrc
   - nvm install node
   - nvm use node
   - npm install
   - gem install bundler
-  - bundle install
+  - bundle update
   - mv node_modules/bootstrap assets/ -f
   - mv node_modules/jquery assets/ -f
   - mv node_modules/popper.js assets/ -f
+  - mv node_modules/@fortawesome assets/ -f
+  - mv node_modules/@primer assets/ -f
+  - mv node_modules/slick-carousel assets/ -f
   - rm -rf node_modules
   - sass assets/scss/theme.scss assets/css/theme.css
+  - sass assets/@primer/css/markdown/index.scss assets/css/markdown.css
   
 test:
   stage: test

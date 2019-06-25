@@ -22,4 +22,4 @@ exclude:
   - package-lock.json
 
 # for dev only
-keep_files: [assets]
+# keep_files: [assets]
