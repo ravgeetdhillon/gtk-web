@@ -37,6 +37,12 @@ versions of GLib and GTK.</p>
 
 <h2><a name="Vcpkg">Using GTK from vcpkg packages</a></h2>
 
+<p><b>WARNING</b>: The vcpkg packaging is not maintained by the GTK team,
+and it uses a different build system than the one used by GTK. If
+something breaks when building GTK or its dependencies using vcpkg, make
+sure to open an issue in the <a href="https://github.com/Microsoft/vcpkg/issues"
+class="external">vcpkg issue tracker</a>, instead of the GTK one.</p>
+
 <h3>Installation</h3>
 
 <p>The GTK library, as well as all pre-requisites and many language
