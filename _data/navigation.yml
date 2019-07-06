@@ -1,5 +1,5 @@
 menu_links:
-  - name: GTK4+
+  - name: GTK
     href: /
     header: false
     footer: true

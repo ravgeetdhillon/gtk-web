@@ -1,0 +1,1104 @@
+﻿[
+  {
+    "id": 68352,
+    "iid": 1986,
+    "project_id": 665,
+    "title": "gdk_window_move_to_rect() does not reposition already shown window",
+    "description": "When a GdkWindow is already positioned by gdk_window_move_to_rect() and shown, all subsequent gdk_window_move_to_rect() calls to this window does not have any effect. It's because xdg_positioner is created/updated only from gdk_wayland_window_create_xdg_popup() which is called in map() only.\n\nA workaround is to encapsule gdk_window_move_to_rect() by gtk_window_hide()/gtk_window_show().\n\nIt's firefox bug https://bugzilla.mozilla.org/show_bug.cgi?id=1562141",
+    "state": "opened",
+    "created_at": "2019-06-28T14:06:06.568Z",
+    "updated_at": "2019-06-28T14:24:29.249Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "GTK3",
+      "GTK4",
+      "GdkWindow/GdkSurface",
+      "GtkWindow",
+      "Wayland"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 2045,
+      "name": "Martin Stransky",
+      "username": "stransky",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/c71c558b9395ef582fdbbe4df366595d?s=80&d=identicon",
+      "web_url": "https://gitlab.gnome.org/stransky"
+    },
+    "assignee": null,
+    "user_notes_count": 2,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1986",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1986",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1986/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1986/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 68307,
+    "iid": 1985,
+    "project_id": 665,
+    "title": "Dynamic menus have wrong size allocated",
+    "description": "When I dynamically create a menu, the size of the menu is wrong. The menu is create like so:\n\n```\n\tdef on_dynamic_menu_active (self, widget):\n\t\tprint (\"on_dynamic_menu_active\")\n\n\t\tfor widget in self .menu .get_children ():\n\t\t\tself .menu .remove (widget)\n\n\t\tfor i in range (0, random .randrange (3, 10)):\n\t\t\tmenuItem = Gtk .MenuItem (label=\"MenuItem\" + str (i))\n\t\t\tself .menu .append (menuItem)\n\t\t\t\n\t\tself .menu .show_all ()\n```\n\nHere is the full python example, but this also happens when I use C++.\n\n[DynamicMenu.py](/uploads/0729680a6325c57c66d4e0be2b89c6f6/DynamicMenu.py)\n\nThis bug occurs since any of the previous versions.\nCurrent GTK version is libgtk-3-0 3.24.8-1ubuntu1",
+    "state": "opened",
+    "created_at": "2019-06-27T12:08:52.354Z",
+    "updated_at": "2019-06-28T14:39:23.627Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "GTK3",
+      "GtkMenu",
+      "X11"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 11946,
+      "name": "Holger Seelig",
+      "username": "create3000",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/329639d6b79508c7869d5dd50cc87fb0?s=80&d=identicon",
+      "web_url": "https://gitlab.gnome.org/create3000"
+    },
+    "assignee": null,
+    "user_notes_count": 14,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1985",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1985",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1985/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1985/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 68240,
+    "iid": 1983,
+    "project_id": 665,
+    "title": "Implement choices for GtkFileChooserNativeQuartz",
+    "description": "We added the gtk_file_chooser_add_choice() api as a replacement for embedding widgetry. But it only ever got implemented for portals. It would be very nice to have a quartz implementation too.",
+    "state": "opened",
+    "created_at": "2019-06-25T17:48:11.173Z",
+    "updated_at": "2019-06-25T17:53:07.266Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "1. Feature",
+      "5. FileChooser",
+      "MacOS"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 652,
+      "name": "Matthias Clasen",
+      "username": "matthiasc",
+      "state": "active",
+      "avatar_url": "https://gitlab.gnome.org/uploads/-/system/user/avatar/652/avatar.png",
+      "web_url": "https://gitlab.gnome.org/matthiasc"
+    },
+    "assignee": null,
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1983",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1983",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1983/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1983/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 68237,
+    "iid": 1982,
+    "project_id": 665,
+    "title": "Implement choices for GtkFileChooserNativeWin32",
+    "description": "We added the gtk_file_chooser_add_choice() api as a replacement for embedding widgetry.\nBut it only ever got implemented for portals. It would be very nice to have a win32 implementation too.",
+    "state": "opened",
+    "created_at": "2019-06-25T17:47:02.952Z",
+    "updated_at": "2019-06-26T07:22:21.696Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "1. Feature",
+      "5. FileChooser",
+      "GTK3",
+      "GTK4",
+      "Windows"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 652,
+      "name": "Matthias Clasen",
+      "username": "matthiasc",
+      "state": "active",
+      "avatar_url": "https://gitlab.gnome.org/uploads/-/system/user/avatar/652/avatar.png",
+      "web_url": "https://gitlab.gnome.org/matthiasc"
+    },
+    "assignee": null,
+    "user_notes_count": 2,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1982",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1982",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1982/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1982/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 68236,
+    "iid": 1981,
+    "project_id": 665,
+    "title": "gdk_get_default_root_window() returns GdkWindow with hwnd == null (win32)",
+    "description": "## Steps to reproduce\n\n 1. root = gdk_get_default_root_window()\n 2. hwnd = gdk_win32_window_get_handle(root);  //it's null ???\n 3. gdk_window_get_geometry(root, &x, &y, &width, &height);\n\n## Current behavior\n(main.exe:4268): Gdk-WARNING **: /usr/src/ports/mingw64-x86_64-gtk3/mingw64-x86_64-gtk3-3.22.28-1.noarch/src/gtk+-3.22.28/gdk/win32/gdkwindow-win32.c:2303: GetClientRect failed with code 1400: Invalid window handle.\n\n## Expected outcome\nno WARNING output\n\n## Version information\ncygwin/mingw gtk/3.22.28 (Windows10) 64bit build\n\n## Additional information\nI've tried other methods such as:\n    screen = gtk_window_get_screen(existing_window);\n    root = gdk_screen_get_root_window(screen);\nBut the hwnd is always null.\n\nThanks,",
+    "state": "opened",
+    "created_at": "2019-06-25T17:33:53.988Z",
+    "updated_at": "2019-06-25T18:00:14.030Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "GTK3",
+      "GdkWindow/GdkSurface",
+      "Windows"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 21313,
+      "name": "Peter Quiring",
+      "username": "pquiring",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/2ff02481345eeb1c2ba0941aed02c040?s=80&d=identicon",
+      "web_url": "https://gitlab.gnome.org/pquiring"
+    },
+    "assignee": null,
+    "user_notes_count": 1,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1981",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1981",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1981/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1981/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 68218,
+    "iid": 1979,
+    "project_id": 665,
+    "title": "input on children are blocked if an overlay has a label with wrap set",
+    "description": "When an overlay have a GtkLabel as an overlay child, the inputs to normal child is blocked if the label has `wrap` set to true, and `wrap-mode` is `word-char` or `char`.\n\nHow to reproduce:\n1. compile the following with gtk3 and run\n2. try to click on the button below the label\n\nResult:\n  The portion of button directly below the label isn't clickable. The code works fine with GTK4\n\nminimal code to reproduce:\n```c\n#include <gtk/gtk.h>\n\ngchar *str =\n\"<interface>\"\n\"  <object class=\\\"GtkApplicationWindow\\\" id=\\\"window\\\">\"\n\"    <property name=\\\"visible\\\">1</property>\"\n\"    <property name=\\\"default-width\\\">400</property>\"\n\"    <property name=\\\"default-height\\\">300</property>\"\n\"    <child>\"\n\"      <object class=\\\"GtkOverlay\\\">\"\n\"        <property name=\\\"visible\\\">1</property>\"\n\n\"        <child type=\\\"overlay\\\">\"\n\"          <object class=\\\"GtkLabel\\\" id=\\\"notification_label\\\">\"\n\"            <property name=\\\"halign\\\">center</property>\"\n\"            <property name=\\\"valign\\\">start</property>\"\n\"            <property name=\\\"visible\\\">1</property>\"\n\"            <property name=\\\"label\\\">Very Long label just for testing purposes</property>\"\n\"            <property name=\\\"wrap\\\">1</property>\"\n\"            <property name=\\\"wrap-mode\\\">word-char</property>\"\n\"            <style>\"\n\"             <class name=\\\"frame\\\" />\"\n\"             <class name=\\\"app-notification\\\" />\"\n\"            </style>\"\n\"          </object>\"\n\"        </child>\"\n\n\"        <child>\"\n\"          <object class=\\\"GtkButton\\\">\"\n\"            <property name=\\\"margin-top\\\">40</property>\"\n\"            <property name=\\\"visible\\\">1</property>\"\n\"            <property name=\\\"valign\\\">center</property>\"\n\"            <property name=\\\"label\\\">Very long text</property>\"\n\"          </object>\"\n\"        </child>\"\n\n\"      </object>\"\n\"    </child>\"\n\"  </object>\"\n\"</interface>\";\n\nstatic void\napp_activate_cb (GApplication *app)\n{\n  GtkBuilder *builder;\n  GtkWidget *window;\n\n  g_application_hold (app);\n\n  builder = gtk_builder_new_from_string (str, -1);\n  window = GTK_WIDGET (gtk_builder_get_object (builder, \"window\"));\n  gtk_widget_show (window);\n}\n\nint\nmain (int   argc,\n      char *argv[])\n{\n  GtkApplication *app;\n  int status;\n\n  app = gtk_application_new (NULL, 0);\n\n  g_signal_connect (app, \"activate\", G_CALLBACK (app_activate_cb), NULL);\n  status = g_application_run (G_APPLICATION (app), argc, argv);\n\n  return status;\n}\n```",
+    "state": "opened",
+    "created_at": "2019-06-25T11:35:35.528Z",
+    "updated_at": "2019-06-25T15:44:45.422Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "GTK3",
+      "GtkLabel",
+      "GtkOverlay",
+      "Input"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 372,
+      "name": "Mohammed Sadiq",
+      "username": "pksadiq",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/c921b888d8695045e07de85f7501f21c?s=80&d=identicon",
+      "web_url": "https://gitlab.gnome.org/pksadiq"
+    },
+    "assignee": null,
+    "user_notes_count": 6,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1979",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1979",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1979/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1979/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 68186,
+    "iid": 1977,
+    "project_id": 665,
+    "title": "[Regression] GtkTreeView overdrawing in Eclipse/SWT",
+    "description": "Hello,\n\nGTK 3.24.9 has introduced a regression in the Eclipse IDE and SWT. We have numerous instances where custom drawn trees (GtkTreeViews) now have overdrawn backgrounds/foregrounds. This was not present in 3.24.8.\n\nI bisected and found that this commit introduced the breaking change: https://gitlab.gnome.org/GNOME/gtk/commit/184424ae40c332da12f871298d303ee01dd8c11a\n\nWe implement custom tree drawing by drawing on the Cairo context provided to us by the GtkTreeView->render() vfunc. I'm assuming some change to the Cairo clip was made, and that has caused the breakage (though I have not investigated that thoroughly).\n\n![git_repositories_overdrawn](/uploads/b3e08a2638600e8fa1bb2fe7426f465b/git_repositories_overdrawn.png)\n![open_resources_overdrawn](/uploads/65d8246aec4659040813bd5f479f173d/open_resources_overdrawn.png)",
+    "state": "opened",
+    "created_at": "2019-06-24T19:23:42.290Z",
+    "updated_at": "2019-06-25T16:05:45.693Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "GTK3",
+      "GtkTreeView"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 3102,
+      "name": "Eric Williams",
+      "username": "ericwill",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/85e72f0b323b2a1c21eba035b6a0b7f4?s=80&d=identicon",
+      "web_url": "https://gitlab.gnome.org/ericwill"
+    },
+    "assignee": null,
+    "user_notes_count": 8,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1977",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1977",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1977/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1977/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 68152,
+    "iid": 1974,
+    "project_id": 665,
+    "title": "Adwaita: make message dialogs draggable",
+    "description": "gtk3\n\nCurrent design of message dialogs does not use titlebars. I mean it's possible to specify title for message dialog but common GNOME software like gedit or Nautilus don't do it intentionally. \n\nIt's hard to move windows without title. I know that empty space for title is reserved at the top of message dialog even when title itself is not specified but when user does not see title, he might have problem with guessing how to drag message dialog.\n\nIn my private [`gtk.css`](https://github.com/TomaszGasior/my-gnome-settings) I solved it by:\n```\nmessagedialog {\n    -GtkWidget-window-dragging: true;\n}\n```\nIt does not break custom widgets inside message dialog and it's more intuitive. Ofc feel free to close this bug if you don't agree. :)",
+    "state": "opened",
+    "created_at": "2019-06-24T09:05:23.798Z",
+    "updated_at": "2019-06-24T16:46:17.861Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Adwaita",
+      "GtkDialog",
+      "GtkWindow",
+      "Theme",
+      "UI/UX Design"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 2093,
+      "name": "Tomasz Gąsior",
+      "username": "TomaszGasior",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/3030aa7a4a26a976f9e2f7f84b1694e6?s=80&d=identicon",
+      "web_url": "https://gitlab.gnome.org/TomaszGasior"
+    },
+    "assignee": null,
+    "user_notes_count": 6,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1974",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1974",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1974/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1974/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 68142,
+    "iid": 1972,
+    "project_id": 665,
+    "title": "Blurred outset box shadows",
+    "description": "```css\noutset-shadow {\n  outline: 0 0 70 70 / 5;\n  blur: 28;\n  dx: 0;\n  dy: 14;\n}\n```\n\n![wat](/uploads/8bdbec29fe3f2261f490f462178d10a5/wat.png)\n\nSize 70 outline still shows the problem, size 80 does not.",
+    "state": "opened",
+    "created_at": "2019-06-24T03:13:46.644Z",
+    "updated_at": "2019-06-24T03:13:46.644Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "GL Renderer",
+      "GTK4"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 658,
+      "name": "Timm Bäder",
+      "username": "baedert",
+      "state": "active",
+      "avatar_url": "https://gitlab.gnome.org/uploads/-/system/user/avatar/658/avatar.png",
+      "web_url": "https://gitlab.gnome.org/baedert"
+    },
+    "assignee": null,
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1972",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1972",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1972/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1972/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 68104,
+    "iid": 1971,
+    "project_id": 665,
+    "title": "3.24.9: test suite fails if compiled with G_DISABLE_ASSERT",
+    "description": "Looks like incorrect using glib assertions.\n\nHere is some doc https://gitlab.gnome.org/GNOME/glib/issues/976\n\n<pre>+ /usr/bin/make -O -j 48 check\nMaking check in po\nmake[1]: Nothing to be done for &apos;check&apos;.\nMaking check in po-properties\nmake[1]: Nothing to be done for &apos;check&apos;.\nMaking check in gdk\nif test -f gdkconfig.h; then :; \\\nelse rm -f stamp-gc-h; /usr/bin/make stamp-gc-h; fi\n/usr/bin/make  check-recursive\nMaking check in x11\n/usr/bin/make  check-local\nMaking check in broadway\n/usr/bin/make  check-am\n/usr/bin/make  check-local\nMaking check in wayland\n/usr/bin/make  check-am\n/usr/bin/make  check-local\nMaking check in .\nif test -f gdkconfig.h; then :; \\\nelse rm -f stamp-gc-h; /usr/bin/make stamp-gc-h; fi\n/usr/bin/make  check-local\nMaking check in gtk\n/usr/bin/make  check-am\nmake[3]: Nothing to be done for &apos;included-modules&apos;.\n/usr/bin/make  check-local\nMaking check in libgail-util\n/usr/bin/make  check-local\nMaking check in modules\nMaking check in input\n/usr/bin/make  check-am\n/usr/bin/make  check-local\nMaking check in printbackends\nMaking check in file\n/usr/bin/make  check-local\nMaking check in lpr\n/usr/bin/make  check-local\nMaking check in cups\n/usr/bin/make  check-local\n/usr/bin/make  check-local\n/usr/bin/make  check-local\nMaking check in demos\nMaking check in gtk-demo\n/usr/bin/make  check-am\n/usr/bin/make  check-local\nMaking check in widget-factory\n/usr/bin/make  check-am\n/usr/bin/make  check-local\nMaking check in icon-browser\n/usr/bin/make  check-am\nmake[3]: Nothing to be done for &apos;check-am&apos;.\n/usr/bin/make  check-local\nMaking check in tests\nMaking check in visuals\nmake[2]: Nothing to be done for &apos;check&apos;.\n/usr/bin/make  check-local\nMaking check in testsuite\nMaking check in gdk\n/usr/bin/make  check-local\nmake[3]: Entering directory &apos;/home/tkloczko/rpmbuild/BUILD/gtk+-3.24.9/testsuite/gdk&apos;\n\n** (gtester:6769): WARNING **: 23:23:49.600: Deprecated: Since GLib 2.62, gtester and gtester-report are deprecated. Port to TAP.\nTEST: cairo... (pid=6770)\n  /drawing/set-source-big-pixbuf:                                      OK\nPASS: cairo\nTEST: display... (pid=6817)\n  /display/unset-display:                                                /display/unset-display/subprocess/1:                                 \n** (gtester:6769): CRITICAL **: 23:23:50.178: test_log_msg: assertion &apos;testcase_open == 0&apos; failed\nOK\n  /display/unset-display/subprocess/2:                                 OK\n  /display/bad-display:                                                  /display/bad-display/subprocess/1:                                   \n** (gtester:6769): CRITICAL **: 23:23:50.211: test_log_msg: assertion &apos;testcase_open == 0&apos; failed\nOK\n  /display/bad-display/subprocess/2:                                   OK\nPASS: display\nTEST: encoding... (pid=6847)\n  /encoding/to-text-list:                                              OK\nPASS: encoding\nTEST: keysyms... (pid=6876)\n  /keysyms/basic:                                                      OK\n  /keysyms/void:                                                       OK\n  /keysyms/xf86:                                                       OK\nPASS: keysyms\nTEST: rectangle... (pid=6905)\n  /rectangle/equal:                                                    OK\n  /rectangle/intersect:                                                OK\n  /rectangle/union:                                                    OK\nPASS: rectangle\nTEST: rgba... (pid=6938)\n  /rgba/parse:                                                         OK\n  /rgba/to-string:                                                     OK\n  /rgba/copy:                                                          OK\n  /rgba/parse/nonsense:                                                OK\nPASS: rgba\nTEST: seat... (pid=6963)\n  /seat/list:                                                          OK\n  /seat/default:                                                       OK\nPASS: seat\nTEST: visual... (pid=6994)\n  /visual/list:                                                        OK\n  /visual/rgba:                                                        OK\n  /visual/depth:                                                       OK\n  /visual/type:                                                        OK\nPASS: visual\nmake[3]: Leaving directory &apos;/home/tkloczko/rpmbuild/BUILD/gtk+-3.24.9/testsuite/gdk&apos;\nMaking check in gtk\n/usr/bin/make  check-am\n/usr/bin/make  check-local\nmake[4]: Entering directory &apos;/home/tkloczko/rpmbuild/BUILD/gtk+-3.24.9/testsuite/gtk&apos;\n\n** (gtester:7039): WARNING **: 23:23:52.249: Deprecated: Since GLib 2.62, gtester and gtester-report are deprecated. Port to TAP.\nTEST: accel... (pid=7040)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: accel\nTEST: accessible... (pid=7083)\nPASS: accessible\nTEST: action... (pid=7111)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: action\nTEST: adjustment... (pid=7136)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: adjustment\nTEST: bitmask... (pid=7161)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: bitmask\nTEST: builder... (pid=7162)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: builder\nTEST: builderparser... (pid=7187)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: builderparser\nTEST: cellarea... (pid=7212)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: cellarea\nTEST: check-icon-names... (pid=7237)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: check-icon-names\nTEST: check-cursor-names... (pid=7262)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: check-cursor-names\nTEST: clipboard... (pid=7287)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: clipboard\nTEST: cssprovider... (pid=7312)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: cssprovider\nTEST: defaultvalue... (pid=7340)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: defaultvalue\nTEST: entry... (pid=7365)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: entry\nTEST: firefox-stylecontext... (pid=7390)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: firefox-stylecontext\nTEST: floating... (pid=7418)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: floating\nTEST: focus... (pid=7443)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: focus\nTEST: gestures... (pid=7468)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: gestures\nTEST: grid... (pid=7493)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: grid\nTEST: gtkmenu... (pid=7521)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: gtkmenu\nTEST: icontheme... (pid=7546)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: icontheme\nTEST: keyhash... (pid=7571)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: keyhash\nTEST: listbox... (pid=7596)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: listbox\nTEST: notify... (pid=7621)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: notify\nTEST: no-gtk-init... (pid=7647)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: no-gtk-init\nTEST: object... (pid=7672)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: object\nTEST: objects-finalize... (pid=7697)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: objects-finalize\nTEST: papersize... (pid=7722)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: papersize\nTEST: rbtree... (pid=7747)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: rbtree\nTEST: recentmanager... (pid=7748)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: recentmanager\nTEST: regression-tests... (pid=7773)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: regression-tests\nTEST: scrolledwindow... (pid=7799)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: scrolledwindow\nTEST: spinbutton... (pid=7827)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: spinbutton\nTEST: stylecontext... (pid=7852)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: stylecontext\nTEST: templates... (pid=7880)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: templates\nTEST: textbuffer... (pid=7905)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: textbuffer\nTEST: textiter... (pid=7930)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: textiter\nTEST: treemodel... (pid=7956)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: treemodel\nTEST: treepath... (pid=7984)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: treepath\nTEST: treeview... (pid=8010)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: treeview\nTEST: typename... (pid=8035)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: typename\nTEST: window... (pid=8060)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: window\nTEST: displayclose... (pid=8085)\nFAIL: displayclose\nTEST: revealer-size... (pid=8118)\nTests were compiled with G_DISABLE_ASSERT and are likely no-ops. Aborting.\nFAIL: revealer-size\nTEST: autotestkeywords... (pid=8153)\nPASS: autotestkeywords\nmake[4]: *** [Makefile:1966: test-cwd] Error 1\nmake[4]: Leaving directory &apos;/home/tkloczko/rpmbuild/BUILD/gtk+-3.24.9/testsuite/gtk&apos;\n</pre>",
+    "state": "opened",
+    "created_at": "2019-06-22T22:40:43.777Z",
+    "updated_at": "2019-06-27T08:23:55.801Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "GTK3",
+      "Tests"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 7698,
+      "name": "Tomasz Kłoczko",
+      "username": "kloczek",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/c419cda97d411655272b2a462e32c3c0?s=80&d=identicon",
+      "web_url": "https://gitlab.gnome.org/kloczek"
+    },
+    "assignee": null,
+    "user_notes_count": 19,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1971",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1971",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1971/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1971/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 68102,
+    "iid": 1970,
+    "project_id": 665,
+    "title": "GtkScale in GtkPopover lags in visually updating slider under Wayland",
+    "description": "Minimum test case [scale-popover-issue.cpp](/uploads/23dbd08fb056dee04c20925aef86283e/scale-popover-issue.cpp):\n\n```cpp\n#include <gtkmm.h>\n\nint main(int argc, char *argv[])\n{\n \tauto app = Gtk::Application::create(argc, argv, \"org.gtkmm.examples.base\");\n\n\tauto adjustment = Gtk::Adjustment::create(0, 0, 2, 1, 1);\n\tGtk::Scale scale;\n\tscale.set_adjustment(adjustment);\n\tscale.set_has_origin(false);\n\tscale.set_round_digits(0);\n\tscale.add_mark(0, Gtk::POS_BOTTOM, \"\");\n\tscale.add_mark(1, Gtk::POS_BOTTOM, \"\");\n\tscale.add_mark(2, Gtk::POS_BOTTOM, \"\");\n\tscale.set_size_request(150, -1);\n\tscale.show();\n\n\tGtk::Popover popover;\n\tpopover.add(scale);\n\n\tGtk::MenuButton menuButton;\n\tmenuButton.set_popover(popover);\n\tmenuButton.set_image_from_icon_name(\"open-menu-symbolic\");\n\tmenuButton.set_size_request(36, 36);\n\n\tGtk::Box contentBox;\n\tcontentBox.set_size_request(36, 36);\n\tcontentBox.pack_start(menuButton, Gtk::PACK_SHRINK);\n\n\tGtk::Box topBox{Gtk::ORIENTATION_VERTICAL};\n\ttopBox.pack_start(contentBox, Gtk::PACK_SHRINK);\n\ttopBox.show_all();\n\n\tGtk::Window window;\n \twindow.set_default_size(300, 300);\n \twindow.add(topBox);\n\n\treturn app->run(window);\n}\n```\n\nCompile using:\n```\ng++ scale-popover-issue.cpp -o scale-popover-issue `pkg-config gtkmm-3.0 --cflags --libs`\n```\n\nHow to trigger the bug:\n\n1. Open the popover.\n2. Place the mouse pointer over the slider, between the first and second notches.\n3. Trigger an increase of the slider value, either using the mouse wheel or with the keyboard (right arrow key). At this point the displayed value over the scale will increase, but the slider won't move.\n4. Move the mouse pointer out of the popover. At this point, the slider position will update.\n\nVideo showing the bug (mouse pointer doesn't appear):\n![scale-popover-bug](/uploads/2494e3441558df9e1dae78e235c74b16/scale-popover-bug.webm)\n\nI stumbled upon this bug [in my application](https://github.com/junrrein/pdfslicer/issues/98).\n\nThis bug doesn't happen on Xorg.\n\nUsing:  \nFedora 30  \nGtk 3.24.8  \nMutter 3.32.2",
+    "state": "opened",
+    "created_at": "2019-06-22T21:30:34.099Z",
+    "updated_at": "2019-06-24T02:58:27.050Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "GTK3",
+      "GtkPopover",
+      "GtkScale",
+      "Wayland"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 21202,
+      "name": "Julián Unrrein",
+      "username": "junrrein",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/c25f5a439282baeb87ed0d488c836529?s=80&d=identicon",
+      "web_url": "https://gitlab.gnome.org/junrrein"
+    },
+    "assignee": null,
+    "user_notes_count": 2,
+    "merge_requests_count": 0,
+    "upvotes": 2,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1970",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1970",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1970/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1970/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 68097,
+    "iid": 1968,
+    "project_id": 665,
+    "title": "Gtk-3-24 Requires Harfbuzz on a Quartz-only build.",
+    "description": "And it shouldn't, the Quartz backend uses CoreText instead of Freetype & Harfbuzz.",
+    "state": "opened",
+    "created_at": "2019-06-22T17:51:24.994Z",
+    "updated_at": "2019-06-25T14:12:29.549Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "Build",
+      "GTK3",
+      "GTK4",
+      "GtkFontChooser",
+      "MacOS",
+      "Windows"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 1660,
+      "name": "John Ralls",
+      "username": "jralls",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/a681e2e22ac1f89e2313732180d65ca4?s=80&d=identicon",
+      "web_url": "https://gitlab.gnome.org/jralls"
+    },
+    "assignee": null,
+    "user_notes_count": 8,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1968",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1968",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1968/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1968/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 68083,
+    "iid": 1967,
+    "project_id": 665,
+    "title": "build: meson cannot find cups headers",
+    "description": "Hi.\n\nOn OpenBSD, meson cannot find the cups headers. They are installed under /usr/local/include/  \n`modules/printbackends/meson.build:98:6: ERROR: Problem encountered: Need CUPS version >= 1.7`\n\nThis is trying to configure gtk+ 3.24.9 with meson 0.51.0.\n\nExtract from the logs:\n```\nRunning compile:\nWorking directory:  /tmp/tmpj4s3ciia\nCommand line:  cc -I/usr/local/include /tmp/tmpj4s3ciia/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -E -P -O2 -g -O0 \n\nCode:\n \n        #ifdef __has_include\n         #if !__has_include(\"cups/cups.h\")\n          #error \"Header 'cups/cups.h' could not be found\"\n         #endif\n        #else\n         #include <cups/cups.h>\n        #endif\nCompiler stdout:\n \n\nCompiler stderr:\n \nHas header \"cups/cups.h\" : YES \nRunning compile:\nWorking directory:  /tmp/tmpbhyqsuit\nCommand line:  cc -L/usr/local/lib /tmp/tmpbhyqsuit/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpbhyqsuit/output.exe -O2 -g -O0 \n\nCode:\n #include<stdio.h>\n        #include <cups/cups.h>\n        int main(int argc, char **argv) {\n            printf(\"%ld\\n\", (long)(CUPS_VERSION_MAJOR));\n            return 0;\n        };\nCompiler stdout:\n \nCompiler stderr:\n /tmp/tmpbhyqsuit/testfile.c:2:18: fatal error: 'cups/cups.h' file not found\n        #include <cups/cups.h>\n                 ^~~~~~~~~~~~~\n1 error generated.\n```\n\nCPPFLAGS and LDFLAGS are set correctly:\n```\nAppending LDFLAGS from environment: ' -L/usr/local/lib'\nAppending CPPFLAGS from environment: ' -I/usr/local/include'\n```\nBut CPPFLAGS is missing when searching for cups/cups.h.",
+    "state": "opened",
+    "created_at": "2019-06-22T09:43:07.758Z",
+    "updated_at": "2019-06-28T10:05:48.502Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "5. Printing",
+      "Build",
+      "GTK3"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 3143,
+      "name": "Antoine Jacoutot",
+      "username": "ajacoutot",
+      "state": "active",
+      "avatar_url": "https://gitlab.gnome.org/uploads/-/system/user/avatar/3143/avatar.png",
+      "web_url": "https://gitlab.gnome.org/ajacoutot"
+    },
+    "assignee": null,
+    "user_notes_count": 7,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1967",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1967",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1967/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1967/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 68050,
+    "iid": 1966,
+    "project_id": 665,
+    "title": "GtkFileChooserButton says \"None\" when remote files are selected",
+    "description": "Selecting a remote file won't update the button's label when it should. Tested with GTK 3.24.8. (Haven't had the time to root cause the problem yet)\n\n[test.c](/uploads/4460d5f127bd26673dfda825b2d1299d/test.c)\n\n```\n#include <gtk/gtk.h>\n\nstatic void\nfile_set_cb (GtkFileChooser *chooser,\n             gpointer        user_data)\n{\n        g_message (\"filename: %s\", gtk_file_chooser_get_filename (chooser));\n        g_message (\"uri: %s\", gtk_file_chooser_get_uri (chooser));\n}\n\nint main (int argc, char **argv)\n{\n        GtkWidget *win, *button;\n\n        gtk_init (&argc, &argv);\n\n        win = gtk_window_new (GTK_WINDOW_TOPLEVEL);\n        button = gtk_file_chooser_button_new (\"Select remote file\", GTK_FILE_CHOOSER_ACTION_OPEN);\n        gtk_file_chooser_button_set_width_chars (GTK_FILE_CHOOSER_BUTTON (button), 30);\n        gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (button), FALSE);\n        g_signal_connect (G_OBJECT (button), \"file-set\",\n                          G_CALLBACK (file_set_cb), NULL);\n        gtk_container_add (GTK_CONTAINER (win), button);\n\n        gtk_widget_show_all (win);\n        gtk_main (); \n\n        return 0;\n}\n```",
+    "state": "opened",
+    "created_at": "2019-06-21T15:19:50.838Z",
+    "updated_at": "2019-06-21T15:38:31.595Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "1. Bug",
+      "5. FileChooser",
+      "GTK3",
+      "GTK4"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 525,
+      "name": "Bastien Nocera",
+      "username": "hadess",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/f6fb75c0fdf12f4221e4925468ee7c3d?s=80&d=identicon",
+      "web_url": "https://gitlab.gnome.org/hadess"
+    },
+    "assignee": null,
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1966",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1966",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1966/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1966/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 67894,
+    "iid": 1963,
+    "project_id": 665,
+    "title": "figure out library versioning / naming",
+    "description": "With meson, we now produce libgtk-4.so.0.9400.0, which also has a SONAME field of libgtk-4.so.0.9400.0\n\nThe file name is fine (even though we could switch away from the interface age madness of the libtool era) but the SONAME field should really be libgtk-4.so.0, I think.",
+    "state": "opened",
+    "created_at": "2019-06-20T17:01:00.125Z",
+    "updated_at": "2019-06-20T17:16:38.748Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "GTK4"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 652,
+      "name": "Matthias Clasen",
+      "username": "matthiasc",
+      "state": "active",
+      "avatar_url": "https://gitlab.gnome.org/uploads/-/system/user/avatar/652/avatar.png",
+      "web_url": "https://gitlab.gnome.org/matthiasc"
+    },
+    "assignee": null,
+    "user_notes_count": 0,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1963",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1963",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1963/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1963/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 67891,
+    "iid": 1962,
+    "project_id": 665,
+    "title": "Remote bookmarks aren't visible if :local-only, but still able to be navigated to",
+    "description": "Remote bookmarks aren't visible in the file chooser when the local only flag is set. This makes some sense, however, it can cause some confusion when the remote folder is still able to be navigated to and used via gvfsd-fuse.\n\nThis has so far been most notable to me in Firefox, which uses the chooser with the local only flag for downloads. My SMB share bookmarks aren't visible, but I can still navigate to the shares in the chooser (using the normal \"Other Locations\") and save to them and have it work. The folders are essentially still usable in such a case, but the bookmarks are still not shown.",
+    "state": "opened",
+    "created_at": "2019-06-20T15:56:37.040Z",
+    "updated_at": "2019-06-20T17:27:25.998Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "5. FileChooser",
+      "GTK3"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 12250,
+      "name": "Kyle Tirak",
+      "username": "LoneFenris",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/64f895028842192267d0efac049e1979?s=80&d=identicon",
+      "web_url": "https://gitlab.gnome.org/LoneFenris"
+    },
+    "assignee": null,
+    "user_notes_count": 1,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1962",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1962",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1962/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1962/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 67883,
+    "iid": 1961,
+    "project_id": 665,
+    "title": "Regression in gtk-3-24: gdk_screen_get_monitor_plug_name() now returns the monitor *model* rather than the output name",
+    "description": "In 0611cb4823c207c5468a9c1a8eac65c6eee7a214 `gdk_screen_get_monitor_plug_name()` was converted to use `gdk_monitor_get_model()`, presumable because `gdk_monitor_get_output_name()` doesn't exist. This breaks any application using colord-gtk to query what ICC color profile to use for a specific GtkWindow using a late-bound color managed workflow. It also breaks the colord-gtk self tests :/\n\nThe output name is usually something like `LVDS1` rather than the model string from the EDID.",
+    "state": "opened",
+    "created_at": "2019-06-20T13:51:05.183Z",
+    "updated_at": "2019-06-20T21:52:12.573Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "1. Regression",
+      "GTK3",
+      "GTK4",
+      "GdkMonitor"
+    ],
+    "milestone": null,
+    "assignees": [
+      {
+        "id": 25,
+        "name": "Emmanuele Bassi",
+        "username": "ebassi",
+        "state": "active",
+        "avatar_url": "https://gitlab.gnome.org/uploads/-/system/user/avatar/25/avatar.png",
+        "web_url": "https://gitlab.gnome.org/ebassi"
+      }
+    ],
+    "author": {
+      "id": 284,
+      "name": "Richard Hughes",
+      "username": "hughsie",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/f2bd69757fa0308a657a2f58724720b4?s=80&d=identicon",
+      "web_url": "https://gitlab.gnome.org/hughsie"
+    },
+    "assignee": {
+      "id": 25,
+      "name": "Emmanuele Bassi",
+      "username": "ebassi",
+      "state": "active",
+      "avatar_url": "https://gitlab.gnome.org/uploads/-/system/user/avatar/25/avatar.png",
+      "web_url": "https://gitlab.gnome.org/ebassi"
+    },
+    "user_notes_count": 2,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1961",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1961",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1961/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1961/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 67811,
+    "iid": 1959,
+    "project_id": 665,
+    "title": "GtkPaned: setting position sometimes results in unexpected position",
+    "description": "## Steps to reproduce\n\nWhen I click on `Switch` button, then i want to change the paned orientation and set position to 50%. Some when in past that works, at this moment, i got position which you can see on screenshots.\n\nHere is my simple application for python3 with gi:\n```python\nfrom gi import require_version\nrequire_version('Gtk', '3.0')        # noqa\n\nfrom gi.repository import Gtk\n\nWIDTH = 800\nHEIGHT = 400\n\n\nclass Window(Gtk.Window):\n    def __init__(self):\n        super(Window, self).__init__()\n        self.set_default_size(WIDTH, HEIGHT)\n\n        box = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0)\n        self.add(box)\n\n        button = Gtk.Button.new_with_label(\"Switch\")\n        button.connect(\"clicked\", self.on_clicked)\n        box.pack_start(button, False, False, 0)\n\n        self.paned = Gtk.Paned(orientation=Gtk.Orientation.VERTICAL)\n        box.pack_start(self.paned, True, True, 0)\n\n        left_scroll = Gtk.ScrolledWindow()\n        left_scroll.add(Gtk.TextView())\n        self.paned.pack1(left_scroll, True, False)\n\n        right_scroll = Gtk.ScrolledWindow()\n        right_scroll.add(Gtk.TextView())\n        self.paned.pack2(right_scroll, True, False)\n\n    def on_clicked(self, button):\n        if self.paned.get_orientation() == Gtk.Orientation.VERTICAL:\n            self.paned.set_orientation(Gtk.Orientation.HORIZONTAL)\n            self.paned.set_position(self.paned.get_allocated_width()/2)\n        else:\n            self.paned.set_orientation(Gtk.Orientation.VERTICAL)\n            self.paned.set_position(self.paned.get_allocated_height()/2)\n\n\nwin = Window()\nwin.connect(\"destroy\", Gtk.main_quit)\nwin.show_all()\nGtk.main()\n```\n## Current behavior\nWhen i try to set position to 50%, i count it from allocated_size/2. Yes the allocated size returns right number. After set this position, i still got right number, but after event (in next event for example), i got another *bad* position from paned.\n\n\n## Version information\nLinux Debian 10 - Buster (Testing), stable in few next weeks on amd64\nlibgtk-3-0               3.24.5-1\ngir1.2-gtk-3.0           3.24.5-1\npython3-gi               3.30.4-1\n\nRunning on X11 with 2048x1152, but the same on Wayland, or on 3840x2160 with 200% scale.\n\nI'm not sure when i start observe this problem, and i was thing that is in my application Formiko (https://github.com/ondratu/formiko), then I try in this simple test application with the same behavior.\n\n## Additional information\n**After start:**\n![Snímek_z_2019-06-19_07-30-32](/uploads/e76f81d570b486714ab8934ddfb7a090/Snímek_z_2019-06-19_07-30-32.png)\n\n**First click:**\n![Snímek_z_2019-06-19_07-30-35](/uploads/d3ec37b4b9aba6a06757f5d9a74c513f/Snímek_z_2019-06-19_07-30-35.png)\n\n**Second click:**\n![Snímek_z_2019-06-19_07-30-38](/uploads/90a3a5a99cc626d098a1dc11d8ad177e/Snímek_z_2019-06-19_07-30-38.png)",
+    "state": "opened",
+    "created_at": "2019-06-19T05:57:28.064Z",
+    "updated_at": "2019-06-21T04:35:27.002Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "GTK3",
+      "GtkPaned"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 21042,
+      "name": "Ondřej Tůma",
+      "username": "mcbig",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/6f7ad42c479c6cae26d81563f711b040?s=80&d=identicon",
+      "web_url": "https://gitlab.gnome.org/mcbig"
+    },
+    "assignee": null,
+    "user_notes_count": 2,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1959",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1959",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1959/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1959/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 67780,
+    "iid": 1958,
+    "project_id": 665,
+    "title": "Cmd-left/right don't move cursor to beginning/end of line in text widgets",
+    "description": "## Steps to reproduce\n\n 1. start gtk3-demo on macOS\n 2. open e.g. Text View -> Hypertext \n 3. use cmd-left or cmd-right to jump to beginning or end of line\n\n<!--\n  You should try and reproduce with the demos applications available\n  under the `demos` directory, or the test programs in the `tests` directory.\n  Alternatively, please attach a *small and self-contained* example\n  *written in C* that exhibits the issue.\n-->\n\n## Current behavior\n<!--\n  Please describe the current behaviour\n-->\nNo cursor movement at all\n\n## Expected outcome\n<!--\n  Please describe the expected outcome\n-->\nThe cursor jumps to beginning or end of line (it worked fine in gtk2)\n\n## Version information\n<!--\n - Which version of GTK you are using\n - What operating system and version\n  - For Linux, which distribution\n - If you built GTK yourself, the list of options used to configure the build\n-->\n3.22.30, installed with macports on macOS 10.14.5\n\n## Additional information\n<!--\n - Screenshots or screen recordings are useful for visual errors\n - Please report any warning or message printed on the terminal\n-->",
+    "state": "opened",
+    "created_at": "2019-06-18T12:09:25.194Z",
+    "updated_at": "2019-06-18T16:41:51.871Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "GTK3",
+      "GtkTextView",
+      "MacOS"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 20773,
+      "name": "Stefan Bethge",
+      "username": "kjyv",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/efaf0d3ca7a7badfcc156b972344cbfd?s=80&d=identicon",
+      "web_url": "https://gitlab.gnome.org/kjyv"
+    },
+    "assignee": null,
+    "user_notes_count": 3,
+    "merge_requests_count": 0,
+    "upvotes": 0,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1958",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1958",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1958/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1958/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  },
+  {
+    "id": 67753,
+    "iid": 1957,
+    "project_id": 665,
+    "title": "InfoBars could look better",
+    "description": "The blue feels quite harsh to my eyes:\n\n![image](/uploads/afb447d113060bf032b43770ae5b8d29/image.png)\n\n![image](/uploads/c37de0563986292724e253b6a595d15b/image.png)\n\nOther examples of info bars which I'm yet to get screenshots of:\n\n - Software: \"Enable 3rd party repos\", [\"OS has reached end of life\"](https://gitlab.gnome.org/Teams/Design/software-mockups/blob/master/updates-empty-placeholders.png) (not yet implemented), [\"this app wants your money\"](https://gitlab.gnome.org/Teams/Design/software-mockups/blob/master/app-pages.png) (also not yet implement)\n - Polari: \"save password\"\n - ...\n\nWe don't have to, but if we wanted we give the bars a different appearance depending on their message type (message, warning, question, error, other).\n\n@jimmac @snwh @bertob",
+    "state": "opened",
+    "created_at": "2019-06-17T17:16:50.779Z",
+    "updated_at": "2019-06-21T15:37:43.202Z",
+    "closed_at": null,
+    "closed_by": null,
+    "labels": [
+      "GtkInfoBar",
+      "Theme",
+      "UI/UX Design"
+    ],
+    "milestone": null,
+    "assignees": [],
+    "author": {
+      "id": 13,
+      "name": "Allan Day",
+      "username": "aday",
+      "state": "active",
+      "avatar_url": "https://secure.gravatar.com/avatar/89cfa0cef4cbd60fecf977c4221600af?s=80&d=identicon",
+      "web_url": "https://gitlab.gnome.org/aday"
+    },
+    "assignee": null,
+    "user_notes_count": 17,
+    "merge_requests_count": 0,
+    "upvotes": 2,
+    "downvotes": 0,
+    "due_date": null,
+    "confidential": false,
+    "discussion_locked": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/issues/1957",
+    "time_stats": {
+      "time_estimate": 0,
+      "total_time_spent": 0,
+      "human_time_estimate": null,
+      "human_total_time_spent": null
+    },
+    "task_completion_status": {
+      "count": 0,
+      "completed_count": 0
+    },
+    "has_tasks": false,
+    "_links": {
+      "self": "https://gitlab.gnome.org/api/v4/projects/665/issues/1957",
+      "notes": "https://gitlab.gnome.org/api/v4/projects/665/issues/1957/notes",
+      "award_emoji": "https://gitlab.gnome.org/api/v4/projects/665/issues/1957/award_emoji",
+      "project": "https://gitlab.gnome.org/api/v4/projects/665"
+    },
+    "subscribed": false
+  }
+]

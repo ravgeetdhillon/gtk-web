@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>GTK Development Blog</title>
+	<atom:link href="https://blog.gtk.org/feed/" rel="self" type="application/rss+xml" />
+	<link>https://blog.gtk.org</link>
+	<description>All things GTK</description>
+	<lastBuildDate>Wed, 08 May 2019 10:49:56 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.2.2</generator>
+	<item>
+		<title>GTK 3.96.0</title>
+		<link>https://blog.gtk.org/2019/05/08/gtk-3-96-0/</link>
+				<comments>https://blog.gtk.org/2019/05/08/gtk-3-96-0/#comments</comments>
+				<pubDate>Wed, 08 May 2019 04:20:47 +0000</pubDate>
+		<dc:creator><![CDATA[mclasen]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+		<category><![CDATA[announcement]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[GTK+]]></category>
+		<category><![CDATA[Release]]></category>
+
+		<guid isPermaLink="false">http://blog.gtk.org/?p=1084</guid>
+				<description><![CDATA[This week, we released GTK 3.96.0. Again, it has been a while since the last release, so it is worth summarizing whats new in this release. There is really too much here to cover it all, so this post will only highlight the most important changes. This release is another milestone on our way towards &#8230; <a href="https://blog.gtk.org/2019/05/08/gtk-3-96-0/" class="more-link">Continue reading<span class="screen-reader-text"> "GTK 3.96.0"</span></a>]]></description>
+								<content:encoded><![CDATA[<p>This week, we released GTK 3.96.0. Again, it has been a while since the last release, so it is worth summarizing whats new in this release. There is really too much here to cover it all, so this post will only highlight the most important changes.</p>
+<p>This release is another milestone on our way towards GTK 4. And while there are still some unfinished things, this release is much closer to we hope to achieve with GTK 4.</p>
+<h3>GSK</h3>
+<p>GSK has seen a number of bug fixes and new tests that are made much easier using a new debug tool, gtk4-node-editor. It can load and display serialized render node trees, such as this one that was saved from the GTK inspector, and compare the output of different renderers.</p>
+<p><a href="https://blog.gtk.org/files/2019/05/Screenshot-from-2019-05-06-20-43-31.png"><img class="alignnone size-full wp-image-1099" src="https://blog.gtk.org/files/2019/05/Screenshot-from-2019-05-06-20-43-31.png" alt="" width="1920" height="1080" srcset="https://blog.gtk.org/files/2019/05/Screenshot-from-2019-05-06-20-43-31.png 1920w, https://blog.gtk.org/files/2019/05/Screenshot-from-2019-05-06-20-43-31-300x169.png 300w, https://blog.gtk.org/files/2019/05/Screenshot-from-2019-05-06-20-43-31-768x432.png 768w, https://blog.gtk.org/files/2019/05/Screenshot-from-2019-05-06-20-43-31-1024x576.png 1024w, https://blog.gtk.org/files/2019/05/Screenshot-from-2019-05-06-20-43-31-1200x675.png 1200w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" /></a></p>
+<p>The 3D transformation support has been brought up to the level where we can do animated transitions like the cube spin below.</p>
+<p><a href="https://blog.gtk.org/files/2019/05/Screenshot-from-2019-05-06-21-15-18.png"><img class="alignnone size-full wp-image-1102" src="https://blog.gtk.org/files/2019/05/Screenshot-from-2019-05-06-21-15-18.png" alt="" width="1920" height="1080" srcset="https://blog.gtk.org/files/2019/05/Screenshot-from-2019-05-06-21-15-18.png 1920w, https://blog.gtk.org/files/2019/05/Screenshot-from-2019-05-06-21-15-18-300x169.png 300w, https://blog.gtk.org/files/2019/05/Screenshot-from-2019-05-06-21-15-18-768x432.png 768w, https://blog.gtk.org/files/2019/05/Screenshot-from-2019-05-06-21-15-18-1024x576.png 1024w, https://blog.gtk.org/files/2019/05/Screenshot-from-2019-05-06-21-15-18-1200x675.png 1200w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" /></a></p>
+<h3>GDK</h3>
+<p>The trend to move toward Wayland inspired APIs has continued, with more X11-only apis being moved to the X11 backend or just removed. Use of child surfaces and global coordinates has been greatly reduced, but this work remains incomplete.</p>
+<p>The refactoring of Drag-and-Drop has also continued, with the introduction of <code>GdkDrag</code> and <code>GdkDrop</code> objects. The GTK part of this refactoring is still incomplete.</p>
+<p>Events have been simplified and are now used just for input. Other event have been replaced by signals and properties on <code>GdkSurface</code>. In detail, expose events have been replaced by the <code>::render</code> signal, configure events have been replaced by the <code>::size-changed</code> signal. Map events have been replaced by the <code>:mapped</code> property, and <code>gdk_event_handler_set()</code> has been replaced by the <code>::event</code> signal.</p>
+<p>The Wayland backend has gained support for the Settings portal for <code>GtkSettings</code>, and uses the text-input-unstable-v3 protocol for its input method support.</p>
+<h3>GTK</h3>
+<h4>Widgets</h4>
+<p>One big change for custom widgets is the introduction of <code>GtkLayoutManager</code>, which is a new delegate object that takes over size allocation. Layout managers can optionally use layout children for holding layout properties. This replaces the layout-related child properties in GTK containers such as <code>GtkBox</code> or <code>GtkGrid</code>.</p>
+<p>A number of layout managers are available:</p>
+<ul>
+<li><code>GtkBinLayout</code>, for simple single-child containers</li>
+<li><code>GtkBoxLayout</code>, for children that are arranged linearly</li>
+<li><code>GtkGridLayout</code>, for children that are arranged in a grid</li>
+<li><code>GtkFixedLayout</code>, for freely positioned and transformed children</li>
+<li><code>GtkCustomLayout</code>, as a quick way to turn traditional <code>measure</code> and <code>size_allocate</code> vfuncs into a layout manager</li>
+</ul>
+<p>More layout manager implementations will appear in the future. Most prominently, work is underway on a constraints-based layout manager.</p>
+<p><code>GtkAssistant</code>, <code>GtkStack</code> and <code>GtkNotebook</code> have publicly<br />
+accessible page objects for their children. The page objects<br />
+are also exposed via a list model. They non-layout related child properties of these containers have been converted into regular properties on these page objects.</p>
+<p>Since all existing child properties have been converted to regular properties, moved to layout properties or moved to such page objects, support for child properties has been dropped from <code>GtkContainer</code>.</p>
+<p>The core <code>GtkEntry</code> functionality has been moved into a new <code>GtkText</code> widget, which also implements an expanded <code>GtkEditable</code> interface. All existing entry subclasses in GTK have been turned into <code>GtkEditable</code> implementations wrapping a <code>GtkText</code> widget. This also includes a new <code>GtkPasswordEntry</code>.</p>
+<h4>Other Changes</h4>
+<p>GTK widgets can transform their children using projective linear<br />
+transformations. This functionality is available in CSS and<br />
+as a <code>GskTransform</code> argument to <code>gtk_widget_allocate</code>. <code>GtkFixed</code> is<br />
+the first container that exposes this functionality. For further examples,<br />
+see the swing transition of <code>GtkRevealer</code>, the rotate transitions<br />
+of <code>GtkStack</code> or the Fixed Layout example in gtk4-demo.</p>
+<p>A number of list models have been introduced, for internal use<br />
+and as public API: <code>GtkMapListModel</code>, <code>GtkSliceListModel</code>, <code>GtkSortListModel</code>, <code>GtkSelectionModel</code>, <code>GtkSingleSelection</code>. These will become more widely used when we introduce a list model-based <code>GtkListView</code>.</p>
+<p><code>GtkBuilder</code> can specify object-valued properties inline, instead of referring to them by ID, and the <code>simplify</code> command of gtk4-builder-tool has gained an option to automatically convert GTK 3 UI definition files to GTK 4.</p>
+<h3>Coming soon</h3>
+<p>For more information on the things that are still still coming for GTK 4, find us on <a href="https://discourse.gnome.org">Discourse</a>, IRC, or look <a href="https://gitlab.gnome.org/GNOME/gtk/milestones/1">here</a>.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://blog.gtk.org/2019/05/08/gtk-3-96-0/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+							</item>
+		<item>
+		<title>Layout managers in GTK 4</title>
+		<link>https://blog.gtk.org/2019/03/27/layout-managers-in-gtk-4/</link>
+				<comments>https://blog.gtk.org/2019/03/27/layout-managers-in-gtk-4/#comments</comments>
+				<pubDate>Wed, 27 Mar 2019 16:53:25 +0000</pubDate>
+		<dc:creator><![CDATA[Emmanuele Bassi]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+		<category><![CDATA[development]]></category>
+
+		<guid isPermaLink="false">http://blog.gtk.org/?p=1048</guid>
+				<description><![CDATA[Containers and layout policies have been a staple of GTK&#8217;s design since the very beginning. If you wanted your widget to lay out its children according to a specific policy, you had to implement GtkContainer for handling the addition, removal, and iteration of the child widgets, and then you had to implement the size negotiation &#8230; <a href="https://blog.gtk.org/2019/03/27/layout-managers-in-gtk-4/" class="more-link">Continue reading<span class="screen-reader-text"> "Layout managers in GTK 4"</span></a>]]></description>
+								<content:encoded><![CDATA[<p>Containers and layout policies have been a staple of GTK&#8217;s design since the very beginning. If you wanted your widget to lay out its children according to a specific policy, you had to implement <code>GtkContainer</code> for handling the addition, removal, and iteration of the child widgets, and then you had to implement the size negotiation virtual functions from <code>GtkWidget</code> to measure, position, and size each child.</p>
+<p>One of the major themes of the GTK 4 development cycle is to delegate more functionality to ancillary objects instead of encoding it into the base classes provided by GTK. For instance, we moved the event handling from signal handlers described by <code>GtkWidget</code> into event controllers, and rendering is delegated to <code>GtkSnapshot</code> objects. Another step in that direction is decoupling the layout mechanism from <code>GtkWidget</code> itself to an ancillary type, <code>GtkLayoutManager</code>.</p>
+<h2>Layout Managers</h2>
+<p>A layout manager is the object responsible for measuring and sizing a widget and its children. Each <code>GtkWidget</code> owns a <code>GtkLayoutManager</code>, and uses it in place of the <code>measure()</code> and <code>allocate()</code> virtual functions—which are going away. The gist of the change: instead of subclassing a <code>GtkWidget</code> to implement its layout policy, you subclass <code>GtkLayoutManager</code>, and then assign the layout manager to a widget.</p>
+<p>Just like in the old <code>GtkWidget</code> code, you will need to override a virtual function to measure the layout, called <code>measure()</code>, which replaces the <code>get_preferred_*</code> family of virtual functions of GTK 3:</p>
+<pre>static void
+layout_measure (GtkLayoutManager *layout_manager,
+                GtkWidget        *widget,
+                GtkOrientation    orientation,
+                int               for_size,
+                int              *minimum,
+                int              *natural,
+                int              *minimum_baseline,
+                int              *natural_baseline)</pre>
+<p>After measuring, you need to assign the size to the layout; this happens in the <code>allocate()</code> virtual function, which replaces the venerable <code>size_allocate()</code> virtual function of previous GTK major versions:</p>
+<pre>static void
+layout_allocate (GtkLayoutManager *layout_manager,
+                 GtkWidget        *widget,
+                 int               width,
+                 int               height,
+                 int               baseline)</pre>
+<p>On the more esoteric side, you can also override the <code>get_request_mode()</code> virtual function, which allows you to declare whether the layout manager requests a constant size, or if one of its sizes depend on the opposite one, like height-for-width or width-for-height:</p>
+<pre>static GtkSizeRequestMode
+layout_get_request_mode (GtkLayoutManager *layout_manager,
+                         GtkWidget        *widget)</pre>
+<p>As you may notice, each virtual function gets passed the layout manager instance, as well as the widget that is using the layout manager.</p>
+<p>Of course, this has bigger implications on various aspects of how GTK widgets work, the most obvious being that all the complexity for the layout code can now stay confined into its own object, typically not derivable, whereas the widgets can stay derivable and become simpler.</p>
+<p>Another feature of this work is that you can change layout managers at run time, if you want to change the layout policy of a container; you can also have a per-widget layout policy, without adding more complexity to the widget code.</p>
+<p>Finally, layout managers allow us to get rid of one of the special cases of GTK, namely: container child properties.</p>
+<h2>Child properties</h2>
+<p>Deep in the guts of <code>GtkContainer</code> sits what&#8217;s essentially a copy of the GObject property-related code, and whose only job is to implement &#8220;child&#8221; properties for types deriving from <code>GtkContainer</code>. These container/child properties exist only as long as a child is parented to a specific class of container, and are used for a variety of reasons—but, generally, to control layout options, like the packing direction in boxes and box-like containers; the fixed positioning inside <code>GtkFixed</code>; or the expand/fill rules for notebook tab widgets.</p>
+<p>Child properties are hard to use, as they require ad hoc API instead of the usual <code>GObject</code> one, and thus require special casing in <code>GtkBuilder</code>, gtk-doc, and language bindings. Child properties are also attached to the actual direct child of the container, so if a widget interposes a child—like, say, <code>GtkScrolledWindow</code> or <code>GtkListBox</code> do—then you need to keep a reference to <em>that</em> child around in order to change the layout that applies <em>to your own widget</em>.</p>
+<p>In GTK&#8217;s master branch <a href="https://gitlab.gnome.org/GNOME/gtk/issues/1096">we got rid of most of them</a>—either by simply removing them when there&#8217;s actual widget API that implements the same functionality, or by creating ancillary GObject types and moving child properties to those types. The end goal is to remove all of them, and the relative API from <code>GtkContainer</code>, by the time GTK 4 rolls out. For layout-related properties, <code>GtkLayoutManager</code> provides its own API so that objects are created and destroyed automatically once a child is added to, or removed from, a widget using a layout manager, respectively. The object created is introspectable, and does not require special casing when it comes to documentation or bindings.</p>
+<p>You start from deriving your own type from the <code>GtkLayoutChild</code> class, and adding properties just like you would for any other <code>GObject</code> type. Then, you override <code>GtkLayoutManager</code>&#8216;s <code>create_layout_child()</code> virtual function:</p>
+<pre>static GtkLayoutChild *
+create_layout_child (GtkLayoutManager *manager,
+                     GtkWidget *container,
+                     GtkWidget *child)
+{
+  // The simplest implementation
+  return g_object_new (your_layout_child_get_type (),
+                       "layout-manager", manager,
+                       "child-widget", child,
+                       "some-property", some_property_initial_state,
+                       NULL);
+}</pre>
+<p>After that, you can access your layout child object as long as a widget is still a child of the container using the layout manager; if the child is removed from its parent, or the container changes the layout manager, the layout child is automatically collected.</p>
+<h2>New layout managers</h2>
+<p>Of course, just having the <code>GtkLayoutManager</code> class in GTK would not do us any good. GTK 4 introduces various layout managers for application and widget developers:</p>
+<ul>
+<li><code>GtkBinLayout</code> implements the layout policy of <code>GtkBin</code>, with the added twist that it supports multiple children stacked on top of each other, similarly to how <code>GtkOverlay</code> works. You can use each widget&#8217;s alignment and expansion properties to control their location within the allocated area, and the <code>GtkBinLayout</code> will always ask for as much space as it&#8217;s needed to allocate its largest child.</li>
+<li><code>GtkBoxLayout</code> is a straight port of the layout policy implemented by <code>GtkBox</code>; <code>GtkBox</code> itself has been ported to use <code>GtkBoxLayout</code> internally.</li>
+<li><code>GtkFixedLayout</code> is a port of the fixed layout positioning policy of <code>GtkFixed</code> and <code>GtkLayout</code>, with the added functionality of letting you define a generic transformation, instead of a pure 2D translation for each child; <code>GtkFixed</code> has been modified to use <code>GtkFixedLayout</code> and use a 2D translation—and <code>GtkLayout</code> has been merged into <code>GtkFixed</code>, as its only distinguishing feature was the implementation of the <code>GtkScrollable</code> interface.</li>
+<li><code>GtkCustomLayout</code> is a convenience layout manager that takes functions that used to be GtkWidget virtual function overrides, and it&#8217;s mostly meant to be a bridge while porting existing widgets towards the layout manager future.</li>
+</ul>
+<p>We are still in the process of implementing <code>GtkGridLayout</code> and make <code>GtkGrid</code> use it internally, following the same pattern as <code>GtkBoxLayout</code> and <code>GtkBox</code>. Other widgets inside GTK will get their own layout managers along the way, but in the meantime they can use <code>GtkCustomLayout</code>.</p>
+<p>The final step is to implement a constraint-based layout manager, which would let us create complex, responsive user interfaces without resorting to packing widgets into nested hierarchies. Constraint-based layouts deserve their own blog post, so stay tuned!</p>
+]]></content:encoded>
+							<wfw:commentRss>https://blog.gtk.org/2019/03/27/layout-managers-in-gtk-4/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+							</item>
+		<item>
+		<title>Entries in GTK 4</title>
+		<link>https://blog.gtk.org/2019/03/15/entries-in-gtk-4/</link>
+				<comments>https://blog.gtk.org/2019/03/15/entries-in-gtk-4/#comments</comments>
+				<pubDate>Fri, 15 Mar 2019 20:43:40 +0000</pubDate>
+		<dc:creator><![CDATA[mclasen]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+
+		<guid isPermaLink="false">http://blog.gtk.org/?p=1023</guid>
+				<description><![CDATA[One of the larger refactorings that recently landed in GTK master is re-doing the entry hierarchy. This post is summarizing what has changed, and why we think things are better this way. Entries in GTK 3 Lets start by looking at how things are in GTK 3. GtkEntry is the basic class here. It implements &#8230; <a href="https://blog.gtk.org/2019/03/15/entries-in-gtk-4/" class="more-link">Continue reading<span class="screen-reader-text"> "Entries in GTK 4"</span></a>]]></description>
+								<content:encoded><![CDATA[<p>One of the larger refactorings that recently landed in GTK master is re-doing the entry hierarchy. This post is summarizing what has changed, and why we think things are better this way.</p>
+<h2>Entries in GTK 3</h2>
+<p>Lets start by looking at how things are in GTK 3.</p>
+<p>GtkEntry is the basic class here. It implements the GtkEditable interface. GtkSpinButton is a subclass of GtkEntry. Over the years, more things were added. GtkEntry gained support for entry completion, and for embedding icons, and for displaying progress. And we added another subclass, GtkSearchEntry.</p>
+<p>Some problems with this approach are immediately apparent. gtkentry.c is more than 11100 lines of code. It it not only very hard to add more features to this big codebase, it is also hard to subclass it &#8211; and that is the only way to create your own entries, since all the single-line text editing functionality is inside GtkEntry.</p>
+<p>The GtkEditable interface is really old &#8211; it has been around since before GTK 2. Unfortunately, it has not really been successful as an interface &#8211; GtkEntry is the only  implementation, and it uses the interface functions internally in a confusing way.</p>
+<h2>Entries in GTK 4</h2>
+<p>Now lets look at how things are looking in GTK master.</p>
+<p>The first thing we&#8217;ve done is to move the core text editing functionality of GtkEntry into a new widget called GtkText. This is basically an entry minus all the extras, like icons, completion and progress.</p>
+<p>We&#8217;ve made the GtkEditable interface more useful, by adding some more common functionality (like width-chars and max-width-chars) to it, and made GtkText implement it. We also added helper APIs to make it easy to delegate a GtkEditable implementation to another object.</p>
+<p>The &#8216;complex&#8217; entry widgets (GtkEntry, GtkSpinButton, GtkSearchEntry) are now all composite widgets, which contain a GtkText child, and delegate their GtkEditable implementation to this child.</p>
+<p>Finally, we added a new GtkPasswordEntry widget, which takes over the corresponding functionality that GtkEntry used to have, such as showing a Caps Lock warning</p>
+<p><a href="https://blog.gtk.org/files/2019/03/passwordentry2.png"><img class="aligncenter" src="https://blog.gtk.org/files/2019/03/passwordentry2.png" alt="" width="287" height="200" /></a></p>
+<p>or letting the user peek at the content.</p>
+<p><a href="https://blog.gtk.org/files/2019/03/passwordentry1.png"><img class="aligncenter" src="https://blog.gtk.org/files/2019/03/passwordentry1.png" alt="" width="288" height="201" /></a></p>
+<h2>Why is this better?</h2>
+<p>One of the main goals of this refactoring was to make it easier to create custom entry widgets outside GTK.</p>
+<p>In the past, this required subclassing GtkEntry, and navigating a complex maze of vfuncs to override. Now, you can just add a GtkText widget, delegate your GtkEditable implementation to it, and have a functional entry widget with very little effort.</p>
+<p>And you have a lot of flexibility in adding fancy things around the GtkText component. As an example, we&#8217;ve added a <a href="https://gitlab.gnome.org/GNOME/gtk/blob/master/demos/gtk-demo/demotaggedentry.c">tagged entry</a> to gtk4-demo that can now be implemented easily outside GTK itself.</p>
+<p><a href="https://blog.gtk.org/files/2019/03/taggedentry.png"><img class="size-full wp-image-1029 aligncenter" src="https://blog.gtk.org/files/2019/03/taggedentry.png" alt="" width="314" height="207" srcset="https://blog.gtk.org/files/2019/03/taggedentry.png 314w, https://blog.gtk.org/files/2019/03/taggedentry-300x198.png 300w" sizes="(max-width: 314px) 85vw, 314px" /></a></p>
+<h2>Will this affect you when porting from GTK 3?</h2>
+<p>There are a few possible gotcha&#8217;s to keep in mind while porting code to this new style of doing entries.</p>
+<p>GtkSearchEntry and GtkSpinButton are no longer derived from GtkEntry. If you see runtime warnings about casting from one of these classes to GtkEntry, you most likely need to switch to using GtkEditable APIs.</p>
+<p>GtkEntry and other complex entry widgets are no longer focusable &#8211; the focus goes to the contained GtkText instead. But gtk_widget_grab_focus() will still work, and move the focus the right place. It is unlikely that you are affected by this.</p>
+<p>The Caps Lock warning functionality has been removed from GtkEntry. If you were using a GtkEntry with visibility==FALSE for passwords, you should just switch to GtkPasswordEntry.</p>
+<p>If you are using a GtkEntry for basic editing functionality and don&#8217;t need any of the extra entry functionality, you should consider using a GtkText instead.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://blog.gtk.org/2019/03/15/entries-in-gtk-4/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+							</item>
+		<item>
+		<title>Testing Discourse for GTK</title>
+		<link>https://blog.gtk.org/2019/03/05/testing-discourse-for-gtk/</link>
+				<comments>https://blog.gtk.org/2019/03/05/testing-discourse-for-gtk/#comments</comments>
+				<pubDate>Tue, 05 Mar 2019 15:16:11 +0000</pubDate>
+		<dc:creator><![CDATA[Emmanuele Bassi]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+
+		<guid isPermaLink="false">http://blog.gtk.org/?p=1008</guid>
+				<description><![CDATA[For the past 20 years or so, GTK used IRC and mailing lists for discussions related to the project. Over the years, use of email for communication has declined, and the overhead of maintaining the infrastructure has increased; sending email to hundreds or thousands of people has become increasingly indistinguishable from spam, in the eyes &#8230; <a href="https://blog.gtk.org/2019/03/05/testing-discourse-for-gtk/" class="more-link">Continue reading<span class="screen-reader-text"> "Testing Discourse for GTK"</span></a>]]></description>
+								<content:encoded><![CDATA[<p>For the past 20 years or so, GTK used IRC and mailing lists for discussions related to the project. Over the years, use of email for communication has declined, and the overhead of maintaining the infrastructure has increased; sending email to hundreds or thousands of people has become increasingly indistinguishable from spam, in the eyes of service providers, and GNOME had to try and ask for exceptions—which are not easy to get, and are quite easy to be revoked. On top of that, the infrastructure in use for managing mailing lists is quite old and crumbly, and it&#8217;s unnecessarily split into various sub-categories that make following discussions harder than necessary.</p>
+<p>After discussions among the GTK team, with the GNOME infrastructure maintainers, and with the GTK community at large, we decided to start a trial run of <a href="https://www.discourse.org/">Discourse</a> as a replacement for mailing lists, first and foremost, and as a way to provide an official location for the GTK community to discuss the development of, and with, GTK—as well as the rest of the core GNOME platform: GLib, Pango, GdkPixbuf, etc.</p>
+<p>You can find the Discourse instance on <a href="https://discourse.gnome.org">discourse.gnome.org</a>. On it, you can use the <a href="https://discourse.gnome.org/c/platform">Platform</a> and <a href="https://discourse.gnome.org/c/platform/core">Core</a> categories for discussions about the core GNOME platform; you can use the appropriate <a href="https://discourse.gnome.org/tags/">tags</a> for your topics, and subscribe to the ones you&#8217;re interested in.</p>
+<p>We&#8217;re planning to move some of the pages on the wiki to Discourse as well, especially the ones where we expect feedback from the community.</p>
+<p>We&#8217;re still <a href="https://gitlab.gnome.org/Infrastructure/Infrastructure/issues/109">working on how to migrate users</a> of the various mailing lists related to GTK, in order to close the lists and have a single venue instead of splitting the community; in the meantime, if you&#8217;re subscribed to one or more of these lists:</p>
+<ul>
+<li>gtk-devel-list</li>
+<li>gtk-app-devel-list</li>
+<li>gtk-list</li>
+<li>gtk-i18n-list</li>
+</ul>
+<p>then you may want to have a look at Discourse, and join the discussions there.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://blog.gtk.org/2019/03/05/testing-discourse-for-gtk/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+							</item>
+		<item>
+		<title>Report from the GTK hackfest in Brussels</title>
+		<link>https://blog.gtk.org/2019/02/08/report-from-the-gtk-hackfest-in-brussels/</link>
+				<pubDate>Fri, 08 Feb 2019 14:18:14 +0000</pubDate>
+		<dc:creator><![CDATA[Emmanuele Bassi]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+
+		<guid isPermaLink="false">http://blog.gtk.org/?p=993</guid>
+				<description><![CDATA[Thanks to the GNOME Foundation, various GTK developers were able to meet in Brussels right after FOSDEM, for one of our yearly hackfests. The main topics of the hackfest were: recap the work that landed into the master branch in the past 6-12 months, in order to have everyone on the same page discuss the &#8230; <a href="https://blog.gtk.org/2019/02/08/report-from-the-gtk-hackfest-in-brussels/" class="more-link">Continue reading<span class="screen-reader-text"> "Report from the GTK hackfest in Brussels"</span></a>]]></description>
+								<content:encoded><![CDATA[<p>Thanks to the <a href="https://www.gnome.org/foundation/">GNOME Foundation</a>, various GTK developers were able to meet in Brussels right after <a href="https://fosdem.org/2019/">FOSDEM</a>, for one of our <a href="https://wiki.gnome.org/Hackfests/GTK2019">yearly hackfests</a>.</p>
+<p>The main topics of the hackfest were:</p>
+<ul>
+<li>recap the work that landed into the master branch in the past 6-12 months, in order to have everyone on the same page</li>
+<li>discuss the features still in flight in separate branches, assess their state of completion, and identify blockers</li>
+<li>figure out what are the blockers for the first release of GTK 4.0</li>
+</ul>
+<p>Hackfests allow us to have this kind of discussions with a large bandwidth at our disposal, compared to online communication channels, so they are very important for the project.</p>
+<p>You can see the <a href="https://wiki.gnome.org/Hackfests/GTK2019/Agenda">full agenda on the wiki</a>, and we&#8217;ll make sure to write articles on the biggest items on it.</p>
+<p>The largest items of the discussion were the introduction of new list models and list/grid view widgets; a unified key handling API; the decoupling of layout management policies from containers, and the introduction of constraint layout management; the possibility of merging widgets from libhandy, to allow for writing applications responsive to form factor changes; the switch to a purely declarative menu description API, and the removal of public menu widgets; adding 2D and 3D transformations to <code>GtkWidget</code>; implementing an animation API that applications can consume.</p>
+<ul>
+<li><strong>list models and list/grid widgets</strong> — we&#8217;d really like to retire <code>GtkTreeView</code> and <code>GtkIconView</code>, but the existing replacements, <code>GtkListBox</code> and <code>GtkFlowBox</code>, are not performant enough when scaling to very large and dynamic data sets. We need better data storage types, that can be composed to perform operations such as mapping, filtering, and sorting, but can also avoid iterating over all the elements when sizing and drawing widgets. Benjamin Otte already <a href="https://gnome.pages.gitlab.gnome.org/gtk/gtk/Lists.html">added various models</a> to GTK, and is working on a list and a grid view widgets that can efficiently display their contents. Benjamin and other GNOME application developers are in the process of identifying various stakeholders for  a separate hackfest specifically for gathering more requirements and getting feedback on the new API.</li>
+<li><strong>unified key handling API</strong> — now that we moved all our pointer and touch input handling away from events and towards gestures, we want to do the same for key handling, like key bindings, mnemonics, and accelerators. The overall design is based on triggering actions, and allow introspection of all the &#8220;shortcuts&#8221; currently available to the GTK inspector, for ease of debugging. There is <a href="https://gitlab.gnome.org/GNOME/gtk/tree/wip/otte/shortcut">a development branch</a> already available.</li>
+<li><strong>layout managers</strong> — in GTK 3, layout is imposed by containers on their children; we want to be able to decouple that from widgets and move it into a separate delegate objects hierarchy. Layout managers allow us to reduce the complexity of writing new widgets; they keep the layout code in a separate, non-derivable type; and they allow us to simplify the toolkit internals to the point that we might even make <code>GtkWidget</code> and instantiable type in the future. Layout managers are the first step towards adding constraint-based layout management to GTK, which do away with nesting boxes to create complex UIs. There is <a href="https://gitlab.gnome.org/GNOME/gtk/tree/wip/layout-manager">a development branch</a> already available. For more information on constraint layouts, you can see the <a href="https://ebassi.github.io/emeus/">Emeus experimental library</a> for GTK 3.</li>
+<li><strong>merging widgets from libhandy</strong> — Adrien Plazas gave <a href="http://bytesgnomeschozo.blogspot.com/2019/02/fosdem-and-gtk-hackfest-2019.html">an overview</a> of what&#8217;s currently provided by <a href="https://gitlab.gnome.org/Community/Purism/libhandy">libhandy</a>, and what would be useful to have straight from GTK4 in the future. We discussed reactive layouts, and the ability express sizing with percentages, as well as possibly using constraints to get similar results.</li>
+<li><strong>declarative menus</strong> — GTK has iterated over different menus API over the years; from building menus out of widgets, to <code>GtkUIManager</code>, to <code>GtkBuilder</code>, to <code>GMenu</code>; we also moved to declaring the behaviour of pop up menus, in order to have the windowing system display them more accurately without exposing global coordinates. There&#8217;s a lot of overlap, but no clear winner, mostly because we still allow using widgets to build application menus and context menus. Fully switching to declarative style menus, adding new API to make them more expressive, and making GtkMenu and friends private implementations for the toolkit, would allow us to get things like being able to inspect all menus, even out of process; menus manipulable by plugin systems without necessarily creating widgets and keeping track of them; avoiding positioning bugs. There is <a href="https://wiki.gnome.org/Projects/GTK/Menus">a full strawman proposal</a> available on the wiki, and Matthias Clasen is working on switching context menus to <code>GMenu</code> in <a href="https://gitlab.gnome.org/GNOME/gtk/tree/wip/matthiasc/context-menu">a development branch</a>.</li>
+<li><strong>widget transformations</strong> — Sadly, Timm Bädert couldn&#8217;t make it to the hackfest, but we&#8217;ve been reviewing his <a href="https://gitlab.gnome.org/GNOME/gtk/tree/wip/baedert/transforms6">development branch</a> that adds 2D and 3D transformations to GTK widgets, and we&#8217;re very excited about it.</li>
+<li><strong>animations</strong> — one last thing we&#8217;d like to land for GTK4 is an animation framework for GTK widgets to replace the current generic &#8220;frame tick callback&#8221;. The model for it is the <a href="https://developer.gnome.org/clutter/stable/ClutterActor.html#clutter-actor-animation">Clutter explicit animation API</a>, which in turn was based on Core Animation and CSS3 transitions. This work is still in the design phase, but you can expect development branches for it to land soon.</li>
+</ul>
+<p>Aside from the big topics, we also discussed various smaller ones:</p>
+<ul>
+<li>improving performance and memory use; we want to expose the SysProf counters during the frame clock phases, so we can easily identify problems.</li>
+<li>improving the test suite, especially when it comes to reporting failures; right now, we have to go through the CI failure log, but we&#8217;d like to publish proper reports using the GitLab CI infrastructure</li>
+<li>replacing child properties with real <code>GObject</code> properties on ancillary objects, especially for layout managers; would make documentation, introspection, and usage clearer.</li>
+<li>finishing the drag and drop rework, to get a more modern API.</li>
+<li>adding a top-level interface for &#8220;window-like&#8221; objects—such as windows, dialogs, popovers, menus/popups—useful for establishing common behaviour, and removing hacks and complexity in <code>GtkWindow</code>.</li>
+</ul>
+<p>And, finally, yes: <a href="https://mail.gnome.org/archives/gtk-devel-list/2019-February/msg00000.html">we did remove the &#8220;plus&#8221; from GTK</a>. <img src="https://blog.gtk.org/wp-includes/images/smilies/face-wink.png" alt=";-)" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>Theme changes, revisited</title>
+		<link>https://blog.gtk.org/2019/01/21/theme-changes-revisited/</link>
+				<comments>https://blog.gtk.org/2019/01/21/theme-changes-revisited/#comments</comments>
+				<pubDate>Mon, 21 Jan 2019 16:21:00 +0000</pubDate>
+		<dc:creator><![CDATA[mclasen]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+
+		<guid isPermaLink="false">http://blog.gtk.org/?p=986</guid>
+				<description><![CDATA[A quick update on last weeks post about theme changes: We&#8217;ve made a 3.24.4 release, to fix up a few oversights in 3.24.3. This release does not include the new theme yet, we will push that to the next release. We&#8217;ve also made another NewAdwaita tarball, which includes refinements based on some of the suggestions &#8230; <a href="https://blog.gtk.org/2019/01/21/theme-changes-revisited/" class="more-link">Continue reading<span class="screen-reader-text"> "Theme changes, revisited"</span></a>]]></description>
+								<content:encoded><![CDATA[<p>A quick update on last weeks <a href="http://blog.gtk.org/2019/01/14/theme-changes-in-gtk-3/">post</a> about theme changes:</p>
+<p>We&#8217;ve made a 3.24.4 <a href="https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.4.tar.xz">release</a>, to fix up a few oversights in 3.24.3. This release does <em>not</em> include the new theme yet, we will push that to the next release.</p>
+<p>We&#8217;ve also made another <a href="https://download.gnome.org/misc/testing/Adwaita/NewAdwaita-2.tar.xz">NewAdwaita</a> tarball, which includes refinements based on some of the suggestions we received since last week.</p>
+<p>Try it out, and tell us about it!</p>
+]]></content:encoded>
+							<wfw:commentRss>https://blog.gtk.org/2019/01/21/theme-changes-revisited/feed/</wfw:commentRss>
+		<slash:comments>12</slash:comments>
+							</item>
+		<item>
+		<title>Theme changes in GTK 3</title>
+		<link>https://blog.gtk.org/2019/01/14/theme-changes-in-gtk-3/</link>
+				<comments>https://blog.gtk.org/2019/01/14/theme-changes-in-gtk-3/#comments</comments>
+				<pubDate>Mon, 14 Jan 2019 19:20:40 +0000</pubDate>
+		<dc:creator><![CDATA[mclasen]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+
+		<guid isPermaLink="false">http://blog.gtk.org/?p=926</guid>
+				<description><![CDATA[Adwaita has been the default GTK+ theme for quite a while now (on all platforms). It has served us well, but Adwaita hasn&#8217;t seen major updates in some time, and there is a desire to give it a refresh. Updating Adwaita is a challenge, since most GTK applications are using the stable 3.x series, and &#8230; <a href="https://blog.gtk.org/2019/01/14/theme-changes-in-gtk-3/" class="more-link">Continue reading<span class="screen-reader-text"> "Theme changes in GTK 3"</span></a>]]></description>
+								<content:encoded><![CDATA[<p>Adwaita has been the default GTK+ theme for quite <a href="https://blogs.gnome.org/mclasen/2014/06/13/a-new-default-theme-for-gtk/">a while</a> now (on all platforms). It has served us well, but Adwaita hasn&#8217;t seen major updates in some time, and there is a desire to give it a refresh.</p>
+<p>Updating Adwaita is a challenge, since most GTK applications are using the stable 3.x series, and some of them include Adwaita-compatible theming for their own custom widgets. Given the stable nature of this release series, we don&#8217;t want to cause theme compatibility issues for applications. At the same time, 3.x is the main GTK version in use today, and we want to ensure that GTK applications don&#8217;t feel stale or old fashioned.</p>
+<h2>A trial</h2>
+<p>A number of approaches to this problem have been considered and discussed. Out of these, a tentative plan has been put forward to trial a limited set of theme changes, with the possibility of including them in a future GTK 3 release.</p>
+<p>Our hope is that, due to the limited nature of the theme changes, they shouldn&#8217;t cause issues for applications. However, we don&#8217;t want to put our faith in hope alone. Therefore, the next three weeks are being designated as a testing and consultation period, and if things go well, we hope to merge the theme into the GTK 3.24.4 release.</p>
+<p>It should be emphasised that these changes are confined to Adwaita itself. GTK’s CSS selectors and classes have not been changed since GTK 3.22, and the changes in Adwaita won’t impact other GTK themes.</p>
+<p>The Adwaita updated theme is being made available as a separate tarball in parallel with the GTK 3.24.3 release, and can be downloaded <a href="https://download.gnome.org/misc/testing/Adwaita">here</a>. GTK application developers are invited to try 3.24.3 along with the new version of Adwaita, and report any issues that they encounter. The GTK team and Adwaita authors will also be conducting their own tests. Details of how to test the new theme in various ways are described <a href="https://download.gnome.org/misc/testing/Adwaita/README">here</a>.</p>
+<p>We are hoping to strike a balance between GTK&#8217;s stability promises on the one hand, and the desire to provide up-to-date applications on the other. It is a delicate balance to get right and we are keen to engage with GTK users as part of this process!</p>
+<h2>Theme changes</h2>
+<p>The rest of this post summarises which changes are have been made to the theme. This will hopefully demonstrate the limited extent of these changes. It will also help developers know what to look for when testing.</p>
+<h3>Colors</h3>
+<p>Many of the Adwaita colors have been very slightly tweaked. The new colors are more vivid than the previous versions, and so give Adwaita more energy and vibrancy. The new colors also form part of a more extensive palette, which is being used for application icons. These colours can also be used in custom application styling.</p>
+<p><a href="https://blog.gtk.org/files/2019/01/color-palette.png"><img class="size-full wp-image-968 aligncenter" src="https://blog.gtk.org/files/2019/01/color-palette.png" alt="" width="639" height="504" srcset="https://blog.gtk.org/files/2019/01/color-palette.png 639w, https://blog.gtk.org/files/2019/01/color-palette-300x237.png 300w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px" /></a></p>
+<p>The color changes are subtle, so any compatibility issues between the new and the old versions should not be serious. Blue is still blue (just a slightly different shade!) Red is still red. Visually, the dark and light versions of the theme remain largely the same.</p>
+<p>Adwaita’s dark variant, showing the slight color changes between old (left) and new (right).</p>
+<p><a href="https://blog.gtk.org/files/2019/01/colors.png"><img class="aligncenter wp-image-944 size-full" src="https://blog.gtk.org/files/2019/01/colors.png" alt="" width="1060" height="400" srcset="https://blog.gtk.org/files/2019/01/colors.png 1060w, https://blog.gtk.org/files/2019/01/colors-300x113.png 300w, https://blog.gtk.org/files/2019/01/colors-768x290.png 768w, https://blog.gtk.org/files/2019/01/colors-1024x386.png 1024w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" /></a>Note that the red of the button has been toned down a bit in the dark theme.</p>
+<h3>Header bars and buttons</h3>
+<p>Most widgets have not been specifically changed in the updated version of Adwaita. However, two places where there are widget-specific changes are header bars and buttons. In both cases, an effort has been made to be lighter and more elegant.</p>
+<p>Buttons have had their solid borders replaced with shadows. Their background is also flatter and their corners are more rounded. Their shape has also been changed very slightly.</p>
+<p>Header bars have been updated to complement the button changes. This has primarily been done by darkening their background, in order to give buttons sufficient contrast. The contrast between header bars’ focused and unfocused states has also been increased. This makes it easier for users to identify the focused window.</p>
+<p>At first glance, these changes are some of the most significant, but they are achieved with some quite minor code changes.</p>
+<p>The header bar in GNOME’s Calendar app (old version on top, new version on the bottom):</p>
+<p><a href="https://blog.gtk.org/files/2019/01/headerbars.png"><img class="aligncenter wp-image-953 size-full" src="https://blog.gtk.org/files/2019/01/headerbars.png" alt="" width="940" height="400" srcset="https://blog.gtk.org/files/2019/01/headerbars.png 940w, https://blog.gtk.org/files/2019/01/headerbars-300x128.png 300w, https://blog.gtk.org/files/2019/01/headerbars-768x327.png 768w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" /></a></p>
+<h3>Switches</h3>
+<p>Aside from header bars and buttons, the only other widget to be changed is switches. When GTK first introduced switches, they were a fairly new concept on the desktop. For this reason, they included explicit “ON” and “OFF” labels, in order to communicate how the switches operated. Since then, switch widgets have become ubiquitous, and users have become familiar with switches that don’t contain labels.</p>
+<p>The latest Adwaita changes bring the theme into line with other platforms and make switches more compact and modern in appearance, by removing the labels and introducing a more rounded shape.</p>
+<div style="width: 800px;" class="wp-video"><!--[if lt IE 9]><script>document.createElement('video');</script><![endif]-->
+<video class="wp-video-shortcode" id="video-926-1" width="800" height="600" preload="metadata" controls="controls"><source type="video/webm" src="https://blog.gtk.org/files/2019/01/adwaita-settings.webm?_=1" /><a href="https://blog.gtk.org/files/2019/01/adwaita-settings.webm">https://blog.gtk.org/files/2019/01/adwaita-settings.webm</a></video></div>
+<h3>Elsewhere, no change</h3>
+<p>Aside from the changes described above, very little has changed in Adwaita. The vast majority of widgets remain the same, albeit with very slightly altered colours. Generally, UI layouts shouldn’t alter and users should feel comfortable with the changes.</p>
+<p>Spot the difference (the old version of Adwaita is on the left and the new version is on the right):</p>
+<p><a href="https://blog.gtk.org/files/2019/01/no-change.png"><img class="alignnone size-full wp-image-959" src="https://blog.gtk.org/files/2019/01/no-change.png" alt="" width="820" height="240" srcset="https://blog.gtk.org/files/2019/01/no-change.png 820w, https://blog.gtk.org/files/2019/01/no-change-300x88.png 300w, https://blog.gtk.org/files/2019/01/no-change-768x225.png 768w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px" /></a></p>
+<h2>Conclusion</h2>
+<p>Please try the new theme. We hope you like it!</p>
+<p>And we appreciate your feedback—in particular if you are a GTK application developer. You can provide it on irc (in the #gtk+ channel on GimpNet) or via the gtk-devel-list mailing list, or by filing an issue in <a href="https://gitlab.gnome.org/GNOME/gtk">gitlab</a>.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://blog.gtk.org/2019/01/14/theme-changes-in-gtk-3/feed/</wfw:commentRss>
+		<slash:comments>61</slash:comments>
+				<enclosure url="https://blog.gtk.org/files/2019/01/adwaita-settings.webm" length="121954" type="video/webm" />
+			</item>
+		<item>
+		<title>A report from the Guadec GTK+ BoF</title>
+		<link>https://blog.gtk.org/2018/07/12/a-report-from-the-guadec-gtk-bof/</link>
+				<pubDate>Thu, 12 Jul 2018 12:11:20 +0000</pubDate>
+		<dc:creator><![CDATA[mclasen]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+
+		<guid isPermaLink="false">http://blog.gtk.org/?p=894</guid>
+				<description><![CDATA[The GTK+ team had a full day planning session during the BoF days at Guadec, and we had a full room, including representatives from several downstreams, not just GNOME. We had a pretty packed agenda, too. GTK+ 3 We started out by reviewing the GTK+ 3 plans that we&#8217;ve outlined earlier. In addition to what &#8230; <a href="https://blog.gtk.org/2018/07/12/a-report-from-the-guadec-gtk-bof/" class="more-link">Continue reading<span class="screen-reader-text"> "A report from the Guadec GTK+ BoF"</span></a>]]></description>
+								<content:encoded><![CDATA[<p>The GTK+ team had a full day planning session during the BoF days at Guadec, and we had a full room, including representatives from several downstreams, not just GNOME.</p>
+<p>We had a pretty packed <a href="https://wiki.gnome.org/GUADEC/2018/Hacking%20days/GtkBOF">agenda</a>, too.<br />
+<a href="https://blog.gtk.org/files/2018/07/20180709_105816.jpg"><img class="size-medium wp-image-896 aligncenter" src="https://blog.gtk.org/files/2018/07/20180709_105816-300x225.jpg" alt="" width="300" height="225" srcset="https://blog.gtk.org/files/2018/07/20180709_105816-300x225.jpg 300w, https://blog.gtk.org/files/2018/07/20180709_105816-768x576.jpg 768w, https://blog.gtk.org/files/2018/07/20180709_105816-1024x768.jpg 1024w, https://blog.gtk.org/files/2018/07/20180709_105816-1200x900.jpg 1200w" sizes="(max-width: 300px) 85vw, 300px" /></a></p>
+<h3>GTK+ 3</h3>
+<p>We started out by reviewing the GTK+ 3 plans that we&#8217;ve outlined <a href="https://blog.gtk.org/2018/06/23/a-gtk-3-update/">earlier</a>.</p>
+<p>In addition to what was mentioned there, we also plan to backport the new event controllers, to make porting to GTK+ 4 easier. We will also add meson build support to help with Windows builds.</p>
+<p>The 3.24 releases will effectively be a continuation of the 3.22 branch and should be entirely safe to put out as stable updates in distributions.</p>
+<p>We plan to release GTK+ 3.24.0 in time for GNOME 3.30.</p>
+<h3>GTK+ 4 leftovers</h3>
+<p>The bulk of the day was taken up by GTK+ 4 discussion. We&#8217;ve reviewed the list of leftover tasks on the roadmap:</p>
+<ul>
+<li>Finish DND: Gestures on the GTK+ level, local shortcuts</li>
+<li>Introduce GtkToplevel and cleanly support popovers</li>
+<li>Add transformations</li>
+<li>Create a shortcuts event controller to replace key bindings</li>
+<li>Port GtkTextView to render nodes</li>
+<li>Profile the cairo backend, make sure its performance is on par with GTK+ 3</li>
+<li>Port various dependent libraries:
+<ul>
+<li>vte</li>
+<li>webkit</li>
+<li>libchamplain</li>
+<li>gtk-vnc</li>
+<li>gtk-spice</li>
+</ul>
+</li>
+</ul>
+<p>Most of these tasks have names next to them, but if you want to help with any of these tasks, by all means, contact us!</p>
+<p>Noticeably absent from this list are a few things that were on the roadmap before:</p>
+<ul>
+<li>Constraint-based layout (emeus)</li>
+<li>Shader compiler and application provided shaders</li>
+<li>Designer support</li>
+</ul>
+<p>All of these can still happen if merge requests appear, but we don&#8217;t think that we should block on them. They can be developed externally to GTK+ 4, and become GTK+ 5 material.</p>
+<h3>GTK+ backends</h3>
+<p>We spent some time evaluating the state of GDK backends in GTK+ master.</p>
+<p>The Windows backend is in OK shape. We have several people who help with maintenance and feature development for it, meson makes building it a lot easier, and we have ci for it.</p>
+<p>The Quartz backend is in a much worse state. It has not been kept in buildable shape, nobody is providing fixes or feature development for it, and we don&#8217;t have ci. We had a macbook offered that could be used for ci, and it was suggested that we could use travis ci for the OS X.</p>
+<h3>GTK+ timeline</h3>
+<p>We spent a long time on this, and did not reach a 100% consensus, but it seems realistic to aim for a GTK+ 4 release in spring of 2019, if we keep making good progress on the outstanding leftovers.</p>
+<p>When we release GTK+ 3.96, we will also announce a date for GTK+ 4.0. We hope to be able commit to release before GNOME 3.32, so GNOME application developers can switch their master branches to GTK+ 4 without worrying about whether that will disrupt other development for 3.32.</p>
+<h3>Application porting</h3>
+<p>We really want feedback from application ports at this point. But we are in a bit of a difficult position, since we can&#8217;t plausibly claim to be done with major API work until the GtkToplevel and shortcuts controller work is done.</p>
+<p>Our recommendation to app authors at this point is:</p>
+<ul>
+<li>If you are a bit adventurous, do a port to 3.94 on a branch. It should be possible to keep it working without too much work during the remainder of GTK+ 4 development.</li>
+<li>If you are not quite as adventurous, wait until 3.24 is released, use it to prepare your port, and port to GTK+ 3.96.</li>
+<li>Either way, please make your port available to users for testing, either as a regular release, or as a Flatpak with a bundled GTK+.</li>
+</ul>
+<h3>GLib diversion</h3>
+<p>In the afternoon, we spent a while talking about GLib. We went over a laundry list of larger and smaller items. Notable highlights: GProperty may happen for 2.60 and we may be able to use g_autoptr soon.</p>
+<h3>Other ideas</h3>
+<p>We discussed a great number of other things that we could and should do.</p>
+<p>For example, it was suggested (and generally agreed to) that we should merge gsk into gdk, since it is small and the internals are somewhat intertwined. It was also suggested to create subdirectories in gtk/, for example for the css machinery.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>News from GLib 2.58</title>
+		<link>https://blog.gtk.org/2018/07/11/news-from-glib-2-58/</link>
+				<comments>https://blog.gtk.org/2018/07/11/news-from-glib-2-58/#comments</comments>
+				<pubDate>Wed, 11 Jul 2018 13:44:52 +0000</pubDate>
+		<dc:creator><![CDATA[Emmanuele Bassi]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[GLib]]></category>
+		<category><![CDATA[Release]]></category>
+
+		<guid isPermaLink="false">http://blog.gtk.org/?p=903</guid>
+				<description><![CDATA[Next September, GLib will hit version 2.58. There have been a few changes during the past two development cycles, most notably the improvement of the Meson build, which in turn led to an improved portability of GLib to platforms such as Windows, macOS, and Android. It is time to take stock of the current status &#8230; <a href="https://blog.gtk.org/2018/07/11/news-from-glib-2-58/" class="more-link">Continue reading<span class="screen-reader-text"> "News from GLib 2.58"</span></a>]]></description>
+								<content:encoded><![CDATA[<p>Next September, GLib will hit version 2.58. There have been a few changes during the past two development cycles, most notably the improvement of the Meson build, which in turn led to an improved portability of GLib to platforms such as Windows, macOS, and Android. It is time to take stock of the current status of GLib, and to highlight some of the changes that will impact GLib-based code.</p>
+<ul>
+<li><strong>Meson</strong> – Thanks to the ongoing work of Nirbheek Chauhan and Xavier Claessens, the Meson build has been constantly improving, to the point that we can start switching to it as the default build system. The plan—as <a href="https://mail.gnome.org/archives/gtk-devel-list/2018-June/msg00000.html">outlined on the mailing list</a>—is to release GLib 2.58 using Meson, while keeping the Autotools build in tree and available in the release archive; then, we&#8217;ll drop the Autotools build during the following development cycle, and release GLib 2.60 without Autotools support. Linux distributors are very much welcome to start testing the Meson build in their builders; we&#8217;ve been running the Meson build as part of our <acronym title="Continuous Integration">CI</acronym> process for a while, now, but more exposure will bring out eventual regressions that we missed; additionally, it would be stellar if people with different toolchains than GCC/Clang/MSVC would start trying the Meson build and report bugs. In the meantime, if you&#8217;re using GLib on macOS and Windows, we already recommend you switch to Meson to build GLib, as it&#8217;s easier and better integrated with those platforms than Autotools</li>
+<li><strong>Reliability and portability</strong> – GLib switched to GitLab alongside the rest of GNOME, which meant being able to run continuous integration outside of the <a href="https://build.gnome.org/">GNOME Continuous</a> builds. Now we run <acronym title="Continuous Integration">CI</acronym> on multiple toolchains, multiple build systems, and multiple platforms for every commit and merge request, which significantly reduces the chances of a broken build. We&#8217;ve also improved the code coverage in the test suite. Of course, we could always do better; for instance, we don&#8217;t have a <acronym title="Continuous Integration">CI</acronym> runner for macOS and the Solaris family of OSes, and more runners for the *BSD family would be greatly appreciated. We&#8217;ve issued <a href="https://mail.gnome.org/archives/gtk-devel-list/2018-May/msg00019.html">a call for help</a>, if you have a spare machine and some bandwidth that you can donate</li>
+<li><strong>File monitoring on *BSD</strong> – Apropos the *BSD family, the <code>kqueue</code> backend for file monitoring in GIO has been completely overhauled by Martin Pieuchot and Ting-Wei Lan; the new code is simpler, more robust, and passes all the tests</li>
+<li><strong>Use <code>posix_spawn()</code> for efficient process launching</strong> — Thanks to Daniel Drake, GLib now can use <code>posix_spawn()</code> under <a href="https://gitlab.gnome.org/GNOME/glib/blob/master/glib/gspawn.c#L730-748">specific circumstances</a>, if the platform&#8217;s C library supports it; this allows hitting fast paths in the kernel, compared to manually calling <code>fork() + exec()</code>; those fast paths are especially beneficial when running on memory constrained platforms</li>
+<li><strong>Reference counting types and allocations</strong> — GLib uses reference counting as a memory management and garbage collection mechanism in many of its types, but lacks the public API to allow other people to implement the same semantics in their own data structures; this leads to much copy-pasting and re-implementations, and typically to things like undefined behavior when it comes to saturation and thread safety. GLib 2.58 has a <code>grefcount</code> and a <code>gatomicrefcount</code> types, alongside their API, to reduce this duplication. Additionally, taking a cue from other languages like Rust, GLib provides a way to add reference counting semantics on memory allocations, by adding a low level API that allows you to allocate structures that do not have a reference count field, and automatically add reference counting semantics to them</li>
+<li><strong>Deprecations</strong> – A few soft deprecations have become real deprecations in this last development cycle:
+<ul>
+<li style="list-style-type: none">
+<ul>
+<li><code>g_type_class_add_private()</code> has finally been deprecated, <a href="https://www.bassi.io/articles/2013/06/21/the-king-is-dead/">five years</a> after we introduced the instance private data macros; if you&#8217;re still using that function in your class initialization, please switch to <code>G_DEFINE_TYPE_WITH_PRIVATE</code> or <code>G_ADD_PRIVATE</code></li>
+<li><code>g_main_context_wait()</code> is officially deprecated, but you should have already seen run time warnings about its use</li>
+<li><code>gtester</code>, the GTest harness provided by GLib, is deprecated; if you&#8217;re using Autotools, you should use the <acronym title="Test Anything Protocol">TAP</acronym> harness that comes with Automake</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>There have been lots of contributions in GLib, in this past cycle, thanks to the tireless efforts of Philip Withnall; he&#8217;s been instrumental in reviewing patches, triaging bugs, and implementing changes in the development process of the project. The switch over to GitLab has also improved the contribution process, with many more developers opening merge requests:</p>
+<ul>
+<li><code>2.54.0..c182cd68</code>: 968 changesets from 143 developers, up from 412 changesets and 68 developers during the 2.53 development cycle</li>
+<li>A total of <span style="color: green">31851 lines added</span>, <span style="color: red">27976 removed</span> (delta: <span style="color: green">+3875</span>)</li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th colspan="3">Developers with the most changesets</th>
+</tr>
+<tr>
+<td>Philip Withnall</td>
+<td align="right">303</td>
+<td align="right">31.3%</td>
+</tr>
+<tr>
+<td>Xavier Claessens</td>
+<td align="right">79</td>
+<td align="right">8.2%</td>
+</tr>
+<tr>
+<td>Emmanuele Bassi</td>
+<td align="right">69</td>
+<td align="right">7.1%</td>
+</tr>
+<tr>
+<td>Christoph Reiter</td>
+<td align="right">42</td>
+<td align="right">4.3%</td>
+</tr>
+<tr>
+<td>Ting-Wei Lan</td>
+<td align="right">21</td>
+<td align="right">2.2%</td>
+</tr>
+<tr>
+<td>Chun-wei Fan</td>
+<td align="right">21</td>
+<td align="right">2.2%</td>
+</tr>
+<tr>
+<td>Nirbheek Chauhan</td>
+<td align="right">21</td>
+<td align="right">2.2%</td>
+</tr>
+<tr>
+<td>Ondrej Holy</td>
+<td align="right">20</td>
+<td align="right">2.1%</td>
+</tr>
+<tr>
+<td>Руслан Ижбулатов</td>
+<td align="right">20</td>
+<td align="right">2.1%</td>
+</tr>
+<tr>
+<td>Mikhail Zabaluev</td>
+<td align="right">20</td>
+<td align="right">2.1%</td>
+</tr>
+<tr>
+<td>Simon McVittie</td>
+<td align="right">15</td>
+<td align="right">1.5%</td>
+</tr>
+<tr>
+<td>Matthias Clasen</td>
+<td align="right">14</td>
+<td align="right">1.4%</td>
+</tr>
+<tr>
+<td>Christian Hergert</td>
+<td align="right">13</td>
+<td align="right">1.3%</td>
+</tr>
+<tr>
+<td>Iñigo Martínez</td>
+<td align="right">12</td>
+<td align="right">1.2%</td>
+</tr>
+<tr>
+<td>Bastien Nocera</td>
+<td align="right">10</td>
+<td align="right">1.0%</td>
+</tr>
+<tr>
+<td>Rafal Luzynski</td>
+<td align="right">9</td>
+<td align="right">0.9%</td>
+</tr>
+<tr>
+<td>Michael Catanzaro</td>
+<td align="right">9</td>
+<td align="right">0.9%</td>
+</tr>
+<tr>
+<td>Will Thompson</td>
+<td align="right">8</td>
+<td align="right">0.8%</td>
+</tr>
+<tr>
+<td>Allison Lortie</td>
+<td align="right">8</td>
+<td align="right">0.8%</td>
+</tr>
+<tr>
+<td>Daniel Boles</td>
+<td align="right">8</td>
+<td align="right">0.8%</td>
+</tr>
+</tbody>
+</table>
+<p>Make sure to test your code with GLib 2.57.2, the next development snapshot towards the 2.58.0 stable release.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://blog.gtk.org/2018/07/11/news-from-glib-2-58/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+							</item>
+		<item>
+		<title>GTK+ 3.94</title>
+		<link>https://blog.gtk.org/2018/06/26/gtk-3-94/</link>
+				<comments>https://blog.gtk.org/2018/06/26/gtk-3-94/#comments</comments>
+				<pubDate>Tue, 26 Jun 2018 20:57:17 +0000</pubDate>
+		<dc:creator><![CDATA[mclasen]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+
+		<guid isPermaLink="false">http://blog.gtk.org/?p=884</guid>
+				<description><![CDATA[Today, we released GTK+ 3.94.0. Again, it has been a while since the last release, so it is worth summarizing whats new in this release. There is really too much here to cover it all, so this post will only highlight the most important changes. This release is another milestone on our way towards GTK+ &#8230; <a href="https://blog.gtk.org/2018/06/26/gtk-3-94/" class="more-link">Continue reading<span class="screen-reader-text"> "GTK+ 3.94"</span></a>]]></description>
+								<content:encoded><![CDATA[<p>Today, we released GTK+ 3.94.0. Again, it has been a while since the last release, so it is worth summarizing whats new in this release. There is really too much here to cover it all, so this post will only highlight the most important changes.</p>
+<p>This release is another milestone on our way towards GTK+ 4. And while there are still some unfinished <a href="https://gitlab.gnome.org/GNOME/gtk/milestones/1">things</a>, this release is much closer to we hope to achieve with GTK+ 4.</p>
+<h3>GSK</h3>
+<p>The Broadway backend now has a GskRenderer, so the future for Broadway looks much better.</p>
+<p>We introduced a new type of render node, GskOffsetNode, which is a simplified GskTransformNode and takes over the job of translating content as we move up and down the render node tree. With this change, we are now able to cache render nodes for widgets over multiple frames, and reposition them if necessary.</p>
+<p>We also introduced GskDebugNodes, which take over node names, and let us simplify some of the GTK+ apis for creating render nodes.</p>
+<p>When falling back to cairo for rendering, we now use recording surfaces instead of image surfaces, so we can replay the rendering at a different scale.</p>
+<p>An important new operation is gsk_render_node_diff to compare two render node trees (see below for more on this).</p>
+<h3>GDK</h3>
+<p>Following the general trend of aligning the GDK apis with Wayland instead of X, GdkWindow was renamed to GdkSurface.</p>
+<p>The GdkTexture api has been refined, with new GdkMemoryTexture and GdkGLTexture subclasses, and a powerful new abstraction, <a href="https://blog.gtk.org/2018/03/16/textures-and-paintables/">GdkPaintable</a>, has been introduced.</p>
+<p>A GdkPaintable represents an object that can be painted anywhere at any size without requiring any sort of layout. This is inspired by similar concepts elsewhere, such as ClutterContent, HTML/CSS Paint Sources or SVG Paint Servers. To show off the power of this concept, a few new demos have been added in gtk4-demo:</p>
+<p><a href="https://blog.gtk.org/files/2018/06/puzzle.gif"><img class="size-medium wp-image-885 aligncenter" src="https://blog.gtk.org/files/2018/06/puzzle-300x245.gif" alt="" width="300" height="245" srcset="https://blog.gtk.org/files/2018/06/puzzle-300x245.gif 300w, https://blog.gtk.org/files/2018/06/puzzle-768x627.gif 768w" sizes="(max-width: 300px) 85vw, 300px" /></a>The DND code continues to see major refactorings. It now uses the same content-provider infrastructure that was introduced in 3.93 for clipboard handling, and it has separate objects for the source and target side of a DND operation. More changes will be coming here.</p>
+<h3>GTK</h3>
+<h4>widgets</h4>
+<p>GTK+ has gained support for showing videos, with the GtkVideo and GtkMediaControls widgets, and there is also a new GtkPicture widget to split off image viewing from GtkImage (which is really about icons).</p>
+<div style="width: 840px;" class="wp-video"><video class="wp-video-shortcode" id="video-884-2" width="840" height="666" preload="metadata" controls="controls"><source type="video/webm" src="https://blog.gtk.org/files/2018/06/bunny.webm?_=2" /><a href="https://blog.gtk.org/files/2018/06/bunny.webm">https://blog.gtk.org/files/2018/06/bunny.webm</a></video></div>
+<p>GtkFontChooser allows tweaking OpenType features and font variations, and Ctrl-Shift-e for color Emoji input has been replaced with completion that can be enabled with the GtkEntry::enable-emoji-completion property.</p>
+<h4>Input</h4>
+<p>The event-specific signals in GtkWidget continue to disappear. At this point only ::event is left, but it will go away too. Instead, we are using event controllers, and several new ones have been added to cover all needed events:</p>
+<ul>
+<li>GtkEventControllerMotion</li>
+<li>GtkEventControllerKey</li>
+<li>GtkGestureStylus</li>
+</ul>
+<p>To make this transition easier, it is now possible to create event controllers in ui files.</p>
+<p>Wayland has its own platform input method, based on the Wayland text protocol.</p>
+<h4>Drawing</h4>
+<p>The ::draw signal has been removed, all widgets have to implement ::snapshot. They can now create their own GtkSnapshot instances for intermediate rendering. Clipping is no longer applied on the GTK+ level &#8211; widgets are free to draw outside their allocation, if that is what is required.</p>
+<p>Widget invalidation has been changed, it now works by discarding the cached render nodes of invalidated widgets, and recreating the missing parts of the render node tree.</p>
+<p>For finding the region that needs to be redrawn, GTK+ diffs the render node trees of the previous and the current frame, and applies some heuristics to keep the number of rectangles from growing too large.</p>
+<p>The GTK+ inspector lets you track invalidations, which you can see in action here:</p>
+<div style="width: 640px;" class="wp-video"><video class="wp-video-shortcode" id="video-884-3" width="640" height="360" preload="metadata" controls="controls"><source type="video/webm" src="https://people.freedesktop.org/~company/stuff/invalidation-tracking.webm?_=3" /><a href="https://people.freedesktop.org/~company/stuff/invalidation-tracking.webm">https://people.freedesktop.org/~company/stuff/invalidation-tracking.webm</a></video></div>
+<h4>Other changeS</h4>
+<p>GTK+ no longer supports generic loadable modules. Input methods, print backends and media backends have been converted to GIOModules and extension points.</p>
+<p>The platform im modules (i.e. the Windows, Wayland, Broadway im contexts)  are always included and will be enabled by default on their platform.</p>
+<p>The Vulkan support in GDK can now use a particular device that is specified by the GDK_VULKAN_DEVICE environment variable. Use GDK_VULKAN_DEVICE=list to see all availble devices.</p>
+<h3>Try it out</h3>
+<p>With GTK+ 3.94.0, it should be possible to start porting applications. The <a href="https://developer.gnome.org/gtk4/3.94/">documentation</a> has an initial porting guide.</p>
+]]></content:encoded>
+							<wfw:commentRss>https://blog.gtk.org/2018/06/26/gtk-3-94/feed/</wfw:commentRss>
+		<slash:comments>10</slash:comments>
+				<enclosure url="https://blog.gtk.org/files/2018/06/bunny.webm" length="0" type="video/webm" />
+<enclosure url="https://people.freedesktop.org/~company/stuff/invalidation-tracking.webm" length="24299037" type="video/webm" />
+			</item>
+	</channel>
+</rss>

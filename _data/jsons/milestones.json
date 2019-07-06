@@ -1,0 +1,41 @@
+﻿[
+  {
+    "id": 600,
+    "iid": 3,
+    "project_id": 665,
+    "title": "3.24.9",
+    "description": "",
+    "state": "closed",
+    "created_at": "2019-05-31T17:13:02.725Z",
+    "updated_at": "2019-06-23T15:53:31.964Z",
+    "due_date": null,
+    "start_date": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/-/milestones/3"
+  },
+  {
+    "id": 576,
+    "iid": 2,
+    "project_id": 665,
+    "title": "3.96",
+    "description": "",
+    "state": "closed",
+    "created_at": "2019-04-01T00:44:36.308Z",
+    "updated_at": "2019-05-07T18:42:23.487Z",
+    "due_date": null,
+    "start_date": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/-/milestones/2"
+  },
+  {
+    "id": 55,
+    "iid": 1,
+    "project_id": 665,
+    "title": "4.0",
+    "description": "4.0 API series development cycle",
+    "state": "active",
+    "created_at": "2018-02-13T13:19:41.694Z",
+    "updated_at": "2018-02-13T13:21:35.862Z",
+    "due_date": null,
+    "start_date": null,
+    "web_url": "https://gitlab.gnome.org/GNOME/gtk/-/milestones/1"
+  }
+]

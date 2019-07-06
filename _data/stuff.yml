@@ -27,7 +27,7 @@ features_list:
     description: GTK caters for a number features like Native look and feel, theme support, Object oriented approach that today's developers look for in a toolkit.
     img: api.svg
   - title: Stability
-    description: GTK4 deliver the enticing features and superb performance which adds to your applications.
+    description: GTK deliver the enticing features and superb performance which adds to your applications.
     img: stability.svg
 
 news_and_events_list:

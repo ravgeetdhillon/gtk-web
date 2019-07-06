@@ -16,10 +16,11 @@ sass:
 #   - .htaccess
 exclude: 
   - documents/
+  - node_modules/
   - Gemfile
   - Gemfile.lock
   - package.json
   - package-lock.json
-
+  - community.html
 # for dev only
 # keep_files: [assets]
