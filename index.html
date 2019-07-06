@@ -1,5 +1,24 @@
 ---
+page_main_heading: Create interfaces, that users just love
+page_main_heading_description: Offering a complete set of widgets, GTK is suitable for projects ranging from small one-off tools to complete application suites.
 
+usecase_main_heading: Overcome Complex Challenges
+usecase_main_heading_description: GTK is cross-platform and boasts an easy to use API, speeding up your development time and helping you tackle challenges whether you are GTK Developer or developing using GTK.
+
+bindings_main_heading: Work with the language of your choice
+bindings_main_heading_description: Develop your GTK app with the language of your choice by using Language Bindings or wrappers and take the full advantage of the official GNOME bindings which guarantee API stability and time-based releases.
+
+apps_main_heading: Apps built with GTK
+apps_main_heading_description: Developers around the world have used GTK as a platform to create apps that solve problems faced by the end users.
+
+integrations_main_heading: Integrations for Rapid Application Development
+integrations_main_heading_description: Glade is a RAD tool which enables quick & easy development of user interfaces for the GTK toolkit and the GNOME desktop environment.<br>Check out this easy tutorial on <a href="https://developer.gnome.org/gnome-devel-demos/stable/toolbar_builder.py.html.en">how to create a toolbar</a> using Glade.
+
+tutorials_main_heading: Quick Tutorials
+tutorials_main_heading_description: Creating an application using GTK 4 is super easy. Check out this short tutorial on how the things are done from Setup till the deployment.
+
+features_main_heading: A feature rich development tool
+features_main_heading_description: GTK has all the features that a widget toolkit needs to have. These features make it the most trusted toolkit for developing Linux Apps.
 ---
 
 {%- include header.html -%}
@@ -8,8 +27,8 @@
 	<div class="container landing-sm d-flex align-items-center">
 		<div class="row d-flex justify-content-center">
 			<div class="col-md-5 d-flex justify-content-center flex-column main-heading">
-				<h1 class="display-4 pb-3">Create interfaces, that users just love</h1>
-				<p class="text-muted pb-3">Offering a complete set of widgets, GTK is suitable for projects ranging from small one-off tools to complete application suites.</p>
+				<h1 class="display-4 pb-3">{{ page.page_main_heading }}</h1>
+				<span class="text-muted pb-3">{{ page.page_main_heading_description | markdownify }}</span>
 				<div class="pb-3 d-flex">
 					<a href="/docs/" class="btn btn-md btn-primary" role="button">Learn GTK</a>
 					<div class="dropdown">
@@ -25,9 +44,9 @@
 			</div>
 			<div class="col-md-7 d-none d-md-flex justify-content-center flex-column">
 				<div class="col img-grp">
-					<img src="./assets/img/editor.png" class="img-fluid editor shadow-lg" />
-					<img src="./assets/img/calendar.png" class="img-fluid calendar shadow-lg" />
-					<img src="./assets/img/music.png" class="img-fluid music shadow-lg" />
+					<img src="{{ '/assets/img/editor.png' | prepend: site.url }}" class="img-fluid editor shadow-lg" />
+					<img src="{{ '/assets/img/calendar.png' | prepend: site.url }}" class="img-fluid calendar shadow-lg" />
+					<img src="{{ '/assets/img/music.png' | prepend: site.url }}" class="img-fluid music shadow-lg" />
 				</div>
 			</div>
 		</div>
@@ -39,10 +58,8 @@
 	<div class="container d-flex flex-column align-items-center">
 		<div class="row text-center d-flex justify-content-center">
 			<div class="col-md-10 col-lg-7">
-				<h2 class="text-center font-weight-light mb-3">Overcome Complex Challenges</h2>
-				<p class="text-muted">
-					GTK is cross-platform and boasts an easy to use API, speeding up your development time and helping you tackle challenges whether you are GTK Developer or developing using GTK.
-				</p>			
+				<h2 class="text-center font-weight-light mb-3">{{ page.usecase_main_heading }}</h2>
+				<span class="text-muted">{{ page.usecase_main_heading_description | markdownify }}</span>
 			</div>
 		</div>
 		<div class="row">
@@ -58,7 +75,7 @@
 				<h6>{{ case.title }}</h6>
 				<span class="text-muted small">{{ case.description }}</span>
 				<br>
-				<a href="/usecases/{{ case.title }}" class="small border-bottom text-decoration-none border-primary">Read More</a>
+				<a href="/usecases/{{ case.title }}/" class="small border-bottom text-decoration-none border-primary">Read More</a>
 			</div>
 			{% endfor %}
 			<div class="col-12 text-center pt-3 pt-md-4">
@@ -72,10 +89,8 @@
 	<div class="container">
 		<div class="row text-center d-flex justify-content-center">
 			<div class="col-md-10 col-lg-7">
-				<h2 class="font-weight-light mb-3">Work with the language of your choice</h2>
-				<p class="text-muted">
-					Develop your GTK app with the language of your choice by using Language Bindings or wrappers and take the full advantage of the official GNOME bindings which guarantee API stability and time-based releases.
-				</p>			
+				<h2 class="font-weight-light mb-3">{{ page.bindings_main_heading }}</h2>
+				<span class="text-muted">{{ page.bindings_main_heading_description | markdownify }}</span>
 			</div>
 		</div>
 		<div class="row d-flex flex-column align-items-center py-4">
@@ -115,10 +130,8 @@
 	<div class="container py-3">
 		<div class="row text-center d-flex justify-content-center">
 			<div class="col-md-10 col-lg-7">
-				<h2 class="font-weight-light mb-3">Apps built with GTK</h2>
-				<p class="text-muted">
-					Developers around the world have used GTK as a platform to create apps that solve problems faced by the end users.
-				</p>			
+				<h2 class="font-weight-light mb-3">{{ page.apps_main_heading }}</h2>
+				<span class="text-muted">{{ page.apps_main_heading_description | markdownify }}</span>
 			</div>
 		</div>
 		<div class="app-logos slider pt-4 pb-5">
@@ -133,11 +146,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-5 pt-4">
-				<h2 class="font-weight-light mb-3">Integrations for Rapid Application Development</h2>
-				<p class="text-muted">Glade is a RAD tool which enables quick & easy development of user interfaces for the GTK toolkit and the GNOME desktop environment.<br>Check out this easy tutorial on <a href="https://developer.gnome.org/gnome-devel-demos/stable/toolbar_builder.py.html.en">how to create a toolbar</a> using Glade.</p>
+				<h2 class="font-weight-light mb-3">{{ page.integrations_main_heading }}</h2>
+				<span class="text-muted">{{ page.integrations_main_heading_description | markdownify }}</span>
 			</div>
 			<div class="col-lg-7 d-flex justify-content-center align-items-center">
-				<img src="./assets/img/glade.png" class="img-fluid w-100 shadow-lg" alt="Integration of Glade and GTK" />
+				<img src="{{ '/assets/img/glade.png' | prepend: site.url }}" class="img-fluid w-100 shadow-lg" alt="Integration of Glade and GTK" />
 			</div>
 		</div>
 	</div>
@@ -151,10 +164,8 @@
 	<div class="container"> 
 		<div class="row text-center d-flex justify-content-center">
 			<div class="col-md-10 col-lg-7">
-				<h2 class="font-weight-light mb-3">A feature rich development tool</h2>
-				<p class="text-muted">
-					GTK has all the features that a widget toolkit needs to have. These features make it the most trusted toolkit for developing Linux Apps.
-				</p>			
+				<h2 class="font-weight-light mb-3">{{ page.features_main_heading }}</h2>
+				<span class="text-muted">{{ page.features_main_heading_description | markdownify }}</span>			
 			</div>
 		</div>
 		<div class="row feature-holder py-4">
@@ -212,8 +223,8 @@
 				<iframe class="embed-responsive-item py-3 px-3" src="{{ site.data.stuff.tutorial_video_link }}" allowfullscreen></iframe>
 			</div>
 			<div class="col-12 col-md-6 px-3 py-3 px-md-4 d-flex flex-column justify-content-center">
-				<h2 class="font-weight-light mb-3">Quick Tutorials</h2>
-				<p class="text-muted">Creating an application using GTK 4 is super easy. Check out this short tutorial on how the things are done from Setup till the deployment.</p>
+				<h2 class="font-weight-light mb-3">{{ page.tutorials_main_heading }}</h2>
+				<p class="text-muted">{{ page.tutorials_main_heading_description | markdownify }}</p>
 				<div>
 					<a href="#" class="btn btn-sm btn-outline-primary" role="button">Developers Guide</a>
 				</div>

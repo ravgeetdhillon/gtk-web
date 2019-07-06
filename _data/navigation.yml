@@ -3,6 +3,11 @@ menu_links:
     href: /
     header: false
     footer: true
+    section: 
+  - name: Features
+    href: /features/
+    header: true
+    footer: true
     section: Project
   - name: Blog
     href: /blog/
@@ -21,7 +26,7 @@ menu_links:
     section: Project
   - name: Downloads
     href: https://download.gnome.org/sources/gtk+/
-    header: true
+    header: false
     footer: true
     section: Project
   - name: Community

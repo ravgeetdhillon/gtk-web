@@ -335,6 +335,11 @@ pre {
     background-repeat: no-repeat;
     background-size: cover;
 }
-span p{
+/* span p{
     margin-bottom: 0;
+} */
+#features-main {
+    background: url("../img/features-hero-integrations-endpoints.svg");
+    background-repeat: no-repeat;
+    background-position: center;
 }
