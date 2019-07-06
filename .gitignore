@@ -5,3 +5,9 @@ documents/
 node_modules/
 *.txt
 community.html
+assets/@fortawesome/
+assets/@primer/
+assets/bootstrap/
+assets/jquery/
+assets/popper.js/
+assets/slick-carousel/
