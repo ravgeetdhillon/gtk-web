@@ -14,7 +14,7 @@ apps_main_heading_description: Developers around the world have used GTK as a pl
 integrations_main_heading: Integrations for Rapid Application Development
 integrations_main_heading_description: |-
   Glade is a RAD tool which enables quick & easy development of user interfaces for the GTK toolkit and the GNOME desktop environment.
-  
+
   Check out this easy tutorial on [how to create a toolbar](https://developer.gnome.org/gnome-devel-demos/stable/toolbar_builder.py.html.en) using Glade.
 
 tutorials_main_heading: Quick Tutorials
@@ -22,6 +22,19 @@ tutorials_main_heading_description: Creating an application using GTK 4 is super
 
 features_main_heading: A feature rich development tool
 features_main_heading_description: GTK has all the features that a widget toolkit needs to have. These features make it the most trusted toolkit for developing Linux Apps.
+
+development_section:
+  - heading: Develop with GTK
+    description: |-
+      By taking the advantage of GTK being a cross-platform development tool and it's easy to use API, you can develop amazing apps using the GTK. If you are interested in developing an app, get started now by developing this [trivial app](https://developer.gnome.org/gtk3/stable/ch01s04.html#id-1.2.3.12.5).
+  - heading: Develop with GTK
+    description: |-
+      GTK is a large project and relies on voluntary contributions from the developers around the world. To help us with the project development, hack away on the existing [bugs and feature requests](https://gitlab.gnome.org/GNOME/gtk/issues/).
+  - heading: Looking for Help?
+    description: |-
+      If you want to ask questions about GTK, whether it's for developing applications with GTK or contributing to GTK itself, you can use the GNOME [Discourse](https://discourse.gnome.org) instance, under the [Platform/Core](https://discourse.gnome.org/c/platform/core) category. You can use tags like *gtk* or *glib* to narrow down the topic of discussion to specific libraries. You can also ask questions on our [IRC](irc://irc.gnome.org/%23gtk) channel.
+  
+
 ---
 
 {%- include header.html -%}
@@ -67,7 +80,7 @@ features_main_heading_description: GTK has all the features that a widget toolki
 		</div>
 		<div class="row">
 			<div class="col-8 mx-auto">
-				<img src="./assets/illustrations/language_bindings.svg" class="w-100 img-fluid" style="height:100%;" />
+				<img src="{{ '/assets/illustrations/language_bindings.svg' | prepend: site.url }}" class="w-100 img-fluid" style="height:100%;" />
 			</div>
 		</div>
 		<br>
@@ -200,19 +213,19 @@ features_main_heading_description: GTK has all the features that a widget toolki
 		<div class="container">
 			<div class="row py-4">
 				<div class="col-md-6 px-md-4 pb-4 pb-md-0">
-					<h2 class="font-weight-light mb-3">Develop with GTK</h2>
-					<span class="text-muted">By taking the advantage of GTK being a cross-platform development tool and it's easy to use API, you can develop amazing apps using the GTK. If you are interested in developing an app, get started now by developing this <a href="https://developer.gnome.org/gtk3/stable/ch01s04.html#id-1.2.3.12.5">trivial app</a>.</span>
+					<h2 class="font-weight-light mb-3">{{ page.development_section[0].heading }}</h2>
+					<span class="text-muted">{{ page.development_section[0].description | markdownify }}</span>
 				</div>
 				<div class="col-md-6 px-md-4 pb-4 pb-md-0">
-					<h2 class="font-weight-light mb-3">Develop GTK</h2>
-					<span class="text-muted">GTK is a large project and relies on voluntary contributions from the developers around the world. To help us with the project development, hack away on the existing <a href="https://gitlab.gnome.org/GNOME/gtk/issues/">bugs and feature requests</a>.</span>
+					<h2 class="font-weight-light mb-3">{{ page.development_section[1].heading }}</h2>
+					<span class="text-muted">{{ page.development_section[1].description | markdownify }}</span>
 				</div>
 			</div>
 			<hr class="w-75">
 			<div class="row py-4 text-center d-flex justify-content-center">
 				<div class="col-md-10 col-lg-7">
-					<h2 class="font-weight-light mb-3">Looking for Help?</h2>
-					<span class="text-muted"> If you want to ask questions about GTK, whether it's for developing applications with GTK or contributing to GTK itself, you can use the GNOME <a href="https://discourse.gnome.org">Discourse</a> instance, under the <a href="https://discourse.gnome.org/c/platform/core">Platform/Core</a> category. You can use tags like <i>gtk</i> or <i>glib</i> to narrow down the topic of discussion to specific libraries. You can also ask questions on our <a href="irc://irc.gnome.org/%23gtk">IRC</a></a> channel.</span>
+					<h2 class="font-weight-light mb-3">{{ page.development_section[2].heading }}</h2>
+					<span class="text-muted">{{ page.development_section[2].description | markdownify }}</span>
 				</div>
 			</div>
 		</div>
@@ -227,7 +240,7 @@ features_main_heading_description: GTK has all the features that a widget toolki
 			</div>
 			<div class="col-12 col-md-6 px-3 py-3 px-md-4 d-flex flex-column justify-content-center">
 				<h2 class="font-weight-light mb-3">{{ page.tutorials_main_heading }}</h2>
-				<p class="text-muted">{{ page.tutorials_main_heading_description | markdownify }}</p>
+				<span class="text-muted">{{ page.tutorials_main_heading_description | markdownify }}</span>
 				<div>
 					<a href="#" class="btn btn-sm btn-outline-primary" role="button">Developers Guide</a>
 				</div>
