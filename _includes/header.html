@@ -26,7 +26,12 @@
 </head>
 
 <body>
+	{% if page.navbar_dark %}
+	<header class="navbar small bg-dark">
+	{% else %}
 	<header class="navbar small">
+	{% endif %}
+
 		<nav class="container navbar-expand-md px-0 px-md-3">
 			<a href="/" class="navbar-brand"><img src="{{ '/assets/img/gtk-logo.png' | prepend: site.url }}" width="40" height="40" /><strong>GTK</strong></a>
 			<a class="btn navbar-toggler border-0 p-0" role="button" data-toggle="collapse" data-target="#navbarSupportedContent">
@@ -39,7 +44,11 @@
 					{% assign page_split = page.url | split: '/' %}
 					{% assign page_type = page_split[1] | capitalize %}
 					{% if link.header %}
+						{% if page.navbar_dark %}
+						<li class="nav-item"><a href="{{ link.href }}" class="nav-link text-light float-right">{{ link.name }}</a></li>
+						{% else %}
 						<li class="nav-item"><a href="{{ link.href }}" class="nav-link text-dark float-right">{{ link.name }}</a></li>
+						{% endif %}
 					{% endif %}
 				{% endfor %}
 				</ul>
