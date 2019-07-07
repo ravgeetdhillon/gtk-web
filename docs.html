@@ -10,7 +10,7 @@ navbar_dark: true
         <div class="row">
             <div class="col-md-5 d-flex justify-content-end flex-column main-heading">
                 <h1 class="display-4 pb-3">GTK Docs</h1>
-                <span class="lead">Find out all the things you need to work with GTK as a Developer.</span>
+                <span class="lead text-info">Find out all the things you need to work with GTK as a Developer.</span>
             </div>
             <div class="col-md-7 d-none d-md-flex justify-content-center align-items-center flex-column">
                 <img src="{{ '/assets/img/docs.svg' | prepend: site.url }}" class="img-fluid w-75" />
@@ -20,32 +20,60 @@ navbar_dark: true
 </section>
     
 <section class="py-4" id="usecases">
-	<div class="container d-flex flex-column align-items-center">
+	<div class="container"> 
 		<div class="row text-center d-flex justify-content-center">
 			<div class="col-md-10 col-lg-7">
-				<h2 class="text-center font-weight-light mb-3">{{ page.usecase_main_heading }}</h2>
-				<span class="text-muted">{{ page.usecase_main_heading_description | markdownify }}</span>
+				<h2 class="font-weight-light mb-3">Browse Topics</h2>
+				<span class="text-muted">Get set with the choice of your topic and explore the documentation.</span>			
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-8 mx-auto">
-				<img src="{{ '/assets/illustrations/language_bindings.svg' | prepend: site.url }}" class="w-100 img-fluid" style="height:100%;" />
+		<div class="row d-flex justify-content-center pt-5">
+			<div class="col-md-4 pb-5">
+				<div class="col h-100 py-5 text-center d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary" style="border-width:2px!important;">
+					<i class="fas fa-cogs fa-fw fa-3x pb-4 text-primary"></i>
+					<h5>Getting Started</h5>
+					<span class="text-muted small">Get started now by building a Hello World app and playing around it.</span>
+				</div>
 			</div>
-		</div>
-		<br>
-		<div class="row d-flex justify-content-center pt-3">
-			{% assign cases = site.data.usecases.use_cases %}
-			{% for case in cases %}
-			<div class="col-md-4 pb-4 pb-md-0">
-				<h6>{{ case.title }}</h6>
-				<span class="text-muted small">{{ case.description }}</span>
-				<br>
-				<a href="/usecases/{{ case.title }}/" class="small border-bottom text-decoration-none border-primary">Read More</a>
+			<div class="col-md-4 pb-5">
+				<div class="col h-100 py-5 text-center d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary" style="border-width:2px!important;">
+					<i class="fas fa-tools fa-fw fa-3x pb-4 text-primary"></i>
+					<h5>Dev Tools</h5>
+					<span class="text-muted small">Learn how to setup your development environment with GTK recommended tools.</span>
+				</div>
 			</div>
-			{% endfor %}
-			<div class="col-12 text-center pt-3 pt-md-4">
+			<div class="col-md-4 pb-5">
+				<div class="col h-100 py-5 text-center d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary" style="border-width:2px!important;">
+					<i class="fas fa-random fa-fw fa-3x pb-4 text-primary"></i>
+					<h5>Language Bindings</h5>
+					<span class="text-muted small">Learn to integrate your favorite programming language with GTK through bindings.</span>
+				</div>
+			</div>
+			<div class="col-md-4 pb-5">
+				<div class="col h-100 py-5 text-center d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary" style="border-width:2px!important;">
+					<i class="fas fa-box-open fa-fw fa-3x pb-4 text-primary"></i>
+					<h5>API References</h5>
+					<span class="text-muted small">Dig deep into the API references for GTK3 and GTK4.</span>
+				</div>
+			</div>
+			<div class="col-md-4 pb-5">
+				<div class="col h-100 py-5 text-center d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary" style="border-width:2px!important;">
+					<i class="fas fa-vector-square fa-fw fa-3x pb-4 text-primary"></i>
+					<h5>Architecture</h5>
+					<span class="text-muted small">Learn about the sub modules the GTK has been built upon.</span>
+				</div>
+			</div>
+			<div class="col-md-4 pb-5">
+				<div class="col h-100 py-5 text-center d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary" style="border-width:2px!important;">
+					<i class="fas fa-tools fa-fw fa-3x pb-4 text-primary"></i>
+					<h5>Dev Tools</h5>
+					<span class="text-muted small">Learn how to setup your development environment with GTK recommended tools.</span>
+					<a href="/" class="stretched-link"></a>
+				</div>
+			</div>
+			<!-- <div class="col-12 text-center pt-3 pt-md-4">
 				<a href="/usecases/" class="btn btn-md btn-outline-primary" role="button">Discover Usecases</a>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </section>

@@ -343,3 +343,8 @@ pre {
     background-repeat: no-repeat;
     background-position: center;
 }
+.shadow-hover:hover {
+    transition: box-shadow 0.15s ease-in-out;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    cursor: pointer;
+}
