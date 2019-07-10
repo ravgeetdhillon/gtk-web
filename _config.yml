@@ -24,3 +24,16 @@ exclude:
   - community.html
 # for dev only
 # keep_files: [assets]
+
+collections:
+  documentation:
+    output: true
+    permalink: /docs/:name
+
+defaults:
+  - scope:
+      path: ""
+      type: "documentation"
+    values:
+      layout: documentation
+      navbar_dark: true
