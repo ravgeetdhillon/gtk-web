@@ -1,5 +1,3 @@
-{% assign data = site.data %}
-
 {%- include header.html -%}
 
 <section class="pb-4" id="{{ page.name }}">
@@ -8,41 +6,41 @@
             <div class="col-lg-3 col-md-4 small p-0 order-2 order-md-1">
                 <div class="position-sticky top-0 text-break pt-4 px-4" id="app-sidebar">
                     <div class="pb-4 pb-md-4 col-sm-6 col-md-12">
-                        <p class="text-primary mb-1"><strong>Repository</strong></p>
+                        <p class="text-primary mb-1"><strong>Getting Started</strong></p>
                         <p class="m-0"><a href="{{ page.repository }}">{{ page.repository }}</a></p>
                     </div>
                     <div class="pb-4 pb-md-4 col-sm-6 col-md-12">
-                        <p class="text-primary mb-1"><strong>Category</strong></p>
+                        <p class="text-primary mb-1"><strong></strong></p>
                         <p class="m-0"><a href="{{ page.category }}">{{ page.category }}</a></p>
                     </div>
                     {% if page.youtube_video_url %}
                     <div class="pb-4 pb-md-4 col-sm-6 col-md-12">
-                        <p class="text-primary mb-1"><strong>Downloads</strong></p>
+                        <p class="text-primary mb-1"><strong></strong></p>
                         {% for download in page.downloads %}
                         <span class="badge badge-dark"><a href="{{ download.link }}">{{ download.title }}</a></span>
                         {% endfor %}
                     </div>
                     {% endif %}
                     <div class="pb-4 pb-md-4 col-sm-6 col-md-12">
-                        <p class="text-primary mb-1"><strong>Keywords</strong></p>
+                        <p class="text-primary mb-1"><strong></strong></p>
                         {% for keyword in page.keywords %}
                         <span class="badge border {% cycle 'border-primary','border-secondary' %}">{{ keyword }}</span>
                         {% endfor %}
                     </div>
                     {% if page.website %}
                     <div class="pb-4 pb-md-4 col-sm-6 col-md-12">
-                        <p class="text-primary mb-1"><strong>Website</strong></p>
+                        <p class="text-primary mb-1"><strong></strong></p>
                         <p class="m-0"><a href="{{ page.website }}">{{ page.website }}</a></p>
                     </div>
                     {% endif %}
                     {% if page.youtube_video_url %}
                     <div class="pb-4 pb-md-4 col-sm-6 col-md-12">
-                        <p class="text-primary mb-1"><strong>Youtube</strong></p>
+                        <p class="text-primary mb-1"><strong></strong></p>
                         <p class="m-0"><a href="{{ page.youtube_video_url }}">Open in Youtube <i class="fas fa-external-link-alt"></i></a></p>
                     </div>
                     {% endif %}
                     <div class="pb-4 pb-md-4 col-sm-6 col-md-12">
-                        <p class="text-primary mb-1"><strong>License</strong></p>
+                        <p class="text-primary mb-1"><strong></strong></p>
                         <p class="m-0"><a class="text-muted">{{ page.license }}</a></p>
                     </div>
                 </div>
@@ -80,10 +78,9 @@
     </div>
 </section>
 
-{%- include footer.html -%}
-
 <script>
     $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
+{%- include footer.html -%}
