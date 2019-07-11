@@ -22,7 +22,6 @@ before_script:
   - mv node_modules/slick-carousel assets/ -f
   - rm -rf node_modules
   - sass assets/scss/theme.scss assets/css/theme.css
-  - sass assets/@primer/css/markdown/index.scss assets/css/markdown.css
   
 test:
   stage: test

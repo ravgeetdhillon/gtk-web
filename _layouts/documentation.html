@@ -4,55 +4,53 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3 col-md-4 small p-0 order-2 order-md-1">
-                <div class="position-sticky top-0 text-break pt-4 px-4" id="app-sidebar">
-                    <div class="pb-4 pb-md-4 col-sm-6 col-md-12">
-                        <p class="text-primary mb-1"><strong>Getting Started</strong></p>
-                        <p class="m-0"><a href="{{ page.repository }}">{{ page.repository }}</a></p>
-                    </div>
-                    <div class="pb-4 pb-md-4 col-sm-6 col-md-12">
-                        <p class="text-primary mb-1"><strong></strong></p>
-                        <p class="m-0"><a href="{{ page.category }}">{{ page.category }}</a></p>
-                    </div>
-                    {% if page.youtube_video_url %}
-                    <div class="pb-4 pb-md-4 col-sm-6 col-md-12">
-                        <p class="text-primary mb-1"><strong></strong></p>
-                        {% for download in page.downloads %}
-                        <span class="badge badge-dark"><a href="{{ download.link }}">{{ download.title }}</a></span>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                    <div class="pb-4 pb-md-4 col-sm-6 col-md-12">
-                        <p class="text-primary mb-1"><strong></strong></p>
-                        {% for keyword in page.keywords %}
-                        <span class="badge border {% cycle 'border-primary','border-secondary' %}">{{ keyword }}</span>
-                        {% endfor %}
-                    </div>
-                    {% if page.website %}
-                    <div class="pb-4 pb-md-4 col-sm-6 col-md-12">
-                        <p class="text-primary mb-1"><strong></strong></p>
-                        <p class="m-0"><a href="{{ page.website }}">{{ page.website }}</a></p>
-                    </div>
-                    {% endif %}
-                    {% if page.youtube_video_url %}
-                    <div class="pb-4 pb-md-4 col-sm-6 col-md-12">
-                        <p class="text-primary mb-1"><strong></strong></p>
-                        <p class="m-0"><a href="{{ page.youtube_video_url }}">Open in Youtube <i class="fas fa-external-link-alt"></i></a></p>
-                    </div>
-                    {% endif %}
-                    <div class="pb-4 pb-md-4 col-sm-6 col-md-12">
-                        <p class="text-primary mb-1"><strong></strong></p>
-                        <p class="m-0"><a class="text-muted">{{ page.license }}</a></p>
-                    </div>
+                <div class="text-break pt-4 px-4 border-right h-100">
+                    <ul class="list-group">
+                        <li class="list-group-item border-0 group-header pb-4"><a href="#" class="text-dark"><strong>Get Started</strong></a></li>
+                        <li class="list-group-item border-0 group-header pb-4"><strong>Installations</strong>
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">Linux</a></li>
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">Windows</a></li>
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">MacOS</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item border-0 group-header pb-4"><a href="#" class="text-dark"><strong>Language Bindings</strong></a></li>
+                        <li class="list-group-item border-0 group-header pb-4"><strong>Dev tools</strong>
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">GNOME Builder</a></li>
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">Mono Develop</a></li>
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">Eclipse IDE</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item border-0 group-header pb-4"><strong>API References</strong>
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="https://developer.gnome.org/gtk3/" class="text-muted">GTK3</a></li>
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="https://developer.gnome.org/gtk4/" class="text-muted">GTK4</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item border-0 group-header pb-4"><strong>Architecture</strong>
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">GLib, GObject, GIO</a></li>
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">GdkPixbuf</a></li>
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">Pango</a></li>
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">GDK</a></li>
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">Cairo</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-lg-7 col-md-8 py-4 px-sm-4 order-1 order-md-2">
+            <div class="col-lg-7 col-md-8 py-4 px-sm-4 order-1 order-md-2 bg-light">
                 <div class="d-flex flex-sm-row flex-column py-3 py-md-0 px-3 px-md-0 app-shadow">
-                    <div class="d-flex justify-content-center align-items-start">
-                        <img src="../{{ page.img }}" class="img-fluid app-icon w-100" />
-                    </div>
-                    <div class="d-flex flex-column text-sm-left text-center px-md-3">
-                        <h3 class="display-4">{{ page.name }} <a href="https://gitlab.gnome.org/ravgeetdhillon/gtk-web/blob/master/{{ page.path }}" title="<span class='small'>Edit this app</span>" data-toggle="tooltip" data-placement="right" data-html="true" style="font-size: 1rem;"><i class="fas fa-pen"></i></a></h3>
-                        <p class="text-muted my-0">{{ page.description }}</p>
+                    <div class="w-100">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb small bg-transparent pl-0">
+                                <li class="breadcrumb-item"><a href="#">Docs</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Dev Tools</li>
+                            </ol>
+                        </nav>
+                        <h5>{{ 'Dev Tools' | upcase }}</h5>
+                        <span class="text-muted">Learn how to setup your development environment with GTK recommended tools.</span>
                     </div>
                 </div>
                 <br>
@@ -68,10 +66,10 @@
                     {% endfor %}
                 </div>
                 <br>
-                <div class="mr-3 px-3 py-3 border border-primary rounded shadow-sm position-sticky" style="top:16px;">
-                    <p class="mb-0">Ever made an app with GTK? Add it our ever growing <a href="#">library</a>.</p>
+                <div class="mr-3 px-3 py-3 border border-primary rounded shadow">
+                    <p class="mb-0">Observed a typo or some missing information, edit this page <a href="#">here</a>.</p>
                     <br>
-                    <p class="mb-0">Curious to make an app with GTK? Get Started <a href="#">now</a>.</p>
+                    <p class="mb-0">Read on <a href="#">how to contribute</a> to this website.</p>
                 </div>
             </div>
         </div>

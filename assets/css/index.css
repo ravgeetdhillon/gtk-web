@@ -73,9 +73,9 @@
     .h-md-auto {
         height: auto !important;
     }
-    #app-sidebar {
+    /* #app-sidebar {
         min-height: 100vh;
-    }
+    } */
     .app-shadow {
         box-shadow: none !important;
     }
@@ -177,13 +177,10 @@ html, body {
     color: var(--secondary) !important;
 }
 .top-0 {
-    top: 0;
+    top: 0px;
 }
 #apps {
     background: linear-gradient(var(--light), var(--white));
-}
-#app-sidebar {
-    background: linear-gradient(#4a86cf20, var(--light));
 }
 .slider .slide:hover {
     cursor: pointer;
@@ -335,9 +332,6 @@ pre {
     background-repeat: no-repeat;
     background-size: cover;
 }
-/* span p{
-    margin-bottom: 0;
-} */
 #features-main {
     background: url("../img/features-hero-integrations-endpoints.svg");
     background-repeat: no-repeat;
