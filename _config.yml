@@ -10,8 +10,8 @@ kramdown:
 highlighter: rouge
 # plugins:
 #   - jekyll-feed
-sass:
-  sass_dir: _sass
+# sass:
+#   sass_dir: _sass
 # include:
 #   - .htaccess
 exclude: 
@@ -25,15 +25,15 @@ exclude:
 # for dev only
 # keep_files: [assets]
 
+collections_dir: collections
+
 collections:
-  documentation:
+  docs:
     output: true
-    permalink: /docs/:name
 
 defaults:
   - scope:
-      path: ""
-      type: "documentation"
+      type: docs
     values:
       layout: documentation
       navbar_dark: true
