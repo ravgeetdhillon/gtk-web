@@ -17,9 +17,9 @@
                         <li class="list-group-item border-0 group-header pb-4"><a href="#" class="text-dark"><strong>Language Bindings</strong></a></li>
                         <li class="list-group-item border-0 group-header pb-4"><strong>Dev tools</strong>
                             <ul class="list-group">
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">GNOME Builder</a></li>
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">Mono Develop</a></li>
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">Eclipse IDE</a></li>
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="#mono-develop" class="text-muted">Mono Develop</a></li>
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="#gnome-builder" class="text-muted">GNOME Builder</a></li>
+                                <li class="list-group-item border-0 p-0 pt-2"><a href="#gnome-builder" class="text-muted">Eclipse IDE</a></li>
                             </ul>
                         </li>
                         <li class="list-group-item border-0 group-header pb-4"><strong>API References</strong>
@@ -44,29 +44,21 @@
                 <div class="d-flex flex-sm-row flex-column py-3 py-md-0 px-3 px-md-0 app-shadow">
                     <div class="w-100">
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb small bg-transparent pl-0">
+                            <ol class="breadcrumb small bg-transparent pl-0 m-0">
                                 <li class="breadcrumb-item"><a href="#">Docs</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Dev Tools</li>
+                                <li class="breadcrumb-item"><a href="#">Dev Tools</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">GNOME Builder</li>
                             </ol>
                         </nav>
-                        <h5>{{ 'Dev Tools' | upcase }}</h5>
-                        <span class="text-muted">Learn how to setup your development environment with GTK recommended tools.</span>
                     </div>
                 </div>
                 <br>
-                <article class="markdown-body py-3">
+                <article class="markdown-body">
                 {{ page.content }}
                 </article>
             </div>
             <div class="col-lg-2 col-md-12 small text-break mt-4 p-0 pl-3 order-3 order-md-3">
-                <div class="border-left px-3 py-2 d-none d-lg-block">
-                    <p class="text-primary mb-1"><strong>More Apps</strong></p>
-                    {% for app in site.apps limit:10 %}
-                    <p class="m-0"><a href="{{ app.name }}" title="<span class='small'>{{ app.description }}</span>" class="text-muted" data-toggle="tooltip" data-placement="top" data-html="true">{{ app.name }}</a></p>
-                    {% endfor %}
-                </div>
-                <br>
-                <div class="mr-3 px-3 py-3 border border-primary rounded shadow">
+                <div class="mr-3 px-3 py-3 border rounded shadow-sm">
                     <p class="mb-0">Observed a typo or some missing information, edit this page <a href="#">here</a>.</p>
                     <br>
                     <p class="mb-0">Read on <a href="#">how to contribute</a> to this website.</p>
