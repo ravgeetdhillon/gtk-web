@@ -33,276 +33,310 @@ development_section:
   - heading: Looking for Help?
     description: |-
       If you want to ask questions about GTK, whether it's for developing applications with GTK or contributing to GTK itself, you can use the GNOME [Discourse](https://discourse.gnome.org) instance, under the [Platform/Core](https://discourse.gnome.org/c/platform/core) category. You can use tags like *gtk* or *glib* to narrow down the topic of discussion to specific libraries. You can also ask questions on our [IRC](irc://irc.gnome.org/%23gtk) channel.
+
+features_list:
+  - title: Cross Platform
+    description: Projects build using GTK and its dependencies run on well known operating systems.
+    img: cross_platform.svg
+  - title: Open Source
+    description: GTK is an free and open source project maintained by GNOME and an active community of contributors.
+    img: open_source.svg
+  - title: Foundations
+    description: GTK is built on top of GLib. GLib provides the fundamental algorithmic language constructs commonly duplicated in applications.
+    img: api.svg
+  - title: Language Bindings
+    description: GTK is written in C but has been designed to support a wide range of languages such as Perl, Python and [many more](/languages).
+    img: language_bindings.svg
+  - title: Interfaces
+    description: GTK has a comprehensive collection of core widgets like Buttons, Windows, Toolbars for use in your application.
+    img: interfaces.svg
+  - title: API
+    description: GTK boasts of an easy to use [API](/documentation) which helps in decreasing your development time and produce better results.
+    img: api.svg
+  - title: Accomodation
+    description: GTK caters for a number features like Native look and feel, theme support, Object oriented approach that today's developers look for in a toolkit.
+    img: api.svg
+  - title: Stability
+    description: GTK deliver the enticing features and superb performance which adds to your applications.
+    img: stability.svg
+    
+news_and_events_list:
+  - title: Catchup with GTK
+    description: Get in touch with GTK developers through [IRC](irc://irc.gnome.org/%23gtk). Get daily updates about GTK and its community from [GTK blog](https://blog.gtk.org/) or through it's [twitter](https://twitter.com/GTKtoolkit/) handle.
+  - title: Meet the community
+    description: As regularly as possible, GTK team meetings take place at conferences and [hackfests](https://wiki.gnome.org/Hackfests) to discuss the future of GTK and define a [roadmap](https://wiki.gnome.org/Projects/GTK/Roadmap).
+  - title: Help evolve GTK
+    description: If you are a developer and want to contribute towards GTK, you are more than welcome to do so. [Get started now](/docs/) to get some familarity to GTK.
 ---
 
 {%- include header.html -%}
 
 <section class="pt-5 pb-4 d-flex flex-column align-items-center" id="landing">
-	<div class="container landing-sm d-flex align-items-center">
-		<div class="row d-flex justify-content-center">
-			<div class="col-md-5 d-flex justify-content-center flex-column main-heading">
-				<h1 class="display-4 pb-3">{{ page.page_main_heading }}</h1>
-				<span class="text-muted pb-3">{{ page.page_main_heading_description | markdownify }}</span>
-				<div class="pb-3 d-flex">
-					<a href="/docs/" class="btn btn-md btn-primary" role="button">Learn GTK</a>
-					<div class="dropdown">
-						<a class="btn btn-md btn-outline-secondary dropdown-toggle ml-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Downloads</a>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<a href="/downloads/linux" class="dropdown-item"><i class="fab fa-linux"></i> Linux</a>
-							<a href="/downloads/windows" class="dropdown-item"><i class="fab fa-windows"></i> Windows</a>
-							<a href="/downloads/macos" class="dropdown-item"><i class="fab fa-apple"></i> MacOS</a>
-						</div>
-					</div>
-				</div>
-				<p class="small text-muted">Currently v{{ site.data.stuff.gtkVersion }}</p>
-			</div>
-			<div class="col-md-7 d-none d-md-flex justify-content-center flex-column">
-				<div class="col img-grp">
-					<img src="{{ '/assets/img/editor.png' | prepend: site.url }}" class="img-fluid editor shadow-lg" />
-					<img src="{{ '/assets/img/calendar.png' | prepend: site.url }}" class="img-fluid calendar shadow-lg" />
-					<img src="{{ '/assets/img/music.png' | prepend: site.url }}" class="img-fluid music shadow-lg" />
-				</div>
-			</div>
-		</div>
-	</div>
-	<button class="btn btn-light shadow-sm rounded-circle mt-4" onclick="slideDown()"><i class="fas fa-chevron-down"></i></button>
+  <div class="container landing-sm d-flex align-items-center">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-5 d-flex justify-content-center flex-column main-heading">
+        <h1 class="display-4 pb-3">{{ page.page_main_heading }}</h1>
+        <span class="text-muted pb-3">{{ page.page_main_heading_description | markdownify }}</span>
+        <div class="pb-3 d-flex">
+          <a href="/docs/" class="btn btn-md btn-primary" role="button">Learn GTK</a>
+          <div class="dropdown">
+            <a class="btn btn-md btn-outline-secondary dropdown-toggle ml-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Downloads</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a href="/downloads/linux" class="dropdown-item"><i class="fab fa-linux"></i> Linux</a>
+              <a href="/downloads/windows" class="dropdown-item"><i class="fab fa-windows"></i> Windows</a>
+              <a href="/downloads/macos" class="dropdown-item"><i class="fab fa-apple"></i> MacOS</a>
+            </div>
+          </div>
+        </div>
+        <p class="small text-muted">Currently v{{ site.data.stuff.gtkVersion }}</p>
+      </div>
+      <div class="col-md-7 d-none d-md-flex justify-content-center flex-column">
+        <div class="col img-grp">
+          <img src="{{ '/assets/img/editor.png' | prepend: site.url }}" class="img-fluid editor shadow-lg" />
+          <img src="{{ '/assets/img/calendar.png' | prepend: site.url }}" class="img-fluid calendar shadow-lg" />
+          <img src="{{ '/assets/img/music.png' | prepend: site.url }}" class="img-fluid music shadow-lg" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-light shadow-sm rounded-circle mt-4" onclick="slideDown()"><i class="fas fa-chevron-down"></i></button>
 </section>
 
 <section class="py-4" id="usecases">
-	<div class="container d-flex flex-column align-items-center">
-		<div class="row text-center d-flex justify-content-center">
-			<div class="col-md-10 col-lg-7">
-				<h2 class="text-center font-weight-light mb-3">{{ page.usecase_main_heading }}</h2>
-				<span class="text-muted">{{ page.usecase_main_heading_description | markdownify }}</span>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-8 mx-auto">
-				<img src="{{ '/assets/illustrations/language_bindings.svg' | prepend: site.url }}" class="w-100 img-fluid" style="height:100%;" />
-			</div>
-		</div>
-		<br>
-		<div class="row d-flex justify-content-center pt-3">
-			{% assign cases = site.data.usecases.use_cases %}
-			{% for case in cases %}
-			<div class="col-md-4 pb-4 pb-md-0">
-				<h6>{{ case.title }}</h6>
-				<span class="text-muted small">{{ case.description }}</span>
-				<br>
-				<a href="/usecases/{{ case.title }}/" class="small border-bottom text-decoration-none border-primary">Read More</a>
-			</div>
-			{% endfor %}
-			<div class="col-12 text-center pt-3 pt-md-4">
-				<a href="/usecases/" class="btn btn-md btn-outline-primary" role="button">Discover Usecases</a>
-			</div>
-		</div>
-	</div>
+  <div class="container d-flex flex-column align-items-center">
+    <div class="row text-center d-flex justify-content-center">
+      <div class="col-md-10 col-lg-7">
+        <h2 class="text-center font-weight-light mb-3">{{ page.usecase_main_heading }}</h2>
+        <span class="text-muted">{{ page.usecase_main_heading_description | markdownify }}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8 mx-auto">
+        <img src="{{ '/assets/illustrations/language_bindings.svg' | prepend: site.url }}" class="w-100 img-fluid" style="height:100%;" />
+      </div>
+    </div>
+    <br>
+    <div class="row d-flex justify-content-center pt-3">
+      {% assign cases = site.data.usecases.use_cases %}
+      {% for case in cases %}
+      <div class="col-md-4 pb-4 pb-md-0">
+        <h6>{{ case.title }}</h6>
+        <span class="text-muted small">{{ case.description }}</span>
+        <br>
+        <a href="/usecases/{{ case.title }}/" class="small border-bottom text-decoration-none border-primary">Read More</a>
+      </div>
+      {% endfor %}
+      <div class="col-12 text-center pt-3 pt-md-4">
+        <a href="/usecases/" class="btn btn-md btn-outline-primary" role="button">Discover Usecases</a>
+      </div>
+    </div>
+  </div>
 </section>
-	
+  
 <section class="py-4" id="bindings">
-	<div class="container">
-		<div class="row text-center d-flex justify-content-center">
-			<div class="col-md-10 col-lg-7">
-				<h2 class="font-weight-light mb-3">{{ page.bindings_main_heading }}</h2>
-				<span class="text-muted">{{ page.bindings_main_heading_description | markdownify }}</span>
-			</div>
-		</div>
-		<div class="row d-flex flex-column align-items-center py-4">
-			<div class="col-lg-8 p-0 rounded-top overflow-hidden">
-				<div class="list-group flex-row flex-wrap" id="list-tab" role="tablist">
-				{% assign codes = site.data.sample_codes.codes %}
-				{% for code in codes %}
-					{% if forloop.first == true %}
-						<a class="col grp-btn btn btn-dark py-1 px-1 small border-0 rounded-0 active" id="list-{{ code.ext }}-list" data-toggle="list" href="#list-{{ code.ext }}" role="tab" aria-controls="{{ code.ext }}" aria-selected="true">{{ code.name }}</a>
-					{% else %}
-						<a class="col grp-btn btn btn-dark py-1 px-1 small border-0 rounded-0" id="list-{{ code.ext }}-list" data-toggle="list" href="#list-{{ code.ext }}" role="tab" aria-controls="{{ code.ext }}" aria-selected="false">{{ code.name }}</a>
-					{% endif %}
-				{% endfor %}
-				</div>
-			</div>
-			<div class="col-lg-8 p-0 bg-light rounded-bottom border border-info border-top-0 pl-3 overflow-auto">
-				<div class="tab-content" id="nav-tabContent">
-				{% for code in codes %}
-					{% if forloop.first == true %}
-						<div class="tab-pane overflow-y-auto fade small active show" id="list-{{ code.ext }}" role="tabpanel" aria-labelledby="list-{{ code.ext }}-list">
-						{{ code.snippet | markdownify }}
-						</div>
-					{% else %}
-						<div class="tab-pane overflow-auto fade small" id="list-{{ code.ext }}" role="tabpanel" aria-labelledby="list-{{ code.ext }}-list">
-						{{ code.snippet | markdownify }}
-						</div>
-					{% endif %}
-				{% endfor %}
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="row text-center d-flex justify-content-center">
+      <div class="col-md-10 col-lg-7">
+        <h2 class="font-weight-light mb-3">{{ page.bindings_main_heading }}</h2>
+        <span class="text-muted">{{ page.bindings_main_heading_description | markdownify }}</span>
+      </div>
+    </div>
+    <div class="row d-flex flex-column align-items-center py-4">
+      <div class="col-lg-8 p-0 rounded-top overflow-hidden">
+        <div class="list-group flex-row flex-wrap" id="list-tab" role="tablist">
+        {% assign codes = site.data.sample_codes.codes %}
+        {% for code in codes %}
+          {% if forloop.first == true %}
+            <a class="col grp-btn btn btn-dark py-1 px-1 small border-0 rounded-0 active" id="list-{{ code.ext }}-list" data-toggle="list" href="#list-{{ code.ext }}" role="tab" aria-controls="{{ code.ext }}" aria-selected="true">{{ code.name }}</a>
+          {% else %}
+            <a class="col grp-btn btn btn-dark py-1 px-1 small border-0 rounded-0" id="list-{{ code.ext }}-list" data-toggle="list" href="#list-{{ code.ext }}" role="tab" aria-controls="{{ code.ext }}" aria-selected="false">{{ code.name }}</a>
+          {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+      <div class="col-lg-8 p-0 bg-light rounded-bottom border border-info border-top-0 pl-3 overflow-auto">
+        <div class="tab-content" id="nav-tabContent">
+        {% for code in codes %}
+          {% if forloop.first == true %}
+            <div class="tab-pane overflow-y-auto fade small active show" id="list-{{ code.ext }}" role="tabpanel" aria-labelledby="list-{{ code.ext }}-list">
+            {{ code.snippet | markdownify }}
+            </div>
+          {% else %}
+            <div class="tab-pane overflow-auto fade small" id="list-{{ code.ext }}" role="tabpanel" aria-labelledby="list-{{ code.ext }}-list">
+            {{ code.snippet | markdownify }}
+            </div>
+          {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 {% assign apps = site.data.apps.apps_list %}
 <section class="py-4" id="apps">
-	<div class="container py-3">
-		<div class="row text-center d-flex justify-content-center">
-			<div class="col-md-10 col-lg-7">
-				<h2 class="font-weight-light mb-3">{{ page.apps_main_heading }}</h2>
-				<span class="text-muted">{{ page.apps_main_heading_description | markdownify }}</span>
-			</div>
-		</div>
-		<div class="app-logos slider pt-4 pb-5">
-			{% for app in apps %}
-			<div class="slide d-flex flex-column align-items-center text-center" title="{{ app.name }} App" onclick="window.location.assign('https://wiki.gnome.org/Apps/{{ app.name }}')">
-				<img src="{{ '/assets/img/apps/' | prepend: site.url }}{{ app.logo }}" class="img-fluid app-icon" alt="{{ app.name }}" />
-				<span class="text-muted small">{{ app.name }}</span>
-			</div>
-			{% endfor %}
-		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-5 pt-4">
-				<h2 class="font-weight-light mb-3">{{ page.integrations_main_heading }}</h2>
-				<span class="text-muted">{{ page.integrations_main_heading_description | markdownify }}</span>
-			</div>
-			<div class="col-lg-7 d-flex justify-content-center align-items-center">
-				<img src="{{ '/assets/img/glade.png' | prepend: site.url }}" class="img-fluid w-100 shadow-lg" alt="Integration of Glade and GTK" />
-			</div>
-		</div>
-	</div>
-	<hr class="w-75 mt-5">
+  <div class="container py-3">
+    <div class="row text-center d-flex justify-content-center">
+      <div class="col-md-10 col-lg-7">
+        <h2 class="font-weight-light mb-3">{{ page.apps_main_heading }}</h2>
+        <span class="text-muted">{{ page.apps_main_heading_description | markdownify }}</span>
+      </div>
+    </div>
+    <div class="app-logos slider pt-4 pb-5">
+      {% for app in apps %}
+      <div class="slide d-flex flex-column align-items-center text-center" title="{{ app.name }} App" onclick="window.location.assign('https://wiki.gnome.org/Apps/{{ app.name }}')">
+        <img src="{{ '/assets/img/apps/' | prepend: site.url }}{{ app.logo }}" class="img-fluid app-icon" alt="{{ app.name }}" />
+        <span class="text-muted small">{{ app.name }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 pt-4">
+        <h2 class="font-weight-light mb-3">{{ page.integrations_main_heading }}</h2>
+        <span class="text-muted">{{ page.integrations_main_heading_description | markdownify }}</span>
+      </div>
+      <div class="col-lg-7 d-flex justify-content-center align-items-center">
+        <img src="{{ '/assets/img/glade.png' | prepend: site.url }}" class="img-fluid w-100 shadow-lg" alt="Integration of Glade and GTK" />
+      </div>
+    </div>
+  </div>
+  <hr class="w-75 mt-5">
 </section>
 
-{% assign features = site.data.stuff.features_list %}
-{% assign total_size = site.data.stuff.features_list | size %}
+{% assign features = page.features_list %}
+{% assign total_size = page.features_list | size %}
 {% assign halfway = total_size | divided_by: 2 %}
 <section class="pt-3 pb-4" id="features">
-	<div class="container"> 
-		<div class="row text-center d-flex justify-content-center">
-			<div class="col-md-10 col-lg-7">
-				<h2 class="font-weight-light mb-3">{{ page.features_main_heading }}</h2>
-				<span class="text-muted">{{ page.features_main_heading_description | markdownify }}</span>			
-			</div>
-		</div>
-		<div class="row feature-holder py-4">
-			<div class="col-sm-6 px-3">
-			{% assign halfway = halfway | minus: 1 %}
-			{% for i in (0..halfway) %}
-				<div class="col px-0 px-sm-3">
-					<h6 class="mb-1">{{ features[i].title }}</h6>
-					<span class="text-muted small">{{ features[i].description | markdownify }}</span>
-					<br>
-				</div>
-			{% endfor %}
-			</div>
+  <div class="container"> 
+    <div class="row text-center d-flex justify-content-center">
+      <div class="col-md-10 col-lg-7">
+        <h2 class="font-weight-light mb-3">{{ page.features_main_heading }}</h2>
+        <span class="text-muted">{{ page.features_main_heading_description | markdownify }}</span>			
+      </div>
+    </div>
+    <div class="row feature-holder py-4">
+      <div class="col-sm-6 px-3">
+      {% assign halfway = halfway | minus: 1 %}
+      {% for i in (0..halfway) %}
+        <div class="col px-0 px-sm-3">
+          <h6 class="mb-1">{{ features[i].title }}</h6>
+          <span class="text-muted small">{{ features[i].description | markdownify }}</span>
+          <br>
+        </div>
+      {% endfor %}
+      </div>
 
-			<div class="col-sm-6 px-3">
-			{% assign halfway = halfway | plus: 1 %}
-			{% assign total_size = total_size | minus: 1 %}
-			{% for i in (halfway..total_size) %}
-				<div class="col px-0 px-sm-3">
-					<h6 class="mb-1">{{ features[i].title }}</h6>
-					<span class="text-muted small">{{ features[i].description | markdownify }}</span>
-					<br>
-				</div>
-			{% endfor %}
-			</div>
-		</div>
-	</div>
-	<section class="py-4" id="development">
-		<div class="container">
-			<div class="row py-4">
-				<div class="col-md-6 px-md-4 pb-4 pb-md-0">
-					<h2 class="font-weight-light mb-3">{{ page.development_section[0].heading }}</h2>
-					<span class="text-muted">{{ page.development_section[0].description | markdownify }}</span>
-				</div>
-				<div class="col-md-6 px-md-4 pb-4 pb-md-0">
-					<h2 class="font-weight-light mb-3">{{ page.development_section[1].heading }}</h2>
-					<span class="text-muted">{{ page.development_section[1].description | markdownify }}</span>
-				</div>
-			</div>
-			<hr class="w-75">
-			<div class="row py-4 text-center d-flex justify-content-center">
-				<div class="col-md-10 col-lg-7">
-					<h2 class="font-weight-light mb-3">{{ page.development_section[2].heading }}</h2>
-					<span class="text-muted">{{ page.development_section[2].description | markdownify }}</span>
-				</div>
-			</div>
-		</div>
-	</section>
+      <div class="col-sm-6 px-3">
+      {% assign halfway = halfway | plus: 1 %}
+      {% assign total_size = total_size | minus: 1 %}
+      {% for i in (halfway..total_size) %}
+        <div class="col px-0 px-sm-3">
+          <h6 class="mb-1">{{ features[i].title }}</h6>
+          <span class="text-muted small">{{ features[i].description | markdownify }}</span>
+          <br>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+  <section class="py-4" id="development">
+    <div class="container">
+      <div class="row py-4">
+        <div class="col-md-6 px-md-4 pb-4 pb-md-0">
+          <h2 class="font-weight-light mb-3">{{ page.development_section[0].heading }}</h2>
+          <span class="text-muted">{{ page.development_section[0].description | markdownify }}</span>
+        </div>
+        <div class="col-md-6 px-md-4 pb-4 pb-md-0">
+          <h2 class="font-weight-light mb-3">{{ page.development_section[1].heading }}</h2>
+          <span class="text-muted">{{ page.development_section[1].description | markdownify }}</span>
+        </div>
+      </div>
+      <hr class="w-75">
+      <div class="row py-4 text-center d-flex justify-content-center">
+        <div class="col-md-10 col-lg-7">
+          <h2 class="font-weight-light mb-3">{{ page.development_section[2].heading }}</h2>
+          <span class="text-muted">{{ page.development_section[2].description | markdownify }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
 </section>
 
 <section class="py-4" id="tutorials">
-	<div class="container">
-		<div class="row">
-			<div class="embed-responsive embed-responsive-16by9 col-12 col-md-6 rounded">
-				<iframe class="embed-responsive-item py-3 px-3" src="{{ site.data.stuff.tutorial_video_link }}" allowfullscreen></iframe>
-			</div>
-			<div class="col-12 col-md-6 px-3 py-3 px-md-4 d-flex flex-column justify-content-center">
-				<h2 class="font-weight-light mb-3">{{ page.tutorials_main_heading }}</h2>
-				<span class="text-muted">{{ page.tutorials_main_heading_description | markdownify }}</span>
-				<div>
-					<a href="#" class="btn btn-sm btn-outline-primary" role="button">Developers Guide</a>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="row">
+      <div class="embed-responsive embed-responsive-16by9 col-12 col-md-6 rounded">
+        <iframe class="embed-responsive-item py-3 px-3" src="{{ site.data.stuff.tutorial_video_link }}" allowfullscreen></iframe>
+      </div>
+      <div class="col-12 col-md-6 px-3 py-3 px-md-4 d-flex flex-column justify-content-center">
+        <h2 class="font-weight-light mb-3">{{ page.tutorials_main_heading }}</h2>
+        <span class="text-muted">{{ page.tutorials_main_heading_description | markdownify }}</span>
+        <div>
+          <a href="#" class="btn btn-sm btn-outline-primary" role="button">Developers Guide</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-{% assign news_and_events = site.data.stuff.news_and_events_list %}
+{% assign news_and_events = page.news_and_events_list %}
 <section class="py-4" id="events">
-	<div class="container">
-		<h2 class="text-center font-weight-light mb-3">News and Events</h2>
-		<div class="row py-4">
-			{% for news in news_and_events %}
-			<div class="col-md-4 px-3 pb-4 pb-md-0">
-				<div class="w-100 px-4 py-4 rounded shadow bg-light h-100">
-					<h6 class="border-bottom border-primary pb-2">{{ news.title }}</h6>
-					<span class="text-muted small">{{ news.description | markdownify }}</span>
-				</div>
-			</div>
-			{% endfor %}
-		</div>
-	</div>
+  <div class="container">
+    <h2 class="text-center font-weight-light mb-3">News and Events</h2>
+    <div class="row py-4">
+      {% for news in news_and_events %}
+      <div class="col-md-4 px-3 pb-4 pb-md-0">
+        <div class="w-100 px-4 py-4 rounded shadow bg-light h-100">
+          <h6 class="border-bottom border-primary pb-2">{{ news.title }}</h6>
+          <span class="text-muted small">{{ news.description | markdownify }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
 <script>
-	function slideDown() {
-		location.assign("#usecases");
-	}
+  function slideDown() {
+    location.assign("#usecases");
+  }
 
-	// controls the appearance of code container for language bindings
-	var tabs = document.querySelectorAll(".tab-pane");
-	var i, l = tabs.length;
-	var max = 400;
-	for (i = 0; i < l; i++) {
-		tabs[i].style.height = max + "px";
-	}
+  // controls the appearance of code container for language bindings
+  var tabs = document.querySelectorAll(".tab-pane");
+  var i, l = tabs.length;
+  var max = 400;
+  for (i = 0; i < l; i++) {
+    tabs[i].style.height = max + "px";
+  }
 
-	// controls the app silder
-	$(document).ready(function(){
-		$('.app-logos').slick({
-			slidesToShow: 6,
-			swipeToSlide: true,
-			autoplay: true,
-			autoplaySpeed: 2500,
-			arrows: false,
-			dots: false,
-			pauseOnHover: false,
-			responsive: [
-			{
-				breakpoint: 992,
-				settings: {
-					slidesToShow: 4
-				}
-			},
-			{
-				breakpoint: 768,
-				settings: {
-					slidesToShow: 3
-				}
-			}]
-		});
-	});
+  // controls the app silder
+  $(document).ready(function(){
+    $('.app-logos').slick({
+      slidesToShow: 6,
+      swipeToSlide: true,
+      autoplay: true,
+      autoplaySpeed: 2500,
+      arrows: false,
+      dots: false,
+      pauseOnHover: false,
+      responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3
+        }
+      }]
+    });
+  });
 
-	$('.dropdown-toggle').dropdown()
+  $('.dropdown-toggle').dropdown()
 </script>
 {%- include footer.html -%}
