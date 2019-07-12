@@ -37,3 +37,59 @@ news_and_events_list:
     description: As regularly as possible, GTK team meetings take place at conferences and [hackfests](https://wiki.gnome.org/Hackfests) to discuss the future of GTK and define a [roadmap](https://wiki.gnome.org/Projects/GTK/Roadmap).
   - title: Help evolve GTK
     description: If you are a developer and want to contribute towards GTK, you are more than welcome to do so. [Get started now](/docs/) to get some familarity to GTK.
+
+sidebar_sections:
+  - title: Getting Started
+    name: getting-started
+  - title: Installations
+    name: installations
+  - title: Language Bindings
+    name: language-bindings
+  - title: Dev Tools
+    name: dev-tools
+  - title: API References
+    name: apis
+  - title: Architecture
+    name: architecture
+
+sidebar_links:
+  - title: Mono Develop
+    name: mono-develop
+    section: Dev Tools
+  - title: GNOME Builder
+    name: gnome-builder
+    section: Dev Tools
+  - title: Eclipse
+    name: eclipse
+    section: Dev Tools
+  - title: Linux
+    name: linux
+    section: Installations
+  - title: Windows
+    name: windows
+    section: Installations
+  - title: MacOS
+    name: macos
+    section: Installations
+  - title: GTK3
+    name: gtk3
+    section: API References
+    href: https://developer.gnome.org/gtk3/
+  - title: GTK4
+    name: gtk4
+    section: API References
+  - title: GLib, GObject, GIO
+    name: glib
+    section: Architecture
+  - title: GdkPixbuf
+    name: gdkpixbuf
+    section: Architecture
+  - title: Pango
+    name: pango
+    section: Architecture
+  - title: GDK
+    name: gtk
+    section: Architecture
+  - title: Cairo
+    name: cairo
+    section: architecture

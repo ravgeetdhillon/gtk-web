@@ -3,7 +3,7 @@ menu_links:
     href: /
     header: false
     footer: true
-    section: 
+    section: Project
   - name: Features
     href: /features/
     header: true

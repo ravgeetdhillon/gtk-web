@@ -1,5 +1,5 @@
 ---
-permalink: /docs/tools/:name
+permalink: /docs/dev-tools/:name
 ---
 # Eclipse
 

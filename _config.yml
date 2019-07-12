@@ -22,6 +22,8 @@ exclude:
   - package.json
   - package-lock.json
   - community.html
+  - README.md
+  - CONTRIBUTING.md
 # for dev only
 # keep_files: [assets]
 

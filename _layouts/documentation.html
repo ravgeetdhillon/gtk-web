@@ -6,36 +6,19 @@
             <div class="col-lg-3 col-md-4 small p-0 order-2 order-md-1">
                 <div class="text-break pt-4 px-4 border-right h-100">
                     <ul class="list-group">
-                        <li class="list-group-item border-0 group-header pb-4"><a href="#" class="text-dark"><strong>Get Started</strong></a></li>
-                        <li class="list-group-item border-0 group-header pb-4"><strong>Installations</strong>
-                            <ul class="list-group">
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">Linux</a></li>
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">Windows</a></li>
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">MacOS</a></li>
-                            </ul>
-                        </li>
-                        <li class="list-group-item border-0 group-header pb-4"><a href="#" class="text-dark"><strong>Language Bindings</strong></a></li>
-                        <li class="list-group-item border-0 group-header pb-4"><strong>Dev tools</strong>
-                            <ul class="list-group">
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="#mono-develop" class="text-muted">Mono Develop</a></li>
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="#gnome-builder" class="text-muted">GNOME Builder</a></li>
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="#gnome-builder" class="text-muted">Eclipse IDE</a></li>
-                            </ul>
-                        </li>
-                        <li class="list-group-item border-0 group-header pb-4"><strong>API References</strong>
-                            <ul class="list-group">
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="https://developer.gnome.org/gtk3/" class="text-muted">GTK3</a></li>
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="https://developer.gnome.org/gtk4/" class="text-muted">GTK4</a></li>
-                            </ul>
-                        </li>
-                        <li class="list-group-item border-0 group-header pb-4"><strong>Architecture</strong>
-                            <ul class="list-group">
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">GLib, GObject, GIO</a></li>
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">GdkPixbuf</a></li>
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">Pango</a></li>
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">GDK</a></li>
-                                <li class="list-group-item border-0 p-0 pt-2"><a href="#" class="text-muted">Cairo</a></li>
-                            </ul>
+                    {% for section in site.data.stuff.sidebar_sections %}
+                        <li class="list-group-item border-0 group-header pb-4"><a href="/docs/{{ section.name }}" class="text-dark"><strong>{{ section.title }}</strong></a>
+                            {% assign sidebar_links = site.data.stuff.sidebar_links | where: "section", section.title %}
+                                <ul class="list-group">
+                                    {% for link in sidebar_links %}
+                                        {% if link.href %}
+                                            <li class="list-group-item border-0 p-0 pt-2"><a href="{{ link.href }}" class="text-muted">{{ link.title }}</a></li>
+                                        {% else %}
+                                            <li class="list-group-item border-0 p-0 pt-2"><a href="/docs/{{ section.name }}/{{ link.name }}" class="text-muted">{{ link.title }}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            {% endfor %}
                         </li>
                     </ul>
                 </div>
@@ -45,9 +28,14 @@
                     <div class="w-100">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb small bg-transparent pl-0 m-0">
-                                <li class="breadcrumb-item"><a href="#">Docs</a></li>
-                                <li class="breadcrumb-item"><a href="#">Dev Tools</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">GNOME Builder</li>
+                                {% assign url = page.url | split: '/' %}
+                                {% for part in url  %}
+                                    {% if forloop.last == true  %}
+                                        <li class="breadcrumb-item active" aria-current="page">{{ part }}</li>
+                                    {% else %}
+                                        <li class="breadcrumb-item"><a href="#">{{ part }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
                             </ol>
                         </nav>
                     </div>
