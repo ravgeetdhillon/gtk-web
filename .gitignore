@@ -1,9 +1,7 @@
 _site
 .sass-cache
 .jekyll-metadata
-documents/
 node_modules/
-*.txt
 community.html
 assets/@fortawesome/
 assets/@primer/
