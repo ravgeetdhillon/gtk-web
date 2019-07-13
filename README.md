@@ -1,8 +1,3 @@
----
-permalink: /readme
-# layout: default
----
-
 # GTK's Official Website
 
 We are soon going to replace the [current website](https://gtk.org) with this one: [Upcoming GTK Website](https://ravgeetdhillon.pages.gitlab.gnome.org/gtk-web)
@@ -114,4 +109,4 @@ GTK.org is licensed under the [Creative Commons BY-SA-4.0][license].
 [official-jekyll]: https://jekyllrb.com
 [package.json]: package.json
 [Gemfile]: Gemfile
-[license]: LICENSE.md
+[license]: LICENSE.txt
