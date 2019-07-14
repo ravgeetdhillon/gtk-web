@@ -26,7 +26,7 @@ GTK.org is an open source project and we love to receive contributions from our 
 
 #### For listing bugs
 1. Open an issue and provide us with appropriate information using our Issue Template.
-2. (Optional) If you can solve the issue filed by you, read below on how to submit a pull reuqest.
+2. (Optional) If you can solve the issue filed by you, read below on how to submit a pull request.
 
 #### For feature requests
 If you find yourself wishing for a something that doesn't exist in GTK.org, you are probably not alone. Open an issue which describes the feature you would like to see, how it would affect the community, and how it should work.

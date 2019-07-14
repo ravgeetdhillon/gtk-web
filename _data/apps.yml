@@ -1,3 +1,15 @@
+# This file contains the apps added in the slider section on the index.html
+
+# To add apps to the slider section, add an app with the following attributes:
+#   name: name of the app
+#   link: provide the source/link to visit or download the app
+#   logo: file name of the app's logo
+
+# Add the logo image for the app in the assets/img/apps.
+# The name of the logo image for the app should have the following naming convention
+#   <app-name>-app.<image-ext>
+# Make sure that the logo image have square dimensions
+
 apps_list:
   - name: Fonts
     link: /apps/
