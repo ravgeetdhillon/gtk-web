@@ -24,6 +24,9 @@ exclude:
   - community.html
   - README.md
   - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
+  - LICENSE.txt
+
 # for dev only
 # keep_files: [assets]
 
