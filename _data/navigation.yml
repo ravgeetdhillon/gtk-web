@@ -1,17 +1,18 @@
 # This file contains the navigation links present in the header and footer of the website
 
+# to add sections to the footer of the website, add a section with the following attributes:
+#   title: the display text for the section
+menu_links_sections:
+  - title: Project
+  - title: Support
+  - title: Company
+
 # To add navigation links to the website, add a new link with the following attributes:
 #   name: display text of the link
 #   href: the location where the link points to
 #   header: set this to 'true' if the link should be present in the header, else set 'false'
 #   footer: set this to 'true' if the link should be present in the footer, else set 'false'
-#   section: if footer is set to 'true', specify the name of the section the link belongs
-
-# sections in footer are:
-#   Project
-#   Company
-#   Support
-
+#   section: if footer is set to 'true', specify the name of the section the link belongs. Make sure that the section exists.
 menu_links:
   - name: GTK
     href: /
@@ -107,7 +108,6 @@ menu_links:
 # To add social links to the website, add a new social link with the following attributes:
 #   icon: the name of the icon on https://fontawesome.com/icons
 #   href: link to the social media profile
-
 social_links:
   - icon: fab fa-twitter
     href: https://twitter.com/GTKtoolkit/
