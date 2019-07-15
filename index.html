@@ -92,9 +92,9 @@ news_and_events_list:
       </div>
       <div class="col-md-7 d-none d-md-flex justify-content-center flex-column">
         <div class="col img-grp">
-          <img src="{{ '/assets/img/editor.png' | prepend: site.url }}" class="img-fluid editor shadow-lg" />
-          <img src="{{ '/assets/img/calendar.png' | prepend: site.url }}" class="img-fluid calendar shadow-lg" />
-          <img src="{{ '/assets/img/music.png' | prepend: site.url }}" class="img-fluid music shadow-lg" />
+          <img src="{{ '/assets/img/wall-editor.png' | prepend: site.url }}" class="img-fluid editor shadow-lg" />
+          <img src="{{ '/assets/img/wall-calendar.png' | prepend: site.url }}" class="img-fluid calendar shadow-lg" />
+          <img src="{{ '/assets/img/wall-music.png' | prepend: site.url }}" class="img-fluid music shadow-lg" />
         </div>
       </div>
     </div>
@@ -112,7 +112,7 @@ news_and_events_list:
     </div>
     <div class="row">
       <div class="col-8 mx-auto">
-        <img src="{{ '/assets/illustrations/language_bindings.svg' | prepend: site.url }}" class="w-100 img-fluid" style="height:100%;" />
+        <img src="{{ '/assets/img/wall-usecases.svg' | prepend: site.url }}" class="w-100 img-fluid" style="height:100%;" />
       </div>
     </div>
     <br>
@@ -198,7 +198,7 @@ news_and_events_list:
         <span class="text-muted">{{ page.integrations_main_heading_description | markdownify }}</span>
       </div>
       <div class="col-lg-7 d-flex justify-content-center align-items-center">
-        <img src="{{ '/assets/img/glade.png' | prepend: site.url }}" class="img-fluid w-100 shadow-lg" alt="Integration of Glade and GTK" />
+        <img src="{{ '/assets/img/wall-glade.png' | prepend: site.url }}" class="img-fluid w-100 shadow-lg" alt="Integration of Glade and GTK" />
       </div>
     </div>
   </div>
@@ -299,6 +299,7 @@ news_and_events_list:
 </section>
 
 <script>
+  // implementing the "take me down" functionality
   function slideDown() {
     location.assign("#usecases");
   }

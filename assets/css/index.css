@@ -325,15 +325,15 @@ pre {
     height: auto;
 }
 #events {
-    background: url("../img/back1.svg");
+    background: url("/assets/img/wall-events-pattern.svg");
 }
 #development {
-    background: url("../img/symbolics.png");
+    background: url("/assets/img/wall-symbolics.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 #features-main {
-    background: url("../img/features-hero-integrations-endpoints.svg");
+    background: url("/assets/img/features-hero-integrations-endpoints.svg");
     background-repeat: no-repeat;
     background-position: center;
 }

@@ -5,57 +5,57 @@
 #   link: provide the source/link to visit or download the app
 #   logo: file name of the app's logo
 
-# Add the logo image for the app in the assets/img/apps.
+# Add the logo image for the app in the /assets/img/apps.
 # The name of the logo image for the app should have the following naming convention
-#   <app-name>-app.<image-ext>
+#   app-<app-name>.<image-ext>
 # Make sure that the logo image have square dimensions
 
 apps_list:
   - name: Fonts
     link: /apps/
-    logo: Fonts-app.png
+    logo: app-fonts.png
   - name: Calculator
     link: /apps/
-    logo: Calculator-app.png
+    logo: app-calculator.png
   - name: Blender
     link: /apps/
-    logo: Blender-app.png
+    logo: app-blender.png
   - name: Chess
     link: /apps/
-    logo: Chess-app.png
+    logo: app-chess.png
   - name: Dictionary
     link: /apps/
-    logo: Dictionary-app.png
+    logo: app-dictionary.png
   - name: GIMP
     link: /apps/
-    logo: GIMP-app.png
+    logo: app-gimp.png
   - name: Games
     link: /apps/
-    logo: Games-app.png
+    logo: app-games.png
   - name: Evolution
     link: /apps/
-    logo: Evolution-app.png
+    logo: app-evolution.png
   - name: Image Viewer
     link: /apps/
-    logo: ImageViewer-app.png
+    logo: app-image-viewer.png
   - name: Polari
     link: /apps/
-    logo: Polari-app.png
+    logo: app-polari.png
   - name: Social
     link: /apps/
-    logo: Social-app.png
+    logo: app-social.png
   - name: Key Sign
     link: /apps/
-    logo: Keysign-app.png
+    logo: app-key-sign.png
   - name: Maps
     link: /apps/
-    logo: Maps-app.png
+    logo: app-maps.png
   - name: Transmission
     link: /apps/
-    logo: Transmission-app.png
+    logo: app-transmission.png
   - name: Password Safe
     link: /apps/
-    logo: PasswordSafe-app.png
+    logo: app-password-safe.png
   - name: Terminal
     link: /apps/
-    logo: Terminal-app.png
+    logo: app-terminal.png
