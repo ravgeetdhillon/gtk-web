@@ -1,4 +1,7 @@
-{%- include header.html -%}
+<!-- this is the layout file for the documentation pages -->
+<!-- any changes made to this file will affect all the documentation pages -->
+
+{% include header.html %}
 
 <section class="pb-4" id="{{ page.name }}">
   <div class="container-fluid">
@@ -63,4 +66,4 @@
     $('[data-toggle="tooltip"]').tooltip();
   });
 </script>
-{%- include footer.html -%}
+{% include footer.html %}

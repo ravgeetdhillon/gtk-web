@@ -13,7 +13,7 @@ site_repo: https://gitlab.gnome.org/ravgeetdhillon/gtk-web/
 tutorial_video_link: https://www.youtube.com/embed/bNA-Q8fQqTc
 
 #gtk websites logo name
-logo: gtk-logo.ico
+website_logo: gtk-logo.ico
 
 # read out the CONTRIBUTING.md to know how to add documentation pages to the website
 
