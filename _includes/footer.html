@@ -1,64 +1,49 @@
 <footer class="container-fluid bg-dark navbar-dark text-info py-4 small">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-sm-5 col-md-4 py-3 py-sm-2">
-                <a href="https://www.gnome.org/"><img src="{{ '/assets/img/GnomeLogoHorizontal.svg' | prepend: site.url }}" class="img-fluid pb-2" width="100" /></a>
-                <p>GTK is hosted by GNOME.</p>
-                <p>GTK is maintained by the core team of <strong><a href="/community#contributors" class="text-muted">contributors</a></strong> under GNOME.</p>
-                {% assign date_arr = site.time | date_to_string | split: ' ' %}
-                {% assign year = date_arr[2] %}
-                <p>&copy; 2007-{{ year }}, The GTK Project. All Rights Reserved.</p>
-            </div>
-            <div class="col-12 col-sm-7 col-md-5 py-3 py-sm-2">
-                <div class="d-flex">
-                    {% assign menu_links = site.data.navigation.menu_links %}
-                    <div class="col pl-0">
-                        <h6 class="text-muted">{{ 'Project' | upcase }}</h6>
-                        <ul class="list-unstyled text-small">
-                            {% for link in menu_links %}
-                                {% if link.footer and link.section == "Project" %}
-                                <li><a href="{{ link.href }}" class="text-info">{{ link.name }}</a></li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <div class="col pl-0">
-                        <h6 class="text-muted">{{ 'Support' | upcase }}</h6>
-                        <ul class="list-unstyled text-small">
-                            {% for link in menu_links %}
-                                {% if link.footer and link.section == "Support" %}
-                                <li><a href="{{link.href}}" class="text-info">{{ link.name }}</a></li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <div class="col pl-0">
-                        <h6 class="text-muted">{{ 'Company' | upcase }}</h6>
-                        <ul class="list-unstyled text-small">
-                            {% for link in menu_links %}
-                                {% if link.footer and link.section == "Company" %}
-                                <li><a href="{{link.href}}" class="text-info">{{link.name}}</a></li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-3 py-3 py-sm-2">
-                <h5>About the Site</h5>
-                <ul class="list-unstyled text-small">
-                    <li>Powered by <strong><a href="https://jekyllrb.com/" class="text-muted">Jekyll</a></strong>.</li>
-                    <li>Hosted on <strong><a href="{{ site.repo }}" class="text-muted">Gitlab</a></strong>.</li>
-                </ul>
-                <ul class="list-unstyled list-inline text-small">
-                {% assign social_links = site.data.navigation.social_links %}
-                {% for link in social_links %}
-                    <li class="list-inline-item"><a href="{{ link.href }}" class="text-muted text-primary"><i class="{{ link.icon }}"></i></a></li>
-                {% endfor %}
-                </ul>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-5 col-md-4 py-3 py-sm-2">
+        <a href="https://www.gnome.org/"><img src="{{ '/assets/img/GnomeLogoHorizontal.svg' | prepend: site.url }}"
+            class="img-fluid pb-2" width="100" /></a>
+        <p>GTK is hosted by GNOME.</p>
+        <p>GTK is maintained by the core team of <strong><a href="/community#contributors" class="text-muted">contributors</a></strong>
+          under GNOME.</p>
+        {% assign date_arr = site.time | date_to_string | split: ' ' %}
+        {% assign year = date_arr[2] %}
+        <p>&copy; 2007-{{ year }}, The GTK Project. All Rights Reserved.</p>
+      </div>
+      <div class="col-12 col-sm-7 col-md-5 py-3 py-sm-2">
+        <div class="d-flex">
+          {% assign menu_links = site.data.navigation.menu_links %}
+          {% for section in site.data.navigation.menu_links_sections %}
+          <div class="col pl-0">
+            <h6 class="text-muted">{{ section.title | upcase }}</h6>
+            {% assign menu_links = site.data.navigation.menu_links | where: "section", section.title %}
+            <ul class="list-unstyled text-small">
+              {% for link in menu_links %}
+                {% if link.footer %}
+                  <li><a href="{{ link.href }}" class="text-info">{{ link.name }}</a></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
         </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-3 py-3 py-sm-2">
+        <h5>About the Site</h5>
+        <ul class="list-unstyled text-small">
+          <li>Powered by <strong><a href="https://jekyllrb.com/" class="text-muted">Jekyll</a></strong>.</li>
+          <li>Hosted on <strong><a href="{{ site.repo }}" class="text-muted">Gitlab</a></strong>.</li>
+        </ul>
+        <ul class="list-unstyled list-inline text-small">
+          {% assign social_links = site.data.navigation.social_links %}
+          {% for link in social_links %}
+          <li class="list-inline-item"><a href="{{ link.href }}" class="text-muted text-primary"><i class="{{ link.icon }}"></i></a></li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
+  </div>
 </footer>
 
 </body>
