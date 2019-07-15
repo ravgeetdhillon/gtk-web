@@ -1,47 +1,34 @@
-# Contributor Covenant Code of Conduct
+# GNOME Code Of Conduct
 
-## Our Pledge
+### Summary
 
-In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
+GNOME creates software for a better world. We achieve this by behaving well towards each other.
 
-## Our Standards
+Therefore this document suggests what we consider ideal behaviour, so you know what to expect when getting involved in GNOME. This is who we are and what we want to be. There is no official enforcement of these principles, and this should not be interpreted like a legal document.
 
-Examples of behavior that contributes to creating a positive environment include:
+### Advice
 
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
-* Showing empathy towards other community members
+* Be respectful and considerate:
+  * Disagreement is no excuse for poor behaviour or personal attacks. Remember that a community where people feel uncomfortable is not a productive one.
+* Be patient and generous:
+  * If someone asks for help it is because they need it. Do politely suggest specific documentation or more appropriate venues where appropriate, but avoid aggressive or vague responses such as "RTFM".
+* Assume people mean well:
+  * Remember that decisions are often a difficult choice between competing priorities. If you disagree, please do so politely.
+  * If something seems outrageous, check that you did not misinterpret it. Ask for clarification, but do not assume the worst.
+* Try to be concise:
+  * Avoid repeating what has been said already. Making a conversation larger makes it difficult to follow, and people often feel personally attacked if they receive multiple messages telling them the same thing.
 
-Examples of unacceptable behavior by participants include:
+### Applies to
 
-* The use of sexualized language or imagery and unwelcome sexual attention or advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic address, without explicit permission
-* Other conduct which could reasonably be considered inappropriate in a professional setting
+* [GNOME Bugzilla](http://bugzilla.gnome.org/)
+* [GNOME mailing lists](http://mail.gnome.org/)
+* [Individuals](https://wiki.gnome.org/Foundation/CodeOfConduct/Signatures) who have signed our list.
 
-## Our Responsibilities
+### Code of Conduct Committee
 
-Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
+The [Code of Conduct Committee][code-of-conduct-committee] is appointed by the GNOME Foundation Board of Directors.
 
-Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
+The [committee's page][code-of-conduct-committee] has links to the Codes of Conduct for conferences, events, our photography policy, and the incident response guidelines for organizers.
 
-## Scope
-
-This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.
-
-## Enforcement
-
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at [team@gnome.org][report-email]. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.
-
-Project maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.
-
-## Attribution
-
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4, available at [http://contributor-covenant.org/version/1/4][version]
-
-[homepage]: http://contributor-covenant.org
-[version]: http://contributor-covenant.org/version/1/4/
-[report-email] :mailto:team@gnome.org
+<!-- markdown variables -->
+[code-of-conduct-committee]: https://wiki.gnome.org/CodeOfConductCommittee
