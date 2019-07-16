@@ -19,7 +19,7 @@ website_logo: gtk-logo.ico
 
 # to add sections to the sidebar on the documentation pages of the website, add a section with the following attributes:
 #   title: the display text for the section
-#   name: the name of the file
+#   name: the name of the `.md` file in '/collection/_docs', to which the link should point
 sidebar_sections:
   - title: Getting Started
     name: getting-started
@@ -36,7 +36,7 @@ sidebar_sections:
 
 # to add links to the sidebar on the documentation pages of the website, add a link with the following attributes:
 #   title: the display text for the section
-#   name: the name of the `.md` file, to which the link should point
+#   name: the name of the `.md` file in '/collection/_docs', to which the link should point
 #   section: the name of the section the link belongs to
 sidebar_links:
   - title: Mono Develop

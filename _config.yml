@@ -10,8 +10,6 @@ kramdown:
 highlighter: rouge
 # plugins:
 #   - jekyll-feed
-# sass:
-#   sass_dir: _sass
 # include:
 #   - .htaccess
 exclude: 
@@ -26,9 +24,7 @@ exclude:
   - CONTRIBUTING.md
   - CODE_OF_CONDUCT.md
   - LICENSE.txt
-
-# for dev only
-# keep_files: [assets]
+  - structurize.sh
 
 collections_dir: collections
 

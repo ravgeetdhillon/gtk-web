@@ -1,3 +1,9 @@
+---
+permalink: /contributing
+layout: documentation
+output: true
+---
+
 # Contributing to GTK.org
 
 GTK.org welcomes everyone to contribute to the GTK.org. We really appreciate the efforts of people who help us in keeping the website updated. GTK.org is visted everyday by large number of developers and end users, so your contribution make a huge impact on the community.
@@ -21,6 +27,35 @@ GTK.org is an open source project and we love to receive contributions from our 
 * New Content
 * Blog Posts
 * Usecase Studies
+* Adding/Updating/Removing Dependencies
+
+#### Adding Documentation pages
+
+> Documentation pages are those which are listed under the `/docs/*` URL pattern.
+
+#### Adding/Updating/Removing Dependencies
+**Adding Dependency**
+To add a new dependency, run the following command:
+```
+$ npm install <package-name> --save
+```
+
+**Updating Dependency**
+To add update a particular dependency, run the following command:
+```
+$ npm update <package-name> --save
+```
+
+To add update all the dependencies, run the following command:
+```
+$ npm update --save
+```
+
+**Removing Dependency**
+To remove a new dependency, run the following command:
+```
+npm uninstall <package-name> --save
+```
 
 ### How to submit a contribution
 
@@ -46,7 +81,7 @@ If you find yourself wishing for a something that doesn't exist in GTK.org, you 
 > Actual behaviour. Tell us what should happens instead
 
 # Community
-You can chat with the core team on IRC. The core is available to discuss about the things that can make the website better.
+You can chat with the core team on IRC. The core team is available to discuss about the things that can make the website better.
 
-
+<!-- markdown variables -->
 [code-of-conduct]: CODE_OF_CONDUCT.MD

@@ -107,6 +107,18 @@ popper.js | `1.15.0` | [package.json][package.json] | [Github](https://github.co
 slick-carousel | `1.8.1` | [package.json][package.json] | [Github](https://github.com/kenwheeler/slick)
 jekyll | `3.8.5` | [Gemfile][Gemfile] | [Github](https://github.com/jekyll/jekyll/)
 
+Read about adding/updating/removing dependencies on [how to contribute](CONTRIBUTING.MD#addingupdatingremoving-dependencies).
+
+## Pipeline
+
+> Currently the pipeline hasn't been optimized because the website reworking is still going on.
+
+The pipeline used by the website is the top-level component of continuous integration, delivery, and deployment.
+
+The pipeline defined by the GTK.org uses the `Ruby2.5` image. There are different jobs that are happening across a pipeline in different stages. The jobs define what to run and stages define when and how to run. If a pipeline completes successfully without any error, then the final site is built into the `public` directory and is available for download as an artifact.
+
+If you think that there can be a better pipeline than the existing one, send us a merge request for the same.
+
 ## Maintainers
 
 You can reach out to the following individuals if you have any doubt or suggestion regarding the GTK.org:
