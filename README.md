@@ -27,6 +27,7 @@ The data used by the site is stored in the form of following files:
     ├── _layouts                            #contains layout designs for site's pages
     │   └── documentation.html              #layout design for pages that belong to GTK documentation
     ├── _posts
+    ├── .gitlab
     ├── assets                              #contains site's valuable entities
     │   ├── css                             #contains site's stylesheets
     │   │   ├── colorful.css                #stylesheet for syntax highlighting
@@ -36,23 +37,26 @@ The data used by the site is stored in the form of following files:
     │   │   └── theme.css.map
     │   ├──img                              #contains site's images and illustrations
     │   ├── js                              #contains site's javascripts
-    │   ├── scss                            #contains site's preprocessor stylesheets
-    │   │   └── theme.scss
+    │   └── scss                            #contains site's preprocessor stylesheets
+    │       └── theme.scss
     ├── collections
     │   └── _docs
     ├── _config.yml                         #contains Jekyll settings for the site
     ├── .gitignore
     ├── .gitlab-ci.yml                      #for Gitlab Continuous Integration and Deployment
     ├── 404.html
+    ├── CODE_OF_CONDUCT.md
     ├── CONTRIBUTING.md
     ├── docs.html
     ├── features.html
     ├── Gemfile                             #contains gem dependencies for the site.
     ├── Gemfile.lock
     ├── index.html
+    ├── LICENSE.txt
     ├── package-lock.json
     ├── package.json                        #contains node dependencies for the site.
-    └── README.md
+    ├── README.md
+    └── structurize.sh                      #script to restructure the website after the dependencies are installed
 
 ## Contributing
 
@@ -60,14 +64,35 @@ We always welcome people who want to contribute towards our project. For suitabl
 
 ## Develop the website locally
 
-If you want to get the site up and running locally, here's the TLDR:
+To get the site up and running locally, follow the below steps:
 
+1. Install a full [Ruby development environment](https://jekyllrb.com/docs/installation/).
+2. Install Jekyll and [bundler](https://jekyllrb.com/docs/ruby-101/#bundler) [gems](https://jekyllrb.com/docs/ruby-101/#gems).
 ```
-git clone https://gitlab.gnome.org/ravgeetdhillon/gtk-web.git
-cd gtk-web
-npm install
-bundle install
+$ gem install jekyll bundler
 ```
+3. Create a local clone of the website:
+```
+$ git clone https://gitlab.gnome.org/ravgeetdhillon/gtk-web.git
+```
+4. Change into the gtk-web directory
+```
+$ cd gtk-web
+```
+5. Install the NPM and Gem dependencies by running the following commands:
+```
+$ npm install
+$ bundle install
+```
+6. Perform the following commands to structure the website properly:
+```
+$ structurize.sh --trace
+```
+7. Build the site and make it available on a local server
+```
+$ bundle exec jekyll serve
+```
+8. Browse to [http://localhost:4000](http://localhost:4000) to view the website.
 
 ## Dependencies
 
