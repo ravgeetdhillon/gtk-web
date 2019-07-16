@@ -73,26 +73,26 @@ bundle install
 
 GTK.org relies on the dependencies as well. These dependencies are provided in the Ruby `Gemfile` or NPM's `package.json`. Following table shows the list of dependencies used by this project:
 
-Package | Version | File
---- | --- | ---
-bootstrap | `4.3.1` | [package.json][package.json]
-@fortawesome/fontawesome-free | `5.8.2` | [package.json][package.json]
-jquery | `3.4.1` | [package.json][package.json]
-popper.js | `1.15.0` | [package.json][package.json]
-slick-carousel | `1.8.1` | [package.json][package.json]
-jekyll | `3.8.5` | [Gemfile][Gemfile]
+Package | Version | File | Source
+--- | --- | --- | ---
+bootstrap | `4.3.1` | [package.json][package.json] | [Github](https://github.com/twbs/bootstrap)
+@fortawesome/fontawesome-free | `5.9.0` | [package.json][package.json] | [Github](https://github.com/FortAwesome/Font-Awesome)
+jquery | `3.4.1` | [package.json][package.json] | [Github](https://github.com/jquery/jquery)
+popper.js | `1.15.0` | [package.json][package.json] | [Github](https://github.com/FezVrasta/popper.js)
+slick-carousel | `1.8.1` | [package.json][package.json] | [Github](https://github.com/kenwheeler/slick)
+jekyll | `3.8.5` | [Gemfile][Gemfile] | [Github](https://github.com/jekyll/jekyll/)
 
 ## Maintainers
 
 You can reach out to the following individuals if you have any doubt or suggestion regarding the GTK.org:
 
 **Ravgeet Dhillon**
-* You can contanct me via my [email](mailto:ravgeetdhillon@gmail.com).
+* You can contanct Ravgeet via my [email](mailto:ravgeetdhillon@gmail.com).
 * You can also find me on IRC. I am `ravgeetdhillon` on `irc.gnome.org` in the `#gtk` or
   `#gnome-hackers` channels.
 
 **Emmanuele Bassi**
-* You can contact me via my [email](mailto:ebassi@gnome.org).
+* You can contact me Emmanuele my [email](mailto:ebassi@gnome.org).
 
 ## Code of Conduct
 
