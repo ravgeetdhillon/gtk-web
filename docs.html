@@ -6,142 +6,153 @@ navbar_dark: true
 {%- include header.html -%}
 
 <section class="py-4 d-flex flex-column align-items-center bg-dark text-white" id="landing">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5 d-flex justify-content-end flex-column main-heading">
-                <h1 class="display-4 pb-3">GTK Docs</h1>
-                <span class="lead text-info">Find out all the things you need to work with GTK as a Developer.</span>
-            </div>
-            <div class="col-md-7 d-none d-md-flex justify-content-center align-items-center flex-column">
-                <img src="{{ '/assets/img/docs.svg' | prepend: site.url }}" class="img-fluid w-75" />
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 d-flex justify-content-end flex-column main-heading">
+        <h1 class="display-4 pb-3">GTK Docs</h1>
+        <span class="lead text-info">Find out all the things you need to work with GTK as a Developer.</span>
+      </div>
+      <div class="col-md-7 d-none d-md-flex justify-content-center align-items-center flex-column">
+        <img src="{{ '/assets/img/wall-docs.svg' | prepend: site.url }}" class="img-fluid w-75" />
+      </div>
     </div>
+  </div>
 </section>
 
-<section class="py-4" id="topics">
-	<div class="container"> 
-		<div class="row text-center d-flex justify-content-center">
-			<div class="col-md-10 col-lg-7">
-				<h2 class="font-weight-light mb-3">Browse Topics</h2>
-				<span class="text-muted">Get set with the topic of your choice and explore the documentation.</span>
-			</div>
-		</div>
-		<div class="row d-flex justify-content-center pt-5">
-			<div class="col-md-4 pb-5">
-				<div class="col h-100 py-5 text-center d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary" style="border-width:2px!important;">
-					<i class="fas fa-cogs fa-fw fa-3x pb-4 text-primary"></i>
-					<h5>Getting Started</h5>
-					<span class="text-muted small">Get started now by building a Hello World app and playing around it.</span>
-					<a href="./getting-started" class="stretched-link"></a>
-				</div>
-			</div>
-			<div class="col-md-4 pb-5">
-				<div class="col h-100 py-5 text-center d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary" style="border-width:2px!important;">
-					<i class="fas fa-tools fa-fw fa-3x pb-4 text-primary"></i>
-					<h5>Dev Tools</h5>
-					<span class="text-muted small">Learn how to setup your development environment with GTK recommended tools.</span>
-					<a href="/" class="stretched-link"></a>
-				</div>
-			</div>
-			<div class="col-md-4 pb-5">
-				<div class="col h-100 py-5 text-center d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary" style="border-width:2px!important;">
-					<i class="fas fa-random fa-fw fa-3x pb-4 text-primary"></i>
-					<h5>Language Bindings</h5>
-					<span class="text-muted small">Learn to integrate your favorite programming language with GTK through bindings.</span>
-					<a href="/" class="stretched-link"></a>
-				</div>
-			</div>
-			<div class="col-md-4 pb-5">
-				<div class="col h-100 py-5 text-center d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary" style="border-width:2px!important;">
-					<i class="fas fa-box-open fa-fw fa-3x pb-4 text-primary"></i>
-					<h5>API References</h5>
-					<span class="text-muted small">Dig deep into the API references for GTK3 and GTK4.</span>
-					<a href="/" class="stretched-link"></a>
-				</div>
-			</div>
-			<div class="col-md-4 pb-5">
-				<div class="col h-100 py-5 text-center d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary" style="border-width:2px!important;">
-					<i class="fas fa-vector-square fa-fw fa-3x pb-4 text-primary"></i>
-					<h5>Architecture</h5>
-					<span class="text-muted small">Learn about the sub modules the GTK has been built upon.</span>
-					<a href="/" class="stretched-link"></a>
-				</div>
-			</div>
-			<div class="col-md-4 pb-5">
-				<div class="col h-100 py-5 text-center d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary" style="border-width:2px!important;">
-					<i class="fas fa-tools fa-fw fa-3x pb-4 text-primary"></i>
-					<h5>Installations</h5>
-					<span class="text-muted small">Figure out how to install GTK on different platforms.</span>
-					<a href="/" class="stretched-link"></a>
-				</div>
-			</div>
-		</div>
-	</div>
+<section class="py-4 bg-light" id="topics">
+  <div class="container">
+    <div class="row text-center d-flex justify-content-center">
+      <div class="col-md-10 col-lg-7">
+        <h2 class="font-weight-light mb-3">Browse Topics</h2>
+        <span class="text-muted">Get set with the topic of your choice and explore the documentation.</span>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center pt-5">
+      <div class="col-md-4 pb-5">
+        <div class="col h-100 py-5 text-center bg-white d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary"
+          style="border-width:2px!important;">
+          <i class="fas fa-cogs fa-fw fa-3x pb-4 text-primary"></i>
+          <h5>Getting Started</h5>
+          <span class="text-muted small">Get started now by building a Hello World app and playing around it.</span>
+          <a href="./getting-started" class="stretched-link"></a>
+        </div>
+      </div>
+      <div class="col-md-4 pb-5">
+        <div class="col h-100 py-5 text-center bg-white d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary"
+          style="border-width:2px!important;">
+          <i class="fas fa-tools fa-fw fa-3x pb-4 text-primary"></i>
+          <h5>Dev Tools</h5>
+          <span class="text-muted small">Learn how to setup your development environment with GTK recommended tools.</span>
+          <a href="/" class="stretched-link"></a>
+        </div>
+      </div>
+      <div class="col-md-4 pb-5">
+        <div class="col h-100 py-5 text-center bg-white d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary"
+          style="border-width:2px!important;">
+          <i class="fas fa-random fa-fw fa-3x pb-4 text-primary"></i>
+          <h5>Language Bindings</h5>
+          <span class="text-muted small">Learn to integrate your favorite programming language with GTK through
+            bindings.</span>
+          <a href="/" class="stretched-link"></a>
+        </div>
+      </div>
+      <div class="col-md-4 pb-5">
+        <div class="col h-100 py-5 text-center bg-white d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary"
+          style="border-width:2px!important;">
+          <i class="fas fa-box-open fa-fw fa-3x pb-4 text-primary"></i>
+          <h5>API References</h5>
+          <span class="text-muted small">Dig deep into the API references for GTK3 and GTK4.</span>
+          <a href="/" class="stretched-link"></a>
+        </div>
+      </div>
+      <div class="col-md-4 pb-5">
+        <div class="col h-100 py-5 text-center bg-white d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary"
+          style="border-width:2px!important;">
+          <i class="fas fa-vector-square fa-fw fa-3x pb-4 text-primary"></i>
+          <h5>Architecture</h5>
+          <span class="text-muted small">Learn about the sub modules the GTK has been built upon.</span>
+          <a href="/" class="stretched-link"></a>
+        </div>
+      </div>
+      <div class="col-md-4 pb-5">
+        <div class="col h-100 py-5 text-center bg-white d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary"
+          style="border-width:2px!important;">
+          <i class="fas fa-tools fa-fw fa-3x pb-4 text-primary"></i>
+          <h5>Installations</h5>
+          <span class="text-muted small">Figure out how to install GTK on different platforms.</span>
+          <a href="/" class="stretched-link"></a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="py-4" id="articles">
-	<div class="container"> 
-		<div class="row text-center d-flex justify-content-center">
-			<div class="col-md-10 col-lg-7">
-				<h2 class="font-weight-light mb-3">Popular Articles</h2>
-				<span class="text-muted">Selected featured articles for you to get started fast with GTK.</span>
-			</div>
-		</div>
-		<div class="row d-flex justify-content-center pt-5">
-			<div class="col-md-8 pb-5">
-				<div class="list-group">
-					<a href="#" class="d-flex py-3 px-3 text-decoration-none text-dark border rounded shadow-sm-hover bg-light-hover justify-content-between align-items-center mb-2">Frequently asked question sections<i class="fas fa-chevron-circle-right text-info"></i></a>
-					<a href="#" class="d-flex py-3 px-3 text-decoration-none text-dark border rounded shadow-sm-hover bg-light-hover justify-content-between align-items-center mb-2">Creating your first application<i class="fas fa-chevron-circle-right text-info"></i></a>
-					<a href="#" class="d-flex py-3 px-3 text-decoration-none text-dark border rounded shadow-sm-hover bg-light-hover justify-content-between align-items-center mb-2">Your first contribution to GTK<i class="fas fa-chevron-circle-right text-info"></i></a>
-					<a href="#" class="d-flex py-3 px-3 text-decoration-none text-dark border rounded shadow-sm-hover bg-light-hover justify-content-between align-items-center mb-2">Learn about GTK's best practices<i class="fas fa-chevron-circle-right text-info"></i></a>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="row text-center d-flex justify-content-center">
+      <div class="col-md-10 col-lg-7">
+        <h2 class="font-weight-light mb-3">Popular Articles</h2>
+        <span class="text-muted">Selected featured articles for you to get started fast with GTK.</span>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center pt-5">
+      <div class="col-md-8 pb-5">
+        <div class="list-group">
+          <a href="#" class="d-flex py-3 px-3 text-decoration-none text-dark border rounded shadow-sm-hover bg-light-hover justify-content-between align-items-center mb-2">Frequently
+            asked question sections<i class="fas fa-chevron-circle-right text-info"></i></a>
+          <a href="#" class="d-flex py-3 px-3 text-decoration-none text-dark border rounded shadow-sm-hover bg-light-hover justify-content-between align-items-center mb-2">Creating
+            your first application<i class="fas fa-chevron-circle-right text-info"></i></a>
+          <a href="#" class="d-flex py-3 px-3 text-decoration-none text-dark border rounded shadow-sm-hover bg-light-hover justify-content-between align-items-center mb-2">Your
+            first contribution to GTK<i class="fas fa-chevron-circle-right text-info"></i></a>
+          <a href="#" class="d-flex py-3 px-3 text-decoration-none text-dark border rounded shadow-sm-hover bg-light-hover justify-content-between align-items-center mb-2">Learn
+            about GTK's best practices<i class="fas fa-chevron-circle-right text-info"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="py-4" id="team">
-	<div class="container"> 
-		<div class="row text-center d-flex justify-content-center">
-			<div class="col-md-10 col-lg-7">
-				<h2 class="font-weight-light mb-3">We are here to help</h2>
-				<span class="text-muted">Catch up with our core team to get answers for your questions.</span>
-			</div>
-		</div>
-		<div class="row d-flex justify-content-center py-5 mx-auto">
-			<div class="col d-flex flex-column align-items-center text-center">
-				<img src="{{ '/assets/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;">
-				<span class="small"><strong>Emmanuele Bassi</strong></span>
-				<span class="small text-muted">Endless Mobile</span>
-			</div>
-			<div class="col d-flex flex-column align-items-center text-center">
-				<img src="{{ '/assets/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;">
-				<span class="small"><strong>Matthias Clasen</strong></span>
-				<span class="small text-muted">Red Hat</span>
-			</div>
-			<div class="col d-flex flex-column align-items-center text-center">
-				<img src="{{ '/assets/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;">
-				<span class="small"><strong>Behdad Esfahbod</strong></span>
-				<span class="small text-muted">Google</span>
-			</div>
-			<div class="col d-flex flex-column align-items-center text-center">
-				<img src="{{ '/assets/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;">
-				<span class="small"><strong>Emmanuele Bassi</strong></span>
-				<span class="small text-muted">Endless Mobile</span>
-			</div>
-			<div class="col d-flex flex-column align-items-center text-center">
-				<img src="{{ '/assets/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;">
-				<span class="small"><strong>Matthias Clasen</strong></span>
-				<span class="small text-muted">Red Hat</span>
-			</div>
-			<div class="col d-flex flex-column align-items-center text-center">
-				<img src="{{ '/assets/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;">
-				<span class="small"><strong>Behdad Esfahbod</strong></span>
-				<span class="small text-muted">Google</span>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="row text-center d-flex justify-content-center">
+      <div class="col-md-10 col-lg-7">
+        <h2 class="font-weight-light mb-3">We are here to help</h2>
+        <span class="text-muted">Catch up with our core team to get answers for your questions.</span>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center py-5 mx-auto">
+      <div class="col d-flex flex-column align-items-center text-center">
+        <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;">
+        <span class="small"><strong>Emmanuele Bassi</strong></span>
+        <span class="small text-muted">Endless Mobile</span>
+      </div>
+      <div class="col d-flex flex-column align-items-center text-center">
+        <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;">
+        <span class="small"><strong>Matthias Clasen</strong></span>
+        <span class="small text-muted">Red Hat</span>
+      </div>
+      <div class="col d-flex flex-column align-items-center text-center">
+        <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;">
+        <span class="small"><strong>Behdad Esfahbod</strong></span>
+        <span class="small text-muted">Google</span>
+      </div>
+      <div class="col d-flex flex-column align-items-center text-center">
+        <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;">
+        <span class="small"><strong>Emmanuele Bassi</strong></span>
+        <span class="small text-muted">Endless Mobile</span>
+      </div>
+      <div class="col d-flex flex-column align-items-center text-center">
+        <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;">
+        <span class="small"><strong>Matthias Clasen</strong></span>
+        <span class="small text-muted">Red Hat</span>
+      </div>
+      <div class="col d-flex flex-column align-items-center text-center">
+        <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;">
+        <span class="small"><strong>Behdad Esfahbod</strong></span>
+        <span class="small text-muted">Google</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <script>

@@ -1,17 +1,35 @@
+# general options
+
+# name of the website
 name: The GTK Project
+
+# title of the website
 title: The GTK Project | A free and open-source cross-platform widget toolkit
+
+# short description of the website
 description: GTK is a highly usable, feature rich toolkit for creating graphical user interfaces which boasts cross platform compatibility and an easy to use API. GTK is licensed under the GNU LGPL 2.1 allowing development of both free and proprietary software with GTK without any license fees or royalties.
+
+# jekyll configuration options
+
 baseurl: ''
-url: 'https://ravgeetdhillon.pages.gitlab.gnome.org/gtk-web/'
+url: https://ravgeetdhillon.pages.gitlab.gnome.org/gtk-web/
+encoding: utf-8
+
+# markdown converter
 markdown: kramdown
 kramdown: 
   parse_block_html: true
-  input: GFM
+  input: GFM    # github flavored markdown
+  auto_ids: true
+
+# code highlighter used by the website
 highlighter: rouge
+
+# plugins used by the website
 # plugins:
 #   - jekyll-feed
-# include:
-#   - .htaccess
+
+# exclude these files from production site
 exclude: 
   - documents/
   - node_modules/
@@ -26,6 +44,7 @@ exclude:
   - LICENSE.txt
   - structurize.sh
 
+# folder which contains all the collections
 collections_dir: collections
 
 collections:
@@ -38,3 +57,14 @@ defaults:
     values:
       layout: documentation
       navbar_dark: true
+
+# website statistics
+
+# Fill in your Google Analytics gtag.js ID to track your website using gtag
+gtag: ""
+
+# Fill in your Google Analytics ID to track your website using GA
+google_analytics: ""
+
+# Google Tag Manager ID
+gtm: ""
