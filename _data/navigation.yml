@@ -117,3 +117,68 @@ social_links:
     href: https://gitlab.gnome.org/GNOME/gtk/
   - icon: fab fa-discourse
     href: https://discourse.gnome.org/c/platform/core/
+
+# read out the CONTRIBUTING.md to know how to add documentation pages to the website
+
+# to add sections to the sidebar on the documentation pages of the website, add a section with the following attributes:
+#   title: the display text for the section
+#   name: the name of the `.md` file in '/collection/_docs', to which the link should point
+sidebar_sections:
+  - title: Getting Started
+    name: getting-started
+  - title: Installations
+    name: installations
+  - title: Language Bindings
+    name: language-bindings
+  - title: Dev Tools
+    name: dev-tools
+  - title: API References
+    name: apis
+  - title: Architecture
+    name: architecture
+
+# to add links to the sidebar on the documentation pages of the website, add a link with the following attributes:
+#   title: the display text for the section
+#   name: the name of the `.md` file in '/collection/_docs', to which the link should point
+#   section: the name of the section the link belongs to
+sidebar_links:
+  - title: Mono Develop
+    name: mono-develop
+    section: Dev Tools
+  - title: GNOME Builder
+    name: gnome-builder
+    section: Dev Tools
+  - title: Eclipse
+    name: eclipse
+    section: Dev Tools
+  - title: Linux
+    name: linux
+    section: Installations
+  - title: Windows
+    name: windows
+    section: Installations
+  - title: MacOS
+    name: macos
+    section: Installations
+  - title: GTK3
+    name: gtk3
+    section: API References
+    href: https://developer.gnome.org/gtk3/
+  - title: GTK4
+    name: gtk4
+    section: API References
+  - title: GLib, GObject, GIO
+    name: glib
+    section: Architecture
+  - title: GdkPixbuf
+    name: gdkpixbuf
+    section: Architecture
+  - title: Pango
+    name: pango
+    section: Architecture
+  - title: GDK
+    name: gtk
+    section: Architecture
+  - title: Cairo
+    name: cairo
+    section: architecture
