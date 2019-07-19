@@ -12,7 +12,7 @@ description: GTK is a highly usable, feature rich toolkit for creating graphical
 # jekyll configuration options
 
 baseurl: ''
-url: https://ravgeetdhillon.pages.gitlab.gnome.org/gtk-web/
+url: https://ravgeetdhillon.pages.gitlab.gnome.org/gtk-web
 encoding: utf-8
 
 # markdown converter
