@@ -1,4 +1,4 @@
 ---
-permalink: /docs/:name
+permalink: /docs/:name/
 ---
 tools

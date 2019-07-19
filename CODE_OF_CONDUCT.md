@@ -22,7 +22,7 @@ Therefore this document suggests what we consider ideal behaviour, so you know w
 
 * [GNOME Bugzilla](http://bugzilla.gnome.org/)
 * [GNOME mailing lists](http://mail.gnome.org/)
-* [Individuals](https://wiki.gnome.org/Foundation/CodeOfConduct/Signatures) who have signed our list.
+* [Individuals](https://wiki.gnome.org/Foundation/CodeOfConduct/Signatures/) who have signed our list.
 
 ### Code of Conduct Committee
 
@@ -31,4 +31,4 @@ The [Code of Conduct Committee][code-of-conduct-committee] is appointed by the G
 The [committee's page][code-of-conduct-committee] has links to the Codes of Conduct for conferences, events, our photography policy, and the incident response guidelines for organizers.
 
 <!-- markdown variables -->
-[code-of-conduct-committee]: https://wiki.gnome.org/CodeOfConductCommittee
+[code-of-conduct-committee]: https://wiki.gnome.org/CodeOfConductCommittee/

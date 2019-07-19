@@ -60,7 +60,7 @@ menu_links:
     footer: true
     section: Project
   - name: FAQs
-    href: https://developer.gnome.org/gtk3/stable/gtk-question-index.html
+    href: https://developer.gnome.org/gtk3/stable/gtk-question-index.html/
     header: false
     footer: true
     section: Support
@@ -85,7 +85,7 @@ menu_links:
     footer: true
     section: Support
   - name: Code of Conduct
-    href: https://wiki.gnome.org/Foundation/CodeOfConduct
+    href: https://wiki.gnome.org/Foundation/CodeOfConduct/
     header: false
     footer: true
     section: Company
@@ -181,4 +181,4 @@ sidebar_links:
     section: Architecture
   - title: Cairo
     name: cairo
-    section: architecture
+    section: Architecture

@@ -10,14 +10,14 @@
         <div class="text-break pt-4 px-4 border-right h-100">
           <ul class="list-group">
             {% for section in site.data.navigation.sidebar_sections %}
-            <li class="list-group-item border-0 group-header pb-4"><a href="/docs/{{ section.name }}" class="text-dark"><strong>{{ section.title }}</strong></a>
+            <li class="list-group-item border-0 group-header pb-4"><a href="/docs/{{ section.name }}/" class="text-dark"><strong>{{ section.title }}</strong></a>
               {% assign sidebar_links = site.data.navigation.sidebar_links | where: "section", section.title %}
               <ul class="list-group">
                 {% for link in sidebar_links %}
                   {% if link.href %}
                     <li class="list-group-item border-0 p-0 pt-2"><a href="{{ link.href }}" class="text-muted">{{ link.title }}</a></li>
                   {% else %}
-                    <li class="list-group-item border-0 p-0 pt-2"><a href="/docs/{{ section.name }}/{{ link.name }}" class="text-muted">{{ link.title }}</a></li>
+                    <li class="list-group-item border-0 p-0 pt-2"><a href="/docs/{{ section.name }}/{{ link.name }}/" class="text-muted">{{ link.title }}</a></li>
                   {% endif %}
                 {% endfor %}
               </ul>
@@ -52,9 +52,9 @@
         <div class="mr-3 px-3 py-3 border rounded shadow-sm">
           {% assign page_name = page.path | split: '/' %}
           {% assign page_name = page_name.last %}
-          <p class="mb-0">Observed a typo or some missing information, edit this page <a href="https://gitlab.gnome.org/ravgeetdhillon/gtk-web/blob/master/collections/_docs/{{ page_name }}">here</a>.</p>
+          <p class="mb-0">Observed a typo or some missing information, edit this page <a href="https://gitlab.gnome.org/ravgeetdhillon/gtk-web/blob/master/collections/_docs/{{ page_name }}/">here</a>.</p>
           <br>
-          <p class="mb-0">Read on <a href="https://gitlab.gnome.org/ravgeetdhillon/gtk-web/blob/master/CONTRIBUTING.md">how to contribute</a> to this website.</p>
+          <p class="mb-0">Read on <a href="https://gitlab.gnome.org/ravgeetdhillon/gtk-web/blob/master/CONTRIBUTING.md/">how to contribute</a> to this website.</p>
         </div>
       </div>
     </div>

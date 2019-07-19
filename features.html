@@ -5,72 +5,80 @@
 {%- include header.html -%}
 
 <section class="pb-4 d-flex flex-column align-items-center" id="landing">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-5 d-flex justify-content-end flex-column main-heading">
-				<h1 class="display-4 pb-3">Amazing GTK Features</h1>
-				<span class="text-muted lead">GTK is loaded with all the features that a toolkit should have.</span>
-            </div>
-            <div class="col-md-7 d-none d-md-flex justify-content-center flex-column">
-                <img src="{{ '/assets/img/wall-features.svg' | prepend: site.url }}" class="img-fluid" />
-            </div>
-		</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 d-flex justify-content-end flex-column main-heading">
+        <h1 class="display-4 pb-3">Amazing GTK Features</h1>
+        <span class="text-muted lead">GTK is loaded with all the features that a toolkit should have.</span>
+      </div>
+      <div class="col-md-7 d-none d-md-flex justify-content-center flex-column">
+        <img src="{{ '/assets/img/wall-features.svg' | prepend: site.url }}" class="img-fluid" />
+      </div>
     </div>
+  </div>
 </section>
 
 <section class="py-4" id="features-main">
-	<div class="container">
-		<div class="row text-center d-flex justify-content-center">
-            <div class="py-4 col-md-10 col-lg-7 d-flex flex-column align-items-center">
-                <h2 class="text-center font-weight-light mb-3">Cross Platform</h2>
-                <p class="text-muted">Originally GTK was developed for the X Window System but it has grown over the years to include backend support for other well known operating systems. Today you can use GTK on:</p>                   
-                <ul class="list-group list-group-horizontal w-75 mt-2">
-                    <li class="list-group-item col">
-                        <img src="{{ '/assets/img/linux.png' | prepend: site.url }}" class="img-fluid pb-1" style="width:40px;" /><br>
-                        <a href="/downloads/linux" class="stretched-link">Linux</a>
-                    </li>
-                    <li class="list-group-item col">
-                        <img src="{{ '/assets/img/windows.png' | prepend: site.url }}" class="img-fluid pb-1" style="width:40px;" /><br>
-                        <a href="/downloads/windows" class="stretched-link">Windows</a>
-                    </li>
-                    <li class="list-group-item col">
-                        <img src="{{ '/assets/img/apple.png' | prepend: site.url }}" class="img-fluid pb-1" style="width:40px;" /><br>
-                        <a href="/downloads/macos" class="stretched-link">Mac OS X</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="py-4 col-md-10 col-lg-7 d-flex flex-column align-items-center">
-                <h2 class="text-center font-weight-light mb-3">Language Bindings</h2>
-                <p class="text-muted">GTK is available in many other programming languages thanks to the language bindings available. This makes GTK quite an attractive toolkit for application development.</p>
-            </div>
-            <div class="py-4 col-md-10 col-lg-7 d-flex flex-column align-items-center">
-                <h2 class="text-center font-weight-light mb-3">Interfaces</h2>
-                <p class="text-muted">GTK has a comprehensive collection of core widgets and interfaces for use in your application.</p>
-            </div>
-            <div class="py-4 col-md-10 col-lg-7 d-flex flex-column align-items-center">
-                <h2 class="text-center font-weight-light mb-3">Stability</h2>
-                <p class="text-muted">GTK has been developed for over a decade to be able to deliver the enticing features and superb performance that it brings to your application development. GTK is supported by a large community of developers and has core maintainers from companies such as Red Hat, Novell, Lanedo, Codethink, Endless Mobile and Intel.</p>
-            </div>
-            <div class="py-4 col-md-10 col-lg-7 d-flex flex-column align-items-center">
-                <h2 class="text-center font-weight-light mb-3">Foundations</h2>
-                <p class="text-muted">GTK is built on top of GLib. GLib provides the fundamental algorithmic language constructs commonly duplicated in applications. This library has features such as: (this list is not a comprehensive list)
-                    Object and type system
-                    Main loop
-                    Dynamic loading of modules (i.e. plug-ins)
-                    Thread support
-                    Timer support
-                    Memory allocator
-                    Threaded Queues (synchronous and asynchronous)
-                    Lists (singly linked, doubly linked, double ended)
-                    Hash tables
-                    Arrays
-                    Trees (N-ary and binary balanced)
-                    String utilities and charset handling
-                    Lexical scanner and XML parser
-                    Base64 (encoding & decoding)</p>
-            </div>
-        </div>
-	</div>
+  <div class="container">
+    <div class="row text-center d-flex justify-content-center">
+      <div class="py-4 col-md-10 col-lg-7 d-flex flex-column align-items-center">
+        <h2 class="text-center font-weight-light mb-3">Cross Platform</h2>
+        <p class="text-muted">Originally GTK was developed for the X Window System but it has grown over the years to
+          include backend support for other well known operating systems. Today you can use GTK on:</p>
+        <ul class="list-group list-group-horizontal w-75 mt-2">
+          <li class="list-group-item col">
+            <img src="{{ '/assets/img/linux.png' | prepend: site.url }}" class="img-fluid pb-1" style="width:40px;" /><br>
+            <a href="/downloads/linux/" class="stretched-link">Linux</a>
+          </li>
+          <li class="list-group-item col">
+            <img src="{{ '/assets/img/windows.png' | prepend: site.url }}" class="img-fluid pb-1" style="width:40px;" /><br>
+            <a href="/downloads/windows/" class="stretched-link">Windows</a>
+          </li>
+          <li class="list-group-item col">
+            <img src="{{ '/assets/img/apple.png' | prepend: site.url }}" class="img-fluid pb-1" style="width:40px;" /><br>
+            <a href="/downloads/macos/" class="stretched-link">Mac OS X</a>
+          </li>
+        </ul>
+      </div>
+      <div class="py-4 col-md-10 col-lg-7 d-flex flex-column align-items-center">
+        <h2 class="text-center font-weight-light mb-3">Language Bindings</h2>
+        <p class="text-muted">GTK is available in many other programming languages thanks to the language bindings
+          available. This makes GTK quite an attractive toolkit for application development.</p>
+      </div>
+      <div class="py-4 col-md-10 col-lg-7 d-flex flex-column align-items-center">
+        <h2 class="text-center font-weight-light mb-3">Interfaces</h2>
+        <p class="text-muted">GTK has a comprehensive collection of core widgets and interfaces for use in your
+          application.</p>
+      </div>
+      <div class="py-4 col-md-10 col-lg-7 d-flex flex-column align-items-center">
+        <h2 class="text-center font-weight-light mb-3">Stability</h2>
+        <p class="text-muted">GTK has been developed for over a decade to be able to deliver the enticing features and
+          superb performance that it brings to your application development. GTK is supported by a large community of
+          developers and has core maintainers from companies such as Red Hat, Novell, Lanedo, Codethink, Endless Mobile
+          and Intel.</p>
+      </div>
+      <div class="py-4 col-md-10 col-lg-7 d-flex flex-column align-items-center">
+        <h2 class="text-center font-weight-light mb-3">Foundations</h2>
+        <p class="text-muted">GTK is built on top of GLib. GLib provides the fundamental algorithmic language
+          constructs commonly duplicated in applications. This library has features such as: (this list is not a
+          comprehensive list)
+          Object and type system
+          Main loop
+          Dynamic loading of modules (i.e. plug-ins)
+          Thread support
+          Timer support
+          Memory allocator
+          Threaded Queues (synchronous and asynchronous)
+          Lists (singly linked, doubly linked, double ended)
+          Hash tables
+          Arrays
+          Trees (N-ary and binary balanced)
+          String utilities and charset handling
+          Lexical scanner and XML parser
+          Base64 (encoding & decoding)</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <script>

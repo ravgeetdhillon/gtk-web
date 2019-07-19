@@ -1,5 +1,5 @@
 ---
-permalink: /docs/dev-tools/:name
+permalink: /docs/dev-tools/:name/
 ---
 # GNOME Builder
 
