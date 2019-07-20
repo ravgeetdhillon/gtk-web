@@ -10,15 +10,16 @@
         <div class="text-break pt-4 px-4 border-right h-100">
           <ul class="list-group">
             {% for section in site.data.navigation.sidebar_sections %}
-            <li class="list-group-item border-0 group-header pb-4"><a href="/docs/{{ section.name }}/" class="text-dark"><strong>{{ section.title }}</strong></a>
+            <li class="list-group-item border-0 group-header pb-4"><a href="{{ '/docs/' | prepend: site.url }}{{ section.name }}/" class="text-dark"><strong>{{ section.title }}</strong></a>
               {% assign sidebar_links = site.data.navigation.sidebar_links | where: "section", section.title %}
               <ul class="list-group">
                 {% for link in sidebar_links %}
-                  {% if link.href %}
+                  {% if link.external %}
                     <li class="list-group-item border-0 p-0 pt-2"><a href="{{ link.href }}" class="text-muted">{{ link.title }}</a></li>
                   {% else %}
-                    <li class="list-group-item border-0 p-0 pt-2"><a href="/docs/{{ section.name }}/{{ link.name }}/" class="text-muted">{{ link.title }}</a></li>
+                    <li class="list-group-item border-0 p-0 pt-2"><a href="{{ '/docs/' | prepend: site.url }}{{ section.name }}/{{ link.name }}/" class="text-muted">{{ link.title }}</a></li>
                   {% endif %}
+                  {{ link.permalink }}
                 {% endfor %}
               </ul>
             </li>
@@ -32,11 +33,13 @@
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb small bg-transparent pl-0 m-0">
                 {% assign url = page.url | split: '/' %}
+                {% assign current_path = '' %}
                 {% for part in url %}
+                  {% assign current_path = current_path | append: part | append: '/' %}
                   {% if forloop.last == true %}
                     <li class="breadcrumb-item active" aria-current="page">{{ part }}</li>
                   {% else %}
-                    <li class="breadcrumb-item"><a href="#">{{ part }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ current_path | prepend: site.url }}">{{ part }}</a></li>
                   {% endif %}
                 {% endfor %}
               </ol>
@@ -52,9 +55,9 @@
         <div class="mr-3 px-3 py-3 border rounded shadow-sm">
           {% assign page_name = page.path | split: '/' %}
           {% assign page_name = page_name.last %}
-          <p class="mb-0">Observed a typo or some missing information, edit this page <a href="https://gitlab.gnome.org/ravgeetdhillon/gtk-web/blob/master/collections/_docs/{{ page_name }}/">here</a>.</p>
+          <p class="mb-0">Observed a typo or some missing information, edit this page <a href="{{ site.data.stuff.site_repo | append: 'blob/master/collections/_docs/' }}{{ page_name }}/">here</a>.</p>
           <br>
-          <p class="mb-0">Read on <a href="https://gitlab.gnome.org/ravgeetdhillon/gtk-web/blob/master/CONTRIBUTING.md/">how to contribute</a> to this website.</p>
+          <p class="mb-0">Read on <a href="{{ site.data.stuff.site_repo | append: 'blob/master/CONTRIBUTING.md/' }}">how to contribute</a> to this website.</p>
         </div>
       </div>
     </div>
