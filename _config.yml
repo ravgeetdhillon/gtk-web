@@ -56,7 +56,7 @@ defaults:
       type: docs
     values:
       layout: documentation
-      navbar_dark: true
+      navbar_type: dark
 
 # website statistics
 

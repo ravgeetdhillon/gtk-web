@@ -144,7 +144,6 @@
         height: auto !important;
     }
 }
-
 html, body {
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -169,8 +168,8 @@ html, body {
 .op-7 {
     opacity: 0.75;
 }
-.nav-item {
-    transition: 0.15s ease;
+.nav-item .nav-link {
+    transition: 0.15s ease-in-out;
 }
 .nav-item:hover .nav-link,
 .nav-item:focus .nav-link {

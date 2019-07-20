@@ -12,7 +12,8 @@ menu_links_sections:
 #   href: the location where the link points to
 #   header: set this to 'true' if the link should be present in the header, else set 'false'
 #   footer: set this to 'true' if the link should be present in the footer, else set 'false'
-#   section: if footer is set to 'true', specify the name of the section the link belongs. Make sure that the section exists.
+#   section: if footer is set to 'true', specify the name of the section the link belongs. Make sure that the section exists
+#   external: if the link provided in href is an external link i.e it points to a link outside of the website, then set this to 'false', else don't add this attribute
 menu_links:
   - name: GTK
     href: /
@@ -44,6 +45,7 @@ menu_links:
     header: false
     footer: true
     section: Project
+    external: true
   - name: Community
     href: /community/
     header: true
@@ -54,6 +56,7 @@ menu_links:
     header: false
     footer: true
     section: Project
+    external: true
   - name: Releases
     href: /releases/
     header: false
@@ -64,13 +67,15 @@ menu_links:
     header: false
     footer: true
     section: Support
+    external: true
   - name: Gitlab
     href: https://gitlab.gnome.org/GNOME/gtk/
     header: true
     footer: true
     section: Project
+    external: true
   - name: Mailing Lists
-    href: /mailing-lists
+    href: /mailing-lists/
     header: false
     footer: true
     section: Company
@@ -79,16 +84,19 @@ menu_links:
     header: false
     footer: true
     section: Support
+    external: true
   - name: Request a feature
     href: https://gitlab.gnome.org/GNOME/gtk/
     header: false
     footer: true
     section: Support
+    external: true
   - name: Code of Conduct
     href: https://wiki.gnome.org/Foundation/CodeOfConduct/
     header: false
     footer: true
     section: Company
+    external: true
   - name: Donate
     href: http://www.gnome.org/foundation/
     header: false
@@ -141,6 +149,8 @@ sidebar_sections:
 #   title: the display text for the section
 #   name: the name of the `.md` file in '/collection/_docs', to which the link should point
 #   section: the name of the section the link belongs to
+#   external: if the link provided in href is an external link i.e it points to a link outside of the website, then set this to 'false', else dont add this attribute
+
 sidebar_links:
   - title: Mono Develop
     name: mono-develop
@@ -164,6 +174,7 @@ sidebar_links:
     name: gtk3
     section: API References
     href: https://developer.gnome.org/gtk3/
+    external: true
   - title: GTK4
     name: gtk4
     section: API References

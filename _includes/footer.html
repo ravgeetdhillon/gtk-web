@@ -9,8 +9,7 @@
         <a href="https://www.gnome.org/"><img src="{{ '/assets/img/logo-gnome-horizontal.svg' | prepend: site.url }}"
             class="img-fluid pb-2" width="100" /></a>
         <p>GTK is hosted by GNOME.</p>
-        <p>GTK is maintained by the core team of <strong><a href="/community#contributors" class="text-muted">contributors</a></strong>
-          under GNOME.</p>
+        <p>GTK is maintained by the core team of <strong><a href="{{ '/community#contributors' | prepend: site.url }}" class="text-muted">contributors</a></strong> under GNOME.</p>
         {% assign date_arr = site.time | date_to_string | split: ' ' %}
         {% assign year = date_arr[2] %}
         <p>&copy; 2007-{{ year }}, The GTK Project. All Rights Reserved.</p>
@@ -25,7 +24,11 @@
             <ul class="list-unstyled text-small">
               {% for link in menu_links %}
                 {% if link.footer %}
-                  <li><a href="{{ link.href }}" class="text-info">{{ link.name }}</a></li>
+                  {% if link.external %}
+                    <li><a href="{{ link.href }}" class="text-info">{{ link.name }}</a></li>
+                  {% else %}
+                    <li><a href="{{ link.href | prepend: site.url }}" class="text-info">{{ link.name }}</a></li>
+                  {% endif %}
                 {% endif %}
               {% endfor %}
             </ul>

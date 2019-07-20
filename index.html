@@ -1,4 +1,6 @@
 ---
+navbar_type: light
+
 page_main_heading: Create interfaces, that users just love
 page_main_heading_description: Offering a complete set of widgets, GTK is suitable for projects ranging from small one-off tools to complete application suites.
 
@@ -78,13 +80,13 @@ news_and_events_list:
         <h1 class="display-4 pb-3">{{ page.page_main_heading }}</h1>
         <span class="text-muted pb-3">{{ page.page_main_heading_description | markdownify }}</span>
         <div class="pb-3 d-flex">
-          <a href="/docs/" class="btn btn-md btn-primary" role="button">Learn GTK</a>
+          <a href="{{ '/docs/' | prepend: site.url }}" class="btn btn-md btn-primary" role="button">Learn GTK</a>
           <div class="dropdown">
             <a class="btn btn-md btn-outline-secondary dropdown-toggle ml-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Downloads</a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a href="/downloads/linux/" class="dropdown-item"><i class="fab fa-linux"></i> Linux</a>
-              <a href="/downloads/windows/" class="dropdown-item"><i class="fab fa-windows"></i> Windows</a>
-              <a href="/downloads/macos/" class="dropdown-item"><i class="fab fa-apple"></i> MacOS</a>
+              <a href="{{ '/downloads/linux/' | prepend: site.url }}" class="dropdown-item"><i class="fab fa-linux"></i> Linux</a>
+              <a href="{{ '/downloads/windows/' | prepend: site.url }}" class="dropdown-item"><i class="fab fa-windows"></i> Windows</a>
+              <a href="{{ '/downloads/macos/' | prepend: site.url }}" class="dropdown-item"><i class="fab fa-apple"></i> MacOS</a>
             </div>
           </div>
         </div>
@@ -123,11 +125,11 @@ news_and_events_list:
         <h6>{{ case.title }}</h6>
         <span class="text-muted small">{{ case.description }}</span>
         <br>
-        <a href="/usecases/{{ case.title }}/" class="small border-bottom text-decoration-none border-primary">Read More</a>
+        <a href="{{'/usecases/' | prepend: site.url | append: case.title }}/" class="small border-bottom text-decoration-none border-primary">Read More</a>
       </div>
       {% endfor %}
       <div class="col-12 text-center pt-3 pt-md-4">
-        <a href="/usecases/" class="btn btn-md btn-outline-primary" role="button">Discover Usecases</a>
+        <a href="{{'/usecases/' | prepend: site.url }}" class="btn btn-md btn-outline-primary" role="button">Discover Usecases</a>
       </div>
     </div>
   </div>
@@ -274,7 +276,7 @@ news_and_events_list:
         <h2 class="font-weight-light mb-3">{{ page.tutorials_main_heading }}</h2>
         <span class="text-muted">{{ page.tutorials_main_heading_description | markdownify }}</span>
         <div>
-          <a href="/docs/" class="btn btn-sm btn-outline-primary" role="button">Developers Guide</a>
+          <a href="{{ '/docs/' | prepend: site.url }}" class="btn btn-sm btn-outline-primary" role="button">Developers Guide</a>
         </div>
       </div>
     </div>

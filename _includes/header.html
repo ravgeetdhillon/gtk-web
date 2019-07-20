@@ -30,35 +30,34 @@
 </head>
 
 <body>
-  {% if page.navbar_dark %}
-	  <header class="navbar small bg-dark">
-  {% else %}
-	  <header class="navbar small">
-	{% endif %}
-  <nav class="container navbar-expand-md px-0 px-md-3">
-    {% if page.navbar_dark %}
-      <a href="/" class="navbar-brand text-white"><img src="{{ '/assets/img/logo-gtk.png' | prepend: site.url }}" width="40" height="40" /><strong>GTK</strong></a>
-    {% else %}
-      <a href="/" class="navbar-brand text-dark"><img src="{{ '/assets/img/logo-gtk.png' | prepend: site.url }}" width="40" height="40" /><strong>GTK</strong></a>
-    {% endif %}
-    <a class="btn navbar-toggler border-0 p-0" role="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-      <i class="fas fa-ellipsis-h"></i>
-    </a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        {% assign menu_links = site.data.navigation.menu_links %}
-          {% for link in menu_links %}
-            {% assign page_split = page.url | split: '/' %}
-            {% assign page_type = page_split[1] | capitalize %}
-            {% if link.header %}
-              {% if page.navbar_dark %}
-                <li class="nav-item"><a href="{{ link.href }}" class="nav-link text-light float-right">{{ link.name }}</a></li>
-              {% else %}
-                <li class="nav-item"><a href="{{ link.href }}" class="nav-link text-dark float-right">{{ link.name }}</a></li>
+  {% if page.navbar_type == 'dark' %}
+    {% assign text_color = 'white' %}
+    {% assign bg_color = 'dark' %}
+  {% elsif page.navbar_type == 'light' %}
+    {% assign text_color = 'dark' %}
+    {% assign bg_color = 'white %}
+  {% endif %}
+  <header class="navbar small bg-{{ bg_color }}">
+    <nav class="container navbar-expand-md px-0 px-md-3">
+      <a href="{{ site.url }}" class="navbar-brand text-{{ text_color }}"><img src="{{ '/assets/img/logo-gtk.png' | prepend: site.url }}" width="40" height="40" /><strong>GTK</strong></a>
+      <a class="btn navbar-toggler border-0 p-0" role="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <i class="fas fa-ellipsis-h"></i>
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          {% assign menu_links = site.data.navigation.menu_links %}
+            {% for link in menu_links %}
+              {% assign page_split = page.url | split: '/' %}
+              {% assign page_type = page_split[1] | capitalize %}
+              {% if link.header %}
+                {% if link.external %}
+                    <li class="nav-item"><a href="{{ link.href }}" class="nav-link float-right text-{{ text_color }}">{{ link.name }}</a></li>
+                {% else %}
+                  <li class="nav-item"><a href="{{ link.href | prepend: site.url }}" class="nav-link float-right text-{{ text_color }}">{{ link.name }}</a></li>
+                {% endif %}
               {% endif %}
-            {% endif %}
-          {% endfor %}
-      </ul>
-    </div>
-  </nav>
-</header>
+            {% endfor %}
+        </ul>
+      </div>
+    </nav>
+  </header>
