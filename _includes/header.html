@@ -16,7 +16,7 @@
 	<meta name="description" content="GTK is a highly usable, feature rich toolkit for creating graphical user interfaces which boasts cross platform compatibility and an easy to use API. GTK is licensed under the GNU LGPL 2.1 allowing development of both free and proprietary software with GTK without any license fees or royalties.">
 	<meta name="keywords" content="gtk, gtk, gimp, gnome, toolkit, user interface">	
 	<link rel="icon" href="{{ '/assets/img/favicon-gtk.png' | prepend: site.url }}" type="image/x-icon">
-	<link rel="shortcut icon" href="{{ '/assets/img/favicon-gtk.png' | prepend: site.url }} type="image/x-icon">
+	<link rel="shortcut icon" href="{{ '/assets/img/favicon-gtk.png' | prepend: site.url }}" type="image/x-icon">
 	<title>{{site.title}}</title>
 	<link rel="stylesheet" href="{{ '/assets/@fortawesome/fontawesome-free/css/all.min.css' | prepend: site.url }}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ '/assets/css/markdown.css' | prepend: site.url }}" type="text/css" media="screen" />
@@ -35,7 +35,7 @@
     {% assign bg_color = 'dark' %}
   {% elsif page.navbar_type == 'light' %}
     {% assign text_color = 'dark' %}
-    {% assign bg_color = 'white %}
+    {% assign bg_color = 'transparent' %}
   {% endif %}
   <header class="navbar small bg-{{ bg_color }}">
     <nav class="container navbar-expand-md px-0 px-md-3">
@@ -61,3 +61,20 @@
       </div>
     </nav>
   </header>
+
+  <button class="btn border border-info bg-white rounded-circle position-fixed" id="btn-go-to-top"><i class="fas fa-angle-up"></i></button>
+  <script>
+    var btnTop = $("#btn-go-to-top");
+    $(window).scroll(function() {
+      if ($(window).scrollTop() < 300) {
+        btnTop.addClass("d-none");
+      }
+      else {
+        btnTop.removeClass("d-none");
+      }
+    });
+    btnTop.on("click", function(e) {
+      e.preventDefault();
+      $("html, body").animate({scrollTop: 0});
+    });
+  </script>
