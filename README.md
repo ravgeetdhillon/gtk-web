@@ -68,28 +68,28 @@ To get the site up and running locally, follow the below steps:
 
 1. Install a full [Ruby development environment](https://jekyllrb.com/docs/installation/).
 2. Install Jekyll and [bundler](https://jekyllrb.com/docs/ruby-101/#bundler) [gems](https://jekyllrb.com/docs/ruby-101/#gems).
-```
+```shell
 $ gem install jekyll bundler
 ```
 3. Create a local clone of the website:
-```
+```shell
 $ git clone https://gitlab.gnome.org/ravgeetdhillon/gtk-web.git
 ```
 4. Change into the gtk-web directory
-```
+```shell
 $ cd gtk-web
 ```
 5. Install the NPM and Gem dependencies by running the following commands:
-```
-$ npm install
+```shell
+$ nshellpm install
 $ bundle install
 ```
 6. Perform the following commands to structure the website properly:
-```
+```shell
 $ structurize.sh --trace
 ```
 7. Build the site and make it available on a local server
-```
+```shell
 $ bundle exec jekyll serve
 ```
 8. Browse to [http://localhost:4000](http://localhost:4000) to view the website.

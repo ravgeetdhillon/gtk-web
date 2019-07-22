@@ -193,3 +193,6 @@ sidebar_links:
   - title: Cairo
     name: cairo
     section: Architecture
+  - title: Hello World
+    name: hello-world
+    section: Getting Started

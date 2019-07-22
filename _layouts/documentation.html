@@ -3,7 +3,7 @@
 
 {% include header.html %}
 
-<section class="pb-4" id="{{ page.name }}">
+<section>
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-3 col-md-4 small p-0 order-2 order-md-1">
@@ -65,8 +65,26 @@
 </section>
 
 <script>
+  // implements the bootstrap tooltip functionality
   $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
+
+  console.log(markdownImages);
+  var i, l, img, markdownImages;
+  markdownImages = document.querySelectorAll("p img");
+  l = markdownImages.length;
+  for (i = 0; i < l; i++) {
+    img = markdownImages[i]
+    imgNodeValue = img.attributes.src.nodeValue;
+    if (imgNodeValue.search("https://") == -1 || imgNodeValue.search("http://") == -1) {
+      continue;
+    }
+    else {
+      img.baseURI = "{{ site.url }}" + imgNodeValue;
+    }
+  }
+  console.log(markdownImages);
+
 </script>
 {% include footer.html %}

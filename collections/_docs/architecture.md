@@ -1,6 +1,21 @@
 ---
 permalink: /docs/:name/
 ---
-architecture
+# Overview of GTK and its Libraries
 
-![uetiuetioe](/assets/img/docs/doc-gtk-architecture.png)
+![GTK Architecture](/assets/img/docs/doc-gtk-architecture.png)
+
+Over time GTK has been built up to be based on four libraries, also developed by the GTK team.
+
+## GLib
+
+[GLib](https://developer.gnome.org/glib/) is a low-level core library that forms the basis of GTK. It provides data structure handling for C, portability wrappers and interfaces for such run-time functionality as an event loop, threads, dynamic loading and an object system.
+
+## Pango
+[Pango](https://www.pango.org/) is a library for layout and rendering of text with an emphasis on internationalization. It forms the core of text and font handling for GTK.
+
+## Cairo
+[Cairo](https://www.cairographics.org/) is a library for 2D graphics with support for multiple output devices (including the X Window System, Win32) while producing a consistent output on all media while taking advantage of display hardware acceleration when available.
+
+## ATK
+[ATK](https://developer.gnome.org/atk/) is a library for a set of interfaces providing accessibility. By supporting the ATK interfaces, an application or toolkit can be used with tools such as screen readers, magnifiers, and alternative input devices.
