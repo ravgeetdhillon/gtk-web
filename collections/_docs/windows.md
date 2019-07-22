@@ -6,8 +6,6 @@ permalink: /docs/installations/:name/
 
 ![Windows Icon](/assets/img/docs/doc-gtk-windows.png)
 
-![Windows Icon](https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png)
-
 > Note: These instructions are intended for developers wanting to create Windows applications based on GTK, not for end-users. On Windows, GTK applications are typically bundled with GTK already, so end-users do not need to worry about how to install GTK itself.
 
 There are two methods to install GTK on Windows development machines.
