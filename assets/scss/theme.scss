@@ -1,3 +1,4 @@
+// defining the color system for the website
 $theme-colors: (
 	"primary": #3B86E2,
 	"secondary": #F28518,
@@ -9,7 +10,7 @@ $theme-colors: (
 	"mdborder": #d6d8da
 );
 
-
+// defining the spacing system for the website
 $spacer: 1rem;
 $spacers: (
 	0: 0,
@@ -21,6 +22,29 @@ $spacers: (
 	6: ($spacer * 8)
 );
 
+// set the default font size for the website
 $font-size-base: 1.15rem;
+
+// disable the box-shadows on all buttons and links when they are clicked
+.btn {
+  &:focus,
+  &.focus {
+    box-shadow: none !important;
+	}
+	
+	&.disabled,
+	&:disabled {
+    box-shadow: none !important;
+	}
+
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled).active {
+    box-shadow: none !important;
+
+		&:focus {
+	    box-shadow: none !important;
+		}
+	}
+}
 
 @import "../bootstrap/scss/bootstrap";

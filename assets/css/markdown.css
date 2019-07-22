@@ -1,5 +1,5 @@
 .markdown-body {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.5;
     word-wrap: break-word;
 }
@@ -384,5 +384,10 @@
     background: #f6f8fa;
     border-top: 0;
 }
-
+.markdown-body .alert {
+    padding-bottom: 0;
+}
+.markdown-body i {
+    color: var(--secondary);
+}
 /*# sourceMappingURL=markdown.css.map */

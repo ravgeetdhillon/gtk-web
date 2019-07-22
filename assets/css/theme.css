@@ -1,3 +1,12 @@
+.btn:focus, .btn.focus {
+  box-shadow: none !important; }
+.btn.disabled, .btn:disabled {
+  box-shadow: none !important; }
+.btn:not(:disabled):not(.disabled):active, .btn:not(:disabled):not(.disabled).active {
+  box-shadow: none !important; }
+  .btn:not(:disabled):not(.disabled):active:focus, .btn:not(:disabled):not(.disabled).active:focus {
+    box-shadow: none !important; }
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

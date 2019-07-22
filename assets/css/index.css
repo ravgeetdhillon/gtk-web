@@ -349,3 +349,15 @@ pre {
     transition: 0.15s ease-in-out;
     background-color: var(--light) !important;
 }
+#btn-go-to-top {
+    bottom: 32px;
+    right: 32px;
+    height: 40px;
+    width: 40px;
+    z-index: 1000;
+    opacity: 0.5;
+    transition: 0.15s ease-in-out;
+}
+#btn-go-to-top:hover {
+    opacity: 1;
+}
