@@ -45,9 +45,9 @@ The data used by the site is stored in the form of following files:
     │   ├── _pages                          #contains site's main pages
     │   └── _docs                           #contains pages for GTK documentation section
     ├── scripts                             #contains the site's shell scripts for gitlab ci
-    ├── ├── compile-sass.sh                 #script to compile sass files to css
-    ├── ├── get-api-data.sh                 #script to fetch gitlab api data regarding the gtk
-    ├── └── structurize.sh                  #script to structure the website after the dependencies
+    │   ├── compile-sass.sh                 #script to compile sass files to css
+    │   ├── get-api-data.sh                 #script to fetch gitlab api data regarding the gtk
+    │   └── structurize.sh                  #script to structure the website after the dependencies
     ├── _config.yml                         #contains Jekyll settings for the site
     ├── .gitignore
     ├── .gitlab-ci.yml                      #for Gitlab Continuous Integration and Deployment
