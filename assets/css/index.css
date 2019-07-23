@@ -73,11 +73,11 @@
     .h-md-auto {
         height: auto !important;
     }
-    /* #app-sidebar {
-        min-height: 100vh;
-    } */
     .app-shadow {
         box-shadow: none !important;
+    }
+    .border-md-left {
+        border-left: 1px solid #dee2e6 !important; 
     }
 }
 @media (min-width: 992px) {
@@ -144,7 +144,27 @@
         height: auto !important;
     }
 }
-html, body {
+@media screen and (max-width: 768px) {
+    .nav-side {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        transition: 0.3s ease-in-out;
+    }
+    .nav-side .btn-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+    }
+}
+html,
+body {
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
@@ -360,4 +380,7 @@ pre {
 }
 #btn-go-to-top:hover {
     opacity: 1;
+}
+.fa-halfx {
+    font-size: 0.75em;
 }

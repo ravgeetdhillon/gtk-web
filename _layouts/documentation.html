@@ -6,8 +6,9 @@
 <section>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-3 col-md-4 small p-0 order-2 order-md-1">
-        <div class="text-break pt-4 px-4 border-right h-100">
+      <div class="col-lg-3 col-md-4 small p-0 order-2 order-md-1 nav-side" id="mySidenav">
+        <div class="text-break bg-white p-0 pt-2 pt-md-4 px-md-4 h-100">
+          <a href="javascript:void(0)" class="btn d-md-none btn-close mt-2" onclick="closeSideNav()"><i class="fas fa-times fa-halfx"></i></a>
           <ul class="list-group">
             {% for section in site.data.navigation.sidebar_sections %}
             <li class="list-group-item border-0 group-header pb-4"><a href="{{ '/docs/' | prepend: site.url }}{{ section.name }}/" class="text-dark"><strong>{{ section.title }}</strong></a>
@@ -27,12 +28,13 @@
           </ul>
         </div>
       </div>
-      <div class="col-lg-7 col-md-8 py-4 px-sm-4 order-1 order-md-2 bg-light">
-        <div class="d-flex flex-sm-row flex-column py-3 py-md-0 px-3 px-md-0 app-shadow">
+      <div class="col-lg-7 col-md-8 py-4 px-sm-4 order-1 order-md-2 bg-light border-0 border-md-left">
+        <div class="d-flex flex-sm-row flex-column py-3 py-md-0 app-shadow">
           <div class="w-100">
+            <span class="btn btn-mdcolor btn-sm d-inline-block d-md-none" style="cursor:pointer;" onclick="openSideNav()" role="button"><i class="fas fa-bars fa-fw pr-2"></i>More Topics</span>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb small bg-transparent pl-0 m-0">
-                {% assign url = page.url | split: '/' %}
+                {% assign url = page.url | split: '/' | shift %}
                 {% assign current_path = '' %}
                 {% for part in url %}
                   {% assign current_path = current_path | append: part | append: '/' %}
@@ -51,7 +53,7 @@
           {{ page.content }}
         </article>
       </div>
-      <div class="col-lg-2 col-md-12 small text-break mt-4 p-0 pl-3 order-3 order-md-3">
+      <div class="col-lg-2 col-md-12 small text-break my-4 p-0 pl-3 order-3 order-md-3">
         <div class="mr-3 px-3 py-3 border rounded shadow-sm">
           {% assign page_name = page.path | split: '/' %}
           {% assign page_name = page_name.last %}
@@ -65,6 +67,15 @@
 </section>
 
 <script>
+  // handles the sidebar opening and closing functionality
+  function openSideNav() {
+    document.querySelector(".nav-side").style.width = "250px";
+  }
+
+  function closeSideNav() {
+    document.querySelector(".nav-side").style.width = "0";
+  }
+
   // implements the bootstrap tooltip functionality
   $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
@@ -72,17 +83,31 @@
 
   // converts relative paths of markdown based images to absolute path
   var i, l, img, markdownImages;
-  markdownImages = document.querySelectorAll("p img");
+  markdownImages = document.querySelectorAll(".markdown-body img");
   l = markdownImages.length;
   for (i = 0; i < l; i++) {
-    img = markdownImages[i]
+    img = markdownImages[i];
     imgNodeValue = img.attributes.src.nodeValue;
-    console.log(imgNodeValue);
-    if (imgNodeValue.search("https://") == 0 || imgNodeValue.search("http://") == 0) {
+    if ( imgNodeValue.search("https://") == 0 || imgNodeValue.search("http://") == 0 ) {
       continue;
     }
     else {
       img.setAttribute("src", "{{ site.url }}" + imgNodeValue);
+    }
+  }
+
+  // converts relative paths of markdown based links to absolute path
+  var i, l, img, markdownLinks;
+  markdownLinks = document.querySelectorAll(".markdown-body a");
+  l = markdownLinks.length;
+  for (i = 0; i < l; i++) {
+    link = markdownLinks[i];
+    linkNodeValue = link.attributes.href.nodeValue;
+    if ( linkNodeValue.search("https://") == 0 || linkNodeValue.search("http://") == 0 || linkNodeValue[0] == '#' ) {
+      continue;
+    }
+    else {
+      link.setAttribute("href", "{{ site.url }}" + linkNodeValue);
     }
   }
 </script>
