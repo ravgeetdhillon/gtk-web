@@ -3,7 +3,7 @@ permalink: /docs/dev-tools/:name/
 ---
 # GNOME Builder
 
-![GNOME Builder](/assets/img/docs/doc-builder.png)
+![GNOME Builder](/assets/img/docs/docs-builder.png)
 
 GNOME Builder is a toolsmith for GNOME-based applications. It is a tool to help you write and contribute to great GNOME-based applications.
 

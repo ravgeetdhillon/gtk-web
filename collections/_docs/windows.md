@@ -1,18 +1,17 @@
 ---
 permalink: /docs/installations/:name/
 ---
-
 # Setting up GTK for Windows
 
-![Windows Icon](/assets/img/docs/doc-gtk-windows.png)
+![GTK and Windows](/assets/img/docs/docs-gtk-windows.png)
 
 > Note: These instructions are intended for developers wanting to create Windows applications based on GTK, not for end-users. On Windows, GTK applications are typically bundled with GTK already, so end-users do not need to worry about how to install GTK itself.
 
 There are two methods to install GTK on Windows development machines.
 
-* ### First Method
+* ### [First Method](#using-gtk-from-vcpkg-packages)
   This method is based on the packages available from the [Microsoft vcpkg project](https://docs.microsoft.com/en-us/cpp/vcpkg), which are built using Visual Studio, and therefore work well if you intend to develop using that platform.
-* ### Second Method
+* ### [Second Method](#using-gtk-from-msys2-packages)
   This method is based on the packages provided by [MSYS2](https://www.msys2.org/), which provides a UNIX-like environment for Windows. Both of these repositories also provide packages for a large number of other useful open source libraries.
 
 If you really want to build GTK from the pristine sources yourself, you can use the project files for Microsoft Visual Studio provided by the GTK releases. Learn more on [how to build the GTK stack using Microsoft Visual Studio](https://wiki.gnome.org/Projects/GTK/Win32/MSVCCompilationOfGTKStack) and read these other tips on [how to build GTK with MSVC on Windows](https://blogs.gnome.org/nacho/2015/02/19/building-gtk-3-with-msvc-2013/). In almost all cases, using the packages from `vcpkg` or `MSYS2` is much simpler though.
@@ -78,7 +77,6 @@ The [MSYS2](https://msys2.github.io/) project provides a UNIX-like development e
 
 In MSYS2 packages are installed using the [pacman package manager](https://github.com/msys2/msys2/wiki/MSYS2-installation#iv-general-package-management).
 
-
 > Note: in the following steps, we will assume you're using a `64-bit Windows`. Therefore, the package names include the x86_64 architecture identifier. If you're using a 32-bit Windows, please adapt the instructions below using the i686 architecture identifier.
 
 **Step 1.**: Download the [MSYS2 installer](https://www.msys2.org/) that matches your platform and follow the installation instructions.
@@ -124,8 +122,10 @@ pacman -S mingw-w64-x86_64-toolchain base-devel
 
 You may use MSYS2 to [build your GTK application and create an installer to distribute it](https://blogs.gnome.org/nacho/2014/08/01/how-to-build-your-gtk-application-on-windows/). Your installer will need to ship your application build artifacts as well as GTK binaries and runtime dependencies; see the instructions above for vcpkg for more details.
 
-### Legal notes on distributing GTK with your application
+## Legal notes on distributing GTK with your application
 
 You are welcome to redistribute GTK binaries, including applications that bundle them, on other web sites, CD-ROM, and other media. You don't have to ask for permission. That's one of the points of Free Software. 
 
 One important thing that the [GNU licenses](http://www.fsf.org/licenses/licenses.html) require is that you must also redistribute the source code. This usually means at least the gettext, GLib, GTK, Pango and ATK sources.
+
+***

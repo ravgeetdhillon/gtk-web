@@ -3,7 +3,7 @@ permalink: /docs/:name/
 ---
 # Overview of GTK and its Libraries
 
-![GTK Architecture](/assets/img/docs/doc-gtk-architecture.png)
+![GTK Architecture](/assets/img/docs/docs-gtk-architecture.png)
 
 Over time GTK has been built up to be based on four libraries, also developed by the GTK team.
 

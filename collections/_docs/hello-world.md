@@ -13,7 +13,7 @@ Below are some examples to get you started with GTK programming.
 
 ## Hello World App in C
 
-![Hello World Application in GTK using C](/assets/img/docs/doc-hello-world-c.png)
+![Hello World Application in GTK using C](/assets/img/docs/docs-hello-world-c.png)
 
 To begin our introduction to GTK, we'll start with a simple `Hello World` GTK application.
 
