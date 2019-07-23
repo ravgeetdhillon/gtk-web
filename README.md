@@ -18,16 +18,15 @@ The data used by the site is stored in the form of following files:
     ├── _data                               #contains site's data files
     │   ├── apps.yml                        #list of apps to show on index.html slider section
     │   ├── navigation.yml                  #links to be added to the site's header and footer sections
-    │   ├── sample_codes.yml                #update this
+    │   ├── sample_codes.yml                #---update this
     │   ├── stuff.yml                       #site's global variables
-    │   └── usecases.yml                    #update this
+    │   └── usecases.yml                    #---update this
     ├── _includes                           #contains site's include files
     │   ├── footer.html                     #the footer of the site
     │   └── header.html                     #the header of the site
     ├── _layouts                            #contains layout designs for site's pages
     │   └── documentation.html              #layout design for pages that belong to GTK documentation
-    ├── _posts
-    ├── .gitlab
+    ├── .gitlab                             #contains gitlab template files for bugs and merge requests
     ├── assets                              #contains site's valuable entities
     │   ├── css                             #contains site's stylesheets
     │   │   ├── colorful.css                #stylesheet for syntax highlighting
@@ -39,8 +38,8 @@ The data used by the site is stored in the form of following files:
     │   ├── js                              #contains site's javascripts
     │   └── scss                            #contains site's preprocessor stylesheets
     │       └── theme.scss
-    ├── collections
-    │   └── _docs
+    ├── collections                         #contains the site's collections
+    │   └── _docs                           #contains pages for GTK documentation section
     ├── _config.yml                         #contains Jekyll settings for the site
     ├── .gitignore
     ├── .gitlab-ci.yml                      #for Gitlab Continuous Integration and Deployment
@@ -56,7 +55,7 @@ The data used by the site is stored in the form of following files:
     ├── package-lock.json
     ├── package.json                        #contains node dependencies for the site.
     ├── README.md
-    └── structurize.sh                      #script to restructure the website after the dependencies are installed
+    └── structurize.sh                      #script to structure the website after the dependencies are installed
 
 ## Contributing
 
@@ -72,7 +71,7 @@ To get the site up and running locally, follow the below steps:
 $ gem install jekyll bundler
 ```
 3. Create a local clone of the website:
-```shell
+```git
 $ git clone https://gitlab.gnome.org/ravgeetdhillon/gtk-web.git
 ```
 4. Change into the gtk-web directory
@@ -81,7 +80,7 @@ $ cd gtk-web
 ```
 5. Install the NPM and Gem dependencies by running the following commands:
 ```shell
-$ nshellpm install
+$ npm install
 $ bundle install
 ```
 6. Perform the following commands to structure the website properly:
