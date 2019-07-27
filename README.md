@@ -62,7 +62,7 @@ The data used by the site is stored in the form of following files:
 
 We always welcome people who want to contribute towards our project. For suitable information on how can you contribute to the website, on how to report bugs, on how to request new features or anything that can make the website a better experience for the end users, please read on [how to contribute][contributing].
 
-## Develop the website locally
+## Setup the website locally
 
 To get the site up and running locally, follow the below steps:
 
@@ -72,7 +72,7 @@ To get the site up and running locally, follow the below steps:
 $ gem install jekyll bundler
 ```
 3. Create a local clone of the website:
-```shell
+```git
 $ git clone https://gitlab.gnome.org/ravgeetdhillon/gtk-web.git
 ```
 4. Change into the gtk-web directory
@@ -81,7 +81,7 @@ $ cd gtk-web
 ```
 5. Install the NPM and Gem dependencies by running the following commands:
 ```shell
-$ nshellpm install
+$ npm install
 $ bundle install
 ```
 6. Perform the following commands to structure the website properly:

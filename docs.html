@@ -1,6 +1,9 @@
 ---
 navbar_type: dark
 permalink: /docs/
+
+page_main_heading: GTK Docs
+page_main_heading_description: Find out all the things you need to work with GTK as a Developer.
 ---
 
 {%- include header.html -%}
@@ -9,8 +12,8 @@ permalink: /docs/
   <div class="container">
     <div class="row">
       <div class="col-md-5 d-flex justify-content-end flex-column main-heading">
-        <h1 class="display-4 pb-3">GTK Docs</h1>
-        <span class="lead text-info">Find out all the things you need to work with GTK as a Developer.</span>
+        <h1 class="display-3 pb-3">{{ page.page_main_heading }}</h1>
+        <span class="text-info lead">{{ page.page_main_heading_description }}</span>
       </div>
       <div class="col-md-7 d-none d-md-flex justify-content-center align-items-center flex-column">
         <img src="{{ '/assets/img/wall-docs.svg' | prepend: site.url }}" class="img-fluid w-75" />

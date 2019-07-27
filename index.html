@@ -29,7 +29,7 @@ development_section:
   - heading: Develop with GTK
     description: |-
       By taking the advantage of GTK being a cross-platform development tool and it's easy to use API, you can develop amazing apps using the GTK. If you are interested in developing an app, get started now by developing this [trivial app](https://developer.gnome.org/gtk3/stable/ch01s04.html#id-1.2.3.12.5).
-  - heading: Develop with GTK
+  - heading: Develop GTK
     description: |-
       GTK is a large project and relies on voluntary contributions from the developers around the world. To help us with the project development, hack away on the existing [bugs and feature requests](https://gitlab.gnome.org/GNOME/gtk/issues/).
   - heading: Looking for Help?
@@ -176,7 +176,7 @@ news_and_events_list:
 </section>
 
 {% assign apps = site.data.apps.apps_list %}
-<section class="py-4" id="apps">
+<section class="py-4" style="background: linear-gradient(var(--light), var(--white));">
   <div class="container py-3">
     <div class="row text-center d-flex justify-content-center">
       <div class="col-md-10 col-lg-7">
@@ -243,7 +243,7 @@ news_and_events_list:
       </div>
     </div>
   </div>
-  <section class="py-4" id="development">
+  <section class="py-4 bg-no-repeat bg-cover" id="development" style="background: url('{{ '/assets/img/wall-symbolics.png' | prepend: site.url }}')">
     <div class="container">
       <div class="row py-4">
         <div class="col-md-6 px-md-4 pb-4 pb-md-0">
@@ -284,7 +284,7 @@ news_and_events_list:
 </section>
 
 {% assign news_and_events = page.news_and_events_list %}
-<section class="py-4" id="events">
+<section class="py-4" id="events" style="background: url('{{ '/assets/img/wall-events-pattern.svg' | prepend: site.url }}')">
   <div class="container">
     <h2 class="text-center font-weight-light mb-3">News and Events</h2>
     <div class="row py-4">
@@ -301,7 +301,7 @@ news_and_events_list:
 </section>
 
 <script>
-  // implementing the "take me down" functionality
+  // implementing the functionality for "see more" button
   function slideDown() {
     location.assign("#usecases");
   }
@@ -340,6 +340,7 @@ news_and_events_list:
     });
   });
 
-  $('.dropdown-toggle').dropdown()
+  // used to implement the dropdown for the downloads
+  $(".dropdown-toggle").dropdown()
 </script>
 {%- include footer.html -%}

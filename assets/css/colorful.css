@@ -1,3 +1,12 @@
+/*
+
+this file contains styling rules for the syntax highlighting used in the documentation pages.
+you can edit this file directly to change the appearance of certain code elements like variables, errors, comments etc.
+
+the purpose of each class has been documented below.
+
+*/
+
 .highlight .hll { background-color: transparent }
 .highlight  { background-color: transparent; }
 .highlight .c { color: #888888 } /* Comment */

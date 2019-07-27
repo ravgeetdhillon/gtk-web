@@ -1,3 +1,10 @@
+/*
+
+this file contains the user defined styling for the website.
+if you have want to add new styling for new content or the already existing one, please add the styling rules in this file.
+
+*/
+
 @media (max-width: 576px) {
     small,
     .small {
@@ -7,6 +14,8 @@
         font-size: 1rem;
     }
 }
+/* making responsive classes for height and width based the breakpoints */
+
 @media (min-width: 576px) {
     .w-sm-25 {
         width: 25% !important;
@@ -168,26 +177,15 @@ body {
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
-.tab-pane::-webkit-scrollbar {
-    width: 0.4rem;
-}
-.tab-pane::-webkit-scrollbar:hover {
-    width: 0.6rem;
-}
-.tab-pane::-webkit-scrollbar-thumb {
-    background: var(--info);
-    border-radius: 1.6rem;
-}
-.tab-pane::-webkit-scrollbar-track {
-    background: transparent;
-    margin: 1rem;
-}
 .app-icon {
     max-width: 120px !important;
 }
 .op-7 {
     opacity: 0.75;
 }
+
+/* styling for the mouse events happening on the navbar links */
+
 .nav-item .nav-link {
     transition: 0.15s ease-in-out;
 }
@@ -195,12 +193,9 @@ body {
 .nav-item:focus .nav-link {
     color: var(--secondary) !important;
 }
-.top-0 {
-    top: 0px;
-}
-#apps {
-    background: linear-gradient(var(--light), var(--white));
-}
+
+/* styling for the app slider section on the index.html */
+
 .slider .slide:hover {
     cursor: pointer;
 }
@@ -296,6 +291,22 @@ body {
 .slick-arrow.slick-hidden {
     display: none;
 }
+.tab-pane::-webkit-scrollbar {
+    width: 0.4rem;
+}
+.tab-pane::-webkit-scrollbar:hover {
+    width: 0.6rem;
+}
+.tab-pane::-webkit-scrollbar-thumb {
+    background: var(--info);
+    border-radius: 1.6rem;
+}
+.tab-pane::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 1rem;
+}
+/* styling for button groups in language bindings section on the index.html */
+
 .grp-btn {
     font-size: 80%;
 }
@@ -319,6 +330,9 @@ pre {
 .main-heading {
     z-index: 100;
 }
+
+/* styling for the main images that make up the wallpaper on index.html */
+
 .img-grp {
     position: relative;
 }
@@ -343,18 +357,14 @@ pre {
     width: 70%;
     height: auto;
 }
-#events {
-    background: url("/assets/img/wall-events-pattern.svg");
-}
-#development {
-    background: url("/assets/img/wall-symbolics.png");
+.bg-no-repeat {
     background-repeat: no-repeat;
-    background-size: cover;
 }
-#features-main {
-    background: url("/assets/img/features-hero-integrations-endpoints.svg");
-    background-repeat: no-repeat;
+.bg-center {
     background-position: center;
+}
+.bg-cover {
+    background-size: cover;
 }
 .shadow-hover:hover {
     transition: box-shadow 0.15s ease-in-out;
@@ -369,6 +379,9 @@ pre {
     transition: 0.15s ease-in-out;
     background-color: var(--light) !important;
 }
+
+/* styling for the go to top button */
+
 #btn-go-to-top {
     bottom: 32px;
     right: 32px;
@@ -383,4 +396,21 @@ pre {
 }
 .fa-halfx {
     font-size: 0.75em;
+}
+
+/* defining custom letter spacing for headings */
+
+h1, .h1 { letter-spacing: initial; }
+h2, .h2 { letter-spacing: initial; }
+h3, .h3 { letter-spacing: initial; }
+h4, .h4 { letter-spacing: initial; }
+h5, .h5 { letter-spacing: initial; }
+h6, .h6 { letter-spacing: 1px; }
+
+.font-underline {
+    text-shadow: -2px 0px var(--white), -2px 0px var(--white), 2px 0px var(--white), 2px 0px var(--white);
+    background-size: 1px 1em;
+    box-shadow: inset 0 -0.175em var(--white), inset 0 -0.2em #000;
+    display: inline;
+    box-shadow: inset 0 -0.175em var(--white), inset 0 -0.2em var(--secondary);
 }

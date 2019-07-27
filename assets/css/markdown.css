@@ -1,3 +1,10 @@
+/*
+
+this file contains styling rules for the markdown content which makes up the documentation pages.
+you can edit this file directly to change the appearance of certain elements that exist in markdown body.
+
+*/
+
 .markdown-body {
     font-size: 1rem;
     line-height: 1.5;

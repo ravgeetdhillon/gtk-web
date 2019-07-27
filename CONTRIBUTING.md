@@ -101,16 +101,7 @@ If you find yourself wishing for a something that doesn't exist in GTK.org, you 
 2. Do the changes in your fork.
 3. Send us a pull request with appropriate information using our Pull Request Template.
 
-### Issue Template for GTK.org.
-> Subject of the issue
-> Describe your issue here.
-> Your environment
-> which browser and its version
-> Tell us how to reproduce this issue. Please provide a working demo, you can use this template as a base.
-> Expected behaviour. Tell us what should happen
-> Actual behaviour. Tell us what should happens instead
-
-# Community
+## Community
 You can chat with the core team on IRC. The core is available to discuss about the things that can make the website better.
 
 <!-- markdown variables -->
