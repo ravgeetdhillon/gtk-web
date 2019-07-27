@@ -1,82 +1,70 @@
 ---
-navbar_type: dark
+navbar_type: light
 permalink: /features/
+
+page_main_heading: Why GTK?
+page_main_heading_description: Thanks to all the hardwork by the community, new features have been introduced to GTK, which make v4 even better.
 ---
 
 {%- include header.html -%}
-
-<section class="pb-4 d-flex flex-column align-items-center" id="landing">
+<body>
+<section class="d-flex flex-column align-items-center bg-no-repeat bg-center" style="background: url('{{ '/assets/img/wall-gtk-features.png' | prepend: site.url }}')">
   <div class="container">
-    <div class="row">
-      <div class="col-md-5 d-flex justify-content-end flex-column main-heading">
-        <h1 class="display-4 pb-3">Amazing GTK Features</h1>
-        <span class="text-muted lead">GTK is loaded with all the features that a toolkit should have.</span>
-      </div>
-      <div class="col-md-7 d-none d-md-flex justify-content-center flex-column">
-        <img src="{{ '/assets/img/wall-features.svg' | prepend: site.url }}" class="img-fluid" />
+    <div class="row d-flex justify-content-center pt-4 pb-6">
+      <div class="col-md-10 col-lg-7 main-heading text-center">
+        <h1 class="display-3 pb-3">{{ page.page_main_heading }}</h1>
+        <span class="text-muted lead bg-light">{{ page.page_main_heading_description }}</span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="py-4" id="features-main">
+<section class="py-4">
   <div class="container">
-    <div class="row text-center d-flex justify-content-center">
-      <div class="py-4 col-md-10 col-lg-7 d-flex flex-column align-items-center">
-        <h2 class="text-center font-weight-light mb-3">Cross Platform</h2>
-        <p class="text-muted">Originally GTK was developed for the X Window System but it has grown over the years to
-          include backend support for other well known operating systems. Today you can use GTK on:</p>
-        <ul class="list-group list-group-horizontal w-75 mt-2">
-          <li class="list-group-item col">
-            <img src="{{ '/assets/img/linux.png' | prepend: site.url }}" class="img-fluid pb-1" style="width:40px;" /><br>
-            <a href="/downloads/linux/" class="stretched-link">Linux</a>
-          </li>
-          <li class="list-group-item col">
-            <img src="{{ '/assets/img/windows.png' | prepend: site.url }}" class="img-fluid pb-1" style="width:40px;" /><br>
-            <a href="/downloads/windows/" class="stretched-link">Windows</a>
-          </li>
-          <li class="list-group-item col">
-            <img src="{{ '/assets/img/apple.png' | prepend: site.url }}" class="img-fluid pb-1" style="width:40px;" /><br>
-            <a href="/downloads/macos/" class="stretched-link">Mac OS X</a>
-          </li>
-        </ul>
+    <div class="row d-flex flex-row py-4 py-lg-5">
+      <div class="col-lg-5 py-4">
+          <h6 class="text-muted small font-weight-normal">{{ 'graphics' | upcase }}</h6>
+          <h1 class="font-weight-light mb-3 font-underline">High DPI/4K Support</h1>
+          <br><br>
+          <span class="text-muted">Starting from v4, the support for HiDPI has been improved. The extra crispness adds to the already well defined user experience.</span>
+          <br><br>
+          <a href="https://wiki.gnome.org/HowDoI/HiDpi/" class="btn btn-primary btn-sm">Enable Hi-DPI Support in GTK Apps</a>
       </div>
-      <div class="py-4 col-md-10 col-lg-7 d-flex flex-column align-items-center">
-        <h2 class="text-center font-weight-light mb-3">Language Bindings</h2>
-        <p class="text-muted">GTK is available in many other programming languages thanks to the language bindings
-          available. This makes GTK quite an attractive toolkit for application development.</p>
+      <div class="col-lg-7">
+        <img src="{{ '/assets/img/games-4k.png' | prepend: site.url }}" class="img-fluid w-100 shadow">
       </div>
-      <div class="py-4 col-md-10 col-lg-7 d-flex flex-column align-items-center">
-        <h2 class="text-center font-weight-light mb-3">Interfaces</h2>
-        <p class="text-muted">GTK has a comprehensive collection of core widgets and interfaces for use in your
-          application.</p>
+    </div>
+    <div class="row d-flex flex-row py-4 py-lg-5">
+      <div class="col-lg-5 py-4">
+          <h6 class="text-muted small font-weight-normal">{{ 'support' | upcase }}</h6>
+          <h1 class="font-weight-light mb-3 font-underline">Unicode and Localization</h1>
+          <br><br>
+          <span class="text-muted">GTK uses UTF-8 encoding for all of the text. This ensures that you can develop the app in your native language or any other language around the world.</span>
       </div>
-      <div class="py-4 col-md-10 col-lg-7 d-flex flex-column align-items-center">
-        <h2 class="text-center font-weight-light mb-3">Stability</h2>
-        <p class="text-muted">GTK has been developed for over a decade to be able to deliver the enticing features and
-          superb performance that it brings to your application development. GTK is supported by a large community of
-          developers and has core maintainers from companies such as Red Hat, Novell, Lanedo, Codethink, Endless Mobile
-          and Intel.</p>
+      <div class="col-lg-7">
+        <img src="{{ '/assets/img/characters.png' | prepend: site.url }}" class="img-fluid w-100 shadow">
       </div>
-      <div class="py-4 col-md-10 col-lg-7 d-flex flex-column align-items-center">
-        <h2 class="text-center font-weight-light mb-3">Foundations</h2>
-        <p class="text-muted">GTK is built on top of GLib. GLib provides the fundamental algorithmic language
-          constructs commonly duplicated in applications. This library has features such as: (this list is not a
-          comprehensive list)
-          Object and type system
-          Main loop
-          Dynamic loading of modules (i.e. plug-ins)
-          Thread support
-          Timer support
-          Memory allocator
-          Threaded Queues (synchronous and asynchronous)
-          Lists (singly linked, doubly linked, double ended)
-          Hash tables
-          Arrays
-          Trees (N-ary and binary balanced)
-          String utilities and charset handling
-          Lexical scanner and XML parser
-          Base64 (encoding & decoding)</p>
+    </div>
+    <div class="row d-flex flex-row py-4 py-lg-5">
+      <div class="col-lg-5 py-4">
+          <h6 class="text-muted small font-weight-normal">{{ 'movement' | upcase }}</h6>
+          <h1 class="font-weight-light mb-3 font-underline">Gestures</h1>
+          <br><br>
+          <span class="text-muted">In GTK, pointer and touch events are handled indistinctly, making your apps work on touchscreens out of the box.</span>
+      </div>
+      <div class="col-lg-7">
+        <img src="{{ '/assets/img/gestures.png' | prepend: site.url }}" class="img-fluid w-100 shadow">
+      </div>
+    </div>
+    <div class="row d-flex flex-row py-4 py-lg-5">
+      <div class="col-lg-5 py-4">
+          <h6 class="text-muted small font-weight-normal">{{ 'performance' | upcase }}</h6>
+          <h1 class="font-weight-light mb-3 font-underline">Hardware Accelerated Rendering</h1>
+          <br><br>
+          <span class="text-muted">The internal logic of the Vulkan renderer has been reworked to use textures instead of cairo surfaces for intermediate results and thus avoid more cairo fallbacks.</span>
+      </div>
+      <div class="col-lg-7">
+        <img src="{{ '/assets/img/performance.png' | prepend: site.url }}" class="img-fluid w-100 shadow">
       </div>
     </div>
   </div>
