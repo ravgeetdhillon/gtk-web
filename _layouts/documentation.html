@@ -10,7 +10,7 @@ any changes made to this file will affect all the documentation pages
 <section>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-3 col-md-4 small p-0 order-2 order-md-1 nav-side" id="mySidenav">
+      <div class="col-lg-3 col-md-4 small p-0 nav-side" id="mySidenav">
         <div class="text-break bg-white p-0 pt-2 pt-md-4 px-md-4 h-100">
           <a href="javascript:void(0)" class="btn d-md-none btn-close mt-2" onclick="closeSideNav()"><i class="fas fa-times fa-halfx"></i></a>
           <ul class="list-group">
@@ -20,11 +20,15 @@ any changes made to this file will affect all the documentation pages
               <ul class="list-group">
                 {% for link in sidebar_links %}
                   {% if link.external %}
-                    <li class="list-group-item border-0 p-0 pt-2"><a href="{{ link.href }}" class="text-muted">{{ link.title }}</a></li>
+                    <li class="list-group-item border-0 p-0 py-1"><a href="{{ link.href }}" class="text-muted stretched-link">{{ link.title }}</a></li>
                   {% else %}
-                    <li class="list-group-item border-0 p-0 pt-2"><a href="{{ '/docs/' | prepend: site.url }}{{ section.name }}/{{ link.name }}/" class="text-muted">{{ link.title }}</a></li>
+                    {% assign url_last = page.url | split: '/' %}
+                    {% if link.name == url_last.last %}
+                      <li class="list-group-item border-top-0 border-bottom-0 border-right-0 border-secondary rounded-0 p-0 py-1 bg-light my-1"><a href="{{ '/docs/' | prepend: site.url }}{{ section.name }}/{{ link.name }}/" class="text-muted stretched-link pl-2">{{ link.title }}</a></li>
+                    {% else %}
+                      <li class="list-group-item border-0 p-0 py-1"><a href="{{ '/docs/' | prepend: site.url }}{{ section.name }}/{{ link.name }}/" class="text-muted stretched-link">{{ link.title }}</a></li>
+                    {% endif %}
                   {% endif %}
-                  {{ link.permalink }}
                 {% endfor %}
               </ul>
             </li>
@@ -32,14 +36,14 @@ any changes made to this file will affect all the documentation pages
           </ul>
         </div>
       </div>
-      <div class="col-lg-7 col-md-8 py-4 px-sm-4 order-1 order-md-2 bg-light border-0 border-md-left">
+      <div class="col-lg-7 col-md-8 py-4 px-sm-4 bg-light border-0 border-md-left">
         <div class="d-flex flex-sm-row flex-column py-3 py-md-0 app-shadow">
           <div class="w-100">
             <span class="btn btn-mdcolor btn-sm d-inline-block d-md-none" style="cursor:pointer;" onclick="openSideNav()" role="button"><i class="fas fa-bars fa-fw pr-2"></i>More Topics</span>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb small bg-transparent pl-0 m-0">
                 {% assign url = page.url | split: '/' | shift %}
-                {% assign current_path = '' %}
+                {% assign current_path = '/' %}
                 {% for part in url %}
                   {% assign current_path = current_path | append: part | append: '/' %}
                   {% if forloop.last == true %}
@@ -57,7 +61,7 @@ any changes made to this file will affect all the documentation pages
           {{ page.content }}
         </article>
       </div>
-      <div class="col-lg-2 col-md-12 small text-break my-4 p-0 pl-3 order-3 order-md-3">
+      <div class="col-lg-2 col-md-12 small text-break my-4 p-0 pl-3">
         <div class="mr-3 px-3 py-3 border rounded shadow-sm">
           {% assign page_name = page.path | split: '/' %}
           {% assign page_name = page_name.last %}
@@ -69,7 +73,6 @@ any changes made to this file will affect all the documentation pages
     </div>
   </div>
 </section>
-
 <script>
   // handles the sidebar opening and closing functionality
   function openSideNav() {
