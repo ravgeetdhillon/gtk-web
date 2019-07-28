@@ -102,6 +102,7 @@ menu_links:
     header: false
     footer: true
     section: Company
+    external: true
   - name: Consultation
     href: /support#consultation
     header: false
@@ -196,3 +197,15 @@ sidebar_links:
   - title: Hello World
     name: hello-world
     section: Getting Started
+  - title: Python
+    name: python
+    section: Language Bindings
+  - title: C
+    name: c
+    section: Language Bindings
+  - title: Javascript
+    name: javascript
+    section: Language Bindings
+  - title: Vala
+    name: vala
+    section: Language Bindings
