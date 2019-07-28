@@ -39,28 +39,28 @@ development_section:
 features_list:
   - title: Cross Platform
     description: Projects build using GTK and its dependencies run on well known operating systems.
-    img: cross_platform.svg
-  - title: Open Source
-    description: GTK is an free and open source project maintained by GNOME and an active community of contributors.
-    img: open_source.svg
-  - title: Foundations
-    description: GTK is built on top of GLib. GLib provides the fundamental algorithmic language constructs commonly duplicated in applications.
-    img: api.svg
-  - title: Language Bindings
-    description: GTK is written in C but has been designed to support a wide range of languages such as Perl, Python and [many more](/languages).
-    img: language_bindings.svg
-  - title: Interfaces
-    description: GTK has a comprehensive collection of core widgets like Buttons, Windows, Toolbars for use in your application.
-    img: interfaces.svg
-  - title: API
-    description: GTK boasts of an easy to use [API](/documentation) which helps in decreasing your development time and produce better results.
-    img: api.svg
-  - title: Accomodation
-    description: GTK caters for a number features like Native look and feel, theme support, Object oriented approach that today's developers look for in a toolkit.
-    img: api.svg
+    icon: fas fa-door-open
   - title: Stability
     description: GTK deliver the enticing features and superb performance which adds to your applications.
-    img: stability.svg
+    icon: fas fa-balance-scale
+  - title: Language Bindings
+    description: GTK is written in C but has been designed to support a wide range of languages such as Python, Rust and [many more](/docs/language-bindings/).
+    icon: fas fa-random
+  - title: Interfaces
+    description: GTK has a comprehensive collection of core widgets like Buttons, Windows, Toolbars for use in your application.
+    icon: fas fa-cubes
+  - title: Open Source
+    description: GTK is an free and open source project maintained by GNOME and an active community of contributors.
+    icon: fas fa-code-branch
+  - title: API
+    description: GTK boasts of an easy to use [API](/docs/apis/) which helps in decreasing your development time and produce better results.
+    icon: fas fa-code
+  - title: Accomodation
+    description: GTK caters for a number features like Native look and feel, theme support, Object oriented approach that today's developers look for in a toolkit.
+    icon: fas fa-suitcase-rolling
+  - title: Foundations
+    description: GTK is built on top of GLib. GLib provides the fundamental algorithmic language constructs commonly duplicated in applications.
+    icon: fas fa-layer-group
     
 news_and_events_list:
   - title: Catchup with GTK
@@ -143,7 +143,7 @@ news_and_events_list:
         <span class="text-muted">{{ page.bindings_main_heading_description | markdownify }}</span>
       </div>
     </div>
-    <div class="row d-flex flex-column align-items-center py-4">
+    <div class="row d-flex flex-column align-items-center py-4 px-3">
       <div class="col-lg-8 p-0 rounded-top overflow-hidden">
         <div class="list-group flex-row flex-wrap" id="list-tab" role="tablist">
         {% assign codes = site.data.sample_codes.codes %}
@@ -199,7 +199,7 @@ news_and_events_list:
         <h2 class="font-weight-light mb-3">{{ page.integrations_main_heading }}</h2>
         <span class="text-muted">{{ page.integrations_main_heading_description | markdownify }}</span>
       </div>
-      <div class="col-lg-7 d-flex justify-content-center align-items-center">
+      <div class="col-lg-7 d-flex justify-content-center align-items-center py-4 py-lg-0">
         <img src="{{ '/assets/img/wall-glade.png' | prepend: site.url }}" class="img-fluid w-100 shadow-lg" alt="Integration of Glade and GTK" />
       </div>
     </div>
@@ -207,74 +207,64 @@ news_and_events_list:
   <hr class="w-75 mt-5">
 </section>
 
-{% assign features = page.features_list %}
-{% assign total_size = page.features_list | size %}
-{% assign halfway = total_size | divided_by: 2 %}
 <section class="pt-3 pb-4" id="features">
   <div class="container"> 
     <div class="row text-center d-flex justify-content-center">
       <div class="col-md-10 col-lg-7">
         <h2 class="font-weight-light mb-3">{{ page.features_main_heading }}</h2>
-        <span class="text-muted">{{ page.features_main_heading_description | markdownify }}</span>			
+        <span class="text-muted">{{ page.features_main_heading_description | markdownify }}</span>
       </div>
     </div>
-    <div class="row feature-holder py-4">
-      <div class="col-sm-6 px-3">
-      {% assign halfway = halfway | minus: 1 %}
-      {% for i in (0..halfway) %}
-        <div class="col px-0 px-sm-3">
-          <h6 class="mb-1">{{ features[i].title }}</h6>
-          <span class="text-muted small">{{ features[i].description | markdownify }}</span>
-          <br>
-        </div>
-      {% endfor %}
-      </div>
+    <div class="row feature-holder pt-5">
+      {% assign features = page.features_list %}
+      {% for feature in features %}
+        <div class="col-md-6 px-3">
+          <div class="col d-flex px-0 px-sm-3 pb-4">
+            <div class="px-2">
+              <span class="fa-stack fa-1x fa-fw d-flex justify-content-center align-items-center">
+                <i class="fas fa-circle fa-stack-2x fa-fw text-secondary text-center"></i>
+                <i class="{{ feature.icon }} fa-stack-1x fa-inverse fa-fw text-center"></i>
+              </span>
+            </div>
+            <div>
+              <h6 class="mb-1">{{ feature.title }}</h6>
+              <span class="text-muted small">{{ feature.description | markdownify }}</span>
+            </div>
+          </div>
+        </div>  
+        {% endfor %}
+    </div>
+  </div>
+</section>
 
-      <div class="col-sm-6 px-3">
-      {% assign halfway = halfway | plus: 1 %}
-      {% assign total_size = total_size | minus: 1 %}
-      {% for i in (halfway..total_size) %}
-        <div class="col px-0 px-sm-3">
-          <h6 class="mb-1">{{ features[i].title }}</h6>
-          <span class="text-muted small">{{ features[i].description | markdownify }}</span>
-          <br>
-        </div>
-      {% endfor %}
+<section class="py-4 bg-no-repeat bg-cover" id="development">
+  <div class="container">
+    <div class="row py-4 px-3">
+      <div class="col-md-6 bg-no-repeat bg-center d-flex justify-content-center align-items-center py-4 rounded" style="background: url('{{ '/assets/img/wall-gtk-symbolics.png' | prepend: site.url }}')">
+        <img src="{{ '/assets/img/logo-gtk.png' | prepend: site.url }}" class="img-fluid w-100" style="max-width:200px">
+      </div>
+      <div class="col-md-6 py-3 py-md-0 px-0 px-md-3">
+        {% assign development = page.development_section %}
+        {% for item in development %}
+          <div class="w-100 bg-light py-4 px-3 mb-2 border rounded card">
+              <h5 class="font-weight-normal mb-3">{{ item.heading }}</h5>
+              <span class="text-muted small">{{ item.description | markdownify }}</span>
+          </div>
+        {% endfor %}
       </div>
     </div>
   </div>
-  <section class="py-4 bg-no-repeat bg-cover" id="development" style="background: url('{{ '/assets/img/wall-symbolics.png' | prepend: site.url }}')">
-    <div class="container">
-      <div class="row py-4">
-        <div class="col-md-6 px-md-4 pb-4 pb-md-0">
-          <h2 class="font-weight-light mb-3">{{ page.development_section[0].heading }}</h2>
-          <span class="text-muted">{{ page.development_section[0].description | markdownify }}</span>
-        </div>
-        <div class="col-md-6 px-md-4 pb-4 pb-md-0">
-          <h2 class="font-weight-light mb-3">{{ page.development_section[1].heading }}</h2>
-          <span class="text-muted">{{ page.development_section[1].description | markdownify }}</span>
-        </div>
-      </div>
-      <hr class="w-75">
-      <div class="row py-4 text-center d-flex justify-content-center">
-        <div class="col-md-10 col-lg-7">
-          <h2 class="font-weight-light mb-3">{{ page.development_section[2].heading }}</h2>
-          <span class="text-muted">{{ page.development_section[2].description | markdownify }}</span>
-        </div>
-      </div>
-    </div>
-  </section>
 </section>
 
 <section class="py-4" id="tutorials">
   <div class="container">
     <div class="row">
       <div class="embed-responsive embed-responsive-16by9 col-12 col-md-6 rounded">
-        <iframe class="embed-responsive-item py-3 px-3" src="{{ site.data.stuff.tutorial_video_link }}" allowfullscreen></iframe>
+        <!-- <iframe class="embed-responsive-item py-3 px-3" src="{{ site.data.stuff.tutorial_video_link }}" allowfullscreen></iframe> -->
       </div>
       <div class="col-12 col-md-6 px-3 py-3 px-md-4 d-flex flex-column justify-content-center">
         <h2 class="font-weight-light mb-3">{{ page.tutorials_main_heading }}</h2>
-        <span class="text-muted">{{ page.tutorials_main_heading_description | markdownify }}</span>
+        <span class="text-muted mb-4">{{ page.tutorials_main_heading_description | markdownify }}</span>
         <div>
           <a href="{{ '/docs/' | prepend: site.url }}" class="btn btn-sm btn-outline-primary" role="button">Developers Guide</a>
         </div>
@@ -291,7 +281,7 @@ news_and_events_list:
       {% for news in news_and_events %}
       <div class="col-md-4 px-3 pb-4 pb-md-0">
         <div class="w-100 px-4 py-4 rounded shadow bg-light h-100">
-          <h6 class="border-bottom border-primary pb-2">{{ news.title }}</h6>
+          <h5 class="border-bottom border-primary pb-2 font-weight-normal">{{ news.title }}</h5>
           <span class="text-muted small">{{ news.description | markdownify }}</span>
         </div>
       </div>
@@ -341,6 +331,7 @@ news_and_events_list:
   });
 
   // used to implement the dropdown for the downloads
-  $(".dropdown-toggle").dropdown()
+  $(".dropdown-toggle").dropdown();
 </script>
+
 {%- include footer.html -%}
