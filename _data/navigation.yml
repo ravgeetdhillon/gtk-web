@@ -135,16 +135,22 @@ social_links:
 sidebar_sections:
   - title: Getting Started
     name: getting-started
+    icon: fas fa-cogs
   - title: Installations
     name: installations
+    icon: fas fa-box-open
   - title: Language Bindings
     name: language-bindings
+    icon: fas fa-random
   - title: Dev Tools
     name: dev-tools
+    icon: fas fa-tools
   - title: API References
     name: apis
+    icon: fas fa-cubes
   - title: Architecture
     name: architecture
+    icon: fas fa-vector-square
 
 # to add links to the sidebar on the documentation pages of the website, add a link with the following attributes:
 #   title: the display text for the section

@@ -12,21 +12,21 @@ any changes made to this file will affect all the documentation pages
     <div class="row">
       <div class="col-lg-3 col-md-4 small p-0 nav-side" id="mySidenav">
         <div class="text-break bg-white p-0 pt-2 pt-md-4 px-md-4 h-100">
-          <a href="javascript:void(0)" class="btn d-md-none btn-close mt-2" onclick="closeSideNav()"><i class="fas fa-times fa-halfx"></i></a>
+          <a href="#" class="btn d-md-none btn-close mt-2" onclick="closeSideNav()"><i class="fas fa-times fa-halfx"></i></a>
           <ul class="list-group">
             {% for section in site.data.navigation.sidebar_sections %}
-            <li class="list-group-item border-0 group-header pb-4"><a href="{{ '/docs/' | prepend: site.url }}{{ section.name }}/" class="text-dark"><strong>{{ section.title }}</strong></a>
+            <li class="list-group-item border-0 group-header pb-4"><a href="{{ '/docs/' | prepend: site.url }}{{ section.name }}/" class="text-dark"><i class="{{ section.icon }} fa-fw"></i> <strong>{{ section.title }}</strong></a>
               {% assign sidebar_links = site.data.navigation.sidebar_links | where: "section", section.title %}
               <ul class="list-group">
                 {% for link in sidebar_links %}
                   {% if link.external %}
-                    <li class="list-group-item border-0 p-0 py-1"><a href="{{ link.href }}" class="text-muted stretched-link">{{ link.title }}</a></li>
+                    <li class="list-group-item border-0 p-0 py-1 padding-icon"><a href="{{ link.href }}" class="text-muted stretched-link">{{ link.title }}</a></li>
                   {% else %}
                     {% assign url_last = page.url | split: '/' %}
                     {% if link.name == url_last.last %}
-                      <li class="list-group-item border-top-0 border-bottom-0 border-right-0 border-secondary rounded-0 p-0 py-1 bg-light my-1"><a href="{{ '/docs/' | prepend: site.url }}{{ section.name }}/{{ link.name }}/" class="text-muted stretched-link pl-2">{{ link.title }}</a></li>
+                      <li class="list-group-item padding-icon border-top-0 border-bottom-0 border-right-0 border-secondary rounded-0 p-0 py-1 bg-light my-1"><a href="{{ '/docs/' | prepend: site.url }}{{ section.name }}/{{ link.name }}/" class="text-muted stretched-link">{{ link.title }}</a></li>
                     {% else %}
-                      <li class="list-group-item border-0 p-0 py-1"><a href="{{ '/docs/' | prepend: site.url }}{{ section.name }}/{{ link.name }}/" class="text-muted stretched-link">{{ link.title }}</a></li>
+                      <li class="list-group-item border-0 p-0 py-1 padding-icon"><a href="{{ '/docs/' | prepend: site.url }}{{ section.name }}/{{ link.name }}/" class="text-muted stretched-link">{{ link.title }}</a></li>
                     {% endif %}
                   {% endif %}
                 {% endfor %}
