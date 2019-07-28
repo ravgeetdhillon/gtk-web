@@ -75,44 +75,8 @@ any changes made to this file will affect all the documentation pages
   function openSideNav() {
     document.querySelector(".nav-side").style.width = "250px";
   }
-
   function closeSideNav() {
     document.querySelector(".nav-side").style.width = "0";
-  }
-
-  // implements the bootstrap tooltip functionality
-  $(document).ready(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-  });
-
-  // converts relative paths of markdown based images to absolute path
-  var i, l, img, markdownImages;
-  markdownImages = document.querySelectorAll(".markdown-body img");
-  l = markdownImages.length;
-  for (i = 0; i < l; i++) {
-    img = markdownImages[i];
-    imgNodeValue = img.attributes.src.nodeValue;
-    if ( imgNodeValue.search("https://") == 0 || imgNodeValue.search("http://") == 0 ) {
-      continue;
-    }
-    else {
-      img.setAttribute("src", "{{ site.url }}" + imgNodeValue);
-    }
-  }
-
-  // converts relative paths of markdown based links to absolute path
-  var i, l, img, markdownLinks;
-  markdownLinks = document.querySelectorAll(".markdown-body a");
-  l = markdownLinks.length;
-  for (i = 0; i < l; i++) {
-    link = markdownLinks[i];
-    linkNodeValue = link.attributes.href.nodeValue;
-    if ( linkNodeValue.search("https://") == 0 || linkNodeValue.search("http://") == 0 || linkNodeValue[0] == '#' ) {
-      continue;
-    }
-    else {
-      link.setAttribute("href", "{{ site.url }}" + linkNodeValue);
-    }
   }
 </script>
 {% include footer.html %}

@@ -127,5 +127,3 @@ You may use MSYS2 to [build your GTK application and create an installer to dist
 You are welcome to redistribute GTK binaries, including applications that bundle them, on other web sites, CD-ROM, and other media. You don't have to ask for permission. That's one of the points of Free Software. 
 
 One important thing that the [GNU licenses](http://www.fsf.org/licenses/licenses.html) require is that you must also redistribute the source code. This usually means at least the gettext, GLib, GTK, Pango and ATK sources.
-
-***

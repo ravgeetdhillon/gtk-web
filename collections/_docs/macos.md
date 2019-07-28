@@ -45,5 +45,3 @@ Support for building, bundling, and the integration library is provided by a [ma
 ## Contributing
 
 Bugs, patches and enhancements for building, integration, or bundling may be submitted to [Bugzilla, with Product=gtk-mac-integration](https://bugzilla.gnome.org/enter_bug.cgi?product=gtk-mac-integration). Bug reports on any other package, including GTK itself, should be submitted against that package, not gtk-mac-integration; the GTK component for the Quartz backend is "Backend: Quartz".
-
-***
