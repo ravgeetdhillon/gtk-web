@@ -50,6 +50,8 @@ collections_dir: collections
 collections:
   docs:
     output: true
+  pages:
+    output: true
 
 defaults:
   - scope:
