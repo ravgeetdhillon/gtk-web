@@ -241,7 +241,8 @@ news_and_events_list:
 <section class="py-4 bg-no-repeat bg-cover" id="development">
   <div class="container">
     <div class="row py-4 px-3">
-      <div class="col-md-6 bg-no-repeat bg-center d-flex justify-content-center align-items-center py-4 rounded" style="background: url('{{ '/assets/img/wall-gtk-symbolics.png' | prepend: site.url }}')">
+      {% assign back_img = '/assets/img/wall-gtk-symbolics.png' | prepend: site.url %}
+      <div class="col-md-6 bg-no-repeat bg-center d-flex justify-content-center align-items-center py-4 rounded" style="background: url('{{ back_img }}');">
         <img src="{{ '/assets/img/logo-gtk.png' | prepend: site.url }}" class="img-fluid w-100" style="max-width:200px">
       </div>
       <div class="col-md-6 py-3 py-md-0 px-0 px-md-3">
@@ -275,7 +276,8 @@ news_and_events_list:
 </section>
 
 {% assign news_and_events = page.news_and_events_list %}
-<section class="py-4" id="events" style="background: url('{{ '/assets/img/wall-events-pattern.svg' | prepend: site.url }}')">
+{% assign back_img = '/assets/img/wall-events-pattern.svg' | prepend: site.url %}
+<section class="py-4" id="events" style="background: url('{{ img_back }}')">
   <div class="container">
     <h2 class="text-center font-weight-light mb-3">News and Events</h2>
     <div class="row py-4">
