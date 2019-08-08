@@ -1,7 +1,1 @@
-* linguist-vendored
-*.html linguist-vendored=false
-*.yml linguist-vendored=false
-*.md linguist-vendored=false
-_data/* linguist-vendored=false
-assets/css/index.css linguist-vendored=false
-assets/js/issues.js linguist-vendored=false
+* linguist-language=Ruby
