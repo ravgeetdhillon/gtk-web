@@ -195,7 +195,7 @@ sidebar_links:
     name: pango
     section: Architecture
   - title: GDK
-    name: gtk
+    name: gdk
     section: Architecture
   - title: Cairo
     name: cairo
