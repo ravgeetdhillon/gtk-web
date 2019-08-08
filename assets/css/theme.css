@@ -8196,5 +8196,48 @@ a.text-mdborder:hover, a.text-mdborder:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
+.badge-primary {
+  color: #3B86E2 !important;
+  background-color: #d6e6f9 !important; }
+
+.badge-secondary {
+  color: #F28518 !important;
+  background-color: #fcdec1 !important; }
+
+.badge-success {
+  color: #28a745 !important;
+  background-color: #9be7ac !important; }
+
+.badge-info {
+  color: #C0C4BD !important;
+  background-color: white !important; }
+
+.badge-warning {
+  color: #ffc107 !important;
+  background-color: #ffeeba !important; }
+
+.badge-danger {
+  color: #dc3545 !important;
+  background-color: #f6cdd1 !important; }
+
+.badge-light {
+  color: #F8F9FA !important;
+  background-color: white !important; }
+
+.badge-dark {
+  color: #04080F !important;
+  background-color: #2a539c !important; }
+
+.badge-tertiary {
+  color: #94D354 !important;
+  background-color: #edf8e2 !important; }
+
+.badge-mdcolor {
+  color: #f2f3f2 !important;
+  background-color: white !important; }
+
+.badge-mdborder {
+  color: #e7e8e9 !important;
+  background-color: white !important; }
 
 /*# sourceMappingURL=theme.css.map */

@@ -48,3 +48,14 @@ $font-size-base: 1.15rem;
 }
 
 @import "../bootstrap/scss/bootstrap";
+
+@mixin badge-variant($bg) {
+	color: $bg !important;
+	background-color: lighten($bg, 35%) !important;
+}
+
+@each $color, $value in $theme-colors {
+	.badge-#{$color} {
+		@include badge-variant($value);
+	}
+}

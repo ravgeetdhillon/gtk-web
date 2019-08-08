@@ -348,10 +348,9 @@ body {
 .shadow-hover:hover {
     transition: box-shadow 0.15s ease-in-out;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-    cursor: pointer;
 }
 .shadow-sm-hover:hover {
-    transition: 0.15s ease-in-out;
+    transition: box-shadow 0.15s ease-in-out;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 .bg-light-hover:hover {
