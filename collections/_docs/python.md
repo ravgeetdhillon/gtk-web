@@ -13,11 +13,11 @@ If you want to write a Python application for GNOME or a Python GUI application 
 
 For more information, visit [https://pygobject.readthedocs.io](https://pygobject.readthedocs.io).
 
-## PyGObject API Reference
+## PyGObject API
 
 You can view the API Reference for the PyGObject at [http://lazka.github.io/pgi-docs/](http://lazka.github.io/pgi-docs/)
 
-## Hello World
+## A Hello World app
 
 Below is an `Hello World` program that can be used as an example to get started with the PyGObject.
 
@@ -40,9 +40,9 @@ Gtk.main()
 
 If you are interested in contributing to the PyGObject project or want to get in touch with the original source files, you can visit the project's [git repository](https://gitlab.gnome.org/GNOME/pygobject/) on Gitlab.
 
-## More Resources
+## See More
 
-[Gitlab Project](https://gitlab.gnome.org/GNOME/pygobject/)
-[PyGObject Website](https://pygobject.readthedocs.io/en/latest/)
-[API References](http://lazka.github.io/pgi-docs/)
-[PyGObject Tutorials](https://python-gtk-3-tutorial.readthedocs.io/en/latest/)
+* Gitlab Project: [https://gitlab.gnome.org/GNOME/pygobject/](https://gitlab.gnome.org/GNOME/pygobject/)
+* PyGObject Website: [https://pygobject.readthedocs.io/en/latest/](https://pygobject.readthedocs.io/en/latest/)
+* API References: [http://lazka.github.io/pgi-docs/](http://lazka.github.io/pgi-docs/)
+* PyGObject Tutorials: [https://python-gtk-3-tutorial.readthedocs.io/en/latest/](https://python-gtk-3-tutorial.readthedocs.io/en/latest/)

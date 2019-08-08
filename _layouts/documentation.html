@@ -10,7 +10,7 @@ any changes made to this file will affect all the documentation pages
 <section>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-3 col-md-4 small p-0 nav-side" id="mySidenav">
+      <div class="small p-0 nav-side" id="mySidenav">
         <div class="text-break bg-white p-0 pt-2 pt-md-4 px-md-4 h-100">
           <a href="#" class="btn d-md-none btn-close mt-2" onclick="closeSideNav()"><i class="fas fa-times fa-halfx"></i></a>
           <ul class="list-group">
@@ -36,7 +36,7 @@ any changes made to this file will affect all the documentation pages
           </ul>
         </div>
       </div>
-      <div class="col-lg-7 col-md-8 py-4 px-sm-4 bg-light border-0 border-md-left">
+      <div class="col py-4 px-sm-4 bg-light border-0 border-md-left">
         <div class="d-flex flex-sm-row flex-column py-3 py-md-0 app-shadow">
           <div class="w-100">
             <span class="btn btn-mdcolor btn-sm d-inline-block d-md-none" style="cursor:pointer;" onclick="openSideNav()" role="button"><i class="fas fa-bars fa-fw pr-2"></i>More Topics</span>
@@ -61,13 +61,18 @@ any changes made to this file will affect all the documentation pages
           {{ page.content }}
         </article>
       </div>
-      <div class="col-lg-2 col-md-12 small text-break my-4 p-0 pl-3">
-        <div class="mr-3 px-3 py-3 border rounded shadow-sm">
+      <div class="col-xl-2 col-12 small text-break my-4 p-0 pl-3">
+        <div class="mr-3 border rounded shadow-sm">
           {% assign page_name = page.path | split: '/' %}
           {% assign page_name = page_name.last %}
-          <p class="mb-0">Observed a typo or some missing information, edit this page <a href="{{ site.data.stuff.site_repo | append: 'blob/master/collections/_docs/' }}{{ page_name }}/">here</a>.</p>
-          <br>
-          <p class="mb-0">Read on <a href="{{ site.data.stuff.site_repo | append: 'blob/master/CONTRIBUTING.md/' }}">how to contribute</a> to this website.</p>
+          <div class="px-3 py-3 border-bottom w-100">
+            <i class="fas fa-edit text-info"></i>
+            <span>Observed a typo or some missing information, edit this page <a href="{{ site.data.stuff.site_repo | append: 'blob/master/collections/_docs/' }}{{ page_name }}/">here</a>.</span>
+          </div>
+          <div class="bg-light px-3 py-3 w-100">
+            <i class="fas fa-plus-square text-info"></i>
+            <span>Read on <a href="{{ site.data.stuff.site_repo | append: 'blob/master/CONTRIBUTING.md/' }}">how to contribute</a> to this website.</span>
+          </div>
         </div>
       </div>
     </div>
@@ -81,5 +86,24 @@ any changes made to this file will affect all the documentation pages
   function closeSideNav() {
     document.querySelector(".nav-side").style.width = "0";
   }
+
+  // provides headings with their individual permalinks
+  var headings_names = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+  var markdown_headings_all = [];
+
+  headings_names.forEach(heading => {
+    var headings = document.querySelectorAll( '.markdown-body ' + heading );
+    headings.forEach(element => {
+      markdown_headings_all.push(element);
+    });
+  });
+  
+  markdown_headings_all.forEach(heading => {
+    heading.innerHTML = heading.innerHTML + `
+      
+      <a id="${heading.id}" href="#${heading.id}" class="anchor"><i class="fas fa-link octicon octicon-link text-secondary" style="font-size: 0.8rem;"></i></a>
+      
+      `;
+  });
 </script>
 {% include footer.html %}
