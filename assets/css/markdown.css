@@ -4,7 +4,19 @@ this file contains styling rules for the markdown content which makes up the doc
 you can edit this file directly to change the appearance of certain elements that exist in markdown body.
 
 */
-
+@media screen and (max-width: 576px) {
+    .markdown-body .anchor {
+        float: right !important;
+    }
+    .markdown-body h1 .octicon-link,
+    .markdown-body h2 .octicon-link,
+    .markdown-body h3 .octicon-link,
+    .markdown-body h4 .octicon-link,
+    .markdown-body h5 .octicon-link,
+    .markdown-body h6 .octicon-link {
+        visibility: visible !important;
+    }
+}
 .markdown-body {
     font-size: 1rem;
     line-height: 1.5;
@@ -101,7 +113,7 @@ you can edit this file directly to change the appearance of certain elements tha
 .markdown-body h4 .octicon-link,
 .markdown-body h5 .octicon-link,
 .markdown-body h6 .octicon-link {
-    color: #1b1f23;
+    color: var(--dark);
     vertical-align: middle;
     visibility: hidden;
 }
