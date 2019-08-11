@@ -22,6 +22,7 @@ before_script:
   - mv node_modules/moment assets/ -f
   - rm -rf node_modules
   - sass assets/scss/theme.scss assets/css/theme.css
+  - echo $apikey
   
 test:
   stage: test
