@@ -47,7 +47,7 @@ to the CMake options, where `vcpkg` root is the location where you cloned the `v
 
 ### Building and distributing your application
 
-<div class="alert alert-tertiary">
+<div class="alert alert-success">
 Once you have installed the GTK as above, you should have little problem compiling a GTK app. In order to run it successfully, you will also need a GTK theme. There is some old builtin support for a Windows theme in GTK, but that makes your app look like a Windows 7 app. It is better to get a Windows 10 theme, for instance the [Windows 10 Transformation Pack](https://github.com/B00merang-Project/Windows-10).
 </div>
 

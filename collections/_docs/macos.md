@@ -13,10 +13,10 @@ Do you have a favorite GTK application that you'd like to run on your Mac with a
 
 Linking with GTK's [Quartz backend](https://wiki.gnome.org/Projects/GTK/OSX) connects your application to the Mac's native display manager, keyboard, and pointing device. With a little extra code and [gtk-mac-integration](https://wiki.gnome.org/Projects/GTK/OSX/Integration) you can:
 
-Integrate the Application's menus with the Mac Menubar
-Manipulate your application's dock tile
-Receive open events from Finder
-Find resources in your application bundle
+* **Integrate** the Application's menus with the Mac Menubar.
+* **Manipulate** your application's dock tile.
+* **Receive** open events from Finder.
+* **Find** resources in your application bundle.
 
 ## Requirements
 
