@@ -26,9 +26,10 @@ menu_links:
     footer: true
     section: Project
   - name: Blog
-    href: /blog/
+    href: https://blog.gtk.org/
     header: true
     footer: true
+    external: true
     section: Company
   - name: Usecases
     href: /usecases/

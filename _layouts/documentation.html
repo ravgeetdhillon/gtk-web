@@ -7,11 +7,13 @@ any changes made to this file will affect all the documentation pages
 
 {% include header.html %}
 
+{% include navbar.html %}
+
 <section>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
-      <div class="small p-0 nav-side" id="mySidenav">
-        <div class="text-break bg-white p-0 pt-2 pt-md-4 px-md-4 h-100">
+      <div class="col-md-3 small p-0 nav-side" id="mySidenav">
+        <div class="text-break bg-white p-0 pt-2 pt-md-4 h-100">
           <a href="#" class="btn d-md-none btn-close mt-2" onclick="closeSideNav()"><i class="fas fa-times fa-halfx"></i></a>
           <ul class="list-group">
             {% for section in site.data.navigation.sidebar_sections %}
@@ -36,7 +38,7 @@ any changes made to this file will affect all the documentation pages
           </ul>
         </div>
       </div>
-      <div class="col py-4 px-sm-4 bg-light border-0 border-md-left">
+      <div class="col-md-9 py-4 px-sm-4 bg-light border-0 border-md-left">
         <div class="d-flex flex-sm-row flex-column py-3 py-md-0 app-shadow">
           <div class="w-100">
             <span class="btn btn-mdcolor btn-sm d-inline-block d-md-none" style="cursor:pointer;" onclick="openSideNav()" role="button"><i class="fas fa-bars fa-fw pr-2"></i>More Topics</span>
@@ -60,19 +62,15 @@ any changes made to this file will affect all the documentation pages
         <article class="markdown-body">
           {{ page.content }}
         </article>
-      </div>
-      <div class="col-xl-2 col-12 small text-break my-4 p-0 pl-3">
-        <div class="mr-3 border rounded shadow-sm">
+        <br>
+        <div class="bg-white p-3 border rounded shadow-sm small">
           {% assign page_name = page.path | split: '/' %}
           {% assign page_name = page_name.last %}
-          <div class="px-3 py-3 border-bottom w-100">
-            <i class="fas fa-edit text-info"></i>
-            <span>Observed a typo or some missing information, edit this page <a href="{{ site.data.stuff.site_repo | append: 'blob/master/collections/_docs/' }}{{ page_name }}/">here</a>.</span>
-          </div>
-          <div class="bg-light px-3 py-3 w-100">
-            <i class="fas fa-plus-square text-info"></i>
-            <span>Read on <a href="{{ site.data.stuff.site_repo | append: 'blob/master/CONTRIBUTING.md/' }}">how to contribute</a> to this website.</span>
-          </div>
+          <i class="fas fa-edit text-info fa-fw pr-2"></i>
+          <span>Observed a typo or some missing information, edit this page <a href="{{ site.data.stuff.site_repo | append: 'blob/master/collections/_docs/' }}{{ page_name }}/">here</a>.</span>
+          <br>
+          <i class="fas fa-plus-square text-info fa-fw pr-2"></i>
+          <span>Read on <a href="{{ site.data.stuff.site_repo | append: 'blob/master/CONTRIBUTING.md/' }}">how to contribute</a> to this website.</span>
         </div>
       </div>
     </div>
@@ -87,23 +85,15 @@ any changes made to this file will affect all the documentation pages
     document.querySelector(".nav-side").style.width = "0";
   }
 
-  // provides headings with their individual permalinks
-  var headings_names = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-  var markdown_headings_all = [];
-
-  headings_names.forEach(heading => {
-    var headings = document.querySelectorAll( '.markdown-body ' + heading );
-    headings.forEach(element => {
-      markdown_headings_all.push(element);
-    });
-  });
-  
-  markdown_headings_all.forEach(heading => {
+  // adds anchor links to the headings in the markdown body
+  var headings = document.querySelectorAll( '.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6' );
+  headings.forEach(heading => {
     heading.innerHTML = heading.innerHTML + `
       
       <a id="${heading.id}" href="#${heading.id}" class="anchor"><i class="fas fa-link octicon octicon-link text-secondary" style="font-size: 0.8rem;"></i></a>
       
-      `;
+    `;
   });
 </script>
+
 {% include footer.html %}

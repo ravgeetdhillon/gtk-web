@@ -1,9 +1,9 @@
 {% comment %}
 
-this is the header file for all the pages in the website
-any changes made to this file will affect header section of all the pages
-to make any design changes to the header section, make changes to this file
-to make changes related to the content, edit the `_data/navigation.yml`
+this is the header file for all the pages in the website.
+any changes made to this file will affect header section of all the pages.
+
+this file contains all the metadata about the website, links to stylesheets and javascript files.
 
 {% endcomment %}
 
@@ -33,53 +33,3 @@ to make changes related to the content, edit the `_data/navigation.yml`
   <script src="{{ '/assets/slick-carousel/slick/slick.min.js' | prepend: site.url }}"></script>
   <script src="{{ '/assets/moment/moment.js' | prepend: site.url }}"></script>
 </head>
-
-<body>
-  {% if page.navbar_type == 'dark' %}
-    {% assign text_color = 'white' %}
-    {% assign bg_color = 'dark' %}
-  {% elsif page.navbar_type == 'light' %}
-    {% assign text_color = 'dark' %}
-    {% assign bg_color = 'transparent' %}
-  {% endif %}
-  <header class="navbar small bg-{{ bg_color }}">
-    <nav class="container navbar-expand-md px-0 px-md-3">
-      <a href="{{ site.url }}" class="navbar-brand text-{{ text_color }}"><img src="{{ '/assets/img/logo-gtk.png' | prepend: site.url }}" class="pr-2" style="width:40px;" /><strong>GTK</strong></a>
-      <a class="btn navbar-toggler border-0 p-0" role="button" data-toggle="collapse" data-target="#navbarSupportedContent" href="#">
-        <i class="fas fa-ellipsis-h text-{{ text_color }}"></i>
-      </a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          {% assign menu_links = site.data.navigation.menu_links %}
-            {% for link in menu_links %}
-              {% assign page_split = page.url | split: '/' %}
-              {% assign page_type = page_split[1] | capitalize %}
-              {% if link.header %}
-                {% if link.external %}
-                    <li class="nav-item"><a href="{{ link.href }}" class="nav-link float-right text-{{ text_color }}">{{ link.name }}</a></li>
-                {% else %}
-                  <li class="nav-item"><a href="{{ link.href | prepend: site.url }}" class="nav-link float-right text-{{ text_color }}">{{ link.name }}</a></li>
-                {% endif %}
-              {% endif %}
-            {% endfor %}
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-  <button class="d-none btn border border-info bg-white rounded-circle position-fixed" id="btn-go-to-top"><i class="fas fa-angle-up"></i></button>
-  <script>
-    var btnTop = $("#btn-go-to-top");
-    $(window).scroll(function() {
-      if ($(window).scrollTop() < 400) {
-        btnTop.addClass("d-none");
-      }
-      else {
-        btnTop.removeClass("d-none");
-      }
-    });
-    btnTop.on("click", function(e) {
-      e.preventDefault();
-      $("html, body").animate({scrollTop: 0});
-    });
-  </script>
