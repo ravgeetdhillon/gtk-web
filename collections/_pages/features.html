@@ -6,7 +6,10 @@ page_main_heading: Why GTK?
 page_main_heading_description: Thanks to all the hardwork by the community, new features have been introduced to GTK, which make v4 even better.
 ---
 
-{%- include header.html -%}
+{% include header.html %}
+
+{% include navbar.html %}
+
 <body>
 <section class="d-flex flex-column align-items-center bg-no-repeat bg-center" style="background: url('{{ '/assets/img/wall-gtk-features.png' | prepend: site.url }}')">
   <div class="container">
@@ -70,6 +73,4 @@ page_main_heading_description: Thanks to all the hardwork by the community, new 
   </div>
 </section>
 
-<script>
-</script>
-{%- include footer.html -%}
+{% include footer.html %}
