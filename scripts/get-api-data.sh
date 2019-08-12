@@ -1,3 +1,7 @@
+echo 'creating directory for storing api results...'
+
+mkdir ../api_fetch
+
 echo 'getting the api data from the gitlab...'
 
 curl https://gitlab.gnome.org/api/v4/projects/665/repository/tags?order_by=name > ../_data/api_fetch/tags.json
