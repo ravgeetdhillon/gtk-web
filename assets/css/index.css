@@ -184,16 +184,6 @@ body {
     opacity: 0.75;
 }
 
-/* styling for the mouse events happening on the navbar links */
-
-.nav-item .nav-link {
-    transition: 0.15s ease-in-out;
-}
-.nav-item:hover .nav-link,
-.nav-item:focus .nav-link {
-    color: var(--secondary) !important;
-}
-
 /* styling for the app slider section on the index.html */
 
 .slider .slide:hover {
@@ -304,10 +294,6 @@ body {
 .tab-pane::-webkit-scrollbar-track {
     background: transparent;
     margin: 1rem;
-}
-
-.main-heading {
-    z-index: 100;
 }
 
 /* styling for the main images that make up the wallpaper on index.html */
@@ -447,4 +433,17 @@ h6.letter-spacing-custom,
 } */
 .padding-icon {
     padding-left: 23px !important;
+}
+
+#landing {
+    min-height: 100vh;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+}
+#landing .main-heading {
+    z-index: 100;
+}
+.text-shadow {
+    text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.150) !important;
 }

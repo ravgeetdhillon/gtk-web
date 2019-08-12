@@ -1,5 +1,4 @@
 @charset "UTF-8";
-/* latin-ext */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: italic;
@@ -7,7 +6,6 @@
   font-display: swap;
   src: local("Red Hat Display It"), local("RedHatDisplay-Italic"), url(../font/8vIS7wUr0m80wwYf0QCXZzYzUoTg-A6tTY_9CQ.woff2) format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-/* latin */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: italic;
@@ -15,7 +13,6 @@
   font-display: swap;
   src: local("Red Hat Display It"), local("RedHatDisplay-Italic"), url(../font/8vIS7wUr0m80wwYf0QCXZzYzUoTg-A6jTY8.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-/* latin-ext */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: italic;
@@ -23,7 +20,6 @@
   font-display: swap;
   src: local("Red Hat Display Medium It"), local("RedHatDisplay-MediumItalic"), url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AZQbprMKENgbw.woff2) format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-/* latin */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: italic;
@@ -31,7 +27,6 @@
   font-display: swap;
   src: local("Red Hat Display Medium It"), local("RedHatDisplay-MediumItalic"), url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AZQbprCKEM.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-/* latin-ext */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: italic;
@@ -39,7 +34,6 @@
   font-display: swap;
   src: local("Red Hat Display Bold It"), local("RedHatDisplay-BoldItalic"), url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AYYaJrMKENgbw.woff2) format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-/* latin */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: italic;
@@ -47,7 +41,6 @@
   font-display: swap;
   src: local("Red Hat Display Bold It"), local("RedHatDisplay-BoldItalic"), url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AYYaJrCKEM.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-/* latin-ext */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: italic;
@@ -55,7 +48,6 @@
   font-display: swap;
   src: local("Red Hat Display Black It"), local("RedHatDisplay-BlackItalic"), url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AYgaprMKENgbw.woff2) format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-/* latin */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: italic;
@@ -63,7 +55,6 @@
   font-display: swap;
   src: local("Red Hat Display Black It"), local("RedHatDisplay-BlackItalic"), url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AYgaprCKEM.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-/* latin-ext */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: normal;
@@ -71,7 +62,6 @@
   font-display: swap;
   src: local("Red Hat Display"), local("RedHatDisplay-Regular"), url(../font/8vIQ7wUr0m80wwYf0QCXZzYzUoTg8z6hVYs.woff2) format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-/* latin */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: normal;
@@ -79,7 +69,6 @@
   font-display: swap;
   src: local("Red Hat Display"), local("RedHatDisplay-Regular"), url(../font/8vIQ7wUr0m80wwYf0QCXZzYzUoTg_T6h.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-/* latin-ext */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: normal;
@@ -87,7 +76,6 @@
   font-display: swap;
   src: local("Red Hat Display Medium"), local("RedHatDisplay-Medium"), url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoToDh20ZKrAMEc.woff2) format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-/* latin */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: normal;
@@ -95,7 +83,6 @@
   font-display: swap;
   src: local("Red Hat Display Medium"), local("RedHatDisplay-Medium"), url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoToDh20aqrA.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-/* latin-ext */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: normal;
@@ -103,7 +90,6 @@
   font-display: swap;
   src: local("Red Hat Display Bold"), local("RedHatDisplay-Bold"), url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoToRhu0ZKrAMEc.woff2) format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-/* latin */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: normal;
@@ -111,7 +97,6 @@
   font-display: swap;
   src: local("Red Hat Display Bold"), local("RedHatDisplay-Bold"), url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoToRhu0aqrA.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-/* latin-ext */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: normal;
@@ -119,7 +104,6 @@
   font-display: swap;
   src: local("Red Hat Display Black"), local("RedHatDisplay-Black"), url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoTofhm0ZKrAMEc.woff2) format("woff2");
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-/* latin */
 @font-face {
   font-family: 'Red Hat Display';
   font-style: normal;
@@ -127,6 +111,34 @@
   font-display: swap;
   src: local("Red Hat Display Black"), local("RedHatDisplay-Black"), url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoTofhm0aqrA.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+.nav-link-light {
+  transition: 0.15s ease-in-out;
+  padding: 0.8rem !important; }
+  .nav-link-light:hover {
+    background: #e9ecef !important;
+    text-decoration: none; }
+
+.nav-link-white {
+  transition: 0.15s ease-in-out;
+  padding: 0.8rem !important; }
+  .nav-link-white:hover {
+    background: #f2f2f2 !important;
+    text-decoration: none; }
+
+.nav-link-transparent {
+  transition: 0.15s ease-in-out;
+  padding: 0.8rem !important; }
+  .nav-link-transparent:hover {
+    background: rgba(242, 242, 242, 0.2) !important;
+    text-decoration: none; }
+
+.nav-link-dark {
+  transition: 0.15s ease-in-out;
+  padding: 0.8rem !important; }
+  .nav-link-dark:hover {
+    background: #3b3b3b !important;
+    text-decoration: none; }
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -3439,8 +3451,8 @@ input[type="button"].btn-block {
       .navbar-expand-sm .navbar-nav .dropdown-menu {
         position: absolute; }
       .navbar-expand-sm .navbar-nav .nav-link {
-        padding-right: 0.5rem;
-        padding-left: 0.5rem; }
+        padding-right: 0.8rem !important;
+        padding-left: 0.8rem !important; }
     .navbar-expand-sm > .container,
     .navbar-expand-sm > .container-fluid {
       flex-wrap: nowrap; }
@@ -3463,8 +3475,8 @@ input[type="button"].btn-block {
       .navbar-expand-md .navbar-nav .dropdown-menu {
         position: absolute; }
       .navbar-expand-md .navbar-nav .nav-link {
-        padding-right: 0.5rem;
-        padding-left: 0.5rem; }
+        padding-right: 0.8rem !important;
+        padding-left: 0.8rem !important; }
     .navbar-expand-md > .container,
     .navbar-expand-md > .container-fluid {
       flex-wrap: nowrap; }
@@ -3487,8 +3499,8 @@ input[type="button"].btn-block {
       .navbar-expand-lg .navbar-nav .dropdown-menu {
         position: absolute; }
       .navbar-expand-lg .navbar-nav .nav-link {
-        padding-right: 0.5rem;
-        padding-left: 0.5rem; }
+        padding-right: 0.8rem !important;
+        padding-left: 0.8rem !important; }
     .navbar-expand-lg > .container,
     .navbar-expand-lg > .container-fluid {
       flex-wrap: nowrap; }
@@ -3511,8 +3523,8 @@ input[type="button"].btn-block {
       .navbar-expand-xl .navbar-nav .dropdown-menu {
         position: absolute; }
       .navbar-expand-xl .navbar-nav .nav-link {
-        padding-right: 0.5rem;
-        padding-left: 0.5rem; }
+        padding-right: 0.8rem !important;
+        padding-left: 0.8rem !important; }
     .navbar-expand-xl > .container,
     .navbar-expand-xl > .container-fluid {
       flex-wrap: nowrap; }
@@ -3533,8 +3545,8 @@ input[type="button"].btn-block {
     .navbar-expand .navbar-nav .dropdown-menu {
       position: absolute; }
     .navbar-expand .navbar-nav .nav-link {
-      padding-right: 0.5rem;
-      padding-left: 0.5rem; }
+      padding-right: 0.8rem !important;
+      padding-left: 0.8rem !important; }
   .navbar-expand > .container,
   .navbar-expand > .container-fluid {
     flex-wrap: nowrap; }
