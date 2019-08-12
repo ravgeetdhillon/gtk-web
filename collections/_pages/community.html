@@ -96,7 +96,7 @@ team_main_heading_description: These are the people who apply their best of skil
                       class="fab fa-gitlab"></i></a>
                 </div>
                 <div class="py-2">
-                  {% assign all_labels = site.data.api_fetch.labels %}
+                  {% assign all_labels = site.data.labels %}
                   {% for label in issues[j].labels %}
                     {% assign current_label = all_labels | where: 'name', label %}
                     {% assign label_style = 'style=background:' | append: current_label[0].color | append: ';color:' | append: current_label[0].text_color %}
@@ -138,7 +138,7 @@ team_main_heading_description: These are the people who apply their best of skil
   </div>
 </section>
 
-{% assign members = site.data.api_fetch.members_all %}
+{% assign members = site.data.members_all %}
 <section class="py-4" id="contributors">
   <div class="container border rounded py-4 px-4 bg-light">
     <div class="row">

@@ -4,7 +4,8 @@
   "description": "The dependencies for the official website of GTK. Visit https://gtk.org/",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass assets/scss/theme.scss css/theme.css"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
+    "node-sass": "^4.12.0",
     "popper.js": "^1.15.0",
     "slick-carousel": "^1.8.1"
   }

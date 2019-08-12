@@ -14,6 +14,7 @@ if you have want to add new styling for new content or the already existing one,
         font-size: 1rem;
     }
 }
+
 /* making responsive classes for height and width based the breakpoints */
 
 @media (min-width: 576px) {

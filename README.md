@@ -102,8 +102,10 @@ Package | Version | File | Source
 bootstrap | `4.3.1` | [package.json][package.json] | [Github](https://github.com/twbs/bootstrap)
 @fortawesome/fontawesome-free | `5.9.0` | [package.json][package.json] | [Github](https://github.com/FortAwesome/Font-Awesome)
 jquery | `3.4.1` | [package.json][package.json] | [Github](https://github.com/jquery/jquery)
-popper.js | `1.15.0` | [package.json][package.json] | [Github](https://github.com/FezVrasta/popper.js)
-slick-carousel | `1.8.1` | [package.json][package.json] | [Github](https://github.com/kenwheeler/slick)
+popper.js | `1.15.0` | [package.json][package.json] | [Github](https://github.com/FezVrasta/popper.js/)
+slick-carousel | `1.8.1` | [package.json][package.json] | [Github](https://github.com/kenwheeler/slick/)
+moment | `2.24.0` | [package.json][package.json] | [Github](https://github.com/moment/moment/)
+node-sass | `4.12.0` | [package.json][package.json] | [Github](https://github.com/sass/node-sass/)
 jekyll | `3.8.5` | [Gemfile][Gemfile] | [Github](https://github.com/jekyll/jekyll/)
 
 Read about adding/updating/removing dependencies on [how to contribute](CONTRIBUTING.MD#addingupdatingremoving-dependencies).
