@@ -25,7 +25,6 @@ gems:
     key: gems
     paths:
       - vendor/bundle
-    policy: pull
 
 npm:
   stage: installation
@@ -71,7 +70,6 @@ pages:
     key: gems
     paths:
       - vendor/bundle
-    policy: pull
   artifacts:
     paths:
     - public
