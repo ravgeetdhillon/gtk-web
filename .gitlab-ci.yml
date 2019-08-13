@@ -38,17 +38,17 @@ npm:
     paths:
     - node_modules
 
-sass:
-  stage: generation
-  script: 
-  - chmod +x ./scripts/compile-sass.sh | bash
-
 structure:
   stage: structuring
   script: 
   - pwd
   - dir
   - chmod +x ./scripts/structurize.sh | bash
+
+sass:
+  stage: generation
+  script: 
+  - chmod +x ./scripts/compile-sass.sh | bash
 
 test:
   stage: test
