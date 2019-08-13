@@ -14,7 +14,7 @@ stages:
 api_data:
   stage: installation
   script:
-  - scripts/get-api-data.sh | bash
+  - chmod +x ./scripts/get-api-data.sh | bash
 
 gems:
   stage: installation
@@ -39,12 +39,12 @@ npm:
 sass:
   stage: generation
   script: 
-  - scripts/compile-sass.sh | bash
+  - chmod +x ./scripts/compile-sass.sh | bash
 
 structure:
   stage: structuring
   script: 
-  - scripts/structurize.sh | bash
+  - chmod +x ./scripts/structurize.sh | bash
 
 test:
   stage: test
