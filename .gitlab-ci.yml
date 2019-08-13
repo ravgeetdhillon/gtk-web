@@ -21,6 +21,9 @@ gems:
   script:
   - gem install bundler
   - bundle update
+  artifacts:
+    paths:
+    - bundles
 
 npm:
   stage: installation
@@ -53,8 +56,6 @@ test:
   artifacts:
     paths:
     - test
-  except:
-  - master
 
 pages:
   stage: deploy
