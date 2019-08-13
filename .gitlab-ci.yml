@@ -15,7 +15,14 @@ api_data:
   stage: installation
   script:
   - pwd
+  - ls
+  - cd ./scripts
+  - ls
+  - cd ..
   - chmod +x ./scripts/get-api-data.sh | bash
+  artifacts:
+    paths:
+    - _data/api_fetch
 
 npm:
   stage: installation
@@ -40,6 +47,7 @@ structure:
   stage: structuring
   script: 
   - pwd
+  - dir
   - chmod +x ./scripts/structurize.sh | bash
 
 test:
