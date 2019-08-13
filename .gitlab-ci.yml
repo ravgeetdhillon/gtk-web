@@ -19,8 +19,9 @@ api_data:
 gems:
   stage: installation
   script:
-  - gem install bundler jekyll
+  - gem install bundler
   - bundle install
+
 
 npm:
   stage: installation
@@ -49,6 +50,7 @@ structure:
 test:
   stage: test
   script:
+  - gem install jekyll
   - bundle exec jekyll build -d test
   artifacts:
     paths:
@@ -59,6 +61,7 @@ test:
 pages:
   stage: deploy
   script:
+  - gem install jekyll
   - bundle exec jekyll build -d public
   artifacts:
     paths:
