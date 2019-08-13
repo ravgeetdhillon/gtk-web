@@ -19,11 +19,8 @@ api_data:
 gems:
   stage: installation
   script:
-  - gem install bundler
-  - bundle update
-  artifacts:
-    paths:
-    - bundles
+  - gem install bundler jekyll
+  - bundle install
 
 npm:
   stage: installation
@@ -56,6 +53,8 @@ test:
   artifacts:
     paths:
     - test
+  except:
+  - master
 
 pages:
   stage: deploy

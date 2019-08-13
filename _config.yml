@@ -35,8 +35,8 @@ kramdown:
 highlighter: rouge
 
 # plugins used by the website
-# plugins:
-#   - jekyll-feed
+plugins:
+  - jekyll-feed
 
 # exclude these files from production site
 exclude: 
