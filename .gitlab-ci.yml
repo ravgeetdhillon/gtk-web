@@ -19,9 +19,12 @@ api_data:
 gems:
   stage: installation
   script:
-  - gem install bundler
+  - gem install bundler jekyll
   - bundle install
-
+  - ls /usr/local/bundle/bin/jekyll
+  artifacts:
+    paths:
+    - gems
 
 npm:
   stage: installation
@@ -50,8 +53,8 @@ structure:
 test:
   stage: test
   script:
-  - gem install jekyll
-  - bundle exec jekyll build -d test
+  - ls gems
+  - bundle exec gems/jekyll build -d test
   artifacts:
     paths:
     - test
@@ -61,8 +64,9 @@ test:
 pages:
   stage: deploy
   script:
-  - gem install jekyll
-  - bundle exec jekyll build -d public
+  - ls /usr/local/bundle/bin/jekyll
+  - ls gems
+  - bundle exec gems/jekyll build -d public
   artifacts:
     paths:
     - public
