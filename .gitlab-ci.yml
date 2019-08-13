@@ -21,10 +21,11 @@ gems:
   script:
   - gem install bundler jekyll
   - bundle install
-  - ls /usr/local/bundle/bin/jekyll
-  artifacts:
+  cache:
+    key: gems
     paths:
-    - gems
+      - vendor/bundle
+    policy: pull
 
 npm:
   stage: installation
@@ -53,8 +54,9 @@ structure:
 test:
   stage: test
   script:
-  - ls gems
-  - bundle exec gems/jekyll build -d test
+  - gem install bundler jekyll
+  - bundle install
+  - bundle exec jekyll build -d test
   artifacts:
     paths:
     - test
@@ -64,9 +66,12 @@ test:
 pages:
   stage: deploy
   script:
-  - ls /usr/local/bundle/bin/jekyll
-  - ls gems
-  - bundle exec gems/jekyll build -d public
+  - bundle exec jekyll build -d public
+  cache:
+    key: gems
+    paths:
+      - vendor/bundle
+    policy: pull
   artifacts:
     paths:
     - public
