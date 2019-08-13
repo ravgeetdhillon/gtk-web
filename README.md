@@ -19,11 +19,14 @@ The data used by the site is stored in the form of following files:
     │   ├── apps.yml                        #list of apps to show on index.html slider section
     │   ├── navigation.yml                  #links to be added to the site's header and footer sections
     │   ├── sample_codes.yml                #---update this
-    │   ├── stuff.yml                       #site's global variables
+    │   ├── labels.json                     
+    │   ├── members_all.json                
+    │   ├── members.json                    
     │   └── usecases.yml                    #---update this
     ├── _includes                           #contains site's include files
     │   ├── footer.html                     #the footer of the site
-    │   └── header.html                     #the header of the site
+    │   ├── header.html                     #the meta data of the site
+    │   └── navbar.html                     #the navbar of the site
     ├── _layouts                            #contains layout designs for site's pages
     │   └── documentation.html              #layout design for pages that belong to GTK documentation
     ├── .gitlab                             #contains gitlab template files for bugs and merge requests
@@ -34,28 +37,29 @@ The data used by the site is stored in the form of following files:
     │   │   ├── markdown.css                #stylesheet for styling the markdown content
     │   │   ├── theme.css                   #stylesheet for website's theme. Generated from Bootstrap
     │   │   └── theme.css.map
-    │   ├──img                              #contains site's images and illustrations
-    │   ├── js                              #contains site's javascripts
+    │   ├── font                            #contains site's font: Red Hat Display
+    │   ├── img                             #contains site's images and illustrations
     │   └── scss                            #contains site's preprocessor stylesheets
     │       └── theme.scss
     ├── collections                         #contains the site's collections
+    │   ├── _pages                          #contains site's main pages
     │   └── _docs                           #contains pages for GTK documentation section
+    ├── scripts                             #contains the site's shell scripts for gitlab ci
+    ├── ├── compile-sass.sh                 #script to compile sass files to css
+    ├── ├── get-api-data.sh                 #script to fetch gitlab api data regarding the gtk
+    ├── └── structurize.sh                  #script to structure the website after the dependencies
     ├── _config.yml                         #contains Jekyll settings for the site
     ├── .gitignore
     ├── .gitlab-ci.yml                      #for Gitlab Continuous Integration and Deployment
     ├── 404.html
     ├── CODE_OF_CONDUCT.md
     ├── CONTRIBUTING.md
-    ├── docs.html
-    ├── features.html
     ├── Gemfile                             #contains gem dependencies for the site.
     ├── Gemfile.lock
-    ├── index.html
     ├── LICENSE.txt
     ├── package-lock.json
     ├── package.json                        #contains node dependencies for the site.
-    ├── README.md
-    └── structurize.sh                      #script to structure the website after the dependencies are installed
+    └── README.md
 
 ## Contributing
 
@@ -68,24 +72,26 @@ To get the site up and running locally, follow the below steps:
 1. Install a full [Ruby development environment](https://jekyllrb.com/docs/installation/).
 2. Install Jekyll and [bundler](https://jekyllrb.com/docs/ruby-101/#bundler) [gems](https://jekyllrb.com/docs/ruby-101/#gems).
 ```shell
-$ gem install jekyll bundler
+gem install bundler jekyll
 ```
 3. Create a local clone of the website:
 ```git
-$ git clone https://gitlab.gnome.org/ravgeetdhillon/gtk-web.git
+git clone https://gitlab.gnome.org/ravgeetdhillon/gtk-web.git
 ```
 4. Change into the gtk-web directory
 ```shell
-$ cd gtk-web
+cd gtk-web
 ```
 5. Install the NPM and Gem dependencies by running the following commands:
 ```shell
-$ npm install
-$ bundle install
+npm install
+bundle install
 ```
-6. Perform the following commands to structure the website properly:
+6. Perform the following commands to install and structure the website properly:
 ```shell
-$ structurize.sh --trace
+scripts/structurize.sh
+scripts/compile-sass.sh
+scripts/get-api-fetch.sh
 ```
 7. Build the site and make it available on a local server
 ```shell
@@ -112,13 +118,21 @@ Read about adding/updating/removing dependencies on [how to contribute](CONTRIBU
 
 ## Pipeline
 
-> Currently the pipeline hasn't been optimized because the website reworking is still going on.
-
 The pipeline used by the website is the top-level component of continuous integration, delivery, and deployment.
 
 The pipeline defined by the GTK.org uses the `Ruby2.5` image. There are different jobs that are happening across a pipeline in different stages. The jobs define what to run and stages define when and how to run. If a pipeline completes successfully without any error, then the final site is built into the `public` directory and is available for download as an artifact.
 
-If you think that there can be a better pipeline than the existing one, send us a merge request for the same.
+GTK.org builds in four stages:
+
+* installation
+* structuring
+* generation
+* test
+* deploy
+
+Each stage has certain jobs associated with it. `installation`, `structuring` and `generation` are primary stages common to all the branches. `test` stage is performed on all branches except `master`. `deploy` stage on the other hand is performed only on `master` branch.
+
+> If you think that there can be a better pipeline than the existing one, send us a merge request for the same.
 
 ## Maintainers
 
