@@ -16,16 +16,6 @@ api_data:
   script:
   - chmod +x ./scripts/get-api-data.sh | bash
 
-gems:
-  stage: installation
-  script:
-  - gem install bundler jekyll
-  - bundle install
-  cache:
-    key: gems
-    paths:
-      - vendor/bundle
-
 npm:
   stage: installation
   script:
@@ -65,11 +55,9 @@ test:
 pages:
   stage: deploy
   script:
+  - gem install bundler jekyll
+  - bundle install
   - bundle exec jekyll build -d public
-  cache:
-    key: gems
-    paths:
-      - vendor/bundle
   artifacts:
     paths:
     - public
