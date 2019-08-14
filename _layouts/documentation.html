@@ -1,7 +1,3 @@
----
-navbar_type: dark
----
-
 {% comment %}
 
 this is the layout file for the documentation pages
@@ -71,10 +67,10 @@ any changes made to this file will affect all the documentation pages
           {% assign page_name = page.path | split: '/' %}
           {% assign page_name = page_name.last %}
           <i class="fas fa-edit text-info fa-fw pr-2"></i>
-          <span>Observed a typo or some missing information, edit this page <a href="{{ site.data.stuff.site_repo | append: 'blob/master/collections/_docs/' }}{{ page_name }}/">here</a>.</span>
+          <span>Observed a typo or some missing information, edit this page <a href="{{ site.website_repo | append: 'blob/master/collections/_docs/' | append: page_name }}">here</a>.</span>
           <br>
           <i class="fas fa-plus-square text-info fa-fw pr-2"></i>
-          <span>Read on <a href="{{ site.data.stuff.site_repo | append: 'blob/master/CONTRIBUTING.md/' }}">how to contribute</a> to this website.</span>
+          <span>Read on <a href="{{ site.website_repo | append: 'blob/master/CONTRIBUTING.md/' }}">how to contribute</a> to this website.</span>
         </div>
       </div>
     </div>
