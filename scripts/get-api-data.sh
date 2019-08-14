@@ -16,7 +16,7 @@ curl https://gitlab.gnome.org/api/v4/projects/665/issues_statistics > ../_data/a
 
 echo 'successfully fetched gtk-issue-statistics'
 
-curl https://gitlab.gnome.org/api/v4/projects/665/issues?state=opened > ../_data/api_fetch/tags.json
+curl https://gitlab.gnome.org/api/v4/projects/665/issues?state=opened > ../_data/api_fetch/issues_opened.json
 
 echo 'successfully fetched gtk-issues'
 

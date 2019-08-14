@@ -51,7 +51,7 @@ exclude:
   - CONTRIBUTING.md
   - CODE_OF_CONDUCT.md
   - LICENSE.txt
-  - structurize.sh
+  - scripts/
 
 # folder which contains all the collections
 collections_dir: collections
@@ -67,7 +67,6 @@ defaults:
       type: docs
     values:
       layout: documentation
-      navbar_type: dark
 
 # website statistics
 

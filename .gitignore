@@ -11,4 +11,4 @@ assets/slick-carousel/
 assets/moment/
 assets/node-sass/
 .vscode
-api_fetch/
+_data/api_fetch/
