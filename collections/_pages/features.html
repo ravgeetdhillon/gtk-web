@@ -11,7 +11,8 @@ page_main_heading_description: Thanks to all the hardwork by the community, new 
 {% include navbar.html %}
 
 <body>
-<section class="d-flex flex-column align-items-center bg-no-repeat bg-center" style="background: url('{{ '/assets/img/wall-gtk-features.png' | prepend: site.url }}')">
+{% assign back_img = '/assets/img/wall-gtk-features.png' | prepend: site.url %}
+<section class="d-flex flex-column align-items-center bg-no-repeat bg-center" style="background: url('{{ back_img }}');"  alt="GTK Features Wallpaper" />
   <div class="container">
     <div class="row d-flex justify-content-center pt-4 pb-6">
       <div class="col-md-10 col-lg-7 main-heading text-center">
@@ -34,7 +35,7 @@ page_main_heading_description: Thanks to all the hardwork by the community, new 
           <a href="https://wiki.gnome.org/HowDoI/HiDpi/" class="btn btn-primary btn-sm">Enable Hi-DPI Support in GTK Apps</a>
       </div>
       <div class="col-lg-7">
-        <img src="{{ '/assets/img/games-4k.png' | prepend: site.url }}" class="img-fluid w-100 shadow">
+        <img src="{{ '/assets/img/games-4k.png' | prepend: site.url }}" class="img-fluid w-100 shadow" alt="GTK Features" />
       </div>
     </div>
     <div class="row d-flex flex-row py-4 py-lg-5">
@@ -45,7 +46,7 @@ page_main_heading_description: Thanks to all the hardwork by the community, new 
           <span class="text-muted">GTK uses UTF-8 encoding for all of the text. This ensures that you can develop the app in your native language or any other language around the world.</span>
       </div>
       <div class="col-lg-7">
-        <img src="{{ '/assets/img/characters.png' | prepend: site.url }}" class="img-fluid w-100 shadow">
+        <img src="{{ '/assets/img/characters.png' | prepend: site.url }}" class="img-fluid w-100 shadow" alt="GTK Features" />
       </div>
     </div>
     <div class="row d-flex flex-row py-4 py-lg-5">
@@ -56,7 +57,7 @@ page_main_heading_description: Thanks to all the hardwork by the community, new 
           <span class="text-muted">In GTK, pointer and touch events are handled indistinctly, making your apps work on touchscreens out of the box.</span>
       </div>
       <div class="col-lg-7">
-        <img src="{{ '/assets/img/gestures.png' | prepend: site.url }}" class="img-fluid w-100 shadow">
+        <img src="{{ '/assets/img/gestures.png' | prepend: site.url }}" class="img-fluid w-100 shadow" alt="GTK Features" />
       </div>
     </div>
     <div class="row d-flex flex-row py-4 py-lg-5">
@@ -67,7 +68,7 @@ page_main_heading_description: Thanks to all the hardwork by the community, new 
           <span class="text-muted">The internal logic of the Vulkan renderer has been reworked to use textures instead of cairo surfaces for intermediate results and thus avoid more cairo fallbacks.</span>
       </div>
       <div class="col-lg-7">
-        <img src="{{ '/assets/img/performance.png' | prepend: site.url }}" class="img-fluid w-100 shadow">
+        <img src="{{ '/assets/img/performance.png' | prepend: site.url }}" class="img-fluid w-100 shadow" alt="GTK Features" />
       </div>
     </div>
   </div>

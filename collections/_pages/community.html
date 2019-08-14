@@ -27,7 +27,7 @@ team_main_heading_description: These are the people who apply their best of skil
         <span class="text-muted lead">{{ page.page_main_heading_description | markdownify }}</span>
       </div>
       <div class="col-md-7 d-none d-md-flex justify-content-center flex-column">
-        <img src="{{ '/assets/img/wall-community.svg' | prepend: site.url }}" class="img-fluid" />
+        <img src="{{ '/assets/img/wall-community.svg' | prepend: site.url }}" class="img-fluid" alt="GTK Community Wallpaper" />
       </div>
     </div>
   </div>
@@ -50,7 +50,7 @@ team_main_heading_description: These are the people who apply their best of skil
                 {% cycle 'blog-blog1.png', 'blog-blog2.png', 'blog-blog3.png' %}
               {% endcapture %}
               {% assign imgname = imgname | strip %}
-              <img src="{{ '/assets/img/' | append: imgname | prepend: site.url }}" class="img-fluid w-100">
+              <img src="{{ '/assets/img/' | append: imgname | prepend: site.url }}" class="img-fluid w-100"  alt="{{ blog.title }}" />
             </div>
             <div class="py-3 px-3 h-100 bg-white d-flex flex-column">
               <h6>{{ blog.title }}</h6>
@@ -151,7 +151,7 @@ team_main_heading_description: These are the people who apply their best of skil
       {% for member in members %}
       <div class="col-lg-2 col-md-3 col-sm-4 col-2 py-3">
         <div class="d-flex justify-content-center align-items-center py-2">
-          <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="img-fluid rounded-circle w-75 border img-thumbnail">
+          <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="img-fluid rounded-circle w-75 border img-thumbnail" alt="{{ member.name }}" />
         </div>
         <div class="d-flex flex-column align-items-center">
           <span class="text-primary text-center text-secondary">{{ member.name }}</span>
