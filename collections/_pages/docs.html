@@ -4,6 +4,32 @@ permalink: /docs/
 
 page_main_heading: GTK Docs
 page_main_heading_description: Find out all the things you need to work with GTK as a Developer.
+
+docs_list:
+  - title: Getting Started
+    description: Get started now by building a Hello World app and playing around it.
+    icon: fas fa-cogs
+    link: /docs/getting-started/
+  - title: Dev Tools
+    description: Learn how to setup your development environment with GTK recommended tools.
+    icon: fas fa-tools
+    link: /docs/dev-tools/
+  - title: Language Bindings
+    description: Learn to integrate your favorite programming language with GTK through bindings.
+    icon: fas fa-random
+    link: /docs/language-bindings/
+  - title: API References
+    description: Dig deep into the API references for GTK3 and GTK4.
+    icon: fas fa-cubes
+    link: /docs/apis/
+  - title: Architecture
+    description: Learn about the sub modules the GTK has been built upon.
+    icon: fas fa-vector-square
+    link: /docs/architecture/
+  - title: Installations
+    description: Figure out how to install GTK on different platforms.
+    icon: fas fa-box-open
+    link: /docs/installations/
 ---
 
 {% include header.html %}
@@ -33,61 +59,18 @@ page_main_heading_description: Find out all the things you need to work with GTK
       </div>
     </div>
     <div class="row d-flex justify-content-center pt-5">
-      <div class="col-md-4 pb-5">
-        <div class="col h-100 py-5 text-center bg-white d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary"
-          style="border-width:2px!important;">
-          <i class="fas fa-cogs fa-fw fa-3x pb-4 text-primary"></i>
-          <h5>Getting Started</h5>
-          <span class="text-muted small">Get started now by building a Hello World app and playing around it.</span>
-          <a href="{{ '/docs/getting-started/' | prepend: site.url }}" class="stretched-link"></a>
+      {% assign docs_list = page.docs_list %}
+      {% for doc in docs_list %}
+        <div class="col-md-4 pb-3 pb-md-4">
+          <div class="col h-100 py-5 text-center bg-white d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary"
+            style="border-width:2px!important;">
+            <i class="{{ doc.icon }} fa-fw fa-3x pb-4 text-primary"></i>
+            <h5>{{ doc.title }}</h5>
+            <span class="text-muted small">{{ doc.description }}</span>
+            <a href="{{ doc.link | prepend: site.url }}" class="stretched-link"></a>
+          </div>
         </div>
-      </div>
-      <div class="col-md-4 pb-5">
-        <div class="col h-100 py-5 text-center bg-white d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary"
-          style="border-width:2px!important;">
-          <i class="fas fa-tools fa-fw fa-3x pb-4 text-primary"></i>
-          <h5>Dev Tools</h5>
-          <span class="text-muted small">Learn how to setup your development environment with GTK recommended tools.</span>
-          <a href="{{ '/docs/dev-tools/' | prepend: site.url }}" class="stretched-link"></a>
-        </div>
-      </div>
-      <div class="col-md-4 pb-5">
-        <div class="col h-100 py-5 text-center bg-white d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary"
-          style="border-width:2px!important;">
-          <i class="fas fa-random fa-fw fa-3x pb-4 text-primary"></i>
-          <h5>Language Bindings</h5>
-          <span class="text-muted small">Learn to integrate your favorite programming language with GTK through
-            bindings.</span>
-          <a href="{{ '/docs/language-bindings/' | prepend: site.url }}" class="stretched-link"></a>
-        </div>
-      </div>
-      <div class="col-md-4 pb-5">
-        <div class="col h-100 py-5 text-center bg-white d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary"
-          style="border-width:2px!important;">
-          <i class="fas fa-cubes fa-fw fa-3x pb-4 text-primary"></i>
-          <h5>API References</h5>
-          <span class="text-muted small">Dig deep into the API references for GTK3 and GTK4.</span>
-          <a href="{{ '/docs/apis/' | prepend: site.url }}" class="stretched-link"></a>
-        </div>
-      </div>
-      <div class="col-md-4 pb-5">
-        <div class="col h-100 py-5 text-center bg-white d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary"
-          style="border-width:2px!important;">
-          <i class="fas fa-vector-square fa-fw fa-3x pb-4 text-primary"></i>
-          <h5>Architecture</h5>
-          <span class="text-muted small">Learn about the sub modules the GTK has been built upon.</span>
-          <a href="{{ '/docs/architecture/' | prepend: site.url }}" class="stretched-link"></a>
-        </div>
-      </div>
-      <div class="col-md-4 pb-5">
-        <div class="col h-100 py-5 text-center bg-white d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary"
-          style="border-width:2px!important;">
-          <i class="fas fa-box-open fa-fw fa-3x pb-4 text-primary"></i>
-          <h5>Installations</h5>
-          <span class="text-muted small">Figure out how to install GTK on different platforms.</span>
-          <a href="{{ '/docs/installations/' | prepend: site.url }}" class="stretched-link"></a>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
