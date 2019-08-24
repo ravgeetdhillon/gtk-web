@@ -157,11 +157,13 @@ if you have want to add new styling for new content or the already existing one,
 @media screen and (max-width: 768px) {
     .nav-side {
         height: 100%;
-        width: 0;
+        max-width: 288px;
+        width: 88%;
         position: fixed;
         z-index: 10;
         top: 0;
-        left: 0;
+        opacity: 0;
+        left: -55%;
         overflow-x: hidden;
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
         transition: 0.3s ease-in-out;
