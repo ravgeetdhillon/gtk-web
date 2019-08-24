@@ -81,7 +81,7 @@ team_main_heading_description: These are the people who apply their best of skil
         <span class="text-muted w-100 w-sm-75">{{ page.issues_main_heading_description | markdownify }}</span>
       </div>
     </div>
-    <div class="row py-4 align-items-start">
+    <div class="row py-4 align-items-start border">
       {% assign issues = site.data.api_fetch.issues_opened %}
       {% for i in (0..3) %}
         <div class="col-lg-3 col-sm-6 px-0 px-sm-3">
@@ -114,27 +114,6 @@ team_main_heading_description: These are the people who apply their best of skil
         </div>
       {% endfor %}
     </div>
-    <nav>
-      <ul class="pagination pagination-sm">
-        <li class="page-item">
-          <a href="#" class="page-link" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-        <li class="page-item"><a href="#" class="page-link">1</a></li>
-        <li class="page-item"><a href="#" class="page-link">2</a></li>
-        <li class="page-item"><a href="#" class="page-link">3</a></li>
-        <li class="page-item"><a href="#" class="page-link">4</a></li>
-        <li class="page-item"><a href="#" class="page-link">5</a></li>
-        <li class="page-item"><a href="#" class="page-link">6</a></li>
-        <li class="page-item"><a href="#" class="page-link">7</a></li>
-        <li class="page-item">
-          <a href="#" class="page-link" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
   </div>
 </section>
 
