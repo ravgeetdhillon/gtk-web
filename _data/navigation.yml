@@ -207,12 +207,12 @@ sidebar_links:
   - title: Python
     name: python
     section: Language Bindings
-  - title: C
-    name: c
+  - title: C++
+    name: cpp
     section: Language Bindings
   - title: Javascript
     name: javascript
     section: Language Bindings
-  - title: Vala
-    name: vala
+  - title: Rust
+    name: rust
     section: Language Bindings
