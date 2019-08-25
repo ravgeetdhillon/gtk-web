@@ -15,8 +15,8 @@ before_script:
   - gem install bundler jekyll
   - bundle install
   - ls
-  - scripts/get-api-data.sh
-  - cd _data
+  - cd scripts
+  - chmod +x get-api-data.sh
   - ls
   - cd ..
   - ls
