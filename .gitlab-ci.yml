@@ -32,7 +32,7 @@ npm:
 api:
   stage: download
   script:
-  - scripts/get-api-data.sh
+  - chmod +x scripts/get-api-data.sh
   artifacts:
     paths:
     - api_data
@@ -40,7 +40,7 @@ api:
 structuring:
   stage: structuring
   script:
-  - scripts/structurize.sh
+  - chmod +x scripts/structurize.sh
   artifacts:
     paths:
     - assets
@@ -48,7 +48,7 @@ structuring:
 sass:
   stage: generation
   script:
-  - scripts/compile-sass.sh
+  - chmod +x scripts/compile-sass.sh
   
 test:
   stage: test
