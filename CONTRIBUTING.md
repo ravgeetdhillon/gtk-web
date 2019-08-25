@@ -4,7 +4,7 @@ permalink: /contributing
 
 # Contributing to GTK.org
 
-GTK.org welcomes everyone to contribute to the GTK.org. We really appreciate the efforts of people who help us in keeping the website updated. GTK.org is visted everyday by large number of developers and end users, so your contribution make a huge impact on the community.
+GTK.org welcomes everyone to contribute to the GTK.org. We really appreciate the efforts of people who help us in keeping the website updated. GTK.org is visted everyday by large number of developers and end users, so even your small contribution can make a huge impact on the community.
 
 ## Read this first
 
@@ -25,7 +25,6 @@ GTK.org is an open source project and we love to receive contributions from our 
 * New Content
 * Blog Posts
 * Usecase Studies
-* Adding/Updating/Removing Dependencies
 
 ### Adding Documentation pages
 
@@ -42,9 +41,10 @@ permalink: /path/to/:name
 3. Add the information about the new file to [/_data/stuff.yml](/_data/stuff.yml/).
 4. Send a merge request using one of the merge request template.
 
-> If you are in doubt, check this [blog post](https://ravgeetdhillon.github.io/blog/adding-pages-to-jekyll-site/) on how to add documentation pages to the GTK website.
+> If want a more detailed explanation about how to do the thing, you can check this [blog post](https://ravgeetdhillon.github.io/blog/adding-pages-to-jekyll-site/) by [Ravgeet Dhillon](https://gitlab.gnome.org/ravgeetdhillon/) on how to add documentation pages to the GTK website.
 
 ### Images and Illustrations
+
 All the images and illustrations are present in the [assets/img][image-directory] directory. The following naming convention should be used when new images or illustrations are to be added:
 
 `<role>-<name>.<ext>`
@@ -55,6 +55,10 @@ where
 * `<ext>` is the extension of the image. Valid extensions are `.jpg`, `.jpeg`, `.svg`, `.png` and others. (Make sure that the images/illustrations you provide are optimized for size and quality)
 
 > A valid image name for an image to be used as a wallpaper or just a display image is: `wall-computer.png` or `wallpaper-computer.png`
+
+### Links and Paths
+
+All the links and paths are relative to the website URL. Donot give absolute URLs for lniks, images, scripts or any other resources that use the `path` attribute. Use of absolute URL is only appreciable when refering to am external resource.
 
 ### Adding/Updating/Removing Dependencies
 
@@ -90,7 +94,7 @@ $ cd gtk-web
 ## How to submit a contribution
 
 #### For listing bugs
-1. Open an issue and provide us with appropriate information using our Issue Template.
+1. Open an issue and provide us with appropriate information using our [Issue Template]().
 2. (Optional) If you can solve the issue filed by you, read below on how to submit a pull request.
 
 #### For feature requests

@@ -4,52 +4,18 @@ variables:
   JEKYLL_ENV: production
   LC_ALL: C.UTF-8
 
-stages:
-  - download
-  - structuring
-  - generation
-  - test
-  - deploy
-
 before_script:
   - apt-get update -y
   - apt-get install -y curl
-  - gem install bundler jekyll
-  - bundle install
-
-npm:
-  stage: download
-  script:
   - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
   - source /root/.bashrc
   - nvm install node
   - nvm use node
   - npm install
-  artifacts:
-    paths:
-    - node_modules
+  - gem install bundler jekyll
+  - bundle install
+  - chmod +x main.sh
 
-api:
-  stage: download
-  script:
-  - chmod +x scripts/get-api-data.sh
-  artifacts:
-    paths:
-    - _data/api_fetch
-
-structuring:
-  stage: structuring
-  script:
-  - chmod +x scripts/structurize.sh
-  artifacts:
-    paths:
-    - assets
-
-sass:
-  stage: generation
-  script:
-  - chmod +x scripts/compile-sass.sh
-  
 test:
   stage: test
   script:

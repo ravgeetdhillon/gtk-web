@@ -22,4 +22,4 @@ Use code blocks (```) to format them.
 
 What did you expect to see instead?
 
-/label ~"1. Bug"
+/label ~"Bug"

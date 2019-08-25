@@ -70,34 +70,29 @@ We always welcome people who want to contribute towards our project. For suitabl
 To get the site up and running locally, follow the below steps:
 
 1. Install a full [Ruby development environment](https://jekyllrb.com/docs/installation/).
-2. Install Jekyll and [bundler](https://jekyllrb.com/docs/ruby-101/#bundler) [gems](https://jekyllrb.com/docs/ruby-101/#gems).
-```shell
-gem install bundler jekyll
-```
-3. Create a local clone of the website:
+2. Create a local clone of the website:
 ```git
 git clone https://gitlab.gnome.org/ravgeetdhillon/gtk-web.git
 ```
-4. Change into the gtk-web directory
+3. Change into the gtk-web directory
 ```shell
 cd gtk-web
 ```
-5. Install the NPM and Gem dependencies by running the following commands:
+4. Install the NPM and Gem dependencies by running the following commands:
 ```shell
 npm install
+gem install bundler jekyll
 bundle install
 ```
-6. Perform the following commands to install and structure the website properly:
+5. Perform the following commands to structure the website properly:
 ```shell
-scripts/structurize.sh
-scripts/compile-sass.sh
-scripts/get-api-fetch.sh
+main.sh
 ```
-7. Build the site and make it available on a local server
+6. Build the site and make it available on your local server
 ```shell
 $ bundle exec jekyll serve
 ```
-8. Browse to [http://localhost:4000](http://localhost:4000) to view the website.
+7. Browse to [http://localhost:4000](http://localhost:4000) to view the website.
 
 ## Dependencies
 
@@ -120,17 +115,9 @@ Read about adding/updating/removing dependencies on [how to contribute](CONTRIBU
 
 The pipeline used by the website is the top-level component of continuous integration, delivery, and deployment.
 
-The pipeline defined by the GTK.org uses the `Ruby2.5` image. There are different jobs that are happening across a pipeline in different stages. The jobs define what to run and stages define when and how to run. If a pipeline completes successfully without any error, then the final site is built into the `public` directory and is available for download as an artifact.
+The pipeline defined by the GTK.org uses the `Ruby2.5` image. The pipeline consists of a script that runs before the site is tested/deployed. The script that runs before the test/deployment of the website basically installs all the `gem/npm dependencies`, fetches the API data regarding the GTK from its [gitlab instance][gtk-gitlab] and then structurizes the website before testing/deploying.
 
-GTK.org builds in four stages:
-
-* installation
-* structuring
-* generation
-* test
-* deploy
-
-Each stage has certain jobs associated with it. `installation`, `structuring` and `generation` are primary stages common to all the branches. `test` stage is performed on all branches except `master`. `deploy` stage on the other hand is performed only on `master` branch.
+`test` stage is performed on all branches but `master`. `deploy` stage on the other hand is performed only on `master` branch.
 
 > If you think that there can be a better pipeline than the existing one, send us a merge request for the same.
 
@@ -139,12 +126,12 @@ Each stage has certain jobs associated with it. `installation`, `structuring` an
 You can reach out to the following individuals if you have any doubt or suggestion regarding the GTK.org:
 
 **Ravgeet Dhillon**
-* You can contanct Ravgeet via my [email](mailto:ravgeetdhillon@gmail.com).
+* You can contact me via my [email](mailto:ravgeetdhillon@gmail.com) or through my [website](https://ravgeetdhillon.github.io).
 * You can also find me on IRC. I am `ravgeetdhillon` on `irc.gnome.org` in the `#gtk` or
   `#gnome-hackers` channels.
 
 **Emmanuele Bassi**
-* You can contact me Emmanuele my [email](mailto:ebassi@gnome.org).
+* You can contact me via my [email](mailto:ebassi@gnome.org).
 
 ## Code of Conduct
 
@@ -162,3 +149,4 @@ GTK.org is licensed under the [Creative Commons BY-SA-4.0][license].
 [package.json]: package.json
 [Gemfile]: Gemfile
 [license]: LICENSE.txt
+[gtk-gitlab]: https://gitlab.gnome.org/GNOME/gtk/
