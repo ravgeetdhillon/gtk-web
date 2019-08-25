@@ -14,9 +14,9 @@ before_script:
   - npm install
   - gem install bundler jekyll
   - bundle install
-  - chmod +x scripts/get-api-data.sh
-  - chmod +x scripts/structurize.sh
-  - chmod +x scripts/compile-sass.sh
+  - chmod +x scripts/get-api-data.sh | bash
+  - chmod +x scripts/structurize.sh | bash
+  - chmod +x scripts/compile-sass.sh | bash
 
 test:
   stage: test
