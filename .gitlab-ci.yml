@@ -16,6 +16,9 @@ before_script:
   - bundle install
   - ls
   - chmod +x scripts/get-api-data.sh
+  - cd _data
+  - ls
+  - cd ..
   - ls
   - chmod +x scripts/structurize.sh
   - ls
