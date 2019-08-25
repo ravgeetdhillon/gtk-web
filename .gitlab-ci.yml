@@ -35,7 +35,7 @@ api:
   - chmod +x scripts/get-api-data.sh
   artifacts:
     paths:
-    - api_data
+    - _data/api_fetch
 
 structuring:
   stage: structuring
