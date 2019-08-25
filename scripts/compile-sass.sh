@@ -1,5 +1,5 @@
 echo 'compiling scss to css...'
 
-npm run sass
+sass ./assets/scss/theme.scss ./assets/css/theme.css
 
 echo 'successfully compiled all scss files to css'
