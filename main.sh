@@ -1,3 +1,3 @@
-chmod +x scripts/get-api-data.sh
-chmod +x scripts/structurize.sh
-chmod +x scripts/compile-sass.sh
+scripts/get-api-data.sh
+scripts/structurize.sh
+scripts/compile-sass.sh

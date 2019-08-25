@@ -1,5 +1,5 @@
 echo 'structurizing the website...'
 
-mv ./node_modules/* ./assets/ -f
+mv node_modules/* assets/ -f
 
-rm -rf ./node_modules
+rm -rf node_modules
