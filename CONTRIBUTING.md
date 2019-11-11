@@ -38,7 +38,7 @@ To add a new documentation page, follow the steps below:
 permalink: /path/to/:name
 # specifies the URL path of the file which will be appended to the site's url
 ```
-3. Add the information about the new file to [/_data/stuff.yml](/_data/stuff.yml/).
+3. Add the information about the new file to [\_data/stuff.yml](_data/stuff.yml).
 4. Send a merge request using one of the merge request template.
 
 > If want a more detailed explanation about how to do the thing, you can check this [blog post](https://ravgeetdhillon.github.io/blog/adding-pages-to-jekyll-site/) by [Ravgeet Dhillon](https://gitlab.gnome.org/ravgeetdhillon/) on how to add documentation pages to the GTK website.
@@ -64,7 +64,7 @@ All the links and paths are relative to the website URL. Donot give absolute URL
 
 1. Create a local clone of the website:
 ```
-$ git clone https://gitlab.gnome.org/ravgeetdhillon/gtk-web.git
+$ git clone https://gitlab.gnome.org/Infrastructure/gtk-web.git
 ```
 2. Change into the gtk-web directory:
 ```

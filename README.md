@@ -1,6 +1,6 @@
 # GTK's Official Website
 
-We are soon going to replace the [current website](https://gtk.org) with this one: [Upcoming GTK Website](https://ravgeetdhillon.pages.gitlab.gnome.org/gtk-web)
+We are soon going to replace the [current website](https://gtk.org) with this one: [Upcoming GTK Website](https://gnome.pages.gitlab.gnome.org/gtk-web)
 
 ## About
 
@@ -72,7 +72,7 @@ To get the site up and running locally, follow the below steps:
 1. Install a full [Ruby development environment](https://jekyllrb.com/docs/installation/).
 2. Create a local clone of the website:
 ```git
-git clone https://gitlab.gnome.org/ravgeetdhillon/gtk-web.git
+git clone https://gitlab.gnome.org/Infrastructure/gtk-web.git
 ```
 3. Change into the gtk-web directory
 ```shell
