@@ -1,6 +1,6 @@
 # GTK's Official Website
 
-We are soon going to replace the [current website](https://gtk.org) with this one: [Upcoming GTK Website](https://gnome.pages.gitlab.gnome.org/gtk-web)
+We are soon going to replace the [current website](https://gtk.org) with this one: [Upcoming GTK Website](https://infrastructure.pages.gitlab.gnome.org/gtk-web)
 
 ## About
 

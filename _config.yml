@@ -21,7 +21,7 @@ tutorial_video_link: https://www.youtube.com/embed/bNA-Q8fQqTc/
 # jekyll configuration options
 
 baseurl: ''
-url: https://gnome.pages.gitlab.gnome.org/gtk-web
+url: https://infrastructure.pages.gitlab.gnome.org/gtk-web
 encoding: utf-8
 
 # markdown converter
