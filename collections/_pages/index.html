@@ -217,11 +217,7 @@ news_and_events_list:
 <section class="py-4 bg-no-repeat bg-cover" id="development">
   <div class="container">
     <div class="row py-4 px-3">
-      {% assign back_img = '/assets/img/wall-gtk-symbolics.png' | prepend: site.url %}
-      <div class="col-md-6 bg-no-repeat bg-center d-flex justify-content-center align-items-center py-4 rounded" style="background: url('{{ back_img }}');">
-        <img src="{{ '/assets/img/logo-gtk.png' | prepend: site.url }}" class="img-fluid w-100" style="max-width:200px"  alt="GTK Logo" />
-      </div>
-      <div class="col-md-6 py-3 py-md-0 px-0 px-md-3">
+      <div class="col-md-12 py-3 py-md-0 px-0 px-md-3">
         {% assign development = page.development_section %}
         {% for item in development %}
           <div class="w-100 bg-light py-4 px-3 mb-2 border rounded card">
