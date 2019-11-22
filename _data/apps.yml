@@ -12,50 +12,44 @@
 
 apps_list:
   - name: Fonts
-    link: /apps/
+    link: https://flathub.org/apps/details/org.gnome.font-viewer
     logo: app-fonts.png
   - name: Calculator
-    link: /apps/
+    link: https://wiki.gnome.org/Apps/Calculator
     logo: app-calculator.png
   - name: Blender
     link: /apps/
     logo: app-blender.png
   - name: Chess
-    link: /apps/
+    link: https://wiki.gnome.org/Apps/Chess
     logo: app-chess.png
   - name: Dictionary
-    link: /apps/
+    link: https://wiki.gnome.org/Apps/Dictionary
     logo: app-dictionary.png
   - name: GIMP
     link: /apps/
     logo: app-gimp.png
   - name: Games
-    link: /apps/
+    link: https://wiki.gnome.org/Apps/Games
     logo: app-games.png
   - name: Evolution
-    link: /apps/
+    link: https://wiki.gnome.org/Apps/Evolution
     logo: app-evolution.png
   - name: Image Viewer
-    link: /apps/
+    link: https://wiki.gnome.org/Apps/EyeOfGnome
     logo: app-image-viewer.png
   - name: Polari
-    link: /apps/
+    link: https://wiki.gnome.org/Apps/Polari
     logo: app-polari.png
-  - name: Social
-    link: /apps/
-    logo: app-social.png
   - name: Key Sign
-    link: /apps/
+    link: https://wiki.gnome.org/Apps/Keysign
     logo: app-key-sign.png
   - name: Maps
-    link: /apps/
+    link: https://wiki.gnome.org/Apps/Maps
     logo: app-maps.png
   - name: Transmission
-    link: /apps/
+    link: https://transmissionbt.com/
     logo: app-transmission.png
   - name: Password Safe
-    link: /apps/
+    link: https://gitlab.gnome.org/World/PasswordSafe
     logo: app-password-safe.png
-  - name: Terminal
-    link: /apps/
-    logo: app-terminal.png
