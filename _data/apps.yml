@@ -19,7 +19,7 @@ apps_list:
     logo: app-calculator.png
   - name: Blender
     link: /apps/
-    logo: app-blender.png
+    logo: app-blender.svg
   - name: Chess
     link: /apps/
     logo: app-chess.png
