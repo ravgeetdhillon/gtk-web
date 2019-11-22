@@ -126,9 +126,9 @@ news_and_events_list:
         {% assign codes = site.data.sample_codes.codes %}
         {% for code in codes %}
           {% if forloop.first == true %}
-            <a class="col grp-btn btn btn-dark py-1 px-1 small border-0 rounded-0 active" id="list-{{ code.ext }}-list" data-toggle="list" href="#list-{{ code.ext }}" role="tab" aria-controls="{{ code.ext }}" aria-selected="true">{{ code.name }}</a>
+            <a class="col grp-btn btn py-1 px-1 small border-0 rounded-0 active" id="list-{{ code.ext }}-list" data-toggle="list" href="#list-{{ code.ext }}" role="tab" aria-controls="{{ code.ext }}" aria-selected="true">{{ code.name }}</a>
           {% else %}
-            <a class="col grp-btn btn btn-dark py-1 px-1 small border-0 rounded-0" id="list-{{ code.ext }}-list" data-toggle="list" href="#list-{{ code.ext }}" role="tab" aria-controls="{{ code.ext }}" aria-selected="false">{{ code.name }}</a>
+            <a class="col grp-btn btn py-1 px-1 small border-0 rounded-0" id="list-{{ code.ext }}-list" data-toggle="list" href="#list-{{ code.ext }}" role="tab" aria-controls="{{ code.ext }}" aria-selected="false">{{ code.name }}</a>
           {% endif %}
         {% endfor %}
         </div>

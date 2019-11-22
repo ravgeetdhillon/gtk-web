@@ -422,11 +422,10 @@ h6.letter-spacing-custom,
     outline: none !important;
     box-shadow: none !important;
     border-bottom: 3px solid var(--primary) !important;
-    color: var(--light) !important;
 }
 .grp-btn.active {
     border-bottom: 3px solid var(--primary) !important;
-    color: var(--light) !important;
+
 }
 .overflow-y-auto {
     overflow-y: auto;
