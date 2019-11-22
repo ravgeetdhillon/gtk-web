@@ -17,9 +17,6 @@ apps_list:
   - name: Calculator
     link: /apps/
     logo: app-calculator.png
-  - name: Blender
-    link: /apps/
-    logo: app-blender.svg
   - name: Chess
     link: /apps/
     logo: app-chess.png
@@ -27,7 +24,7 @@ apps_list:
     link: /apps/
     logo: app-dictionary.png
   - name: GIMP
-    link: /apps/
+    link: https://gimp.org
     logo: app-gimp.png
   - name: Games
     link: /apps/
