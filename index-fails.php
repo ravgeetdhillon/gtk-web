@@ -201,7 +201,7 @@ $first = false;
 
 <p>Get an <a href="overview.php">overview</a> of GTK. Understand who started it, the basic architecture and why we use the license we do.</p>
 
-<p>GTK has been involved in many <a href="http://www.gtk-apps.org/" class="external">projects</a> and some big platforms. To get a glimpse of what people think of GTK and how it has been used in commercial projects, <a href="commerce.php">read the success stories...</a></p>
+<p>GTK has been involved in many projects and some big platforms. To get a glimpse of what people think of GTK and how it has been used in commercial projects, <a href="commerce.php">read the success stories...</a></p>
 
 <p>To find out how more about what GTK can do for you, visit our <a href="features.php">features</a> page. If you want to <a href="development.php#Contributing">contribute</a>, you are more than welcome.</p>
 
