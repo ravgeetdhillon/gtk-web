@@ -72,6 +72,6 @@ ob_start();
 </div>
 
 <h2>Community Applications</h2>
-<p>For some time now, free applications which use GTK have been listed on the <a href="http://www.gtk-apps.org/" class="external">gtk-apps.org</a> website. This is great for finding out about new releases and searching for applications by category which use the same desktop environment (i.e. GTK and GNOME).</p>
+<p>The source for many free apps that are using GTK can be found on <a href="http://gitlab.gnome.org/" class="external">gitlab.gnome.org</a>. Binary builds of many of them can be found in many Linux distributions, or on <a href="http://www.flathub.org" class="external">Flathub</a>. This is great for finding out about new releases and searching for applications by category.</p>
 
 <?php require 'template.php';
