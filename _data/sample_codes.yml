@@ -4,90 +4,63 @@ codes:
     snippet: |
       ```javascript
       const Gtk = imports.gi.Gtk;
-      const GLib = imports.gi.GLib;
 
-      Gtk.init(null, 0);
-      
-      let mwindow = new Gtk.Window({type : Gtk.WindowType.TOPLEVEL});
-      let label = new Gtk.Label({label : "Hello World"});
-      
-      mwindow.title = "Hello World!";
-      mwindow.connect("destroy", function(){Gtk.main_quit()});
-      
-      mwindow.add(label);
-      
-      label.show();
-      mwindow.show();
-      
-      Gtk.main();
+      // Create a new application
+      let app = new Gtk.Application({ application_id: 'com.example.GtkApplication' });
+
+      // When the application is launched…
+      app.connect('activate', () => {
+          // … create a new window …
+          let win = new Gtk.ApplicationWindow({ application: app });
+          // … with a button in it …
+          let btn = new Gtk.Button({ label: 'Hello, World!' });
+          // … which closes the window when clicked
+          btn.connect('clicked', () => { win.destroy(); });
+          win.add(btn);
+          win.show_all();
+      });
+
+      // Run the application
+      app.run([]);
       ```
   - name: Python
     ext: py
     snippet: |
       ```python
-      import gi
-      gi.require_version("Gtk", "3.0")
       from gi.repository import Gtk
 
-      window = Gtk.Window(title="Hello World")
-      window.show()
-      window.connect("destroy", Gtk.main_quit)
-      Gtk.main()
+      def on_activate(app):
+          win = Gtk.ApplicationWindow(application=app)
+          btn = Gtk.Button(label='Hello, World!')
+          btn.connect('clicked', lambda x: win.destroy())
+          win.add(btn)
+          win.show_all()
+
+      app = Gtk.Application(application_id='com.example.GtkApplication')
+      app.connect('activate', on_activate)
+      app.run(None)
       ```
   - name: C
     ext: c
     snippet: |
-      ```c
-
-      <?php
-      function isPrime($n) 
-      { 
-        if ($n <= 1) 
-          return false; 
-
-        for ($i = 2; $i < $n; $i++) 
-          if ($n % $i == 0) 
-            return false; 
-
-        return true; 
-      } 
-
-      if(isPrime(11)) 
-        echo("true"); 
-      else
-        echo("false"); 
-
-      ?>
-      ```
-  - name: Vala
-    ext: vala
-    snippet: |
-      ```vala
-
-      using System; 
-
-      class GFG 
-      {
-        static bool isPrime(int n) 
-        {
-          if (n <= 1) 
-            return false; 
-        
-          for (int i = 2; i < n; i++) 
-            if (n % i == 0) 
-              return false; 
-        
-          return true; 
-        } 
-
-        static void Main() 
-        { 
-          if(isPrime(11)) 
-            Console.Write(" true") ; 
-          
-          else
-            Console.Write(" false"); 
-        } 
+      ```cpp
+      #include <gtk/gtk.h>
+      static void on_clicked (GtkButton *button, GtkWidget *window) {
+        gtk_widget_destroy (window);
       }
 
+      static void on_activate (GtkApplication *app) {
+        GtkWidget *window = gtk_application_window_new (app);
+        GtkWidget *button = gtk_button_new_with_label ("Hello, World!");
+        g_signal_connect (button, "clicked", G_CALLBACK (on_clicked), window);
+        gtk_container_add (GTK_CONTAINER (window), button);
+        gtk_widget_show_all (window);
+      }
+
+      int main (int argc, char *argv[]) {
+        GtkApplication *app = gtk_application_new ("com.example.GtkApplication",
+                                                   G_APPLICATION_FLAGS_NONE);
+        g_signal_connect (app, "activate", G_CALLBACK (on_activate), NULL);
+        return g_application_run (argc, argv);
+      }
       ```
