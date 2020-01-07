@@ -25,7 +25,7 @@ menu_links:
     header: true
     footer: true
     section: Project
-  - name: Blog
+  - name: Development Blog
     href: https://blog.gtk.org/
     header: true
     footer: true
@@ -64,25 +64,25 @@ menu_links:
     footer: true
     section: Support
     external: true
-  - name: Gitlab
+  - name: Code
     href: https://gitlab.gnome.org/GNOME/gtk/
     header: true
     footer: true
     section: Project
     external: true
-  - name: Mailing Lists
-    href: /mailing-lists/
+  - name: Discussion
+    href: https://discourse.gnome.org
     header: false
     footer: true
     section: Company
   - name: Report a Bug
-    href: https://gitlab.gnome.org/GNOME/gtk/
+    href: https://gitlab.gnome.org/GNOME/gtk/issues/new
     header: false
     footer: true
     section: Support
     external: true
   - name: Request a feature
-    href: https://gitlab.gnome.org/GNOME/gtk/
+    href: https://gitlab.gnome.org/GNOME/gtk/issues/new
     header: false
     footer: true
     section: Support
@@ -116,8 +116,6 @@ menu_links:
 social_links:
   - icon: fab fa-twitter
     href: https://twitter.com/GTKtoolkit/
-  - icon: fab fa-facebook
-    href: https://www.facebook.com/GTKtelevisor/
   - icon: fab fa-gitlab
     href: https://gitlab.gnome.org/GNOME/gtk/
   - icon: fab fa-discourse
@@ -155,14 +153,14 @@ sidebar_sections:
 #   external: if the link provided in href is an external link i.e it points to a link outside of the website, then set this to 'false', else dont add this attribute
 
 sidebar_links:
-  - title: Mono Develop
-    name: mono-develop
-    section: Dev Tools
   - title: GNOME Builder
     name: gnome-builder
     section: Dev Tools
   - title: Eclipse
     name: eclipse
+    section: Dev Tools
+  - title: Mono Develop
+    name: mono-develop
     section: Dev Tools
   - title: Linux
     name: linux
@@ -176,11 +174,12 @@ sidebar_links:
   - title: GTK3
     name: gtk3
     section: API References
-    href: https://developer.gnome.org/gtk3/
+    href: https://developer.gnome.org/gtk3/stable/
     external: true
   - title: GTK4
     name: gtk4
     section: API References
+    href: https://gnome.pages.gitlab.gnome.org/gtk/gtk/
   - title: GLib, GObject, GIO
     name: glib
     section: Architecture
