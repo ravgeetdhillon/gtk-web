@@ -31,11 +31,6 @@ menu_links:
     footer: true
     external: true
     section: Company
-  - name: Usecases
-    href: /usecases/
-    header: true
-    footer: true
-    section: Project
   - name: Docs
     href: /docs/
     header: true

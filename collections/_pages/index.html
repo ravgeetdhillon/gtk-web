@@ -112,36 +112,6 @@ news_and_events_list:
 </section>
 </div>
 
-<section class="py-4" id="usecases">
-  <div class="container d-flex flex-column align-items-center">
-    <div class="row text-center d-flex justify-content-center">
-      <div class="col-md-10 col-lg-7">
-        <h2 class="text-center font-weight-light mb-3">{{ page.usecase_main_heading }}</h2>
-        <span class="text-muted">{{ page.usecase_main_heading_description | markdownify }}</span>
-      </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-8 mx-auto">
-        <img src="{{ '/assets/img/wall-usecases.svg' | prepend: site.url }}" class="w-100 img-fluid" style="height:100%;" alt="GTK Usecases Wallpaper" />
-      </div>
-    </div>
-    <br>
-    <div class="row d-flex justify-content-center pt-3">
-      {% assign cases = site.data.usecases.use_cases %}
-      {% for case in cases %}
-      <div class="col-md-4 pb-4 pb-md-0">
-        <h6>{{ case.title }}</h6>
-        <span class="text-muted small">{{ case.description | markdownify }}</span>
-        <a href="{{'/usecases/' | prepend: site.url | append: case.title }}/" class="small border-bottom text-decoration-none border-primary">Read More</a>
-      </div>
-      {% endfor %}
-      <div class="col-12 text-center pt-3 pt-md-4">
-        <a href="{{'/usecases/' | prepend: site.url }}" class="btn btn-md btn-primary" role="button">Discover Usecases</a>
-      </div>
-    </div>
-  </div>
-</section>
-  
 <section class="py-4" id="bindings">
   <div class="container">
     <div class="row text-center d-flex justify-content-center">

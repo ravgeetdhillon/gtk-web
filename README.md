@@ -22,7 +22,6 @@ The data used by the site is stored in the form of following files:
     │   ├── labels.json                     
     │   ├── members_all.json                
     │   ├── members.json                    
-    │   └── usecases.yml                    #---update this
     ├── _includes                           #contains site's include files
     │   ├── footer.html                     #the footer of the site
     │   ├── header.html                     #the meta data of the site
