@@ -11,24 +11,18 @@
 # Make sure that the logo image have square dimensions
 
 apps_list:
+  - name: GNU Image Manipulation Program
+    link: /apps/
+    logo: app-gimp.png
   - name: Fonts
     link: /apps/
     logo: app-fonts.png
   - name: Calculator
     link: /apps/
     logo: app-calculator.png
-  - name: Blender
-    link: /apps/
-    logo: app-blender.png
-  - name: Chess
-    link: /apps/
-    logo: app-chess.png
   - name: Dictionary
     link: /apps/
     logo: app-dictionary.png
-  - name: GIMP
-    link: /apps/
-    logo: app-gimp.png
   - name: Games
     link: /apps/
     logo: app-games.png
