@@ -5,7 +5,7 @@
 menu_links_sections:
   - title: Project
   - title: Support
-  - title: Company
+  - title: Community
 
 # To add navigation links to the website, add a new link with the following attributes:
 #   name: display text of the link
@@ -30,7 +30,7 @@ menu_links:
     header: true
     footer: true
     external: true
-    section: Company
+    section: Community
   - name: Docs
     href: /docs/
     header: true
@@ -46,7 +46,7 @@ menu_links:
     href: /community/
     header: true
     footer: true
-    section: Company
+    section: Community
   - name: License
     href: https://gitlab.gnome.org/GNOME/gtk/blob/master/COPYING/
     header: false
@@ -74,7 +74,7 @@ menu_links:
     href: https://discourse.gnome.org
     header: false
     footer: true
-    section: Company
+    section: Community
   - name: Report a Bug
     href: https://gitlab.gnome.org/GNOME/gtk/issues/new
     header: false
@@ -91,13 +91,13 @@ menu_links:
     href: https://wiki.gnome.org/Foundation/CodeOfConduct/
     header: false
     footer: true
-    section: Company
+    section: Community
     external: true
   - name: Donate
     href: http://www.gnome.org/foundation/
     header: false
     footer: true
-    section: Company
+    section: Community
     external: true
   - name: Consultation
     href: /support#consultation
