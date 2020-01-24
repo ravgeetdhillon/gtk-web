@@ -47,6 +47,3 @@ apps_list:
   - name: Password Safe
     link: https://gitlab.gnome.org/World/PasswordSafe
     logo: app-password-safe.png
-  - name: Terminal
-    link: /apps/
-    logo: app-terminal.png
