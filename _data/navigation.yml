@@ -25,12 +25,6 @@ menu_links:
     header: true
     footer: true
     section: Project
-  - name: Development Blog
-    href: https://blog.gtk.org/
-    header: true
-    footer: true
-    external: true
-    section: Community
   - name: Docs
     href: /docs/
     header: true
@@ -70,6 +64,12 @@ menu_links:
     footer: true
     section: Project
     external: true
+  - name: Development Blog
+    href: https://blog.gtk.org/
+    header: true
+    footer: true
+    external: true
+    section: Community
   - name: Discussion
     href: https://discourse.gnome.org
     header: false
