@@ -12,7 +12,7 @@
 
 apps_list:
   - name: GNU Image Manipulation Program
-    link: /apps/
+    link: https://gimp.org
     logo: app-gimp.png
   - name: Fonts
     link: https://flathub.org/apps/details/org.gnome.font-viewer
