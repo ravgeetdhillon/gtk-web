@@ -11,13 +11,15 @@ page_main_heading_description: Thanks to all the hard work by the community, GTK
 {% include navbar.html %}
 
 <body>
-{% assign back_img = '/assets/img/wall-gtk-features.png' | prepend: site.url %}
-<section class="d-flex flex-column align-items-center bg-no-repeat bg-center" style="background: url('{{ back_img }}');"  alt="GTK Features Wallpaper" />
+<section class="py-4 d-flex flex-column align-items-center">
   <div class="container">
-    <div class="row d-flex justify-content-center pt-4 pb-6">
-      <div class="col-md-10 col-lg-7 main-heading text-center">
+    <div class="row">
+      <div class="col-md-5 d-flex justify-content-end flex-column main-heading">
         <h1 class="display-3 pb-3">{{ page.page_main_heading }}</h1>
-        <span class="text-muted lead bg-light">{{ page.page_main_heading_description }}</span>
+        <span class="text-muted lead">{{ page.page_main_heading_description | markdownify }}</span>
+      </div>
+      <div class="col-md-7 d-none d-md-flex justify-content-center flex-column">
+        <img src="{{ '/assets/img/wall-gtk-features.png' | prepend: site.url }}" class="img-fluid" alt="GTK Features Wallpaper" />
       </div>
     </div>
   </div>
