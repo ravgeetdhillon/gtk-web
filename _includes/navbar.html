@@ -39,10 +39,12 @@ to make changes related to the content, edit the `_data/navigation.yml`.
               {% if link.header %}
                 {% if link.external %}
                   {% assign link_href = link.href %}
+                  {% assign target_blank = 'target="_blank"' %}
                 {% else %}
                   {% assign link_href = link.href | prepend: site.url %}
+                  {% assign target_blank = '' %}
                 {% endif %}
-                <a href="{{ link_href }}" class="nav-link-{{ bg_color }} float-right text-{{ text_color }} rounded">{{ link.name }}</a>
+                <a href="{{ link_href }}" {{ target_blank }} class="nav-link-{{ bg_color }} float-right text-{{ text_color }} rounded">{{ link.name }}</a>
               {% endif %}
             {% endfor %}
         </ul>
