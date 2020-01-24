@@ -163,7 +163,7 @@ news_and_events_list:
     </div>
     <div class="app-logos slider pt-4 pb-5">
       {% for app in apps %}
-      <div class="slide d-flex flex-column align-items-center text-center" title="{{ app.name }} App"><a href="{{ app.link }}">
+      <div class="slide d-flex flex-column align-items-center text-center stretched-link" title="{{ app.name }} App"><a href="{{ app.link }}">
         <img src="{{ '/assets/img/apps/' | prepend: site.url }}{{ app.logo }}" class="img-fluid app-icon icon-dropshadow" alt="{{ app.name }}" />
         <span class="text-muted small">{{ app.name }}</span></a>
       </div>
