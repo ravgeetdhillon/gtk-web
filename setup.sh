@@ -1,3 +1,5 @@
+# script for fetching api data
+
 echo 'creating directory for storing api results...'
 
 mkdir _data/api_fetch
@@ -19,3 +21,20 @@ echo 'successfully fetched gtk-issue-statistics'
 curl -o- https://gitlab.gnome.org/api/v4/projects/665/issues?state=opened > _data/api_fetch/issues_opened.json
 
 echo 'successfully fetched gtk-issues'
+
+
+# script for structuring the website
+
+echo 'structuring the website...'
+
+dependencies=('@fortawesome' 'bootstrap' 'jquery' 'moment' 'popper.js' 'slick-carousel')
+for dependency in "${dependencies[@]}"
+do
+    rsync -a node_modules/${dependency} assets
+    echo "Moved ${dependency} to assets/ folder"
+done
+
+
+# script for compiling scss to css
+
+npm run compile-sass
