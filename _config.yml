@@ -4,7 +4,7 @@
 name: The GTK Project
 
 # title of the website
-title: The GTK Project | A free and open-source cross-platform widget toolkit
+title: The GTK Project - A free and open-source cross-platform widget toolkit
 
 # short description of the website
 description: GTK is a highly usable, feature rich toolkit for creating graphical user interfaces which boasts cross platform compatibility and an easy to use API. GTK is licensed under the GNU LGPL 2.1 allowing development of both free and proprietary software with GTK without any license fees or royalties.
@@ -12,8 +12,15 @@ description: GTK is a highly usable, feature rich toolkit for creating graphical
 # tell about the gtk project in as less words as possible for seo.
 mini_description: GTK is a free and open-source cross-platform widget toolkit for creating graphical user interfaces.
 
+# website keywords for seo
+keywords: gtk, gtk, gimp, gnome, toolkit, user interface
+
+author: The GTK Team
+twitter_username: GTKtoolkit
+
 # the current stable version of GTK
 website_repo: https://gitlab.gnome.org/Infrastructure/gtk-web
+
 
 # jekyll configuration options
 
@@ -48,8 +55,7 @@ exclude:
   - CONTRIBUTING.md
   - CODE_OF_CONDUCT.md
   - LICENSE.txt
-  - scripts/
-  - main.sh
+  - '*.sh'
 
 # folder which contains all the collections
 collections_dir: collections
