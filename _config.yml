@@ -25,7 +25,7 @@ encoding: utf-8
 markdown: kramdown
 kramdown: 
   parse_block_html: true
-  input: GFM    # github flavored markdown
+  input: GFM # github flavored markdown
   auto_ids: true
 
 # code highlighter used by the website
@@ -34,6 +34,7 @@ highlighter: rouge
 # plugins used by the website
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 # exclude these files from production site
 exclude: 
