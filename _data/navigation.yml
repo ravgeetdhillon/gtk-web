@@ -42,7 +42,7 @@ menu_links:
     footer: true
     section: Community
   - name: License
-    href: https://gitlab.gnome.org/GNOME/gtk/blob/master/COPYING/
+    href: https://gitlab.gnome.org/GNOME/gtk/tree/master/COPYING/
     header: false
     footer: true
     section: Project

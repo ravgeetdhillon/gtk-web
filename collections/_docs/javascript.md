@@ -51,7 +51,7 @@ This code depicts how to use GJS and GTK together for creating a simple Hello Wo
 
 ## Contribute
 
-If you are interested in contributing to the GJS project, read the instructions on how to get started for contributing to GJS in the [contributing guide](https://gitlab.gnome.org/GNOME/gjs/blob/master/CONTRIBUTING.md).
+If you are interested in contributing to the GJS project, read the instructions on how to get started for contributing to GJS in the [contributing guide](https://gitlab.gnome.org/GNOME/gjs/tree/master/CONTRIBUTING.md).
 
 If you want to get in touch with the original source files, you can visit the project's [git repository](https://gitlab.gnome.org/GNOME/gjs/) on Gitlab.
 
