@@ -5,9 +5,12 @@ permalink: /docs/installations/:name/
 
 ![GTK and Linux](/assets/img/docs/docs-gtk-linux.png)
 
-In order to install GTK for GNU/Linux and Unix systems, you will need to get the GLib, GObject-Introspection, Pango, Gdk-Pixbuf, ATK and GTK packages to build GTK. To read more about these packages, please refer to the [Architecture](/docs/architecture/).
+In order to install GTK for GNU/Linux and Unix systems, you will need to get
+the GLib, GObject-Introspection, Pango, Gdk-Pixbuf, ATK and GTK packages to
+build GTK. To read more about these packages, please refer to the
+[Architecture](/docs/architecture/).
 
-To build an environment for GTK, install all te dependencies listed below:
+To build an environment for GTK, install all the dependencies listed below:
 
 Dependency | Version | Source
 --- | --- | :---:
@@ -18,11 +21,17 @@ Gdk-pixbuf | 2.38 | [<i class="fas fa-download"></i>](http://ftp.gnome.org/pub/g
 ATK | 2.26 | [<i class="fas fa-download"></i>](http://ftp.gnome.org/pub/gnome/sources/atk/2.26/)
 GObject-Introspection | 1.60 | [<i class="fas fa-download"></i>](http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.60/)
 
-To build GTK 3.24, see the [installation guide](https://developer.gnome.org/gtk3/stable/gtk-building.html). For additional help, [FAQ](https://developer.gnome.org/gtk3/stable/gtk-question-index.html) is a good starting point.
+To build GTK 3.24, see the [installation
+guide](https://developer.gnome.org/gtk3/stable/gtk-building.html). For
+additional help,
+[FAQ](https://developer.gnome.org/gtk3/stable/gtk-question-index.html) is a
+good starting point.
 
 ## Older Versions
 
-Some applications still require GTK 2, an older stable version of GTK. You can have the run-time and development environments for GTK 3.x, GTK 2.x and GTK 1.2 installed simultaneously on your computer.
+Some applications still require GTK 2, an older stable version of GTK. You
+can have the run-time and development environments for GTK 3.x, GTK 2.x and
+GTK 1.2 installed simultaneously on your computer.
 
 ### GTK v3.x
 
