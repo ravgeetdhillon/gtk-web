@@ -48,9 +48,10 @@ menu_links:
     section: Project
     external: true
   - name: Releases
-    href: /releases/
+    href: https://gitlab.gnome.org/GNOME/gtk/-/releases
     header: false
     footer: true
+    external: true
     section: Project
   - name: FAQs
     href: https://developer.gnome.org/gtk3/stable/gtk-question-index.html
