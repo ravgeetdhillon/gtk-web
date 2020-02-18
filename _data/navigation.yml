@@ -74,6 +74,7 @@ menu_links:
     href: https://discourse.gnome.org
     header: false
     footer: true
+    external: true
     section: Community
   - name: Report a Bug
     href: https://gitlab.gnome.org/GNOME/gtk/issues/new
