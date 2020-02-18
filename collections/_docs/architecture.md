@@ -39,8 +39,3 @@ graphical assets like icons in various formats, like PNG, JPEG, and GIF.
 providing accessibility. By supporting the ATK interfaces, an application or
 toolkit can be used with tools such as screen readers, magnifiers, and
 alternative input devices.
-
-## Epoxy
-
-[Epoxy](https://github.com/anholt/libepoxy) is a small library that handles
-the OpenGL function pointer management on various platforms.
