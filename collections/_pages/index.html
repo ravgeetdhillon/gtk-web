@@ -32,11 +32,8 @@ integrations_main_heading_description: |-
   Check out this easy tutorial on [how to create a toolbar](https://developer.gnome.org/gnome-devel-demos/stable/toolbar_builder.py.html.en) using Glade.
 integrations_image: /assets/img/wall-glade.png
 
-tutorials_main_heading: Quick Tutorials
-tutorials_main_heading_description: Creating an application using GTK is easy. Check out this short tutorial on how the things are done from Setup till the deployment.
-
 features_main_heading: A feature rich development tool
-features_main_heading_description: GTK has all the features that a widget toolkit needs to have. These features make it the most trusted toolkit for developing Linux Apps.
+features_main_heading_description: GTK has all the features that a widget toolkit needs to have. These features make it the most trusted toolkit for developing Linux applications.
 
 development_section:
   - heading: Develop with GTK
@@ -80,7 +77,7 @@ news_and_events_list:
     description: Get in touch with GTK developers through [IRC](irc://irc.gnome.org/%23gtk). Get daily updates about GTK and its community from [GTK blog](https://blog.gtk.org/) or through it's [twitter](https://twitter.com/GTKtoolkit/) handle.
   - title: Meet the community
     description: As regularly as possible, GTK team meetings take place at [conferences](https://guadec.org) and [hackfests](https://wiki.gnome.org/Hackfests) to discuss the future of GTK and define a [roadmap](https://wiki.gnome.org/Projects/GTK/Roadmap).
-  - title: Help evolve GTK
+  - title: Contribute to GTK
     description: If you are a developer and want to contribute towards GTK, you are more than welcome to do so. [Get started now](/docs/getting-started/) to get some familarity to GTK.
 ---
 
@@ -225,23 +222,6 @@ news_and_events_list:
               <span class="text-muted small">{{ item.description | markdownify }}</span>
           </div>
         {% endfor %}
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-4" id="tutorials">
-  <div class="container">
-    <div class="row">
-      <div class="embed-responsive embed-responsive-16by9 col-12 col-md-6 rounded">
-        <iframe class="embed-responsive-item py-3 px-3" src="{{ site.tutorial_video_link }}" allowfullscreen></iframe>
-      </div>
-      <div class="col-12 col-md-6 px-3 py-3 px-md-4 d-flex flex-column justify-content-center">
-        <h2 class="font-weight-light mb-3">{{ page.tutorials_main_heading }}</h2>
-        <span class="text-muted mb-4">{{ page.tutorials_main_heading_description | markdownify }}</span>
-        <div>
-          <a href="{{ '/docs/' | prepend: site.url }}" class="btn btn-sm btn-outline-primary" role="button">Developers Guide</a>
-        </div>
       </div>
     </div>
   </div>
