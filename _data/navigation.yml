@@ -42,7 +42,7 @@ menu_links:
     footer: true
     section: Community
   - name: License
-    href: https://gitlab.gnome.org/GNOME/gtk/tree/master/COPYING/
+    href: https://gitlab.gnome.org/GNOME/gtk/tree/master/COPYING
     header: false
     footer: true
     section: Project
@@ -53,7 +53,7 @@ menu_links:
     footer: true
     section: Project
   - name: FAQs
-    href: https://developer.gnome.org/gtk3/stable/gtk-question-index.html/
+    href: https://developer.gnome.org/gtk3/stable/gtk-question-index.html
     header: false
     footer: true
     section: Support
@@ -180,6 +180,7 @@ sidebar_links:
     name: gtk4
     section: API References
     href: https://gnome.pages.gitlab.gnome.org/gtk/gtk/
+    external: true
   - title: GLib, GObject, GIO
     name: glib
     section: Architecture
