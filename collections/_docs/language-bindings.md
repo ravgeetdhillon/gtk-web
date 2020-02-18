@@ -3,20 +3,23 @@ permalink: /docs/:name/
 ---
 # Language Bindings
 
-Language Bindings or Wrappers allow GTK to be used from other programming languages, in the style of those languages. They are relatively easy to create because GTK is designed with them in mind.
-
-The official GNOME bindings follow the GNOME release schedule which guarantees API stability and time-based releases.
+Language Bindings (or wrappers) allow GTK to be used from other programming
+languages, in the style of those languages. They are relatively easy to
+create because GTK is designed with them in mind.
 
 Language | v3 | v4
 --- | :---: | :---:
-Python | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
-JavaScript | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
-C++ | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
-Perl | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
-D | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
-Rust | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
+<a href="https://pygobject.readthedocs.io/en/latest/">Python</a> | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
+<a href="https://gitlab.gnome.org/GNOME/gjs/blob/master/doc/Home.md">JavaScript</a> | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
+<a href="https://www.gtkmm.org/en/index.html">C++</a> | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
+<a href="http://gtk2-perl.sourceforge.net/">Perl</a> | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
+<a href="https://gtkd.org/">D</a> | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
+<a href="https://gtk-rs.org">Rust</a> | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
 
-- Code examples for all of them would be great; small, short, "hello world" type ones
-- Links to project pages and documentation
-- A short description of the GObject Introspection project, which is used to describe the C API in a way that can
-be consumed by dynamic and static languages
+## GObject Introspection
+
+GTK generates a complete description of its API as part of its build; the
+introspection data is available both as an XML file and as a binary format
+that can be loaded using a shared library. For more information on the
+introspection data, you can read [the GObject Introspection
+documentation](https://gi.readthedocs.io/en/latest/).
