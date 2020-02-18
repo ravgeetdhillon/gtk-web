@@ -99,16 +99,6 @@ menu_links:
     footer: true
     section: Community
     external: true
-  - name: Consultation
-    href: /support#consultation
-    header: false
-    footer: true
-    section: Support
-  - name: Training
-    href: /support#training
-    header: false
-    footer: true
-    section: Support
 
 # To add social links to the website, add a new social link with the following attributes:
 #   icon: the name of the icon on https://fontawesome.com/icons
