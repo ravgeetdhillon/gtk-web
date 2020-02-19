@@ -32,7 +32,6 @@ test:
     - test
   except:
   - master
-  - new-website
 
 pages:
   stage: deploy
@@ -43,4 +42,3 @@ pages:
     - public
   only:
   - master
-  - new-website
