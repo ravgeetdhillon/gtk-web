@@ -15,13 +15,10 @@ mini_description: GTK is a free and open-source cross-platform widget toolkit fo
 # the current stable version of GTK
 website_repo: https://gitlab.gnome.org/Infrastructure/gtk-web.git
 
-# link to the GTK introduction/tutorial video
-tutorial_video_link: https://www.youtube.com/embed/bNA-Q8fQqTc/
-
 # jekyll configuration options
 
-baseurl: ''
-url: https://infrastructure.pages.gitlab.gnome.org/gtk-web
+baseurl: 'www.gtk.org'
+url: https://www.gtk.org
 encoding: utf-8
 
 # markdown converter
