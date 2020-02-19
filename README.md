@@ -1,16 +1,21 @@
 # GTK's Official Website
 
-We are soon going to replace the [current website](https://gtk.org) with this one: [Upcoming GTK Website](https://infrastructure.pages.gitlab.gnome.org/gtk-web)
+The source for the [GTK website](https://www.gtk.org)
 
 ## About
 
-GTK.org is a official website for GTK Project. The site is developed with and maintained using [Jekyll][official-jekyll], a Static Site Generator developed with Ruby. The site uses following types of files for the content generation:
-* HTML files with extension `.html`
-* Markdown files with extension `.md`
+GTK.org is a official website for GTK Project. The site is developed with
+and maintained using [Jekyll][official-jekyll], a Static Site Generator
+developed with Ruby. The site uses following types of files for the content
+generation:
+
+ * HTML files with extension `.html`
+ * Markdown files with extension `.md`
 
 The data used by the site is stored in the form of following files:
-* YAML files with extension `.yml`
-* JSON files with extension `.json`
+
+ * YAML files with extension `.yml`
+ * JSON files with extension `.json`
 
 ## Project Structure
 
@@ -62,7 +67,11 @@ The data used by the site is stored in the form of following files:
 
 ## Contributing
 
-We always welcome people who want to contribute towards our project. For suitable information on how can you contribute to the website, on how to report bugs, on how to request new features or anything that can make the website a better experience for the end users, please read on [how to contribute][contributing].
+We always welcome people who want to contribute towards our project. For
+suitable information on how can you contribute to the website, on how to
+report bugs, on how to request new features or anything that can make the
+website a better experience for the end users, please read on [how to
+contribute][contributing].
 
 ## Setup the website locally
 
@@ -95,7 +104,9 @@ $ bundle exec jekyll serve
 
 ## Dependencies
 
-GTK.org relies on the dependencies as well. These dependencies are provided in the Ruby `Gemfile` or NPM's `package.json`. Following table shows the list of dependencies used by this project:
+GTK.org relies on the dependencies as well. These dependencies are provided
+in the Ruby `Gemfile` or NPM's `package.json`. Following table shows the
+list of dependencies used by this project:
 
 Package | Version | File | Source
 --- | --- | --- | ---
@@ -112,13 +123,21 @@ Read about adding/updating/removing dependencies on [how to contribute](CONTRIBU
 
 ## Pipeline
 
-The pipeline used by the website is the top-level component of continuous integration, delivery, and deployment.
+The pipeline used by the website is the top-level component of continuous
+integration, delivery, and deployment.
 
-The pipeline defined by the GTK.org uses the `Ruby2.5` image. The pipeline consists of a script that runs before the site is tested/deployed. The script that runs before the test/deployment of the website basically installs all the `gem/npm dependencies`, fetches the API data regarding the GTK from its [gitlab instance][gtk-gitlab] and then structurizes the website before testing/deploying.
+The pipeline defined by the GTK.org uses the `Ruby2.5` image. The pipeline
+consists of a script that runs before the site is tested/deployed. The
+script that runs before the test/deployment of the website basically
+installs all the `gem/npm dependencies`, fetches the API data regarding the
+GTK from its [gitlab instance][gtk-gitlab] and then structurizes the website
+before testing/deploying.
 
-`test` stage is performed on all branches but `master`. `deploy` stage on the other hand is performed only on `master` branch.
+`test` stage is performed on all branches but `master`. `deploy` stage on
+the other hand is performed only on `master` branch.
 
-> If you think that there can be a better pipeline than the existing one, send us a merge request for the same.
+> If you think that there can be a better pipeline than the existing one,
+> send us a merge request for the same.
 
 ## Maintainers
 
@@ -134,8 +153,11 @@ You can reach out to the following individuals if you have any doubt or suggesti
 
 ## Code of Conduct
 
-GTK is an open source project with a contributor community that spans across the globe. We want everyone in our community to feel safe and encourage the participation of people from all forms of backgrounds, regardless of experience level, age, gender, identity, race, religion, or nationality.
-We expect all contributors to uphold the [Code of Conduct][code-of-conduct].
+GTK is an open source project with a contributor community that spans across
+the globe. We want everyone in our community to feel safe and encourage the
+participation of people from all forms of backgrounds, regardless of
+experience level, age, gender, identity, race, religion, or nationality.  We
+expect all contributors to uphold the [Code of Conduct][code-of-conduct].
 
 ## License Information
 
