@@ -80,6 +80,34 @@ codes:
           application.run(&args().collect::<Vec<_>>());
       }
       ```
+  - name: Vala
+    ext: vala
+    snippet: |
+      ```vala
+      int main (string[] argv) {
+          // Create a new application
+          var app = new Gtk.Application ("com.example.GtkApplication",
+                                         GLib.ApplicationFlags.FLAGS_NONE);
+
+          app.activate.connect (() => {
+              // Create a new window
+              var window = new Gtk.ApplicationWindow (app);
+
+              // Create a new button
+              var button = new Gtk.Button.with_label ("Hello, World!");
+
+              // When the button is clicked, destroy the window
+              button.clicked.connect (() => {
+                  window.destroy ();
+              });
+
+              window.add (button);
+              window.show_all ();
+          });
+
+          return app.run (argv);
+      }
+      ```
   - name: C
     ext: c
     snippet: |
