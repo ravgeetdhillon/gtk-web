@@ -176,18 +176,28 @@ sidebar_links:
   - title: GLib, GObject, GIO
     name: glib
     section: Architecture
+    href: https://developer.gnome.org/glib/stable/
+    external: true
   - title: GdkPixbuf
     name: gdkpixbuf
     section: Architecture
+    href: https://developer.gnome.org/gdk-pixbuf/stable/
+    external: true
   - title: Pango
     name: pango
     section: Architecture
+    href: https://developer.gnome.org/pango/stable/
+    external: true
   - title: GDK
     name: gdk
     section: Architecture
+    href: https://developer.gnome.org/gdk3/stable/
+    external: true
   - title: Cairo
     name: cairo
     section: Architecture
+    href: https://www.cairographics.org/documentation/
+    external: true
   - title: Hello World
     name: hello-world
     section: Getting Started

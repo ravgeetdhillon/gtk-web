@@ -37,6 +37,6 @@ For more information on this, see the instructions on
 
 You can also download the dependencies from their git repository from your
 web browser for [gtk](https://gitlab.gnome.org/GNOME/gtk),
-[glib](https://git.gnome.org/browse/glib), [pango](https://git.gnome.org/browse/pango),
-[gdk-pixbuf](https://git.gnome.org/browse/gdk-pixbuf) and
-[atk](https://git.gnome.org/browse/atk).
+[glib](https://gitlab.gnome.org/GNOME/glib), [pango](https://gitlab.gnome.org/GNOME/pango),
+[gdk-pixbuf](https://gitlab.gnome.org/GNOME/gdk-pixbuf) and
+[atk](https://gitlab.gnome.org/GNOME/atk).
