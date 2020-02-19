@@ -16,20 +16,29 @@ There are also a growing number of examples and thorough tests of language featu
 ## A Hello World app
 
 ```rust
-extern crate gtk;
+use gio::prelude::*;
 use gtk::prelude::*;
-use gtk::{ButtonsType, DialogFlags, MessageType, MessageDialog, Window};
+use glib::clone;
+
+use std::env::args;
+
+fn on_activate(application: &gtk::Application) {
+    let window = gtk::ApplicationWindow::new(application);
+    let button = gtk::Button::new_with_label("Hello World!");
+
+    button.connect_clicked(clone!(@weak window => move |_| window.destroy()));
+
+    window.add(&button);
+    window.show_all();
+}
 
 fn main() {
-    if gtk::init().is_err() {
-        println!("Failed to initialize GTK.");
-        return;
-    }
-    MessageDialog::new(None::<&Window>,
-                      DialogFlags::empty(),
-                      MessageType::Info,
-                      ButtonsType::Ok,
-                      "Hello World").run();
+    let application =
+        gtk::Application::new(Some("com.github.gtk-rs.examples.basic"), Default::default())
+            .expect("Initialization failed...");
+
+    application.connect_activate(|app| on_activate(app));
+    application.run(&args().collect::<Vec<_>>());
 }
 ```
 
