@@ -1,0 +1,169 @@
+---
+navbar_type: light
+permalink: /community/
+
+page_main_heading: GTK Community
+page_main_heading_description: A place to find all the resources used by the people working on GTK.
+
+blog_main_heading: Blog
+blog_main_heading_description: Catch up with all the things happening with GTK through the [GTK Development Blog](https://blog.gtk.org/).
+
+issues_main_heading: Issues Tracker
+issues_main_heading_description: Contribute to GTK by solving the issues related to GTK. Get started with first issues.
+
+team_main_heading: GTK Team
+team_main_heading_description: These are the people who apply their best of skills to make GTK as the developers go to tool. To see your yourself as a GTK Team Member or Contributor, start by solving some [issues](https://gitlab.gnome.org/GNOME/gtk/issues) for the GTK.
+---
+
+{% include header.html %}
+
+{% include navbar.html %}
+
+<section class="py-4 d-flex flex-column align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 d-flex justify-content-end flex-column main-heading">
+        <h1 class="display-3 pb-3">{{ page.page_main_heading }}</h1>
+        <span class="text-muted lead">{{ page.page_main_heading_description | markdownify }}</span>
+      </div>
+      <div class="col-md-7 d-none d-md-flex justify-content-center flex-column">
+        <img src="{{ '/assets/img/wall-community.svg' | prepend: site.url }}" class="img-fluid" alt="GTK Community Wallpaper" />
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-4" id="blog">
+  <div class="container border rounded py-4 px-4 bg-light">
+    <div class="row">
+      <div class="col px-0 px-md-3">
+        <h2 class="font-weight-light mb-3">{{ page.blog_main_heading }}</h2>
+        <span class="text-muted w-100 w-sm-75">{{ page.blog_main_heading_description | markdownify }}</span>
+      </div>
+    </div>
+    <div class="row py-4">
+      {% assign blogs = site.data.api_fetch.gtk-blog-feed.items %}
+      {% for blog in blogs limit: 3 %}
+        <div class="col-lg-4 col-md-6 pb-4 px-0 px-md-3">
+          <div class="h-100 rounded shadow-sm overflow-hidden">
+            <div class="overflow-hidden" style="max-height:200px;">
+              {% capture imgname %}
+                {% cycle 'blog-blog1.png', 'blog-blog2.png', 'blog-blog3.png' %}
+              {% endcapture %}
+              {% assign imgname = imgname | strip %}
+              <img src="{{ '/assets/img/' | append: imgname | prepend: site.url }}" class="img-fluid w-100"  alt="{{ blog.title }}" />
+            </div>
+            <div class="py-3 px-3 h-100 bg-white d-flex flex-column">
+              <h6>{{ blog.title }}</h6>
+              <span class="text-muted small mb-3">{{ blog.description | truncate: 160 }}</span>
+              <a href="{{ blog.link }}" class="btn btn-sm btn-primary align-self-end">Read More</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="py-4" id="issues-tracker">
+  <div class="container border rounded py-4 px-4 bg-light">
+    <div class="row">
+      <div class="col px-0 px-md-3">
+        {% assign issue_stats = site.data.api_fetch.issues_stats.statistics.counts %}
+        <div class="d-flex flex-column flex-sm-row align-items-baseline">
+          <h2 class="font-weight-light mb-3">
+            {{ page.issues_main_heading }}
+          </h2>
+          <div class="pl-sm-3 pl-0 pb-3 mt-n2 mt-sm-0">
+            <a href="https://gitlab.gnome.org/GNOME/gtk/issues?scope=all&utf8=%E2%9C%93&state=opened" class="text-muted"><span class="pr-2 mt-n2" style="font-size:0.8rem;" title="{{ issue_stats.opened }} issues are open."><i class="fas fa-exclamation-circle fa-fw text-secondary pr-2"></i>{{ issue_stats.opened }} Opened</span></a>
+            <a href="https://gitlab.gnome.org/GNOME/gtk/issues?scope=all&state=closed&utf8=%E2%9C%93" class="text-muted"><span class="pr-2 mt-n2" style="font-size:0.8rem;" title="{{ issue_stats.closed }} issues have been closed."><i class="fas fa-check-circle fa-fw text-tertiary pr-2"></i>{{ issue_stats.closed }} Closed</span></a>
+          </div>
+        </div>
+        <span class="text-muted w-100 w-sm-75">{{ page.issues_main_heading_description | markdownify }}</span>
+      </div>
+    </div>
+    <div class="row py-4 align-items-start">
+      {% assign issues = site.data.api_fetch.issues_opened %}
+      {% for i in (0..3) %}
+        <div class="col-lg-3 col-sm-6 px-0 px-sm-3">
+          {% assign start = i | times: 4 %}
+          {% assign end = start | plus: 4 | minus: 1 %}
+          {% for j in (start..end) %}
+            <div class="d-flex flex-column justify-content-between rounded bg-white shadow-sm px-3 my-3 shadow-hover">
+              <div class="py-3">
+                <div class="d-flex justify-content-between align-items-start">
+                  <h6 class="m-0 pr-2 text-break">{{ issues[j].title }}</h6>
+                  <a class="btn btn-primary btn-sm" href="{{ issues[j].web_url }}" data-toggle="tooltip" data-html="true" title="<small>View on Gitlab</small>"><i
+                      class="fab fa-gitlab"></i></a>
+                </div>
+                <div class="py-2">
+                  {% assign all_labels = site.data.labels %}
+                  {% for label in issues[j].labels %}
+                    {% assign current_label = all_labels | where: 'name', label %}
+                    {% assign label_style = 'style=background:' | append: current_label[0].color | append: ';color:' | append: current_label[0].text_color %}
+                    <span class="badge badge-pill" {{ label_style }}>{{ current_label[0].name }}</span>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="border-top text-muted py-2" style="line-height: 1.3;">
+                <span class="small" id="time" data-time="{{ issues[j].created_at }}"></span>
+                <br>
+                <span class="small">by <a href="{{ issues[j].author.web_url }}">{{ issues[j].author.name }}</a></span>
+              </div>
+            </div>
+            {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!--
+{% assign members = site.data.members_all %}
+<section class="py-4" id="contributors">
+  <div class="container border rounded py-4 px-4 bg-light">
+    <div class="row">
+      <div class="col px-0 px-md-3">
+        <h2 class="font-weight-light mb-3">{{ page.team_main_heading }}</h2>
+        <span class="text-muted w-100 w-sm-75">{{ page.team_main_heading_description | markdownify }}</span>
+      </div>
+    </div>
+    <div class="row pt-4">
+      {% for member in members %}
+      <div class="col-lg-2 col-md-3 col-sm-4 col-2 py-3">
+        <div class="d-flex justify-content-center align-items-center py-2">
+          <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="img-fluid rounded-circle w-75 border img-thumbnail" alt="{{ member.name }}" />
+        </div>
+        <div class="d-flex flex-column align-items-center">
+          <span class="text-primary text-center text-secondary">{{ member.name }}</span>
+          <ul class="list-unstyled d-flex small mb-0">
+            <li>
+              <a href="{{ member.web_url }}" target="_blank"><i class="fab fa-gitlab"></i></a>
+            </li> 
+            <li class="px-1 text-info">&bull;</li>
+            <li>
+              <span class="text-muted">Developer</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+-->
+
+{% include footer.html %}
+
+<script>
+  // calculates how much time ago an issue was opened. uses moment.js
+  var times = document.querySelectorAll("#time");
+  times.forEach(item => {
+    time = item.getAttribute('data-time');
+    item.innerHTML = 'Opened ' + moment(time, moment.HTML5_FMT.DATETIME_LOCAL_MS).fromNow();
+  });
+
+  // used to display tooltip over gitlab icon in issue tracker.
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>

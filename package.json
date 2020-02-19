@@ -1,0 +1,24 @@
+{
+  "name": "gtk-web",
+  "version": "1.0.0",
+  "description": "The dependencies for the official website of GTK. Visit https://gtk.org/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass assets/scss/theme.scss assets/css/theme.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.gnome.org/Infrastructure/gtk-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "popper.js": "^1.15.0",
+    "slick-carousel": "^1.8.1"
+  }
+}

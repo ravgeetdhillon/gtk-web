@@ -1,0 +1,35 @@
+{% comment %}
+
+this is the header file for all the pages in the website.
+any changes made to this file will affect header section of all the pages.
+
+this file contains all the metadata about the website, links to stylesheets and javascript files.
+
+{% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="en-us">
+	<meta name="author" content="The GTK Team">
+	<meta name="description" content="GTK is a highly usable, feature rich toolkit for creating portable graphical user interfaces and an easy to use API. GTK is licensed under the GNU LGPL 2.1 allowing development of both free and proprietary software using GTK without any license fees or royalties.">
+	<meta name="keywords" content="gtk, gtk, gimp, gnome, toolkit, user interface">	
+	<link rel="icon" href="{{ '/assets/img/favicon-gtk.ico' | prepend: site.url }}" type="image/x-icon">
+	<link rel="shortcut icon" href="{{ '/assets/img/favicon-gtk.ico' | prepend: site.url }}" type="image/x-icon">
+	<title>{{site.title}}</title>
+	<link rel="stylesheet" href="{{ '/assets/@fortawesome/fontawesome-free/css/all.min.css' | prepend: site.url }}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ '/assets/css/markdown.css' | prepend: site.url }}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ '/assets/css/theme.css' | prepend: site.url }}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ '/assets/css/colorful.css' | prepend: site.url }}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ '/assets/css/index.css' | prepend: site.url }}" type="text/css" media="screen" />
+  <script src="{{ '/assets/jquery/dist/jquery.min.js' | prepend: site.url }}"></script>
+	<script src="{{ '/assets/popper.js/dist/umd/popper.min.js' | prepend: site.url }}"></script>
+	<script src="{{ '/assets/bootstrap/dist/js/bootstrap.min.js' | prepend: site.url }}"></script>
+  <script src="{{ '/assets/slick-carousel/slick/slick.min.js' | prepend: site.url }}"></script>
+  <script src="{{ '/assets/moment/moment.js' | prepend: site.url }}"></script>
+</head>

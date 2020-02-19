@@ -1,0 +1,154 @@
+---
+navbar_type: dark
+permalink: /docs/
+
+page_main_heading: GTK Docs
+page_main_heading_description: Find out all the things you need to work with GTK as a Developer.
+
+docs_list:
+  - title: Getting Started
+    description: Get started now by building a Hello World app and playing around it.
+    icon: fas fa-cogs
+    link: /docs/getting-started/
+  - title: Dev Tools
+    description: Learn how to setup your development environment with GTK recommended tools.
+    icon: fas fa-tools
+    link: /docs/dev-tools/
+  - title: Language Bindings
+    description: Learn to integrate your favorite programming language with GTK through bindings.
+    icon: fas fa-random
+    link: /docs/language-bindings/
+  - title: API References
+    description: Dig deep into the API references for GTK3 and GTK4.
+    icon: fas fa-cubes
+    link: /docs/apis/
+  - title: Architecture
+    description: Learn about the sub modules the GTK has been built upon.
+    icon: fas fa-vector-square
+    link: /docs/architecture/
+  - title: Installations
+    description: Figure out how to install GTK on different platforms.
+    icon: fas fa-box-open
+    link: /docs/installations/
+---
+
+{% include header.html %}
+
+{% include navbar.html %}
+
+<section class="py-4 d-flex flex-column align-items-center bg-dark text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 d-flex justify-content-end flex-column main-heading">
+        <h1 class="display-3 pb-3">{{ page.page_main_heading }}</h1>
+        <span class="text-info lead">{{ page.page_main_heading_description }}</span>
+      </div>
+      <div class="col-md-7 d-none d-md-flex justify-content-center align-items-center flex-column">
+        <img src="{{ '/assets/img/wall-docs.svg' | prepend: site.url }}" class="img-fluid w-75" alt="GTK Docs Wallpaper" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-4 bg-light" id="topics">
+  <div class="container">
+    <div class="row text-center d-flex justify-content-center">
+      <div class="col-md-10 col-lg-7">
+        <h2 class="font-weight-light mb-3">Browse Topics</h2>
+        <span class="text-muted">Get set with the topic of your choice and explore the documentation.</span>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center pt-5">
+      {% assign docs_list = page.docs_list %}
+      {% for doc in docs_list %}
+        <div class="col-md-4 pb-3 pb-md-4">
+          <div class="col h-100 py-5 text-center bg-white d-flex flex-column align-items-center shadow-sm shadow-hover rounded border-bottom border-primary"
+            style="border-width:2px!important;">
+            <i class="{{ doc.icon }} fa-fw fa-3x pb-4 text-primary"></i>
+            <h5>{{ doc.title }}</h5>
+            <span class="text-muted small">{{ doc.description }}</span>
+            <a href="{{ doc.link | prepend: site.url }}" class="stretched-link"></a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="py-4" id="articles">
+  <div class="container">
+    <div class="row text-center d-flex justify-content-center">
+      <div class="col-md-10 col-lg-7">
+        <h2 class="font-weight-light mb-3">Popular Articles</h2>
+        <span class="text-muted">Selected featured articles for you to get started with GTK.</span>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center pt-5">
+      <div class="col-md-8 pb-5">
+        <div class="list-group">
+          <a href="https://developer.gnome.org/howdoi" target="_blank" class="d-flex py-3 px-3 text-decoration-none text-dark border rounded shadow-sm-hover bg-light-hover justify-content-between align-items-center mb-2">How do I…?<i class="fas fa-chevron-circle-right text-info"></i></a>
+          <a href="https://developer.gnome.org/gtk3/stable/gtk-question-index.html" target="_blank" class="d-flex py-3 px-3 text-decoration-none text-dark border rounded shadow-sm-hover bg-light-hover justify-content-between align-items-center mb-2">Frequently asked question sections<i class="fas fa-chevron-circle-right text-info"></i></a>
+          <a href="https://developer.gnome.org/gtk3/stable/ch01s04.html" target="_blank" class="d-flex py-3 px-3 text-decoration-none text-dark border rounded shadow-sm-hover bg-light-hover justify-content-between align-items-center mb-2">Creating your first application<i class="fas fa-chevron-circle-right text-info"></i></a>
+          <a href="https://gitlab.gnome.org/GNOME/gtk/tree/master/CONTRIBUTING.md" target="_blank" class="d-flex py-3 px-3 text-decoration-none text-dark border rounded shadow-sm-hover bg-light-hover justify-content-between align-items-center mb-2">Your first contribution to GTK<i class="fas fa-chevron-circle-right text-info"></i></a>
+          <a href="https://wiki.gnome.org/Projects/GTK/BestPractices" target="_blank" class="d-flex py-3 px-3 text-decoration-none text-dark border rounded shadow-sm-hover bg-light-hover justify-content-between align-items-center mb-2">Learn about GTK's best practices<i class="fas fa-chevron-circle-right text-info"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-4" id="team">
+  <div class="container">
+    <div class="row text-center d-flex justify-content-center">
+      <div class="col-md-10 col-lg-7">
+        <h2 class="font-weight-light mb-3">We are here to help</h2>
+        <span class="text-muted">Catch up with our core team to get answers for your questions.</span>
+      </div>
+    </div>
+    <!-- GTK, GLib, Pango maintainers; keep ordered alphabetically -->
+    <div class="row d-flex justify-content-center py-5 mx-auto">
+      <div class="col d-flex flex-column align-items-center text-center">
+        <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;" alt="GTK Team Member" />
+        <span class="small"><strong>Timm Bäder</strong></span>
+        <span class="small text-muted">Red Hat</span>
+      </div>
+      <div class="col d-flex flex-column align-items-center text-center">
+        <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;" alt="GTK Team Member" />
+        <span class="small"><strong>Emmanuele Bassi</strong></span>
+        <span class="small text-muted">GNOME Foundation</span>
+      </div>
+      <div class="col d-flex flex-column align-items-center text-center">
+        <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;" alt="GTK Team Member" />
+        <span class="small"><strong>Matthias Clasen</strong></span>
+        <span class="small text-muted">Red Hat</span>
+      </div>
+      <div class="col d-flex flex-column align-items-center text-center">
+        <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;" alt="GTK Team Member" />
+        <span class="small"><strong>Behdad Esfahbod</strong></span>
+        <span class="small text-muted">Facebook</span>
+      </div>
+      <div class="col d-flex flex-column align-items-center text-center">
+        <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;" alt="GTK Team Member" />
+        <span class="small"><strong>Carlos Garnacho</strong></span>
+        <span class="small text-muted">Red Hat</span>
+      </div>
+      <div class="col d-flex flex-column align-items-center text-center">
+        <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;" alt="GTK Team Member" />
+        <span class="small"><strong>Alexander Larsson</strong></span>
+        <span class="small text-muted">Red Hat</span>
+      </div>
+      <div class="col d-flex flex-column align-items-center text-center">
+        <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;" alt="GTK Team Member" />
+        <span class="small"><strong>Benjamin Otte</strong></span>
+        <span class="small text-muted">Red Hat</span>
+      </div>
+      <div class="col d-flex flex-column align-items-center text-center">
+        <img src="{{ '/assets/img/avatar.png' | prepend: site.url }}" class="pb-2 img-fluid rounded-circle" style="max-width: 100px;" alt="GTK Team Member" />
+        <span class="small"><strong>Philip Withnall</strong></span>
+        <span class="small text-muted">Endless</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- include footer.html -%}

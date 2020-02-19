@@ -1,0 +1,49 @@
+# This file contains the apps added in the slider section on the index.html
+
+# To add apps to the slider section, add an app with the following attributes:
+#   name: name of the app
+#   link: provide the source/link to visit or download the app
+#   logo: file name of the app's logo
+
+# Add the logo image for the app in the /assets/img/apps.
+# The name of the logo image for the app should have the following naming convention
+#   app-<app-name>.<image-ext>
+# Make sure that the logo image have square dimensions
+
+apps_list:
+  - name: GNU Image Manipulation Program
+    link: https://gimp.org
+    logo: app-gimp.png
+  - name: Fonts
+    link: https://flathub.org/apps/details/org.gnome.font-viewer
+    logo: app-fonts.png
+  - name: Calculator
+    link: https://wiki.gnome.org/Apps/Calculator
+    logo: app-calculator.png
+  - name: Dictionary
+    link: https://wiki.gnome.org/Apps/Dictionary
+    logo: app-dictionary.png
+  - name: Games
+    link: https://wiki.gnome.org/Apps/Games
+    logo: app-games.png
+  - name: Evolution
+    link: https://wiki.gnome.org/Apps/Evolution
+    logo: app-evolution.png
+  - name: Image Viewer
+    link: https://wiki.gnome.org/Apps/EyeOfGnome
+    logo: app-image-viewer.png
+  - name: Polari
+    link: https://wiki.gnome.org/Apps/Polari
+    logo: app-polari.png
+  - name: Key Sign
+    link: https://wiki.gnome.org/Apps/Keysign
+    logo: app-key-sign.png
+  - name: Maps
+    link: https://wiki.gnome.org/Apps/Maps
+    logo: app-maps.png
+  - name: Transmission
+    link: https://transmissionbt.com/
+    logo: app-transmission.png
+  - name: Password Safe
+    link: https://gitlab.gnome.org/World/PasswordSafe
+    logo: app-password-safe.png

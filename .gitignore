@@ -1,0 +1,13 @@
+_site
+.sass-cache
+.jekyll-metadata
+node_modules/
+assets/@fortawesome/
+assets/@primer/
+assets/bootstrap/
+assets/jquery/
+assets/popper.js/
+assets/slick-carousel/
+assets/moment/
+.vscode
+_data/api_fetch/

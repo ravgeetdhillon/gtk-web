@@ -1,0 +1,73 @@
+{% comment %}
+
+this is the file contains the navbar header for all the pages in the website.
+any changes made to this file will affect the navbar section of all the pages.
+to make any design changes to the header section, make changes to this file.
+
+to make changes related to the content, edit the `_data/navigation.yml`.
+
+{% endcomment %}
+
+<body>
+  {% assign handle = page.navbar_type %}
+  {% case handle %}
+    {% when 'dark' %}
+      {% assign text_color = 'white' %}
+      {% assign bg_color = 'dark' %}
+    {% when 'light' %}
+      {% assign text_color = 'dark' %}
+      {% assign bg_color = 'light' %}
+    {% when 'transparent' %}
+      {% assign text_color = 'white' %}
+      {% assign bg_color = 'transparent' %}
+    {% else %}
+      {% assign text_color = 'dark' %}
+      {% assign bg_color = 'transparent' %}
+  {% endcase %}
+  <header class="navbar small bg-{{ bg_color }}">
+    <nav class="container navbar-expand-md px-0 px-md-3">
+      <a href="{{ site.url }}" class="navbar-brand text-{{ text_color }}"><img src="{{ '/assets/img/logo-gtk.png' | prepend: site.url }}" class="pr-2" style="width:40px;" /><strong>GTK</strong></a>
+      <a class="btn navbar-toggler border-0 bg-{{ text_color }}" role="button" data-toggle="collapse" data-target="#navbarSupportedContent" href="#">
+        <i class="fas fa-ellipsis-h text-{{ bg_color }}"></i>
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          {% assign menu_links = site.data.navigation.menu_links %}
+            {% for link in menu_links %}
+              {% assign page_split = page.url | split: '/' %}
+              {% assign page_type = page_split[1] | capitalize %}
+              {% if link.header %}
+                {% if link.external %}
+                  {% assign link_href = link.href %}
+                  {% assign target_blank = 'target="_blank"' %}
+                {% else %}
+                  {% assign link_href = link.href | prepend: site.url %}
+                  {% assign target_blank = '' %}
+                {% endif %}
+                <a href="{{ link_href }}" {{ target_blank }} class="nav-link-{{ bg_color }} float-right text-{{ text_color }} rounded">{{ link.name }}</a>
+              {% endif %}
+            {% endfor %}
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  {% comment %}
+    implements the go to top button.
+  {% endcomment %}
+  <button class="d-none btn border border-info bg-white rounded-circle position-fixed" id="btn-go-to-top"><i class="fas fa-angle-up"></i></button>
+  <script>
+    var btnTop = $("#btn-go-to-top");
+    $(window).scroll(function() {
+      if ($(window).scrollTop() < 400) {
+        btnTop.addClass("d-none");
+      }
+      else {
+        btnTop.removeClass("d-none");
+      }
+    });
+    btnTop.on("click", function(e) {
+      e.preventDefault();
+      $("html, body").animate({scrollTop: 0});
+    });
+  </script>

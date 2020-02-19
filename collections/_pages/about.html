@@ -1,0 +1,113 @@
+---
+navbar_type: light
+permalink: /about/
+
+timeline:
+  - date: August 2007
+    description: Alexander Larsson releases Glick, his first app bundling framework
+  - date: November 2011
+    description: Glick 2 is released, a modernized version of the first Glick framework
+  - date: July 2012
+    description: “GNOME OS” session held at GUADEC, includes initial planning for a new app bundling format
+  - date: September 2012
+    description: Alexander Larsson releases experimental “bundler” framework
+  - date: January 2013
+    description: “Linux Apps” proposal discussed at the GNOME Developer Experience hackfest, Brussels
+  - date: December 2014
+    description: Work begins on xdg-app, which later becomes Flatpak
+  - date: March 2015
+    description: xdg-app 0.1 released, the very first version of Flatpak
+---
+
+{% include header.html %}
+
+{% include navbar.html %}
+
+<section class="py-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="row align-items-start py-4">
+          <div class="col-5 border-bottom pb-3">
+            <h1 class="font-weight-light mb-3">Creation</h1>
+            <span class="lead text-muted">A brief description on how GTK was born.</span>
+          </div>
+          <div class="col-7 pl-5">
+              <p>
+                GTK was initially developed for and used by the GIMP, the GNU Image Manipulation Program. It is called the "The GIMP ToolKit" so that the origins of the project are remembered. Today it is more commonly known as GTK for short and is used by a large number of applications including the GNU project's GNOME desktop.
+              </p>
+              <p>
+                Peter Mattis started it all, with help from Spencer Kimball and Josh Macdonald. Marius Vollmer taught us how to make GTK work for language bindings. Lars Hamann and Stefan Jeske added all sorts of features to the core widgets. Carsten Haitzler designed and did the first implementation of theme support. Shawn Amundson did release management for GTK 1.0 and GTK 1.2.
+              </p>
+          </div>
+        </div>
+
+        <div class="row align-items-start py-4">
+          <div class="col-5 border-bottom pb-3">
+            <h1 class="font-weight-light mb-3">GTK History</h1>
+            <span class="lead text-muted">A timeline about how we achieved our present status.</span>
+          </div>
+          <div class="col-7 pl-5">
+            {% assign timeline = page.timeline %}
+            {% for event in timeline %}
+              <div class="row">
+
+                {% if forloop.first == true %}
+
+                  <div class="col-auto text-center flex-column d-none d-sm-flex px-0">
+                    <h5 class="m-1">
+                      <span class="badge badge-pill bg-light border">&nbsp;</span>
+                    </h5>
+                    <div class="row h-100">
+                      <div class="col border-right">&nbsp;</div>
+                      <div class="col">&nbsp;</div>
+                    </div>
+                  </div>
+
+                {% elsif forloop.last == true %}
+
+                  <div class="col-auto text-center flex-column d-none d-sm-flex px-0">
+                    <h5 class="m-1">
+                      <span class="badge badge-pill bg-light border">&nbsp;</span>
+                    </h5>
+                    <div class="row h-100">
+                      <div class="col">&nbsp;</div>
+                      <div class="col">&nbsp;</div>
+                    </div>
+                  </div>
+
+                {% else %}
+
+                  <div class="col-auto text-center flex-column d-none d-sm-flex px-0">
+                    <h5 class="m-1">
+                      <span class="badge badge-pill bg-light border">&nbsp;</span>
+                    </h5>
+                    <div class="row h-100">
+                      <div class="col border-right">&nbsp;</div>
+                      <div class="col">&nbsp;</div>
+                    </div>
+                  </div>
+
+                {% endif %}
+
+                <div class="col">
+                  <div class="card border-0">
+                    <div class="card-body p-0 pb-4">
+                      <span class="text-info small font-weight-bold">{{ event.date | upcase }}</span>
+                      <br>
+                      <span>{{ event.description | markdownify }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include footer.html %}

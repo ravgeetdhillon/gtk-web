@@ -1,0 +1,79 @@
+---
+navbar_type: light
+permalink: /features/
+
+page_main_heading: Why GTK?
+page_main_heading_description: Thanks to all the hard work by the community, GTK is a featureful toolkit for writing modern applications
+---
+
+{% include header.html %}
+
+{% include navbar.html %}
+
+<body>
+<section class="py-4 d-flex flex-column align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 d-flex justify-content-end flex-column main-heading">
+        <h1 class="display-3 pb-3">{{ page.page_main_heading }}</h1>
+        <span class="text-muted lead">{{ page.page_main_heading_description | markdownify }}</span>
+      </div>
+      <div class="col-md-7 d-none d-md-flex justify-content-end flex-column">
+        <img src="{{ '/assets/img/wall-gtk-features.png' | prepend: site.url }}" class="img-fluid" alt="GTK Features Wallpaper" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-4">
+  <div class="container">
+    <div class="row d-flex flex-row py-4 py-lg-5">
+      <div class="col-lg-5 py-4">
+          <h6 class="text-muted small font-weight-normal letter-spacing-custom">{{ 'graphics' | upcase }}</h6>
+          <h1 class="font-weight-light mb-3 font-underline">High DPI/4K Support</h1>
+          <br><br>
+          <span class="text-muted">GTK supports HiDPI displays. The extra crispness adds to the already well defined user experience.</span>
+          <br><br>
+          <a href="https://wiki.gnome.org/HowDoI/HiDpi/" class="btn btn-primary btn-sm">Enable Hi-DPI Support in GTK Apps</a>
+      </div>
+      <div class="col-lg-7">
+        <img src="{{ '/assets/img/games-4k.png' | prepend: site.url }}" class="img-fluid w-100 shadow" alt="GTK Features" />
+      </div>
+    </div>
+    <div class="row d-flex flex-row py-4 py-lg-5">
+      <div class="col-lg-5 py-4">
+        <img src="{{ '/assets/img/characters.png' | prepend: site.url }}" class="img-fluid w-100 shadow" alt="GTK Features" />
+      </div>
+      <div class="col-lg-7">
+        <h6 class="text-muted small font-weight-normal letter-spacing-custom">{{ 'support' | upcase }}</h6>
+        <h1 class="font-weight-light mb-3 font-underline">Unicode and Localization</h1>
+        <br><br>
+        <span class="text-muted">GTK uses UTF-8 encoding for all of the text. This ensures that you can develop the app in your native language or any other language around the world.</span>
+      </div>
+    </div>
+    <div class="row d-flex flex-row py-4 py-lg-5">
+      <div class="col-lg-5 py-4">
+        <h6 class="text-muted small font-weight-normal letter-spacing-custom">{{ 'movement' | upcase }}</h6>
+        <h1 class="font-weight-light mb-3 font-underline">Gestures</h1>
+        <br><br>
+        <span class="text-muted">In GTK, pointer and touch events are handled seamlessly, making your apps work on various kinds of input devices out of the box.</span>
+      </div>
+      <div class="col-lg-7">
+        <img src="{{ '/assets/img/gestures.png' | prepend: site.url }}" class="img-fluid w-100 shadow" alt="GTK Features" />
+      </div>
+    </div>
+    <div class="row d-flex flex-row py-4 py-lg-5">
+      <div class="col-lg-5 py-4">
+        <img src="{{ '/assets/img/performance.png' | prepend: site.url }}" class="img-fluid w-100 shadow" alt="GTK Features" />
+      </div>
+      <div class="col-lg-7">
+        <h6 class="text-muted small font-weight-normal letter-spacing-custom">{{ 'performance' | upcase }}</h6>
+        <h1 class="font-weight-light mb-3 font-underline">Hardware Accelerated Rendering</h1>
+        <br><br>
+        <span class="text-muted">GTK will always use the most efficient way to draw your applications, to maximize performance and take advantage of your hardware.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include footer.html %}

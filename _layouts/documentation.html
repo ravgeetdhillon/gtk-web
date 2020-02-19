@@ -1,0 +1,104 @@
+{% comment %}
+
+this is the layout file for the documentation pages
+any changes made to this file will affect all the documentation pages
+
+{% endcomment %}
+
+{% include header.html %}
+
+{% include navbar.html %}
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 small p-0 nav-side" id="mySidenav">
+        <div class="text-break bg-white p-0 pt-2 pt-md-4 h-100">
+          <a href="#" class="btn d-md-none btn-close mt-2" onclick="closeSideNav()"><i class="fas fa-times fa-halfx"></i></a>
+          <ul class="list-group">
+            {% for section in site.data.navigation.sidebar_sections %}
+            <li class="list-group-item border-0 group-header pb-4"><a href="{{ '/docs/' | prepend: site.url }}{{ section.name }}/" class="text-dark"><i class="{{ section.icon }} fa-fw"></i> <strong>{{ section.title }}</strong></a>
+              {% assign sidebar_links = site.data.navigation.sidebar_links | where: "section", section.title %}
+              <ul class="list-group">
+                {% for link in sidebar_links %}
+                  {% if link.external %}
+                    <li class="list-group-item border-0 p-0 py-1 padding-icon"><a href="{{ link.href }}" class="text-muted stretched-link">{{ link.title }}</a></li>
+                  {% else %}
+                    {% assign url_last = page.url | split: '/' %}
+                    {% if link.name == url_last.last %}
+                      <li class="list-group-item padding-icon border-top-0 border-bottom-0 border-right-0 border-secondary rounded-0 p-0 py-1 bg-light my-1"><a href="{{ '/docs/' | prepend: site.url }}{{ section.name }}/{{ link.name }}/" class="text-muted stretched-link">{{ link.title }}</a></li>
+                    {% else %}
+                      <li class="list-group-item border-0 p-0 py-1 padding-icon"><a href="{{ '/docs/' | prepend: site.url }}{{ section.name }}/{{ link.name }}/" class="text-muted stretched-link">{{ link.title }}</a></li>
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-9 py-4 px-sm-4 bg-light border-0 border-md-left">
+        <div class="d-flex flex-sm-row flex-column py-3 py-md-0 app-shadow">
+          <div class="w-100">
+            <span class="btn btn-mdcolor btn-sm d-inline-block d-md-none" style="cursor:pointer;" onclick="openSideNav()" role="button"><i class="fas fa-bars fa-fw pr-2"></i>More Topics</span>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb small bg-transparent pl-0 m-0">
+                {% assign url = page.url | split: '/' | shift %}
+                {% assign current_path = '/' %}
+                {% for part in url %}
+                  {% assign current_path = current_path | append: part | append: '/' %}
+                  {% if forloop.last == true %}
+                    <li class="breadcrumb-item active" aria-current="page">{{ part }}</li>
+                  {% else %}
+                    <li class="breadcrumb-item"><a href="{{ current_path | prepend: site.url }}">{{ part }}</a></li>
+                  {% endif %}
+                {% endfor %}
+              </ol>
+            </nav>
+          </div>
+        </div>
+        <br>
+        <article class="markdown-body">
+          {{ page.content }}
+        </article>
+        <br>
+        <div class="bg-white p-3 border rounded shadow-sm small">
+          {% assign page_name = page.path | split: '/' %}
+          {% assign page_name = page_name.last %}
+          <i class="fas fa-edit text-info fa-fw pr-2"></i>
+          <span>Observed a typo or some missing information, edit this page <a href="{{ site.website_repo | append: '/tree/master/collections/_docs/' | append: page_name }}">here</a>.</span>
+          <br>
+          <i class="fas fa-plus-square text-info fa-fw pr-2"></i>
+          <span>Read on <a href="{{ site.website_repo | append: '/tree/master/CONTRIBUTING.md/' }}">how to contribute</a> to this website.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  // handles the sidebar opening and closing functionality
+  function openSideNav() {
+    // document.querySelector(".nav-side").style.width = "250px";
+    document.querySelector(".nav-side").style.left = "0%";
+    document.querySelector(".nav-side").style.opacity = "1";
+  }
+  function closeSideNav() {
+    // document.querySelector(".nav-side").style.width = "0";
+    document.querySelector(".nav-side").style.left = "-55%";
+    document.querySelector(".nav-side").style.opacity = "0";
+
+  }
+
+  // adds anchor links to the headings in the markdown body
+  var headings = document.querySelectorAll( '.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6' );
+  headings.forEach(heading => {
+    heading.innerHTML = heading.innerHTML + `
+      
+      <a id="${heading.id}" href="#${heading.id}" class="anchor"><i class="fas fa-link octicon octicon-link text-secondary" style="font-size: 0.8rem;"></i></a>
+      
+    `;
+  });
+</script>
+
+{% include footer.html %}
