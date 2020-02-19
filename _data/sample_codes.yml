@@ -3,6 +3,7 @@ codes:
     ext: javascript
     snippet: |
       ```javascript
+      imports.gi.versions['Gtk'] = '3.0';
       const Gtk = imports.gi.Gtk;
 
       // Create a new application
@@ -27,6 +28,9 @@ codes:
     ext: py
     snippet: |
       ```python
+      # Load Gtk
+      import gi
+      gi.require_version('Gtk', '3,0')
       from gi.repository import Gtk
 
       # When the application is launched…
@@ -80,6 +84,9 @@ codes:
     ext: c
     snippet: |
       ```cpp
+      // Include gtk
+      #include <gtk/gtk.h>
+
       static void on_activate (GtkApplication *app) {
         // Create a new window
         GtkWidget *window = gtk_application_window_new (app);
