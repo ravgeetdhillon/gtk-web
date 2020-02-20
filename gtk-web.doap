@@ -27,4 +27,11 @@
       <foaf:mbox rdf:resource="mailto:ebassi@gnome.org"/>
     </foaf:Person>
   </maintainer>
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Ravgeet Dhillon</foaf:name>
+      <gnome:userid>ravgeetdhillon</gnome:userid>
+      <foaf:mbox rdf:resource="mailto:ravgeetdhillon@gmail.com"/>
+    </foaf:Person>
+  </maintainer>
 </Project>
