@@ -24,7 +24,7 @@ website_repo: https://gitlab.gnome.org/Infrastructure/gtk-web
 
 # jekyll configuration options
 
-baseurl: 'www.gtk.org'
+# baseurl: 'www.gtk.org'
 url: https://www.gtk.org
 encoding: utf-8
 

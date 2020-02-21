@@ -39,12 +39,15 @@ development_section:
   - heading: Develop with GTK
     description: |-
       By taking the advantage of GTK being a cross-platform development tool and it's easy to use API, you can develop amazing apps using the GTK. If you are interested in developing an app, get started now by developing this [example application](https://developer.gnome.org/gtk3/stable/ch01s04.html#id-1.2.3.12.5).
+    icon: fas fa-toolbox
   - heading: Develop GTK
     description: |-
       GTK is a large project and relies on volunteers from around the world. To help us with the project development, hack away on the existing [bugs and feature requests](https://gitlab.gnome.org/GNOME/gtk/issues/).
+    icon: fas fa-cogs
   - heading: Looking for Help?
     description: |-
       If you want to ask questions about GTK, whether it's for developing applications with GTK or contributing to GTK itself, you can use the GNOME [Discourse](https://discourse.gnome.org) instance, under the [Platform/Core](https://discourse.gnome.org/c/platform/core) category. You can use tags like *gtk* or *glib* to narrow down the topic of discussion to specific libraries. You can also ask questions on our [IRC](irc://irc.gnome.org/%23gtk) channel.
+    icon: fas fa-question-circle
 
 features_list:
   - title: Portability
@@ -71,7 +74,8 @@ features_list:
   - title: Foundations
     description: GTK is built on top of GLib. GLib provides the fundamental data types and system integration points to avoid duplicated code in applications.
     icon: fas fa-layer-group
-    
+  
+news_and_events_heading: News and Events
 news_and_events_list:
   - title: Catch up with GTK development
     description: Get in touch with GTK developers through [IRC](irc://irc.gnome.org/%23gtk). Get daily updates about GTK and its community from [GTK blog](https://blog.gtk.org/) or through it's [twitter](https://twitter.com/GTKtoolkit/) handle.
@@ -119,13 +123,13 @@ news_and_events_list:
     </div>
     <div class="row d-flex flex-column align-items-center py-4 px-3">
       <div class="col-lg-8 p-0 rounded-top overflow-hidden">
-        <div class="list-group flex-row flex-wrap" id="list-tab" role="tablist">
+        <div class="list-group flex-row flex-wrap bg-dark" id="list-tab" role="tablist">
         {% assign codes = site.data.sample_codes.codes %}
         {% for code in codes %}
           {% if forloop.first == true %}
-            <a class="col grp-btn btn py-1 px-1 small border-0 rounded-0 active" id="list-{{ code.ext }}-list" data-toggle="list" href="#list-{{ code.ext }}" role="tab" aria-controls="{{ code.ext }}" aria-selected="true">{{ code.name }}</a>
+            <a class="col grp-btn btn py-1 px-1 small border-0 rounded-0 active text-light" id="list-{{ code.ext }}-list" data-toggle="list" href="#list-{{ code.ext }}" role="tab" aria-controls="{{ code.ext }}" aria-selected="true">{{ code.name }}</a>
           {% else %}
-            <a class="col grp-btn btn py-1 px-1 small border-0 rounded-0" id="list-{{ code.ext }}-list" data-toggle="list" href="#list-{{ code.ext }}" role="tab" aria-controls="{{ code.ext }}" aria-selected="false">{{ code.name }}</a>
+            <a class="col grp-btn btn py-1 px-1 small border-0 rounded-0 text-light" id="list-{{ code.ext }}-list" data-toggle="list" href="#list-{{ code.ext }}" role="tab" aria-controls="{{ code.ext }}" aria-selected="false">{{ code.name }}</a>
           {% endif %}
         {% endfor %}
         </div>
@@ -160,8 +164,8 @@ news_and_events_list:
     </div>
     <div class="app-logos slider pt-4 pb-5">
       {% for app in apps %}
-      <div class="slide d-flex flex-column align-items-center text-center stretched-link" title="{{ app.name }} App"><a href="{{ app.link }}">
-        <img src="{{ '/assets/img/apps/' | prepend: site.url }}{{ app.logo }}" class="img-fluid app-icon icon-dropshadow" alt="{{ app.name }}" />
+      <div class="slide d-flex flex-column align-items-center text-center">
+        <img src="{{ '/assets/img/apps/' | append: app.logo | prepend: site.url }}" class="img-fluid app-icon icon-dropshadow mb-2" alt="{{ app.name }}" />
         <span class="text-muted small">{{ app.name }}</span></a>
       </div>
       {% endfor %}
@@ -214,15 +218,16 @@ news_and_events_list:
 <section class="py-4 bg-no-repeat bg-cover" id="development">
   <div class="container">
     <div class="row py-4 px-3">
-      <div class="col-md-12 py-3 py-md-0 px-0 px-md-3">
-        {% assign development = page.development_section %}
-        {% for item in development %}
-          <div class="w-100 bg-light py-4 px-3 mb-2 border rounded card">
-              <h5 class="font-weight-normal mb-3">{{ item.heading }}</h5>
-              <span class="text-muted small">{{ item.description | markdownify }}</span>
+      {% assign development = page.development_section %}
+      {% for item in development %}
+        <div class="col-md-4 py-3 py-md-0 px-0 px-md-3">
+          <div class="w-100 h-100 bg-light py-4 px-3 mb-2 border rounded card">
+            <span class="mb-2"><i class="{{ item.icon }} fa-fw"></i></span>
+            <h5 class="font-weight-normal mb-3">{{ item.heading }}</h5>
+            <span class="text-muted small">{{ item.description | markdownify }}</span>
           </div>
-        {% endfor %}
-      </div>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -231,7 +236,7 @@ news_and_events_list:
 {% assign back_img = '/assets/img/wall-events-pattern.svg' | prepend: site.url %}
 <section class="py-4" id="events" style="background: url('{{ back_img }}')">
   <div class="container">
-    <h2 class="text-center font-weight-light mb-3">News and Events</h2>
+    <h2 class="text-center font-weight-light mb-3">{{ page.news_and_events_heading }}</h2>
     <div class="row py-4">
       {% for news in news_and_events %}
       <div class="col-md-4 px-3 pb-4 pb-md-0">

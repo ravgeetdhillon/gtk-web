@@ -11,7 +11,7 @@
 # Make sure that the logo image have square dimensions
 
 apps_list:
-  - name: GNU Image Manipulation Program
+  - name: GIMP
     link: https://gimp.org
     logo: app-gimp.png
   - name: Fonts
