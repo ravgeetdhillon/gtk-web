@@ -2,150 +2,202 @@
 
 // latin-ext
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Red Hat Display It'), local('RedHatDisplay-Italic'), url(../font/8vIS7wUr0m80wwYf0QCXZzYzUoTg-A6tTY_9CQ.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    font-family: "Red Hat Display";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: local("Red Hat Display It"), local("RedHatDisplay-Italic"),
+        url(../font/8vIS7wUr0m80wwYf0QCXZzYzUoTg-A6tTY_9CQ.woff2)
+            format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+        U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 // latin
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Red Hat Display It'), local('RedHatDisplay-Italic'), url(../font/8vIS7wUr0m80wwYf0QCXZzYzUoTg-A6jTY8.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    font-family: "Red Hat Display";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: local("Red Hat Display It"), local("RedHatDisplay-Italic"),
+        url(../font/8vIS7wUr0m80wwYf0QCXZzYzUoTg-A6jTY8.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+        U+2215, U+FEFF, U+FFFD;
 }
 // latin-ext
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: italic;
-  font-weight: 500;
-  font-display: swap;
-  src: local('Red Hat Display Medium It'), local('RedHatDisplay-MediumItalic'), url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AZQbprMKENgbw.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    font-family: "Red Hat Display";
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: local("Red Hat Display Medium It"), local("RedHatDisplay-MediumItalic"),
+        url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AZQbprMKENgbw.woff2)
+            format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+        U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 // latin
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: italic;
-  font-weight: 500;
-  font-display: swap;
-  src: local('Red Hat Display Medium It'), local('RedHatDisplay-MediumItalic'), url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AZQbprCKEM.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    font-family: "Red Hat Display";
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: local("Red Hat Display Medium It"), local("RedHatDisplay-MediumItalic"),
+        url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AZQbprCKEM.woff2)
+            format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+        U+2215, U+FEFF, U+FFFD;
 }
 // latin-ext
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: italic;
-  font-weight: 700;
-  font-display: swap;
-  src: local('Red Hat Display Bold It'), local('RedHatDisplay-BoldItalic'), url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AYYaJrMKENgbw.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    font-family: "Red Hat Display";
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: local("Red Hat Display Bold It"), local("RedHatDisplay-BoldItalic"),
+        url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AYYaJrMKENgbw.woff2)
+            format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+        U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 // latin
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: italic;
-  font-weight: 700;
-  font-display: swap;
-  src: local('Red Hat Display Bold It'), local('RedHatDisplay-BoldItalic'), url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AYYaJrCKEM.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    font-family: "Red Hat Display";
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: local("Red Hat Display Bold It"), local("RedHatDisplay-BoldItalic"),
+        url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AYYaJrCKEM.woff2)
+            format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+        U+2215, U+FEFF, U+FFFD;
 }
 // latin-ext
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: italic;
-  font-weight: 900;
-  font-display: swap;
-  src: local('Red Hat Display Black It'), local('RedHatDisplay-BlackItalic'), url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AYgaprMKENgbw.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    font-family: "Red Hat Display";
+    font-style: italic;
+    font-weight: 900;
+    font-display: swap;
+    src: local("Red Hat Display Black It"), local("RedHatDisplay-BlackItalic"),
+        url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AYgaprMKENgbw.woff2)
+            format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+        U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 // latin
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: italic;
-  font-weight: 900;
-  font-display: swap;
-  src: local('Red Hat Display Black It'), local('RedHatDisplay-BlackItalic'), url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AYgaprCKEM.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    font-family: "Red Hat Display";
+    font-style: italic;
+    font-weight: 900;
+    font-display: swap;
+    src: local("Red Hat Display Black It"), local("RedHatDisplay-BlackItalic"),
+        url(../font/8vIX7wUr0m80wwYf0QCXZzYzUoTg-AYgaprCKEM.woff2)
+            format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+        U+2215, U+FEFF, U+FFFD;
 }
 // latin-ext
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Red Hat Display'), local('RedHatDisplay-Regular'), url(../font/8vIQ7wUr0m80wwYf0QCXZzYzUoTg8z6hVYs.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    font-family: "Red Hat Display";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local("Red Hat Display"), local("RedHatDisplay-Regular"),
+        url(../font/8vIQ7wUr0m80wwYf0QCXZzYzUoTg8z6hVYs.woff2) format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+        U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 // latin
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Red Hat Display'), local('RedHatDisplay-Regular'), url(../font/8vIQ7wUr0m80wwYf0QCXZzYzUoTg_T6h.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    font-family: "Red Hat Display";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local("Red Hat Display"), local("RedHatDisplay-Regular"),
+        url(../font/8vIQ7wUr0m80wwYf0QCXZzYzUoTg_T6h.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+        U+2215, U+FEFF, U+FFFD;
 }
 // latin-ext
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: local('Red Hat Display Medium'), local('RedHatDisplay-Medium'), url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoToDh20ZKrAMEc.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    font-family: "Red Hat Display";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local("Red Hat Display Medium"), local("RedHatDisplay-Medium"),
+        url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoToDh20ZKrAMEc.woff2)
+            format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+        U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 // latin
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: local('Red Hat Display Medium'), local('RedHatDisplay-Medium'), url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoToDh20aqrA.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    font-family: "Red Hat Display";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local("Red Hat Display Medium"), local("RedHatDisplay-Medium"),
+        url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoToDh20aqrA.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+        U+2215, U+FEFF, U+FFFD;
 }
 // latin-ext
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local('Red Hat Display Bold'), local('RedHatDisplay-Bold'), url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoToRhu0ZKrAMEc.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    font-family: "Red Hat Display";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local("Red Hat Display Bold"), local("RedHatDisplay-Bold"),
+        url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoToRhu0ZKrAMEc.woff2)
+            format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+        U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 // latin
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local('Red Hat Display Bold'), local('RedHatDisplay-Bold'), url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoToRhu0aqrA.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    font-family: "Red Hat Display";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local("Red Hat Display Bold"), local("RedHatDisplay-Bold"),
+        url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoToRhu0aqrA.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+        U+2215, U+FEFF, U+FFFD;
 }
 // latin-ext
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-  src: local('Red Hat Display Black'), local('RedHatDisplay-Black'), url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoTofhm0ZKrAMEc.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    font-family: "Red Hat Display";
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: local("Red Hat Display Black"), local("RedHatDisplay-Black"),
+        url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoTofhm0ZKrAMEc.woff2)
+            format("woff2");
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+        U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 // latin
 @font-face {
-  font-family: 'Red Hat Display';
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-  src: local('Red Hat Display Black'), local('RedHatDisplay-Black'), url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoTofhm0aqrA.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    font-family: "Red Hat Display";
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: local("Red Hat Display Black"), local("RedHatDisplay-Black"),
+        url(../font/8vIV7wUr0m80wwYf0QCXZzYzUoTofhm0aqrA.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+        U+2215, U+FEFF, U+FFFD;
 }
 
-$font-family-sans-serif: 'Red Hat Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+$font-family-sans-serif: "Red Hat Display", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
 
 // set the default font size for the website
 $font-size-base: 1.15rem;
@@ -155,26 +207,36 @@ $enable-responsive-font-sizes: true !important;
 
 // defining the color system for the website
 $theme-colors: (
-  "primary": #3B86E2,
-	"secondary": #F28518,
-	"tertiary": #94D354,
-	"info": #C0C4BD,
-	"light": #F8F9FA,
-	"dark": #151515,
-	"mdcolor": #f2f3f2,
-	"mdborder": #e7e8e9
+    "primary": #3b86e2,
+    "secondary": #f28518,
+    "tertiary": #94d354,
+    "info": #c0c4bd,
+    "light": #f8f9fa,
+    "dark": #151515,
+    "mdcolor": #f2f3f2,
+    "mdborder": #e7e8e9
 );
 
 // defining the spacing system for the website
 $spacer: 1rem;
 $spacers: (
-	0: 0,
-	1: ($spacer * .25),
-	2: ($spacer * .5),
-	3: $spacer,
-	4: ($spacer * 2),
-	5: ($spacer * 4),
-	6: ($spacer * 8)
+    0: 0,
+    1: (
+        $spacer * 0.25
+    ),
+    2: (
+        $spacer * 0.5
+    ),
+    3: $spacer,
+    4: (
+        $spacer * 2
+    ),
+    5: (
+        $spacer * 4
+    ),
+    6: (
+        $spacer * 8
+    )
 );
 
 $navbar-nav-link-padding-x: 0.8rem !important;
@@ -187,57 +249,56 @@ $input-focus-box-shadow: none !important;
 
 // styling for the mouse hover event happening on the navbar links
 $nav-bar-types: (
-  "light": darken( map-get($theme-colors, 'light'), 5% ),
-	"white": darken( #FFFFFF, 5% ),
-	"transparent": rgba( darken( #FFFFFF, 5% ), 0.2 ),
-	"dark": lighten( map-get($theme-colors, 'dark'), 15% )
+    "light": darken(map-get($theme-colors, "light"), 5%),
+    "white": darken(#ffffff, 5%),
+    "transparent": rgba(darken(#ffffff, 5%), 0.2),
+    "dark": lighten(map-get($theme-colors, "dark"), 15%)
 );
 
 @each $type, $color in $nav-bar-types {
-	.nav-link-#{$type} {
-    transition: 0.15s ease-in-out;
-    padding: $navbar-nav-link-padding-x;
-		&:hover {
-      background: $color !important;
-      text-decoration: none;
+    .nav-link-#{$type} {
+        transition: 0.15s ease-in-out;
+        padding: $navbar-nav-link-padding-x;
+        &:hover {
+            background: $color !important;
+            text-decoration: none;
+        }
     }
-	}
 }
 
 @import "../bootstrap/scss/bootstrap";
 
 @mixin badge-variant($bg) {
-	color: $bg !important;
-	background-color: lighten($bg, 35%) !important;
+    color: $bg !important;
+    background-color: lighten($bg, 35%) !important;
 }
 
 @each $color, $value in $theme-colors {
-	.badge-#{$color} {
-		@include badge-variant($value);
-	}
+    .badge-#{$color} {
+        @include badge-variant($value);
+    }
 }
 
 // adding icons to bootstrap alerts
 $alert-icons: (
-  "success": '\f0eb',
-	"info": '\f0eb',
-	"danger": '\f05e',
-	"warning": '\f06a'
+    "success": "\f0eb",
+    "info": "\f0eb",
+    "danger": "\f05e",
+    "warning": "\f06a"
 );
 
 @each $color, $icon in $alert-icons {
-	.alert-#{$color} {
-		&::before {
-      content: $icon;
-      position: relative;
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
+    .alert-#{$color} {
+        &::before {
+            content: $icon;
+            position: relative;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+        }
     }
-	}
 }
 
 /* Dropshadow for large icons */
 .icon-dropshadow {
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
 }
-

@@ -6,7 +6,7 @@ variables:
 
 before_script:
   - apt-get update -y
-  - apt-get install -y curl
+  - apt-get install -y curl rsync
   - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
   - source /root/.bashrc
   - nvm install node
@@ -14,14 +14,7 @@ before_script:
   - npm install
   - gem install bundler
   - bundle install
-  - mkdir _data/api_fetch
-  - curl -o- https://gitlab.gnome.org/api/v4/projects/665/repository/tags?order_by=name > _data/api_fetch/tags.json
-  - curl -o- https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fblog.gtk.org%2Ffeed%2F > _data/api_fetch/gtk-blog-feed.json
-  - curl -o- https://gitlab.gnome.org/api/v4/projects/665/issues_statistics > _data/api_fetch/issues_stats.json
-  - curl -o- https://gitlab.gnome.org/api/v4/projects/665/issues?state=opened > _data/api_fetch/issues_opened.json
-  - mv node_modules/* assets/ -f
-  - rm -rf node_modules
-  - sass assets/scss/theme.scss assets/css/theme.css
+  - chmod +x setup.sh && bash setup.sh
 
 test:
   stage: test

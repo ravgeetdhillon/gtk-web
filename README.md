@@ -23,7 +23,7 @@ The data used by the site is stored in the form of following files:
     ├── _data                               #contains site's data files
     │   ├── apps.yml                        #list of apps to show on index.html slider section
     │   ├── navigation.yml                  #links to be added to the site's header and footer sections
-    │   ├── sample_codes.yml                #---update this
+    │   ├── sample_codes.yml                #codes for language bindings
     │   ├── labels.json                     
     │   ├── members_all.json                
     │   ├── members.json                    
@@ -35,23 +35,16 @@ The data used by the site is stored in the form of following files:
     │   └── documentation.html              #layout design for pages that belong to GTK documentation
     ├── .gitlab                             #contains gitlab template files for bugs and merge requests
     ├── assets                              #contains site's valuable entities
-    │   ├── css                             #contains site's stylesheets
-    │   │   ├── colorful.css                #stylesheet for syntax highlighting
-    │   │   ├── index.css                   #stylesheet for user defined styles
-    │   │   ├── markdown.css                #stylesheet for styling the markdown content
-    │   │   ├── theme.css                   #stylesheet for website's theme. Generated from Bootstrap
-    │   │   └── theme.css.map
     │   ├── font                            #contains site's font: Red Hat Display
     │   ├── img                             #contains site's images and illustrations
-    │   └── scss                            #contains site's preprocessor stylesheets
-    │       └── theme.scss
+    │   └── scss                            #contains site's preprocessor stylesheets   
+    │       ├── colorful.scss               #stylesheet for syntax highlighting
+    │       ├── index.scss                  #stylesheet for user defined styles
+    │       ├── markdown.scss               #stylesheet for styling the markdown content
+    │       └── theme.scss                  #stylesheet for website's theme. Generated from Bootstrap 
     ├── collections                         #contains the site's collections
     │   ├── _pages                          #contains site's main pages
     │   └── _docs                           #contains pages for GTK documentation section
-    ├── scripts                             #contains the site's shell scripts for gitlab ci
-    │   ├── compile-sass.sh                 #script to compile sass files to css
-    │   ├── get-api-data.sh                 #script to fetch gitlab api data regarding the gtk
-    │   └── structurize.sh                  #script to structure the website after the dependencies
     ├── _config.yml                         #contains Jekyll settings for the site
     ├── .gitignore
     ├── .gitlab-ci.yml                      #for Gitlab Continuous Integration and Deployment
@@ -63,7 +56,8 @@ The data used by the site is stored in the form of following files:
     ├── LICENSE.txt
     ├── package-lock.json
     ├── package.json                        #contains node dependencies for the site.
-    └── README.md
+    ├── README.md
+    └── setup.sh                            #script for setting up the website
 
 ## Contributing
 
@@ -79,25 +73,25 @@ To get the site up and running locally, follow the below steps:
 
 1. Install a full [Ruby development environment](https://jekyllrb.com/docs/installation/).
 2. Create a local clone of the website:
-```git
+```
 git clone https://gitlab.gnome.org/Infrastructure/gtk-web.git
 ```
 3. Change into the gtk-web directory
-```shell
+```
 cd gtk-web
 ```
 4. Install the NPM and Gem dependencies by running the following commands:
-```shell
+```
 npm install
 gem install bundler jekyll
 bundle install
 ```
 5. Perform the following commands to structure the website properly:
-```shell
-main.sh
+```
+chmod +x setup.sh && bash setup.sh
 ```
 6. Build the site and make it available on your local server
-```shell
+```
 $ bundle exec jekyll serve
 ```
 7. Browse to [http://localhost:4000](http://localhost:4000) to view the website.
@@ -110,13 +104,13 @@ list of dependencies used by this project:
 
 Package | Version | File | Source
 --- | --- | --- | ---
-bootstrap | `4.3.1` | [package.json][package.json] | [Github](https://github.com/twbs/bootstrap)
-@fortawesome/fontawesome-free | `5.9.0` | [package.json][package.json] | [Github](https://github.com/FortAwesome/Font-Awesome)
+bootstrap | `4.4.1` | [package.json][package.json] | [Github](https://github.com/twbs/bootstrap)
+@fortawesome/fontawesome-free | `5.12.0` | [package.json][package.json] | [Github](https://github.com/FortAwesome/Font-Awesome)
 jquery | `3.4.1` | [package.json][package.json] | [Github](https://github.com/jquery/jquery)
-popper.js | `1.15.0` | [package.json][package.json] | [Github](https://github.com/FezVrasta/popper.js/)
+popper.js | `1.16.1` | [package.json][package.json] | [Github](https://github.com/FezVrasta/popper.js/)
 slick-carousel | `1.8.1` | [package.json][package.json] | [Github](https://github.com/kenwheeler/slick/)
 moment | `2.24.0` | [package.json][package.json] | [Github](https://github.com/moment/moment/)
-node-sass | `4.12.0` | [package.json][package.json] | [Github](https://github.com/sass/node-sass/)
+node-sass | `4.13.1` | [package.json][package.json] | [Github](https://github.com/sass/node-sass/)
 jekyll | `3.8.5` | [Gemfile][Gemfile] | [Github](https://github.com/jekyll/jekyll/)
 
 Read about adding/updating/removing dependencies on [how to contribute](CONTRIBUTING.MD#addingupdatingremoving-dependencies).
@@ -135,9 +129,6 @@ before testing/deploying.
 
 `test` stage is performed on all branches but `master`. `deploy` stage on
 the other hand is performed only on `master` branch.
-
-> If you think that there can be a better pipeline than the existing one,
-> send us a merge request for the same.
 
 ## Maintainers
 

@@ -5,20 +5,33 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "node-sass assets/scss/theme.scss assets/css/theme.css"
+    "watch-sass": "node-sass -w assets/scss/ -o assets/css/",
+    "compile-sass": "node-sass assets/scss/ -o assets/css/"
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.gnome.org/Infrastructure/gtk-web.git"
+    "url": "git+https://gitlab.gnome.org/Infrastructure/gtk-web.git"
   },
-  "author": "",
+  "bugs": {
+    "url": "https://gitlab.gnome.org/Infrastructure/gtk-web/issues"
+  },
+  "homepage": "https://gitlab.gnome.org/Infrastructure/gtk-web#readme",
+  "keywords": [
+    "gtk",
+    "gimp",
+    "gnome",
+    "toolkit",
+    "user interface"
+  ],
+  "author": "GNOME",
   "license": "ISC",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.9.0",
-    "bootstrap": "^4.3.1",
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
-    "popper.js": "^1.15.0",
+    "node-sass": "^4.13.1",
+    "popper.js": "^1.16.1",
     "slick-carousel": "^1.8.1"
   }
 }
