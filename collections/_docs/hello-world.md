@@ -78,7 +78,7 @@ gcc `pkg-config --cflags gtk+-3.0` -o hello-world-gtk hello-world-gtk.c `pkg-con
 For more information on how to compile a GTK application, please refer to the [Compiling GTK Applications](https://developer.gnome.org/gtk3/stable/gtk-compiling.html) section in this reference.
 </div>
 
-## Explaination
+## Explanation
 
 ### Initialising the App
 
