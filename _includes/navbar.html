@@ -56,18 +56,3 @@ to make changes related to the content, edit the `_data/navigation.yml`.
     implements the go to top button.
   {% endcomment %}
   <button class="d-none btn border border-info bg-white rounded-circle position-fixed" id="btn-go-to-top"><i class="fas fa-angle-up"></i></button>
-  <script>
-    var btnTop = $("#btn-go-to-top");
-    $(window).scroll(function() {
-      if ($(window).scrollTop() < 400) {
-        btnTop.addClass("d-none");
-      }
-      else {
-        btnTop.removeClass("d-none");
-      }
-    });
-    btnTop.on("click", function(e) {
-      e.preventDefault();
-      $("html, body").animate({scrollTop: 0});
-    });
-  </script>

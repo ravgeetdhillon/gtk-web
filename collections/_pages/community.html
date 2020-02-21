@@ -152,8 +152,8 @@ team_main_heading_description: These are the people who apply their best of skil
 </section>
 -->
 
-{% include footer.html %}
-
+{% include scripts.html %}
+<script src="{{ '/assets/moment/moment.js' | prepend: site.url }}"></script>
 <script>
   // calculates how much time ago an issue was opened. uses moment.js
   var times = document.querySelectorAll("#time");
@@ -167,3 +167,5 @@ team_main_heading_description: These are the people who apply their best of skil
     $('[data-toggle="tooltip"]').tooltip()
   })
 </script>
+
+{% include footer.html %}
