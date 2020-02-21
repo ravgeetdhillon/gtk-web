@@ -13,11 +13,11 @@ to make changes related to the content, edit the `_data/navigation.yml`
         <a href="https://www.gnome.org/"><img src="{{ '/assets/img/logo-gnome-horizontal.svg' | prepend: site.url }}"
             class="img-fluid pb-2" width="100" /></a>
         <p>GTK is hosted by GNOME.</p>
-        <p>GTK is maintained by the <strong><a href="{{ '/community#contributors' | prepend: site.url }}" class="text-muted">GTK Team</a></strong>.</p>
+        <p>GTK is maintained by the <a href="{{ '/community#contributors' | prepend: site.url }}" class="text-muted font-weight-bold">GTK Team</a>.</p>
         {% assign date_arr = site.time | date_to_string | split: ' ' %}
         {% assign year = date_arr[2] %}
         <p>&copy; 1997-{{ year }}, The GTK Team. All Rights Reserved.</p>
-        <p>GTK and the GTK logo are <a href="https://wiki.gnome.org/FoundationBoard/Resources/Trademark">trademarks of the GNOME Foundation</a>.</p>
+        <p>GTK and the GTK logo are <a href="https://wiki.gnome.org/FoundationBoard/Resources/Trademark" class="text-muted font-weight-bold">trademarks of the GNOME Foundation</a>.</p>
       </div>
       <div class="col-12 col-sm-7 col-md-5 py-3 py-sm-2">
         <div class="d-flex">
@@ -44,8 +44,8 @@ to make changes related to the content, edit the `_data/navigation.yml`
       <div class="col-12 col-sm-12 col-md-3 py-3 py-sm-2">
         <h5>About the Site</h5>
         <ul class="list-unstyled text-small">
-          <li>Hosted on <strong><a href="{{ site.website_repo }}" class="text-muted">Gitlab</a></strong>.</li>
-          <li>Powered by <strong><a href="https://jekyllrb.com/" class="text-muted">Jekyll</a></strong>.</li>
+          <li>Hosted on <a href="{{ site.website_repo }}" class="text-muted font-weight-bold">Gitlab</a>.</li>
+          <li>Powered by <a href="https://jekyllrb.com/" class="text-muted font-weight-bold">Jekyll</a>.</li>
         </ul>
         <ul class="list-unstyled list-inline text-small">
           {% assign social_links = site.data.navigation.social_links %}
@@ -81,7 +81,7 @@ to make changes related to the content, edit the `_data/navigation.yml`
   for (i = 0; i < l; i++) {
     link = markdownLinks[i];
     linkNodeValue = link.attributes.href.nodeValue;
-    if ( linkNodeValue.search("https://") == 0 || linkNodeValue.search("http://") == 0 || linkNodeValue[0] == '#' ) {
+    if ( linkNodeValue.search("https://") == 0 || linkNodeValue.search("http://") == 0 || linkNodeValue.search("irc://") == 0 || linkNodeValue[0] == '#' ) {
       continue;
     }
     else {
