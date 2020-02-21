@@ -22,7 +22,6 @@ this file contains all the metadata about the website, links to stylesheets and 
     <title>{{ site.title }}</title>
 
 	<meta itemprop="description" name="description" content="{{ site.mini_description | truncate: 160 }}" />
-
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
 	<meta property="og:title" content="{{ site.title }}" />
@@ -30,7 +29,6 @@ this file contains all the metadata about the website, links to stylesheets and 
     <meta property="og:image" content="{{ site.url | append: '/assets/img/logo-gtk.png' }}" />
     <meta property="og:site_name" content="{{ site.author }}" />
 	<meta property="og:description" content="{{ site.mini_description }}" />
-
 	<meta property="twitter:title" content="{{ site.title }}" />
 	<meta property="twitter:description" content="{{ site.mini_description }}" />
     <meta name="twitter:site" content="@{{ site.twitter_username }}" />
@@ -40,18 +38,12 @@ this file contains all the metadata about the website, links to stylesheets and 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/icons/apple-touch-icon.png' | prepend: site.url }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/icons/favicon-32x32.png | prepend: site.url }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/img/icons/favicon-16x16.png | prepend: site.url }}">
-    
     <link rel="canonical" href="{{ page.url | prepend: site.url }}" />
     
-	<link href="{{ '/assets/css/markdown.css' | prepend: site.url }}" rel="stylesheet" media="screen" type="text/css" />
+	<link rel="stylesheet" href="{{ '/assets/css/markdown.css' | prepend: site.url }}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ '/assets/@fortawesome/fontawesome-free/css/all.min.css' | prepend: site.url }}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ '/assets/css/markdown.css' | prepend: site.url }}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ '/assets/css/theme.css' | prepend: site.url }}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ '/assets/css/colorful.css' | prepend: site.url }}" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{ '/assets/css/index.css' | prepend: site.url }}" type="text/css" media="screen" />
-	<script src="{{ '/assets/jquery/dist/jquery.min.js' | prepend: site.url }}"></script>
-	<script src="{{ '/assets/popper.js/dist/umd/popper.min.js' | prepend: site.url }}"></script>
-	<script src="{{ '/assets/bootstrap/dist/js/bootstrap.min.js' | prepend: site.url }}"></script>
-	<script src="{{ '/assets/slick-carousel/slick/slick.min.js' | prepend: site.url }}"></script>
-  	<script src="{{ '/assets/moment/moment.js' | prepend: site.url }}"></script>
 </head>
