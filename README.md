@@ -80,21 +80,15 @@ git clone https://gitlab.gnome.org/Infrastructure/gtk-web.git
 ```
 cd gtk-web
 ```
-4. Install the NPM and Gem dependencies by running the following commands:
-```
-npm install
-gem install bundler jekyll
-bundle install
-```
-5. Perform the following commands to structure the website properly:
+4. Perform the following commands to install dependencies and structure the website properly:
 ```
 chmod +x setup.sh && bash setup.sh
 ```
-6. Build the site and make it available on your local server
+5. Build the site and make it available on your local server
 ```
 $ bundle exec jekyll serve
 ```
-7. Browse to [http://localhost:4000](http://localhost:4000) to view the website.
+6. Browse to [http://localhost:4000](http://localhost:4000) to view the website.
 
 ## Dependencies
 
