@@ -13,7 +13,7 @@ gtkmm is free software distributed under the GNU Library General Public License 
 
 gtkmm follows the official GNOME Platform Bindings release schedule. This guarantees API/ABI-stability and new releases on a predictable schedule, delivering C++ API for the underlying GTK+ and GNOME APIs as soon as possible.
 
-## gtk-rs Documentation
+## Documentation
 
 There is an official [gtkmm API Documentation](https://www.gtkmm.org/en/documentation.html) for using GTK and C++ together provided on the gtkmm website.
 
