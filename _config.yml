@@ -56,6 +56,7 @@ exclude:
   - CODE_OF_CONDUCT.md
   - LICENSE.txt
   - '*.sh'
+  - gtk-web.doap
 
 # folder which contains all the collections
 collections_dir: collections
