@@ -17,7 +17,7 @@ container, bin, and window classes.
 Each user interface is built by adding buttons, text labels, input fields,
 drop down menus, and other widgets to a window.
 
-If you are creating complex user interfaces, it is recommened to describe
+If you are creating complex user interfaces, it is recommended to describe
 the structure of your window using the [GtkBuilder][builder] XML description
 format, instead of assembling it manually. You can also use a visual UI
 editor that will generate the XML for your, like [Glade][glade].
