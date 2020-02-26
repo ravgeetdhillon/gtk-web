@@ -48,7 +48,7 @@ Hello World application.
 
 ### Running the application
 
-You can run the application with a command
+You can run the example after saving it to a file using:
 `gjs filename`
 
 You can also use a shebang (like `#!/usr/bin/gjs`) before the code and give permissions to execute the file.
