@@ -51,8 +51,6 @@ Hello World application.
 You can run the example after saving it to a file using:
 `gjs filename`
 
-You can also use a shebang (like `#!/usr/bin/gjs`) before the code and give permissions to execute the file.
-
 ## GTK Templates in GJS
 
 [http://www.hadess.net/2014/09/gtk-widget-templates-now-in-javascript.html](http://www.hadess.net/2014/09/gtk-widget-templates-now-in-javascript.html)
