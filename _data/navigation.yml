@@ -207,7 +207,7 @@ sidebar_links:
   - title: C++
     name: cpp
     section: Language Bindings
-  - title: Javascript
+  - title: JavaScript
     name: javascript
     section: Language Bindings
   - title: Rust

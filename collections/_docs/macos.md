@@ -67,7 +67,7 @@ here, please contact us on the the users mailing list as mentioned below.
 
 Support for building, bundling, and the integration library is provided by a
 [mailing list](http://mail.gnome.org/mailman/listinfo/gtk-osx-users-list)
-and a [forum](http://sourceforge.net/apps/phpbb/gtk-osx/). Contributers may
+and a [forum](http://sourceforge.net/apps/phpbb/gtk-osx/). Contributors may
 wish to subscribe to the [developer's mailing
 list](http://mail.gnome.org/mailman/listinfo/gtk-osx-devel-list) as well.
 
