@@ -10,7 +10,7 @@
   },
   "description": {
     "_xml:lang": "en",
-    "__text": "GTK is a multi-platform toolkit for creating graphical user\ninterfaces. Offering a complete set of widgets, GTK is suitable for\nprojects ranging from small one-off tools to complete application\nsuites.\n\nGTK has been designed from the ground up to support a range of\nlanguages, not only C/C++. Using GTK from languages such as Perl and\nPython (especially in combination with the Glade GUI builder) provides\nan effective method of rapid application development.\n\nGTK is free software and part of the GNU Project. However, the\nlicensing terms for GTK, the GNU LGPL, allow it to be used by all\ndevelopers, including those developing proprietary software, without\nany license fees or royalties."
+    "__text": "GTK is a multi-platform toolkit for creating graphical user\ninterfaces. Offering a complete set of widgets, GTK is suitable for\nprojects ranging from small one-off tools to complete application\nsuites.\n\nGTK has been designed from the ground up to support a range of\nlanguages, not only C. Using GTK from languages such as Perl, \nPython, JavaScript, C++, Rust, and many more, and it provides\nan effective method of rapid application development.\n\nGTK is free and open source software, released under the terms of the GNU Lesser General Public License,\nand can be used by all developers, including those developing proprietary software, without\nany license fees or royalties."
   },
   "homepage": {
     "_rdf:resource": "http://www.gtk.org/"
