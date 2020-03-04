@@ -7,35 +7,35 @@ application development.
 
 ### User interface and display
 
- - GTK — Widget toolkit for graphical interfaces
- - GDK — Low-level abstraction for the windowing system
- - Cairo — 2D, vector-based drawing for high-quality graphics
- - Pango — International text rendering with full Unicode support
- - ATK — Accessibility toolkit to implement support for screen readers and other tools
+ - [GTK](https://developer.gnome.org/gtk/stable/) — Widget toolkit for graphical interfaces
+ - [GDK](https://developer.gnome.org/gdk/stable/) — Low-level abstraction for the windowing system
+ - [Cairo](https://developer.gnome.org/cairo/stable/) — 2D, vector-based drawing for high-quality graphics
+ - [Pango](https://developer.gnome.org/pango/stable/) — International text rendering with full Unicode support
+ - [ATK](https://developer.gnome.org/atk/stable/) — Accessibility toolkit to implement support for screen readers and other tools
 
 ### Storage of the user's data
 
- - GSettings — Configuration storage for application preferences
+ - [GSettings](https://developer.gnome.org/gio/stable/GSettings.html) — Configuration storage for application preferences
 
 ### File access
 
- - GFile — File and URI handling, asynchronous file operations, volume handling
+ - [GFile](https://developer.gnome.org/gio/stable/GFile.html) — File and URI handling, asynchronous file operations, volume handling
 
 ### Networking
 
- - GNetworking — Networking and sockets API with streams
- - Soup — Asynchronous HTTP library with cookies, SSL, and XML-RPC
+ - [GNetworking](https://developer.gnome.org/gio/stable/highlevel-socket.html) — Networking and sockets API with streams
+ - [Soup](https://developer.gnome.org/libsoup/stable/) — Asynchronous HTTP library with cookies, SSL, and XML-RPC
 
 ### Multimedia
 
- - GStreamer — Playing, mixing, and manipulating sound and video
+ - [GStreamer](https://developer.gnome.org/gstreamer-libs/stable/) — Playing, mixing, and manipulating sound and video
 
 ### Inter-process communication
 
- - D-Bus — Inter-process communication bus to provide APIs to other processes
- - Polkit — Access control for system-level services provided through D-Bus
+ - [D-Bus](https://developer.gnome.org/gio/stable/gdbus-convenience.html) — Inter-process communication bus to provide APIs to other processes
+ - [Polkit](https://www.freedesktop.org/software/polkit/docs/latest/) — Access control for system-level services provided through D-Bus
 
 ### Foundational C utilities and object system
 
- - GLib — Data structures and utilities for C programs
- - GObject — C-based object and type system with signals and slots
+ - [GLib](https://developer.gnome.org/glib/stable/) — Data structures and utilities for C programs
+ - [GObject](https://developer.gnome.org/gobject/stable/)GObject — C-based object and type system with signals and slots
