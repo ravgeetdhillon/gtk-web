@@ -10,17 +10,20 @@ permalink: /docs/installations/:name/
 > applications are typically bundled with GTK already, so end-users do not
 > need to worry about how to install GTK itself.
 
-There are two methods to install GTK on Windows development machines.
+There are many methods to install GTK on Windows development machines.
 
-* ### [First Method](#using-gtk-from-vcpkg-packages)
+* ### [MSYS2](#using-gtk-from-msys2-packages)
+  This method is based on the packages provided by [MSYS2](https://www.msys2.org/),
+  which provides a UNIX-like environment for Windows. Both of these repositories
+  also provide packages for a large number of other useful open source libraries.
+* ### [gvsbuild](https://github.com/wingtk/gvsbuild)
+  This method provides scripts to build the GTK stack from source and outputs
+  libraries and tools that can be consumed by Visual Studio or Meson based projects.
+* ### [vcpkg](#using-gtk-from-vcpkg-packages)
   This method is based on the packages available from the
   [Microsoft vcpkg project](https://docs.microsoft.com/en-us/cpp/vcpkg),
   which are built using Visual Studio, and therefore work well if you intend
   to develop using that platform.
-* ### [Second Method](#using-gtk-from-msys2-packages)
-  This method is based on the packages provided by [MSYS2](https://www.msys2.org/),
-  which provides a UNIX-like environment for Windows. Both of these repositories
-  also provide packages for a large number of other useful open source libraries.
 
 If you really want to build GTK from the pristine sources yourself, you can
 use the project files for Microsoft Visual Studio provided by the GTK
