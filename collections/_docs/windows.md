@@ -98,11 +98,11 @@ mingw-w64-x86_64-toolchain base-devel ```
 ## Using GTK from vcpkg packages
 
 <div class="alert alert-warning">
-WARNING: The `vcpkg` packaging is not maintained or supported by the GTK
-team, and it uses a different build system than the one used by GTK. If
-something breaks when building GTK or its dependencies using `vcpkg`, make
-sure to open an issue in the [vcpkg issue tracker](https://github.com/Microsoft/vcpkg/issues),
-instead of the GTK one.
+<strong>WARNING</strong>: The `vcpkg` packaging is not maintained or
+supported by the GTK team, and it uses a different build system than the one
+used by GTK. If something breaks when building GTK or its dependencies using
+`vcpkg`, make sure to open an issue in the [vcpkg issue
+tracker](https://github.com/Microsoft/vcpkg/issues), instead of the GTK one.
 </div>
 
 ### Installation
@@ -138,7 +138,7 @@ where to find the libraries. This is done by adding
 to the CMake options, where `vcpkg` root is the location where you cloned
 the `vcpkg` repository.
 
-### Building and distributing your application
+## Building and distributing your application
 
 <div class="alert alert-success">
 Once you have installed the GTK as above, you should have little problem
@@ -175,8 +175,6 @@ glib-compile-schemas share/glib-2.0/schemas
 
 **Step 6.** You can then zip up your installation folder, or use an installer
 generator to do that for you, and distribute the result.
-
-### Building and distributing your application
 
 You may use MSYS2 to [build your GTK application and create an installer to
 distribute it](https://blogs.gnome.org/nacho/2014/08/01/how-to-build-your-gtk-application-on-windows/).
