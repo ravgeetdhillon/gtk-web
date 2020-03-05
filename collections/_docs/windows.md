@@ -98,11 +98,11 @@ mingw-w64-x86_64-toolchain base-devel ```
 ## Using GTK from vcpkg packages
 
 <div class="alert alert-warning">
-WARNING: The `vcpkg` packaging is not maintained or supported by the GTK
-team, and it uses a different build system than the one used by GTK. If
-something breaks when building GTK or its dependencies using `vcpkg`, make
-sure to open an issue in the [vcpkg issue tracker](https://github.com/Microsoft/vcpkg/issues),
-instead of the GTK one.
+<strong>WARNING</strong>: The `vcpkg` packaging is not maintained or
+supported by the GTK team, and it uses a different build system than the one
+used by GTK. If something breaks when building GTK or its dependencies using
+`vcpkg`, make sure to open an issue in the [vcpkg issue
+tracker](https://github.com/Microsoft/vcpkg/issues), instead of the GTK one.
 </div>
 
 ### Installation
