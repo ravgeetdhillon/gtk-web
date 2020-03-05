@@ -38,4 +38,4 @@ application development.
 ### Foundational C utilities and object system
 
  - [GLib](https://developer.gnome.org/glib/stable/) — Data structures and utilities for C programs
- - [GObject](https://developer.gnome.org/gobject/stable/)GObject — C-based object and type system with signals and slots
+ - [GObject](https://developer.gnome.org/gobject/stable/) — C-based object and type system with signals and slots
