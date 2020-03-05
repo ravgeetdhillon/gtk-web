@@ -68,15 +68,6 @@ To install Glade:
 pacman -S mingw-w64-x86_64-glade
 ```
 
-`Devhelp` is a help browser. It lets you easily navigate offline in the GTK,
-glib and gobject API help relative to the version of these libraries
-installed on your system.
-
-To install Devhelp:
-```
-pacman -S mingw-w64-x86_64-devhelp
-```
-
 **Step 4. (optional)**: If you want to develop a GTK3 application in Python,
 you need to install the Python bindings.
 
