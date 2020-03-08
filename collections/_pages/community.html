@@ -1,5 +1,5 @@
 ---
-navbar_type: light
+navbar_type: dark
 permalink: /community/
 
 page_main_heading: GTK Community
@@ -19,12 +19,12 @@ team_main_heading_description: These are the people who apply their best of skil
 
 {% include navbar.html %}
 
-<section class="py-4 d-flex flex-column align-items-center">
+<section class="py-4 d-flex flex-column align-items-center bg-dark text-white">
   <div class="container">
     <div class="row">
       <div class="col-md-5 d-flex justify-content-end flex-column main-heading">
-        <h1 class="display-3 pb-3">{{ page.page_main_heading }}</h1>
-        <span class="text-muted lead">{{ page.page_main_heading_description | markdownify }}</span>
+        <h1 class="display-3 mb-3">{{ page.page_main_heading }}</h1>
+        <span class="text-info lead">{{ page.page_main_heading_description | markdownify }}</span>
       </div>
       <div class="col-md-7 d-none d-md-flex justify-content-center flex-column">
         <img src="{{ '/assets/img/wall-community.svg' | prepend: site.url }}" class="img-fluid" alt="GTK Community Wallpaper" />
@@ -32,6 +32,7 @@ team_main_heading_description: These are the people who apply their best of skil
     </div>
   </div>
 </section>
+
 <section class="py-4" id="blog">
   <div class="container border rounded py-4 px-4 bg-light">
     <div class="row">
@@ -40,7 +41,7 @@ team_main_heading_description: These are the people who apply their best of skil
         <span class="text-muted w-100 w-sm-75">{{ page.blog_main_heading_description | markdownify }}</span>
       </div>
     </div>
-    <div class="row py-4">
+    <div class="row pt-4">
       {% assign blogs = site.data.api_fetch.gtk-blog-feed.items %}
       {% for blog in blogs limit: 3 %}
         <div class="col-lg-4 col-md-6 pb-4 px-0 px-md-3">
@@ -54,7 +55,7 @@ team_main_heading_description: These are the people who apply their best of skil
             </div>
             <div class="py-3 px-3 h-100 bg-white d-flex flex-column">
               <h6>{{ blog.title }}</h6>
-              <span class="text-muted small mb-3">{{ blog.description | truncate: 160 }}</span>
+              <span class="text-muted small mb-3">{{ blog.description | truncatewords: 30 }}</span>
               <a href="{{ blog.link }}" class="btn btn-sm btn-primary align-self-end">Read More</a>
             </div>
           </div>

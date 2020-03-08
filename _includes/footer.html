@@ -9,7 +9,7 @@ to make changes related to the content, edit the `_data/navigation.yml`
 <footer class="container-fluid bg-dark navbar-dark text-info py-4 small">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-sm-5 col-md-4 py-3 py-sm-2">
+      <div class="col-sm-5 col-lg-4 py-3 py-sm-2">
         <a href="https://www.gnome.org/"><img src="{{ '/assets/img/logo-gnome-horizontal.svg' | prepend: site.url }}"
             class="img-fluid pb-2" width="100" /></a>
         <p>GTK is hosted by GNOME.</p>
@@ -19,7 +19,7 @@ to make changes related to the content, edit the `_data/navigation.yml`
         <p>&copy; 1997-{{ year }}, The GTK Team. All Rights Reserved.</p>
         <p>GTK and the GTK logo are <a href="https://wiki.gnome.org/FoundationBoard/Resources/Trademark" class="text-muted font-weight-bold">trademarks of the GNOME Foundation</a>.</p>
       </div>
-      <div class="col-12 col-sm-7 col-md-5 py-3 py-sm-2">
+      <div class="col-sm-7 col-lg-5 py-3 py-sm-2">
         <div class="d-flex">
           {% assign menu_links = site.data.navigation.menu_links %}
           {% for section in site.data.navigation.menu_links_sections %}
@@ -41,7 +41,7 @@ to make changes related to the content, edit the `_data/navigation.yml`
           {% endfor %}
         </div>
       </div>
-      <div class="col-12 col-sm-12 col-md-3 py-3 py-sm-2">
+      <div class="col-sm-12 col-lg-3 py-3 py-sm-2">
         <h5>About the Site</h5>
         <ul class="list-unstyled text-small">
           <li>Hosted on <a href="{{ site.website_repo }}" class="text-muted font-weight-bold">Gitlab</a>.</li>

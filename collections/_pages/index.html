@@ -93,9 +93,9 @@ news_and_events_list:
   <div class="container d-flex align-items-center py-5">
     <div class="row">
       <div class="col-md-6 d-flex justify-content-center flex-column main-heading text-white">
-        <h1 class="display-4 pb-3 text-shadow">{{ page.page_main_heading }}</h1>
+        <h1 class="display-4 mb-3 text-shadow">{{ page.page_main_heading }}</h1>
         <span class="text-light mb-4 text-shadow">{{ page.page_main_heading_description | markdownify }}</span>
-        <div class="pb-3 d-flex">
+        <div class="mb-4 d-flex">
           <a href="{{ '/docs/' | prepend: site.url }}" class="btn btn-md btn-primary" role="button">Learn GTK</a>
           <div class="dropdown">
             <a class="btn btn-md btn-outline-secondary dropdown-toggle ml-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Downloads</a>
@@ -106,15 +106,18 @@ news_and_events_list:
             </div>
           </div>
         </div>
-        <p class="small text-info">Latest stable: v{{ site.data.api_fetch.stable_tags[0].name }}</p>
-        <p class="small text-info">Latest devel: v{{ site.data.api_fetch.devel_tags[0].name }}</p>
+        <div>
+          <span class="text-light"><span class="small text-info">Latest stable</span> v{{ site.data.api_fetch.stable_tags[0].name }}</span>
+          <span class="text-info mx-2">&bull;</span>
+          <span class="text-light"><span class="small text-info">Latest devel</span> v{{ site.data.api_fetch.devel_tags[0].name }}</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 </div>
 
-<section class="py-4" id="bindings">
+<section class="pt-5 pb-4" id="bindings">
   <div class="container">
     <div class="row text-center d-flex justify-content-center">
       <div class="col-md-10 col-lg-7">
@@ -216,13 +219,13 @@ news_and_events_list:
   </div>
 </section>
 
-<section class="py-4 bg-no-repeat bg-cover" id="development">
+<section class="py-4" id="development" style="background: linear-gradient(var(--light), var(--white));">
   <div class="container">
     <div class="row py-4 px-3">
       {% assign development = page.development_section %}
       {% for item in development %}
         <div class="col-md-4 py-3 py-md-0 px-0 px-md-3">
-          <div class="w-100 h-100 bg-light py-4 px-3 mb-2 border rounded card">
+          <div class="w-100 h-100 bg-white py-4 px-3 mb-2 border rounded card">
             <span class="mb-2"><i class="{{ item.icon }} fa-fw"></i></span>
             <h5 class="font-weight-normal mb-3">{{ item.heading }}</h5>
             <span class="text-muted small">{{ item.description | markdownify }}</span>
