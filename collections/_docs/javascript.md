@@ -46,6 +46,11 @@ app.run([]);
 This code depicts how to use GJS and GTK together for creating a simple
 Hello World application.
 
+### Running the application
+
+You can run the example after saving it to a file using:
+`gjs filename`
+
 ## GTK Templates in GJS
 
 [http://www.hadess.net/2014/09/gtk-widget-templates-now-in-javascript.html](http://www.hadess.net/2014/09/gtk-widget-templates-now-in-javascript.html)
