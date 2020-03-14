@@ -8,7 +8,7 @@ page_main_heading_description: Thanks to all the hard work by the community, GTK
 features_list:
   - category: graphics
     heading: High DPI/4K Support
-    description: GTK supports HiDPI displays. The extra crispness adds to the already well defined user experience. Read about how to [https://wiki.gnome.org/HowDoI/HiDpi/](enable Hi-DPI Support in GTK Apps).
+    description: GTK supports HiDPI displays. The extra crispness adds to the already well defined user experience. Read about how to [enable Hi-DPI Support in GTK Apps](https://wiki.gnome.org/HowDoI/HiDpi/).
     image: games-4k.png
   - category: support
     heading: Unicode Localization
@@ -50,7 +50,7 @@ features_list:
         <div class="col-lg-6 mb-4 mb-lg-0">
           <img src="{{ '/assets/img/' | append: feature.image | prepend: site.url }}" class="img-fluid w-100 shadow" alt="{{ feature.heading | append: ' GTK Features' }}" />
         </div>
-        <div class="col-lg-6 d-flex flex-column justify-content-center align-items-start">
+        <div class="col-lg-6 d-flex flex-column justify-content-center align-items-start {% cycle 'pr-lg-5', 'pl-lg-5' %} px-3">
             <h6 class="text-secondary small font-weight-normal letter-spacing-custom">{{ feature.category | upcase }}</h6>
             <h1 class="font-weight-light mb-3">{{ feature.heading }}</h1>
             <span class="text-muted">{{ feature.description | markdownify }}</span>
