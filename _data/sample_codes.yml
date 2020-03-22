@@ -134,3 +134,34 @@ codes:
         return g_application_run (G_APPLICATION (app), argc, argv);
       }
       ```
+  - name: Perl
+    ext: pl
+    snippet: |
+      ```perl
+      #!/usr/bin/env perl
+      use strict; use warnings; use utf8;
+      use Glib::IO;
+      use Gtk3;
+
+      # Create a new application
+      my $app =
+        Gtk3::Application->new('com.example.Gtk3Application', 'G_APPLICATION_FLAGS_NONE');
+
+      # When the application is launched…
+      $app->signal_connect(
+        activate => sub {
+          my $app = shift;
+          # … create a new window …
+          my $win = Gtk3::ApplicationWindow->new($app);
+          # … with a button in it …
+          my $btn = Gtk3::Button->new('Hello World!');
+          # … which closes the window when clicked
+          $btn->signal_connect(clicked => sub { $win->destroy });
+          $win->add($btn);
+          $win->show_all();
+        }
+      );
+
+      # Run the application
+      $app->run(\@ARGV);
+      ```
