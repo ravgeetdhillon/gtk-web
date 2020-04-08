@@ -9,5 +9,6 @@ assets/jquery/
 assets/popper.js/
 assets/slick-carousel/
 assets/moment/
+assets/css/
 .vscode
 _data/api_fetch/
