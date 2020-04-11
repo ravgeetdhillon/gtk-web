@@ -27,6 +27,10 @@ pages:
   stage: deploy
   script:
   - bundle exec jekyll build -d public
+  - for i in $(find . -type f -name "*.html");
+  - do
+  -   npm run minify-html $i
+  - done
   - find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -exec gzip -f -k {} \;
   artifacts:
     paths:
