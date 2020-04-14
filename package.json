@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-sass": "node-sass -w assets/scss/ -o assets/css/ --output-style compressed",
-    "compile-sass": "node-sass assets/scss/ -o assets/css/ --output-style compressed"
+    "compile-sass": "node-sass assets/scss/ -o assets/css/ --output-style compressed",
+    "minify-html": "run(){ html-minifier --collapse-whitespace --remove-comments --remove-tag-whitespace $1 -o $1; }; run"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.0",
     "bootstrap": "^4.4.1",
+    "html-minifier": "^4.0.0",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",
