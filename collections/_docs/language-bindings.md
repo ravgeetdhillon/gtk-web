@@ -15,6 +15,7 @@ Language | v3 | v4
 <a href="http://gtk2-perl.sourceforge.net/">Perl</a> | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
 <a href="https://gtkd.org/">D</a> | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
 <a href="https://gtk-rs.org">Rust</a> | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
+<a href="https://github.com/gotk3/gotk3">Go</a> | <i class="far fa-check-circle"></i> | <i class="far fa-minus-circle"></i>
 
 ## GObject Introspection
 
