@@ -69,4 +69,4 @@ Gitlab.
 
 * Project: [https://gitlab.gnome.org/GNOME/gjs](https://gitlab.gnome.org/GNOME/gjs)
 * Wiki: [https://gitlab.gnome.org/GNOME/gjs/wikis/Home](https://gitlab.gnome.org/GNOME/gjs/wikis/Home)
-* JavaScript API reference: [https://gjs-docs.gnome.org/gtk30~3.24.8/](https://gjs-docs.gnome.org/gtk30~3.24.8/)
+* JavaScript API reference: [https://gjs-docs.gnome.org/gtk30~3.24.13/](https://gjs-docs.gnome.org/gtk30~3.24.13/)
