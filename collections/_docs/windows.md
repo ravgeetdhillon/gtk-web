@@ -146,7 +146,8 @@ Windows 10 theme, for instance the
 **Step 2.** You also need to copy the icons from the Adwaita theme, which
 you can download from [the GNOME sources](https://download.gnome.org/sources/adwaita-icon-theme/).
 
-**Step 3.** Perform the same steps for the `hicolor icons`.
+**Step 3.** Perform the same steps for the [`hicolor`](https://www.freedesktop.org/wiki/Software/icon-theme/)
+icons, which are the mandatory fallback for icons not available in Adwaita.
 
 **Step 4.** To make GTK pick up this theme, put a file 
 `settings.ini` in `etc/gtk-3.0` in your installation folder. This should contain
@@ -157,8 +158,9 @@ gtk-theme-name=Windows10
 gtk-font-name=Segoe UI 9
 ```
 
-**Step 5.** And to top it all off, run the `glib-compile-schemas` utility to
-generate the compiled settings schema in your installation folder:
+**Step 5.** To top it all off, run the `glib-compile-schemas` utility
+provided by GLib to generate the compiled settings schema in your installation
+folder:
 
 ```
 glib-compile-schemas share/glib-2.0/schemas
