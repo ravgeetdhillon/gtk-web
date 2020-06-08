@@ -13,6 +13,8 @@ There is an official [gtk-rs API Documentation](https://gtk-rs.org/docs/gtk/) fo
 
 There are also a growing number of examples and thorough tests of language features in the test suite.
 
+You can see all the gtk-rs examples [here](https://github.com/gtk-rs/examples).
+
 ## A Hello World app
 
 ```rust
