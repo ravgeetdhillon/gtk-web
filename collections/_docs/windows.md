@@ -111,7 +111,10 @@ repository,
 ```
 git clone https://github.com/Microsoft/vcpkg
 cd vcpkg
-.\bootstrap-vcpkg.bat You can then install the GTK packages with
+.\bootstrap-vcpkg.bat
+```
+You can then install the GTK packages with
+```
 vcpkg install gtk:x64-windows
 ```
 
