@@ -17,7 +17,7 @@ library available.
 
 ## GJS API Documentation
 
-There is an official [GJS API Documentation](https://gjs-docs.gnome.org/gtk30~3.24.8/)
+There is an official [GJS API Documentation](https://gjs-docs.gnome.org/gtk30/)
 for using GTK with GJS.
 
 There are also a growing number of examples and thorough tests of language
