@@ -10,7 +10,7 @@ permalink: /docs/installations/:name/
 > applications are typically bundled with GTK already, so end-users do not
 > need to worry about how to install GTK itself.
 
-There are many methods to install GTK on Windows development machines.
+There are various methods to install GTK on Windows development machines.
 
 * ### [MSYS2](#using-gtk-from-msys2-packages)
   This method is based on the packages provided by [MSYS2](https://www.msys2.org/),
@@ -19,11 +19,6 @@ There are many methods to install GTK on Windows development machines.
 * ### [gvsbuild](https://github.com/wingtk/gvsbuild)
   This method provides scripts to build the GTK stack from source and outputs
   libraries and tools that can be consumed by Visual Studio or Meson based projects.
-* ### [vcpkg](#using-gtk-from-vcpkg-packages)
-  This method is based on the packages available from the
-  [Microsoft vcpkg project](https://docs.microsoft.com/en-us/cpp/vcpkg),
-  which are built using Visual Studio, and therefore work well if you intend
-  to develop using that platform.
 
 <div class="alert alert-warning">
 We assume that you are using Windows 7 or later. For older versions of
@@ -38,8 +33,7 @@ GTK.
 The [MSYS2](https://msys2.github.io/) project provides a UNIX-like
 development environment for Windows. It provides packages for many software
 applications and libraries, including the GTK stack. If you prefer
-developing using Visual Studio, you may be better off installing GTK from
-vcpkg instead.
+developing using Visual Studio, you should use gvsbuild instead.
 
 In MSYS2 packages are installed using the [pacman package
 manager](https://github.com/msys2/msys2/wiki/MSYS2-installation#iv-general-package-management).
@@ -86,52 +80,6 @@ GTK3 application in other languages like C, C++, Fortran, etc, you'll need a
 compiler like gcc and other development tools: ``` pacman -S
 mingw-w64-x86_64-toolchain base-devel ```
 
-## Using GTK from vcpkg packages
-
-<div class="alert alert-warning">
-<strong>WARNING</strong>: The `vcpkg` packaging is not maintained or
-supported by the GTK team, and it uses a different build system than the one
-used by GTK. If something breaks when building GTK or its dependencies using
-`vcpkg`, make sure to open an issue in the [vcpkg issue
-tracker](https://github.com/Microsoft/vcpkg/issues), instead of the GTK one.
-</div>
-
-### Installation
-
-The GTK library, as well as all pre-requisites and many language bindings
-(e.g. the C++ bindings gtkmm) are packaged by the Microsoft `vcpkg` project
-for use with Visual Studio. This provides a very simple way to setup a
-development environment to create GTK apps. If you prefer a more UNIX-like
-experience, building from the command line instead of using Visual Studio,
-you may want to consider installing GTK from MSYS2 instead.
-
-In order to use `vcpkg` packages, you first need to clone the `vcpkg`
-repository,
-
-```
-git clone https://github.com/Microsoft/vcpkg
-cd vcpkg
-.\bootstrap-vcpkg.bat
-```
-You can then install the GTK packages with
-```
-vcpkg install gtk:x64-windows
-```
-
-The part behind the colon ':' specifies the target. After this step, any
-project created in Visual Studio will now automatically see the GTK
-libraries.
-
-If you build from the command line using `CMake`, you need to tell `CMake`
-where to find the libraries. This is done by adding 
-
-```
--DCMAKE_TOOLCHAIN_FILE=[vcpkg root]\scripts\buildsystems\vcpkg.cmake
-```
-
-to the CMake options, where `vcpkg` root is the location where you cloned
-the `vcpkg` repository.
-
 ## Building and distributing your application
 
 <div class="alert alert-success">
@@ -175,8 +123,7 @@ generator to do that for you, and distribute the result.
 You may use MSYS2 to [build your GTK application and create an installer to
 distribute it](https://blogs.gnome.org/nacho/2014/08/01/how-to-build-your-gtk-application-on-windows/).
 Your installer will need to ship your application build artifacts as well as
-GTK binaries and runtime dependencies; see the instructions above for vcpkg
-for more details.
+GTK binaries and runtime dependencies.
 
 ## Legal notes on distributing GTK with your application
 
