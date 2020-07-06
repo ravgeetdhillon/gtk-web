@@ -10,22 +10,31 @@ the GLib, GObject-Introspection, Pango, Gdk-Pixbuf, ATK and GTK packages to
 build GTK. To read more about these packages, please refer to the
 [Architecture](/docs/architecture/).
 
+## Stable version
+
 To build an environment for GTK, install all the dependencies listed below:
 
-Dependency | Version | Source
---- | --- | :---:
-GTK | 3.24 | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/gtk+/3.24/)
-GLib | 2.60 | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/glib/2.60/)
-Pango | 1.42 | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/pango/1.42/)
-Gdk-pixbuf | 2.38 | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/gdk-pixbuf/2.38/)
-ATK | 2.26 | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/atk/2.26/)
-GObject-Introspection | 1.60 | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/gobject-introspection/1.60/)
+Dependency | Source
+--- | :---:
+GTK | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/gtk+/3.24/)
+GLib | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/glib/)
+Pango | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/pango/)
+Gdk-pixbuf | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/gdk-pixbuf/)
+ATK | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/atk/)
+GObject-Introspection | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/gobject-introspection/)
+Epoxy | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/libepoxy/)
 
-To build GTK 3.24, see the [installation
-guide](https://developer.gnome.org/gtk3/stable/gtk-building.html). For
-additional help,
-[FAQ](https://developer.gnome.org/gtk3/stable/gtk-question-index.html) is a
+The current stable API version of GTK3 is 3.24.
+
+To build GTK, see the [installation guide](https://developer.gnome.org/gtk3/stable/gtk-building.html).
+For additional help, the [frequently asked questions page](https://developer.gnome.org/gtk3/stable/gtk-question-index.html) is a
 good starting point.
+
+## Development version
+
+To build the latest development version of GTK it is recommended to use a
+tool like [JHBuild](https://wiki.gnome.org/Projects/Jhbuild), which will
+download, and optionally build, all the required project dependencies.
 
 ## Older Versions
 
