@@ -37,7 +37,7 @@ from gi.repository import Gtk
 def on_activate(app):
     win = Gtk.ApplicationWindow(application=app)
     btn = Gtk.Button(label="Hello, World!")
-    btn.connect('clicked', lambda x: win.destroy())
+    btn.connect('clicked', lambda x: win.close())
     win.add(btn)
     win.show_all()
 

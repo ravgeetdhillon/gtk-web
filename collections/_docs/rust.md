@@ -29,7 +29,7 @@ fn on_activate(application: &gtk::Application) {
     // … with a button in it …
     let button = gtk::Button::new_with_label("Hello World!");
     // … which closes the window when clicked
-    button.connect_clicked(clone!(@weak window => move |_| window.destroy()));
+    button.connect_clicked(clone!(@weak window => move |_| window.close()));
     window.add(&button);
     window.show_all();
 }
