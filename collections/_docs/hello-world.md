@@ -57,7 +57,7 @@ activate (GtkApplication *app,
 
   button = gtk_button_new_with_label ("Hello World");
   g_signal_connect (button, "clicked", G_CALLBACK (print_hello), NULL);
-  g_signal_connect_swapped (button, "clicked", G_CALLBACK (gtk_widget_destroy), window);
+  g_signal_connect_swapped (button, "clicked", G_CALLBACK (gtk_window_close), window);
   gtk_container_add (GTK_CONTAINER (button_box), button);
 
   gtk_widget_show_all (window);
@@ -180,13 +180,13 @@ functions is similar to a [`g_signal_connect()`](https://developer.gnome.org/gob
 with the difference lying in how the callback function is treated.
 Using `g_signal_connect_swapped()` allows you to specify what the callback
 function should take as the instance parameter by letting you pass it as
-data. In this case the function being called back is `gtk_widget_destroy()`
+data. In this case the function being called back is `gtk_window_close()`
 and the `window` pointer is passed to it. This has the effect that when the
-button is clicked, the whole GTK window is destroyed. In contrast, if a
-normal `g_signal_connect()` were used to connect the "clicked" signal with
-`gtk_widget_destroy()`, then the button would have been destroyed, not the
-window. More information about creating buttons can be found
-[here](https://wiki.gnome.org/HowDoI/Buttons).
+button is clicked, the window is closed as if the "close" button had been
+pressed. In contrast, if a normal `g_signal_connect()` were used to connect
+the "clicked" signal with `gtk_window_close()`, then GTK would warn that
+the button is not a `GtkWindow` instance. More information about creating
+buttons can be found [here](https://wiki.gnome.org/HowDoI/Buttons).
 
 ## Next steps
 
