@@ -13,6 +13,8 @@ There is an official [gtk-rs API Documentation](https://gtk-rs.org/docs/gtk/) fo
 
 There are also a growing number of examples and thorough tests of language features in the test suite.
 
+You can see all the gtk-rs examples [here](https://github.com/gtk-rs/examples).
+
 ## A Hello World app
 
 ```rust
@@ -27,7 +29,7 @@ fn on_activate(application: &gtk::Application) {
     // … with a button in it …
     let button = gtk::Button::new_with_label("Hello World!");
     // … which closes the window when clicked
-    button.connect_clicked(clone!(@weak window => move |_| window.destroy()));
+    button.connect_clicked(clone!(@weak window => move |_| window.close()));
     window.add(&button);
     window.show_all();
 }

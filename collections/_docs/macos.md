@@ -51,7 +51,7 @@ installed names as needed to point inside the bundle.
 
 First, make sure that your system meets the requirements as mentioned above,
 then download and run the [installation
-script](http://git.gnome.org/browse/gtk-osx/plain/gtk-osx-build-setup.sh)
+script](https://gitlab.gnome.org/GNOME/gtk-osx/-/blob/master/gtk-osx-setup.sh)
 (gtk-osx-build-setup.sh). If your application already has a module,
 everything you need to build your application is handled by jhbuild. The
 build page has detailed instructions.
@@ -74,8 +74,7 @@ list](http://mail.gnome.org/mailman/listinfo/gtk-osx-devel-list) as well.
 ## Contributing
 
 Bugs, patches and enhancements for building, integration, or bundling may be
-submitted to [Bugzilla, with
-Product=gtk-mac-integration](https://bugzilla.gnome.org/enter_bug.cgi?product=gtk-mac-integration).
+submitted to the [gtk-mac-integration project on Gitlab](https://gitlab.gnome.org/GNOME/gtk-mac-integration/issues/new).
 Bug reports on any other package, including GTK itself, should be submitted
 against that package, not gtk-mac-integration; the label for the Quartz
 backend is "macOS".

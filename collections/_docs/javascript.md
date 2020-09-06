@@ -17,7 +17,7 @@ library available.
 
 ## GJS API Documentation
 
-There is an official [GJS API Documentation](https://gjs-docs.gnome.org/gtk30~3.24.8/)
+There is an official [GJS API Documentation](https://gjs-docs.gnome.org/gtk30/)
 for using GTK with GJS.
 
 There are also a growing number of examples and thorough tests of language
@@ -33,7 +33,7 @@ let app = new Gtk.Application({ application_id: 'org.gtk.ExampleApp' });
 app.connect('activate', () => {
     let win = new Gtk.ApplicationWindow({ application: app });
     let btn = new Gtk.Button({ label: 'Hello, World!' });
-    btn.connect('clicked', () => { win.destroy(); });
+    btn.connect('clicked', () => { win.close(); });
     win.add(btn);
     win.show_all();
 });
@@ -69,4 +69,4 @@ Gitlab.
 
 * Project: [https://gitlab.gnome.org/GNOME/gjs](https://gitlab.gnome.org/GNOME/gjs)
 * Wiki: [https://gitlab.gnome.org/GNOME/gjs/wikis/Home](https://gitlab.gnome.org/GNOME/gjs/wikis/Home)
-* JavaScript API reference: [https://gjs-docs.gnome.org/gtk30~3.24.8/](https://gjs-docs.gnome.org/gtk30~3.24.8/)
+* JavaScript API reference: [https://gjs-docs.gnome.org/gtk30/](https://gjs-docs.gnome.org/gtk30/)

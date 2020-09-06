@@ -26,5 +26,11 @@ GTK is [event-driven](https://en.wikipedia.org/wiki/Event-driven_programming).
 The toolkit listens for events such as a pointer click on a button, or a
 window resize, and notifies the widgets in your application.
 
+Follow the ["Hello World"](https://www.gtk.org/docs/getting-started/hello-world/)
+to learn how to write your first GTK application.
+
+Use the [GTK API reference](https://developer.gnome.org/gtk3/stable) to
+learn more about the functionality provided by GTK.
+
 [builder]: https://developer.gnome.org/gtk3/stable/GtkBuilder.html
 [glade]: https://glade.gnome.org
