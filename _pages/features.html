@@ -3,7 +3,7 @@ navbar_type: dark
 permalink: /features/
 
 page_main_heading: Why GTK?
-page_main_heading_description: Thanks to all the hard work by the community, GTK is a featureful toolkit for writing modern applications
+page_main_heading_description: A featureful toolkit for writing modern applications
 
 features_list:
   - category: graphics
@@ -29,15 +29,15 @@ features_list:
 {% include navbar.html %}
 
 <body>
-<section class="py-5 d-flex flex-column align-items-center bg-dark text-white">
+<section class="py-4 d-flex flex-column align-items-center bg-dark text-white">
   <div class="container">
     <div class="row">
-      <div class="col-md-7 col-lg-6 d-flex justify-content-end flex-column main-heading">
-        <h1 class="display-3 mb-3">{{ page.page_main_heading }}</h1>
+      <div class="col-md-5 d-flex justify-content-end flex-column main-heading">
+        <h1 class="display-3 pb-3">{{ page.page_main_heading }}</h1>
         <span class="text-info lead">{{ page.page_main_heading_description | markdownify }}</span>
       </div>
-      <div class="col-md-5 col-lg-6 d-none d-md-flex justify-content-center align-items-center">
-        <img src="{{ '/assets/img/logo-gtk.png' | absolute_url }}" class="img-fluid w-75 w-lg-50" alt="GTK Logo" />
+      <div class="col-md-7 d-none d-md-flex justify-content-center align-items-center flex-column">
+        <img src="{{ '/assets/img/wall-features.svg' | absolute_url }}" class="img-fluid w-75" alt="GTK Logo" />
       </div>
     </div>
   </div>
