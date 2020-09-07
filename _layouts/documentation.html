@@ -53,7 +53,7 @@ any changes made to this file will affect all the documentation pages
                   {% if forloop.last == true %}
                     <li class="breadcrumb-item active" aria-current="page">{{ part | replace: '-', ' ' | capitalize_all }}</li>
                   {% else %}
-                    <li class="breadcrumb-item"><a href="{{ current_path | prepend: site.url }}">{{ part | replace: '-', ' ' | capitalize_all }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ current_path | absolute_url }}">{{ part | replace: '-', ' ' | capitalize_all }}</a></li>
                   {% endif %}
                 {% endfor %}
               </ol>

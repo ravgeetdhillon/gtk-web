@@ -98,7 +98,7 @@ team:
       </div>
       <div class="col-md-7 d-none d-md-flex justify-content-center align-items-center flex-column">
         <img
-          src="{{ '/assets/img/wall-docs.svg' | prepend: site.url }}"
+          src="{{ '/assets/img/wall-docs.svg' | absolute_url }}"
           class="img-fluid w-75"
           alt="GTK Docs Wallpaper"
         />
@@ -125,7 +125,7 @@ team:
           <i class="{{ doc.icon }} fa-fw fa-3x pb-4 text-primary"></i>
           <h5>{{ doc.title }}</h5>
           <span class="text-muted small">{{ doc.description }}</span>
-          <a href="{{ doc.link | prepend: site.url }}" class="stretched-link"></a>
+          <a href="{{ doc.link | absolute_url }}" class="stretched-link"></a>
         </div>
       </div>
       {% endfor %}
@@ -171,7 +171,7 @@ team:
       <div class="col-6 col-md-4 col-lg-3 mb-3 px-0 px-md-3">
         <div class="d-flex flex-column align-items-center text-center shadow-sm-hover py-3 bg-white rounded">
           <img
-            src="{{ '/assets/img/' | append: member.image | prepend: site.url }}"
+            src="{{ '/assets/img/' | append: member.image | absolute_url }}"
             class="pb-2 img-fluid rounded-circle"
             style="max-width: 100px"
             alt="{{ 'GTK Team Member ' | append: member.name }}"
