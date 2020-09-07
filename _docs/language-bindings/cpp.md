@@ -1,6 +1,6 @@
 ---
-permalink: /docs/language-bindings/:name/
 ---
+
 # GTKMM
 
 ## About
@@ -119,6 +119,6 @@ If you want to get in touch with the original source files, you can visit the pr
 
 ## See More
 
-* Project: [https://gitlab.gnome.org/GNOME/gtkmm/](https://gitlab.gnome.org/GNOME/gtkmm/)
-* Docs: [https://www.gtkmm.org/en/documentation.html](https://www.gtkmm.org/en/documentation.html)
-* Tutorial: [https://developer.gnome.org/gtkmm-tutorial/stable/index.html](https://developer.gnome.org/gtkmm-tutorial/stable/index.html)
+- Project: [https://gitlab.gnome.org/GNOME/gtkmm/](https://gitlab.gnome.org/GNOME/gtkmm/)
+- Docs: [https://www.gtkmm.org/en/documentation.html](https://www.gtkmm.org/en/documentation.html)
+- Tutorial: [https://developer.gnome.org/gtkmm-tutorial/stable/index.html](https://developer.gnome.org/gtkmm-tutorial/stable/index.html)

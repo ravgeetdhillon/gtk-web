@@ -1,5 +1,4 @@
 ---
-permalink: /docs/:name/
 ---
 
 # Using GTK

@@ -26,7 +26,7 @@ to make changes related to the content, edit the `_data/navigation.yml`.
   {% endcase %}
   <header class="navbar small bg-{{ bg_color }}">
     <nav class="container navbar-expand-md px-0 px-md-3">
-      <a href="{{ site.url }}" class="navbar-brand text-{{ text_color }}"><img src="{{ '/assets/img/logo-gtk-sm.png' | prepend: site.url }}" class="pr-2" style="max-width:40px;" /><strong>GTK</strong></a>
+      <a href="{{ site.url }}" class="navbar-brand text-{{ text_color }}"><img src="{{ '/assets/img/logo-gtk-sm.png' | absolute_url }}" class="pr-2" style="max-width:40px;" /><strong>GTK</strong></a>
       <a class="btn navbar-toggler border-0 bg-{{ text_color }}" role="button" data-toggle="collapse" data-target="#navbarSupportedContent" href="#">
         <i class="fas fa-ellipsis-h text-{{ bg_color }}"></i>
       </a>
@@ -41,7 +41,7 @@ to make changes related to the content, edit the `_data/navigation.yml`.
                   {% assign link_href = link.href %}
                   {% assign target_blank = 'target="_blank"' %}
                 {% else %}
-                  {% assign link_href = link.href | prepend: site.url %}
+                  {% assign link_href = link.href | absolute_url %}
                   {% assign target_blank = '' %}
                 {% endif %}
                 <a href="{{ link_href }}" {{ target_blank }} class="nav-link-{{ bg_color }} float-right text-{{ text_color }} rounded">{{ link.name }}</a>

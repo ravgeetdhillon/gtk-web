@@ -1,17 +1,13 @@
-/*
+// this file contains the user defined styling for the website.
+// if you have want to add new styling for new content or the already existing one, please add the styling rules in this file.
 
-this file contains the user defined styling for the website.
-if you have want to add new styling for new content or the already existing one, please add the styling rules in this file.
-
-*/
-
-/* making responsive classes for height and width based the breakpoints */
+// making responsive classes for height and width based the breakpoints
 
 $breakpoints: (
-    "sm": 576px,
-    "md": 768px,
-    "lg": 992px,
-    "xl": 1200px
+    'sm': 576px,
+    'md': 768px,
+    'lg': 992px,
+    'xl': 1200px,
 );
 
 $widths: 25, 50, 75, 100, auto;
@@ -21,8 +17,8 @@ $heights: 25, 50, 75, 100, auto;
     @media (min-width: map-get($breakpoints, $breakpoint)) {
         @each $i in $widths {
             .w-#{$breakpoint}-#{$i} {
-                @if type-of($i) == "number" {
-                    width: unquote($i + "%" + " !important");
+                @if type-of($i) == 'number' {
+                    width: unquote($i + '%' + ' !important');
                 } @else {
                     width: #{$i} !important;
                 }
@@ -30,8 +26,8 @@ $heights: 25, 50, 75, 100, auto;
         }
         @each $i in $heights {
             .h-#{$breakpoint}-#{$i} {
-                @if type-of($i) == "number" {
-                    height: unquote($i + "%" + " !important");
+                @if type-of($i) == 'number' {
+                    height: unquote($i + '%' + ' !important');
                 } @else {
                     height: #{$i} !important;
                 }
@@ -48,7 +44,6 @@ $heights: 25, 50, 75, 100, auto;
     body {
         font-size: 1rem;
     }
-    
 }
 @media (min-width: 576px) {
     .landing-sm {
@@ -96,7 +91,7 @@ body {
     opacity: 0.75;
 }
 
-/* styling for the app slider section on the index.html */
+// styling for the app slider section on the index.html
 
 .slider .slide:hover {
     cursor: pointer;
@@ -155,7 +150,7 @@ body {
 .slick-track:before,
 .slick-track:after {
     display: table;
-    content: "";
+    content: '';
 }
 .slick-track:after {
     clear: both;
@@ -170,7 +165,7 @@ body {
     min-height: 1px;
     outline: none !important;
 }
-[dir="rtl"] .slick-slide {
+[dir='rtl'] .slick-slide {
     float: right;
 }
 .slick-slide.slick-loading img {
@@ -230,7 +225,7 @@ body {
     background-color: var(--light) !important;
 }
 
-/* styling for the go to top button */
+// styling for the go to top button
 
 #btn-go-to-top {
     bottom: 32px;
@@ -249,8 +244,7 @@ body {
 }
 
 .font-underline {
-    text-shadow: -2px 0px var(--white), -2px 0px var(--white),
-        2px 0px var(--white), 2px 0px var(--white);
+    text-shadow: -2px 0px var(--white), -2px 0px var(--white), 2px 0px var(--white), 2px 0px var(--white);
     background-size: 1px 1em;
     box-shadow: inset 0 -0.175em var(--white), inset 0 -0.2em #000;
     display: inline;
@@ -261,7 +255,7 @@ body {
     margin-bottom: 0px !important;
 }
 
-/* following styles overwrite some of the styles defined by the dependencies */
+// following styles overwrite some of the styles defined by the dependencies
 
 .fa-stack {
     line-height: inherit !important;
@@ -270,7 +264,8 @@ span p {
     margin-bottom: 0;
 }
 
-/* styling for the letter spacing of the headings */
+// styling for the letter spacing of the headings
+
 h1.letter-spacing-custom,
 .h1.letter-spacing-custom {
     letter-spacing: initial;
@@ -296,7 +291,8 @@ h6.letter-spacing-custom,
     letter-spacing: 1px;
 }
 
-/* styling for button groups in language bindings section on the index.html */
+// styling for button groups in language bindings section on the index.html
+
 .grp-btn {
     font-size: 80%;
 }
@@ -308,7 +304,6 @@ h6.letter-spacing-custom,
 }
 .grp-btn.active {
     border-bottom: 3px solid var(--primary) !important;
-
 }
 .overflow-y-auto {
     overflow-y: auto;
@@ -327,5 +322,5 @@ h6.letter-spacing-custom,
     z-index: 100;
 }
 .text-shadow {
-    text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.150) !important;
+    text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15) !important;
 }

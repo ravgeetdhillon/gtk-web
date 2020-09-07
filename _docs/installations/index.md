@@ -1,6 +1,6 @@
 ---
-permalink: /docs/:name/
 ---
+
 # Installations
 
 GTK is available on:
