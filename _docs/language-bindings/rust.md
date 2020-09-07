@@ -1,6 +1,6 @@
 ---
-permalink: /docs/language-bindings/:name/
 ---
+
 # GTK and Rust
 
 ## About

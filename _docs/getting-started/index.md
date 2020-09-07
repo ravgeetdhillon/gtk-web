@@ -1,5 +1,4 @@
 ---
-permalink: /docs/:name/
 ---
 
 ## Getting Started with GTK

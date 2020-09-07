@@ -1,6 +1,6 @@
 ---
-permalink: /docs/dev-tools/:name/
 ---
+
 # GNOME Builder
 
 ![GNOME Builder](/assets/img/docs/docs-builder.png)

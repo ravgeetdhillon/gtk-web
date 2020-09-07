@@ -1,6 +1,6 @@
 ---
-permalink: /docs/installations/:name/
 ---
+
 # Setting up GTK for GNU/Linux and Unix
 
 ![GTK and Linux](/assets/img/docs/docs-gtk-linux.png)

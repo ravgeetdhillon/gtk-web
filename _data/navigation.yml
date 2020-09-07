@@ -1,4 +1,4 @@
-# This file contains the navigation links present in the header and footer of the website
+# This file contains the navigation links present in the header and footer of the website along with the links in the documentation pages
 
 # to add sections to the footer of the website, add a section with the following attributes:
 #   title: the display text for the section
@@ -7,94 +7,110 @@ menu_links_sections:
   - title: Support
   - title: Community
 
-# To add navigation links to the website, add a new link with the following attributes:
+
+# To add navigation links in the website, add a new link with the following attributes:
 #   name: display text of the link
 #   href: the location where the link points to
 #   header: set this to 'true' if the link should be present in the header, else set 'false'
 #   footer: set this to 'true' if the link should be present in the footer, else set 'false'
 #   section: if footer is set to 'true', specify the name of the section the link belongs. Make sure that the section exists
 #   external: if the link provided in href is an external link i.e it points to a link outside of the website, then set this to 'false', else don't add this attribute
+
 menu_links:
   - name: GTK
     href: /
     header: false
     footer: true
     section: Project
+
   - name: Features
     href: /features/
     header: true
     footer: true
     section: Project
+
   - name: Docs
     href: /docs/
     header: true
     footer: true
     section: Project
+
   - name: Downloads
     href: https://download.gnome.org/sources/gtk+/
     header: false
     footer: true
     section: Project
     external: true
+
   - name: Community
     href: /community/
     header: true
     footer: true
     section: Community
+
   - name: License
     href: https://gitlab.gnome.org/GNOME/gtk/tree/master/COPYING
     header: false
     footer: true
     section: Project
     external: true
+
   - name: Releases
     href: https://gitlab.gnome.org/GNOME/gtk/-/releases
     header: false
     footer: true
     external: true
     section: Project
+
   - name: FAQs
     href: https://developer.gnome.org/gtk3/stable/gtk-question-index.html
     header: false
     footer: true
     section: Support
     external: true
+
   - name: Code
     href: https://gitlab.gnome.org/GNOME/gtk/
     header: true
     footer: true
     section: Project
     external: true
+
   - name: Development Blog
     href: https://blog.gtk.org/
     header: true
     footer: true
     external: true
     section: Community
+
   - name: Discussion
     href: https://discourse.gnome.org
     header: false
     footer: true
     external: true
     section: Community
+
   - name: Report a Bug
     href: https://gitlab.gnome.org/GNOME/gtk/issues/new
     header: false
     footer: true
     section: Support
     external: true
+
   - name: Request a feature
     href: https://gitlab.gnome.org/GNOME/gtk/issues/new
     header: false
     footer: true
     section: Support
     external: true
+
   - name: Code of Conduct
     href: https://wiki.gnome.org/Foundation/CodeOfConduct/
     header: false
     footer: true
     section: Community
     external: true
+
   - name: Donate
     href: http://www.gnome.org/foundation/
     header: false
@@ -102,9 +118,11 @@ menu_links:
     section: Community
     external: true
 
-# To add social links to the website, add a new social link with the following attributes:
+
+# To add social media links in the website, add a new social link with the following attributes:
 #   icon: the name of the icon on https://fontawesome.com/icons
 #   href: link to the social media profile
+
 social_links:
   - icon: fab fa-twitter
     href: https://twitter.com/GTKtoolkit/
@@ -113,103 +131,70 @@ social_links:
   - icon: fab fa-discourse
     href: https://discourse.gnome.org/c/platform/core/
 
+
 # read out the CONTRIBUTING.md to know how to add documentation pages to the website
 
 # to add sections to the sidebar on the documentation pages of the website, add a section with the following attributes:
 #   title: the display text for the section
-#   name: the name of the `.md` file in '/collection/_docs', to which the link should point
+#   name: the name of the directort created under '_docs'
+#   icon: the name of the icon on https://fontawesome.com/icons
+
 sidebar_sections:
   - title: Getting Started
     name: getting-started
     icon: fas fa-cogs
+
   - title: Installations
     name: installations
     icon: fas fa-box-open
+
   - title: Language Bindings
     name: language-bindings
     icon: fas fa-random
+
   - title: Dev Tools
     name: dev-tools
     icon: fas fa-tools
+
   - title: API References
     name: apis
     icon: fas fa-cubes
+
   - title: Architecture
     name: architecture
     icon: fas fa-vector-square
 
-# to add links to the sidebar on the documentation pages of the website, add a link with the following attributes:
-#   title: the display text for the section
-#   name: the name of the `.md` file in '/collection/_docs', to which the link should point
-#   section: the name of the section the link belongs to
-#   external: if the link provided in href is an external link i.e it points to a link outside of the website, then set this to 'false', else dont add this attribute
 
-sidebar_links:
-  - title: GNOME Builder
-    name: gnome-builder
-    section: Dev Tools
-  - title: Eclipse
-    name: eclipse
-    section: Dev Tools
-  - title: Mono Develop
-    name: mono-develop
-    section: Dev Tools
-  - title: Linux
-    name: linux
-    section: Installations
-  - title: Windows
-    name: windows
-    section: Installations
-  - title: MacOS
-    name: macos
-    section: Installations
+# to add external links to the sidebar on the documentation pages of the website, add a link with the following attributes:
+#   title: the display text for the section
+#   section: the name of the section the link belongs to
+#   href: url on the external link
+
+sidebar_external_links:
   - title: GTK3
-    name: gtk3
-    section: API References
+    section: apis
     href: https://developer.gnome.org/gtk3/stable/
-    external: true
+
   - title: GTK4
-    name: gtk4
-    section: API References
+    section: apis
     href: https://gnome.pages.gitlab.gnome.org/gtk/gtk/
-    external: true
+
   - title: GLib, GObject, GIO
-    name: glib
-    section: Architecture
+    section: architecture
     href: https://developer.gnome.org/glib/stable/
-    external: true
+
   - title: GdkPixbuf
-    name: gdkpixbuf
-    section: Architecture
+    section: architecture
     href: https://developer.gnome.org/gdk-pixbuf/stable/
-    external: true
+
   - title: Pango
-    name: pango
-    section: Architecture
+    section: architecture
     href: https://developer.gnome.org/pango/stable/
-    external: true
+  
   - title: GDK
-    name: gdk
-    section: Architecture
+    section: architecture
     href: https://developer.gnome.org/gdk3/stable/
-    external: true
+
   - title: Cairo
-    name: cairo
-    section: Architecture
+    section: architecture
     href: https://www.cairographics.org/documentation/
-    external: true
-  - title: Hello World
-    name: hello-world
-    section: Getting Started
-  - title: Python
-    name: python
-    section: Language Bindings
-  - title: C++
-    name: cpp
-    section: Language Bindings
-  - title: JavaScript
-    name: javascript
-    section: Language Bindings
-  - title: Rust
-    name: rust
-    section: Language Bindings

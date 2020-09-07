@@ -1,6 +1,6 @@
 ---
-permalink: /docs/:name/
 ---
+
 # Overview of GTK and its Libraries
 
 ![GTK Architecture](/assets/img/docs/docs-gtk-architecture.png)

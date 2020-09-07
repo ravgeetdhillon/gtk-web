@@ -1,6 +1,6 @@
 ---
-permalink: /docs/installations/:name/
 ---
+
 # Setting up GTK for Mac OS
 
 ![GTK and MacOS](/assets/img/docs/docs-gtk-macos.png)

@@ -1,0 +1,5 @@
+{
+    "prettier.tabWidth": 4,
+    "prettier.printWidth": 120,
+    "prettier.disableLanguages": ["html", "yaml"]
+}
