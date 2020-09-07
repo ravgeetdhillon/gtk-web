@@ -1,6 +1,6 @@
 ---
-permalink: /docs/dev-tools/:name/
 ---
+
 # Mono Develop
 
 ![Mono Develop](/assets/img/docs/docs-mono-develop.png)
@@ -40,4 +40,3 @@ a single code base for all platforms.
 
 * **Search** for files, classes, and functions with lightning fast fuzzy search.
 * **Explore APIs** used by your project with auto-completion for C/C++, Python, Rust, and Vala. For languages without native support, ctags integration is provided.
-

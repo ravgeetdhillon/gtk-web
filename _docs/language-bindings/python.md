@@ -1,6 +1,6 @@
 ---
-permalink: /docs/language-bindings/:name/
 ---
+
 ![PyGObject](/assets/img/docs/docs-pygobject.svg)
 
 ## About

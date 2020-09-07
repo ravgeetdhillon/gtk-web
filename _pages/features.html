@@ -37,7 +37,7 @@ features_list:
         <span class="text-info lead">{{ page.page_main_heading_description | markdownify }}</span>
       </div>
       <div class="col-md-5 col-lg-6 d-none d-md-flex justify-content-center align-items-center">
-        <img src="{{ '/assets/img/logo-gtk.png' | prepend: site.url }}" class="img-fluid w-75 w-lg-50" alt="GTK Logo" />
+        <img src="{{ '/assets/img/logo-gtk.png' | absolute_url }}" class="img-fluid w-75 w-lg-50" alt="GTK Logo" />
       </div>
     </div>
   </div>
@@ -48,7 +48,7 @@ features_list:
   <div class="container">
       <div class="row {% cycle 'flex-row-reverse', 'flex-row' %}">
         <div class="col-lg-6 mb-4 mb-lg-0">
-          <img src="{{ '/assets/img/' | append: feature.image | prepend: site.url }}" class="img-fluid w-100 shadow" alt="{{ feature.heading | append: ' GTK Features' }}" />
+          <img src="{{ '/assets/img/' | append: feature.image | absolute_url }}" class="img-fluid w-100 shadow" alt="{{ feature.heading | append: ' GTK Features' }}" />
         </div>
         <div class="col-lg-6 d-flex flex-column justify-content-center align-items-start {% cycle 'pr-lg-5', 'pl-lg-5' %} px-3">
             <h6 class="text-secondary small font-weight-normal letter-spacing-custom">{{ feature.category | upcase }}</h6>

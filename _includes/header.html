@@ -16,7 +16,7 @@ this file contains all the metadata about the website, links to stylesheets and 
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<meta name="theme-color" content="#ffffff" />
     <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff" />
-    <meta name="generator" content="Jekyll v3.8.6" />
+    <meta name="generator" content="Jekyll v4.0.1" />
     <meta name="author" content="{{ site.author }}" />
     <meta name="keywords" content="{{ site.keywords }}">	
     <title>{{ site.title }}</title>
@@ -25,8 +25,8 @@ this file contains all the metadata about the website, links to stylesheets and 
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
 	<meta property="og:title" content="{{ site.title }}" />
-    <meta property="og:url" content="{{ site.url | append: '/' | append:page.url }}" />
-    <meta property="og:image" content="{{ site.url | append: '/assets/img/logo-gtk.png' }}" />
+    <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    <meta property="og:image" content="{{ '/assets/img/logo-gtk.png' }}" />
     <meta property="og:site_name" content="{{ site.author }}" />
 	<meta property="og:description" content="{{ site.mini_description }}" />
 	<meta property="twitter:title" content="{{ site.title }}" />
@@ -35,15 +35,14 @@ this file contains all the metadata about the website, links to stylesheets and 
     <meta name="twitter:creator" content="@{{ site.twitter_username }}">
     <meta name="twitter:card" content="summary">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/icons/apple-touch-icon.png' | prepend: site.url }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/icons/favicon-32x32.png | prepend: site.url }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/img/icons/favicon-16x16.png | prepend: site.url }}">
-    <link rel="canonical" href="{{ page.url | prepend: site.url }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/icons/apple-touch-icon.png' | absolute_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/icons/favicon-32x32.png' | absolute_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/img/icons/favicon-16x16.png' | absolute_url }}">
+    <link rel="canonical" href="{{ page.url | absolute_url }}" />
     
-	<link rel="stylesheet" href="{{ '/assets/css/markdown.css' | prepend: site.url }}" type="text/css" media="screen" />
-	<link rel="stylesheet" href="{{ '/assets/@fortawesome/fontawesome-free/css/all.min.css' | prepend: site.url }}" type="text/css" media="screen" />
-	<link rel="stylesheet" href="{{ '/assets/css/markdown.css' | prepend: site.url }}" type="text/css" media="screen" />
-	<link rel="stylesheet" href="{{ '/assets/css/theme.css' | prepend: site.url }}" type="text/css" media="screen" />
-	<link rel="stylesheet" href="{{ '/assets/css/colorful.css' | prepend: site.url }}" type="text/css" media="screen" />
-	<link rel="stylesheet" href="{{ '/assets/css/index.css' | prepend: site.url }}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ '/assets/@fortawesome/fontawesome-free/css/all.min.css' | absolute_url }}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ '/assets/css/markdown.css' | absolute_url }}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ '/assets/css/theme.css' | absolute_url }}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ '/assets/css/colorful.css' | absolute_url }}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ '/assets/css/index.css' | absolute_url }}" type="text/css" media="screen" />
 </head>

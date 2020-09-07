@@ -1,6 +1,6 @@
 ---
-permalink: /docs/installations/:name/
 ---
+
 # Setting up GTK for Windows
 
 ![GTK and Windows](/assets/img/docs/docs-gtk-windows.png)

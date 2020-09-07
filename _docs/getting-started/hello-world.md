@@ -1,6 +1,6 @@
 ---
-permalink: /docs/getting-started/:name/
 ---
+
 # Getting Started
 
 GTK is a widget toolkit. Each user interface created by GTK consists of

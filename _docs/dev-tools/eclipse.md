@@ -1,9 +1,9 @@
 ---
-permalink: /docs/dev-tools/:name/
 ---
+
 # Eclipse
 
-![GitHub Logo](/assets/img/docs/docs-eclipse.png)
+![Eclipse Logo](/assets/img/docs/docs-eclipse.png)
 
 Eclipse is famous for its Java Integrated Development Environment (IDE), but
 our C/C++ IDE and PHP IDE are pretty cool too. You can easily combine

@@ -1,5 +1,4 @@
 ---
-permalink: /docs/:name/
 ---
 
 GTK provides, directly or through various dependencies, a full platform for

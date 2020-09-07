@@ -1,6 +1,6 @@
 ---
-permalink: /docs/language-bindings/:name/
 ---
+
 # ![GJS and GTK Binding](/assets/img/docs/docs-jsgnome.png) GJS
 
 ## About
