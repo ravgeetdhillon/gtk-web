@@ -46,9 +46,9 @@ team_main_heading_description: These are the people who apply their best of skil
       {% for blog in blogs limit: 3 %}
         <div class="col-lg-4 col-md-6 pb-4 px-0 px-md-3">
           <div class="h-100 rounded shadow-sm overflow-hidden">
-            <div class="overflow-hidden" style="max-height:200px;">
+            <div class="overflow-hidden" style="max-height:138px;">
               {% capture imgname %}
-                {% cycle 'blog-blog1.png', 'blog-blog2.png', 'blog-blog3.png' %}
+                {% cycle 'blog-blog1.svg', 'blog-blog2.svg', 'blog-blog3.svg' %}
               {% endcapture %}
               {% assign imgname = imgname | strip %}
               <img src="{{ '/assets/img/' | append: imgname | absolute_url }}" class="img-fluid w-100"  alt="{{ blog.title }}" />
