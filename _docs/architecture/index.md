@@ -3,7 +3,7 @@
 
 # Overview of GTK and its Libraries
 
-![GTK Architecture](/assets/img/docs/docs-gtk-architecture.png)
+![GTK Architecture](/assets/img/docs/docs-gtk-architecture.svg)
 
 Over time GTK has been built up to be based on various libraries, also
 developed by the GTK team.
