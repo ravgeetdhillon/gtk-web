@@ -171,13 +171,17 @@ sidebar_sections:
 #   href: url on the external link
 
 sidebar_external_links:
-  - title: GTK3
+  - title: GTK
     section: apis
-    href: https://developer.gnome.org/gtk3/stable/
+    href: https://developer.gnome.org/gtk4/unstable/
 
-  - title: GTK4
+  - title: GDK
     section: apis
-    href: https://gnome.pages.gitlab.gnome.org/gtk/gtk/
+    href: https://developer.gnome.org/gdk4/unstable/
+
+  - title: GSK
+    section: apis
+    href: https://developer.gnome.org/gsk4/unstable/
 
   - title: GLib, GObject, GIO
     section: architecture
@@ -190,10 +194,6 @@ sidebar_external_links:
   - title: Pango
     section: architecture
     href: https://developer.gnome.org/pango/stable/
-  
-  - title: GDK
-    section: architecture
-    href: https://developer.gnome.org/gdk3/stable/
 
   - title: Cairo
     section: architecture

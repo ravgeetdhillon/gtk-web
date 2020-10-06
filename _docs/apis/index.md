@@ -6,8 +6,9 @@ application development.
 
 ### User interface and display
 
- - [GTK](https://developer.gnome.org/gtk/stable/) — Widget toolkit for graphical interfaces
- - [GDK](https://developer.gnome.org/gdk/stable/) — Low-level abstraction for the windowing system
+ - [GTK](https://developer.gnome.org/gtk/unstable/) — Widget toolkit for graphical interfaces
+ - [GDK](https://developer.gnome.org/gdk/unstable/) — Low-level abstraction for the windowing system
+ - [GSK](https://developer.gnome.org/gsk/unstable/) — Low-level scene graph and 3D rendering API
  - [Cairo](https://developer.gnome.org/cairo/stable/) — 2D, vector-based drawing for high-quality graphics
  - [Pango](https://developer.gnome.org/pango/stable/) — International text rendering with full Unicode support
  - [ATK](https://developer.gnome.org/atk/stable/) — Accessibility toolkit to implement support for screen readers and other tools
