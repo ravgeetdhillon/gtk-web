@@ -32,9 +32,10 @@ good starting point.
 
 ## Development version
 
-To build the latest development version of GTK it is recommended to use a
-tool like [JHBuild](https://wiki.gnome.org/Projects/Jhbuild), which will
-download, and optionally build, all the required project dependencies.
+To build the latest development version of GTK you can use a tool like
+[JHBuild](https://wiki.gnome.org/Projects/Jhbuild), or you can rely on
+meson which will download and build many of the required dependencies
+as subprojects, if they are not available on your system.
 
 ## Older Versions
 
