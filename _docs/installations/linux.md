@@ -26,9 +26,23 @@ Epoxy | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/lib
 
 The current stable API version of GTK is 4.0.
 
+### Building from source
+
 To build GTK, see the [installation guide](https://developer.gnome.org/gtk4/unstable/gtk-building.html).
 For additional help, the [frequently asked questions page](https://developer.gnome.org/gtk4/unstable/gtk-question-index.html) is a
 good starting point.
+
+### Debian / Ubuntu
+
+```
+sudo apt install libgtk-3-dev
+```
+
+### Arch
+
+```
+sudo pacman -S gtk3
+```
 
 ## Development version
 
