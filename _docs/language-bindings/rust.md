@@ -27,7 +27,7 @@ fn on_activate(application: &gtk::Application) {
     // … create a new window …
     let window = gtk::ApplicationWindow::new(application);
     // … with a button in it …
-    let button = gtk::Button::new_with_label("Hello World!");
+    let button = gtk::Button::with_label("Hello World!");
     // … which closes the window when clicked
     button.connect_clicked(clone!(@weak window => move |_| window.close()));
     window.add(&button);
