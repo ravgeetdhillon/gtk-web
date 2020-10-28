@@ -32,17 +32,13 @@ To build GTK, see the [installation guide](https://developer.gnome.org/gtk4/unst
 For additional help, the [frequently asked questions page](https://developer.gnome.org/gtk4/unstable/gtk-question-index.html) is a
 good starting point.
 
-### Debian / Ubuntu
+### Package managers
 
-```
-sudo apt install libgtk-3-dev
-```
-
-### Arch
-
-```
-sudo pacman -S gtk3
-```
+| Distribution | Binary package | Development package | Additional packages |
+| ------------ | -------------- | ------------------- | ------------------- |
+| Arch         | gtk3           | -                   | -                   |
+| Debian/Ubuntu | libgtk-3-0    | libgtk-3-dev        | gtk-3-examples      |
+| Fedora       | gtk3           | gtk3-devel          | -                   |
 
 ## Development version
 
