@@ -13,8 +13,8 @@ There are currently two actively maintained projects to provide GObject language
 
 Bindings | Latest version | Guile 2.2 | Guile 3.0
 --- | :---: | :---: | :---:
-<a href="http://savannah.gnu.org/projects/g-golf">G-Golf</a> | N/A | <i class="far fa-check-circle"></i> | <i class="fas fa-minus-circle"></i>
-<a href="https://github.com/spk121/guile-gi">Guile-GI</a> | 0.3 | <i class="far fa-check-circle"></i> | <i class="fas fa-check-circle"></i>
+<a href="#g-golf">G-Golf</a> | N/A | <i class="far fa-check-circle"></i> | <i class="fas fa-minus-circle"></i>
+<a href="#guile-gi">Guile-GI</a> | 0.3 | <i class="far fa-check-circle"></i> | <i class="far fa-check-circle"></i>
 
 ### G-Golf
 
