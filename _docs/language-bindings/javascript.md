@@ -1,7 +1,7 @@
 ---
 ---
 
-# ![GJS and GTK Binding](/assets/img/docs/docs-jsgnome.png) GJS
+# GJS
 
 ## About
 
