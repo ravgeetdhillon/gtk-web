@@ -3,7 +3,7 @@
 
 # Setting up GTK for GNU/Linux and Unix
 
-![GTK and Linux](/assets/img/docs/docs-gtk-linux.png)
+![GTK and Linux](/assets/img/docs/docs-gtk-linux.svg)
 
 In order to install GTK for GNU/Linux and Unix systems, you will need to get
 the GLib, GObject-Introspection, Pango, Gdk-Pixbuf, ATK and GTK packages to

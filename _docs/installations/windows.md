@@ -3,7 +3,7 @@
 
 # Setting up GTK for Windows
 
-![GTK and Windows](/assets/img/docs/docs-gtk-windows.png)
+![GTK and Windows](/assets/img/docs/docs-gtk-windows.svg)
 
 > Note: These instructions are intended for developers wanting to create
 > Windows applications based on GTK, not for end-users. On Windows, GTK

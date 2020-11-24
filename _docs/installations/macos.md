@@ -3,7 +3,7 @@
 
 # Setting up GTK for Mac OS
 
-![GTK and MacOS](/assets/img/docs/docs-gtk-macos.png)
+![GTK and MacOS](/assets/img/docs/docs-gtk-macos.svg)
 
 ## About
 
