@@ -1,8 +1,8 @@
 ---
-navbar_type: transparent
+navbar_type: dark
 permalink: /
 
-page_main_heading: Create interfaces that users just love
+page_main_heading: Create apps that users just love
 page_main_heading_description: Offering a complete set of UI elements, GTK is suitable for projects ranging from small one-off tools to complete application suites.
 
 downloads:
@@ -85,38 +85,51 @@ news_and_events_list:
     description: If you are a developer and want to contribute to GTK, you are more than [welcome to do so](/docs/getting-started/).
 ---
 
-{% include header.html %}
+{% include header.html %} {% include navbar.html %}
 
-{% assign back_img = '/assets/img/wall-gtk-main.jpg' | absolute_url %}
-<section class="d-flex flex-column" id="landing" style="background: #111b27 url('{{ back_img }}');">
-
-  {% include navbar.html %}
-  <div class="container d-flex align-items-center py-5">
+<section class="py-4 d-flex flex-column align-items-center bg-dark text-white">
+  <div class="container">
     <div class="row">
-      <div class="col-md-6 d-flex justify-content-center flex-column main-heading text-white">
-        <h1 class="display-4 mb-3 text-shadow">{{ page.page_main_heading }}</h1>
-        <span class="text-light mb-4 text-shadow">{{ page.page_main_heading_description | markdownify }}</span>
+      <div class="col-md-5 d-flex justify-content-end flex-column main-heading">
+        <h1 class="display-5 pb-3">{{ page.page_main_heading }}</h1>
+        <span class="text-info lead">{{ page.page_main_heading_description | markdownify }}</span>
+      </div>
+      <!--
+
+          <a href="{{ '/docs/' | absolute_url }}" class="btn btn-md btn-primary" role="button">Learn GTK</a>
+
+        </div>
+
+      -->
+      <div class="col-md-7 d-none d-md-flex justify-content-center align-items-center flex-column">
+        <img
+          src="{{ '/assets/img/wall-gtk4.svg' | absolute_url }}"
+          class="img-fluid w-75"
+          alt="GTK Docs Wallpaper"
+        />
         <div class="mb-4 d-flex">
           <a href="{{ '/docs/' | absolute_url }}" class="btn btn-md btn-primary" role="button">Learn GTK</a>
           <div class="dropdown">
-            <a class="btn btn-md btn-outline-secondary dropdown-toggle ml-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Downloads</a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              {% for download in page.downloads %}
-                <a href="{{ download.link | absolute_url }}" class="dropdown-item"><i class="{{ download.icon }} pr-2 fa-fw"></i>{{ download.os }}</a>
-              {% endfor %}
+              <a class="btn btn-md btn-outline-secondary dropdown-toggle ml-2" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Downloads</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                {% for download in page.downloads %}
+                  <a href="{{ download.link | absolute_url }}" class="dropdown-item"><i class="{{ download.icon }} pr-2 fa-fw"></i>{{ download.os }}</a>
+                {% endfor %}
+              </div>
             </div>
-          </div>
-        </div>
+          </div><!-- dropdown-->
         <div>
-          <span class="text-light"><span class="small text-info">Latest stable</span> v{{ site.data.api_fetch.stable_tags[0].name }}</span>
-          <span class="text-info mx-2">&bull;</span>
-          <span class="text-light"><span class="small text-info">Latest devel</span> v{{ site.data.api_fetch.devel_tags[0].name }}</span>
+              <span class="text-light"><span class="small text-info">Latest stable</span> v{{ site.data.api_fetch.stable_tags[0].name }}</span>
+              <span class="text-info mx-2">&bull;</span>
+              <span class="text-light"><span class="small text-info">Latest devel</span> v{{ site.data.api_fetch.devel_tags[0].name }}</span>
+            </div>
         </div>
       </div>
-    </div>
-  </div>
+
+    </div><!--row-->
+  </div><!--container-->
 </section>
-</div>
+
 
 <section class="pt-5 pb-4" id="bindings">
   <div class="container">
