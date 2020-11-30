@@ -105,7 +105,7 @@ menu_links:
     external: true
 
   - name: Code of Conduct
-    href: https://wiki.gnome.org/Foundation/CodeOfConduct/
+    href: https://conduct.gnome.org
     header: false
     footer: true
     section: Community
