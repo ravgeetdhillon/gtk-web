@@ -54,6 +54,7 @@ The data used by the site is stored in the form of following files:
     ├── package-lock.json
     ├── package.json                        #contains node dependencies for the site.
     ├── README.md
+    ├── setuid.html			    #referenced in code, **cannot be moved**
     └── setup.sh                            #script for setting up the website
 
 ## Contributing
