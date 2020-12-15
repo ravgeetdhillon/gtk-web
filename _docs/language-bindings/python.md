@@ -1,7 +1,7 @@
 ---
 ---
 
-![PyGObject](/assets/img/docs/docs-pygobject.svg)
+# GTK and Python
 
 ## About
 
