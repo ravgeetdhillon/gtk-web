@@ -16,7 +16,7 @@ To build an environment for GTK, install all the dependencies listed below:
 
 Dependency | Source
 --- | :---:
-GTK | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/gtk+/3.99/)
+GTK | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/gtk/)
 GLib | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/glib/)
 Pango | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/pango/)
 Gdk-pixbuf | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/gdk-pixbuf/)
@@ -24,7 +24,7 @@ ATK | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/atk/)
 GObject-Introspection | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/gobject-introspection/)
 Epoxy | [<i class="fas fa-download"></i>](https://download.gnome.org/sources/libepoxy/)
 
-The current unstable API version of GTK is 3.99.
+The current stable API version of GTK is 4.0.
 
 To build GTK, see the [installation guide](https://developer.gnome.org/gtk4/unstable/gtk-building.html).
 For additional help, the [frequently asked questions page](https://developer.gnome.org/gtk4/unstable/gtk-question-index.html) is a
@@ -39,7 +39,7 @@ as subprojects, if they are not available on your system.
 
 ## Older Versions
 
-Some applications still require GTK 3, an older stable version of GTK. You
+Many applications still use GTK 3, an older stable version of GTK. You
 can have the run-time and development environments for GTK 4.x and GTK 3.x
 installed simultaneously on your computer.
 
