@@ -1,15 +1,15 @@
 ---
 ---
 
-# GJS
+# GTK and JavaScript
 
 ## About
 
-GJS is a JavaScript binding for using GNOME platform libraries in your
-applications. Developers can easily integrate GJS with GTK and create
-powerful GTK applications using JavaScript. GJS powers GNOME Shell, Polari,
-GNOME Documents, and many other apps which are primarily written in
-JavaScript.
+[GJS](https://gitlab.gnome.org/GNOME/gjs) is a JavaScript binding for using
+GNOME platform libraries in your applications. Developers can easily integrate
+GJS with GTK and create powerful GTK applications using JavaScript. GJS powers
+GNOME Shell, Polari, GNOME Documents, and many other apps which are primarily
+written in JavaScript.
 
 The current stable series is built on Mozilla's SpiderMonkey featuring ES6
 (ECMAScript 2015) and GObject-Introspection making most of the GNOME API
