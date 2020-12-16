@@ -32,6 +32,14 @@ To build GTK, see the [installation guide](https://developer.gnome.org/gtk4/unst
 For additional help, the [frequently asked questions page](https://developer.gnome.org/gtk4/unstable/gtk-question-index.html) is a
 good starting point.
 
+### Installing GTK from packages
+
+| Distribution  | Binary package | Development package | Additional packages |
+| ------------- | -------------- | ------------------- | ------------------- |
+| Arch          | gtk4           | -                   | -                   |
+| Debian/Ubuntu | libgtk-4-0     | libgtk-4-dev        | gtk-4-examples      |
+| Fedora        | gtk4           | gtk4-devel          | -                   |
+
 ## Development version
 
 To build the latest development version of GTK you can use a tool like
