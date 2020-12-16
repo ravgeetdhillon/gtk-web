@@ -105,7 +105,8 @@ news_and_events_list:
           </div>
         </div><!-- dropdown-->
         <div>
-          <span class="text-light"><span class="small text-info">Latest stable</span> v{{ site.data.api_fetch.stable_tags[0].name }}</span>
+          {% assign latest_tag = site.data.api_fetch.stable_tags[0] %}
+          <span class="text-light"><span class="small text-info">Latest stable</span> v{{ latest_tag.name }}</span>
         </div>
       </div>
       <div class="col-lg-6 d-flex justify-content-center align-items-center">
