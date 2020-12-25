@@ -13,8 +13,8 @@ codes:
         GtkWidget *button = gtk_button_new_with_label ("Hello, World!");
         // When the button is clicked, close the window passed as an argument
         g_signal_connect_swapped (button, "clicked", G_CALLBACK (gtk_window_close), window);
-        gtk_container_add (GTK_CONTAINER (window), button);
-        gtk_widget_show_all (window);
+        gtk_window_set_child (GTK_WINDOW (window), button);
+        gtk_window_present (window);
       }
 
       int main (int argc, char *argv[]) {
@@ -29,7 +29,7 @@ codes:
     ext: javascript
     snippet: |
       ```javascript
-      imports.gi.versions['Gtk'] = '3.0';
+      imports.gi.versions['Gtk'] = '4.0';
       const Gtk = imports.gi.Gtk;
 
       // Create a new application
@@ -43,8 +43,8 @@ codes:
           let btn = new Gtk.Button({ label: 'Hello, World!' });
           // … which closes the window when clicked
           btn.connect('clicked', () => { win.close(); });
-          win.add(btn);
-          win.show_all();
+          win.set_child(btn);
+          win.present();
       });
 
       // Run the application
@@ -57,7 +57,7 @@ codes:
       #!/usr/bin/env perl
       use strict; use warnings; use utf8;
       use Glib::IO;
-      use Gtk3;
+      use Gtk4;
 
       # Create a new application
       my $app =
@@ -73,8 +73,8 @@ codes:
           my $btn = Gtk3::Button->new('Hello World!');
           # … which closes the window when clicked
           $btn->signal_connect(clicked => sub { $win->close(); });
-          $win->add($btn);
-          $win->show_all();
+          $win->set_child($btn);
+          $win->present();
         }
       );
 
@@ -87,7 +87,7 @@ codes:
       ```python
       # Load Gtk
       import gi
-      gi.require_version('Gtk', '3.0')
+      gi.require_version('Gtk', '4.0')
       from gi.repository import Gtk
 
       # When the application is launched…
@@ -98,8 +98,8 @@ codes:
           btn = Gtk.Button(label='Hello, World!')
           # … which closes the window when clicked
           btn.connect('clicked', lambda x: win.close())
-          win.add(btn)
-          win.show_all()
+          win.set_child(btn)
+          win.present()
 
       # Create a new application
       app = Gtk.Application(application_id='com.example.GtkApplication')
@@ -124,8 +124,8 @@ codes:
           let button = gtk::Button::new_with_label("Hello World!");
           // … which closes the window when clicked
           button.connect_clicked(clone!(@weak window => move |_| window.close()));
-          window.add(&button);
-          window.show_all();
+          window.set_child(&button);
+          window.present();
       }
 
       fn main() {
@@ -158,8 +158,8 @@ codes:
                   window.close ();
               });
 
-              window.add (button);
-              window.show_all ();
+              window.set_child (button);
+              window.present ();
           });
 
           return app.run (argv);
