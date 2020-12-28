@@ -124,7 +124,7 @@ checked out
 
 ## Tutorials
 
-You can find various useful tutorials regrading gtkmm from this
+You can find various useful tutorials regarding gtkmm from this
 [source](https://developer.gnome.org/gtkmm-tutorial/stable/index.html).
 
 ## Contribute
