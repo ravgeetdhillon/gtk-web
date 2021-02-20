@@ -53,9 +53,9 @@ team_main_heading_description: These are the people who apply their best of skil
               {% assign imgname = imgname | strip %}
               <img src="{{ '/assets/img/' | append: imgname | absolute_url }}" class="img-fluid w-100"  alt="{{ blog.title }}" />
             </div>
-            <div class="py-3 px-3 h-100 bg-white d-flex flex-column">
+            <div class="py-2 px-3 bg-white d-flex flex-column">
               <h6>{{ blog.title }}</h6>
-              <span class="text-muted small mb-3">{{ blog.description | truncatewords: 30 }}</span>
+              <span class="text-muted small mb-3">{{ blog.description | truncate: 200 }}</span>
               <a href="{{ blog.link }}" class="btn btn-sm btn-primary align-self-end">Read More</a>
             </div>
           </div>
