@@ -30,7 +30,9 @@ pages:
   - find public -type f -regex '.*\.\(html\)$' -exec npm run minify-html {} \;
   - find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -exec gzip -f -k {} \;
   artifacts:
+    when: always
     paths:
+    - _data/api_fetch
     - public
   only:
   - master
