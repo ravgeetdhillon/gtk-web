@@ -220,14 +220,16 @@ news_and_events_list:
 
 <section class="py-4" id="development" style="background: linear-gradient(var(--light), var(--white));">
   <div class="container">
-    <div class="row py-4 px-3">
+    <div class="row py-4 ">
       {% assign development = page.development_section %}
       {% for item in development %}
         <div class="col-md-4 py-3 py-md-0 px-0 px-md-3">
-          <div class="w-100 h-100 bg-white py-4 px-3 mb-2 border rounded card">
-            <span class="mb-2"><i class="{{ item.icon }} fa-fw"></i></span>
-            <h5 class="font-weight-normal mb-3">{{ item.heading }}</h5>
-            <span class="text-muted small">{{ item.description | markdownify }}</span>
+          <div class="w-100 h-100 bg-white py-4 px-3 mb-2 border rounded card shadow">
+           <div class="mb-2 d-flex justify-content-between">
+            <h5 class="ml-2 my-auto font-weight-normal">{{ item.heading }}</h5>
+            <span class="mx-3 my-auto"><i class="{{ item.icon }} fa-fw fa-lg my-auto"></i></span>
+           </div>
+            <span class="pt-2 px-2 text-muted small text-justify">{{ item.description | markdownify }}</span>
           </div>
         </div>
       {% endfor %}
