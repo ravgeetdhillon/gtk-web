@@ -20,6 +20,34 @@ You can see many Vala and GTK based projects[GNOME Wiki](https://wiki.gnome.org/
 
 [**Vala**](https://wiki.gnome.org/Projects/Vala/) website lists various [Vala's GTK tutorial](https://wiki.gnome.org/Projects/Vala/Documentation#GUI_Programming) [GTK's Vala tutorial](https://developer.gnome.org/gnome-devel-demos/stable/beginner.vala.html.en) that range from introduction to the usage of Gtk and much more.
 
+## A Hello World app
+Below is an `Hello World` program that can be used as an example to get started with GTK Vala binding.
+```vala
+int main (string[] argv) {
+    // Create a new application
+    var app = new Gtk.Application ("com.example.GtkApplication",
+                                   GLib.ApplicationFlags.FLAGS_NONE);
+
+    app.activate.connect (() => {
+        // Create a new window
+        var window = new Gtk.ApplicationWindow (app);
+
+        // Create a new button
+        var button = new Gtk.Button.with_label ("Hello, World!");
+
+        // When the button is clicked, close the window
+        button.clicked.connect (() => {
+            window.close ();
+        });
+
+        window.set_child (button);
+        window.present ();
+    });
+
+    return app.run (argv);
+}
+```
+
 ## Contribute
 
 If you are interested in contributing to the Vala and GTK binding project, you can get a head start by reading the instructions on how to get started for contributing to Vala [here](https://wiki.gnome.org/Projects/Vala/Bindings).
