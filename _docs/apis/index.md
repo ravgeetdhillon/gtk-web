@@ -6,11 +6,11 @@ application development.
 
 ### User interface and display
 
- - [GTK](https://developer.gnome.org/gtk4/stable/) — Widget toolkit for graphical interfaces
- - [GDK](https://developer.gnome.org/gdk4/stable/) — Low-level abstraction for the windowing system
- - [GSK](https://developer.gnome.org/gsk4/stable/) — Low-level scene graph and 3D rendering API
- - [Cairo](https://developer.gnome.org/cairo/stable/) — 2D, vector-based drawing for high-quality graphics
+ - [GTK](https://docs.gtk.org/gtk4/) — Widget toolkit for graphical interfaces
+ - [GDK](https://docs.gtk.org/gdk4/) — Low-level abstraction for the windowing system
+ - [GSK](https://docs.gtk.org/gsk4/) — Low-level scene graph and 3D rendering API
  - [Pango](https://developer.gnome.org/pango/stable/) — International text rendering with full Unicode support
+ - [Cairo](https://www.cairographics.org/manual/) — 2D, vector-based drawing for high-quality graphics
  - [ATK](https://developer.gnome.org/atk/stable/) — Accessibility toolkit to implement support for screen readers and other tools (GTK3 only)
 
 ### Storage of the user's data
@@ -28,12 +28,20 @@ application development.
 
 ### Multimedia
 
- - [GStreamer](https://developer.gnome.org/gstreamer-libs/stable/) — Playing, mixing, and manipulating sound and video
+ - [GStreamer](https://gstreamer.freedesktop.org/documentation/gstreamer/gi-index.html) — Playing, mixing, and manipulating sound and video
 
 ### Inter-process communication
 
  - [D-Bus](https://developer.gnome.org/gio/stable/gdbus-convenience.html) — Inter-process communication bus to provide APIs to other processes
  - [Polkit](https://www.freedesktop.org/software/polkit/docs/latest/) — Access control for system-level services provided through D-Bus
+
+### Asynchronous tasks
+
+ - [GTask](https://developer.gnome.org/gio/stable/GTask.html) – Cancellable synchronous or asynchronous task and result
+
+### Application support
+
+ - [GApplication](https://developer.gnome.org/gio/stable/application.html) — Writing applications
 
 ### Foundational C utilities and object system
 
