@@ -28,8 +28,9 @@ The current stable API version of GTK is 4.0.
 
 ### Building from source
 
-To build GTK, see the [installation guide](https://developer.gnome.org/gtk4/unstable/gtk-building.html).
-For additional help, the [frequently asked questions page](https://developer.gnome.org/gtk4/unstable/gtk-question-index.html) is a
+To build GTK, see the [installation guide](https://docs.gtk.org/gtk4/building.html).
+
+For additional help, the [frequently asked questions page](https://docs.gtk.org/gtk4/question_index.html) is a
 good starting point.
 
 ### Installing GTK from packages
