@@ -9,7 +9,7 @@ application development.
  - [GTK](https://docs.gtk.org/gtk4/) — Widget toolkit for graphical interfaces
  - [GDK](https://docs.gtk.org/gdk4/) — Low-level abstraction for the windowing system
  - [GSK](https://docs.gtk.org/gsk4/) — Low-level scene graph and 3D rendering API
- - [Pango](https://developer.gnome.org/pango/stable/) — International text rendering with full Unicode support
+ - [Pango](https://docs.gtk.org/Pango/) — International text rendering with full Unicode support
  - [Cairo](https://www.cairographics.org/manual/) — 2D, vector-based drawing for high-quality graphics
  - [ATK](https://developer.gnome.org/atk/stable/) — Accessibility toolkit to implement support for screen readers and other tools (GTK3 only)
 
@@ -29,6 +29,7 @@ application development.
 ### Multimedia
 
  - [GStreamer](https://gstreamer.freedesktop.org/documentation/gstreamer/gi-index.html) — Playing, mixing, and manipulating sound and video
+ - [GdkPixbuf](https://docs.gtk.org/gdk-pixbuf/) — Loading icons and other graphical assets
 
 ### Inter-process communication
 
