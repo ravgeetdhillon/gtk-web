@@ -82,7 +82,7 @@ gcc -o hello-world-gtk hello-world-gtk.c `pkg-config --cflags --libs gtk4`
 
 <div class="alert alert-tertiary">
 For more information on how to compile a GTK application, please refer to
-the [Compiling GTK Applications](https://developer.gnome.org/gtk4/unstable/gtk-compiling.html)
+the [Compiling GTK Applications](https://docs.gtk.org/gtk4/compiling.html)
 section in the GTK API reference.
 </div>
 
@@ -91,7 +91,7 @@ section in the GTK API reference.
 ### Initialising the App
 
 In a GTK application, the purpose of the `main()` function is to create a
-[`GtkApplication`](https://developer.gnome.org/gtk4/unstable/GtkApplication.html)
+[`GtkApplication`](https://docs.gtk.org/gtk4/class.Application.html)
 object and run it. In this example a `GtkApplication` instance is created and
 initialized using `gtk_application_new()`.
 
@@ -117,7 +117,7 @@ proceed into the `activate()` function of the application. Inside the
 `activate()` function we want to construct our GTK window, so that a window
 is shown when the application is launched. The call to
 `gtk_application_window_new()` will create a new
-[`GtkApplicationWindow`](https://developer.gnome.org/gtk4/unstable/GtkApplicationWindow.html)
+[`GtkApplicationWindow`](https://docs.gtk.org/gtk4/class.ApplicationWindow.html)
 instance and store it inside the `window` pointer. The window will have a frame,
 a title bar, and window controls depending on the platform.
 
@@ -144,9 +144,8 @@ returned to the operating system, and the GTK application exits.
 As seen above, `hello-world-gtk.c` adds a button to our window, with the
 label "Hello World". A new `GtkWidget` pointer is declared to accomplish
 this, `button`, and is initialized by calling `gtk_button_new_with_label()`,
-which returns a
-[`GtkButton`](https://developer.gnome.org/gtk3/stable/GtkButton.html) to be
-stored inside `button`. Afterwards `button` is added to our `window`.
+which returns a [`GtkButton`](https://docs.gtk.org/gtk4/class.Button.html)
+to be stored inside `button`. Afterwards `button` is added to our `window`.
 Using `g_signal_connect` the button is connected to a function in our app
 called `print_hello()`, so that when the button is clicked, GTK will call
 this function. As the `print_hello()` function does not use any data as
@@ -157,6 +156,6 @@ application was started from one.
 ## Next steps
 
 The GTK documentation contains a full example on how to create [a complex
-application](https://developer.gnome.org/gtk4/unstable/ch01s06.html), capable
-of opening files, storing and loading settings, using menus and more complex
-widgets.
+application](https://docs.gtk.org/gtk4/getting_started.html#building-applications),
+capable of opening files, storing and loading settings, using menus and more
+complex widgets.
