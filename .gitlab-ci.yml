@@ -10,8 +10,8 @@ before_script:
   - nvmversion=$(curl --silent "https://api.github.com/repos/nvm-sh/nvm/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
   - curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$nvmversion/install.sh" | bash
   - apt-get install build-essential -y
-  - source /root/.bashrc
   - nvm install 14.15.1
+  - node -v && npm -v
   - chmod +x setup.sh && bash setup.sh
 
 test:
