@@ -104,13 +104,14 @@ list of dependencies used by this project:
 
 | Package                       | Version  | File                         | Source                                                |
 | ----------------------------- | -------- | ---------------------------- | ----------------------------------------------------- |
-| bootstrap                     | `4.5.2`  | [package.json][package.json] | [Github](https://github.com/twbs/bootstrap)           |
-| @fortawesome/fontawesome-free | `5.14.0` | [package.json][package.json] | [Github](https://github.com/FortAwesome/Font-Awesome) |
-| jquery                        | `3.5.1`  | [package.json][package.json] | [Github](https://github.com/jquery/jquery)            |
+| bootstrap                     | `4.6.0`  | [package.json][package.json] | [Github](https://github.com/twbs/bootstrap)           |
+| @fortawesome/fontawesome-free | `5.15.3` | [package.json][package.json] | [Github](https://github.com/FortAwesome/Font-Awesome) |
+| jquery                        | `3.6.0`  | [package.json][package.json] | [Github](https://github.com/jquery/jquery)            |
 | popper.js                     | `1.16.1` | [package.json][package.json] | [Github](https://github.com/FezVrasta/popper.js/)     |
 | slick-carousel                | `1.8.1`  | [package.json][package.json] | [Github](https://github.com/kenwheeler/slick/)        |
-| moment                        | `2.27.0` | [package.json][package.json] | [Github](https://github.com/moment/moment/)           |
-| node-sass                     | `4.14.1` | [package.json][package.json] | [Github](https://github.com/sass/node-sass/)          |
+| moment                        | `2.29.1` | [package.json][package.json] | [Github](https://github.com/moment/moment/)           |
+| node-sass                     | `5.0.0`  | [package.json][package.json] | [Github](https://github.com/sass/node-sass/)          |
+| html-minifier                 | `4.0.0`  | [package.json][package.json] | [Github](https://github.com/kangax/html-minifier)     |
 | jekyll                        | `4.0.1`  | [Gemfile][gemfile]           | [Github](https://github.com/jekyll/jekyll/)           |
 
 Read about adding/updating/removing dependencies on [how to contribute](CONTRIBUTING.MD#addingupdatingremoving-dependencies).
