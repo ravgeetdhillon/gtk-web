@@ -7,12 +7,11 @@ variables:
 before_script:
   - apt-get update -y
   - apt-get install curl rsync -y
-  - nvmversion=$(curl --silent "https://api.github.com/repos/nvm-sh/nvm/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+  - nvmversion=$(curl --silent "https://api.github.com/repos/creationix/nvm/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
   - curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$nvmversion/install.sh" | bash
-  - apt-get install build-essential -y
-  - export NVM_DIR="$HOME/.nvm" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-  - nvm install 14.15.1
-  - node -v && npm -v
+  - source /root/.bashrc
+  - nvm install node
+  - nvm use node
   - chmod +x setup.sh && bash setup.sh
 
 test:
