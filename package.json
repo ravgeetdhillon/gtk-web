@@ -27,12 +27,12 @@
   "author": "GNOME",
   "license": "ISC",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.14.0",
-    "bootstrap": "^4.5.2",
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "bootstrap": "^4.6.0",
     "html-minifier": "^4.0.0",
-    "jquery": "^3.5.1",
-    "moment": "^2.27.0",
-    "node-sass": "^4.14.1",
+    "jquery": "^3.6.0",
+    "moment": "^2.29.1",
+    "node-sass": "^5.0.0",
     "popper.js": "^1.16.1",
     "slick-carousel": "^1.8.1"
   }
