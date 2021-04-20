@@ -7,7 +7,7 @@ variables:
 before_script:
   - apt-get update -y
   - apt-get install curl rsync -y
-  - nvmversion=$(curl --silent "https://api.github.com/repos/creationix/nvm/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+  - nvmversion=$(curl --silent -L "https://api.github.com/repos/creationix/nvm/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
   - curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/$nvmversion/install.sh" | bash
   - source /root/.bashrc
   - nvm install node
